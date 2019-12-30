@@ -1,0 +1,36 @@
+﻿$PBExportHeader$fi_set_systemlog.srf
+$PBExportComments$[kenn] SYSTEM Logging
+global type fi_set_systemlog from function_object
+end type
+
+forward prototypes
+global function integer fi_set_systemlog (string as_pgm_id, string as_pgm_item, string as_chg_item, string as_old, string as_new)
+end prototypes
+
+global function integer fi_set_systemlog (string as_pgm_id, string as_pgm_item, string as_chg_item, string as_old, string as_new);//*********************************************
+// 목적 : SYSTEM Log를 저장한다.
+// 
+// 내용 : 사용자/등록일자를 구한다.
+//        SEQ#를 구한다.(최대 999999까지)
+//        인수의 자료와 조합하여 SYSLOG1T에 Insert
+// 
+//=> Table 변경에 따라 수정: 2001/10/30 jybaek
+//   변경된 사항은 sysctl1t수정에만 적용가능함.
+//
+//*********************************************
+String ls_seq, ls_emp_id, ls_reg_dt
+
+ls_emp_id = gs_user_id
+ls_reg_dt = String(fdt_get_dbserver_now(), "yyyymmddhhmmss")
+
+INSERT INTO SYSLOG1T(seq, reg_dt, chg_item, pgm_item, pgm_id, old_data, new_data, emp_id)
+VALUES (seq_syslog1t.nextval, :ls_reg_dt, :as_chg_item, :as_pgm_item, :as_pgm_id, :as_old, :as_new, :ls_emp_id);
+If SQLCA.SQLCode < 0 Then
+	f_msg_sql_err("SYSTEM Log", "저장 실패")
+	Return -1
+End If
+
+Return 0
+
+end function
+

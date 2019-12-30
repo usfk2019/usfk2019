@@ -1,0 +1,42 @@
+﻿$PBExportHeader$b2dw_reg_partnermst_t2.srd
+$PBExportComments$[parkkh] 대리점정보등록 t2
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=levelcod dbname="partnermst.levelcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="partnermst.partner" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=partnernm dbname="partnermst.partnernm" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=logid dbname="partnermst.logid" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=phone dbname="partnermst.phone" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=hpartner dbname="partnermst.hpartner" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=prefixno dbname="partnermst.prefixno" )
+ retrieve="SELECT levelcod,
+		 partner, 
+		 partnernm,
+		 logid,
+		 phone,
+		 hpartner,
+		 prefixno
+ FROM partnermst
+WHERE partner_type = '0'
+ORDER BY prefixno" update="partnermst" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Level" border="2" color="16777215" x="14" y="20" height="60" width="475"  name=levelcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대리점코드" border="2" color="16777215" x="507" y="20" height="60" width="485"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대리점명" border="2" color="16777215" x="1010" y="20" height="60" width="1079"  name=partnernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상위대리점" border="2" color="16777215" x="3328" y="20" height="60" width="786"  name=hpartner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="전화번호" border="2" color="16777215" x="2702" y="20" height="60" width="608"  name=phone_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Web Login ID" border="2" color="16777215" x="2107" y="20" height="60" width="576"  name=logid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="관리코드" border="2" color="16777215" x="4133" y="20" height="60" width="1138"  name=prefixno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="60" width="475" format="[general]"  name=levelcod dddw.name=b2dc_dddw_partnerlevel dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="507" y="4" height="60" width="485" format="[general]"  name=partner edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1010" y="4" height="60" width="1079" format="[general]"  name=partnernm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="3328" y="4" height="60" width="786" format="[general]"  name=hpartner dddw.name=b8dc_dddw_partner_agent dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2702" y="4" height="60" width="608" format="[general]"  name=phone edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2107" y="4" height="60" width="576" format="[general]"  name=logid edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="4133" y="4" height="60" width="1138" format="[general]"  name=prefixno edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="9" y1="68" x2="5362" y2="68"  name=l_1 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

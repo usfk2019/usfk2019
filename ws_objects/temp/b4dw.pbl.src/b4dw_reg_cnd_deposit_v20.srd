@@ -1,0 +1,21 @@
+﻿$PBExportHeader$b4dw_reg_cnd_deposit_v20.srd
+$PBExportComments$[ssong]\ 납입고객별 서비스별 보증금 관리 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=152 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=new dbname="new" values="신규등록	Y/신규등록	N" )
+ column=(type=char(14) updatewhereclause=no name=payid dbname="payid" )
+ column=(type=char(50) updatewhereclause=no name=paynm dbname="paynm" )
+ column=(type=char(10) updatewhereclause=no name=svccod dbname="svccod" )
+ )
+text(band=detail alignment="1" text="서비스" border="0" color="0" x="14" y="56" height="60" width="174"  name=svccod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="2" color="0" x="201" y="56" height="60" width="763" format="[general]"  name=svccod dddw.name=b4dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=120 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="납입고객" border="0" color="0" x="1001" y="56" height="60" width="261"  name=payid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="1275" y="56" height="60" width="306" format="[general]"  name=payid edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="1586" y1="120" x2="2043" y2="120"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1595" y="56" height="60" width="439" format="[general]"  name=paynm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=30 border="0" color="0" x="2066" y="56" height="60" width="352" format="[general]"  name=new checkbox.text="신규등록" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

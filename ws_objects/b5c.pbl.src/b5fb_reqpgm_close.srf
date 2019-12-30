@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b5fb_reqpgm_close.srf
+$PBExportComments$[kwon]청구작업들 현월처리했는지check
+global type b5fb_reqpgm_close from function_object
+end type
+
+forward prototypes
+global function string b5fb_reqpgm_close (string chargedt, string pgm_id)
+end prototypes
+
+global function string b5fb_reqpgm_close (string chargedt, string pgm_id);string ls_chargedt,ls_pgm_id,ls_close_yn
+ls_chargedt = chargedt
+ls_pgm_id = pgm_id
+
+Select nvl(close_yn,'Y')
+Into   :ls_close_yn
+from   reqpgm
+Where  chargedt = :ls_chargedt and pgm_id = :ls_pgm_id;
+
+
+Return ls_close_yn
+end function
+

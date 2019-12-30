@@ -1,0 +1,93 @@
+﻿$PBExportHeader$b1dw_reg_svc_termorder_detail.srd
+$PBExportComments$[parkkh] 서비스해지신청 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=572 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=contractmst_contractseq dbname="contractmst.contractseq" )
+ column=(type=char(14) updatewhereclause=yes name=contractmst_customerid dbname="contractmst.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=contractmst_contractno dbname="contractmst.contractno" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid dbname="customerm.payid" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid dbname="customerm.payid" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_status dbname="contractmst.status" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_activedt dbname="contractmst.activedt" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_bil_fromdt dbname="contractmst.bil_fromdt" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_svccod dbname="contractmst.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_priceplan dbname="contractmst.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_prmtype dbname="contractmst.prmtype" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_reg_partner dbname="contractmst.reg_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_sale_partner dbname="contractmst.sale_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_maintain_partner dbname="contractmst.maintain_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_settle_partner dbname="contractmst.settle_partner" )
+ column=(type=char(10) updatewhereclause=yes name=partner dbname="contractmst.partner" )
+ column=(type=datetime updatewhereclause=yes name=termdt dbname="termdt" )
+ column=(type=datetime updatewhereclause=yes name=enddt dbname="enddt" )
+ column=(type=char(0) updatewhereclause=yes name=termtype dbname="termtype" )
+ column=(type=char(0) updatewhereclause=yes name=partner dbname="partner" )
+ column=(type=char(0) updatewhereclause=yes name=partnernm dbname="partnernm" )
+ column=(type=number updatewhereclause=yes name=prm_check dbname="prm_check" values="	1/	0" )
+ column=(type=char(1) updatewhereclause=yes name=act_gu dbname="act_gu" values="해지처리확정	Y/해지처리확정	N" )
+ column=(type=char(1) updatewhereclause=yes name=svcmst_svctype dbname="svcmst.svctype" )
+ column=(type=char(0) updatewhereclause=yes name=remark dbname="remark" )
+ retrieve="  SELECT ~"CONTRACTMST~".~"CONTRACTSEQ~",   
+         ~"CONTRACTMST~".~"CUSTOMERID~",   
+         ~"CUSTOMERM_A~".~"CUSTOMERNM~",   
+         ~"CONTRACTMST~".~"CONTRACTNO~",   
+         ~"CUSTOMERM_A~".~"PAYID~",   
+         ~"CUSTOMERM_A~".~"PAYID~",   
+         ~"CONTRACTMST~".~"STATUS~",   
+         ~"CONTRACTMST~".~"ACTIVEDT~",   
+         ~"CONTRACTMST~".~"BIL_FROMDT~",   
+         ~"CONTRACTMST~".~"SVCCOD~",   
+         ~"CONTRACTMST~".~"PRICEPLAN~",   
+         ~"CONTRACTMST~".~"PRMTYPE~",   
+         ~"CONTRACTMST~".~"REG_PARTNER~",   
+         ~"CONTRACTMST~".~"SALE_PARTNER~",   
+         ~"CONTRACTMST~".~"MAINTAIN_PARTNER~",   
+         ~"CONTRACTMST~".~"SETTLE_PARTNER~",
+         ~"CONTRACTMST~".~"PARTNER~",			
+			TO_DATE(NULL) TERMDT,
+			TO_DATE(NULL) enddt,
+			'' TERMTYPE,
+			'' PARTNER,
+   		'' PARTNERNM,
+			DECODE(~"CONTRACTMST~".~"PRMTYPE~",NULL,0,'',0,1) PRM_CHECK,
+	       'N' act_gu,
+         SVCMST.SVCTYPE,
+         TO_CHAR(NULL) remark
+    FROM ~"CONTRACTMST~",   
+         ~"CUSTOMERM~" ~"CUSTOMERM_A~",
+         ~"SVCMST~"
+   WHERE ( ~"CONTRACTMST~".~"CUSTOMERID~" = ~"CUSTOMERM_A~".~"CUSTOMERID~" )
+     AND ( ~"CONTRACTMST~".~"SVCCOD~" = ~"SVCMST~".~"SVCCOD~" )
+   ORDER BY ~"CONTRACTMST~".~"CONTRACTSEQ~" DESC
+" )
+rectangle(band=detail x="50" y="84" height="484" width="535"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="33554431" )
+rectangle(band=detail x="50" y="84" height="484" width="1678"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="위약금발생" border="0" color="0" x="78" y="392" height="60" width="480"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="827" y="372" height="104" width="475"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="33554431" )
+text(band=detail alignment="2" text="해지 사유" border="0" color="0" x="78" y="200" height="56" width="480"  name=termtype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text="납입고객해지신청"filename=""action="0" border="0" color="0" x="1198" y="0" height="76" width="530" vtextalign="0" htextalign="0"  name=all_termorder visible="1~tif(contractmst_customerid  = customerm_payid ,1, 0)"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+line(band=detail x1="581" y1="88" x2="581" y2="568"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=24 alignment="0" tabsequence=20 border="0" color="0" x="1280" y="104" height="60" width="411" format="[general]"  name=act_gu checkbox.text="해지처리확정" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="수  행  처" border="0" color="0" x="78" y="292" height="56" width="480"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="해지요청일" border="0" color="0" x="78" y="104" height="60" width="480"  name=termdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="과금종료일" border="0" color="0" x="859" y="392" height="56" width="398"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="832" y1="372" x2="832" y2="468"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1294" y1="372" x2="1294" y2="468"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="50" y1="180" x2="1723" y2="180"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="50" y1="276" x2="1723" y2="276"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="50" y1="372" x2="1723" y2="372"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=23 alignment="0" tabsequence=50 border="0" color="0" x="608" y="392" height="60" width="69" format="[general]" protect="0~tif( isnull(contractmst_prmtype) or contractmst_prmtype = ~"~",1,0 )"  name=prm_check checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="2" tabsequence=10 border="5" color="16777215" x="608" y="104" height="60" width="393" format="YYYY-MM-DD"  name=termdt editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=20 alignment="0" tabsequence=30 border="5" color="16777215" x="608" y="200" height="60" width="649" format="[general]"  name=termtype dddw.name=b1dc_dddw_termtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=17 alignment="0" tabsequence=40 border="5" color="16777215" x="608" y="292" height="60" width="809" format="[general]"  name=partner dddw.name=b1dc_dddw_partner_act_yn dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=19 alignment="2" tabsequence=60 border="5" color="16777215~tIf(act_gu = 'Y', rgb(255,255,255) ,rgb(0,0,0))" x="1317" y="392" height="56" width="379" format="yyyy-mm-dd" protect="0~tIf(act_gu = 'Y', 0,1)"  name=enddt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="25793388~tIf(act_gu = 'Y', rgb(108,147,137) ,rgb(255,251,240))" )
+column(band=detail id=26 alignment="0" tabsequence=70 border="5" color="0" x="603" y="492" height="56" width="1097" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="50" y1="468" x2="1723" y2="468"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="비  고" border="0" color="0" x="78" y="488" height="60" width="480"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=25 alignment="0" tabsequence=0 border="0" color="0" x="1728" y="0" height="56" width="27"  name=svcmst_svctype visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,30 @@
+﻿$PBExportHeader$fs_remove_char.srf
+$PBExportComments$[kEnn] String에 있는 구분자를 전부 없앤다.
+global type fs_remove_char from function_object
+end type
+
+forward prototypes
+global function string fs_remove_char (string as_source, string as_char)
+end prototypes
+
+global function string fs_remove_char (string as_source, string as_char);//**** kEnn : String 내에 존재하는 구분자를 전부 없앤다.
+// Argument : [as_source] 원래 문자열
+//				  [as_char]   없앨 문자
+//**************************************************************
+Integer	li_i, li_j
+String	ls_mid = "", ls_result = ""
+
+If IsNull(as_source) Then Return ""
+If IsNull(as_char) Then Return ""
+
+li_j = LenA(as_source)
+For li_i = 1 To li_j
+	ls_mid = MidA(as_source, li_i, 1)
+	If ls_mid = as_char Then Continue
+	ls_result += ls_mid
+Next
+
+Return ls_result
+
+end function
+

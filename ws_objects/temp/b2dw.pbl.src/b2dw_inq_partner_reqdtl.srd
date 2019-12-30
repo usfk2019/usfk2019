@@ -1,0 +1,41 @@
+﻿$PBExportHeader$b2dw_inq_partner_reqdtl.srd
+$PBExportComments$[chooys] 지급거래등록 Master DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=180 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=partner_reqdtl_partner dbname="partner_reqdtl.partner" )
+ column=(type=char(6) updatewhereclause=yes name=commdt dbname="commdt" )
+ column=(type=number updatewhereclause=yes name=outcomm dbname="outcomm" )
+ column=(type=number updatewhereclause=yes name=incomm dbname="incomm" )
+ column=(type=number updatewhereclause=yes name=outmoney dbname="outmoney" )
+ column=(type=number updatewhereclause=yes name=notoutmoney dbname="notoutmoney" )
+ retrieve="SELECT req.partner, to_char(req.commdt,'yyyymm') commdt, 
+sum(decode(trc.comm_type,:as_arg1,req.commamt,0)) outcomm,
+sum(decode(trc.comm_type,:as_arg2,req.commamt,0)) incomm,
+sum(decode(trc.comm_type,:as_arg3,req.commamt,0)) outmoney,
+sum(req.commamt) notoutmoney
+FROM partner_reqdtl req, partner_trcode trc 
+ WHERE req.commtr = trc.trcod
+ GROUP BY req.partner, to_char(req.commdt,'yyyymm')" arguments=(("as_arg1", string),("as_arg2", string),("as_arg3", string)) )
+text(band=background alignment="0" text="Order By" border="0" color="0" x="37" y="28" height="60" width="242"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="969" y="28" height="60" width="293"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="Total Row" border="0" color="0" x="1582" y="28" height="60" width="311"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="302" y="28" height="60" width="453"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="발생년월" border="2" color="16777215" x="27" y="108" height="60" width="393"  name=commdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="지급금액" border="2" color="16777215" x="1449" y="108" height="60" width="466"  name=outmoney_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="미지급금액" border="2" color="16777215" x="1925" y="108" height="60" width="503"  name=notoutmoney_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="지급수수료" border="2" color="16777215" x="430" y="108" height="60" width="512"  name=outcomm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="미수금상계" border="2" color="16777215" x="951" y="108" height="60" width="489"  name=incomm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="1925" y="28" height="60" width="503" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="9" format="[general]"  name=partner_reqdtl_partner visible="1~t0" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="27" y="4" height="60" width="393" format="@@@@-@@"  name=commdt edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="430" y="4" height="60" width="512" format="#,###,###,##0"  name=outcomm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="951" y="4" height="60" width="489" format="#,###,###,##0"  name=incomm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1449" y="4" height="60" width="466" format="#,###,###,##0"  name=outmoney edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1925" y="4" height="60" width="503" format="#,###,###,##0"  name=notoutmoney edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1280" y="28" height="60" width="137"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,93 @@
+﻿$PBExportHeader$fs_date_term2.srf
+$PBExportComments$(종료일 - 시작일)의 기간을 구해주는 함수- dd/mm/yy
+global type fs_date_term2 from function_object
+end type
+
+forward prototypes
+global function string fs_date_term2 (date ad_fr_date, date ad_to_date)
+end prototypes
+
+global function string fs_date_term2 (date ad_fr_date, date ad_to_date);//시작일(ad_fr_date)부터 종료일(ad_to_date)까지의 일수를 년월일로 구함
+//===> Error : ""을 Return함 
+ 
+Long ll_fr_year, ll_fr_month, ll_fr_day
+Long ll_to_year, ll_to_month, ll_to_day
+Long ll_ret_year, ll_ret_month, ll_ret_day
+Long ll_temp_day_num
+String ls_ret_date
+Date ld_temp_date
+
+If ad_fr_date > ad_to_date Then		// 사용자가 인자를 바꾸어 입력했을 경우를
+										//대비
+	ld_temp_date = ad_fr_date			
+	ad_fr_date = ad_to_date
+	ad_to_date = ld_temp_date
+End If
+
+ll_fr_year = Year(ad_fr_date)
+ll_fr_month = Month(ad_fr_date)
+ll_fr_day = Day(ad_fr_date)
+
+If ll_fr_year = 1900 Then
+	MessageBox("알림(fs_date_term2)", "년도추출이 되지 않읍니다." &
+		,StopSign!)
+	Return ""
+End If
+
+ll_to_year = Year(ad_to_date)
+ll_to_month = Month(ad_to_date)
+ll_to_day = Day(ad_to_date)
+
+If ll_to_year = 1900 Then
+	MessageBox("알림(fs_date_term2)", "년도추출이 되지 않읍니다." &
+		,StopSign!)
+	Return ""
+End If
+
+Do While (ll_to_day < ll_fr_day)
+	//달에서 일수를 빌림
+	If ll_to_month = 1 Then
+		ll_to_month = 12
+		ll_to_year = ll_to_year - 1
+	Else
+		ll_to_month = ll_to_month - 1
+	End If
+
+	ll_temp_day_num = fl_date_count_in_month(ll_to_year, ll_to_month)
+	If ll_temp_day_num = -1 Then		//에러 Check
+		Return ""
+	End If
+	ll_to_day = ll_to_day + ll_temp_day_num
+
+Loop
+
+ll_ret_day = ll_to_day - ll_fr_day
+
+If ll_to_month < ll_fr_month Then
+	//전년도에서 달을 빌림 
+	ll_to_month = ll_to_month + 12
+	ll_to_year = ll_to_year - 1
+End If
+
+ll_ret_month = ll_to_month - ll_fr_month
+ll_ret_year = ll_to_year - ll_fr_year
+
+//출발일도 포함해서 계산
+ll_ret_day = ll_ret_day + 1
+If ll_ret_day >= 30 Then
+	ll_ret_day = ll_ret_day - 30
+	If ll_ret_month = 12 Then
+		ll_ret_month = 1
+		ll_ret_year = ll_ret_year + 1
+	Else
+		ll_ret_month = ll_ret_month + 1
+	End If
+End If
+
+
+ls_ret_date = String(ll_ret_day) + "/" + String(ll_ret_month) + "/" + String(ll_ret_year)
+
+
+Return ls_ret_date
+end function
+

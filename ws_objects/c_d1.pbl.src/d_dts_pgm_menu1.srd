@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_dts_pgm_menu1.srd
+$PBExportComments$DataStore : Program menu
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=pgm_id dbname="syspgm1t.pgm_id" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=p_pgm_id dbname="syspgm1t.p_pgm_id" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=item_type dbname="syspgm1t.item_type" )
+ retrieve="PBSELECT(TABLE(NAME=~"syspgm1t~") COLUMN(NAME=~"syspgm1t.pgm_id~")COLUMN(NAME=~"syspgm1t.p_pgm_id~")COLUMN(NAME=~"syspgm1t.item_type~"))" update="SYSPGM1T" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Pgm Id" border="0" color="0" x="5" y="4" height="64" width="247"  name=pgm_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="P Pgm Id" border="0" color="0" x="256" y="4" height="64" width="247"  name=p_pgm_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Item Type" border="0" color="0" x="507" y="4" height="64" width="261"  name=item_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="5" y="4" height="76" width="247" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="256" y="4" height="76" width="247" format="[general]"  name=p_pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="507" y="4" height="76" width="55" format="[general]"  name=item_type edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

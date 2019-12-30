@@ -1,0 +1,64 @@
+﻿$PBExportHeader$b1dw_reg_contractupload_err_t4_v20.srd
+$PBExportComments$[jsha] 계약요청재처리 tab1
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=workno dbname="contractupload_worklog.workno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=file_code dbname="contractupload_worklog.file_code" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=filename dbname="contractupload_worklog.filename" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=s_rownum dbname="contractupload_worklog.s_rownum" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=e_rownum dbname="contractupload_worklog.e_rownum" )
+ column=(type=datetime update=yes updatewhereclause=yes name=stime dbname="contractupload_worklog.stime" )
+ column=(type=datetime update=yes updatewhereclause=yes name=etime dbname="contractupload_worklog.etime" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=work_status dbname="contractupload_worklog.work_status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=count1 dbname="contractupload_worklog.count1" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=count2 dbname="contractupload_worklog.count2" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=count3 dbname="contractupload_worklog.count3" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=count4 dbname="contractupload_worklog.count4" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=ref_seqno dbname="contractupload_worklog.ref_seqno" )
+ retrieve="  SELECT ~"CONTRACTUPLOAD_WORKLOG~".~"WORKNO~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"FILE_CODE~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"FILENAME~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"S_ROWNUM~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"E_ROWNUM~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"STIME~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"ETIME~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"WORK_STATUS~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"COUNT1~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"COUNT2~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"COUNT3~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"COUNT4~",   
+         ~"CONTRACTUPLOAD_WORKLOG~".~"REF_SEQNO~"  
+    FROM ~"CONTRACTUPLOAD_WORKLOG~"   
+" update="CONTRACTUPLOAD_WORKLOG" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="23" y="4" height="60" width="329" format="[general]"  name=workno edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Workno" border="2" color="15793151" x="23" y="32" height="56" width="329"  name=workno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0" x="1851" y="4" height="60" width="411" format="#,###0"  name=s_rownum edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="처리성공건수" border="2" color="15793151" x="1851" y="32" height="56" width="411"  name=s_rownum_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="File 유형" border="2" color="15793151" x="370" y="32" height="56" width="475"  name=file_code_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="370" y="4" height="60" width="475" format="[general]"  name=file_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="File Name" border="2" color="15793151" x="864" y="32" height="56" width="969"  name=filename_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="864" y="4" height="60" width="969" format="[general]"  name=filename edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="3301" y="4" height="60" width="571" format="[shortdate] [time]"  name=etime edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="작업종료시각" border="2" color="15793151" x="3301" y="32" height="56" width="571"  name=etime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리상태" border="2" color="15793151" x="3890" y="32" height="56" width="407"  name=work_status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="3890" y="4" height="60" width="407" format="[general]"  name=work_status dddw.name=b1dc_1_dddw_file_status_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="처리완료건수1" border="2" color="15793151" x="4315" y="32" height="56" width="416"  name=count1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="4315" y="4" height="60" width="416" format="[general]"  name=count1 edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="2" color="0" x="6053" y="4" height="60" width="544" format="[general]"  name=ref_seqno edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="File Upload Seq." border="2" color="15793151" x="6053" y="32" height="56" width="544"  name=ref_seqno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리error건수" border="2" color="15793151" x="4750" y="32" height="56" width="416"  name=count2_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="4750" y="4" height="60" width="416" format="[general]"  name=count2 edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="신규처리건수" border="2" color="15793151" x="5184" y="32" height="56" width="416"  name=count3_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="5184" y="4" height="60" width="416" format="[general]"  name=count3 edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="기존처리건수" border="2" color="15793151" x="5618" y="32" height="56" width="416"  name=count4_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="0" x="5618" y="4" height="60" width="416" format="[General]"  name=count4 edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="작업시작시각" border="2" color="15793151" x="2711" y="32" height="56" width="571"  name=stime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="2" color="0" x="2711" y="4" height="60" width="571" format="[shortdate] [time]"  name=stime edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="처리error건수" border="2" color="15793151" x="2281" y="32" height="56" width="411"  name=e_rownum_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="2" color="0" x="2281" y="4" height="60" width="411" format="#,###0"  name=e_rownum edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

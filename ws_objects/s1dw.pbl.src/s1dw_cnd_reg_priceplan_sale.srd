@@ -1,0 +1,20 @@
+﻿$PBExportHeader$s1dw_cnd_reg_priceplan_sale.srd
+$PBExportComments$[ceusee] 상품 분류별 보고서 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=212 color="536870912" )
+table(column=(type=date updatewhereclause=no name=sale_month dbname="sale_month" )
+ column=(type=char(10) updatewhereclause=no name=svccod dbname="svccod" )
+ column=(type=char(10) updatewhereclause=no name=priceplan dbname="priceplan" )
+ column=(type=char(10) updatewhereclause=no name=currency_type dbname="currency_type" )
+ )
+text(band=detail alignment="1" text="년도" border="0" color="0" x="59" y="48" height="56" width="224"  name=sale_month_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="서비스" border="0" color="0" x="55" y="140" height="56" width="224"  name=svccod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="16777215" x="311" y="48" height="64" width="201" format="[general]"  name=sale_month editmask.mask="yyyy" editmask.focusrectangle=no  font.face="MS UI Gothic" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="2" color="0" x="311" y="136" height="64" width="800" format="[general]"  name=svccod dddw.name=s1dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="MS UI Gothic" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="15793151" x="850" y="48" height="60" width="512" format="[general]"  name=currency_type dddw.name=s1dc_dddw_currency dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="통화유형" border="0" color="0" x="581" y="52" height="56" width="247"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,47 @@
+﻿$PBExportHeader$b1dw_inq_chg_priceplan.srd
+$PBExportComments$[ceusee] 가격 정책 변경 정보
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes name=contractseq dbname="contractmst.contractseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="contractmst.status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=svccod dbname="contractmst.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan dbname="contractmst.priceplan" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contractno dbname="contractmst.contractno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=activedt dbname="activedt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bil_fromdt dbname="bil_fromdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bil_todt dbname="bil_todt" )
+ retrieve="SELECT   con.contractseq, con.status, con.svccod, con.priceplan, con.contractno,
+         TO_CHAR(con.activedt, 'yyyy-mm-dd') activedt,
+         TO_CHAR(con.bil_fromdt, 'yyyy-mm-dd') bil_fromdt,
+         TO_CHAR(con.bil_todt, 'yyyy-mm-dd') bil_todt
+    FROM contractmst con, svcmst svc 
+ WHERE con.svccod = svc.svccod
+   AND svc.svctype = (select rtrim(ltrim(ref_content)) from sysctl1t where module = 'B0' and ref_no = 'P102') "  sort="contractseq D " )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="3479" y="20" height="60" width="370"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="14" y="16" height="60" width="297"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="2075" y="16" height="60" width="526"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="325" y="24" height="60" width="549"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="계약 Seq" border="2" color="15793151" x="9" y="88" height="60" width="311"  name=contractseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약상태" border="2" color="15793151" x="329" y="88" height="60" width="462"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="서비스" border="2" color="15793151" x="800" y="88" height="60" width="923"  name=svccod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격정책" border="2" color="15793151" x="1733" y="88" height="60" width="896"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약번호" border="2" color="15793151" x="2638" y="88" height="60" width="384"  name=contractno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개통일자" border="2" color="15793151" x="3031" y="88" height="60" width="411"  name=activedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="과금시작일" border="2" color="15793151" x="3451" y="88" height="60" width="402"  name=bil_fromdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="과금종료일" border="2" color="15793151" x="3863" y="88" height="60" width="407"  name=bil_todt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="3863" y="24" height="60" width="407" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="311" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="329" y="8" height="60" width="462" format="[general]"  name=status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="800" y="8" height="60" width="923" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1733" y="8" height="60" width="896" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2638" y="8" height="60" width="384" format="[general]"  name=contractno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="3863" y="8" height="60" width="407" format="[general]"  name=bil_todt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="3451" y="8" height="60" width="402" format="[general]"  name=bil_fromdt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="3031" y="8" height="60" width="411" format="[general]"  name=activedt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="2619" y="24" height="60" width="293"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,38 @@
+﻿$PBExportHeader$f_check_item.srf
+$PBExportComments$필수항목 Check
+global type f_check_item from function_object
+end type
+
+forward prototypes
+global function integer f_check_item (string as_item, datawindow as_dw, long as_row, string as_column, long as_msgno, string as_title, string as_etc)
+end prototypes
+
+global function integer f_check_item (string as_item, datawindow as_dw, long as_row, string as_column, long as_msgno, string as_title, string as_etc);//*******************************************************************
+// Fuction ID : f_check_item
+//
+// Purpose : 필수항목 입력여부 Check
+//
+// Scope : Public
+//
+// Parameter :
+// Return Value : (Integer)
+//                0 : Sucess
+//               -1 : 입력치 않음
+//						
+// Log : (Date : Name : Version)
+//       2007/07/18 : 1hera : Original
+//
+//*******************************************************************
+If as_item = "" OR IsNull(as_item) Then
+	F_GET_MSG(as_msgno, as_title, as_etc)
+
+	as_dw.SetFocus()
+	as_dw.Setrow(as_row)
+	as_dw.ScrollToRow(as_row)
+	as_dw.SetColumn(as_column)
+	
+	Return -1
+End If
+Return 0
+end function
+

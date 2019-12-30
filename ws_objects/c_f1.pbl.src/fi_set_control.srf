@@ -1,0 +1,41 @@
+﻿$PBExportHeader$fi_set_control.srf
+$PBExportComments$[kenn] Set parameter to control file(SYSCTL1T)
+global type fi_set_control from function_object
+end type
+
+forward prototypes
+global function integer fi_set_control (string as_module, string as_ref_no, string as_ref_content)
+end prototypes
+
+global function integer fi_set_control (string as_module, string as_ref_no, string as_ref_content);//****kenn : 1999-04-29(水)********************
+//목적 : Set parameter to control file
+//인자 : as_module - 해당 모듈, as_ref_no - 참조 번호, as_ref_content - reference content
+//Return Value : Success -  0
+//               Fail    - -1
+//*********************************************
+u_cust_db_app lu_cust_db_app
+String ls_return
+Integer li_return
+
+lu_cust_db_app = Create u_cust_db_app
+
+lu_cust_db_app.is_caller = "fi_set_control()"
+lu_cust_db_app.is_title = "fi_set_control()"
+lu_cust_db_app.is_data[1] = as_module
+lu_cust_db_app.is_data[2] = as_ref_no
+lu_cust_db_app.is_data[3] = as_ref_content
+
+lu_cust_db_app.uf_prc_db()
+
+li_return = lu_cust_db_app.ii_rc
+If li_return = 100 Then
+	f_msg_usr_err(3210, lu_cust_db_app.is_title, "Module No. = " + as_module + &
+	 "  Reference No. = " + as_ref_no)
+End If
+
+Destroy u_cust_db_app
+
+Return li_return
+
+end function
+

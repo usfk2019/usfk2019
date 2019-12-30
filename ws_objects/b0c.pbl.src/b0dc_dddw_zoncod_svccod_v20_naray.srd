@@ -1,0 +1,43 @@
+﻿$PBExportHeader$b0dc_dddw_zoncod_svccod_v20_naray.srd
+$PBExportComments$[jwlee] 서비스별 대역코드 v20_naray
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=svccod dbname="arezoncod2.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="arezoncod2.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=zoncod dbname="zone.zoncod" )
+ column=(type=char(50) updatewhereclause=yes name=zonnm dbname="zone.zonnm" )
+ retrieve="
+SELECT distinct a.svccod
+     , a.priceplan
+     , b.zoncod
+     , b.zonnm
+  FROM arezoncod2 a
+     , zone       b
+ WHERE a.zoncod = b.zoncod
+   AND a.svccod = :as_svccod   
+   AND a.priceplan = :as_priceplan
+UNION
+SELECT distinct a.svccod
+     , a.priceplan
+     , b.zoncod
+     , b.zonnm
+  FROM arezoncod2 a
+     , zone       b
+ WHERE a.zoncod = b.zoncod
+   AND a.svccod = :as_svccod 
+   AND a.zoncod not in (SELECT b.zoncod
+						  FROM arezoncod2 a
+						     , zone       b
+						 WHERE a.zoncod = b.zoncod
+						   AND a.svccod = :as_svccod    
+						   AND a.priceplan = :as_priceplan  ) " arguments=(("as_svccod", string),("as_priceplan", string)) )
+line(band=detail x1="9" y1="68" x2="1271" y2="68"  name=l_1 pen.style="0" pen.width="5" pen.color="276856960"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="1262" format="[general]"  name=zonnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1285" y="4" height="64" width="73" format="[general]"  name=zoncod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1266" y="4" height="56" width="87" format="[general]"  name=svccod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="800" y="120" height="56" width="270" format="[general]"  name=priceplan visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

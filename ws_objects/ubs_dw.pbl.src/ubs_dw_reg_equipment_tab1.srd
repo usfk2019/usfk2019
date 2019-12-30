@@ -1,0 +1,242 @@
+﻿$PBExportHeader$ubs_dw_reg_equipment_tab1.srd
+$PBExportComments$[jhchoi] 인증장비관리 (Tab1 - info) - 2009.05.04
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1964 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes name=equipseq dbname="equipmst.equipseq" )
+ column=(type=char(10) updatewhereclause=yes name=adtype dbname="equipmst.adtype" )
+ column=(type=char(1) updatewhereclause=yes name=sale_flag dbname="equipmst.sale_flag" values="Sale	1/Lease	0/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=sn_partner dbname="equipmst.sn_partner" )
+ column=(type=char(10) updatewhereclause=yes name=makercd dbname="equipmst.makercd" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="equipmst.modelno" )
+ column=(type=char(20) updatewhereclause=yes name=contno dbname="equipmst.contno" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="equipmst.serialno" )
+ column=(type=char(30) updatewhereclause=yes name=mac_addr dbname="equipmst.mac_addr" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="equipmst.status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=adstat dbname="equipmst.adstat" )
+ column=(type=decimal(0) updatewhereclause=yes name=iseqno dbname="equipmst.iseqno" )
+ column=(type=datetime updatewhereclause=yes name=idate dbname="equipmst.idate" )
+ column=(type=decimal(5) updatewhereclause=yes name=cust_no dbname="equipmst.cust_no" )
+ column=(type=char(1000) updatewhereclause=yes name=remark dbname="equipmst.remark" )
+ column=(type=char(1) updatewhereclause=yes name=out_type dbname="equipmst.out_type" values="Sale	1/Lease	0/" )
+ column=(type=datetime updatewhereclause=yes name=saledt dbname="equipmst.saledt" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_amt dbname="equipmst.sale_amt" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="equipmst.customerid" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="equipmst.contractseq" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="equipmst.orderno" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=datetime update=yes updatewhereclause=yes name=snmovedt dbname="equipmst.snmovedt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="equipmst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="equipmst.updtdt" )
+ column=(type=char(20) updatewhereclause=yes name=mng_no dbname="equipmst.dacom_mng_no" )
+ column=(type=char(30) updatewhereclause=yes name=mac_addr2 dbname="equipmst.mac_addr2" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="validkey" )
+ column=(type=decimal(0) updatewhereclause=yes name=moveno dbname="equipmst.moveno" )
+ column=(type=char(10) updatewhereclause=yes name=mv_partner dbname="equipmst.mv_partner" )
+ column=(type=char(10) updatewhereclause=yes name=to_partner dbname="equipmst.to_partner" )
+ column=(type=datetime updatewhereclause=yes name=dlvdt dbname="equipmst.dlvdt" )
+ column=(type=char(10) updatewhereclause=yes name=status_old dbname="equipmst.status_old" )
+ column=(type=char(1) updatewhereclause=yes name=new_yn dbname="equipmst.new_yn" values="Yes	Y/No	N/" )
+ column=(type=char(1) updatewhereclause=yes name=new_yn_old dbname="new_yn_old" )
+ column=(type=char(10) updatewhereclause=yes name=trouble_cause dbname="equipmst.trouble_cause" )
+ column=(type=char(80) updatewhereclause=yes name=change_reason dbname="equipmst.change_reason" )
+ column=(type=char(20) updatewhereclause=yes name=first_customer dbname="equipmst.first_customer" )
+ column=(type=datetime updatewhereclause=yes name=first_saledt dbname="equipmst.first_saledt" )
+ column=(type=char(10) updatewhereclause=yes name=first_seller dbname="equipmst.first_seller" )
+ column=(type=char(10) updatewhereclause=yes name=first_partner dbname="equipmst.first_partner" )
+ column=(type=decimal(2) updatewhereclause=yes name=first_sale_amt dbname="equipmst.first_sale_amt" )
+ column=(type=char(1) updatewhereclause=yes name=cert_yn dbname="cert_yn" )
+ retrieve="SELECT  MST.EQUIPSEQ
+     ,  MST.ADTYPE
+     ,  MST.SALE_FLAG
+     ,  MST.SN_PARTNER
+     ,  MST.MAKERCD
+     ,  MST.MODELNO
+     ,  MST.CONTNO
+     ,  MST.SERIALNO
+     ,  MST.MAC_ADDR
+     ,  MST.STATUS
+     ,  MST.ADSTAT
+     ,  MST.ISEQNO
+     ,  MST.IDATE
+     ,  MST.CUST_NO
+     ,  MST.REMARK
+     ,  MST.SALE_FLAG AS OUT_TYPE
+     ,  MST.SALEDT
+     ,  MST.SALE_AMT
+     ,  MST.CUSTOMERID
+     ,  MST.CONTRACTSEQ
+     ,  MST.ORDERNO
+     ,  CUS.CUSTOMERNM
+     ,  MST.SNMOVEDT
+     ,  MST.UPDT_USER
+      ,  MST.UPDTDT
+      ,  MST.DACOM_MNG_NO
+     ,  MST.MAC_ADDR2
+      ,  ( SELECT MIN(VAL.VALIDKEY) FROM VALIDKEYMST VAL WHERE VAL.CUSTOMERID = MST.CUSTOMERID AND VAL.CONTRACTSEQ = MST.CONTRACTSEQ AND ROWNUM = 1) AS VALIDKEY
+     ,  MST.MOVENO
+     ,  MST.MV_PARTNER
+     ,  MST.TO_PARTNER
+     ,  MST.DLVDT
+      ,  MST.STATUS AS STATUS_OLD
+      ,  MST.NEW_YN
+      ,  NVL(MST.NEW_YN, 'N') AS NEW_YN_OLD
+      ,  MST.TROUBLE_CAUSE
+      ,  MST.CHANGE_REASON
+      ,  MST.FIRST_CUSTOMER
+      ,  MST.FIRST_SALEDT
+      ,  MST.FIRST_SELLER
+      ,  MST.FIRST_PARTNER
+      ,  MST.FIRST_SALE_AMT
+      , (SELECT NVL(CERT_YN,'N') FROM EQUIPMODEL WHERE MODELNO = MST.MODELNO) AS CERT_YN
+FROM    EQUIPMST MST, CUSTOMERM CUS
+WHERE   MST.CUSTOMERID = CUS.CUSTOMERID(+)" update="EQUIPMST" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="18" y="32" height="488" width="3648"  name=r_9 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="18" y="36" height="480" width="471"  name=r_12 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="2455" y="36" height="388" width="471"  name=r_10 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="1253" y="36" height="480" width="471"  name=r_11 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=detail x1="18" y1="128" x2="3666" y2="128"  name=l_20 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+text(band=detail alignment="2" text="Equip No." border="0" color="0" x="27" y="52" height="56" width="453"  name=t_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Equip Type" border="0" color="0" x="1262" y="52" height="56" width="453"  name=t_20  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Sale / Lease" border="0" color="0" x="2464" y="52" height="56" width="453"  name=t_16  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="18" y1="320" x2="3662" y2="320"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="489" y1="36" x2="489" y2="520"  name=l_13 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2450" y1="32" x2="2450" y2="424"  name=l_19 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2926" y1="32" x2="2926" y2="428"  name=l_14 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="52" height="52" width="718" format="[general]"  name=equipseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="52" height="52" width="686" format="[general]"  name=adtype dddw.name=ubs_dddw_equipmentname dddw.displaycolumn=adname dddw.datacolumn=adtype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2949" y="52" height="52" width="690" format="[general]"  name=sale_flag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Current Shop" border="0" color="0" x="27" y="148" height="56" width="453"  name=t_18  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="148" height="52" width="718" format="[general]"  name=sn_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=110 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Equip Maker" border="0" color="0" x="1262" y="148" height="56" width="453"  name=t_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="148" height="52" width="686" format="[general]"  name=makercd dddw.name=ubs_dddw_equipmaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Model / Cert.(Y/N)" border="0" color="0" x="2464" y="148" height="60" width="453"  name=t_23  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2949" y="148" height="52" width="562" format="[general]"  name=modelno dddw.name=ubs_dddw_equipmentmodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Control No." border="0" color="0" x="27" y="244" height="56" width="453"  name=t_17  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="244" height="52" width="718" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Serial No." border="0" color="0" x="1262" y="244" height="56" width="453"  name=t_19  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="244" height="52" width="686" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Mac Address" border="0" color="0" x="2464" y="244" height="56" width="453"  name=t_24  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Status" border="0" color="0" x="27" y="344" height="56" width="453"  name=t_21  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=20 border="0" color="0" x="1746" y="348" height="52" width="686" format="[general]"  name=adstat dddw.name=ubs_dddw_equipstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=110 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Equip Status" border="0" color="0" x="1262" y="348" height="56" width="453"  name=t_38  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2949" y="244" height="52" width="690" format="[general]"  name=mac_addr editmask.mask="XXXXXXXXXXXXXX" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Mac Address2" border="0" color="0" x="2464" y="348" height="56" width="453"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="2949" y="348" height="56" width="690" format="[general]"  name=mac_addr2 editmask.mask="XXXXXXXXXXXXXX" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="18" y1="424" x2="3666" y2="424"  name=l_32 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+column(band=detail id=10 alignment="0" tabsequence=10 border="0" color="0" x="512" y="348" height="52" width="718" format="[general]"  name=status dddw.name=ubs_dddw_equipmststatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=110 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=34 alignment="0" tabsequence=30 border="0" color="0" x="512" y="444" height="56" width="718" format="[general]"  name=new_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="New Y/N" border="0" color="0" x="27" y="444" height="56" width="453"  name=t_26  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="1248" y1="32" x2="1248" y2="516"  name=l_21 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1723" y1="32" x2="1723" y2="516"  name=l_12 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="Change Remark" border="0" color="0" x="1266" y="440" height="56" width="453"  name=t_37  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="18" y="652" height="204" width="471"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="1248" y="652" height="96" width="480"  name=r_7 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="2455" y="652" height="96" width="471"  name=r_13 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="14" y="648" height="212" width="3648"  name=r_4 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Manage No." border="0" color="0" x="2469" y="672" height="56" width="443"  name=t_39  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="[Entering Info]" border="0" color="0" x="23" y="552" height="60" width="416"  name=t_25  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Entering No" border="0" color="0" x="27" y="672" height="56" width="453"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="672" height="52" width="718" format="[general]"  name=iseqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Entering Date" border="0" color="0" x="1262" y="672" height="56" width="453"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="672" height="52" width="686" format="[general]"  name=idate editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="2939" y="672" height="56" width="699" format="[general]"  name=mng_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="489" y1="652" x2="489" y2="856"  name=l_10 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1243" y1="652" x2="1243" y2="752"  name=l_26 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1728" y1="652" x2="1728" y2="752"  name=l_25 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2455" y1="652" x2="2455" y2="752"  name=l_24 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2926" y1="652" x2="2926" y2="752"  name=l_27 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="2258" y="2104" height="56" width="690" format="[general]"  name=cust_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="1783" y="2108" height="60" width="187" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="1970" y="2108" height="60" width="137" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=33 alignment="0" tabsequence=32766 border="0" color="0" x="1509" y="2128" height="60" width="233" format="[general]"  name=status_old edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="18" y1="748" x2="3662" y2="748"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+rectangle(band=detail x="27" y="1768" height="192" width="3648"  name=r_15 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="" border="0" color="0" x="2459" y="1772" height="184" width="466"  name=t_46  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+text(band=detail alignment="0" text="" border="0" color="0" x="1248" y="1772" height="184" width="480"  name=t_45  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+text(band=detail alignment="0" text="" border="0" color="0" x="32" y="1772" height="184" width="466"  name=t_44  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+column(band=detail id=42 alignment="0" tabsequence=32766 border="0" color="0" x="2944" y="1788" height="60" width="704" format="#,##0.00"  name=first_sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="1243" y1="1772" x2="1243" y2="1956"  name=l_34 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="498" y1="1768" x2="498" y2="1960"  name=l_33 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1728" y1="1768" x2="1728" y2="1960"  name=l_36 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2455" y1="1768" x2="2455" y2="1960"  name=l_37 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2926" y1="1768" x2="2926" y2="1960"  name=l_38 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="27" y1="1864" x2="3675" y2="1864"  name=l_39 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+text(band=detail alignment="2" text="Output Customer" border="0" color="0" x="37" y="1788" height="60" width="453"  name=t_40  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Output Date" border="0" color="0" x="1262" y="1788" height="60" width="453"  name=t_41  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Output Price" border="0" color="0" x="2469" y="1788" height="60" width="453"  name=t_47  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=38 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="1788" height="60" width="718" format="[general]"  name=first_customer edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=39 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="1788" height="60" width="686" format="[shortdate] [time]"  name=first_saledt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Output Shop" border="0" color="0" x="37" y="1884" height="60" width="453"  name=t_42  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=41 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="1884" height="60" width="718" format="[general]"  name=first_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Operator" border="0" color="0" x="1262" y="1884" height="60" width="453"  name=t_48  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=40 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="1884" height="60" width="686" format="[general]"  name=first_seller dddw.name=b1c_dddw_sysusr1t dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="" border="0" color="0" x="2459" y="996" height="204" width="466"  name=t_28  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+text(band=detail alignment="0" text="" border="0" color="0" x="1248" y="996" height="204" width="480"  name=t_27  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+rectangle(band=detail x="14" y="992" height="212" width="3648"  name=r_3 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="" border="0" color="0" x="18" y="996" height="204" width="471"  name=t_11  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+line(band=detail x1="489" y1="992" x2="489" y2="1196"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1243" y1="1100" x2="3657" y2="1096"  name=l_31 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+text(band=detail alignment="2" text="Move No." border="0" color="0" x="27" y="1064" height="56" width="453"  name=t_30  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=29 alignment="2" tabsequence=32766 border="0" color="0" x="507" y="1068" height="56" width="722" format="[general]"  name=moveno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Input Shop" border="0" color="0" x="1262" y="1124" height="56" width="453"  name=t_36  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="1742" y="1124" height="56" width="704" format="[general]"  name=to_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Input Date" border="0" color="0" x="2469" y="1124" height="56" width="448"  name=t_35  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="2939" y="1124" height="56" width="709" format="[shortdate] [time]"  name=snmovedt editmask.mask="mm-dd-yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Move Shop" border="0" color="0" x="1262" y="1020" height="56" width="453"  name=t_33  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="1742" y="1020" height="56" width="704" format="[general]"  name=mv_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Move Date" border="0" color="0" x="2469" y="1020" height="56" width="448"  name=t_34  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=32 alignment="0" tabsequence=32766 border="0" color="0" x="2939" y="1020" height="56" width="709" format="[shortdate] [time]"  name=dlvdt editmask.mask="mm-dd-yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="23" y="1352" height="296" width="3648"  name=r_6 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="23" y="1356" height="284" width="466"  name=r_8 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="2455" y="1356" height="92" width="471"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="1253" y="1356" height="88" width="471"  name=r_1 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="1257" y="1548" height="96" width="471"  name=r_14 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=detail x1="1723" y1="1352" x2="1723" y2="1444"  name=l_17 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1248" y1="1356" x2="1248" y2="1444"  name=l_18 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="23" y1="1444" x2="3671" y2="1444"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="23" y1="1544" x2="3662" y2="1544"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+text(band=detail alignment="2" text="Output" border="0" color="0" x="27" y="1544" height="48" width="453"  name=t_31  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Contract Seq" border="0" color="0" x="27" y="1596" height="44" width="453"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="2450" y1="1352" x2="2450" y2="1448"  name=l_16 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2926" y1="1352" x2="2926" y2="1448"  name=l_15 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="0" text="[Output Info]" border="0" color="0" x="23" y="1256" height="60" width="421"  name=t_29  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Output Type" border="0" color="0" x="27" y="1372" height="56" width="453"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="1372" height="52" width="718" format="[general]"  name=out_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Output Date" border="0" color="0" x="1262" y="1372" height="56" width="453"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="1372" height="52" width="686" format="[general]"  name=saledt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Output Price" border="0" color="0" x="2464" y="1372" height="56" width="453"  name=t_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Output Customer" border="0" color="0" x="27" y="1468" height="56" width="453"  name=t_10  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="[" border="0" color="0" x="512" y="1468" height="56" width="27"  name=t_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="2" tabsequence=32766 border="0" color="0" x="549" y="1468" height="52" width="306" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="]" border="0" color="0" x="864" y="1468" height="56" width="37"  name=t_22  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="910" y="1468" height="52" width="1093" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Order No." border="0" color="0" x="1266" y="1568" height="56" width="453"  name=t_32  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="2949" y="1372" height="52" width="690" format="#,##0.00"  name=sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Validkey" border="0" color="0" x="2464" y="1568" height="56" width="453"  name=t_8  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="2949" y="1568" height="56" width="690" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Remark" border="0" color="0" x="27" y="776" height="56" width="453"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="776" height="52" width="3127" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="[Input Info]" border="0" color="0" x="23" y="900" height="60" width="329"  name=t_9  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="489" y1="1356" x2="489" y2="1648"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1253" y1="1544" x2="1253" y2="1644"  name=l_28 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1728" y1="1548" x2="1728" y2="1648"  name=l_29 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2450" y1="1544" x2="2450" y2="1644"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2926" y1="1544" x2="2926" y2="1644"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="0" text="[First Output Info]" border="0" color="0" x="32" y="1688" height="60" width="498"  name=t_43  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="1243" y1="992" x2="1243" y2="1196"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1728" y1="992" x2="1728" y2="1196"  name=l_22 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2455" y1="992" x2="2455" y2="1196"  name=l_23 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2926" y1="992" x2="2926" y2="1196"  name=l_30 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="1568" height="52" width="718" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="1568" height="52" width="686" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="18" y1="224" x2="3666" y2="224"  name=l_9 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+column(band=detail id=36 alignment="0" tabsequence=40 border="2" color="16777215~tif ( status <> status_old or new_yn <> new_yn_old, rgb(255, 255, 255), rgb(0, 0, 0))" x="1746" y="444" height="56" width="686" format="[general]" protect="0~tif ( status <> status_old or new_yn <> new_yn_old, 0, 1 )"  name=trouble_cause dddw.name=ubs_dddw_trouble_cause dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=200 dddw.lines=5 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="0" background.color="25989739~tif ( status <> status_old or new_yn <> new_yn_old, rgb(107, 146, 140), rgb(255, 255, 255))" )
+column(band=detail id=37 alignment="0" tabsequence=50 border="2" color="0" x="2446" y="444" height="56" width="1193" format="[general]" protect="0~tif ( status <> status_old or new_yn <> new_yn_old, 0, 1 )"  name=change_reason edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=35 alignment="0" tabsequence=32766 border="0" color="0" x="1554" y="1988" height="60" width="338" format="[general]"  name=new_yn_old edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=43 alignment="2" tabsequence=32766 border="0" color="0" x="3547" y="148" height="52" width="91" format="[general]"  name=cert_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="/" border="0" color="0" x="3515" y="148" height="52" width="27"  name=t_49  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

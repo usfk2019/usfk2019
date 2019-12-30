@@ -1,0 +1,83 @@
+﻿$PBExportHeader$fl_refill_extdays_new.srf
+$PBExportComments$[juede] 충전연장일수
+global type fl_refill_extdays_new from function_object
+end type
+
+forward prototypes
+global function integer fl_refill_extdays_new (string ls_partner, string ls_priceplan, string ls_opendt, double lc_amt, ref long ll_extdays)
+end prototypes
+
+global function integer fl_refill_extdays_new (string ls_partner, string ls_priceplan, string ls_opendt, double lc_amt, ref long ll_extdays);//Long ll_extdays
+int li_cnt , li_return
+
+ll_extdays = 0
+li_cnt = 0
+li_return=0
+
+
+//충전정책 가져옴
+Select extdays, count(*)
+Into  :ll_extdays, :li_cnt
+From  refillpolicy
+where partner = :ls_partner  
+and   priceplan = :ls_priceplan 
+and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+	  	      			  			  	    from refillpolicy 
+				      					    where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+												 and   partner = :ls_partner  
+												 and   priceplan = :ls_priceplan)
+and  fromamt <= :lc_amt 
+and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+group by extdays;
+
+If SQLCA.SQLCode < 0 Then
+	Return -1
+End If
+
+If li_cnt = 0  Then
+	Select extdays, count(*)
+	Into  :ll_extdays, :li_cnt
+	From  refillpolicy
+	where partner = :ls_partner  
+	and   priceplan = 'ALL' 
+	and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+													 from refillpolicy 
+													 where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+													 and   partner = :ls_partner  
+													 and   priceplan = 'ALL')
+	and  fromamt <= :lc_amt 
+	and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+	group by extdays;	
+	
+	If SQLCA.SQLCode < 0 Then
+		Return -1
+	End If
+	
+End If
+	
+If li_cnt = 0 Then
+	Select extdays, count(*)
+	Into  :ll_extdays, :li_cnt
+	From  refillpolicy
+	where partner = 'ALL'
+	and   priceplan = 'ALL' 
+	and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+													 from refillpolicy 
+													 where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+													 and   partner = 'ALL' 
+													 and   priceplan = 'ALL')
+	and  fromamt <= :lc_amt 
+	and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+	group by extdays;
+	
+	If SQLCA.SQLCode < 0 Then
+		Return -1
+	ElseIf SQLCA.SQLCode = 100 Then
+		Return -1
+	End If
+End If
+
+
+return li_return
+end function
+

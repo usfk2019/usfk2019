@@ -1,0 +1,80 @@
+﻿$PBExportHeader$b0dw_reg_itemmst_hhm.srd
+$PBExportComments$[parkkh] 품목 마스타 등록 master data window
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=156 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=itemmst_itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_categorya dbname="itemmst.categorya" )
+ column=(type=char(10) updatewhereclause=yes name=categorya_categoryb dbname="categorya.categoryb" )
+ column=(type=char(10) updatewhereclause=yes name=categoryb_categoryc dbname="categoryb.categoryc" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_oneoffcharge_yn dbname="itemmst.oneoffcharge_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_mainitem_yn dbname="itemmst.mainitem_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_dailyprorata_yn dbname="itemmst.dailyprorata_yn" initial="Y" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_bilitem_yn dbname="itemmst.bilitem_yn" initial="Y" values="Yes	Y/Yes	N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_svccod dbname="itemmst.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_pricetable dbname="itemmst.pricetable" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_trcod dbname="itemmst.trcod" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=itemmst_crt_user dbname="itemmst.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=itemmst_updt_user dbname="itemmst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=itemmst_crtdt dbname="itemmst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=itemmst_updtdt dbname="itemmst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=itemmst_pgm_id dbname="itemmst.pgm_id" )
+ retrieve="SELECT  ~"ITEMMST~".~"ITEMCOD~" ,
+           ~"ITEMMST~".~"ITEMNM~" ,
+           ~"ITEMMST~".~"CATEGORYA~" ,
+           ~"CATEGORYA~".~"CATEGORYB~" ,
+           ~"CATEGORYB~".~"CATEGORYC~" ,
+           ~"ITEMMST~".~"ONEOFFCHARGE_YN~" ,
+           ~"ITEMMST~".~"MAINITEM_YN~" ,
+           ~"ITEMMST~".~"DAILYPRORATA_YN~" ,
+           ~"ITEMMST~".~"BILITEM_YN~" ,
+           ~"ITEMMST~".~"SVCCOD~" ,
+           ~"ITEMMST~".~"PRICETABLE~" ,
+           ~"ITEMMST~".~"TRCOD~" ,
+           ~"ITEMMST~".~"CRT_USER~" ,
+           ~"ITEMMST~".~"UPDT_USER~" ,
+           ~"ITEMMST~".~"CRTDT~" ,
+           ~"ITEMMST~".~"UPDTDT~" ,
+           ~"ITEMMST~".~"PGM_ID~"     
+        FROM ~"CATEGORYA~" ,
+           ~"CATEGORYB~" ,
+           ~"CATEGORYC~" ,
+           ~"ITEMMST~"     
+        WHERE ( ~"CATEGORYA~".~"CATEGORYB~" = ~"CATEGORYB~".~"CATEGORYB~" ) and          ( ~"CATEGORYB~".~"CATEGORYC~" = ~"CATEGORYC~".~"CATEGORYC~" ) and          ( ~"ITEMMST~".~"CATEGORYA~" = ~"CATEGORYA~".~"CATEGORYA~" )  
+        ORDER BY ~"ITEMMST~".~"ITEMCOD~"          ASC,
+           ~"ITEMMST~".~"ITEMNM~"          ASC  " update="ITEMMST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="품목소분류" border="2" color="16777215" x="2254" y="12" height="64" width="667"  name=itemmst_categorya_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="품목중분류" border="2" color="16777215" x="2935" y="12" height="64" width="667"  name=categorya_categoryb_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="기본품목" border="2" color="16777215" x="2254" y="88" height="64" width="325"  name=itemmst_mainitem_yn_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="청구품목" border="2" color="16777215" x="2597" y="88" height="64" width="325"  name=itemmst_bilitem_yn_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="일회청구" border="2" color="16777215" x="2935" y="88" height="64" width="325"  name=itemmst_oneoffcharge_yn_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="일할계산" border="2" color="16777215" x="3278" y="88" height="64" width="325"  name=itemmst_dailyprorata_yn_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="품목ID" border="2" color="16777215" x="14" y="12" height="64" width="343"  name=itemmst_itemcod_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="품목대분류" border="2" color="16777215" x="3616" y="12" height="64" width="667"  name=categoryb_categoryc_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="품    목    명" border="2" color="16777215" x="370" y="12" height="64" width="969"  name=itemmst_itemnm_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="거  래  유  형" border="2" color="16777215" x="370" y="88" height="64" width="969"  name=itemmst_trcod_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="서   비   스" border="2" color="16777215" x="1358" y="12" height="64" width="878"  name=itemmst_svccod_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="적용요율형식" border="2" color="16777215" x="1358" y="88" height="64" width="878"  name=itemmst_pricetable_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="2" color="16711680" x="3424" y="192" height="60" width="462" format="[general]"  name=itemmst_pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="2" color="16711680" x="2565" y="192" height="60" width="832" format="[shortdate] [time]"  name=itemmst_updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="2" color="16711680" x="1897" y="192" height="60" width="631" format="[shortdate] [time]"  name=itemmst_crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="2" color="16711680" x="1454" y="192" height="60" width="416" format="[general]"  name=itemmst_updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="2" color="16711680" x="923" y="192" height="60" width="489" format="[general]"  name=itemmst_crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="18" y="4" height="64" width="338" format="[general]"  name=itemmst_itemcod edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="2" color="16777215" x="2254" y="4" height="64" width="667" format="[general]"  name=itemmst_categorya dddw.name=b0dc_dddw_categorya dddw.displaycolumn=categoryanm dddw.datacolumn=categorya dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="2935" y="4" height="64" width="667" format="[general]"  name=categorya_categoryb dddw.name=b0dc_dddw_categoryb dddw.displaycolumn=categorybnm dddw.datacolumn=categoryb dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=80 border="2" color="16777215" x="2254" y="80" height="64" width="329" format="[general]"  name=itemmst_mainitem_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="2" color="16777215" x="2597" y="80" height="64" width="325" format="[general]"  name=itemmst_bilitem_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=6 alignment="0" tabsequence=100 border="2" color="16777215" x="2935" y="80" height="64" width="329" format="[general]"  name=itemmst_oneoffcharge_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=8 alignment="0" tabsequence=110 border="2" color="16777215" x="3278" y="80" height="64" width="325" format="[general]"  name=itemmst_dailyprorata_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="3616" y="4" height="64" width="667" format="[general]"  name=categoryb_categoryc dddw.name=b0dc_dddw_categoryc dddw.displaycolumn=categorycnm dddw.datacolumn=categoryc dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="370" y="4" height="64" width="969" format="[general]"  name=itemmst_itemnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=12 alignment="0" tabsequence=60 border="2" color="16777215" x="370" y="80" height="64" width="969" format="[general]"  name=itemmst_trcod dddw.name=b0dc_dddw_trcod dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=10 alignment="0" tabsequence=30 border="2" color="16777215" x="1358" y="4" height="64" width="878" format="[general]"  name=itemmst_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=11 alignment="0" tabsequence=70 border="2" color="16777215" x="1358" y="80" height="64" width="878" format="[general]"  name=itemmst_pricetable dddw.name=b0dc_dddw_pricetable dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

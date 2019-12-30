@@ -1,0 +1,15 @@
+﻿$PBExportHeader$ubs_dw_reg_validresult_det.srd
+$PBExportComments$[jhchoi] 장비인증 결과 조회 팝업- 장애(Master) -  2009.06.09
+release 7;
+datawindow(units=0 timer_interval=0 color=65535 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=264 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=ddd dbname="ddd" )
+ )
+text(band=detail alignment="0" text="＊[성공여부] 결과참조 : 1 - 성공, 2 - DB에러(VoIP), LDAP에러(초고속, VoCM), 7 - 단말인증실패, 8 - SSW에러" border="0" color="0" x="14" y="8" height="60" width="2807"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="＊[부가서비스 기본제공]" border="0" color="0" x="14" y="72" height="60" width="2807"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="  070:8300(착신전환);8274(발신번호표시);8276(통화중대기);8282(전화회의)" border="0" color="0" x="14" y="136" height="60" width="2807"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="  시내/하나로:8300(착신전환)" border="0" color="0" x="14" y="200" height="60" width="2807"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

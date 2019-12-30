@@ -1,0 +1,16 @@
+﻿$PBExportHeader$b0dw_cnd_hlp_cardmst.srd
+$PBExportComments$[kem] Help : 선불카드 pin
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=176 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=pid dbname="pid" )
+ column=(type=char(15) updatewhereclause=yes name=contno dbname="contno" )
+ )
+text(band=detail alignment="1" text="관리번호" border="0" color="0" x="0" y="100" height="56" width="270"  name=marknm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Pin#" border="0" color="0" x="37" y="24" height="56" width="233"  name=payid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="288" y="24" height="56" width="649" format="[general]"  name=pid edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="288" y="100" height="56" width="649" format="[general]"  name=contno edit.limit=50 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

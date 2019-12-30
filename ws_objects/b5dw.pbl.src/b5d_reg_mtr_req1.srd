@@ -1,0 +1,41 @@
+﻿$PBExportHeader$b5d_reg_mtr_req1.srd
+$PBExportComments$[kwon] 수동청구거래등록
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=trcod dbname="reqdtl.trcod" )
+ column=(type=number updatewhereclause=yes name=tramt dbname="tramt" )
+ column=(type=number updatewhereclause=yes name=taxamt dbname="taxamt" )
+ retrieve="SELECT trcod, sum(nvl(tramt,0)) tramt
+     , SUM(NVL(taxamt, 0)) taxamt
+  FROM reqdtl 
+ WHERE mark                    is null
+   AND payid                    = :as_payid
+   AND to_char(trdt,'yyyymmdd') = :as_trdt
+GROUP BY trcod, trdt" arguments=(("as_payid", string),("as_trdt", string)) )
+text(band=header alignment="2" text="거래금액" border="2" color="15793151" x="1669" y="8" height="60" width="494" html.valueishtml="0"  name=ls_tramt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="부가세" border="2" color="15793151" x="2181" y="8" height="60" width="494" html.valueishtml="0"  name=t_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매금액" border="2" color="15793151" x="2693" y="8" height="56" width="494" html.valueishtml="0"  name=t_2 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래유형" border="2" color="15793151" x="50" y="8" height="60" width="1600" html.valueishtml="0"  name=trcod_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="50" y="4" height="60" width="1600" format="[general]" html.valueishtml="0"  name=trcod visible="1"  resizeable=1 dddw.name=b5dc_dddw_trcode dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="1673" y="0" height="60" width="494" format="#,##0.00" html.valueishtml="0"  name=tramt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="2181" y="0" height="60" width="494" format="#,##0.00" html.valueishtml="0"  name=taxamt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" tramt +  taxamt "border="0" color="0" x="2693" y="0" height="60" width="494" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(taxamt for all)"border="0" color="0" x="2181" y="4" height="60" width="494" format="#,##0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( tramt +  taxamt  for all)"border="0" color="0" x="2693" y="4" height="60" width="494" format="#,##0.00" html.valueishtml="0"  name=compute_4 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(tramt for all)"border="0" color="0" x="1673" y="4" height="60" width="494" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="Total" border="2" color="15793151" x="50" y="4" height="56" width="1600" html.valueishtml="0"  name=t_3 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

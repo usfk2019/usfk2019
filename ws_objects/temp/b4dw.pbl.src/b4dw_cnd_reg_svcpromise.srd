@@ -1,0 +1,16 @@
+﻿$PBExportHeader$b4dw_cnd_reg_svcpromise.srd
+$PBExportComments$[parkkh] 약정유형등록 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=184 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=prmnm dbname="prmnm" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="svccod" )
+ )
+text(band=detail alignment="1" text="약정유형명" border="0" color="0" x="59" y="16" height="56" width="270"  name=nodeno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="적용서비스" border="0" color="0" x="59" y="104" height="56" width="270"  name=name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="361" y="104" height="60" width="901" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=140 dddw.lines=7 dddw.limit=10 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="361" y="16" height="60" width="901" format="[general]"  name=prmnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

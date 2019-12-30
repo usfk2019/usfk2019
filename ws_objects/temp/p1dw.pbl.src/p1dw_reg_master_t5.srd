@@ -1,0 +1,21 @@
+﻿$PBExportHeader$p1dw_reg_master_t5.srd
+$PBExportComments$[chooys] 카드 Master 수정조회 Tab5.
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(retrieve="SELECT  ~"P_SNUM~".~"SNUM~" ,
+        ~"P_SNUM~".~"RTELNUM~" ,
+        ~"P_SNUM~".~"SYSDT~"     
+   FROM ~"P_SNUM~"    " )
+text(band=header alignment="2" text="변경일자" border="2" color="16777215" x="859" y="96" height="60" width="603"  name=sysdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="단축번호" border="2" color="16777215" x="23" y="96" height="60" width="302"  name=snum_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신번호" border="2" color="16777215" x="343" y="96" height="60" width="498"  name=rtelnum_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="1" text="Pin #:" border="0" color="0" x="46" y="20" height="56" width="169"  name=pid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="229" y="20" height="56" width="443"  name=pid  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="관리번호:" border="0" color="0" x="745" y="20" height="56" width="251"  name=t_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="1010" y="20" height="56" width="439"  name=contno  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

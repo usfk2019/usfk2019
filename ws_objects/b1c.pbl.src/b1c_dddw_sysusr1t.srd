@@ -1,0 +1,20 @@
+﻿$PBExportHeader$b1c_dddw_sysusr1t.srd
+$PBExportComments$[jybaek] UserID (sysusr1t)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=emp_id dbname="sysusr1t.emp_id" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=empnm dbname="sysusr1t.empnm" )
+ column=(type=char(48) updatewhereclause=yes name=emp dbname="emp" )
+ retrieve="  SELECT ~"SYSUSR1T~".~"EMP_ID~",   
+         ~"SYSUSR1T~".~"EMPNM~",   
+         RPAD(emp_id, 8, ' ')||' '||nvl(empnm, '') emp  
+    FROM ~"SYSUSR1T~"   
+" update="SYSUSR1T" updatewhere=1 updatekeyinplace=no )
+line(band=detail x1="5" y1="64" x2="1152" y2="64"  name=l_1 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="8388608" x="18" y="8" height="52" width="1161" format="[general]"  name=emp edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="256" y1="0" x2="256" y2="164"  name=l_2 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

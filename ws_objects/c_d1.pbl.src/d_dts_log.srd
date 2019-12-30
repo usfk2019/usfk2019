@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_dts_log.srd
+$PBExportComments$[kenn] Inquriy SYSLOG1T
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=pgm_id dbname="syslog1t.pgm_id" )
+ column=(type=char(50) updatewhereclause=yes name=syspgm1t_pgm_nm dbname="syspgm1t.pgm_nm" )
+ column=(type=char(100) updatewhereclause=yes name=pgm_item dbname="syslog1t.pgm_item" )
+ column=(type=char(100) updatewhereclause=yes name=chg_item dbname="syslog1t.chg_item" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"syslog1t~" )  TABLE(NAME=~"syspgm1t~" ) COLUMN(NAME=~"syslog1t.pgm_id~") COLUMN(NAME=~"syspgm1t.pgm_nm~") COLUMN(NAME=~"syslog1t.pgm_item~") COLUMN(NAME=~"syslog1t.chg_item~")    JOIN (LEFT=~"syslog1t.pgm_id~"    OP =~"=~"RIGHT=~"syspgm1t.pgm_id~" )WHERE(    EXP1 =~"~~~"SYSLOG1T~~~".~~~"TABLENM~~~"~"   OP =~"=~"    EXP2 =~"'SYSTEM'~" )  GROUP(NAME=~"syslog1t.pgm_id~") GROUP(NAME=~"syspgm1t.pgm_nm~") GROUP(NAME=~"syslog1t.pgm_item~") GROUP(NAME=~"syslog1t.chg_item~")) "  sort="syspgm1t_pgm_nm A pgm_item A chg_item A " )
+text(band=header alignment="2" text="Pgm Id" border="0" color="0" x="0" y="4" height="60" width="256"  name=pgm_id_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pgm Item" border="0" color="0" x="942" y="4" height="60" width="850"  name=pgm_item_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Chg Item" border="0" color="0" x="1806" y="4" height="60" width="1399"  name=chg_item_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="942" y="4" height="68" width="850" format="[general]"  name=pgm_item edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="4" height="68" width="1399" format="[general]"  name=chg_item edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="0" y="4" height="68" width="256" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="274" y="4" height="68" width="649" format="[general]"  name=syspgm1t_pgm_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

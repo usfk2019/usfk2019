@@ -1,0 +1,16 @@
+﻿$PBExportHeader$fl_times_after.srf
+$PBExportComments$time 변수형 사이의 기간을 초로 계산
+global type fl_times_after from function_object
+end type
+
+forward prototypes
+global function long fl_times_after (time at_fr, time at_to)
+end prototypes
+
+global function long fl_times_after (time at_fr, time at_to);//Purpose : Cal. term in second unit (time)
+
+Return (Hour(at_fr) - Hour(at_to)) * 3600 + &
+ (Minute(at_fr) - Minute(at_to)) * 60 + (Second(at_fr) - Second(at_to))
+
+end function
+

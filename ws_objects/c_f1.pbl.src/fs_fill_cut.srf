@@ -1,0 +1,43 @@
+﻿$PBExportHeader$fs_fill_cut.srf
+$PBExportComments$문자를 원하는 길이와 문자로 세팅해 준다
+global type fs_fill_cut from function_object
+end type
+
+forward prototypes
+global function string fs_fill_cut (string as_source, integer ai_len, string as_smb)
+end prototypes
+
+global function string fs_fill_cut (string as_source, integer ai_len, string as_smb);// 목적 : 원하는 길이로 만들어 주기 위해
+// 인자 : as_source - 대상 , ai_len - 원하는 길이
+
+Int li_source_len
+String ls_result
+Boolean lb_left = True
+
+If ai_len < 0 Then
+	ai_len = ai_len * -1
+	lb_left = False
+End If
+
+If ISNULL(as_source) Then as_source = ""
+li_source_len = LenA(as_source)
+
+If li_source_len < ai_len Then
+	If lb_left Then
+		ls_result = as_source + FillA(as_smb, ai_len - li_source_len)
+	Else
+		ls_result = FillA(as_smb, ai_len - li_source_len) + as_source
+	End If
+ElseIf li_source_len > ai_len Then
+	If lb_left Then
+		ls_result = LeftA(as_source, ai_len)
+	Else
+		ls_result = RightA(as_source, ai_len)
+	End If
+Else
+	ls_result = as_source
+End If
+
+Return ls_result
+end function
+

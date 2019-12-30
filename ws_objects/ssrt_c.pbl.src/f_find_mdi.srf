@@ -1,0 +1,32 @@
+﻿$PBExportHeader$f_find_mdi.srf
+$PBExportComments$[1hear]열려있는 MDI 윈도우 찾기
+global type f_find_mdi from function_object
+end type
+
+forward prototypes
+global function integer f_find_mdi (string swinnm, window wmdi)
+end prototypes
+
+global function integer f_find_mdi (string swinnm, window wmdi);Window                wSheet
+
+//wMdi -- MDI Window
+//sWinNm -- 찾고자 하는 Window의 이름
+
+wSheet = wMdi.GetFirstSheet()
+IF NOT(IsValid(wsheet)) THEN Return 0        //Not Found
+
+DO 
+        IF ClassName(wsheet) = sWinNm THEN
+//           wSheet.SetPosition(ToTop!)
+                Return 1        //Found
+        END IF
+        
+        wSheet = wMdi.GetNextSheet(wSheet)
+        IF NOT(IsValid(wsheet)) THEN Return 0        //Not Found
+        
+LOOP WHILE IsValid(wsheet)
+
+Return 0        //Not Found 
+
+end function
+

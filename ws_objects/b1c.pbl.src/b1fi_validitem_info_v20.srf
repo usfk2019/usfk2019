@@ -1,0 +1,49 @@
+﻿$PBExportHeader$b1fi_validitem_info_v20.srf
+$PBExportComments$[parkkh] Funtion - 해당가격정책별 validitem 정보여부
+global type b1fi_validitem_info_v20 from function_object
+end type
+
+forward prototypes
+global function integer b1fi_validitem_info_v20 (string as_title, string as_priceplan, ref string as_yn, ref string as_validkey_type, ref string as_crt_kind, ref string as_prefix, ref long al_length, ref string as_auth_method, ref string as_type, ref string as_used_level)
+end prototypes
+
+global function integer b1fi_validitem_info_v20 (string as_title, string as_priceplan, ref string as_yn, ref string as_validkey_type, ref string as_crt_kind, ref string as_prefix, ref long al_length, ref string as_auth_method, ref string as_type, ref string as_used_level);//********************************************************************************
+// Fuction ID : b1fi_validitem_chk_yn_v20
+// Purpose    : argument 가격정책코드(as_pricepland)으로 priceplan_type에
+//	            type(유형구분) 'VALIDITEM' 자료가 존재하는지 count 해서 여부를 본다.
+// Scope      : Public
+// Argument   :
+//              1) as_title(String/Value) : Massage content
+//              2) as_priceplan(String/Value) : Select PK 
+//              3) ai_yn(String/Reference) : return data
+// Return Value : integer
+//					  -1 : error
+//					   1 : ok
+// Log : (Date : Name : Version)
+// 	      2005/04/18 : Park Kyung Hae : Original 1.0
+//********************************************************************************
+String ls_title
+
+ls_title = "b1fs_validitem_chk_yn_v20"
+
+//1.priceplan_validkey_type Table count
+Select a.validkey_type, b.crt_kind, b.prefix, b.length, b.auth_method, b.type, b.used_level
+ into :as_validkey_type, :as_crt_kind, :as_prefix, :al_length, :as_auth_method, :as_type, :as_used_level
+ from priceplan_validkey_type a, validkey_type b 
+where a.validkey_type = b.validkey_type
+  and a.priceplan = :as_priceplan
+  and b.type = 'VALIDITEM';
+
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + " Select Error(sacmst)")
+	Return -1
+ElseIF SQLCA.SQLCode = 100 Then
+    as_yn = 'N'	
+	return 1
+End If
+
+as_yn = 'Y'
+
+Return 1
+end function
+

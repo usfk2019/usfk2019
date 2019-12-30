@@ -1,0 +1,18 @@
+﻿$PBExportHeader$b5d_cnd_prc_history.srd
+$PBExportComments$[backgu-2002/10/01] 청구 history이관
+release 7;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=12 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=260 color="536870912" )
+table(column=(type=char(3) updatewhereclause=no name=chargedt dbname="chargedt" )
+ column=(type=date updatewhereclause=no name=strdt dbname="strdt" )
+ )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="16711680" x="393" y="140" height="76" width="471" format="[general]"  name=strdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="이관일자:" border="0" color="0" x="41" y="148" height="60" width="297"  name=t_1  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="까지" border="0" color="0" x="928" y="152" height="56" width="128"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="청구주기:" border="0" color="0" x="37" y="52" height="60" width="302"  name=chargedt_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="16777215" x="393" y="48" height="68" width="667" format="[general]"  name=chargedt dddw.name=b5dc_dddw_chargedt dddw.displaycolumn=description dddw.datacolumn=chargedt dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

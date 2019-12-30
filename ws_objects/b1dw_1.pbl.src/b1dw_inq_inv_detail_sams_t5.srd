@@ -1,0 +1,79 @@
+﻿$PBExportHeader$b1dw_inq_inv_detail_sams_t5.srd
+$PBExportComments$[parkkh] 전화사용내역상세
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=184 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=stime dbname="post_bilcdr.stime" )
+ column=(type=datetime updatewhereclause=yes name=etime dbname="post_bilcdr.etime" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="post_bilcdr.biltime" )
+ column=(type=char(10) updatewhereclause=yes name=nodeno dbname="post_bilcdr.nodeno" )
+ column=(type=char(30) updatewhereclause=yes name=rtelnum dbname="post_bilcdr.rtelnum" )
+ column=(type=number updatewhereclause=yes name=bilamt dbname="post_bilcdr.bilamt" )
+ column=(type=number updatewhereclause=yes name=dcbilamt dbname="post_bilcdr.dcbilamt" )
+ column=(type=char(20) updatewhereclause=yes name=areacod dbname="post_bilcdr.areacod" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="post_bilcdr.validkey" )
+ column=(type=datetime updatewhereclause=yes name=sale_month dbname="post_bilcdr.sale_month" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="post_bilcdr.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="post_bilcdr.itemcod" )
+ column=(type=number updatewhereclause=yes name=bilamt0 dbname="post_bilcdr.bilamt0" )
+ retrieve="  SELECT STIME,   
+         ETIME,   
+         BILTIME,   
+         NODENO,   
+         RTELNUM,   
+         BILAMT, 
+         DCBILAMT,  
+         AREACOD,   
+         VALIDKEY,   
+         SALE_MONTH,
+         PRICEPLAN,
+			ITEMCOD,
+         BILAMT0  
+    FROM POST_BILCDR
+ Union all
+  SELECT STIME,   
+         ETIME,   
+         BILTIME,   
+         NODENO,   
+         RTELNUM,   
+         BILAMT,   
+         DCBILAMT,
+         AREACOD,   
+         VALIDKEY,   
+         SALE_MONTH,   
+         PRICEPLAN,
+			ITEMCOD,
+         BILAMT0  
+    FROM PRE_BILCDR
+  ORDER BY STIME DESC" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="8388608" x="9" y="0" height="56" width="151"  name=stime  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="8388608" x="174" y="0" height="56" width="151"  name=etime  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="8388608" x="338" y="0" height="56" width="1152"  name=biltime  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="8388608" x="1504" y="0" height="56" width="261"  name=nodeno  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="8388608" x="1778" y="0" height="56" width="800"  name=rtelnum  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="0" color="8388608" x="2592" y="0" height="56" width="1152"  name=bilamt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="0" color="8388608" x="3758" y="0" height="56" width="1152"  name=dcbilamt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="0" color="8388608" x="4923" y="0" height="56" width="530"  name=areacod  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="8388608" x="5467" y="0" height="56" width="800"  name=validkey  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="8388608" x="6281" y="0" height="56" width="151"  name=sale_month  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=0 border="0" color="8388608" x="6446" y="0" height="56" width="261"  name=priceplan  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=0 border="0" color="8388608" x="6720" y="0" height="56" width="261"  name=itemcod  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=0 border="0" color="8388608" x="6994" y="0" height="56" width="1152"  name=bilamt0  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Nodeno" border="0" color="16777215" x="1499" y="128" height="56" width="265"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Biltime" border="0" color="16777215" x="334" y="128" height="56" width="1157"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Etime" border="0" color="16777215" x="169" y="128" height="56" width="155"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Stime" border="0" color="16777215" x="5" y="128" height="56" width="155"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Rtelnum" border="0" color="16777215" x="1774" y="128" height="56" width="805"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bilamt" border="0" color="16777215" x="2587" y="128" height="56" width="1157"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Dcbilamt" border="0" color="16777215" x="3753" y="128" height="56" width="1157"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Areacod" border="0" color="16777215" x="4919" y="128" height="56" width="535"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Validkey" border="0" color="16777215" x="5463" y="128" height="56" width="805"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sale Month" border="0" color="16777215" x="6277" y="128" height="56" width="155"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Priceplan" border="0" color="16777215" x="6441" y="128" height="56" width="265"  name=t_14  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Itemcod" border="0" color="16777215" x="6715" y="128" height="56" width="265"  name=t_15  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bilamt0" border="0" color="16777215" x="6990" y="128" height="56" width="1157"  name=t_16  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

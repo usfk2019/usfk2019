@@ -1,0 +1,62 @@
+﻿$PBExportHeader$p0dw_mst_inq_iolog.srd
+$PBExportComments$[y.k.min] 수불작업로그조회
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=issuestat dbname="p_issuelog.issuestat" )
+ column=(type=char(10) updatewhereclause=yes name=issuedt dbname="issuedt" )
+ column=(type=char(10) updatewhereclause=yes name=pricemodel dbname="p_issuelog.pricemodel" )
+ column=(type=char(20) updatewhereclause=yes name=lotno dbname="p_issuelog.lotno" )
+ column=(type=decimal(0) updatewhereclause=yes name=issue_qty dbname="p_issuelog.issue_qty" )
+ column=(type=decimal(2) updatewhereclause=yes name=card_amt dbname="p_issuelog.card_amt" )
+ column=(type=char(15) updatewhereclause=yes name=contno_fr dbname="p_issuelog.contno_fr" )
+ column=(type=char(15) updatewhereclause=yes name=contno_to dbname="p_issuelog.contno_to" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=issueseq dbname="p_issuelog.issueseq" )
+ retrieve="SELECT 	ISSUESTAT,
+			TO_CHAR(ISSUEDT, 'yyyy-mm-dd') ISSUEDT,
+			PRICEMODEL,
+			LOTNO,
+			ISSUE_QTY,
+			CARD_AMT,
+			CONTNO_FR,
+			CONTNO_TO,
+			ISSUESEQ
+FROM		P_ISSUELOG
+ORDER BY ISSUESTAT
+       , ISSUEDT
+       , PRICEMODEL
+       , LOTNO
+       , ISSUE_QTY
+       , CARD_AMT
+       , CONTNO_FR
+       , CONTNO_TO
+       , ISSUESEQ ASC
+" update="P_ISSUELOG" updatewhere=0 updatekeyinplace=no )
+text(band=background alignment="2" text="Order By" border="0" color="0" x="41" y="36" height="60" width="512"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="485" y="36" height="60" width="549"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1573" y="32" height="60" width="320"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="3031" y="32" height="60" width="439"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="발행상태" border="2" color="16777215" x="9" y="108" height="56" width="457"  name=issuestat_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발행일자" border="2" color="16777215" x="475" y="108" height="56" width="379"  name=issuedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Model" border="2" color="16777215" x="864" y="108" height="56" width="526"  name=pricemodel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Lot #" border="2" color="16777215" x="1399" y="108" height="56" width="498"  name=lotno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발행수량" border="2" color="16777215" x="1906" y="108" height="56" width="343"  name=issue_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="카드금액" border="2" color="16777215" x="2258" y="108" height="56" width="366"  name=card_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="관리번호From" border="2" color="16777215" x="2633" y="108" height="56" width="466"  name=contno_fr_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="관리번호To" border="2" color="16777215" x="3109" y="108" height="56" width="498"  name=contno_to_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="457" format="[general]"  name=issuestat dddw.name=p0dc_dddw_issuelog dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="475" y="8" height="60" width="379" format="[general]"  name=issuedt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="864" y="8" height="60" width="526" format="[general]"  name=pricemodel dddw.name=p0dc_dddw_model dddw.displaycolumn=pricemodelnm dddw.datacolumn=pricemodel dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1399" y="8" height="60" width="498" format="[general]"  name=lotno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1906" y="8" height="60" width="343" format="#,##0"  name=issue_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2258" y="8" height="60" width="366" format="#,##0.00"  name=card_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2633" y="8" height="60" width="466" format="[general]"  name=contno_fr edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3109" y="8" height="60" width="498" format="[general]"  name=contno_to edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3616" y="8" height="56" width="5" format="[general]"  name=issueseq visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1911" y="32" height="60" width="261"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=foreground alignment="1" expression="rowcount()"border="0" color="16711680" x="3479" y="40" height="56" width="128" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

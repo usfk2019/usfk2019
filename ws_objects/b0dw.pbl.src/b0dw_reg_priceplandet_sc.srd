@@ -1,0 +1,32 @@
+﻿$PBExportHeader$b0dw_reg_priceplandet_sc.srd
+$PBExportComments$[ceusee] Price Plan에 해당하는 Itemcod 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="priceplan_det.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=itemcod dbname="priceplan_det.itemcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="priceplan_det.updt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="priceplan_det.crt_user" )
+ column=(type=char(0) updatewhereclause=yes name=code dbname="code" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="priceplan_det.updtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="priceplan_det.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pgm_id dbname="priceplan_det.pgm_id" )
+ retrieve="SELECT priceplan, itemcod, updt_user, crt_user,to_char(null) code, 
+		 updtdt, crtdt, pgm_id
+FROM priceplan_det
+ORDER BY priceplan, itemcod" update="priceplan_det" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="품목코드" border="2" color="15793151" x="27" y="16" height="60" width="750"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="15793151" x="805" y="16" height="60" width="896"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="32" y="116" height="76" width="320" format="[general]"  name=priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="361" y="112" height="76" width="320" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="690" y="124" height="76" width="320" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1024" y="128" height="76" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1253" y="116" height="76" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1490" y="120" height="76" width="320" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression=" itemcod "border="2" color="0" x="27" y="4" height="60" width="750" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="805" y="4" height="60" width="896" format="[general]"  name=itemcod dddw.name=b0dc_dddw_item_signcall dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=120 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b0dw_cnd_reg_areamst.srd
+$PBExportComments$[parkkh] 지역코드등록 condition data window
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=184 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=countrycod dbname="countrycod" )
+ column=(type=char(10) updatewhereclause=no name=areanm dbname="areanm" )
+ column=(type=char(50) updatewhereclause=no name=areagroup dbname="areagroup" )
+ column=(type=char(20) updatewhereclause=no name=arecode dbname="arecode" )
+ )
+text(band=detail alignment="1" text="국  가" border="0" color="0" x="9" y="28" height="56" width="192"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="지역명" border="0" color="0" x="9" y="112" height="56" width="192"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="지역상위그룹" border="0" color="0" x="960" y="28" height="56" width="466"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="0" x="1445" y="28" height="60" width="686" format="[general]"  name=areagroup dddw.name=b0dc_dddw_areagroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=10 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="224" y="28" height="60" width="686" format="[general]"  name=countrycod dddw.name=b0dc_dddw_country dddw.displaycolumn=countrynm dddw.datacolumn=countrycod dddw.percentwidth=140 dddw.lines=7 dddw.limit=10 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="지역코드" border="0" color="0" x="969" y="112" height="56" width="457"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1445" y="112" height="60" width="686" format="[general]"  name=arecode edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="2" color="0" x="224" y="112" height="60" width="686" format="[general]"  name=areanm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

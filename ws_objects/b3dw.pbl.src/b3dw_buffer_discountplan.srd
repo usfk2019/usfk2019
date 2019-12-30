@@ -1,0 +1,73 @@
+﻿$PBExportHeader$b3dw_buffer_discountplan.srd
+$PBExportComments$할인유형 마스타 Buffer 용 DW By 변유신
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=discountplan dbname="discount_plan.discountplan" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=discountplannm dbname="discount_plan.discountplannm" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fromdt dbname="discount_plan.fromdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=todt dbname="discount_plan.todt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=discount_type dbname="discount_plan.discount_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=discount_type2 dbname="discount_plan.discount_type2" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plevel dbname="discount_plan.plevel" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=edit_yn dbname="discount_plan.edit_yn" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=auto_yn dbname="discount_plan.auto_yn" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="discount_plan.remark" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=hlimit dbname="discount_plan.hlimit" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=llimit dbname="discount_plan.llimit" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=dcamt dbname="discount_plan.dcamt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=dcrate dbname="discount_plan.dcrate" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=trcod dbname="discount_plan.trcod" )
+ retrieve="  SELECT ~"DISCOUNT_PLAN~".~"DISCOUNTPLAN~",   
+         ~"DISCOUNT_PLAN~".~"DISCOUNTPLANNM~",   
+         ~"DISCOUNT_PLAN~".~"FROMDT~",    
+         ~"DISCOUNT_PLAN~".~"TODT~" TODT,   
+         ~"DISCOUNT_PLAN~".~"DISCOUNT_TYPE~",   
+         ~"DISCOUNT_PLAN~".~"DISCOUNT_TYPE2~",   
+         ~"DISCOUNT_PLAN~".~"PLEVEL~",   
+         ~"DISCOUNT_PLAN~".~"EDIT_YN~",   
+         ~"DISCOUNT_PLAN~".~"AUTO_YN~",   
+         ~"DISCOUNT_PLAN~".~"REMARK~",   
+         ~"DISCOUNT_PLAN~".~"HLIMIT~",   
+         ~"DISCOUNT_PLAN~".~"LLIMIT~",   
+         ~"DISCOUNT_PLAN~".~"DCAMT~",   
+         ~"DISCOUNT_PLAN~".~"DCRATE~",   
+         ~"DISCOUNT_PLAN~".~"TRCOD~"  
+    FROM ~"DISCOUNT_PLAN~"  
+   WHERE ~"DISCOUNT_PLAN~".~"DISCOUNTPLAN~" = :as_code    
+" update="DISCOUNT_PLAN" updatewhere=1 updatekeyinplace=no arguments=(("as_code", string)) )
+text(band=header alignment="2" text="Discountplan" border="0" color="0" x="9" y="8" height="64" width="270"  name=discountplan_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Discountplannm" border="0" color="0" x="288" y="8" height="64" width="640"  name=discountplannm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fromdt" border="0" color="0" x="937" y="8" height="64" width="594"  name=fromdt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Todt" border="0" color="0" x="1541" y="8" height="64" width="599"  name=todt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Discount Type" border="0" color="0" x="2149" y="8" height="64" width="379"  name=discount_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Discount Type2" border="0" color="0" x="2537" y="8" height="64" width="411"  name=discount_type2_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Plevel" border="0" color="0" x="2958" y="8" height="64" width="155"  name=plevel_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Edit Yn" border="0" color="0" x="3122" y="8" height="64" width="197"  name=edit_yn_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Auto Yn" border="0" color="0" x="3328" y="8" height="64" width="215"  name=auto_yn_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Remark" border="0" color="0" x="3552" y="8" height="64" width="1673"  name=remark_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Hlimit" border="0" color="0" x="5234" y="8" height="64" width="329"  name=hlimit_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Llimit" border="0" color="0" x="5573" y="8" height="64" width="329"  name=llimit_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Dcamt" border="0" color="0" x="5911" y="8" height="64" width="329"  name=dcamt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Dcrate" border="0" color="0" x="6249" y="8" height="64" width="329"  name=dcrate_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Trcod" border="0" color="0" x="6587" y="8" height="64" width="302"  name=trcod_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="76" width="270" format="[general]"  name=discountplan edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="288" y="8" height="76" width="640" format="[general]"  name=discountplannm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="937" y="8" height="76" width="594" format="[shortdate] [time]"  name=fromdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="1541" y="8" height="76" width="599" format="[shortdate] [time]"  name=todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="2149" y="8" height="76" width="379" format="[general]"  name=discount_type edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="0" x="2537" y="8" height="76" width="411" format="[general]"  name=discount_type2 edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="0" color="0" x="2958" y="8" height="76" width="155" format="[general]"  name=plevel edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="0" color="0" x="3122" y="8" height="76" width="197" format="[general]"  name=edit_yn edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="0" color="0" x="3328" y="8" height="76" width="215" format="[general]"  name=auto_yn edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="0" color="0" x="3552" y="8" height="76" width="1673" format="[general]"  name=remark edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=110 border="0" color="0" x="5234" y="8" height="76" width="329" format="[general]"  name=hlimit edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=120 border="0" color="0" x="5573" y="8" height="76" width="329" format="[general]"  name=llimit edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=130 border="0" color="0" x="5911" y="8" height="76" width="329" format="[general]"  name=dcamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=140 border="0" color="0" x="6249" y="8" height="76" width="329" format="[general]"  name=dcrate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=150 border="0" color="0" x="6587" y="8" height="76" width="302" format="[general]"  name=trcod edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

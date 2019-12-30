@@ -1,0 +1,25 @@
+﻿$PBExportHeader$rpt0dw_master_reg_level_declare.srd
+$PBExportComments$[parkkh] Drive Level Declare  DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=levelno dbname="level_dec.levelno" )
+ column=(type=char(50) updatewhereclause=yes name=description dbname="level_dec.description" )
+ retrieve="  SELECT UNIQUE ~"LEVEL_DEC~".~"LEVELNO~",   
+         ~"LEVEL_DEC~".~"DESCRIPTION~"
+    FROM ~"LEVEL_DEC~"   
+   
+" )
+text(band=header alignment="2" text="Level Description" border="2" color="16777215" x="471" y="96" height="60" width="1399"  name=description_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Level No" border="2" color="16777215" x="96" y="96" height="60" width="347"  name=levelno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="ORDER BY" border="0" color="0" x="110" y="20" height="60" width="288"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="8388608" x="411" y="20" height="56" width="480"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="ASC/DESC" border="0" color="0" x="987" y="20" height="60" width="288"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="" border="0" color="8388608" x="1289" y="20" height="60" width="87"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="471" y="8" height="56" width="1399" format="[general]"  name=description edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="2" color="0" x="96" y="8" height="56" width="352" format="[general]"  name=levelno edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,49 @@
+﻿$PBExportHeader$b1dw_reg_fileupload_mst_t3_v30.srd
+$PBExportComments$[lys]파일 Upload마스트등록 -텝3
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=fileformcd dbname="reqfileformdet.fileformcd" )
+ column=(type=char(50) update=yes updatewhereclause=yes key=yes name=fileitem dbname="reqfileformdet.fileitem" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=datatype dbname="reqfileformdet.datatype" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=groupno dbname="reqfileformdet.groupno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="reqfileformdet.itemcod" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=remark dbname="reqfileformdet.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="reqfileformdet.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="reqfileformdet.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="reqfileformdet.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updt dbname="reqfileformdet.updt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="reqfileformdet.pgm_id" )
+ column=(type=number update=yes updatewhereclause=yes name=seq dbname="reqfileformdet.seq" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="reqfileformdet.use_yn" )
+ retrieve="
+SELECT 	FILEFORMCD,
+             FILEITEM,
+             DATATYPE,
+             GROUPNO,
+             ITEMCOD,
+             REMARK,
+             CRT_USER,
+             UPDT_USER,
+             CRTDT,
+             UPDT,
+             PGM_ID,
+				 SEQ,
+				 USE_YN
+ FROM	REQFILEFORMDET
+" update="REQFILEFORMDET" updatewhere=0 updatekeyinplace=no  sort="seq A fileitem A " )
+text(band=header alignment="2" text="항목명" border="2" color="16777215" x="32" y="16" height="60" width="864"  name=remark_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비교 항목명" border="2" color="16777215" x="901" y="16" height="60" width="1102"  name=fileitem_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="항목그룹" border="2" color="16777215" x="2007" y="16" height="60" width="837"  name=groupno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="맵핑품목" border="2" color="16777215" x="2848" y="16" height="60" width="905"  name=itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="항목순서" border="2" color="16777215" x="3758" y="16" height="60" width="302"  name=seq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=6 alignment="0" tabsequence=30 border="0" color="15793151" x="32" y="0" height="68" width="864" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="0" color="0" x="2007" y="0" height="68" width="837" format="[general]"  name=groupno dddw.name=b1dc_dddw_item_group dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33554431" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="2" color="0" x="2848" y="0" height="68" width="905" format="[general]"  name=itemcod dddw.name=b1dc_dddw_itemcod_v30 dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33554431" )
+column(band=detail id=2 alignment="0" tabsequence=40 border="0" color="15793151" x="901" y="0" height="68" width="1102" format="[general]"  name=fileitem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=12 alignment="1" tabsequence=50 border="0" color="15793151" x="3758" y="0" height="68" width="302" format="[General]"  name=seq editmask.mask="###,##0" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

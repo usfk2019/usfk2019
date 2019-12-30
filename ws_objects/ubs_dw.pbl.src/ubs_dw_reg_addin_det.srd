@@ -1,0 +1,109 @@
+﻿$PBExportHeader$ubs_dw_reg_addin_det.srd
+$PBExportComments$[chooys] 제조사 등록 - Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=220 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=equipseq dbname="equipmst.equipseq" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=serialno dbname="equipmst.serialno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contno dbname="equipmst.contno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=dacom_mng_no dbname="equipmst.dacom_mng_no" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=mac_addr dbname="equipmst.mac_addr" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=mac_addr2 dbname="equipmst.mac_addr2" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=adtype dbname="equipmst.adtype" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=makercd dbname="equipmst.makercd" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=modelno dbname="equipmst.modelno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="equipmst.status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=valid_status dbname="equipmst.valid_status" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="equipmst.use_yn" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=adstat dbname="equipmst.adstat" )
+ column=(type=datetime update=yes updatewhereclause=yes name=idate dbname="equipmst.idate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=iseqno dbname="equipmst.iseqno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=sn_partner dbname="equipmst.sn_partner" )
+ column=(type=datetime update=yes updatewhereclause=yes name=snmovedt dbname="equipmst.snmovedt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=idamt dbname="equipmst.idamt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=sale_amt dbname="equipmst.sale_amt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sale_flag dbname="equipmst.sale_flag" )
+ column=(type=char(1000) update=yes updatewhereclause=yes name=remark dbname="equipmst.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="equipmst.itemcod" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="equipmst.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="equipmst.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="equipmst.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=entstore dbname="equipmst.entstore" )
+ column=(type=char(15) updatewhereclause=yes name=pid dbname="equipmst.pid" )
+ column=(type=number updatewhereclause=yes name=num dbname="equipmst.num" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=sap_no dbname="equipmst.sap_no" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=new_yn dbname="equipmst.new_yn" )
+ column=(type=number update=yes updatewhereclause=yes name=use_cnt dbname="equipmst.use_cnt" )
+ retrieve="SELECT EQUIPSEQ,
+		 SERIALNO,
+		 CONTNO,
+		 DACOM_MNG_NO,
+		 MAC_ADDR,
+		 MAC_ADDR2,
+		 ADTYPE,
+		 MAKERCD,
+		 MODELNO,
+		 STATUS,
+		 VALID_STATUS,
+		 USE_YN,
+       ADSTAT,
+		 IDATE,
+		 ISEQNO,
+		 SN_PARTNER,
+		 SNMOVEDT,
+		 IDAMT,
+		 SALE_AMT,
+		 SALE_FLAG,
+		 REMARK,
+		 ITEMCOD,
+		 CRT_USER,
+		 CRTDT,
+		 PGM_ID,
+		 ENTSTORE,
+		 PID,
+		 0 NUM,
+		 SAP_NO,
+		 NEW_YN,
+		 USE_CNT
+ FROM EQUIPMST  " update="EQUIPMST" updatewhere=0 updatekeyinplace=no )
+rectangle(band=header x="46" y="124" height="92" width="3927"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=header x1="41" y1="128" x2="41" y2="232"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="302" y1="128" x2="302" y2="220"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=header alignment="2" text="No" border="0" color="0" x="55" y="140" height="60" width="238"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="장비등록" border="0" color="0" x="50" y="52" height="64" width="512"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="MAC Address2" border="0" color="0" x="2629" y="140" height="60" width="631"  name=t_8  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="MAC Address1" border="0" color="0" x="1938" y="140" height="60" width="631"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="1902" y1="124" x2="1902" y2="236"  name=l_12 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="1157" y1="128" x2="1157" y2="240"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=header alignment="2" text="Serial No." border="0" color="0" x="329" y="140" height="60" width="800"  name=serialno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="DACOM No." border="0" color="0" x="1179" y="140" height="60" width="704"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="3973" y1="124" x2="3973" y2="236"  name=l_16 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="41" y1="124" x2="3968" y2="124"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="41" y1="216" x2="3973" y2="216"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="2597" y1="124" x2="2597" y2="236"  name=l_14 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="3282" y1="124" x2="3282" y2="236"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=header alignment="2" text="SAP No." border="0" color="0" x="3310" y="140" height="60" width="631"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="rowcount()"border="0" color="0" x="3680" y="56" height="60" width="201" format="###,###,##0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="건" border="0" color="0" x="3890" y="56" height="60" width="82"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="총" border="0" color="0" x="3575" y="56" height="60" width="82"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="4" height="60" width="238" format="[general]"  name=num edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="41" y1="0" x2="41" y2="76"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="302" y1="0" x2="302" y2="76"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="0" color="16777215" x="1920" y="4" height="60" width="667" format="[general]"  name=mac_addr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+line(band=detail x1="1902" y1="0" x2="1902" y2="76"  name=l_13 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1157" y1="0" x2="1157" y2="76"  name=l_10 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="0" color="16777215" x="315" y="4" height="60" width="827" format="[general]"  name=serialno editmask.mask="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="0" color="16777215" x="1175" y="4" height="60" width="718" format="[general]"  name=dacom_mng_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+line(band=detail x1="3973" y1="0" x2="3973" y2="76"  name=l_17 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="41" y1="72" x2="3973" y2="72"  name=l_9 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="2597" y1="0" x2="2597" y2="76"  name=l_15 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="3282" y1="0" x2="3282" y2="76"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="0" color="0" x="2610" y="4" height="60" width="663" format="[general]"  name=mac_addr2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=29 alignment="0" tabsequence=50 border="0" color="16777215" x="3301" y="4" height="60" width="663" format="[general]"  name=sap_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="1353" y="196" height="60" width="23"  name=new_yn  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="1472" y="184" height="60" width="992"  name=use_cnt  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

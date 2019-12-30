@@ -1,0 +1,88 @@
+﻿$PBExportHeader$p1dw_prt_refilllog.srd
+$PBExportComments$[jsha] 충전보고서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=480 color="536870912" )
+summary(height=88 color="536870912" )
+footer(height=8 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(15) updatewhereclause=yes name=p_refilllog_contno dbname="p_refilllog.contno" )
+ column=(type=char(20) updatewhereclause=yes name=p_refilllog_pid dbname="p_refilllog.pid" )
+ column=(type=char(60) updatewhereclause=yes name=p_cardmst_partner_prefix dbname="p_cardmst.partner_prefix" )
+ column=(type=char(10) updatewhereclause=yes name=p_cardmst_priceplan dbname="p_cardmst.priceplan" )
+ column=(type=datetime updatewhereclause=yes name=p_refilllog_refilldt dbname="p_refilllog.refilldt" )
+ column=(type=char(10) updatewhereclause=yes name=p_refilllog_refill_type dbname="p_refilllog.refill_type" )
+ column=(type=decimal(2) updatewhereclause=yes name=p_refilllog_refill_amt dbname="p_refilllog.refill_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=p_refilllog_sale_amt dbname="p_refilllog.sale_amt" )
+ column=(type=char(10) updatewhereclause=yes name=compute_0009 dbname="compute_0009" )
+ column=(type=decimal(2) updatewhereclause=yes name=p_cardmst_balance dbname="p_cardmst.balance" )
+ column=(type=char(10) updatewhereclause=yes name=p_refilllog_crt_user dbname="p_refilllog.crt_user" )
+ column=(type=char(19) updatewhereclause=yes name=compute_0012 dbname="compute_0012" )
+ retrieve="SELECT r.contno, 
+		 r.pid, 
+		 c.partner_prefix,
+		 c.priceplan,
+		 r.refilldt, 
+	 	 r.refill_type, 
+		 r.refill_amt, 
+		 r.sale_amt, 
+		 to_char(r.refilldt + r.eday, 'yyyy-mm-dd'),
+		 c.balance,
+		 r.crt_user,
+		 to_char(r.crtdt, 'yyyy-mm-dd hh24:mi:ss')
+FROM p_cardmst c, p_refilllog r
+WHERE c.pid = r.pid
+ORDER BY r.contno" )
+group(level=1 header.height=0 trailer.height=84 by=("p_refilllog_contno" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="59" y="72" height="88" width="4777"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2094" y="224" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="2135" y="224" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="충전일자 :" border="0" color="0" x="69" y="316" height="56" width="297"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="384" y="316" height="56" width="311"  name=t_refilldt_fr  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="~~" border="0" color="0" x="709" y="316" height="56" width="46"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="768" y="316" height="56" width="311"  name=t_refilldt_to  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="관리번호" border="0" color="0" x="69" y="400" height="60" width="315"  name=p_refilllog_contno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4078" y="300" height="60" width="741" format="[GENERAL]"  name=compute_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="4082" y="216" height="60" width="736"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="64" y1="384" x2="4827" y2="384"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="64" y1="468" x2="4827" y2="472"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="충전금액" border="0" color="0" x="2583" y="400" height="60" width="448"  name=p_refilllog_refill_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="판매금액" border="0" color="0" x="3045" y="400" height="60" width="425"  name=p_refilllog_sale_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="충전후유효기간" border="0" color="0" x="3483" y="400" height="60" width="439"  name=p_refilllog_eday_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="작업자" border="0" color="0" x="3936" y="400" height="60" width="334"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="작업일자" border="0" color="0" x="4283" y="400" height="60" width="535"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="197" y1="76" x2="1147" y2="76"  name=l_8 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="69" y="8" height="56" width="315" format="[general]"  name=p_refilllog_contno edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="64" y1="76" x2="4827" y2="76"  name=l_3 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4283" y="8" height="56" width="535" format="[general]"  name=compute_0012 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="3936" y="8" height="56" width="334" format="[general]"  name=p_refilllog_crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="3483" y="8" height="56" width="439" format="[general]"  name=compute_0009 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3045" y="8" height="56" width="425" format="#,##0.00"  name=p_refilllog_sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2583" y="8" height="56" width="448" format="#,##0.00"  name=p_refilllog_refill_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="64" y1="76" x2="4827" y2="76"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(  p_refilllog_refill_amt  for group 1 )"border="0" color="0" x="2583" y="8" height="60" width="448" format="#,##0.00"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum(  p_refilllog_sale_amt for group 1 )"border="0" color="0" x="3045" y="8" height="60" width="425" format="#,##0.00"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=trailer.1 alignment="1" text="합계" border="0" color="0" x="2400" y="8" height="60" width="169"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="count(  p_refilllog_refill_amt  for group 1 )"border="0" color="0" x="2053" y="8" height="60" width="251" format="#,##0"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=trailer.1 alignment="1" text="건수" border="0" color="0" x="1856" y="8" height="60" width="183"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="sum( p_cardmst_balance  for group 1 distinct)"border="0" color="0" x="1385" y="8" height="60" width="453" format="#,##0.00"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=summary x1="64" y1="4" x2="4827" y2="4"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(  p_refilllog_sale_amt for all )"border="0" color="0" x="3045" y="20" height="60" width="425" format="#,##0.00"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(  p_refilllog_refill_amt  for all )"border="0" color="0" x="2583" y="20" height="60" width="448" format="#,##0.00"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="총합계" border="0" color="0" x="2318" y="20" height="60" width="251"  name=t_3  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="count(  p_refilllog_refill_amt  for all )"border="0" color="0" x="2053" y="20" height="60" width="251" format="#,##0"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=trailer.1 alignment="1" text="카드잔액" border="0" color="0" x="1056" y="8" height="60" width="311"  name=p_cardmst_balance_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="총건수" border="0" color="0" x="1787" y="20" height="60" width="251"  name=t_10  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="402" y="8" height="56" width="571" format="[general]"  name=p_refilllog_pid edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="카드번호" border="0" color="0" x="402" y="400" height="60" width="571"  name=p_refilllog_pid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="가격정책" border="0" color="0" x="2071" y="400" height="60" width="498"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2071" y="8" height="56" width="498" format="[general]"  name=p_cardmst_priceplan dddw.name=p1dc_dddw_priceplan dddw.displaycolumn=priceplanmst_priceplan_desc dddw.datacolumn=priceplanmst_priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="대리점" border="0" color="0" x="1650" y="400" height="60" width="407"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1650" y="8" height="56" width="407" format="[general]"  name=p_cardmst_partner_prefix dddw.name=p1dc_dddw_partner_0 dddw.displaycolumn=partnernm dddw.datacolumn=prefixno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="충전일자" border="0" color="0" x="992" y="400" height="60" width="325"  name=p_refilllog_refilldt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="992" y="8" height="56" width="325" format="[shortdate] [time]"  name=p_refilllog_refilldt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="충전유형" border="0" color="0" x="1353" y="400" height="60" width="261"  name=p_refilllog_refill_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1353" y="8" height="56" width="261" format="[general]"  name=p_refilllog_refill_type dddw.name=p1dc_dddw_refill_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+
+sparse(names="p_refilllog_contno	p_refilllog_pid	l_8")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

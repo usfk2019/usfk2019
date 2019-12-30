@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_reg_control_content.srd
+$PBExportComments$Parameter Setting
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(2) update=yes updatewhereclause=yes key=yes name=module dbname="sysctl1t.module" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=ref_no dbname="sysctl1t.ref_no" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=ref_desc dbname="sysctl1t.ref_desc" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=ref_content dbname="sysctl1t.ref_content" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"sysctl1t~" ) COLUMN(NAME=~"sysctl1t.module~") COLUMN(NAME=~"sysctl1t.ref_no~") COLUMN(NAME=~"sysctl1t.ref_desc~") COLUMN(NAME=~"sysctl1t.ref_content~")) " update="SYSCTL1T" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Ref No" border="2" color="15793151" x="114" y="20" height="60" width="219"  name=ref_no_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Ref Description" border="2" color="15793151" x="361" y="20" height="60" width="1463"  name=ref_desc_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Ref Content" border="2" color="15793151" x="1851" y="20" height="60" width="969"  name=ref_content_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="2" color="0" x="1851" y="12" height="64" width="969" format="[general]"  name=ref_content edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="361" y="12" height="64" width="1463" format="[general]"  name=ref_desc edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="114" y="12" height="64" width="219" format="[general]"  name=ref_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

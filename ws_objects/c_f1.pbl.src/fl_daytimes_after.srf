@@ -1,0 +1,27 @@
+﻿$PBExportHeader$fl_daytimes_after.srf
+$PBExportComments$datetime 변수형 사이의 기간을 초로 계산
+global type fl_daytimes_after from function_object
+end type
+
+forward prototypes
+global function long fl_daytimes_after (datetime adt_fr, datetime adt_to)
+end prototypes
+
+global function long fl_daytimes_after (datetime adt_fr, datetime adt_to);//Purpose : Cal. term in second unit (datatime) = adt_to - adt_fr
+
+Date ld_fr, ld_to
+Time lt_fr, lt_to
+Long ll_result
+
+ld_fr = Date(adt_fr)
+ld_to = Date(adt_to)
+
+lt_fr = Time(adt_fr)
+lt_to = Time(adt_to)
+
+ll_result = DaysAfter(ld_fr, ld_to) + fl_times_after(lt_fr, lt_to)
+
+Return ll_result
+
+end function
+

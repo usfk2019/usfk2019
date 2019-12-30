@@ -1,0 +1,37 @@
+﻿$PBExportHeader$p1dw_reg_master_t7_v20.srd
+$PBExportComments$[ssong] 단축key 등록 - v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=pid dbname="hotkey_pid.pid" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=hotkey dbname="hotkey_pid.hotkey" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=rtelno dbname="hotkey_pid.rtelno" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="hotkey_pid.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="hotkey_pid.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="hotkey_pid.pgm_id" )
+ retrieve="   SELECT PID
+        , HOTKEY
+        , RTELNO
+        , CRTDT
+        , CRT_USER
+        , PGM_ID
+     FROM HOTKEY_PID
+ ORDER BY RTELNO, HOTKEY ASC
+" update="HOTKEY_PID" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="1" text="관리번호:" border="0" color="0" x="855" y="20" height="56" width="306"  name=t_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="단축Key" border="2" color="16777215" x="23" y="96" height="60" width="302"  name=hotkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신지번호" border="2" color="16777215" x="343" y="96" height="60" width="498"  name=rtelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성일" border="2" color="16777215" x="859" y="96" height="60" width="603"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성User" border="2" color="16777215" x="1481" y="96" height="60" width="603"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="1" text="Pin #:" border="0" color="0" x="46" y="20" height="56" width="169"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="229" y="20" height="56" width="443"  name=t_pid  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="23" y="8" height="60" width="302" format="[general]"  name=hotkey dddw.name=p1dc_dddw_hotkey dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="16777215" x="343" y="8" height="60" width="498" format="[general]"  name=rtelno edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0" x="859" y="8" height="60" width="603" format="yyyy-mm-dd"  name=crtdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1481" y="8" height="60" width="603" format="[general]"  name=crt_user edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="0" text="" border="0" color="0" x="1179" y="20" height="56" width="384"  name=contno  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

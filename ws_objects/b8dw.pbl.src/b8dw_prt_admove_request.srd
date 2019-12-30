@@ -1,0 +1,85 @@
+﻿$PBExportHeader$b8dw_prt_admove_request.srd
+$PBExportComments$[parkkh] 일자별입고리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=444 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=requestdt dbname="requestdt" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="admovereq.modelno" )
+ column=(type=char(10) updatewhereclause=yes name=makercd dbname="admovereq.makercd" )
+ column=(type=char(10) updatewhereclause=yes name=fr_partner dbname="admovereq.fr_partner" )
+ column=(type=char(10) updatewhereclause=yes name=to_partner dbname="admovereq.to_partner" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=requestno dbname="admovereq.requestno" )
+ column=(type=decimal(0) updatewhereclause=yes name=reqqty dbname="admovereq.reqqty" )
+ column=(type=decimal(0) updatewhereclause=yes name=trqty dbname="admovereq.trqty" )
+ column=(type=char(20) updatewhereclause=yes name=oqman dbname="admovereq.oqman" )
+ column=(type=datetime updatewhereclause=yes name=trdate dbname="admovereq.trdate" )
+ column=(type=char(1) updatewhereclause=yes name=trc_yn dbname="admovereq.trc_yn" values="Yes	Y/No	N/" )
+ retrieve="SELECT	to_char(requestdt,'yyyy-mm-dd') requestdt,
+			modelno,
+			makercd,
+			fr_partner,
+			to_partner,
+			requestno,
+			reqqty,
+			trqty,
+		 	oqman,
+			trdate,
+			trc_yn
+  FROM admovereq
+ORDER BY	requestdt desc, modelno, fr_partner, requestno" update="admovereq" updatewhere=1 updatekeyinplace=no )
+group(level=1 header.height=0 trailer.height=0 by=("requestdt" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=84 by=("requestdt" , "modelno" , "makercd" ) header.color="536870912" trailer.color="536870912" )
+group(level=3 header.height=0 trailer.height=4 by=("requestdt" , "modelno" , "makercd" , "fr_partner" ) header.color="536870912" trailer.color="536870912" )
+rectangle(band=header x="5" y="352" height="92" width="4873"  name=r_1 brush.hatch="6" brush.color="31844325" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="14" y="76" height="88" width="4855"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2432" y="196" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2505" y="196" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4197" y="276" height="64" width="667" format="[GENERAL]"  name=page  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="4197" y="204" height="60" width="667"  name=date_time  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="9" y1="352" x2="4864" y2="352"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="9" y1="440" x2="4864" y2="440"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="요청일자" border="0" color="0" x="23" y="364" height="60" width="343"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="0" text="요청모델" border="0" color="0" x="379" y="364" height="60" width="704"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="요청번호" border="0" color="0" x="2299" y="364" height="60" width="389"  name=makercd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="0" text="제 조 사" border="0" color="0" x="1097" y="364" height="60" width="544"  name=adtype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="요청대리점" border="0" color="0" x="1650" y="364" height="60" width="640"  name=modelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="1" text="처 리 수 량" border="0" color="0" x="3195" y="364" height="60" width="494"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="1" text="요 청 수 량" border="0" color="0" x="2697" y="364" height="60" width="489"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="처 리 자" border="0" color="0" x="3712" y="364" height="60" width="475"  name=iqty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="처리일자" border="0" color="0" x="4201" y="364" height="60" width="343"  name=sale_cnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="완료여부" border="0" color="0" x="4558" y="364" height="60" width="293"  name=rent_cnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+compute(band=detail alignment="0" expression="1"border="0" color="0" x="3575" y="116" height="60" width="215" format="[GENERAL]"  name=cnt visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="cumulativeSum( cnt for group 1 )"border="0" color="0" x="3803" y="116" height="60" width="215" format="[GENERAL]"  name=visible visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="cumulativeSum( cnt for group 2 )"border="0" color="0" x="4037" y="116" height="60" width="215" format="[GENERAL]"  name=visible_2 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="9" y1="76" x2="4864" y2="76"  name=l_4 visible="1~t0" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="23" y="4" height="60" width="343" format="[general]"  name=requestdt visible="1~tif(visible = 1, 1, 0)" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="4" height="60" width="704" format="[general]"  name=modelno visible="1~tif(visible_2 = 1, 1, 0)" dddw.name=b8dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1097" y="4" height="60" width="544" format="[general]"  name=makercd visible="1~tif(visible_2 = 1, 1, 0)" dddw.name=b8dc_dddw_admaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1650" y="4" height="60" width="640" format="[general]"  name=fr_partner dddw.name=b8dc_dddw_partner_agent dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2299" y="4" height="60" width="389" format="[general]"  name=requestno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2697" y="4" height="60" width="489" format="#,##0"  name=reqqty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3195" y="4" height="60" width="494" format="#,##0"  name=trqty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3712" y="4" height="60" width="475" format="[general]"  name=oqman edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="4201" y="4" height="60" width="343" format="yyyy-mm-dd"  name=trdate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="0" color="0" x="4558" y="4" height="60" width="293" format="[general]"  name=trc_yn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+rectangle(band=trailer.3 x="5" y="0" height="92" width="4873"  name=r_2 brush.hatch="6" brush.color="31844325" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+compute(band=trailer.3 alignment="1" expression="sum(  reqqty  for group 3 )"border="0" color="0" x="2697" y="8" height="64" width="489" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+compute(band=trailer.3 alignment="1" expression="sum(  trqty  for group 3 )"border="0" color="0" x="3195" y="8" height="64" width="494" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=trailer.3 alignment="1" text="계" border="0" color="0" x="2277" y="8" height="64" width="389"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+line(band=trailer.3 x1="9" y1="84" x2="4864" y2="84"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+rectangle(band=trailer.2 x="5" y="0" height="92" width="4873"  name=r_3 brush.hatch="6" brush.color="80269524" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+line(band=trailer.2 x1="9" y1="80" x2="4864" y2="80"  name=l_6 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+compute(band=trailer.2 alignment="1" expression="~"[ ~" + lookupdisplay( modelno  ) + ~" ]계~""border="0" color="0" x="1806" y="8" height="64" width="859" format="[GENERAL]"  name=compute_5  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=trailer.2 alignment="1" expression="sum(  reqqty  for group 2 )"border="0" color="0" x="2697" y="8" height="64" width="489" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=trailer.2 alignment="1" expression="sum(  trqty  for group 2 )"border="0" color="0" x="3195" y="8" height="64" width="494" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+line(band=summary x1="9" y1="4" x2="4864" y2="4"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=header id=5 alignment="0" tabsequence=32766 border="0" color="0" x="393" y="276" height="64" width="809" format="[general]"  name=to_partner dddw.name=b8dc_dddw_partner_agent dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="수신대리점:" border="0" color="0" x="18" y="280" height="60" width="352"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="요청일자:" border="0" color="0" x="1285" y="280" height="60" width="325"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1623" y="280" height="60" width="471"  name=requestdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+
+sparse(names="requestdt	modelno	fr_partner	makercd")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

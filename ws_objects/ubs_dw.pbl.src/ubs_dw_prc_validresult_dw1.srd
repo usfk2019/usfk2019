@@ -1,0 +1,35 @@
+﻿$PBExportHeader$ubs_dw_prc_validresult_dw1.srd
+$PBExportComments$[jhchoi] 장비인증 결과 조회 팝업 (Dw1) - 2009.06.09
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(40) updatewhereclause=yes name=timestamp dbname="bc_auth.timestamp" )
+ column=(type=char(40) updatewhereclause=yes name=action dbname="bc_auth.action" )
+ column=(type=char(40) updatewhereclause=yes name=status dbname="bc_auth.status" )
+ column=(type=char(40) updatewhereclause=yes name=effectdate dbname="bc_auth.effectdate" )
+ column=(type=char(40) updatewhereclause=yes name=macaddress dbname="bc_auth.macaddress" )
+ column=(type=char(40) updatewhereclause=yes name=flag dbname="bc_auth.flag" )
+ column=(type=char(200) updatewhereclause=yes name=failcause dbname="failcause" )
+ retrieve="select timestamp, action, status, effectdate, macaddress, flag, failcause
+/*from   buuser.bc_auth@boss_db */
+from   bc_auth
+where  subsno = '0'" )
+text(band=header alignment="2" text="Timestamp" border="2" color="16777215" x="9" y="8" height="60" width="645"  name=timestamp_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Action" border="2" color="16777215" x="663" y="8" height="60" width="352"  name=action_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Status" border="2" color="16777215" x="1024" y="8" height="60" width="338"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Effectdate" border="2" color="16777215" x="1371" y="8" height="60" width="690"  name=effectdate_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Macaddress" border="2" color="16777215" x="2071" y="8" height="60" width="622"  name=macaddress_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Flag" border="2" color="16777215" x="2702" y="8" height="60" width="366"  name=flag_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Failcause" border="2" color="16777215" x="3077" y="8" height="60" width="2798"  name=failcause_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="68" width="645" format="[general]"  name=timestamp editmask.mask="XXXXXXXXXXXXXXXXXXXX" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1371" y="4" height="68" width="690" format="[general]"  name=effectdate edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2071" y="4" height="68" width="622" format="[general]"  name=macaddress edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2702" y="4" height="68" width="366" format="[general]"  name=flag edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3077" y="4" height="68" width="2798" format="[general]"  name=failcause edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="663" y="4" height="68" width="352" format="[general]"  name=action edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1024" y="4" height="68" width="338" format="[general]"  name=status edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

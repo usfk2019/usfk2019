@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_msg_processing.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=440 color="536870912" )
+table(column=(type=char(50) updatewhereclause=no name=prg_name dbname="prg_name" )
+ column=(type=char(500) updatewhereclause=no name=prg_msg dbname="prg_msg" )
+ )
+text(band=detail alignment="0" text="The Following Process is completed." border="0" color="0" x="41" y="36" height="60" width="1349"  name=t_1  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Message :" border="0" color="0" x="41" y="228" height="60" width="311"  name=t_2  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Process Name :" border="0" color="0" x="41" y="132" height="60" width="448"  name=t_3  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="521" y="132" height="60" width="869" format="[general]"  name=prg_name edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="375" y="228" height="204" width="1015" format="[general]"  name=prg_msg edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

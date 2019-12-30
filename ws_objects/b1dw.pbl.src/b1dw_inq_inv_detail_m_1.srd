@@ -1,0 +1,46 @@
+﻿$PBExportHeader$b1dw_inq_inv_detail_m_1.srd
+$PBExportComments$[parkkh] 청구 및 사용내역 상헤 조회 master
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_customerid dbname="customerm.customerid" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_ssno dbname="customerm.ssno" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_status dbname="customerm.status" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_ctype1 dbname="customerm.ctype1" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid dbname="customerm.payid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm_1 dbname="customerm.customernm" )
+ column=(type=char(60) updatewhereclause=yes name=locmst_locationnm dbname="locmst.locationnm" )
+ retrieve="SELECT   cus.customernm, cus.customerid, cus.ssno, 
+			cus.status, cus.ctype1, cus.payid, cus_pay.customernm, loc.locationnm
+    FROM customerm cus, customerm cus_pay, locmst loc
+WHERE cus.payid = cus_pay.customerid
+	AND loc.location (+)= cus.location
+ORDER BY cus.customernm, cus.customerid" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="334" y="36" height="60" width="594"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="14" y="32" height="60" width="306"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1344" y="32" height="60" width="302"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="2542" y="32" height="60" width="430"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="3013" y="32" height="60" width="635" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Customer Name" border="2" color="16777215" x="9" y="108" height="60" width="599"  name=customerm_customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer ID" border="2" color="16777215" x="617" y="108" height="60" width="475"  name=customerm_customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="SSNO" border="2" color="16777215" x="1102" y="108" height="60" width="549"  name=customerm_ssno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="16777215" x="1659" y="108" height="60" width="361"  name=customerm_status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer Type" border="2" color="16777215" x="2030" y="108" height="60" width="530"  name=customerm_ctype1_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Payer" border="2" color="16777215" x="2569" y="108" height="60" width="434"  name=customerm_payid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Payer Name" border="2" color="16777215" x="3013" y="108" height="60" width="635"  name=customerm_customernm_1_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Location" border="2" color="16777215" x="3657" y="108" height="60" width="544"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="64" width="599" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1102" y="8" height="64" width="549" format="@@@@@@-@@@@@@@"  name=customerm_ssno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1659" y="8" height="64" width="361" format="[general]"  name=customerm_status dddw.name=b1dc_dddw_customerstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2030" y="8" height="64" width="530" format="[general]"  name=customerm_ctype1 dddw.name=b1dc_dddw_customertype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3013" y="8" height="64" width="635" format="[general]"  name=customerm_customernm_1 edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="617" y="8" height="64" width="475" format="[general]"  name=customerm_customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2569" y="8" height="64" width="434" format="[general]"  name=customerm_payid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3657" y="8" height="60" width="544" format="[general]"  name=locmst_locationnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1669" y="36" height="60" width="279"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

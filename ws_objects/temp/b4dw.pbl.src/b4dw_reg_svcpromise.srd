@@ -1,0 +1,51 @@
+﻿$PBExportHeader$b4dw_reg_svcpromise.srd
+$PBExportComments$[parkkh] 약정유형등록 master
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=prmtype dbname="svcpromise.prmtype" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=prmnm dbname="svcpromise.prmnm" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=prm_months dbname="svcpromise.prm_months" values="1개월  	1/2개월  	2/3개월  	3/4개월  	4/5개월  	5/6개월  	6/7개월  	7/8개월  	8/9개월  	9/10개월  	10/11개월  	11/12개월  	12/13개월  	13/14개월  	14/15개월  	15/16개월  	16/17개월  	17/18개월  	18/19개월  	19/20개월  	20/21개월  	21/22개월  	22/23개월  	23/24개월  	24/25개월  	25/26개월  	26/27개월  	27/28개월  	28/29개월  	29/30개월  	30/31개월  	31/32개월  	32/33개월  	33/34개월  	34/35개월  	35/36개월  	36/" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=prm_penalty dbname="svcpromise.prm_penalty" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="svcpromise.itemcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=svccod dbname="svcpromise.svccod" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="svcpromise.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="svcpromise.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="svcpromise.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="svcpromise.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="svcpromise.pgm_id" )
+ retrieve="SELECT prmtype,
+		 prmnm,
+		 prm_months,
+		 prm_penalty,
+		 itemcod,
+		 svccod,
+		 crt_user,
+		 updt_user,
+		 crtdt,
+		 updtdt,
+		 pgm_id
+  FROM svcpromise
+ORDER BY prmtype" update="svcpromise" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1349" y="104" height="64" width="549" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1920" y="104" height="64" width="247" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="183" y="104" height="64" width="247" format="[general]"  name=crt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="434" y="104" height="64" width="247" format="[general]"  name=updt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="704" y="104" height="64" width="603" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="약정유형코드" border="2" color="15793151" x="14" y="12" height="60" width="425"  name=prmtype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="위약금품목" border="2" color="15793151" x="3351" y="12" height="60" width="859"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용서비스" border="2" color="15793151" x="2473" y="12" height="60" width="859"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="위약금(월정액)" border="2" color="15793151" x="1851" y="12" height="60" width="603"  name=prm_penalty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="약정월수" border="2" color="15793151" x="1522" y="12" height="60" width="311"  name=prm_months_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="약정유형명" border="2" color="15793151" x="457" y="12" height="60" width="1047"  name=prmnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="14" y="8" height="60" width="425" format="[general]"  name=prmtype edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=5 alignment="0" tabsequence=60 border="2" color="16777215" x="3351" y="8" height="60" width="859" format="[general]"  name=itemcod dddw.name=b1dc_dddw_itemmst dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="2" color="16777215" x="2473" y="8" height="60" width="859" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="2" color="16777215" x="1851" y="8" height="60" width="603" format="#,##0.00"  name=prm_penalty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="2" color="16777215" x="1522" y="8" height="60" width="311" format="[general]"  name=prm_months ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="457" y="8" height="60" width="1047" format="[general]"  name=prmnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

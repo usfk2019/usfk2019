@@ -1,0 +1,54 @@
+﻿$PBExportHeader$b1dw_1_prt_trouble_svccod_v20.srd
+$PBExportComments$[jsha]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=444 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=svcmst_svctype dbname="svcmst.svctype" )
+ column=(type=char(10) updatewhereclause=yes name=customer_trouble_svccod dbname="customer_trouble.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=troubletypea_troubletypeb dbname="troubletypea.troubletypeb" )
+ column=(type=char(10) updatewhereclause=yes name=troubletypemst_troubletypea dbname="troubletypemst.troubletypea" )
+ column=(type=number updatewhereclause=yes name=count dbname="count" )
+ retrieve="SELECT b.svctype,
+  		a.svccod,
+		d.troubletypeb,
+		c.troubletypea,
+		count(a.TROUBLENO) count
+ FROM	customer_trouble a,
+		svcmst b,
+		troubletypemst c,
+		troubletypea d
+ WHERE	a.svccod = b.svccod(+)
+ AND		a.troubletype = c.troubletype(+)
+ AND		c.troubletypea = d.troubletypea
+ GROUP BY b.svctype, a.svccod, d.troubletypeb, c.troubletypea
+ ORDER BY a.svccod, d.troubletypeb, c.troubletypea" )
+group(level=1 header.height=0 trailer.height=100 by=("customer_trouble_svccod" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1280" y="176" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1353" y="176" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="27" y1="436" x2="3232" y2="440"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="장애건수" border="0" color="0" x="2875" y="368" height="56" width="329"  name=compute_0005_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="민원소분류" border="0" color="0" x="2135" y="368" height="56" width="379"  name=troubletypemst_troubletypea_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="민원중분류" border="0" color="0" x="1394" y="368" height="56" width="480"  name=troubletypea_troubletypeb_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="서비스" border="0" color="0" x="645" y="368" height="56" width="439"  name=customer_trouble_svccod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="서비스유형" border="0" color="0" x="50" y="368" height="56" width="416"  name=svcmst_svctype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="27" y1="348" x2="3232" y2="352"  name=l_10 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="18" y="36" height="88" width="3209"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="2560" y="144" height="56" width="667"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2569" y="216" height="64" width="658" format="[GENERAL]"  name=page  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1394" y="4" height="60" width="709" format="[general]"  name=troubletypea_troubletypeb dddw.name=b1dc_dddw_troubletypeb_v20 dddw.displaycolumn=troubletypeb_troubletypebnm dddw.datacolumn=troubletypeb_troubletypeb dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2135" y="4" height="60" width="709" format="[general]"  name=troubletypemst_troubletypea dddw.name=b1dc_dddw_troubletypea dddw.displaycolumn=troubletypea_troubletypeanm dddw.datacolumn=troubletypea_troubletypea dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="50" y="4" height="60" width="562" format="[general]"  name=svcmst_svctype dddw.name=b0dc_dddw_svctype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="27" y1="4" x2="3232" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2875" y="8" height="56" width="329" format="#,##0"  name=count edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(count for all)"border="0" color="0" x="2875" y="8" height="56" width="329" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  count  for group 1 )"border="0" color="0" x="2875" y="24" height="56" width="329" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="23" y1="92" x2="3227" y2="92"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="645" y="4" height="60" width="718" format="[general]"  name=customer_trouble_svccod dddw.name=b1dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="서비스별합계" border="0" color="0" x="814" y="20" height="56" width="549"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="합계" border="0" color="0" x="1207" y="8" height="56" width="155"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+
+sparse(names="customer_trouble_svccod	svcmst_svctype")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,76 @@
+﻿$PBExportHeader$p1dw_prt_pcardmst_cp.srd
+$PBExportComments$[jsha] 판매출고현황
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=576 color="536870912" )
+summary(height=116 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=p_cardmst_pid dbname="p_cardmst.pid" )
+ column=(type=char(0) updatewhereclause=yes name=compute_0002 dbname="compute_0002" )
+ column=(type=char(15) updatewhereclause=yes name=p_cardmst_contno dbname="p_cardmst.contno" )
+ column=(type=char(10) updatewhereclause=yes name=p_cardmst_priceplan dbname="p_cardmst.priceplan" )
+ column=(type=char(1) updatewhereclause=yes name=compute_0005 dbname="compute_0005" )
+ column=(type=decimal(2) updatewhereclause=yes name=p_cardmst_first_refill_amt dbname="p_cardmst.first_refill_amt" )
+ column=(type=char(10) updatewhereclause=yes name=priceplanmst_currency_type dbname="priceplanmst.currency_type" )
+ column=(type=char(10) updatewhereclause=yes name=issuedt1 dbname="issuedt1" )
+ column=(type=char(10) updatewhereclause=yes name=issuedt2 dbname="issuedt2" )
+ column=(type=char(10) updatewhereclause=yes name=enddt dbname="enddt" )
+ column=(type=char(1) updatewhereclause=yes name=compute_0011 dbname="compute_0011" )
+ column=(type=char(1) updatewhereclause=yes name=compute_0012 dbname="compute_0012" )
+ column=(type=char(1) updatewhereclause=yes name=compute_0013 dbname="compute_0013" )
+ column=(type=char(1) updatewhereclause=yes name=compute_0014 dbname="compute_0014" )
+ column=(type=char(1) updatewhereclause=yes name=compute_0015 dbname="compute_0015" )
+ retrieve="SELECT P_CARDMST.PID,
+	   '',
+       P_CARDMST.CONTNO,
+       P_CARDMST.PRICEPLAN,
+       '1',
+       P_CARDMST.FIRST_REFILL_AMT,
+       PRICEPLANMST.CURRENCY_TYPE,
+       TO_CHAR(P_CARDMST.ISSUEDT,'YYYY/MM/DD') ISSUEDT1,
+       TO_CHAR(P_CARDMST.ISSUEDT,'YYYY/MM/DD') ISSUEDT2,
+       TO_CHAR(P_CARDMST.ENDDT,'YYYY/MM/DD') ENDDT,
+       '0',
+       '0',
+       '0',
+       '1',
+       '1'
+FROM  P_CARDMST, PRICEPLANMST
+WHERE P_CARDMST.PRICEPLAN = PRICEPLANMST.PRICEPLAN"  sort="p_cardmst_contno A " )
+text(band=header alignment="0" text="" border="0" color="0" x="2528" y="44" height="56" width="27"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="23" y="60" height="84" width="4530"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2569" y="44" height="56" width="27"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="카드번호" border="0" color="0" x="9" y="504" height="56" width="471"  name=p_cardmst_pid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="관리번호" border="0" color="0" x="567" y="504" height="56" width="462"  name=p_cardmst_contno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="가격정책번호" border="0" color="0" x="1093" y="504" height="56" width="549"  name=p_cardmst_priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="단위" border="0" color="0" x="2167" y="504" height="56" width="302"  name=priceplanmst_currency_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="5" y1="572" x2="4594" y2="572"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="3803" y="264" height="60" width="741" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="3803" y="192" height="56" width="741"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header x1="0" y1="492" x2="4590" y2="492"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="액면금액" border="0" color="0" x="1678" y="504" height="56" width="462"  name=p_cardmst_balance_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발행일자" border="0" color="0" x="2510" y="504" height="56" width="585"  name=issuedt1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발행일자" border="0" color="0" x="3141" y="504" height="56" width="585"  name=issuedt2_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="말료일자" border="0" color="0" x="3762" y="504" height="56" width="585"  name=enddt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="503" y="4" height="68" width="41" format="[general]"  name=compute_0002 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1655" y="4" height="68" width="27" format="[general]"  name=compute_0005 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="0" height="68" width="471" format="[general]"  name=p_cardmst_pid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="567" y="4" height="68" width="462" format="[general]"  name=p_cardmst_contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4366" y="4" height="68" width="32" format="[general]"  name=compute_0011 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4407" y="4" height="68" width="32" format="[general]"  name=compute_0012 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="4448" y="4" height="68" width="32" format="[general]"  name=compute_0013 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="4489" y="4" height="68" width="32" format="[general]"  name=compute_0014 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="4530" y="4" height="68" width="32" format="[general]"  name=compute_0015 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="0" y1="76" x2="4590" y2="76"  name=l_3 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1093" y="4" height="68" width="549" format="[general]"  name=p_cardmst_priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1678" y="4" height="68" width="462" format="#,##0"  name=p_cardmst_first_refill_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2167" y="4" height="68" width="302" format="[general]"  name=priceplanmst_currency_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="2510" y="4" height="68" width="585" format="[general]"  name=issuedt1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="3141" y="4" height="68" width="585" format="[general]"  name=issuedt2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="3762" y="4" height="68" width="585" format="[general]"  name=enddt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="합계" border="0" color="0" x="1458" y="28" height="56" width="178"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(  p_cardmst_first_refill_amt for all )"border="0" color="0" x="1678" y="28" height="56" width="462" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=summary x1="0" y1="100" x2="4590" y2="100"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,287 @@
+﻿$PBExportHeader$b7dw_prt_cmsmonth_notice_rec_v.srd
+$PBExportComments$[jybaek] 자동이체/신용카드 청구서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 2 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=reqinfo_payid dbname="reqinfo.payid" )
+ column=(type=char(50) updatewhereclause=yes name=reqinfo_marknm dbname="reqinfo.marknm" )
+ column=(type=char(15) updatewhereclause=yes name=reqinfo_busnum dbname="reqinfo.busnum" )
+ column=(type=char(16) updatewhereclause=yes name=reqinfo_bilpost dbname="reqinfo_bilpost" )
+ column=(type=char(60) updatewhereclause=yes name=reqinfo_biladdr dbname="reqinfo.biladdr" )
+ column=(type=char(50) updatewhereclause=yes name=reqinfo_biladdr2 dbname="reqinfo.biladdr2" )
+ column=(type=number updatewhereclause=yes name=subcount_subcnt dbname="subcount.subcnt" )
+ column=(type=char(14) updatewhereclause=yes name=subcount_subid dbname="subcount.subid" )
+ column=(type=char(3) updatewhereclause=yes name=paymst_chargeby dbname="paymst.chargeby" )
+ column=(type=char(3) updatewhereclause=yes name=paymst_markid dbname="paymst.markid" )
+ column=(type=number updatewhereclause=yes name=callamt dbname="callamt" )
+ column=(type=number updatewhereclause=yes name=dlyamt dbname="dlyamt" )
+ column=(type=number updatewhereclause=yes name=balamt dbname="balamt" )
+ column=(type=number updatewhereclause=yes name=taxamt dbname="taxamt" )
+ column=(type=number updatewhereclause=yes name=cutamt dbname="cutamt" )
+ column=(type=number updatewhereclause=yes name=dcamt dbname="dcamt" )
+ column=(type=number updatewhereclause=yes name=lossamt dbname="lossamt" )
+ column=(type=number updatewhereclause=yes name=inamt dbname="inamt" )
+ column=(type=number updatewhereclause=yes name=etcamt dbname="etcamt" )
+ column=(type=number updatewhereclause=yes name=suramt dbname="suramt" )
+ column=(type=number updatewhereclause=yes name=sur_taxamt dbname="sur_taxamt" )
+ column=(type=char(0) updatewhereclause=yes name=sur_editdt dbname="sur_editdt" )
+ column=(type=char(0) updatewhereclause=yes name=usedt_fr dbname="usedt_fr" )
+ column=(type=char(0) updatewhereclause=yes name=usedt_to dbname="usedt_to" )
+ column=(type=char(0) updatewhereclause=yes name=trdt dbname="trdt" )
+ column=(type=char(0) updatewhereclause=yes name=paydt dbname="paydt" )
+ column=(type=char(0) updatewhereclause=yes name=editdt dbname="editdt" )
+ column=(type=char(0) updatewhereclause=yes name=reqdt dbname="reqdt" )
+ column=(type=char(50) updatewhereclause=yes name=reqinfo_owner dbname="owner" )
+ column=(type=char(5) updatewhereclause=yes name=reqinfo_bank dbname="bank" )
+ column=(type=char(60) updatewhereclause=yes name=reqinfo_account dbname="account" )
+ column=(type=char(40) updatewhereclause=yes name=accountbef dbname="accountbef" )
+ column=(type=char(20) updatewhereclause=yes name=ownerbef dbname="reqinfo.ownerbef" )
+ column=(type=char(5) updatewhereclause=yes name=bankbef dbname="reqinfo.bankbef" )
+ column=(type=char(0) updatewhereclause=yes name=paydt1 dbname="paydt1" )
+ column=(type=char(0) updatewhereclause=yes name=outamt1 dbname="outamt1" )
+ column=(type=char(0) updatewhereclause=yes name=paydt2 dbname="paydt2" )
+ column=(type=char(0) updatewhereclause=yes name=outamt2 dbname="outamt2" )
+ column=(type=number updatewhereclause=yes name=curbal dbname="curbal" )
+ column=(type=number updatewhereclause=yes name=lastbal dbname="reqinfo.lastbal" )
+ column=(type=number updatewhereclause=yes name=payamt dbname="payamt" )
+ column=(type=number updatewhereclause=yes name=baseamt dbname="baseamt" )
+ column=(type=char(0) updatewhereclause=yes name=ssubid dbname="ssubid" )
+ retrieve="  SELECT ~"REQINFO~".~"PAYID~",
+         ~"REQINFO~".~"MARKNM~",   
+         ~"REQINFO~".~"BUSNUM~",
+         TRANSLATE(~"REQINFO~".~"BILPOST~", 'T-', 'T') reqinfo_bilpost,
+         ~"REQINFO~".~"BILADDR~",   
+         ~"REQINFO~".~"BILADDR2~",   
+         ~"SUBCOUNT~".~"SUBCNT~",
+         ~"SUBCOUNT~".~"SUBID~",
+         ~"PAYMST~".~"CHARGEBY~",
+         ~"PAYMST~".~"MARKID~",
+         sum(decode(trcode.call_yn, 'Y', reqdtl.tramt, 0)) callamt,   
+         sum(decode(reqdtl.trcod, '301', reqdtl.tramt, 0)) dlyamt,
+         sum(decode(reqdtl.trcod, '206', reqdtl.tramt, 0)) balamt,   
+         sum(decode(reqdtl.trcod, '302', reqdtl.tramt, 0)) taxamt,   
+         sum(decode(reqdtl.trcod, '403', reqdtl.tramt, 0)) cutamt,   
+         sum(decode(reqdtl.trcod, '401', reqdtl.tramt, 
+                                  '402', reqdtl.tramt,
+                                  '404', reqdtl.tramt, 0)) dcamt,
+         sum(decode(reqdtl.trcod, '207', reqdtl.tramt, 0)) lossamt,   
+         sum(decode(reqdtl.trcod, '306', reqdtl.tramt, 0)) inamt,
+         sum(decode(reqdtl.trcod, '209', reqdtl.tramt,
+                                  '102', reqdtl.tramt, 0)) etcamt,
+         sum(decode(trcode.surtaxyn, 'Y', reqdtl.tramt, 0)) suramt, 
+         sum(decode(reqdtl.trcod, '302', reqdtl.tramt, 0)) sur_taxamt,
+         '' sur_editdt,  
+         '' usedt_fr,
+         '' usedt_to,
+         '' trdt,
+         '' paydt,
+         '' editdt,
+         '' reqdt,
+         decode(~"PAYMST~".~"CHARGEBY~", 2, ~"REQINFO~".~"OWNER~", ~"REQINFO~".~"ENGMAN~") owner,
+         decode(~"PAYMST~".~"CHARGEBY~", 2, ~"REQINFO~".~"BANK~", ~"REQINFO~".~"CARDTYPE~") bank,
+         decode(~"PAYMST~".~"CHARGEBY~", 2, TRANSLATE(~"REQINFO~".~"ACCOUNT~", 'T-', 'T'),
+													 TRANSLATE(~"REQINFO~".~"CARDNM~" , 'T-', 'T')) account,
+	      TRANSLATE(~"REQINFO~".~"CARDNM~", 'T-', 'T') accountbef,
+	      ~"REQINFO~".~"ENGMAN~" ownerbef,
+	      ~"REQINFO~".~"CARDTYPE~" bankbef,         
+         '' paydt1,
+         '' outamt1,
+         '' paydt2,
+         '' outamt2,
+			sum(decode(trcode.in_yn, 'Y', 0, reqdtl.tramt)) curbal,
+			0 lastbal,
+         sum(decode(trcode.in_yn, 'Y', reqdtl.tramt, 0)) payamt,
+         sum(decode(reqdtl.trcod, '101', reqdtl.tramt, 0)) baseamt,
+         '' ssubid
+    FROM ~"REQINFO~",   
+         ~"REQDTL~",   
+         ~"TRCODE~",
+         ~"PAYMST~",
+         ~"SUBCOUNT~"
+   WHERE (( reqinfo.payid = reqdtl.payid ) and  
+         ( ~"REQINFO~".~"PAYID~" = ~"SUBCOUNT~".~"PAYID~") AND
+         ( ~"REQDTL~".~"TRCOD~" = ~"TRCODE~".~"TRCOD~" ) AND
+         ( ~"REQINFO~".~"PAYID~" = ~"PAYMST~".~"PAYID~")) AND
+	      ((~"REQDTL~".~"MARK~" <> 'D') OR
+         ( ~"REQDTL~".~"MARK~" is null ))
+GROUP BY ~"REQINFO~".~"PAYID~",   
+         ~"REQINFO~".~"MARKNM~",   
+         ~"REQINFO~".~"BUSNUM~",   
+         ~"REQINFO~".~"BILPOST~",
+         ~"REQINFO~".~"BILADDR~",   
+         ~"REQINFO~".~"BILADDR2~",
+         ~"SUBCOUNT~".~"SUBCNT~",
+         ~"SUBCOUNT~".~"SUBID~",
+         ~"PAYMST~".~"CURBAL~",
+         ~"PAYMST~".~"LASTBAL~",
+         ~"PAYMST~".~"CHARGEBY~",
+         ~"PAYMST~".~"MARKID~",
+         ~"REQINFO~".~"ACCOUNT~",
+	      ~"REQINFO~".~"CARDNM~",
+         ~"REQINFO~".~"OWNER~",
+	      ~"REQINFO~".~"ENGMAN~",
+	      ~"REQINFO~".~"BANK~",
+	      ~"REQINFO~".~"CARDTYPE~"
+UNION
+  SELECT ~"REQINFO~".~"PAYID~",
+         ~"REQINFO~".~"MARKNM~",   
+         ~"REQINFO~".~"BUSNUM~",
+         TRANSLATE(~"REQINFO~".~"BILPOST~", 'T-', 'T') reqinfo_bilpost,
+         ~"REQINFO~".~"BILADDR~",   
+         ~"REQINFO~".~"BILADDR2~",   
+         ~"SUBCOUNT~".~"SUBCNT~",
+         ~"SUBCOUNT~".~"SUBID~",
+         ~"PAYMST~".~"CHARGEBY~",
+         ~"PAYMST~".~"MARKID~",
+         sum(decode(trcode.call_yn, 'Y', reqdtlh.tramt, 0)) callamt,   
+         sum(decode(reqdtlh.trcod, '301', reqdtlh.tramt, 0)) dlyamt,
+         sum(decode(reqdtlh.trcod, '206', reqdtlh.tramt, 0)) balamt,   
+         sum(decode(reqdtlh.trcod, '302', reqdtlh.tramt, 0)) taxamt,   
+         sum(decode(reqdtlh.trcod, '403', reqdtlh.tramt, 0)) cutamt,   
+         sum(decode(reqdtlh.trcod, '401', reqdtlh.tramt, 
+                                  '402', reqdtlh.tramt,
+                                  '404', reqdtlh.tramt, 0)) dcamt,
+         sum(decode(reqdtlh.trcod, '207', reqdtlh.tramt, 0)) lossamt,   
+         sum(decode(reqdtlh.trcod, '306', reqdtlh.tramt, 0)) inamt,
+         sum(decode(reqdtlh.trcod, '209', reqdtlh.tramt, 0)) etcamt,
+         sum(decode(trcode.surtaxyn, 'Y', reqdtlh.tramt, 0)) suramt, 
+         sum(decode(reqdtlh.trcod, '302', reqdtlh.tramt, 0)) sur_taxamt,
+         '' sur_editdt,  
+         '' usedt_fr,
+         '' usedt_to,
+         '' trdt,
+         '' paydt,
+         '' editdt,
+         '' reqdt,
+         decode(~"PAYMST~".~"CHARGEBY~", 2, ~"REQINFO~".~"OWNER~", ~"REQINFO~".~"ENGMAN~") owner,
+         decode(~"PAYMST~".~"CHARGEBY~", 2, ~"REQINFO~".~"BANK~", ~"REQINFO~".~"CARDTYPE~") bank,
+         decode(~"PAYMST~".~"CHARGEBY~", 2, TRANSLATE(~"REQINFO~".~"ACCOUNT~", 'T-', 'T'),
+													 TRANSLATE(~"REQINFO~".~"CARDNM~" , 'T-', 'T')) account,
+	      TRANSLATE(~"REQINFO~".~"CARDNM~", 'T-', 'T') accountbef,
+	      ~"REQINFO~".~"ENGMAN~" ownerbef,
+	      ~"REQINFO~".~"CARDTYPE~" bankbef,         
+         '' paydt1,
+         '' outamt1,
+         '' paydt2,
+         '' outamt2,
+			sum(decode(trcode.in_yn, 'Y', 0, reqdtlh.tramt)) curbal,
+			0 lastbal,
+         sum(decode(trcode.in_yn, 'Y', reqdtlh.tramt, 0)) payamt,
+         sum(decode(reqdtlh.trcod, '101', reqdtlh.tramt, 0)) baseamt,			
+         '' ssubid
+    FROM ~"REQINFO~",   
+         ~"REQDTLH~",   
+         ~"TRCODE~",
+         ~"PAYMST~",
+         ~"SUBCOUNT~"
+   WHERE (( reqinfo.payid = reqdtlh.payid ) and  
+         ( ~"REQINFO~".~"PAYID~" = ~"SUBCOUNT~".~"PAYID~") AND
+         ( ~"REQDTLH~".~"TRCOD~" = ~"TRCODE~".~"TRCOD~" ) AND
+         ( ~"REQINFO~".~"PAYID~" = ~"PAYMST~".~"PAYID~")) AND
+	      ((~"REQDTLH~".~"MARK~" <> 'D') OR
+         ( ~"REQDTLH~".~"MARK~" is null ))		
+GROUP BY ~"REQINFO~".~"PAYID~",   
+         ~"REQINFO~".~"MARKNM~",   
+         ~"REQINFO~".~"BUSNUM~",   
+         ~"REQINFO~".~"BILPOST~",
+         ~"REQINFO~".~"BILADDR~",   
+         ~"REQINFO~".~"BILADDR2~",
+         ~"SUBCOUNT~".~"SUBCNT~",
+         ~"SUBCOUNT~".~"SUBID~",
+         ~"PAYMST~".~"CURBAL~",
+         ~"PAYMST~".~"LASTBAL~",
+         ~"PAYMST~".~"CHARGEBY~",
+         ~"PAYMST~".~"MARKID~",
+         ~"REQINFO~".~"ACCOUNT~",
+	      ~"REQINFO~".~"CARDNM~",
+         ~"REQINFO~".~"OWNER~",
+	      ~"REQINFO~".~"ENGMAN~",
+	      ~"REQINFO~".~"BANK~",
+	      ~"REQINFO~".~"CARDTYPE~"
+" )
+group(level=1 header.height=0 trailer.height=3596 by=("reqinfo_payid" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+column(band=trailer.1 id=23 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="1424" height="48" width="306" format="@@@@.@@.@@"  name=usedt_fr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=24 alignment="1" tabsequence=32766 border="0" color="0" x="713" y="1424" height="48" width="306" format="@@@@.@@.@@"  name=usedt_to edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="~~" border="0" color="0" x="667" y="1424" height="48" width="41"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=trailer.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1920" y="2892" height="48" width="983" format="[general]"  name=reqinfo_marknm_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1920" y="2828" height="48" width="983" format="[general]"  name=reqinfo_payid_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=30 alignment="0" tabsequence=32766 border="0" color="0" x="2126" y="3280" height="48" width="882" format="[general]"  name=reqinfo_bank edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=31 alignment="0" tabsequence=32766 border="0" color="0" x="2126" y="3220" height="48" width="882" format="[general]"  name=reqinfo_account edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=29 alignment="0" tabsequence=32766 border="0" color="0" x="2126" y="3340" height="48" width="882" format="[general]"  name=reqinfo_owner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=33 alignment="0" tabsequence=32766 border="0" color="0" x="576" y="3080" height="48" width="992" format="[general]"  name=ownerbef edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="2832" height="48" width="992" format="[general]"  name=reqinfo_payid_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="2896" height="48" width="992" format="[general]"  name=reqinfo_marknm_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=32 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="2956" height="48" width="992" format="[general]"  name=accountbef edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=34 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="3020" height="48" width="992" format="[general]"  name=bankbef dddw.name=b7dc_dddw_cardtype dddw.displaycolumn=cardname dddw.datacolumn=cardtype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="Mid( usedt_fr , 1, 4)"border="0" color="0" x="425" y="2696" height="56" width="210" format="[GENERAL]"  name=compute_5  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="Mid( usedt_fr, 5, 2)"border="0" color="0" x="690" y="2696" height="56" width="114" format="[GENERAL]"  name=compute_8  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="Mid( trdt , 1, 4)"border="0" color="0" x="1810" y="2696" height="56" width="201" format="[GENERAL]"  name=compute_9  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="Mid( trdt , 5, 2)"border="0" color="0" x="2030" y="2696" height="56" width="114" format="[GENERAL]"  name=compute_10  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=35 alignment="0" tabsequence=32766 border="0" color="0" x="146" y="3284" height="48" width="466" format="@@@@. @@. @@"  name=paydt1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=37 alignment="0" tabsequence=32766 border="0" color="0" x="146" y="3344" height="48" width="466" format="@@@@. @@. @@"  name=paydt2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=36 alignment="1" tabsequence=32766 border="0" color="0" x="786" y="3284" height="48" width="512" format="[general]"  name=outamt1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=38 alignment="1" tabsequence=32766 border="0" color="0" x="786" y="3344" height="48" width="512" format="[general]"  name=outamt2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=26 alignment="0" tabsequence=32766 border="0" color="0" x="2542" y="3152" height="48" width="370" format="@@@@. @@. @@"  name=paydt_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="0" border="0" color="0" x="1801" y="3152" height="48" width="503"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=26 alignment="0" tabsequence=32766 border="0" color="0" x="2542" y="3088" height="48" width="370" format="@@@@. @@. @@"  name=paydt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( payamt for group 1) * -1"border="0" color="0" x="1801" y="3088" height="48" width="503" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=trailer.1 alignment="1" text="연   체   료" border="0" color="0" x="137" y="1628" height="44" width="334"  name=dlyamt_t  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="기입금차감액" border="0" color="0" x="137" y="1688" height="44" width="334"  name=t_1  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="부   가   세" border="0" color="0" x="137" y="1748" height="44" width="334"  name=taxamt_t  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="절   삭   액" border="0" color="0" x="137" y="1816" height="44" width="334"  name=cutamt_t  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="할   인   액" border="0" color="0" x="137" y="1876" height="44" width="334"  name=dcamt_t  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="손   실   금" border="0" color="0" x="137" y="1940" height="44" width="334"  name=lossamt_t  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="통 화  요 금" border="0" color="0" x="137" y="1560" height="44" width="334"  name=callamt_t  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="기   본   료" border="0" color="0" x="137" y="1496" height="44" width="334"  name=t_5  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="110" y="576" height="48" width="448" format="[general]"  name=reqinfo_payid visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=25 alignment="0" tabsequence=32766 border="0" color="0" x="110" y="284" height="60" width="448" format="[general]"  name=trdt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=10 alignment="0" tabsequence=32766 border="0" color="0" x="110" y="140" height="60" width="448" format="[general]"  name=paymst_markid visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="110" y="356" height="60" width="448" format="[general]"  name=reqinfo_marknm visible="1~t0" edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=9 alignment="0" tabsequence=32766 border="0" color="0" x="110" y="500" height="60" width="448" format="[general]"  name=paymst_chargeby visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=27 alignment="0" tabsequence=32766 border="0" color="0" x="110" y="428" height="60" width="448" format="@@@@. @@. @@"  name=editdt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1216" y="680" height="64" width="1509" format="[general]"  name=reqinfo_biladdr edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1216" y="760" height="64" width="1509" format="[general]"  name=reqinfo_biladdr2 edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression=" reqinfo_marknm + ~"  귀하~""border="0" color="0" x="1367" y="860" height="68" width="1358" format="[GENERAL]"  name=compute_7  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2080" y="980" height="68" width="494" format="@@@-@@@"  name=reqinfo_bilpost edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2629" y="272" height="48" width="370" format="#,##0"  name=subcount_subcnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=26 alignment="0" tabsequence=32766 border="0" color="0" x="2629" y="336" height="48" width="370" format="@@@@. @@. @@"  name=paydt_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( baseamt for group 1)"border="0" color="0" x="613" y="1488" height="56" width="430" format="#,##0"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( callamt for group 1)"border="0" color="0" x="613" y="1552" height="56" width="430" format="#,##0"  name=compute_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( dlyamt for group 1)"border="0" color="0" x="613" y="1620" height="56" width="430" format="#,##0"  name=compute_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( balamt for group 1)"border="0" color="0" x="613" y="1680" height="56" width="430" format="#,##0"  name=compute_11  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( taxamt for group 1)"border="0" color="0" x="613" y="1740" height="56" width="430" format="#,##0"  name=compute_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( cutamt for group 1)"border="0" color="0" x="613" y="1808" height="56" width="430" format="#,##0"  name=compute_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( dcamt for group 1)"border="0" color="0" x="613" y="1868" height="56" width="430" format="#,##0"  name=compute_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( lossamt for group 1)"border="0" color="0" x="613" y="1932" height="56" width="430" format="#,##0"  name=compute_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( inamt for group 1)"border="0" color="0" x="613" y="1992" height="56" width="430" format="#,##0"  name=compute_16  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( etcamt for group 1)"border="0" color="0" x="613" y="2052" height="56" width="430" format="#,##0"  name=compute_17  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=trailer.1 id=42 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1488" height="56" width="430" format="#,##0"  name=baseamt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=11 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1552" height="56" width="430" format="#,##0"  name=callamt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=12 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1620" height="56" width="430" format="#,##0"  name=dlyamt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=13 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1680" height="56" width="430" format="#,##0"  name=balamt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=14 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1740" height="56" width="430" format="#,##0"  name=taxamt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=15 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1808" height="56" width="430" format="#,##0"  name=cutamt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=16 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1868" height="56" width="430" format="#,##0"  name=dcamt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=17 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1932" height="56" width="430" format="#,##0"  name=lossamt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=18 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="1992" height="56" width="430" format="#,##0"  name=inamt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=19 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="2052" height="56" width="430" format="#,##0"  name=etcamt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=39 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="2124" height="56" width="430" format="#,##0"  name=curbal visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( curbal for group 1)"border="0" color="0" x="613" y="2124" height="56" width="430" format="#,##0"  name=compute_18  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( lastbal for group 1)"border="0" color="0" x="613" y="2316" height="56" width="430" format="#,##0"  name=compute_19  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum( curbal for group 1) + sum( lastbal for group 1)"border="0" color="0" x="613" y="2508" height="56" width="430" format="#,##0"  name=compute_20  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=trailer.1 id=40 alignment="1" tabsequence=32766 border="0" color="0" x="1431" y="2316" height="56" width="430" format="#,##0"  name=lastbal visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="  curbal +  lastbal  "border="0" color="0" x="1431" y="2508" height="56" width="430" format="#,##0"  name=compute_6 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1838" y="3480" height="48" width="320" format="@@@-@@-@@@@@"  name=reqinfo_busnum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( suramt for group 1)"border="0" color="0" x="1765" y="3540" height="48" width="393" format="#,##0"  name=compute_21  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=22 alignment="1" tabsequence=32766 border="0" color="0" x="2318" y="3480" height="48" width="325" format="@@@@. @@. @@"  name=sur_editdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( sur_taxamt for group 1)"border="0" color="0" x="2263" y="3540" height="48" width="379" format="#,##0"  name=compute_22  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=trailer.1 id=21 alignment="1" tabsequence=32766 border="0" color="0" x="2263" y="3420" height="48" width="379" format="#,##0"  name=sur_taxamt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=20 alignment="1" tabsequence=32766 border="0" color="0" x="1765" y="3420" height="48" width="393" format="#,##0"  name=suramt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2629" y="208" height="48" width="370" format="[general]"  name=subcount_subid visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=43 alignment="0" tabsequence=32766 border="0" color="0" x="2629" y="208" height="48" width="370" format="[general]"  name=ssubid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="선  입 금 액" border="0" color="0" x="137" y="2000" height="44" width="334"  name=inamt_t  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="접   속   료" border="0" color="0" x="137" y="2060" height="44" width="334"  name=t_2  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

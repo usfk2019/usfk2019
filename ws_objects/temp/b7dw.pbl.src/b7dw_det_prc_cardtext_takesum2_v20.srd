@@ -1,0 +1,50 @@
+﻿$PBExportHeader$b7dw_det_prc_cardtext_takesum2_v20.srd
+$PBExportComments$[jsha]
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=84 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=memberid dbname="cardtext_takesum.memberid" )
+ column=(type=datetime updatewhereclause=yes name=workdt dbname="cardtext_takesum.workdt" )
+ column=(type=char(19) updatewhereclause=yes name=period dbname="period" )
+ column=(type=decimal(0) updatewhereclause=yes name=return_cnt dbname="cardtext_takesum.return_cnt" )
+ column=(type=decimal(2) updatewhereclause=yes name=return_amt dbname="cardtext_takesum.return_amt" )
+ column=(type=decimal(0) updatewhereclause=yes name=cardtext_takesum_take_cnt dbname="cardtext_takesum.take_cnt" )
+ column=(type=decimal(2) updatewhereclause=yes name=cardtext_takesum_take_amt dbname="cardtext_takesum.take_amt" )
+ column=(type=char(50) updatewhereclause=yes name=cardmembermst_memberdesc dbname="cardmembermst.memberdesc" )
+ retrieve="	SELECT A.MEMBERID
+        , A.WORKDT
+        , A.APPROVAL_FROMDT || ' ~~ ' || A.APPROVAL_TODT PERIOD
+        , A.RETURN_CNT
+        , A.RETURN_AMT
+        , A.TAKE_CNT
+        , A.TAKE_AMT
+        , B.MEMBERDESC
+	  FROM CARDTEXT_TAKESUM A
+        , CARDMEMBERMST B
+    WHERE A.MEMBERID = B.MEMBERID" )
+text(band=header alignment="2" text="파일작성일시" border="2" color="15793151" x="1029" y="16" height="60" width="594"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="반송총건수" border="2" color="15793151" x="3657" y="16" height="56" width="544"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="반송총금액" border="2" color="15793151" x="4210" y="16" height="56" width="640"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가맹점ID" border="2" color="15793151" x="9" y="16" height="60" width="407"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가맹점명" border="2" color="15793151" x="425" y="16" height="60" width="594"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="매출기간" border="2" color="15793151" x="1632" y="16" height="60" width="681"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="접수건수" border="2" color="15793151" x="2322" y="16" height="60" width="603"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="접수금액" border="2" color="15793151" x="2935" y="16" height="60" width="713"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="407" format="[general]"  name=memberid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="1029" y="4" height="60" width="594" format="[shortdate] [time]"  name=workdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="3657" y="4" height="60" width="544" format="#,##0"  name=return_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="4210" y="4" height="60" width="640" format="#,##0.00"  name=return_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="425" y="4" height="60" width="594" format="[general]"  name=cardmembermst_memberdesc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1632" y="4" height="60" width="681" format="[general]"  name=period edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2322" y="4" height="60" width="603" format="#,##0"  name=cardtext_takesum_take_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2935" y="4" height="60" width="713" format="#,##0.00"  name=cardtext_takesum_take_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="합계" border="0" color="0" x="9" y="8" height="56" width="407"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(   return_amt for all )"border="0" color="0" x="4210" y="8" height="60" width="640" format="#,##0.00"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  return_cnt  for all )"border="0" color="0" x="3657" y="8" height="60" width="544" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( cardtext_takesum_take_amt )"border="0" color="0" x="2935" y="8" height="60" width="713" format="#,##0.00"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( cardtext_takesum_take_cnt )"border="0" color="0" x="2322" y="8" height="60" width="603" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

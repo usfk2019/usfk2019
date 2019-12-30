@@ -1,0 +1,40 @@
+﻿$PBExportHeader$b1dw_reg_trouble_categoryb_v20.srd
+$PBExportComments$[chooys] 민원유형 중분류 등록 master data window
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=troubletypeb_troubletypeb dbname="troubletypeb.troubletypeb" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=troubletypeb_troubletypebnm dbname="troubletypeb.troubletypebnm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubletypeb_troubletypec dbname="troubletypeb.troubletypec" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubletypeb_crt_user dbname="troubletypeb.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubletypeb_updt_user dbname="troubletypeb.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=troubletypeb_crtdt dbname="troubletypeb.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=troubletypeb_updtdt dbname="troubletypeb.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=troubletypeb_pgm_id dbname="troubletypeb.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubletypeb_svccod dbname="troubletypeb.svccod" )
+ retrieve="  SELECT ~"TROUBLETYPEB~".~"TROUBLETYPEB~",   
+         ~"TROUBLETYPEB~".~"TROUBLETYPEBNM~",   
+         ~"TROUBLETYPEB~".~"TROUBLETYPEC~",   
+         ~"TROUBLETYPEB~".~"CRT_USER~",   
+         ~"TROUBLETYPEB~".~"UPDT_USER~",   
+         ~"TROUBLETYPEB~".~"CRTDT~",   
+         ~"TROUBLETYPEB~".~"UPDTDT~",   
+         ~"TROUBLETYPEB~".~"PGM_ID~",   
+         ~"TROUBLETYPEB~".~"SVCCOD~"  
+    FROM ~"TROUBLETYPEB~",   
+         ~"TROUBLETYPEC~"  
+   WHERE ( troubletypeb.troubletypec = troubletypec.troubletypec (+))    
+" update="TROUBLETYPEB" updatewhere=1 updatekeyinplace=no  sort="troubletypeb_troubletypeb A " )
+text(band=header alignment="2" text="민원유형 대분류" border="2" color="15793151" x="1335" y="124" height="56" width="850"  name=categoryb_categoryc_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="서비스" border="2" color="15793151" x="1746" y="16" height="60" width="814"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="장애종류명" border="2" color="15793151" x="649" y="16" height="60" width="1074"  name=categoryb_categorybnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="장애종류코드" border="2" color="15793151" x="27" y="16" height="60" width="599"  name=categoryb_categoryb_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="837" y="104" height="60" width="850" format="[general]"  name=troubletypeb_troubletypec dddw.name=b1dc_dddw_troubletypec dddw.displaycolumn=troubletypecnm dddw.datacolumn=troubletypec dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=20 border="2" color="16777215" x="1746" y="4" height="60" width="814" format="[general]"  name=troubletypeb_svccod dddw.name=b1dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="16777215" x="27" y="4" height="60" width="599" format="[general]"  name=troubletypeb_troubletypeb edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="649" y="4" height="60" width="1074" format="[general]"  name=troubletypeb_troubletypebnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

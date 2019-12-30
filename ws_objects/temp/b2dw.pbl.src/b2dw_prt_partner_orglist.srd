@@ -1,0 +1,79 @@
+﻿$PBExportHeader$b2dw_prt_partner_orglist.srd
+$PBExportComments$[ceusee] 대리점 영업 조직도
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=352 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=108 color="536870912" )
+table(column=(type=char(63) updatewhereclause=yes name=a_1 dbname="a_1" )
+ column=(type=char(63) updatewhereclause=yes name=a_2 dbname="a_2" )
+ column=(type=char(63) updatewhereclause=yes name=a_3 dbname="a_3" )
+ column=(type=char(63) updatewhereclause=yes name=a_4 dbname="a_4" )
+ column=(type=char(63) updatewhereclause=yes name=a_5 dbname="a_5" )
+ column=(type=char(63) updatewhereclause=yes name=a_6 dbname="a_6" )
+ column=(type=char(63) updatewhereclause=yes name=a_7 dbname="a_7" )
+ column=(type=char(63) updatewhereclause=yes name=a_8 dbname="a_8" )
+ column=(type=char(63) updatewhereclause=yes name=a_9 dbname="a_9" )
+ column=(type=char(50) updatewhereclause=yes name=a_10 dbname="a_10" )
+ retrieve="SELECT decode(length(prefixno), 3, '[' || partner || '] ' || partnernm , null) a_1 ,
+decode(length(prefixno), 6, '[' || partner || '] ' || partnernm,null) a_2,
+decode(length(prefixno), 9, '[' || partner || '] ' || partnernm,null) a_3,
+decode(length(prefixno), 12, '[' || partner || '] ' || partnernm,null) a_4,
+decode(length(prefixno), 15, '[' || partner || '] ' || partnernm,null) a_5,
+decode(length(prefixno), 18, '[' || partner || '] ' || partnernm,null) a_6,
+decode(length(prefixno), 21, '[' || partner || '] ' || partnernm,null) a_7,
+decode(length(prefixno), 24, '[' || partner || '] ' || partnernm,null) a_8,
+decode(length(prefixno), 27, '[' || partner || '] ' || partnernm,null) a_9,
+decode(sign(length(prefixno) - 30), -1,null,partnernm) a_10
+FROM partnermst
+WHERE  partner_type = '0' and prefixno <> '000'
+ORDER BY prefixno
+" )
+text(band=header alignment="2" text="" border="0" color="0" x="2583" y="88" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2656" y="88" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="3808" y="380" height="60" width="402"  name=a_10_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="46" y="380" height="60" width="402"  name=a_1_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="462" y="380" height="60" width="402"  name=a_2_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="882" y="380" height="60" width="398"  name=a_3_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1298" y="380" height="60" width="398"  name=a_4_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1719" y="380" height="60" width="398"  name=a_5_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2135" y="380" height="60" width="398"  name=a_6_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2551" y="380" height="60" width="398"  name=a_7_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2967" y="380" height="60" width="398"  name=a_8_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="3387" y="380" height="60" width="402"  name=a_9_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="14" y="76" height="88" width="4731"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="50" y="4" height="96" width="4722"  name=r_1 brush.hatch="7" brush.color="536903808" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="96" y="16" height="64" width="1202" format="[general]"  name=a_1 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="242" y1="16" x2="242" y2="52"  name=l_5 visible="1~tIf (isNull( a_2 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="384" y="16" height="64" width="1202" format="[general]"  name=a_2 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="722" y="16" height="64" width="1198" format="[general]"  name=a_3 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1934" y="16" height="64" width="1074" format="[general]"  name=a_6 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1490" y="16" height="64" width="1042" format="[general]"  name=a_5 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1083" y="16" height="64" width="1029" format="[general]"  name=a_4 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2944" y="16" height="64" width="1166" format="[general]"  name=a_9 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2592" y="16" height="64" width="1097" format="[general]"  name=a_8 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2249" y="16" height="64" width="1125" format="[general]"  name=a_7 edit.limit=65 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="242" y1="48" x2="370" y2="48"  name=l_1_1 visible="1~tIf (isNull( a_2 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="594" y1="48" x2="709" y2="48"  name=l_3 visible="1~tIf (isNull( a_3 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="590" y1="16" x2="590" y2="52"  name=l_6 visible="1~tIf (isNull( a_3), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="955" y1="20" x2="955" y2="56"  name=l_8 visible="1~tIf (isNull( a_4 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="955" y1="52" x2="1074" y2="52"  name=l_7 visible="1~tIf (isNull( a_4 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1358" y1="52" x2="1477" y2="52"  name=l_9 visible="1~tIf (isNull( a_5 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1358" y1="20" x2="1358" y2="56"  name=l_10 visible="1~tIf (isNull( a_5 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1806" y1="52" x2="1920" y2="52"  name=l_11 visible="1~tIf (isNull( a_6 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1806" y1="20" x2="1806" y2="56"  name=l_12 visible="1~tIf (isNull( a_6 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2126" y1="52" x2="2235" y2="52"  name=l_13 visible="1~tIf (isNull( a_7 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2126" y1="20" x2="2126" y2="56"  name=l_14 visible="1~tIf (isNull( a_7 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2464" y1="52" x2="2578" y2="52"  name=l_15 visible="1~tIf (isNull( a_8 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2464" y1="20" x2="2464" y2="56"  name=l_16 visible="1~tIf (isNull( a_8 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2821" y1="52" x2="2930" y2="52"  name=l_17 visible="1~tIf (isNull( a_9 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2821" y1="20" x2="2821" y2="56"  name=l_18 visible="1~tIf (isNull( a_9 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3209" y1="52" x2="3314" y2="52"  name=l_19 visible="1~tIf (isNull( a_10 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3209" y1="20" x2="3209" y2="56"  name=l_20 visible="1~tIf (isNull( a_10 ), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3333" y="16" height="64" width="1202" format="[general]"  name=a_10 edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=footer x1="411" y1="416" x2="549" y2="416"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4064" y="284" height="64" width="667" format="[GENERAL]"  name=page  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="4064" y="212" height="60" width="667"  name=date_time  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

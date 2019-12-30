@@ -1,0 +1,53 @@
+﻿$PBExportHeader$c1dw_inq_customerid_traffic_v20.srd
+$PBExportComments$[parkkh]사업자별트래픽현황 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=180 color="536870912" )
+summary(height=68 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="wholesale_det.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="biltime" )
+ column=(type=number updatewhereclause=yes name=bilmin dbname="bilmin" )
+ column=(type=number updatewhereclause=yes name=trycnt dbname="trycnt" )
+ column=(type=number updatewhereclause=yes name=bilcnt dbname="bilcnt" )
+ column=(type=number updatewhereclause=yes name=comm_rate dbname="comm_rate" )
+ retrieve="SELECT  a.customerid,
+        b.customernm,
+        sum(a.biltime) biltime,
+        sum(a.biltime)/60 bilmin,
+        sum(nvl(a.trycnt,0)) trycnt,
+		  sum(nvl(a.bilcnt,0)) bilcnt,
+        sum(nvl(a.bilcnt,0))/sum(a.trycnt) *100 comm_rate
+ FROM wholesale_det a, customerm b
+WHERE a.customerid = b.customerid
+GROUP BY a.customerid ,b.customernm" )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="14" y="40" height="60" width="288"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="315" y="40" height="60" width="549"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="2523" y="36" height="60" width="430"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1253" y="36" height="60" width="320"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="완료율(%)" border="2" color="16777215" x="2971" y="112" height="60" width="466"  name=comm_rate_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="완료건수" border="2" color="16777215" x="2560" y="112" height="60" width="402"  name=bilcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시도건수" border="2" color="16777215" x="2149" y="112" height="60" width="402"  name=trycnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화시간(분)" border="2" color="16777215" x="1600" y="112" height="60" width="539"  name=bilmin_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화시간(초)" border="2" color="16777215" x="1070" y="112" height="60" width="521"  name=biltime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사업자번호" border="2" color="16777215" x="9" y="112" height="60" width="425"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2971" y="36" height="56" width="466" format="[GENERAL]"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사업자명" border="2" color="16777215" x="443" y="112" height="60" width="617"  name=customerm_customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="425" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1070" y="4" height="60" width="521" format="#,##0"  name=biltime edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2149" y="4" height="60" width="402" format="#,##0"  name=trycnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2560" y="4" height="60" width="402" format="#,##0"  name=bilcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2971" y="4" height="60" width="466" format="#,##0.00"  name=comm_rate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1600" y="8" height="56" width="539" format="#,##0"  name=bilmin edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="443" y="4" height="60" width="617" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( biltime )"border="0" color="0" x="1070" y="4" height="56" width="521" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( bilmin )"border="0" color="0" x="1600" y="4" height="56" width="539" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( trycnt )"border="0" color="0" x="2149" y="4" height="56" width="402" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( bilcnt )"border="0" color="0" x="2560" y="4" height="56" width="402" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( comm_rate ) / rowcount()"border="0" color="0" x="2971" y="4" height="56" width="466" format="#,##0.00"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="합  계 " border="0" color="0" x="443" y="4" height="56" width="617"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1605" y="36" height="60" width="265"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

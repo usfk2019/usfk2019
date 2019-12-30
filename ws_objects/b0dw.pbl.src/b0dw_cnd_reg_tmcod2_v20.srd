@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b0dw_cnd_reg_tmcod2_v20.srd
+$PBExportComments$[ohj] 시간대 구성 등록  v20 - cond
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=4 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=216 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=svccod dbname="svccod" )
+ column=(type=char(10) updatewhereclause=no name=parttype dbname="parttype" values="서비스	0/가격정책	1/" )
+ column=(type=char(10) updatewhereclause=no name=priceplan dbname="priceplan" )
+ column=(type=date updatewhereclause=no name=opendt dbname="opendt" )
+ )
+groupbox(band=detail text="작업선택"border="2" color="0" x="18" y="16" height="180" width="686"  name=gb_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="0" color="0" x="37" y="96" height="56" width="649" format="[general]"  name=parttype radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="적용개시일" border="0" color="0" x="750" y="132" height="60" width="283"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=40 border="2" color="0" x="1051" y="132" height="60" width="343" format="[general]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="가격 정책" border="0" color="0" x="750" y="44" height="60" width="283"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="서비스" border="0" color="0" x="750" y="44" height="60" width="283"  name=svccod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="16777215" x="1051" y="44" height="60" width="800" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan_voice dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=1 alignment="0" tabsequence=30 border="2" color="16777215" x="1051" y="44" height="60" width="800" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

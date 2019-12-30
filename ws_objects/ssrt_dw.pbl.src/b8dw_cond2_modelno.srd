@@ -1,0 +1,26 @@
+﻿$PBExportHeader$b8dw_cond2_modelno.srd
+$PBExportComments$[unknown] 연체자 조치사항 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes name=admst_adseq dbname="admst.adseq" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="admst.modelno" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_amt dbname="admst.sale_amt" )
+ column=(type=char(0) updatewhereclause=yes name=chk dbname="chk" values="	 /	 " )
+ retrieve="  SELECT ADSEQ, 
+         MODELNO,
+         SALE_AMT,
+         '' as chk
+    FROM admst
+" update="admst" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="ADSEQ" border="6" color="15793151" x="14" y="12" height="56" width="416"  name=adseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sale Amount" border="6" color="15793151" x="443" y="12" height="56" width="421"  name=sale_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="선택" border="6" color="15793151" x="882" y="12" height="56" width="165"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="14" y="8" height="56" width="416" format="[general]"  name=admst_adseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="443" y="8" height="56" width="421" format="[general]"  name=sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="2" color="0" x="882" y="8" height="56" width="165" format="[general]"  name=chk checkbox.text="" checkbox.on=" " checkbox.off=" " checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

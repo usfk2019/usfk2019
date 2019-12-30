@@ -1,0 +1,65 @@
+﻿$PBExportHeader$ubs_dw_reg_customer_t9.srd
+$PBExportComments$[parkkh] 선불충전로그
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=164 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=refilllog_refillseq dbname="refilllog.refillseq" )
+ column=(type=decimal(0) updatewhereclause=yes name=refilllog_contractseq dbname="refilllog.contractseq" )
+ column=(type=char(15) updatewhereclause=yes name=refilllog_customerid dbname="refilllog.customerid" )
+ column=(type=datetime updatewhereclause=yes name=refilllog_refilldt dbname="refilllog.refilldt" )
+ column=(type=char(10) updatewhereclause=yes name=refilllog_refill_type dbname="refilllog.refill_type" )
+ column=(type=decimal(2) updatewhereclause=yes name=refilllog_refill_amt dbname="refilllog.refill_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=refilllog_sale_amt dbname="refilllog.sale_amt" )
+ column=(type=char(100) updatewhereclause=yes name=refilllog_remark dbname="refilllog.remark" )
+ column=(type=char(60) updatewhereclause=yes name=refilllog_partner_prefix dbname="refilllog.partner_prefix" )
+ column=(type=char(50) updatewhereclause=yes name=partnermst_partnernm dbname="partnermst.partnernm" )
+ column=(type=decimal(2) updatewhereclause=yes name=refilllog_basicamt dbname="refilllog.basicamt" )
+ column=(type=datetime updatewhereclause=yes name=refilllog_crtdt dbname="refilllog.crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=refilllog_crt_user dbname="refilllog.crt_user" )
+ retrieve="SELECT 	r.refillseq,
+		r.contractseq,
+		r.customerid,
+		r.refilldt,
+		r.refill_type,
+		r.refill_amt,
+		r.sale_amt,
+		r.remark,
+		r.partner_prefix,
+		p.partnernm,
+		r.basicamt,
+		r.crtdt,
+		r.crt_user
+  FROM refilllog r, partnermst p
+ WHERE r.partner_prefix = p.prefixno
+ ORDER BY r.refilldt desc, r.refillseq desc, r.contractseq" )
+text(band=header alignment="2" text="충전일자" border="2" color="16777215" x="55" y="100" height="60" width="361"  name=refilllog_refilldt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약번호" border="2" color="16777215" x="2542" y="100" height="60" width="315"  name=refilllog_contractseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="충전유형" border="2" color="16777215" x="425" y="100" height="60" width="334"  name=refilllog_refill_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="충전금액" border="2" color="16777215" x="1399" y="100" height="60" width="375"  name=refilllog_refill_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sales Amount" border="2" color="16777215" x="1783" y="100" height="56" width="398"  name=refilllog_sale_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark" border="2" color="16777215" x="2866" y="100" height="60" width="754"  name=refilllog_remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Shop" border="2" color="16777215" x="768" y="100" height="56" width="622"  name=partnermst_partnernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일자" border="2" color="16777215" x="3963" y="100" height="60" width="379"  name=refilllog_crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업자" border="2" color="16777215" x="3630" y="100" height="60" width="325"  name=refilllog_crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+button(band=header text="&Print"filename=""action="15" border="0" color="0" x="46" y="16" height="72" width="320" vtextalign="0" htextalign="0"  name=b_print  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=header alignment="2" text="기본료" border="2" color="16777215" x="2190" y="100" height="60" width="343"  name=refilllog_basicamt_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="55" y="8" height="60" width="361" format="yyyy-mm-dd"  name=refilllog_refilldt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="2542" y="8" height="60" width="315" format="[general]"  name=refilllog_contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="425" y="8" height="60" width="334" format="[general]"  name=refilllog_refill_type dddw.name=b1dc_dddw_refill_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1399" y="8" height="60" width="375" format="#,##0.00"  name=refilllog_refill_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1783" y="8" height="60" width="398" format="#,##0.00"  name=refilllog_sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2866" y="8" height="60" width="754" format="[general]"  name=refilllog_remark edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="768" y="8" height="60" width="622" format="[general]"  name=partnermst_partnernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="0" color="0" x="3963" y="8" height="60" width="379" format="yyyy-mm-dd"  name=refilllog_crtdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3630" y="8" height="60" width="325" format="[general]"  name=refilllog_crt_user edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="8" height="56" width="37" format="[GENERAL]"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2190" y="8" height="60" width="343" format="#,##0.00"  name=refilllog_basicamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="합  계 " border="0" color="0" x="768" y="8" height="56" width="622"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(  refilllog_refill_amt  for all )"border="0" color="0" x="1399" y="8" height="56" width="375" format="#,##0.00"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  refilllog_sale_amt  for all )"border="0" color="0" x="1783" y="8" height="56" width="398" format="#,##0.00"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(refilllog_basicamt for all)"border="0" color="0" x="2190" y="8" height="56" width="343" format="#,##0.00"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

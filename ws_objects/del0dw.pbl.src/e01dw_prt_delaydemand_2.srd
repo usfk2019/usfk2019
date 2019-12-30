@@ -1,0 +1,59 @@
+﻿$PBExportHeader$e01dw_prt_delaydemand_2.srd
+$PBExportComments$[vgene] 연체자 요금납입독촉장
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=3932 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=dlymst_payid dbname="dlymst.payid" )
+ column=(type=decimal(2) updatewhereclause=yes name=dlymst_amount dbname="dlymst.amount" )
+ column=(type=char(60) updatewhereclause=yes name=billinginfo_bil_addr1 dbname="billinginfo.bil_addr1" )
+ column=(type=number updatewhereclause=yes name=cmon_diff dbname="mon_diff" )
+ column=(type=datetime updatewhereclause=yes name=ccur_date dbname="dlymst.cur_date" )
+ column=(type=char(60) updatewhereclause=yes name=billinginfo_bil_addr2 dbname="billinginfo.bil_addr2" )
+ column=(type=char(10) updatewhereclause=yes name=billinginfo_bil_zipcod dbname="billinginfo.bil_zipcod" )
+ retrieve="SELECT  DLYMST.PAYID,
+		 DLYMST.AMOUNT ,
+		 bil.bil_addr1 ,
+		 months_between(sysdate, dlymst.start_date) mon_diff,
+		 sysdate cur_date,
+		 bil.bil_addr2 ,
+		 bil.bil_zipcod     
+ FROM DLYMST ,
+           billinginfo bil 
+ WHERE ( DLYMST.PAYID = bil.customerid )
+" )
+group(level=1 header.height=0 trailer.height=0 by=("dlymst_payid" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+text(band=detail alignment="0" text="" border="0" color="0" x="1413" y="3364" height="60" width="1696"  name=b1_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="" border="0" color="0" x="1413" y="3492" height="60" width="1344"  name=sender_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="" border="0" color="0" x="1454" y="3236" height="60" width="544"  name=sysdt  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="위 기한까지 회답이 없을때에는 위 법적조치에 대하여 동의한 것으로 간주하고, 
+즉시 귀하에 대한 법적조치를 진행할 것임을 알려드립니다." border="0" color="0" x="407" y="2920" height="120" width="2501"  name=t_29  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="만약 위 기한까지 연체된 사용료 납부가 이루어지지 않을때에는 " border="0" color="0" x="407" y="2472" height="60" width="1920"  name=t_27  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="다름이 아니오라 귀하께서는" border="0" color="0" x="407" y="2052" height="60" width="827"  name=t_10  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="부로 서비스 금" border="0" color="0" x="1815" y="2052" height="60" width="494"  name=t_11  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="" border="0" color="0" x="1234" y="2052" height="60" width="558"  name=work_date  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+line(band=detail x1="297" y1="1440" x2="3177" y2="1440"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="855" y="1800" height="64" width="443" format="#,##0"  name=dlymst_amount visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="※ 위 연체금액을 이미 납부 하신 경우에는 이 독촉장을 폐기 하시기 바랍니다." border="0" color="0" x="407" y="3684" height="60" width="2702"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="요 금 납 입 독 촉 장" border="0" color="0" x="407" y="1604" height="92" width="2702"  name=t_1  font.face="굴림체" font.height="-16" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="원이" border="0" color="0" x="2894" y="2052" height="60" width="137"  name=t_12  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="2318" y="2052" height="60" width="562" format="#,##0"  name=dlymst_amount_1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="연체 되어" border="0" color="0" x="407" y="2124" height="60" width="315"  name=t_14  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="수차에 걸쳐 연체정리를 요청하였으나, 아직까지 정리가 되지 안고 있는 바," border="0" color="0" x="750" y="2124" height="60" width="2281"  name=t_28  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="연체된 사용료를 납부해주실 것을 통보드립니다." border="0" color="0" x="407" y="2268" height="60" width="2574"  name=t_4  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="당사에서는 업무처리상 더 이상 지체할 수가 없음을 통보드리며" border="0" color="0" x="407" y="2196" height="60" width="1888"  name=t_15  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="" border="0" color="0" x="2313" y="2196" height="60" width="622"  name=pay_deadlinedt  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="까지" border="0" color="0" x="2939" y="2196" height="60" width="123"  name=t_2  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="당사에서 제공하는모든 서비스의 제공을 중지하고, 신용정보집중기관에의 
+신용불량등록과 동시에 귀하의 재산에 대해 법적조치를 진행할 것" border="0" color="0" x="407" y="2548" height="112" width="2560"  name=t_7  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="을 알려드리오니, 귀하의 적극적인 해결 및 현명한 판단으로 불이익이 
+돌아가지 않도록 하시기 바랍니다." border="0" color="0" x="407" y="2676" height="120" width="2560"  name=t_5  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2382" y="924" height="68" width="398" format="@@@-@@@"  name=billinginfo_bil_zipcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1394" y="848" height="68" width="873" format="[general]"  name=dlymst_payid dddw.name=e01dc_dddw_customerid dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1394" y="644" height="68" width="1605" format="[general]"  name=billinginfo_bil_addr1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1394" y="732" height="68" width="1605" format="[general]"  name=billinginfo_bil_addr2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="귀하의 평안하심을 기원합니다." border="0" color="0" x="407" y="1892" height="60" width="2574"  name=t_26  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="연체  금액:" border="0" color="0" x="407" y="1800" height="60" width="425"  name=dlymst_amount_t visible="1~t0"  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

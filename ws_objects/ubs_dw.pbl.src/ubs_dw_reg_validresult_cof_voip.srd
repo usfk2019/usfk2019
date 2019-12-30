@@ -1,0 +1,84 @@
+﻿$PBExportHeader$ubs_dw_reg_validresult_cof_voip.srd
+$PBExportComments$[jhchoi] 장비인증 이력 조회(config_voip) - 2009.06.21
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=decimal(5) updatewhereclause=yes name=subsno dbname="bc_config_voip.subsno" )
+ column=(type=char(10) updatewhereclause=yes name=subsstatus dbname="bc_config_voip.subsstatus" )
+ column=(type=char(40) updatewhereclause=yes name=updatetime dbname="bc_config_voip.updatetime" )
+ column=(type=char(40) updatewhereclause=yes name=setdn dbname="bc_config_voip.setdn" )
+ column=(type=char(113) updatewhereclause=yes name=sipid dbname="bc_config_voip.sipid" )
+ column=(type=char(40) updatewhereclause=yes name=sippwd dbname="bc_config_voip.sippwd" )
+ column=(type=char(40) updatewhereclause=yes name=ipaddress dbname="bc_config_voip.ipaddress" )
+ column=(type=char(40) updatewhereclause=yes name=macaddress dbname="bc_config_voip.macaddress" )
+ column=(type=char(40) updatewhereclause=yes name=prov_updatetime dbname="bc_config_voip.prov_updatetime" )
+ column=(type=char(28) updatewhereclause=yes name=sn dbname="bc_config_voip.sn" )
+ column=(type=char(40) updatewhereclause=yes name=cpetype dbname="bc_config_voip.cpetype" )
+ column=(type=decimal(5) updatewhereclause=yes name=equip_cnt dbname="bc_config_voip.equip_cnt" )
+ column=(type=char(40) updatewhereclause=yes name=sswip dbname="bc_config_voip.sswip" )
+ column=(type=char(1) updatewhereclause=yes name=sswipflag dbname="bc_config_voip.sswipflag" )
+ column=(type=char(40) updatewhereclause=yes name=ext_ipaddr dbname="ext_ipaddr" )
+ column=(type=char(1) updatewhereclause=yes name=line_sharer dbname="line_sharer" )
+ column=(type=char(207) updatewhereclause=yes name=prov_flag dbname="prov_flag" )
+ column=(type=char(207) updatewhereclause=yes name=sswprov_flag dbname="sswprov_flag" )
+ column=(type=decimal(5) updatewhereclause=yes name=prodcd dbname="bc_config_voip.prodcd" )
+ retrieve="SELECT SUBSNO,   SUBSSTATUS,   UPDATETIME,   SETDN,             SIPID, 
+       SIPPWD,   IPADDRESS,    MACADDRESS,   PROV_UPDATETIME,   SN, 
+       CPETYPE,  EQUIP_CNT,    SSWIP,        SSWIPFLAG,
+		 CASE WHEN IPADDRESS = EXT_IPADDR THEN '-'
+            ELSE EXT_IPADDR END AS EXT_IPADDR,
+       CASE WHEN IPADDRESS != EXT_IPADDR THEN 'Y'
+            ELSE 'N' END AS LINE_SHARER,
+       CASE WHEN PROV_FLAG = '0' OR PROV_FLAG = '1' THEN '성공'
+            WHEN PROV_FLAG = '2' AND UPPER(PROV_FAILCAUSE) LIKE UPPER('%ERR_SSW_REG%') THEN '성공'
+            WHEN PROV_FLAG = '2' AND UPPER(PROV_FAILCAUSE) LIKE UPPER('%ERROR_CAUSE%') THEN '성공'
+            WHEN PROV_FLAG = '2' THEN '실패 (' || NVL(PROV_FAILCAUSE,'-') || ')' 
+            WHEN PROV_FLAG IS NULL THEN '단말미접속(로그파일확인)'
+            ELSE '-' END AS PROV_FLAG, 
+       CASE WHEN PROV_FLAG = '2' AND UPPER(PROV_FAILCAUSE) LIKE UPPER('%ERROR_CAUSE%') THEN '실패 (' || NVL(PROV_FAILCAUSE,'-') || ')'
+            WHEN PROV_FLAG = '2' AND UPPER(PROV_FAILCAUSE) LIKE UPPER('%ERR_SSW_REG%') THEN '실패 (' || NVL(PROV_FAILCAUSE,'-') || ')'
+            WHEN PROV_FLAG IS NULL THEN '-'
+            ELSE '성공' END AS SSWPROV_FLAG,
+       PRODCD
+FROM   BC_CONFIG_VOIP
+WHERE  1 = 0
+" )
+text(band=header alignment="2" text="가입번호" border="2" color="32896" x="9" y="8" height="60" width="334"  name=subsno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="상태" border="2" color="32896" x="352" y="8" height="60" width="425"  name=subsstatus_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="등록시간" border="2" color="32896" x="786" y="8" height="60" width="677"  name=updatetime_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="전화번호" border="2" color="32896" x="1472" y="8" height="60" width="489"  name=setdn_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="전화기 IP" border="2" color="32896" x="1970" y="8" height="60" width="613"  name=ipaddress_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="전화기 MAC" border="2" color="32896" x="3205" y="8" height="60" width="645"  name=macaddress_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="인증시간" border="2" color="32896" x="5083" y="8" height="60" width="649"  name=prov_updatetime_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="일련번호" border="2" color="32896" x="5742" y="8" height="60" width="407"  name=sn_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="타입" border="2" color="32896" x="6158" y="8" height="60" width="398"  name=cpetype_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="개수" border="2" color="32896" x="6565" y="8" height="60" width="219"  name=equip_cnt_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="SSW IP" border="2" color="32896" x="6793" y="8" height="60" width="658"  name=sswip_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="SSW IP Flag" border="2" color="32896" x="7461" y="8" height="60" width="393"  name=sswipflag_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="EXT IPADDR" border="2" color="32896" x="7863" y="8" height="60" width="1125"  name=ext_ipaddr_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="공유기 IP" border="2" color="32896" x="2592" y="8" height="60" width="603"  name=line_sharer_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="인증결과" border="2" color="32896" x="3858" y="8" height="60" width="727"  name=prov_flag_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="SSW 접속결과" border="2" color="32896" x="4594" y="8" height="60" width="480"  name=sswprov_flag_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="상품코드" border="2" color="32896" x="8997" y="8" height="60" width="480"  name=prodcd_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="334" format="[general]"  name=subsno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="8" height="76" width="425" format="[general]"  name=subsstatus edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="786" y="8" height="76" width="677" format="[general]"  name=updatetime edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1472" y="8" height="76" width="489" format="[general]"  name=setdn edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1970" y="8" height="76" width="613" format="[general]"  name=ipaddress edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3205" y="8" height="76" width="645" format="[general]"  name=macaddress edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="5083" y="8" height="76" width="649" format="[general]"  name=prov_updatetime edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="5742" y="8" height="76" width="407" format="[general]"  name=sn edit.limit=28 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="6158" y="8" height="76" width="398" format="[general]"  name=cpetype edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="6565" y="8" height="76" width="219" format="[general]"  name=equip_cnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="6793" y="8" height="76" width="658" format="[general]"  name=sswip edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="7461" y="8" height="76" width="393" format="[general]"  name=sswipflag edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="7863" y="8" height="76" width="1125" format="[general]"  name=ext_ipaddr edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="2592" y="8" height="76" width="603" format="[general]"  name=line_sharer edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="3858" y="8" height="76" width="727" format="[general]"  name=prov_flag edit.limit=207 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="4594" y="8" height="76" width="480" format="[general]"  name=sswprov_flag edit.limit=207 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="8997" y="8" height="76" width="480" format="[general]"  name=prodcd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

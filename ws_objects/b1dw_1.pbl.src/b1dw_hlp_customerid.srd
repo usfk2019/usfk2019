@@ -1,0 +1,31 @@
+﻿$PBExportHeader$b1dw_hlp_customerid.srd
+$PBExportComments$[parkkh] help 고객 조회
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=156 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes key=yes name=customerid dbname="customerm.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=ssno dbname="customerm.ssno" )
+ retrieve="  SELECT ~"CUSTOMERM~".~"CUSTOMERID~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         ~"CUSTOMERM~".~"SSNO~"  
+    FROM ~"CUSTOMERM~"  
+ORDER BY ~"CUSTOMERM~".~"CUSTOMERID~" ASC,   
+         ~"CUSTOMERM~".~"CUSTOMERNM~" ASC   
+" update="CUSTOMERM" updatewhere=0 updatekeyinplace=no )
+text(band=background alignment="2" text="Order By" border="0" color="0" x="14" y="16" height="56" width="311"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="" border="0" color="16711680" x="338" y="16" height="56" width="517"  name=order_name  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="ASC/DESC " border="0" color="0" x="1413" y="16" height="56" width="325"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="고객ID" border="6" color="16777215" x="50" y="88" height="60" width="398"  name=customerid_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="고객명" border="6" color="16777215" x="457" y="88" height="60" width="686"  name=customernm_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="주민등록번호" border="6" color="16777215" x="1152" y="88" height="64" width="713"  name=ssno_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+compute(band=detail alignment="0" expression="~"  ~""border="0" color="0" x="9" y="4" height="60" width="32" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="50" y="4" height="60" width="398" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="457" y="4" height="60" width="686" format="[general]"  name=customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1152" y="4" height="60" width="713" format="@@@@@@-@@@@@@@"  name=ssno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="16711680" x="1751" y="16" height="56" width="105"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

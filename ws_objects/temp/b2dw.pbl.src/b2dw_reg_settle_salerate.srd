@@ -1,0 +1,54 @@
+﻿$PBExportHeader$b2dw_reg_settle_salerate.srd
+$PBExportComments$[ceusee] 매출 수수료율
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=saleseq dbname="settle_salecommst.saleseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=settleplan dbname="settle_salecommst.settleplan" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fromdt dbname="settle_salecommst.fromdt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=from_amt dbname="settle_salecommst.from_amt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=to_amt dbname="settle_salecommst.to_amt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=comrate dbname="settle_salecommst.comrate" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="settle_salecommst.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="settle_salecommst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="settle_salecommst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="settle_salecommst.updtdt" )
+ column=(type=char(8) updatewhereclause=yes name=pgm_id dbname="settle_salecommst.pgm_id" )
+ retrieve="  SELECT ~"SETTLE_SALECOMMST~".~"SALESEQ~",   
+         ~"SETTLE_SALECOMMST~".~"SETTLEPLAN~",   
+         ~"SETTLE_SALECOMMST~".~"FROMDT~",   
+         ~"SETTLE_SALECOMMST~".~"FROM_AMT~",   
+         ~"SETTLE_SALECOMMST~".~"TO_AMT~",   
+         ~"SETTLE_SALECOMMST~".~"COMRATE~",   
+         ~"SETTLE_SALECOMMST~".~"CRT_USER~",   
+         ~"SETTLE_SALECOMMST~".~"UPDT_USER~",   
+         ~"SETTLE_SALECOMMST~".~"CRTDT~",   
+         ~"SETTLE_SALECOMMST~".~"UPDTDT~",
+         ~"SETTLE_SALECOMMST~".~"PGM_ID~"
+    FROM ~"SETTLE_SALECOMMST~"   
+    ORDER BY to_char(~"SETTLE_SALECOMMST~".~"FROMDT~",'YYYYMMDD') DESC, ~"SETTLE_SALECOMMST~".~"SETTLEPLAN~", ~"SETTLE_SALECOMMST~".~"FROM_AMT~"
+
+" update="SETTLE_SALECOMMST" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="적용개시일" border="2" color="16777215" x="14" y="16" height="60" width="379"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대상매출액From(>=)" border="2" color="16777215" x="411" y="16" height="60" width="640"  name=comamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대상매출액To(<)" border="2" color="16777215" x="1070" y="16" height="60" width="553"  name=comrate_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수수료율(%)" border="2" color="16777215" x="1641" y="16" height="60" width="411"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="등록자" border="2" color="16777215" x="2071" y="16" height="60" width="352"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수정자" border="2" color="16777215" x="2441" y="16" height="60" width="366"  name=updt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=detail alignment="2" text="사업자정산수수료유형" border="2" color="16777215" x="411" y="96" height="60" width="855"  name=svccod_t visible="1~t0"  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="421" y="196" height="76" width="1376" format="[general]"  name=saleseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="16777215" x="411" y="112" height="64" width="855" format="[general]"  name=settleplan visible="1~t0" dddw.name=b2dc_dddw_settleplan dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1824" y="192" height="76" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2016" y="192" height="76" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="2222" y="192" height="76" width="256" format="[general]"  name=pgm_id visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="2" color="16777215" x="14" y="4" height="60" width="379" format="[shortdate] [time]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="1" tabsequence=20 border="2" color="16777215" x="411" y="4" height="60" width="640" format="#,##0"  name=from_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="1" tabsequence=30 border="2" color="0" x="1070" y="4" height="60" width="553" format="#,##0"  name=to_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=40 border="2" color="16777215" x="1641" y="4" height="60" width="411" format="0.00"  name=comrate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="2071" y="4" height="60" width="352" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="2441" y="4" height="60" width="366" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

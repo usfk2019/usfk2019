@@ -1,0 +1,27 @@
+﻿$PBExportHeader$f_pos_print.srf
+global type f_pos_print from function_object
+end type
+
+forward prototypes
+global subroutine f_pos_print (string fs_buf, integer fi_sw)
+end prototypes
+
+global subroutine f_pos_print (string fs_buf, integer fi_sw);String ls_buf
+Integer li_len, li_spc
+	
+CHOOSE CASE fi_sw
+			case 1
+				li_len = LenA(fs_buf)
+				PRN_PutBufN(fs_buf, li_len)
+			case 2
+				ls_buf = fs_buf
+				li_len = LenA(ls_buf)
+				li_spc = truncate(( 42 -  li_len ) / 2, 0)
+				ls_buf = space(li_spc) + fs_buf
+				li_len = LenA(ls_buf)
+				PRN_PutBufN(ls_buf, li_len)
+END CHOOSE
+	
+RETURN
+end subroutine
+

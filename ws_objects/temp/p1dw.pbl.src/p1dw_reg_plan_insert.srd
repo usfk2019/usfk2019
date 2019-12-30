@@ -1,0 +1,58 @@
+﻿$PBExportHeader$p1dw_reg_plan_insert.srd
+$PBExportComments$[uhmjj] 설불카드정액으로 과금방식
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="p_flat_rate.priceplan" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="p_flat_rate.fromdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=p_method dbname="p_flat_rate.p_method" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unit dbname="p_flat_rate.unit" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=charge_amt dbname="p_flat_rate.charge_amt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=charge_rate dbname="p_flat_rate.charge_rate" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=log_yn dbname="p_flat_rate.log_yn" values="Y	Y/N	N/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=refill_type dbname="p_flat_rate.refill_type" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="p_flat_rate.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="p_flat_rate.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="p_flat_rate.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="p_flat_rate.pgm_id" )
+ retrieve="SELECT PRICEPLAN
+     , FROMDT
+     , P_METHOD
+     , UNIT
+     , CHARGE_AMT
+     , CHARGE_RATE
+     , LOG_YN
+     , REFILL_TYPE
+     , REMARK
+     , CRT_USER
+     , CRTDT
+     , PGM_ID
+  FROM P_FLAT_RATE
+ ORDER BY PRICEPLAN, FROMDT" update="P_FLAT_RATE" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="과금방식" border="2" color="15793151" x="1106" y="16" height="60" width="567"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="과금단위" border="2" color="15793151" x="1696" y="16" height="60" width="366"  name=tmcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용개시일" border="2" color="15793151" x="718" y="16" height="60" width="366"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격정책" border="2" color="15793151" x="23" y="16" height="60" width="672"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="정액" border="2" color="15793151" x="2085" y="16" height="60" width="498"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="정율" border="2" color="15793151" x="2606" y="16" height="60" width="393"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="충전Log여부" border="2" color="15793151" x="3022" y="16" height="56" width="402"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비고" border="2" color="15793151" x="3977" y="16" height="60" width="841"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="충전유형" border="2" color="15793151" x="3447" y="16" height="60" width="507"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="1090519039" x="23" y="4" height="60" width="672" format="[general]"  name=priceplan dddw.name=p1dc_dddw_priceplan2 dddw.displaycolumn=priceplanmst_priceplan_desc dddw.datacolumn=priceplanmst_priceplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="1090519039" x="1106" y="4" height="60" width="567" format="[general]"  name=p_method dddw.name=p1dc_dddw_priceplan_insert dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="2" color="1090519039" x="1696" y="4" height="60" width="279" format="[general]"  name=unit edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+compute(band=detail alignment="0" expression="CASE( p_method WHEN 'M' THEN '월' WHEN 'W' THEN '주' ELSE '일' )"border="0" color="0" x="1984" y="4" height="60" width="78" format="[GENERAL]"  name=compute_1  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="1090519039" x="718" y="4" height="60" width="366" format="[shortdate] [time]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="2" color="1090519039" x="2085" y="4" height="60" width="498" format="#,##0.00"  name=charge_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="1" tabsequence=60 border="2" color="1090519039" x="2606" y="4" height="60" width="393" format="##0.00"  name=charge_rate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="2" color="1090519039~tcase( log_yn when ~"Y~" then rgb(255,255,255) else rgb(0,0,0))" x="3022" y="4" height="60" width="402" format="[general]"  name=log_yn accelerator="0" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="25793388~tcase( log_yn when ~"Y~" then rgb(108,147,137) else rgb(255,251,240)) " )
+column(band=detail id=9 alignment="0" tabsequence=90 border="2" color="0" x="3977" y="4" height="60" width="841" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="1090519039" x="4649" y="4" height="60" width="78" format="[general]"  name=crt_user visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="1090519039" x="4709" y="4" height="60" width="41" format="[shortdate] [time]"  name=crtdt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="1090519039" x="4754" y="4" height="60" width="59" format="[general]"  name=pgm_id visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="2" color="1090519039~tcase( log_yn when ~"Y~" then rgb(255,255,255) else rgb(0,0,0))" x="3447" y="4" height="60" width="507" format="[general]" protect="0~tcase( log_yn when 'N' then 1 )"  name=refill_type dddw.name=p1dc_dddw_refill_type2 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="25793388~tcase( log_yn when ~"Y~" then rgb(108,147,137) else rgb(255,251,240)) " )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

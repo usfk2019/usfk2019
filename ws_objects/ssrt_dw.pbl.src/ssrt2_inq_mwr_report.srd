@@ -1,0 +1,72 @@
+﻿$PBExportHeader$ssrt2_inq_mwr_report.srd
+$PBExportComments$[hcjung] mwr report 조회 내역
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=mwr_report_list_seq dbname="mwr_report_list.seq" )
+ column=(type=char(28) updatewhereclause=yes name=g_svccod dbname="g_svccod" )
+ column=(type=char(5) updatewhereclause=yes name=mwr_report_list_status dbname="mwr_report_list.status" )
+ column=(type=char(6) updatewhereclause=yes name=mwr_report_list_yyyymm dbname="mwr_report_list.yyyymm" )
+ column=(type=char(50) updatewhereclause=yes name=partnermst_partnernm dbname="partnermst.partnernm" )
+ column=(type=char(10) updatewhereclause=yes name=basemst_basecod dbname="basemst.basecod" )
+ column=(type=char(30) updatewhereclause=yes name=basemst_basenm dbname="basemst.basenm" )
+ column=(type=char(14) updatewhereclause=yes name=mwr_report_list_customerid dbname="mwr_report_list.customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(50) updatewhereclause=yes name=svcmst_svcdesc dbname="svcmst.svcdesc" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_bil_fromdt dbname="contractmst.bil_fromdt" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_bil_todt dbname="contractmst.bil_todt" )
+ retrieve="SELECT MWR_REPORT_LIST.SEQ,
+       DECODE(MWR_REPORT_LIST.G_SVCCOD,'1','Internet Service Only',
+	                                    '2','Telephone Service Only',
+									            '3','Internet & Telephone Service',
+									            '4','Vonet Bundled Service',
+									            'Unknown') G_SVCCOD,
+       MWR_REPORT_LIST.STATUS,
+       MWR_REPORT_LIST.YYYYMM, 
+       PARTNERMST.PARTNERNM,
+       BASEMST.BASECOD,
+       BASEMST.BASENM,
+       MWR_REPORT_LIST.CUSTOMERID,
+       CUSTOMERM.CUSTOMERNM,
+       SVCMST.SVCDESC,
+       CONTRACTMST.BIL_FROMDT,
+       CONTRACTMST.BIL_TODT
+  FROM MWR_REPORT_LIST, CONTRACTMST, BASEMST, PARTNERMST, CUSTOMERM, SVCMST
+  WHERE MWR_REPORT_LIST.CONTRACTSEQ = CONTRACTMST.CONTRACTSEQ
+    AND CONTRACTMST.PARTNER = PARTNERMST.PARTNER
+    AND PARTNERMST.BASECOD = BASEMST.BASECOD
+    AND MWR_REPORT_LIST.CUSTOMERID = CUSTOMERM.CUSTOMERID
+    AND CONTRACTMST.SVCCOD = SVCMST.SVCCOD
+
+  ORDER BY MWR_REPORT_LIST.G_SVCCOD, MWR_REPORT_LIST.STATUS, BASEMST.BASECOD, MWR_REPORT_LIST.CUSTOMERID ASC" )
+compute(band=background alignment="0" expression="rowcount()"border="0" color="0" x="800" y="16" height="60" width="343" format="#,##0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Sequence" border="2" color="0" x="9" y="96" height="60" width="494"  name=t_11  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Status" border="2" color="0" x="1294" y="96" height="60" width="233"  name=t_13  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="YYYYMM" border="2" color="0" x="1536" y="96" height="60" width="311"  name=t_14  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Base Name" border="2" color="0" x="1856" y="96" height="60" width="443"  name=t_17  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Customer ID" border="2" color="0" x="2309" y="96" height="60" width="439"  name=t_18  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Customer Name" border="2" color="0" x="2757" y="96" height="60" width="887"  name=t_19  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Service Name" border="2" color="0" x="3653" y="96" height="60" width="599"  name=t_20  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Service Type" border="2" color="0" x="512" y="96" height="60" width="773"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Bil Fromdt" border="2" color="0" x="4261" y="96" height="60" width="402"  name=t_21  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Bil Todt" border="2" color="0" x="4672" y="96" height="60" width="398"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="4" color="0" x="9" y="0" height="76" width="494" format="[general]"  name=mwr_report_list_seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="4" color="0" x="1536" y="0" height="76" width="311" format="[general]"  name=mwr_report_list_yyyymm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="4" color="0" x="1856" y="0" height="76" width="443" format="[general]"  name=basemst_basenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="4" color="0" x="2309" y="0" height="76" width="439" format="[general]"  name=mwr_report_list_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="4" color="0" x="2757" y="0" height="76" width="887" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="4" color="0" x="3653" y="0" height="76" width="599" format="[general]"  name=svcmst_svcdesc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="4" color="0" x="1294" y="0" height="76" width="233" format="[general]"  name=mwr_report_list_status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="4" color="0" x="512" y="0" height="76" width="773" format="[general]"  name=g_svccod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="4" color="0" x="4261" y="0" height="76" width="402" format="[shortdate]"  name=contractmst_bil_fromdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="4" color="0" x="4672" y="0" height="76" width="398" format="[shortdate]"  name=contractmst_bil_todt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="2" text="Total Count" border="2" color="16777215" x="416" y="16" height="60" width="347"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421376" )
+text(band=foreground alignment="2" text="Period" border="2" color="16777215" x="1888" y="16" height="60" width="247"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421376" )
+text(band=foreground alignment="1" text="" border="0" color="0" x="2158" y="16" height="60" width="343"  name=fromdate  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="2" text="~~" border="0" color="0" x="2519" y="16" height="60" width="82"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="0" text="" border="0" color="0" x="2619" y="16" height="60" width="393"  name=todate  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

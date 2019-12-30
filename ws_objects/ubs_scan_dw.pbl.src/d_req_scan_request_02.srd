@@ -1,0 +1,116 @@
+﻿$PBExportHeader$d_req_scan_request_02.srd
+$PBExportComments$스캔업무처리관리(신청시)
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=96 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=gubn dbname="gubn" values="	1/	0" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="svcorder.customerid" )
+ column=(type=number updatewhereclause=yes name=group_cd dbname="group_cd" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="svcorder.orderno" )
+ column=(type=datetime updatewhereclause=yes name=orderdt dbname="svcorder.orderdt" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="svcorder.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=order_type dbname="svcorder.order_type" )
+ column=(type=char(10) updatewhereclause=yes name=doc_type dbname="doc_mst.doc_type" )
+ column=(type=decimal(0) updatewhereclause=yes name=doc_type_qty dbname="doc_mst.doc_type_qty" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="doc_mst.crtdt" )
+ column=(type=decimal(0) updatewhereclause=yes name=u_reqno dbname="doc_mst.u_reqno" )
+ column=(type=char(30) updatewhereclause=yes name=docno dbname="doc_mst.docno" )
+ column=(type=decimal(0) updatewhereclause=yes name=doc_reg_qty dbname="doc_mst.doc_reg_qty" )
+ column=(type=char(10) updatewhereclause=yes name=proc_status dbname="doc_mst.proc_status" )
+ column=(type=char(10) updatewhereclause=yes name=partner dbname="svcorder.partner" )
+ column=(type=decimal(0) updatewhereclause=yes name=svcorder_ref_contractseq dbname="svcorder.ref_contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="contractmst.status" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_partner dbname="svcorder.partner" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractmst.contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_status dbname="contractmst.status" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="svcorder.crt_user" )
+ column=(type=char(30) updatewhereclause=yes name=crt_user_nm dbname="crt_user_nm" )
+ retrieve="SELECT    0                 AS GUBN,
+          A.CUSTOMERID      AS CUSTOMERID,
+          1                 AS GROUP_CD,
+          A.ORDERNO         AS ORDERNO,
+          A.ORDERDT         AS ORDERDT,
+          A.PRICEPLAN       AS PRICEPLAN,
+          A.ORDER_TYPE      AS ORDER_TYPE,
+          C.DOC_TYPE        AS DOC_TYPE ,
+          C.DOC_TYPE_QTY    AS DOC_TYPE_QTY,
+          C.CRTDT           AS CRTDT,
+          C.U_REQNO         AS U_REQNO,
+          C.DOCNO           AS DOCNO,
+          C.DOC_REG_QTY     AS DOC_REG_QTY  ,
+          C.PROC_STATUS     AS PROC_STATUS,
+          A.PARTNER         AS PARTNER,
+          A.REF_CONTRACTSEQ AS REF_CONTRACTSEQ,
+          D.STATUS          AS STATUS,
+          A.PARTNER         AS PARTNER,
+          D.CONTRACTSEQ     AS CONTRACTSEQ,
+          D.STATUS          AS STATUS,
+          A.CRT_USER        AS CRT_USER,
+          (SELECT EMPNM FROM SYSUSR1T WHERE EMP_ID = A.CRT_USER) CRT_USER_NM
+FROM      SVCORDER        A,
+          ORDER_DOCGROUP  B,
+          DOC_MST         C, 
+          CONTRACTMST     D
+WHERE     A.ORDERNO         = B.ORDERNO
+AND       B.U_REQNO         = C.U_REQNO
+AND       A.REF_CONTRACTSEQ = D.CONTRACTSEQ(+)     
+AND       A.PARTNER         LIKE :as_partner_cd 
+AND       A.CUSTOMERID      LIKE :as_customerid||'%'
+AND       A.ORDER_TYPE      LIKE :as_order_type
+AND       TO_CHAR(A.ORDERDT, 'YYYYMMDD')   BETWEEN :as_fdate AND :as_tdate
+AND       C.PROC_STATUS     LIKE :as_proc_status
+AND       A.CRT_USER        LIKE :as_operator
+" arguments=(("as_partner_cd", string),("as_customerid", string),("as_order_type", string),("as_fdate", string),("as_tdate", string),("as_proc_status", string),("as_operator", string))  sort="customerid A u_reqno D orderno A " )
+text(band=header alignment="2" text="Customerid" border="2" color="16777215" x="9" y="4" height="56" width="370" html.valueishtml="0"  name=customerid_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Order번호" border="2" color="16777215" x="389" y="4" height="56" width="338" html.valueishtml="0"  name=orderno_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Priceplan" border="2" color="16777215" x="1047" y="4" height="56" width="910" html.valueishtml="0"  name=priceplan_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="신청Type" border="2" color="16777215" x="2299" y="4" height="56" width="681" html.valueishtml="0"  name=order_type_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="서류Type" border="2" color="16777215" x="2990" y="4" height="56" width="352" html.valueishtml="0"  name=doc_type_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Order일자" border="2" color="16777215" x="1966" y="4" height="56" width="325" html.valueishtml="0"  name=orderdt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="구비총장수" border="2" color="16777215" x="3351" y="4" height="56" width="338" html.valueishtml="0"  name=doc_type_qty_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Shop" border="2" color="16777215" x="6245" y="4" height="56" width="827" html.valueishtml="0"  name=partner_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Contractseq" border="2" color="16777215" x="7081" y="4" height="56" width="384" html.valueishtml="0"  name=contractseq_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청일시" border="2" color="16777215" x="3698" y="4" height="56" width="622" html.valueishtml="0"  name=crtdt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="U_Order번호" border="2" color="16777215" x="4329" y="4" height="56" width="507" html.valueishtml="0"  name=u_reqno_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="문서번호" border="2" color="16777215" x="4846" y="4" height="56" width="567" html.valueishtml="0"  name=docno_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="스캔장수" border="2" color="16777215" x="5422" y="4" height="56" width="315" html.valueishtml="0"  name=doc_reg_qty_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="업무상태" border="2" color="16777215" x="5746" y="4" height="56" width="489" html.valueishtml="0"  name=proc_status_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="묶음그룹" border="2" color="16777215" x="736" y="4" height="56" width="302" html.valueishtml="0"  name=group_cd_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약상태" border="2" color="16777215" x="7474" y="4" height="56" width="361" html.valueishtml="0"  name=status_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="서비스신청작업자ID" border="2" color="16777215" x="7845" y="4" height="56" width="599" html.valueishtml="0"  name=crt_user_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="서비스신청작업자" border="2" color="16777215" x="8453" y="4" height="56" width="672" html.valueishtml="0"  name=crt_user_nm_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="370" format="[general]" html.valueishtml="0"  name=customerid visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="389" y="8" height="60" width="338" format="[general]" html.valueishtml="0"  name=orderno visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1047" y="8" height="60" width="910" format="[general]" html.valueishtml="0"  name=priceplan visible="1" dddw.name=ubs_dddw_priceplan_partner dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="2299" y="8" height="60" width="681" format="[general]" html.valueishtml="0"  name=order_type visible="1" dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.autoretrieve=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="2990" y="8" height="60" width="352" format="[general]" html.valueishtml="0"  name=doc_type visible="1" dddw.name=ubs_dddw_doc_type dddw.displaycolumn=doc_type_desc dddw.datacolumn=doc_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="3351" y="8" height="60" width="338" format="#,##0" html.valueishtml="0"  name=doc_type_qty visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="6245" y="8" height="60" width="827" format="[general]" html.valueishtml="0"  name=partner visible="1" dddw.name=ssrt_dddw_partner_sales dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="2" tabsequence=32766 border="0" color="0" x="7081" y="8" height="60" width="384" format="[general]" html.valueishtml="0"  name=contractseq visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1966" y="8" height="60" width="325" format="[shortdate] [time]" html.valueishtml="0"  name=orderdt visible="1" editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="3698" y="8" height="60" width="622" format="[shortdate] [time]" html.valueishtml="0"  name=crtdt visible="1" editmask.mask="yyyy-mm-dd - hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="2" tabsequence=10 border="0" color="0" x="4329" y="8" height="60" width="507" format="[general]" html.valueishtml="0"  name=u_reqno visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.displayonly=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4846" y="8" height="60" width="567" format="[general]" html.valueishtml="0"  name=docno visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="5422" y="8" height="60" width="315" format="[general]" html.valueishtml="0"  name=doc_reg_qty visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="0" color="0" x="5746" y="8" height="60" width="489" format="[general]" html.valueishtml="0"  name=proc_status visible="1" dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.autoretrieve=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="736" y="8" height="60" width="302" format="[general]" html.valueishtml="0"  name=group_cd visible="1" dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.autoretrieve=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="2" tabsequence=32766 border="0" color="0" x="7474" y="8" height="60" width="361" format="[general]" html.valueishtml="0"  name=status visible="1" dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.autoretrieve=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=21 alignment="2" tabsequence=32766 border="0" color="0" x="7845" y="8" height="60" width="599" format="[general]" html.valueishtml="0"  name=crt_user visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="8453" y="8" height="60" width="672" format="[general]" html.valueishtml="0"  name=crt_user_nm visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=footer alignment="1" text="건수 합계 :" border="0" color="0" x="9" y="28" height="56" width="370" html.valueishtml="0"  name=t_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="2" expression="ROWCOUNT()"border="0" color="0" x="389" y="28" height="56" width="338" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+
+sparse(names="customerid")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

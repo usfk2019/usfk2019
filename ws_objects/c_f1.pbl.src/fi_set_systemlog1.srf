@@ -1,0 +1,41 @@
+﻿$PBExportHeader$fi_set_systemlog1.srf
+$PBExportComments$[kenn] SYSTEM Logging 1
+global type fi_set_systemlog1 from function_object
+end type
+
+forward prototypes
+global function integer fi_set_systemlog1 (string as_pgm_id, string as_pgm_item, string as_chg_item, string as_chg_key, string as_tablecode, string as_old, string as_new)
+end prototypes
+
+global function integer fi_set_systemlog1 (string as_pgm_id, string as_pgm_item, string as_chg_item, string as_chg_key, string as_tablecode, string as_old, string as_new);String ls_seq, ls_emp_id, ls_reg_dt
+String ls_tablegroup
+
+ls_emp_id = gs_user_id
+ls_reg_dt = String(fdt_get_dbserver_now(), "yyyymmddhhmmss")
+
+//테이블 그룹 코드
+SELECT tablenm 
+INTO :ls_tablegroup 
+FROM systable_group
+WHERE UPPER(tablecode) =UPPER(trim(:as_tablecode));
+
+If SQLCA.SQLCode < 0 Then
+	f_msg_sql_err("SYSTEM Select", "Select Error")
+	Return -1
+End If
+
+
+INSERT INTO syslog1t( seq, reg_dt, chg_item, chg_itemkey, chg_itemkey2, tablenm, tablecode, 
+							 pgm_item, pgm_id,old_data, new_data, emp_id)
+       VALUES       (seq_syslog1t.nextval, :ls_reg_dt, :as_chg_item, :as_chg_key, NULL, :ls_tablegroup, :as_tablecode,
+							 :as_pgm_item, :as_pgm_id, :as_old , :as_new , :ls_emp_id);
+
+If SQLCA.SQLCode < 0 Then
+	f_msg_sql_err("SYSTEM Log", "저장 실패")
+	Return -1
+End If
+
+Return 0
+
+end function
+

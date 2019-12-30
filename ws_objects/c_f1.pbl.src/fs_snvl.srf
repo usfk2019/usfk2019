@@ -1,0 +1,24 @@
+﻿$PBExportHeader$fs_snvl.srf
+$PBExportComments$[ohj]문자형 null 체크
+global type fs_snvl from function_object
+end type
+
+forward prototypes
+global function string fs_snvl (string as_source, string as_replacedstr)
+end prototypes
+
+global function string fs_snvl (string as_source, string as_replacedstr);/********************************************************************************************
+	Function     : f_snvl
+	Purpose      : if as_source is null then return as_replacedstr
+						else return rightTrim(as_source)
+	Parameters   : as_source (string/val) 
+						as_replacedstr(string/val)
+	Returns      : string
+	Description  : 숫자형 데이타가 널일때 지정값을 반환
+if isNull(as_source) or len(trim(as_source)) = 0 then return as_replacedStr
+return rightTrim(as_source)
+*/
+if isNull(as_source) or LenA(trim(as_source)) = 0 then return as_replacedStr
+return rightTrim(as_source)
+end function
+

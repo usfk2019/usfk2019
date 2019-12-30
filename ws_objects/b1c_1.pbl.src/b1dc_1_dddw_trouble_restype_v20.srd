@@ -1,0 +1,15 @@
+﻿$PBExportHeader$b1dc_1_dddw_trouble_restype_v20.srd
+$PBExportComments$[jsha] 민원조치유형 dddw
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=restype dbname="trouble_restype.restype" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=restypenm dbname="trouble_restype.restypenm" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"trouble_restype~" ) COLUMN(NAME=~"trouble_restype.restype~") COLUMN(NAME=~"trouble_restype.restypenm~")) " update="TROUBLE_RESTYPE" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="832" y="8" height="60" width="96" format="[general]"  name=restype visible="1~t0" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="59" y="12" height="60" width="727" format="[general]"  name=restypenm edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="0" y1="84" x2="983" y2="84"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

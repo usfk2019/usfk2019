@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_reg_pgm_auth.srd
+$PBExportComments$Program authority register
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=emp_id dbname="SYSUSR2T.EMP_ID" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=pgm_id dbname="SYSUSR2T.PGM_ID" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=auth dbname="SYSUSR2T.AUTH" initial="0" values="0	0/1	1/2	2/3	3/4	4/5	5/6	6/7	7/8	8/9	9/" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"sysusr2t~" ) COLUMN(NAME=~"sysusr2t.EMP_ID~") COLUMN(NAME=~"sysusr2t.PGM_ID~") COLUMN(NAME=~"sysusr2t.AUTH~")WHERE(    EXP1 =~"( SYSUSR2T.EMP_ID~"   OP =~"like~"    EXP2 =~":as_userid )~" ) ) ARG(NAME = ~"as_userid~" TYPE = string) " update="SYSUSR2T" updatewhere=1 updatekeyinplace=no arguments=(("as_userid", string)) )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="114" y="8" height="64" width="379" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="2" color="0" x="2272" y="8" height="64" width="329" format="[general]"  name=auth ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="0" x="521" y="8" height="64" width="1723" format="[general]"  name=pgm_id_1 dddw.name=d_dddw_pgm_id dddw.displaycolumn=pgm_id_nm dddw.datacolumn=pgm_id dddw.percentwidth=110 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Program ID" border="2" color="15793151" x="114" y="20" height="60" width="379"  name=pgm_id_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Authority" border="2" color="15793151" x="2272" y="20" height="60" width="329"  name=auth_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Program" border="2" color="15793151" x="521" y="20" height="60" width="1723"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

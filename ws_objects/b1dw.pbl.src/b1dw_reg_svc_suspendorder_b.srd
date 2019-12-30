@@ -1,0 +1,63 @@
+﻿$PBExportHeader$b1dw_reg_svc_suspendorder_b.srd
+$PBExportComments$[jhchoi] 서비스 일시정지 신청 ( Detail) - 2009.04.14
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=584 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=contractmst_contractseq dbname="contractmst.contractseq" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_customerid dbname="customerm.customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=contractmst_contractno dbname="contractmst.contractno" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid dbname="customerm.payid" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid_1 dbname="customerm.payid" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_status dbname="contractmst.status" )
+ column=(type=char(10) updatewhereclause=yes name=activedt dbname="activedt" )
+ column=(type=char(10) updatewhereclause=yes name=bil_fromdt dbname="bil_fromdt" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_svccod dbname="contractmst.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_priceplan dbname="contractmst.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_prmtype dbname="contractmst.prmtype" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_reg_partner dbname="contractmst.reg_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_maintain_partner dbname="contractmst.maintain_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_sale_partner dbname="contractmst.sale_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_settle_partner dbname="contractmst.settle_partner" )
+ column=(type=datetime updatewhereclause=yes name=reqdt dbname="reqdt" )
+ column=(type=datetime updatewhereclause=yes name=reactivedt dbname="reactivedt" )
+ column=(type=char(0) updatewhereclause=yes name=partner dbname="partner" )
+ column=(type=char(0) updatewhereclause=yes name=partnernm dbname="partnernm" )
+ column=(type=char(1) updatewhereclause=yes name=act_gu dbname="act_gu" values="일시정지확정	Y/일시정지확정	N" )
+ column=(type=char(0) updatewhereclause=yes name=remark dbname="remark" )
+ column=(type=char(0) updatewhereclause=yes name=suspend_type dbname="suspend_type" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractmst_related_contractseq dbname="contractmst.related_contractseq" )
+ retrieve="SELECT   cnt.contractseq, cus.customerid, cus.customernm, cnt.contractno,
+		 cus.payid, cus.payid,cnt.status,TO_CHAR(cnt.activedt, 'yyyy-mm-dd') activedt,
+		 to_char(cnt.bil_fromdt, 'yyyy-mm-dd') bil_fromdt,cnt.svccod, cnt.priceplan,
+         cnt.prmtype, cnt.reg_partner, cnt.maintain_partner, cnt.sale_partner,
+		 cnt.settle_partner, to_date(null) reqdt, to_date(null) reactivedt,
+		 to_char(null) partner, to_char(null) partnernm, 'N' act_gu, to_char(null) remark,
+       '' as suspend_type, cnt.related_contractseq
+    FROM customerm cus, contractmst cnt
+   WHERE cnt.customerid = cus.customerid
+ORDER BY cnt.contractseq, cus.customerid" )
+rectangle(band=detail x="37" y="16" height="556" width="1280"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="32" y="16" height="556" width="407"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="33554431" )
+line(band=detail x1="434" y1="20" x2="434" y2="496"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="859" y="600" height="60" width="421" format="[general]"  name=act_gu visible="1~t0" checkbox.text="일시정지확정" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="265" y="752" height="60" width="457" format="[general]"  name=contractmst_related_contractseq visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=detail alignment="1" text="Request Date" border="0" color="0" x="50" y="36" height="60" width="366"  name=reqdt_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Reactive Date" border="0" color="0" x="50" y="132" height="60" width="366"  name=reactivedt_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="SHOP" border="0" color="0" x="50" y="228" height="60" width="366"  name=partner_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Reason" border="0" color="0" x="50" y="324" height="60" width="366"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Remark" border="0" color="0" x="50" y="420" height="60" width="366"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="2" tabsequence=20 border="5" color="0" x="453" y="132" height="60" width="398" format="[shortdate] [time]"  name=reactivedt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=50 border="5" color="0" x="448" y="420" height="136" width="841" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="37" y1="112" x2="1307" y2="112"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="37" y1="208" x2="1307" y2="208"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="37" y1="304" x2="1307" y2="304"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="37" y1="400" x2="1307" y2="400"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="448" y="848" height="76" width="320" format="[general]"  name=contractmst_priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="2" tabsequence=10 border="5" color="16777215" x="453" y="36" height="60" width="398" format="[shortdate] [time]"  name=reqdt  tag="Request Date" editmask.autoskip=yes editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=19 alignment="0" tabsequence=30 border="5" color="16777215" x="453" y="228" height="60" width="837" format="[general]"  name=partner  tag="SHOP" dddw.name=b1dc_dddw_partner_act_yn dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=23 alignment="0" tabsequence=40 border="5" color="16777215" x="453" y="328" height="60" width="837" format="[general]"  name=suspend_type  tag="Reason" dddw.name=b1c_dddw_suspend_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

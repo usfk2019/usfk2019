@@ -1,0 +1,44 @@
+﻿$PBExportHeader$b4dw_reg_det_customer_usedamt_adj_v20.srd
+$PBExportComments$[juede] 고객사용금액증감처리(Detail)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=seq dbname="customer_usedamt_adj.seq" )
+ column=(type=char(14) updatewhereclause=yes name=payid dbname="customer_usedamt_adj.payid" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="customer_usedamt_adj.svccod" )
+ column=(type=char(1) updatewhereclause=yes name=adj_type dbname="customer_usedamt_adj.adj_type" values="증액	A/감액	M/한도회복	C/" )
+ column=(type=decimal(2) updatewhereclause=yes name=adj_amt dbname="customer_usedamt_adj.adj_amt" )
+ column=(type=char(100) updatewhereclause=yes name=note dbname="customer_usedamt_adj.note" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="customer_usedamt_adj.crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="customer_usedamt_adj.crt_user" )
+ column=(type=char(8) updatewhereclause=yes name=pgm_id dbname="customer_usedamt_adj.pgm_id" )
+ retrieve="SELECT SEQ,
+       PAYID,
+       SVCCOD,
+       ADJ_TYPE,
+       ADJ_AMT,
+       NOTE,
+       CRTDT,
+       CRT_USER,
+       PGM_ID
+FROM CUSTOMER_USEDAMT_ADJ
+ORDER BY SEQ
+
+" )
+text(band=header alignment="2" text="Seq No." border="2" color="16777215" x="9" y="16" height="60" width="622"  name=worktype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="증감구분" border="2" color="16777215" x="640" y="16" height="60" width="512"  name=workqty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="증감금액" border="2" color="16777215" x="1161" y="16" height="60" width="585"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비    고" border="2" color="16777215" x="1755" y="16" height="60" width="1225"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일" border="2" color="16777215" x="2990" y="16" height="60" width="594"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업자" border="2" color="16777215" x="3593" y="16" height="60" width="526"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="622" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3593" y="8" height="60" width="526" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2990" y="8" height="60" width="594" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1755" y="8" height="60" width="1225" format="[general]"  name=note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1161" y="8" height="60" width="585" format="#,##0.00"  name=adj_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="640" y="8" height="60" width="512" format="[general]"  name=adj_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

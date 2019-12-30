@@ -1,0 +1,42 @@
+﻿$PBExportHeader$ubs_dw_pop_sms_send_mas.srd
+$PBExportComments$[jhchoi] 모바일 렌탈 연장 계약선택 팝업 (Master) - 2009.06.04
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=140 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=chk dbname="chk" values="	Y/	N" )
+ column=(type=char(8) updatewhereclause=yes key=yes name=emp_id dbname="sysusr1t.emp_id" )
+ column=(type=char(30) updatewhereclause=yes name=empnm dbname="sysusr1t.empnm" )
+ column=(type=char(20) updatewhereclause=yes name=smsphone dbname="smsphone" )
+ column=(type=char(10) updatewhereclause=yes name=emp_group dbname="sysusr1t.emp_group" )
+ retrieve="SELECT 'N' CHK,
+		 EMP_ID,
+		 EMPNM,
+		 REPLACE(SMSPHONE, '-', '') AS SMSPHONE,
+		 EMP_GROUP
+FROM   SYSUSR1T
+WHERE  EMP_GROUP = :as_partner
+AND    1 = :as_flag
+UNION ALL
+SELECT 'N' CHK,
+		 EMP_ID,
+		 EMPNM,
+		 REPLACE(SMSPHONE, '-', '') AS SMSPHONE,
+		 EMP_GROUP
+FROM   SYSUSR1T
+WHERE  0 = :as_flag" update="SYSUSR1T" updatewhere=1 updatekeyinplace=no arguments=(("as_flag", string),("as_partner", string))  sort="emp_group A emp_id A " )
+text(band=header alignment="2" text="Partner :" border="0" color="0" x="9" y="4" height="60" width="274"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header id=5 alignment="0" tabsequence=32766 border="0" color="0" x="288" y="4" height="60" width="914" format="[general]"  name=emp_group dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Check" border="2" color="16777215" x="9" y="76" height="60" width="192"  name=customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Operator" border="2" color="16777215" x="215" y="76" height="60" width="951"  name=empnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Cell Phone" border="2" color="16777215" x="1179" y="76" height="60" width="471"  name=smsphone_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=detail alignment="1" text="Duty Phone" border="0" color="8388608" x="1728" y="2028" height="60" width="398"  name=dutyphone_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Act. Card No" border="0" color="0" x="585" y="916" height="60" width="517"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="494" y="4" height="64" width="672" format="[general]"  name=empnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="0" x="9" y="4" height="64" width="192" format="[general]"  name=chk checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="215" y="4" height="64" width="265" format="[general]"  name=emp_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1179" y="4" height="64" width="471" format="[general]"  name=smsphone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

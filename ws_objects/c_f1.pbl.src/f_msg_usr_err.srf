@@ -1,0 +1,199 @@
+﻿$PBExportHeader$f_msg_usr_err.srf
+$PBExportComments$For Program Run Time Message(StopSign)
+global type f_msg_usr_err from function_object
+end type
+
+forward prototypes
+global function string f_msg_usr_err (integer ai_usr_err_code, string as_title, string as_content)
+end prototypes
+
+global function string f_msg_usr_err (integer ai_usr_err_code, string as_title, string as_content);//*******************************************************************
+// Fuction ID : f_msg_usr_err
+//
+// Purpose : Handle program run time message -StopSign
+//
+// Scope : Public
+//
+// Parameter :
+//  1) al_err_code(Integer/Value) : Message Id
+//  2) as_title(String/Value) : Message title
+//  3) as_content(String/Value) : Message content
+//
+// Return Value : (String) 
+//                In occasion of not display MessageBox & returned message content,
+//                Set '*' on the right of as_title 
+//						
+// Log : (Date : Name : Version)
+// 		02/05/97 : Yum, Hyun Sook : Original
+// 6100:pps    ,6300:회선임대(고객관리,청구관리),
+//*******************************************************************
+string ls_err_title			//Message title
+string ls_err_content		//Message content
+long ll_length
+
+
+ls_err_title = as_title
+If as_content = "" Then
+	ls_err_content = ""
+Else
+	ls_err_content = " (" + as_content + ")"
+End If
+
+Choose Case ai_usr_err_code
+	Case 100
+		ls_err_content = "New Password <> Current Password" + ls_err_content
+
+
+	Case 200			// 필수 입력 
+		ls_err_content = "Mandatory data" + ls_err_content
+//		ls_err_content = "필수 입력 항목" + ls_err_content
+
+	Case 201			// 입력 자료 error
+		ls_err_content = "Invalid data" + ls_err_content
+//		ls_err_content = "입력 자료 오류" + ls_err_content
+
+	Case 202			// 입력 순서가 잘못됨
+		ls_err_content = "Invalid sequence" + ls_err_content
+//		ls_err_content = "입력 순서 오류" + ls_err_content
+
+	Case 210			// 일자 error
+		ls_err_content = "Invalid date" + ls_err_content
+//		ls_err_content = "유효 하지 않은 날짜" + ls_err_content
+
+	Case 211			// 일자 입력 순서가 잘못됨
+		ls_err_content = "Invalid date sequence" + ls_err_content
+//		ls_err_content = "날짜 입력 순서가 잘못됨" + ls_err_content
+
+	Case 212			// 현재일 이후 일자 입력시
+						// as_title에 "today:YYYY-MM-DD" 를 추가해서 보낼 것
+		ll_length = PosA(ls_err_title, "today:")
+		ls_err_content = "Date after " + MidA(ls_err_title, ll_length + LenA("today:"), 10) + &
+							  " is invalid " + ls_err_content 
+		ls_err_title = LeftA(ls_err_title, ll_length -1)
+		
+	Case 213 		// 조건부 이전 일자 입력시
+						// as_title에 "today:YY/MM/DD" 를 추가해서 보낼 것
+		ll_length = PosA(ls_err_title, "today:")
+		ls_err_content = "Date ago " + MidA(ls_err_title, ll_length + LenA("today:"), 10) + &
+							  " is invalid " + ls_err_content 
+		ls_err_title = LeftA(ls_err_title, ll_length -1)
+	Case 214			// 청구 기준일보다 커야 한다.
+						// as_title에 "today:YYYY-MM-DD" 를 추가해서 보낼 것
+		ll_length = PosA(ls_err_title, "today:")
+		ls_err_content = "Billig Cycle Date after " + MidA(ls_err_title, ll_length + LenA("today:"), 10) + &
+							  " is invalid " + ls_err_content 
+		ls_err_title = LeftA(ls_err_title, ll_length -1)
+
+	Case 220			// 비정상적인 시간 
+		ls_err_content = "Invalid time" + ls_err_content
+//		ls_err_content = "비정상적인 시간" + ls_err_content
+
+	Case 221			// 시간 입력 순서가 잘못됨
+		ls_err_content = "Invalid time sequence" + ls_err_content
+//		ls_err_content = "시간 입력 순서가 잘못됨" + ls_err_content
+
+	Case 230			// 동일 자료 사용 불가  
+		ls_err_content = "Same value disallowed" + ls_err_content
+//		ls_err_content = "동일 자료 사용 불가 " + ls_err_content
+	
+	Case 240			//입력권한이 없다.(New)
+		ls_err_content = "The datum can't be inputed." + ls_err_content
+//		ls_err_content = "입력권한이 없습니다." + ls_err_content
+
+   Case 250
+		//이미 개통신청 하셧습니다.
+		ls_err_content = ls_err_content + "Already completed."
+	Case 260  //처리할수 없는 수행처 입니다.
+		ls_err_content = "'Executed By' cannot be completed." + ls_err_content
+	Case 270
+		ls_err_content = "There exists no service type for that service." + ls_err_content
+	Case 275 //할부금액은 조정금액과 같야야 합니다.
+		ls_err_content = "The sum of the 조정금액 is not same to Total Amount" + ls_err_content
+	Case 276
+		ls_err_content = "판매금액과 같지 않습니다." + ls_err_content
+	Case 280
+		ls_err_content = "'Effective-From' is duplicated." + ls_err_content
+	Case 281 ////인증키의 적용시작일과 종료일이 겹칩니다. + 인증 Key[XXX]
+		ls_err_content = "'Effective-From' and 'Effective-To' is the same.~r" +  ls_err_content
+	Case 282	//인증키의 적용시작일과 종료일이 겹칩니다.
+		ls_err_content = "'Effective-From' and 'Effective To' of Authorization Code is the same" + ls_err_content
+		
+	Case 283	//인증Key가 중복됩니다.
+		ls_err_content = "Authorization Code is duplicated" +  ls_err_content
+		
+	Case 284  //XXX날짜는 해당계약건의 개통중인~인증KEY의 적용시작일보다 커야합니다
+		ls_err_content = ls_err_content + "' should be latter than the 'Effective From' ~rof the Authorization Code currently in use"
+		
+   Case 300  //XXX는 이미 존재합니다.
+		ls_err_content = "The " +  ls_err_content + " already exists."
+	Case 404 //기존의 Currency로 가입자가 존재하거나 서비스 신청건이 존재합니다.
+		ls_err_content = "There exists service request for existing Currency."
+	
+	Case 1100	   // 자료가 읽혀오지 않음
+		ls_err_content = "Record not found" + ls_err_content
+//		ls_err_content = "자료가 없습니다." + ls_err_content
+   Case 1001		// File Open Error
+		ls_err_content = "File Open Error" + ls_err_content
+	Case 1200	   
+		ls_err_content = "Save Failed." + &
+			ls_err_content		
+	Case 1300	   
+		ls_err_content = "Deletion Failed" + &
+			ls_err_content
+  
+	Case 2100		//	function  처리 실패 	
+		ls_err_content = "Function failed" + ls_err_content
+//		ls_err_content = "Function failed" + ls_err_content
+
+	Case 2200		//	Delete 처리 불가 	
+		ls_err_content = "Delete function disallowed" + ls_err_content
+//		ls_err_content = "자료 삭제 불가" + ls_err_content
+
+	Case 3100      // 더이상의 자료 처리 불가
+		ls_err_content = "Extra data disallowed" + ls_err_content
+//		ls_err_content = "더 이상의 자료 처리 불가" + ls_err_content
+
+	Case 3200      // control file 자료 없음 
+		ls_err_content = "Set parameter" + ls_err_content			
+
+	Case 3210      // control file 자료 없음 
+		ls_err_content = "Insert a reference no. and set parameter." + &
+			ls_err_content			
+
+	Case 3300      // 이미 처리한 procedure 재수행시 
+		ls_err_content = "Process cannot be executed. Confirm 청구절차처리." + &
+			ls_err_content
+	Case 3400
+		ls_err_content = "Completed already."+ &
+			ls_err_content
+	Case 3500
+		ls_err_content = "Define Item First." + &
+		   ls_err_content
+				
+	Case 9000		// 사용자 임의 메세지  
+		ll_length = LenA(ls_err_content)
+		If ll_length <> 0 Then ls_err_content = MidA(ls_err_content, 3, ll_length - 3)
+	
+//*PPS Message: 6101 ~ 6299***************************************************
+	Case 6101		//SYSCTL1T: P2, R401
+		ls_err_content = "There exists no data on the last Partner Settlement Year/Month." + &
+			ls_err_content
+
+	Case 6102		//다른 사용자가 이미 Process 처리 한 경우
+		ls_err_content = "Current Settlement Year/Month is completed already by other user." + &
+ 			ls_err_content
+   Case 6301		//사용자가 입력한 이관일자자 입금마감일자와 비교
+		ls_err_content = "Only data prior to Prev. Due Date can be transferred." + &
+			ls_err_content			
+	Case Else		// 처리 메세지 미지정시
+		ls_err_content = "Undefined user message(f_msg_usr_err)"
+
+End Choose
+
+If Not (RightA(as_title, 1) = "*") Then &
+	MessageBox(ls_err_title, ls_err_content, StopSign!)
+
+Return ls_err_content
+
+end function
+

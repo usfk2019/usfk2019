@@ -1,0 +1,20 @@
+﻿$PBExportHeader$c1dw_cnd_customerid_traffic_v20.srd
+$PBExportComments$[parkkh]사업자별트래픽현황 cond
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=220 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=saveas dbname="saveas" values="지역그룹별트래픽현황	M/지역별트래픽현황	D/" )
+ column=(type=date updatewhereclause=no name=yyyymmdd_to dbname="yyyymmdd_to" )
+ column=(type=date updatewhereclause=no name=yyyymmdd_fr dbname="yyyymmdd_fr" )
+ column=(type=char(14) updatewhereclause=no name=customerid dbname="customerid" )
+ )
+column(band=detail id=3 alignment="2" tabsequence=10 border="2" color="16777215" x="370" y="44" height="56" width="375" format="yyyy-mm-dd"  name=yyyymmdd_fr editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="763" y="44" height="56" width="64"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="15793151" x="846" y="44" height="56" width="375" format="yyyy-mm-dd"  name=yyyymmdd_to editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="기  간" border="0" color="0" x="50" y="44" height="60" width="302"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="사업자" border="0" color="0" x="50" y="132" height="60" width="302"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="2" color="0" x="366" y="132" height="60" width="859" format="[general]"  name=customerid dddw.name=c1dc_dddw_wholesale_customer_v20 dddw.displaycolumn=customerm_customernm dddw.datacolumn=wholesale_customer_customerid dddw.percentwidth=140 dddw.lines=7 dddw.limit=14 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

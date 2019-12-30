@@ -1,0 +1,49 @@
+﻿$PBExportHeader$b1dw_inq_mst_customerinforeq.srd
+$PBExportComments$[ssong]고객정보요청파일 master
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=180 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes name=workno dbname="customerinfo_reqlog.workno" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=to_cnt dbname="customerinfo_reqlog.to_cnt" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_0003 dbname="compute_0003" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="customerinfo_reqlog.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="customerinfo_reqlog.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="customerinfo_reqlog.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=partner dbname="customerinfo_reqlog.partner" )
+ column=(type=datetime update=yes updatewhereclause=yes name=stime_fr dbname="customerinfo_reqlog.stime_fr" )
+ column=(type=datetime update=yes updatewhereclause=yes name=stime_to dbname="customerinfo_reqlog.stime_to" )
+ retrieve="SELECT WORKNO
+     , TO_CNT
+     , TRUNC(TO_BILTIME/60)
+     , CRT_USER
+     , CRTDT
+     , PGM_ID
+     , PARTNER
+     , STIME_FR
+     , STIME_TO
+  FROM CUSTOMERINFO_REQLOG" )
+text(band=header alignment="2" text="작업일자" border="2" color="16777215" x="9" y="112" height="60" width="603"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사업자" border="2" color="16777215" x="622" y="112" height="60" width="640"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화일 From" border="2" color="16777215" x="1271" y="112" height="60" width="507"  name=stime_fr_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화일 To" border="2" color="16777215" x="1787" y="112" height="60" width="507"  name=stime_to_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업번호" border="2" color="16777215" x="3337" y="112" height="60" width="485"  name=workno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청 Total 건수" border="2" color="16777215" x="2304" y="112" height="60" width="521"  name=to_cnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Total 사용분수" border="2" color="16777215" x="2834" y="112" height="60" width="494"  name=obj_729893671  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="603" format="[shortdate] [time]"  name=crtdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="622" y="8" height="60" width="640" format="[general]"  name=partner dddw.name=b1dc_dddw_interlock dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="1271" y="8" height="60" width="507" format="[shortdate] [time]"  name=stime_fr editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="1787" y="8" height="60" width="507" format="[shortdate] [time]"  name=stime_to editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="2304" y="8" height="60" width="521" format="#,##0"  name=to_cnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="3337" y="8" height="60" width="485" format="[general]"  name=workno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="2834" y="8" height="60" width="494" format="#,##0"  name=compute_0003 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="0" expression="rowcount()"border="0" color="8388608" x="2834" y="36" height="56" width="425" format="#,##0"  name=compute_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="TOTAL ROWS:" border="0" color="0" x="2446" y="36" height="56" width="379"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="ORDER BY" border="0" color="0" x="14" y="36" height="60" width="293"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="325" y="36" height="60" width="343"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="ASC/DESC" border="0" color="0" x="955" y="36" height="60" width="302"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1271" y="36" height="60" width="219"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

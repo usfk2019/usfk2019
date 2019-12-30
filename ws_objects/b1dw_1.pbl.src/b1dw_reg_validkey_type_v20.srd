@@ -1,0 +1,53 @@
+﻿$PBExportHeader$b1dw_reg_validkey_type_v20.srd
+$PBExportComments$[ohj] 인증key type 등록 v20 - detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=validkey_type dbname="validkey_type.validkey_type" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=validkey_typenm dbname="validkey_type.validkey_typenm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_kind dbname="validkey_type.crt_kind" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=prefix dbname="validkey_type.prefix" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=length dbname="validkey_type.length" initial="0" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=auth_method dbname="validkey_type.auth_method" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=type dbname="validkey_type.type" values="VALIDKEY	VALIDKEY/VALIDITEM	VALIDITEM/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=used_level dbname="validkey_type.used_level" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="validkey_type.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="validkey_type.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="validkey_type.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="validkey_type.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="validkey_type.pgm_id" )
+ retrieve="SELECT VALIDKEY_TYPE
+     , VALIDKEY_TYPENM
+     , CRT_KIND
+     , PREFIX
+     , LENGTH
+     , AUTH_METHOD
+     , TYPE
+     , USED_LEVEL
+     , CRT_USER
+     , CRTDT
+     , UPDT_USER
+     , UPDTDT
+     , PGM_ID
+  FROM VALIDKEY_TYPE" update="VALIDKEY_TYPE" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="인증key Type" border="2" color="16777215" x="18" y="16" height="60" width="466"  name=validkey_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="18" y="4" height="60" width="466" format="[general]"  name=validkey_type edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=header alignment="2" text="Prefix" border="2" color="16777215" x="2176" y="16" height="60" width="375"  name=prefix_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="길이" border="2" color="16777215" x="2569" y="16" height="60" width="352"  name=length_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="인증방법" border="2" color="16777215" x="2939" y="16" height="60" width="791"  name=auth_method_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Type구분" border="2" color="16777215" x="3749" y="16" height="60" width="370"  name=type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용권한" border="2" color="16777215" x="4137" y="16" height="60" width="640"  name=used_level_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="2176" y="4" height="60" width="375" format="[general]"  name=prefix edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="2" color="16777215" x="2939" y="4" height="60" width="791" format="[general]"  name=auth_method dddw.name=b1dc_dddw_validkey_auth_method_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="2" color="16777215" x="3749" y="4" height="60" width="370" format="[general]"  name=type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="2" color="0~tcase( crt_kind  when 'AR'  then 16777215  else 0) " x="2569" y="4" height="60" width="352" format="[general]"  name=length edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="33554431~tcase( crt_kind  when 'AR'  then 9016172  else 16777215)" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="2" color="0~tcase( crt_kind  when 'R'  then 16777215  else 0) " x="4137" y="4" height="60" width="640" format="[general]"  name=used_level dddw.name=b1dc_dddw_validkey_used_level_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="33554431~tcase( crt_kind  when 'R'  then 9016172  else 16777215)" )
+text(band=header alignment="2" text="인증Key Type명" border="2" color="16777215" x="503" y="16" height="60" width="850"  name=validkey_typenm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="503" y="4" height="60" width="850" format="[general]"  name=validkey_typenm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=header alignment="2" text="생성종류" border="2" color="16777215" x="1371" y="16" height="60" width="786"  name=crt_kind_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="1371" y="4" height="60" width="786" format="[general]"  name=crt_kind dddw.name=b1dc_dddw_validkey_crt_kind_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

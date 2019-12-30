@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b1dw_cnd_reg_validinfoserver_mod_1.srd
+$PBExportComments$[ceusee] validinfo 조건 조회
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=296 color="536870912" )
+table(column=(type=char(30) updatewhereclause=no name=validkey dbname="validkey" )
+ column=(type=date updatewhereclause=no name=fromdt dbname="fromdt" )
+ column=(type=char(10) updatewhereclause=no name=err_code dbname="err_code" )
+ column=(type=date updatewhereclause=no name=todt dbname="todt" )
+ )
+text(band=detail alignment="1" text="작업요청일" border="0" color="0" x="69" y="40" height="60" width="306"  name=cworkdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="763" y="40" height="60" width="50"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="2" color="0" x="398" y="40" height="60" width="347" format="[general]"  name=fromdt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=20 border="2" color="0" x="832" y="40" height="60" width="347" format="[general]"  name=todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="인증KEY" border="0" color="0" x="69" y="128" height="60" width="306"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=30 border="2" color="0" x="398" y="128" height="60" width="782" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Error 유형" border="0" color="0" x="69" y="216" height="56" width="306"  name=worktype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="2" color="0" x="398" y="216" height="56" width="933" format="[general]"  name=err_code dddw.name=b1dc_dddw_validinfoserver_errcocde dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

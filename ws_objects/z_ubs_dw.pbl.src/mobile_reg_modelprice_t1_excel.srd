@@ -1,0 +1,81 @@
+﻿$PBExportHeader$mobile_reg_modelprice_t1_excel.srd
+$PBExportComments$모바일 요금 업로드
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=sale_modelcd dbname="model_priceplan_upload.sale_modelcd" )
+ column=(type=char(60) updatewhereclause=yes name=nickname dbname="model_priceplan_upload.nickname" )
+ column=(type=decimal(6) updatewhereclause=yes name=facto_amt dbname="model_priceplan_upload.facto_amt" )
+ column=(type=char(60) updatewhereclause=yes name=priceplan_kor dbname="model_priceplan_upload.priceplan_kor" )
+ column=(type=char(60) updatewhereclause=yes name=priceplan dbname="model_priceplan_upload.priceplan" )
+ column=(type=decimal(6) updatewhereclause=yes name=sub_amt1 dbname="model_priceplan_upload.sub_amt1" )
+ column=(type=decimal(6) updatewhereclause=yes name=sub_amt2 dbname="model_priceplan_upload.sub_amt2" )
+ column=(type=decimal(6) updatewhereclause=yes name=ucube_amt dbname="model_priceplan_upload.ucube_amt" )
+ column=(type=decimal(6) updatewhereclause=yes name=ubs_amt dbname="model_priceplan_upload.ubs_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=rate dbname="model_priceplan_upload.rate" )
+ column=(type=decimal(2) updatewhereclause=yes name=margin dbname="model_priceplan_upload.margin" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="model_priceplan_upload.crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="model_priceplan_upload.crt_user" )
+ column=(type=datetime updatewhereclause=yes name=updtdt dbname="model_priceplan_upload.updtdt" )
+ column=(type=char(10) updatewhereclause=yes name=updt_user dbname="model_priceplan_upload.updt_user" )
+ column=(type=char(8) updatewhereclause=yes name=fromdt dbname="model_priceplan_upload.fromdt" )
+ column=(type=decimal(0) updatewhereclause=yes name=seq dbname="model_priceplan_upload.seq" )
+ column=(type=decimal(6) updatewhereclause=yes name=sub_amt3 dbname="model_priceplan_upload.sub_amt3" )
+ column=(type=decimal(6) updatewhereclause=yes name=sub_amt4 dbname="model_priceplan_upload.sub_amt4" )
+ retrieve="SELECT         
+					 SALE_MODELCD,
+                NICKNAME,
+                FACTO_AMT,
+                PRICEPLAN_KOR,
+                PRICEPLAN,
+                SUB_AMT1,
+                SUB_AMT2,
+                UCUBE_AMT,
+                UBS_AMT,
+                RATE,
+                MARGIN,
+                CRTDT,
+                CRT_USER,
+                UPDTDT,
+                UPDT_USER,
+                FROMDT,
+					 SEQ,
+					 SUB_AMT3,
+                SUB_AMT4
+FROM  MODEL_PRICEPLAN_UPLOAD
+                " )
+text(band=header alignment="2" text="팻네임" border="2" color="15793151" x="503" y="8" height="56" width="581"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="출고가" border="2" color="15793151" x="1093" y="8" height="56" width="375"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="국문요금제" border="2" color="15793151" x="1477" y="8" height="56" width="635"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="영문요금제" border="2" color="15793151" x="2121" y="8" height="56" width="686"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="공시지원금" border="2" color="15793151" x="2816" y="8" height="56" width="375"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="추가지원금" border="2" color="15793151" x="3200" y="8" height="56" width="357"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="유큐브등록금액" border="2" color="15793151" x="3566" y="8" height="56" width="421"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="미군판매금액" border="2" color="15793151" x="3995" y="8" height="56" width="375"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용환율" border="2" color="15793151" x="4379" y="8" height="56" width="251"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="마진율" border="2" color="15793151" x="4640" y="8" height="56" width="201"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성일" border="2" color="15793151" x="4850" y="8" height="56" width="517"  name=t_14  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성자" border="2" color="15793151" x="5376" y="8" height="56" width="311"  name=t_15  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수정일" border="2" color="15793151" x="5696" y="8" height="56" width="530"  name=t_16  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수정자" border="2" color="15793151" x="6235" y="8" height="56" width="311"  name=t_17  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매모델명" border="2" color="15793151" x="9" y="8" height="56" width="485"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="56" width="485" format="[general]"  name=sale_modelcd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="503" y="0" height="56" width="581" format="[general]"  name=nickname edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1093" y="0" height="56" width="375" format="[general]"  name=facto_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1477" y="0" height="56" width="635" format="[general]"  name=priceplan_kor edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2121" y="0" height="56" width="686" format="[general]"  name=priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2816" y="0" height="56" width="375" format="[general]"  name=sub_amt1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3200" y="0" height="56" width="357" format="[general]"  name=sub_amt2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3566" y="0" height="56" width="421" format="[general]"  name=ucube_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3995" y="0" height="56" width="375" format="[general]"  name=ubs_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4379" y="0" height="56" width="251" format="[general]"  name=rate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4640" y="0" height="56" width="201" format="[general]"  name=margin edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4850" y="0" height="56" width="517" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="5376" y="0" height="56" width="311" format="[general]"  name=crt_user dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="5696" y="0" height="56" width="530" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="6235" y="0" height="56" width="311" format="[general]"  name=updt_user dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

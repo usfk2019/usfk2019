@@ -1,0 +1,83 @@
+﻿$PBExportHeader$b1dw_inq_det_inq_svcorder_can2.srd
+$PBExportComments$[jhchoi] 서비스 일시정지 신청, 처리 ( Detail2) - 2009.04.14
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=76 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=itemcod dbname="dailypayment.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(1) updatewhereclause=yes name=quota_yn dbname="itemmst.quota_yn" )
+ column=(type=char(1) updatewhereclause=yes name=chk dbname="chk" )
+ column=(type=char(1) updatewhereclause=yes name=mainitem_yn dbname="itemmst.mainitem_yn" )
+ column=(type=char(10) updatewhereclause=yes name=addition_code dbname="itemmst.addition_code" )
+ column=(type=decimal(0) updatewhereclause=yes name=priority dbname="itemmst.priority" )
+ column=(type=char(10) updatewhereclause=yes name=pricetable dbname="itemmst.pricetable" )
+ column=(type=char(1) updatewhereclause=yes name=bilitem_yn dbname="itemmst.bilitem_yn" )
+ column=(type=char(1) updatewhereclause=yes name=oneoffcharge_yn dbname="itemmst.oneoffcharge_yn" )
+ column=(type=decimal(2) updatewhereclause=yes name=unit_amt dbname="dailypayment.unit_amt" )
+ column=(type=number updatewhereclause=yes name=tax_amt dbname="tax_amt" )
+ column=(type=number updatewhereclause=yes name=unit_item dbname="unit_item" )
+ retrieve="SELECT B.ITEMCOD,
+		 D.ITEMNM,
+		 D.QUOTA_YN,
+		 'Y' CHK,
+		 D.MAINITEM_YN,
+		 D.ADDITION_CODE,
+		 D.PRIORITY,
+		 D.PRICETABLE,
+		 D.BILITEM_YN,
+		 D.ONEOFFCHARGE_YN,
+		 B.PAYAMT AS UNIT_AMT,
+                  NVL(B.TAXAMT,0) AS TAX_AMT,
+		 TO_NUMBER(C.CODENM) AS UNIT_ITEM
+FROM   SVCORDER A, DAILYPAYMENT B, SYSCOD2T C, ITEMMST D
+WHERE  A.ORDERNO = :al_orderno
+AND    A.CUSTOMERID = B.CUSTOMERID
+AND    B.PAYDT >= TO_DATE(TO_CHAR(A.ORDERDT, 'YYYYMMDD'), 'YYYYMMDD') - 14
+AND    B.PAYDT <= TO_DATE(TO_CHAR(A.ORDERDT, 'YYYYMMDD'), 'YYYYMMDD') + 14
+AND    B.ITEMCOD = C.CODE
+AND    C.GRCODE = 'UBS04'
+AND    C.USE_YN = 'Y'
+AND    B.ITEMCOD = D.ITEMCOD
+ORDER BY  D.ITEMCOD, D.MAINITEM_YN DESC, D.QUOTA_YN DESC" arguments=(("al_orderno", number)) )
+text(band=header alignment="0" text="Itemmst Quota Yn" border="0" color="16777215" x="1179" y="8" height="60" width="279" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Chk" border="0" color="16777215" x="1467" y="8" height="60" width="192" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Itemmst Mainitem Yn" border="0" color="16777215" x="1669" y="8" height="60" width="407" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Itemmst Addition Code" border="0" color="16777215" x="2085" y="8" height="60" width="402" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Itemmst Priority" border="0" color="16777215" x="2496" y="8" height="60" width="430" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Itemmst Pricetable" border="0" color="16777215" x="2935" y="8" height="60" width="462" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Itemmst Bilitem Yn" border="0" color="16777215" x="3406" y="8" height="60" width="471" html.valueishtml="0"  name=t_10 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Itemmst Oneoffcharge Yn" border="0" color="16777215" x="3886" y="8" height="60" width="434" html.valueishtml="0"  name=t_11 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Unit Amt" border="0" color="16777215" x="4329" y="8" height="60" width="978" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Unit Item" border="0" color="16777215" x="5317" y="4" height="76" width="978" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item" border="2" color="16777215" x="251" y="8" height="60" width="919" html.valueishtml="0"  name=itemmst_itemnm_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Dailypayment Itemcod" border="2" color="16777215" x="23" y="8" height="60" width="219" html.valueishtml="0"  name=obj_21360328 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="60" width="5" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="251" y="4" height="60" width="919" format="[general]" html.valueishtml="0"  name=itemnm visible="1" edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1179" y="0" height="60" width="279" format="[general]" html.valueishtml="0"  name=quota_yn visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1467" y="0" height="60" width="192" format="[general]" html.valueishtml="0"  name=chk visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1669" y="0" height="60" width="407" format="[general]" html.valueishtml="0"  name=mainitem_yn visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2085" y="0" height="60" width="402" format="[general]" html.valueishtml="0"  name=addition_code visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2496" y="0" height="60" width="430" format="[general]" html.valueishtml="0"  name=priority visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2935" y="0" height="60" width="462" format="[general]" html.valueishtml="0"  name=pricetable visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3406" y="0" height="60" width="471" format="[general]" html.valueishtml="0"  name=bilitem_yn visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3886" y="0" height="60" width="434" format="[general]" html.valueishtml="0"  name=oneoffcharge_yn visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4329" y="0" height="60" width="978" format="[general]" html.valueishtml="0"  name=unit_amt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="5317" y="0" height="60" width="978" format="[general]" html.valueishtml="0"  name=unit_item visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="23" y="4" height="60" width="219" format="[general]" html.valueishtml="0"  name=itemcod visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum(unit_amt for all)"border="0" color="0" x="4329" y="4" height="60" width="978" format="[general]" html.valueishtml="0"  name=sum_unit_amt visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=0 border="0" color="0" x="6309" y="0" height="60" width="398" html.valueishtml="0"  name=tax_amt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Tax Amt" border="0" color="0" x="6304" y="4" height="76" width="402" html.valueishtml="0"  name=tax_amt_t visible="1"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,56 @@
+﻿$PBExportHeader$b2dw_reg_partner_reqdtl.srd
+$PBExportComments$[chooys] 지급거래등록 Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=datetime update=yes updatewhereclause=yes name=paydt dbname="partner_reqdtl.paydt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=commtr dbname="partner_reqdtl.commtr" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=trcnt dbname="partner_reqdtl.trcnt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt dbname="partner_reqdtl.tramt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=commamt dbname="partner_reqdtl.commamt" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="partner_reqdtl.remark" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="partner_reqdtl.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="partner_reqdtl.crtdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=preqno dbname="partner_reqdtl.preqno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=partner dbname="partner_reqdtl.partner" )
+ column=(type=datetime update=yes updatewhereclause=yes name=commdt dbname="partner_reqdtl.commdt" )
+ column=(type=char(1) updatewhereclause=yes name=new_flag dbname="new_flag" )
+ retrieve="  SELECT ~"PARTNER_REQDTL~".~"PAYDT~",   
+         ~"PARTNER_REQDTL~".~"COMMTR~",   
+         ~"PARTNER_REQDTL~".~"TRCNT~",   
+         ~"PARTNER_REQDTL~".~"TRAMT~",   
+         ~"PARTNER_REQDTL~".~"COMMAMT~",   
+         ~"PARTNER_REQDTL~".~"REMARK~",   
+         ~"PARTNER_REQDTL~".~"CRT_USER~",   
+         ~"PARTNER_REQDTL~".~"CRTDT~",   
+         ~"PARTNER_REQDTL~".~"PREQNO~",   
+         ~"PARTNER_REQDTL~".~"PARTNER~",   
+         ~"PARTNER_REQDTL~".~"COMMDT~",
+			'O' new_flag
+    FROM ~"PARTNER_REQDTL~"   
+" update="PARTNER_REQDTL" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="거래일(지급일)" border="2" color="16777215" x="14" y="12" height="60" width="498"  name=paydt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래유형" border="2" color="16777215" x="526" y="12" height="60" width="567"  name=commtr_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대상건수" border="2" color="16777215" x="1106" y="12" height="60" width="302"  name=trcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대상매출액" border="2" color="16777215" x="1422" y="12" height="60" width="443"  name=tramt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수수료(지급액)" border="2" color="16777215" x="1879" y="12" height="60" width="498"  name=commamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적요" border="2" color="16777215" x="2391" y="12" height="60" width="1001"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일" border="2" color="16777215" x="3406" y="12" height="60" width="352"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업자" border="2" color="16777215" x="3771" y="12" height="60" width="352"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="923" y="96" height="64" width="1161" format="[general]"  name=preqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2112" y="96" height="64" width="270" format="[general]"  name=partner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="2427" y="96" height="64" width="736" format="[shortdate] [time]"  name=commdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="16711680" x="3237" y="104" height="56" width="247" format="[general]"  name=new_flag edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="16777215" x="14" y="4" height="60" width="498" format="[shortdate] [time]" protect="0~tif(  new_flag = 'N' , 0, 1 )"  name=paydt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="2" color="0" x="3406" y="4" height="60" width="352" format="[shortdate] [time]"  name=crtdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="3771" y="4" height="60" width="352" format="[general]"  name=crt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="526" y="4" height="60" width="567" format="[general]" protect="0~tif(  new_flag = 'N' , 0, 1 )"  name=commtr dddw.name=b2dc_dddw_partner_trcod dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="2" color="0" x="1106" y="4" height="60" width="302" format="#,##0" protect="0~tif(  new_flag = 'N' , 0, 1 )"  name=trcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes criteria.override_edit=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="2" color="0" x="1422" y="4" height="60" width="443" format="#,##0" protect="0~tif(  new_flag = 'N' , 0, 1 )"  name=tramt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="2" color="16777215" x="1879" y="4" height="60" width="498" format="#,##0" protect="0~tif(  new_flag = 'N' , 0, 1 )"  name=commamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="2" color="0" x="2391" y="4" height="60" width="1001" format="[general]" protect="0~tif(  new_flag = 'N' , 0, 1 )"  name=remark edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

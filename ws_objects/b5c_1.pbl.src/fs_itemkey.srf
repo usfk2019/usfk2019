@@ -1,0 +1,68 @@
+﻿$PBExportHeader$fs_itemkey.srf
+$PBExportComments$원하는 길이로 string을 변환(space를 채우거나 절삭)
+global type fs_itemkey from function_object
+end type
+
+forward prototypes
+global function any fs_itemkey (string as_invf_type, string as_record)
+end prototypes
+
+global function any fs_itemkey (string as_invf_type, string as_record);Int li_source_len, ll_itemkey, i = 0
+String ls_result, ls_itemkey_re
+Boolean lb_left = True
+
+// 정의한 레코드 순서대로 가져오기..
+DECLARE invf_recorddet_cu CURSOR FOR
+   select itemkey 
+    from invf_recorddet
+   where invf_type = :as_invf_type
+     and record = :as_record  
+order by seqno                ;
+//and itemkey_property = 'C' ;
+
+	OPEN invf_recorddet_cu;
+			
+	DO WHILE (True)
+		
+		Fetch invf_recorddet_cu
+		Into :ll_itemkey ;
+			
+		If SQLCA.SQLCode < 0 Then
+			Return ls_result
+			Exit
+		ElseIf SQLCA.SQLCode = 100 Then
+			Exit
+		End If	
+		
+		ls_itemkey_re += string(ll_itemkey) + ';'
+	Loop
+Close invf_recorddet_cu;
+
+ls_itemkey_re = MidA(ls_itemkey_re, 1, LenA(ls_itemkey_re) - 1)
+////If IsNull(as_source) Then as_source = ""
+////li_source_len = Len(as_source)
+//
+//If li_source_len < ai_len Then
+//	//왼쪽 채우기
+//	If as_gubun = '1' Then
+//		ls_result = Fill(as_pad, ai_len - li_source_len) + as_source
+//		
+//	//오른쪽 채우기
+//	ElseIf as_gubun = '2' Then
+//		ls_result = as_source + Fill(as_pad, ai_len - li_source_len)
+//	Else
+//		ls_result = as_source
+//	End If
+////ElseIf li_source_len > ai_len Then
+////	If lb_left Then
+////		ls_result = Left(as_source, ai_len)
+////	Else
+////		ls_result = Right(as_source, ai_len)
+////	End If
+//Else
+//	ls_result = as_source
+//End If
+
+Return ls_itemkey_re
+end function
+

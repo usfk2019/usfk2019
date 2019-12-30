@@ -1,0 +1,31 @@
+﻿$PBExportHeader$fi_cut_string.srf
+$PBExportComments$문자열을 특정구분자로 자른다.
+global type fi_cut_string from function_object
+end type
+
+forward prototypes
+global function integer fi_cut_string (string as_source, string as_cut, ref string as_result[])
+end prototypes
+
+global function integer fi_cut_string (string as_source, string as_cut, ref string as_result[]);//문자열을 특정구분자(as_cut)로 자른다.
+Long ll_rc = 1
+Int li_index = 0
+
+as_source = Trim(as_source)
+If as_source <> '' Then
+	Do While(ll_rc <> 0 )
+		li_index ++
+		ll_rc = PosA(as_source, as_cut)
+		If ll_rc <> 0 Then
+			as_result[li_index] = Trim(LeftA(as_source, ll_rc - 1))
+		Else
+			as_result[li_index] = Trim(as_source)
+		End If
+
+		as_source = MidA(as_source, ll_rc + 1)
+	Loop
+End If
+
+Return li_index
+end function
+

@@ -1,0 +1,22 @@
+﻿$PBExportHeader$ssrt2_cnd_inq_mwr_report.srd
+$PBExportComments$[ssong]일자별 cdr 조회 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=164 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=status dbname="status" values="Activation	act/Termination	term/" )
+ column=(type=date updatewhereclause=no name=fromdate dbname="fromdate" )
+ column=(type=char(10) updatewhereclause=no name=service dbname="svc" values="Internet Service Only	1/Telephone Service Only	2/Internet & Telephone Service	3/Vonet Bundled Service	4/" )
+ column=(type=char(10) updatewhereclause=no name=basecod dbname="basecod" )
+ )
+column(band=detail id=4 alignment="0" tabsequence=10 border="2" color="0" x="288" y="12" height="60" width="777" format="[general]"  name=basecod dddw.name=ssrt_dddw_basecod dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=0 dddw.lines=10 dddw.limit=1 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="288" y="92" height="60" width="777" format="[general]"  name=service ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Status" border="0" color="0" x="1106" y="12" height="60" width="210"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Date " border="0" color="0" x="1138" y="92" height="60" width="178"  name=validkey_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Base " border="0" color="0" x="69" y="12" height="60" width="192"  name=table_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Service " border="0" color="0" x="32" y="92" height="60" width="229"  name=workdt_fr_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="0" color="0" x="1344" y="12" height="60" width="530" format="[general]"  name=status ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=40 border="2" color="16777215" x="1344" y="92" height="60" width="530" format="[general]"  name=fromdate editmask.mask="mm-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

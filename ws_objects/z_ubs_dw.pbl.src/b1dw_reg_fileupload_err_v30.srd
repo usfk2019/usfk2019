@@ -1,0 +1,85 @@
+﻿$PBExportHeader$b1dw_reg_fileupload_err_v30.srd
+$PBExportComments$[ohj] 서비스 가입예약 v20 - master
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=160 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=workno dbname="requpload_err.workno" )
+ column=(type=decimal(0) updatewhereclause=yes name=lineno dbname="requpload_err.lineno" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="requpload_err.validkey" )
+ column=(type=decimal(2) updatewhereclause=yes name=saleamt dbname="requpload_err.saleamt" )
+ column=(type=char(10) updatewhereclause=yes name=err_reason dbname="requpload_err.err_reason" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=pass_yn dbname="requpload_err.pass_yn" values="	Y/	N" )
+ column=(type=char(10) updatewhereclause=yes name=corpcode dbname="requpload_err.corpcode" )
+ column=(type=decimal(0) updatewhereclause=yes name=requpload_org_d_workno dbname="requpload_org_d.workno" )
+ column=(type=decimal(0) updatewhereclause=yes name=requpload_org_d_lineno dbname="requpload_org_d.lineno" )
+ column=(type=char(30) updatewhereclause=yes name=requpload_org_d_validkey dbname="requpload_org_d.validkey" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="requpload_err.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="requpload_err.updt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="requpload_err.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updt dbname="requpload_err.updt" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customernm" )
+ retrieve="SELECT A.WORKNO     WORKNO
+  , A.LINENO     LINENO   
+  , A.VALIDKEY   VALIDKEY      
+  , A.SALEAMT    SALEAMT   
+  , A.ERR_REASON ERR_REASON   
+  , A.PASS_YN    PASS_YN   
+  , A.CORPCODE   CORPCODE 
+  , B.WORKNO     WORKNO   
+  , B.LINENO 
+  , B.VALIDKEY  
+  , A.CRT_USER   CRT_USER   
+  , A.UPDT_USER  UPDT_USER   
+  , A.CRTDT      CRTDT   
+  , A.UPDT       UPDT
+  , DECODE (a.validkey, NULL, '',
+               (SELECT CUSTOMERID
+                  FROM VALIDINFO V
+                 WHERE 1=1
+                   AND V.VALIDKEY = A.VALIDKEY
+                   AND V.FROMDT                                   <= TO_DATE(A.TRDT, 'YYYY-MM-DD')
+                   AND NVL(V.TODT, TO_DATE(A.TRDT, 'YYYY-MM-DD')) >= TO_DATE(A.TRDT, 'YYYY-MM-DD')
+                   AND ROWNUM =1
+              ) ) AS customerid
+  , DECODE (a.validkey, NULL, '',
+               (SELECT C.CUSTOMERNM
+                  FROM VALIDINFO V, CUSTOMERM C
+                 WHERE 1=1
+                   AND V.CUSTOMERID = C.CUSTOMERID
+                   AND V.VALIDKEY = A.VALIDKEY
+                   AND V.FROMDT                                   <= TO_DATE(A.TRDT, 'YYYY-MM-DD')
+                   AND NVL(V.TODT, TO_DATE(A.TRDT, 'YYYY-MM-DD')) >= TO_DATE(A.TRDT, 'YYYY-MM-DD')
+                   AND ROWNUM =1
+              ) ) AS customernm
+FROM REQUPLOAD_ERR A
+  , REQUPLOAD_ORG_D B
+WHERE A.WORKNO = B.WORKNO
+AND A.LINENO = B.LINENO
+
+"  sort="workno A lineno A " )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1070" y="12" height="56" width="279"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=background alignment="0" text="" border="0" color="0" x="1399" y="12" height="56" width="585"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=background alignment="1" text="Order By" border="0" color="0" x="18" y="12" height="56" width="242"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=background alignment="0" text="" border="0" color="0" x="311" y="12" height="56" width="585"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="무시여부" border="2" color="16777215" x="9" y="92" height="64" width="274"  name=pass_yn_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="라인번호" border="2" color="16777215" x="293" y="92" height="64" width="384"  name=lineno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="오류사유" border="2" color="16777215" x="686" y="92" height="64" width="686"  name=err_reason_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="인증키" border="2" color="16777215" x="1381" y="92" height="64" width="475"  name=requpload_org_d_validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일" border="2" color="16777215" x="1865" y="92" height="64" width="379"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="293" y="8" height="72" width="384" format="###,0"  name=lineno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="2" tabsequence=10 border="0" color="0" x="9" y="8" height="72" width="274" format="[general]"  name=pass_yn visible="1~t0" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="686" y="8" height="72" width="686" format="[general]"  name=err_reason dddw.name=b1dc_dddw_error_reason dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1381" y="8" height="72" width="475" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="1865" y="8" height="72" width="379" format="YYYY-MM-DD"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="0" color="0" x="2254" y="8" height="72" width="389" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=0 border="0" color="0" x="2661" y="8" height="72" width="928"  name=customernm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="고객 ID" border="2" color="16777215" x="2254" y="92" height="64" width="389"  name=customerm_customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객명" border="2" color="16777215" x="2656" y="92" height="64" width="933"  name=customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=background alignment="1" text="Total Rows" border="0" color="0" x="2299" y="12" height="56" width="315"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="0" x="2651" y="12" height="56" width="937" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

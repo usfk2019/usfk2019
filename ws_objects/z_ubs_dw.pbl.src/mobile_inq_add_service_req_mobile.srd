@@ -1,0 +1,80 @@
+﻿$PBExportHeader$mobile_inq_add_service_req_mobile.srd
+$PBExportComments$[kem] 가격 정책 변경 정보(선&후불)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes name=contractseq dbname="contractmst.contractseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="contractmst.status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=svccod dbname="contractmst.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan dbname="contractmst.priceplan" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contractno dbname="contractmst.contractno" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="contractmst.customerid" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_reg_partner dbname="contractmst.reg_partner" )
+ column=(type=char(10) updatewhereclause=yes name=settle_partner dbname="contractmst.settle_partner" )
+ column=(type=char(1) updatewhereclause=yes name=svcmst_svctype dbname="svcmst.svctype" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customernm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=activedt dbname="activedt" )
+ column=(type=char(10) updatewhereclause=yes name=termdt dbname="termdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bil_fromdt dbname="bil_fromdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bil_todt dbname="bil_todt" )
+ column=(type=char(0) updatewhereclause=yes name=chk dbname="chk" values="	Y/	N" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="validinfo.validkey" )
+ column=(type=datetime updatewhereclause=yes name=validinfo_fromdt dbname="validinfo.fromdt" )
+ column=(type=datetime updatewhereclause=yes name=validinfo_todt dbname="validinfo.todt" )
+ retrieve="SELECT   con.contractseq, con.status, con.svccod, con.priceplan, con.contractno, con.customerid, 
+         con.reg_partner, con.settle_partner, svc.svctype, 
+         (select cust.customernm from customerm cust where cust.customerid = con.customerid) as customernm,
+         TO_CHAR(con.activedt, 'yyyy-mm-dd') activedt,
+         TO_CHAR(con.termdt, 'yyyy-mm-dd') termdt,
+         TO_CHAR(con.bil_fromdt, 'yyyy-mm-dd') bil_fromdt,
+         TO_CHAR(con.bil_todt, 'yyyy-mm-dd') bil_todt,
+            '' chk,
+            val.validkey,
+            VAL.FROMDT,
+            VAL.TODT
+    FROM contractmst con, svcmst svc , validinfo val
+ WHERE con.svccod = svc.svccod
+   AND svc.svccod in (SELECT code FROM syscod2t WHERE grcode = 'ZM103')
+   AND con.contractseq = val.contractseq
+   AND val.FROMDT = (SELECT MAX(FROMDT) FROM validinfo
+                                                                  WHERE   validkey  = val.validkey 
+                                                                        AND FROMDT <= trunc(sysdate))"  sort="activedt D contractseq D svccod D " )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="251" y="16" height="60" width="453"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="722" y="16" height="60" width="549"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="2144" y="16" height="60" width="526"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="3547" y="16" height="60" width="370"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="6281" y="16" height="60" width="407" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Status" border="2" color="15793151" x="2034" y="88" height="60" width="379"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Service" border="2" color="15793151" x="2423" y="88" height="60" width="923"  name=svccod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Active Date" border="2" color="15793151" x="5449" y="88" height="60" width="411"  name=activedt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bill Date" border="2" color="15793151" x="5870" y="88" height="60" width="402"  name=bil_fromdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="ContractSeq" border="2" color="15793151" x="1669" y="88" height="60" width="357"  name=contractseq_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="CustomerName" border="2" color="15793151" x="608" y="88" height="60" width="1051"  name=customername_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="CustomerID" border="2" color="15793151" x="151" y="88" height="60" width="448"  name=customerid_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="신청" border="2" color="15793151" x="9" y="88" height="60" width="133"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Price Plan" border="2" color="15793151" x="3355" y="88" height="60" width="896"  name=priceplan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개통처" border="2" color="15793151" x="4261" y="88" height="60" width="649"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bill End Date" border="2" color="15793151" x="6281" y="88" height="60" width="407"  name=bil_todt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Phone No." border="2" color="15793151" x="4919" y="88" height="60" width="521"  name=obj_114248906  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="2034" y="8" height="60" width="379" format="[general]"  name=status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2423" y="8" height="60" width="923" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="3355" y="8" height="60" width="896" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="0" color="0" x="6281" y="8" height="60" width="407" format="[general]"  name=bil_todt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="5870" y="8" height="60" width="402" format="[general]"  name=bil_fromdt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="0" color="0" x="5449" y="8" height="60" width="411" format="[general]"  name=activedt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1669" y="8" height="60" width="357" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="608" y="8" height="60" width="1051" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="151" y="8" height="60" width="448" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="2" tabsequence=10 border="0" color="0" x="9" y="8" height="60" width="133" format="[general]"  name=chk checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="4261" y="8" height="60" width="649" format="[general]"  name=settle_partner dddw.name=ssrt_dddw_partner_sales dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="2" tabsequence=32766 border="0" color="0" x="4919" y="8" height="60" width="521" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="2688" y="16" height="60" width="293"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=0 border="0" color="0" x="6702" y="0" height="60" width="128"  name=validinfo_fromdt  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Validinfo Fromdt" border="0" color="0" x="6697" y="4" height="76" width="133"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=0 border="0" color="0" x="6843" y="0" height="60" width="128"  name=validinfo_todt  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Validinfo Todt" border="0" color="0" x="6839" y="4" height="76" width="133"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

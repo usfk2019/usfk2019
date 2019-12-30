@@ -1,0 +1,144 @@
+﻿$PBExportHeader$b1dw_inq_sinyong_request.srd
+$PBExportComments$[ceusee] valid info 이력 조회
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=tele_code dbname="sinyong_request.tele_code" )
+ column=(type=char(3) updatewhereclause=yes name=firm_code dbname="sinyong_request.firm_code" )
+ column=(type=char(2) updatewhereclause=yes name=retn_code dbname="sinyong_request.retn_code" )
+ column=(type=char(14) updatewhereclause=yes name=mang_id dbname="sinyong_request.mang_id" )
+ column=(type=char(2) updatewhereclause=yes name=cust_divs dbname="sinyong_request.cust_divs" )
+ column=(type=char(13) updatewhereclause=yes name=cust_id dbname="sinyong_request.cust_id" )
+ column=(type=char(10) updatewhereclause=yes name=cmpn_id dbname="sinyong_request.cmpn_id" )
+ column=(type=char(40) updatewhereclause=yes name=cust_name dbname="sinyong_request.cust_name" )
+ column=(type=char(8) updatewhereclause=yes name=appl_date dbname="sinyong_request.appl_date" )
+ column=(type=char(6) updatewhereclause=yes name=mail_id dbname="sinyong_request.mail_id" )
+ column=(type=char(50) updatewhereclause=yes name=home_addr dbname="sinyong_request.home_addr" )
+ column=(type=char(6) updatewhereclause=yes name=mail_id2 dbname="sinyong_request.mail_id2" )
+ column=(type=char(50) updatewhereclause=yes name=home_addr2 dbname="sinyong_request.home_addr2" )
+ column=(type=char(20) updatewhereclause=yes name=home_tel dbname="sinyong_request.home_tel" )
+ column=(type=char(20) updatewhereclause=yes name=cmpn_tel dbname="sinyong_request.cmpn_tel" )
+ column=(type=char(20) updatewhereclause=yes name=mobl_id dbname="sinyong_request.mobl_id" )
+ column=(type=char(40) updatewhereclause=yes name=email_addr dbname="sinyong_request.email_addr" )
+ column=(type=char(20) updatewhereclause=yes name=customerid dbname="sinyong_request.customerid" )
+ column=(type=char(6) updatewhereclause=yes name=agnc_code dbname="sinyong_request.agnc_code" )
+ column=(type=char(12) updatewhereclause=yes name=assso_tel dbname="sinyong_request.assso_tel" )
+ column=(type=char(8) updatewhereclause=yes name=open_date dbname="sinyong_request.open_date" )
+ column=(type=char(8) updatewhereclause=yes name=main_cntt_cncl dbname="sinyong_request.main_cntt_cncl" )
+ column=(type=char(8) updatewhereclause=yes name=main_cntt_stat dbname="sinyong_request.main_cntt_stat" )
+ column=(type=char(8) updatewhereclause=yes name=main_cntt_fnsh dbname="sinyong_request.main_cntt_fnsh" )
+ column=(type=char(8) updatewhereclause=yes name=tmnt_date dbname="sinyong_request.tmnt_date" )
+ column=(type=char(30) updatewhereclause=yes name=tmnt_reas dbname="sinyong_request.tmnt_reas" )
+ column=(type=char(8) updatewhereclause=yes name=name_mdfy_date dbname="sinyong_request.name_mdfy_date" )
+ column=(type=char(8) updatewhereclause=yes name=name_tran_date dbname="sinyong_request.name_tran_date" )
+ column=(type=char(13) updatewhereclause=yes name=before_cust_id dbname="sinyong_request.before_cust_id" )
+ column=(type=char(8) updatewhereclause=yes name=insu_begn dbname="sinyong_request.insu_begn" )
+ column=(type=char(8) updatewhereclause=yes name=insu_fnsh dbname="sinyong_request.insu_fnsh" )
+ column=(type=char(18) updatewhereclause=yes name=bond_id dbname="sinyong_request.bond_id" )
+ column=(type=number updatewhereclause=yes name=penl dbname="sinyong_request.penl" )
+ column=(type=number updatewhereclause=yes name=prem dbname="sinyong_request.prem" )
+ column=(type=number updatewhereclause=yes name=rew_prem dbname="sinyong_request.rew_prem" )
+ column=(type=char(8) updatewhereclause=yes name=tran_date dbname="sinyong_request.tran_date" )
+ column=(type=char(6) updatewhereclause=yes name=tran_time dbname="sinyong_request.tran_time" )
+ column=(type=char(12) updatewhereclause=yes name=gateway_model dbname="sinyong_request.gateway_model" )
+ column=(type=char(6) updatewhereclause=yes name=chrg_kind dbname="sinyong_request.chrg_kind" )
+ column=(type=char(1) updatewhereclause=yes name=state dbname="sinyong_request.state" )
+ column=(type=char(1) updatewhereclause=yes name=flag dbname="sinyong_request.flag" )
+ column=(type=datetime updatewhereclause=yes name=in_date dbname="sinyong_request.in_date" )
+ column=(type=char(20) updatewhereclause=yes name=in_name dbname="sinyong_request.in_name" )
+ column=(type=datetime updatewhereclause=yes name=up_date dbname="sinyong_request.up_date" )
+ column=(type=char(20) updatewhereclause=yes name=up_name dbname="sinyong_request.up_name" )
+ column=(type=number updatewhereclause=yes key=yes name=seqno dbname="sinyong_request.seqno" )
+ retrieve="SELECT TELE_CODE, FIRM_CODE, RETN_CODE, MANG_ID,
+       CUST_DIVS, CUST_ID, CMPN_ID, CUST_NAME,
+       APPL_DATE, MAIL_ID, HOME_ADDR, MAIL_ID2,
+       HOME_ADDR2, HOME_TEL, CMPN_TEL, MOBL_ID,
+       EMAIL_ADDR, CUSTOMERID, AGNC_CODE, ASSSO_TEL,
+       OPEN_DATE, MAIN_CNTT_CNCL, MAIN_CNTT_STAT, MAIN_CNTT_FNSH,
+       TMNT_DATE, TMNT_REAS, NAME_MDFY_DATE, NAME_TRAN_DATE,
+       BEFORE_CUST_ID, INSU_BEGN, INSU_FNSH, BOND_ID, PENL,
+       PREM, REW_PREM, TRAN_DATE, TRAN_TIME,
+       GATEWAY_MODEL, CHRG_KIND, STATE, FLAG,
+       IN_DATE, IN_NAME, UP_DATE, UP_NAME, SEQNO
+FROM SINYONG_REQUEST
+UNION ALL
+SELECT TELE_CODE, FIRM_CODE, RETN_CODE, MANG_ID,
+       CUST_DIVS, CUST_ID, CMPN_ID, CUST_NAME,
+       APPL_DATE, MAIL_ID, HOME_ADDR, MAIL_ID2,
+       HOME_ADDR2, HOME_TEL, CMPN_TEL, MOBL_ID,
+       EMAIL_ADDR, CUSTOMERID, AGNC_CODE, ASSSO_TEL,
+       OPEN_DATE, MAIN_CNTT_CNCL, MAIN_CNTT_STAT, MAIN_CNTT_FNSH,
+       TMNT_DATE, TMNT_REAS, NAME_MDFY_DATE, NAME_TRAN_DATE,
+       BEFORE_CUST_ID, INSU_BEGN, INSU_FNSH, BOND_ID, PENL,
+       PREM, REW_PREM, TRAN_DATE, TRAN_TIME,
+       GATEWAY_MODEL, CHRG_KIND, STATE, FLAG,
+       IN_DATE, IN_NAME, UP_DATE, UP_NAME, SEQNO
+FROM SINYONG_RESPONSE
+ORDER BY SEQNO" update="SINYONG_REQUEST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="업무구분" border="2" color="16777215" x="9" y="104" height="60" width="256"  name=tele_code_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="회사코드" border="2" color="16777215" x="274" y="104" height="60" width="265"  name=firm_code_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="결과코드" border="2" color="16777215" x="549" y="104" height="60" width="567"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="보험관리번호" border="2" color="16777215" x="1125" y="104" height="60" width="517"  name=mang_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="구분" border="2" color="16777215" x="1650" y="104" height="60" width="242"  name=cust_divs_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="보험가입일자" border="2" color="16777215" x="3625" y="104" height="60" width="357"  name=appl_date_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="우편번호" border="2" color="16777215" x="3991" y="104" height="60" width="265"  name=mail_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="주소" border="2" color="16777215" x="4265" y="104" height="60" width="695"  name=t_14  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="집전화번호" border="2" color="16777215" x="4969" y="104" height="60" width="425"  name=home_tel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="회사전화번호" border="2" color="16777215" x="5403" y="104" height="60" width="421"  name=cmpn_tel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="이동통신" border="2" color="16777215" x="5833" y="104" height="60" width="530"  name=mobl_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="이메일 주소" border="2" color="16777215" x="6373" y="104" height="60" width="690"  name=email_addr_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="고객번호" border="2" color="16777215" x="7072" y="104" height="60" width="421"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="대리점" border="2" color="16777215" x="7502" y="104" height="60" width="622"  name=agnc_code_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="인증전화번호" border="2" color="16777215" x="8133" y="104" height="60" width="512"  name=assso_tel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="보험개시일" border="2" color="16777215" x="8654" y="104" height="60" width="361"  name=insu_begn_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="보험종료일" border="2" color="16777215" x="9024" y="104" height="60" width="325"  name=insu_fnsh_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="증권번호" border="2" color="16777215" x="9358" y="104" height="60" width="571"  name=bond_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="보험가입금액" border="2" color="16777215" x="9938" y="104" height="60" width="439"  name=penl_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="가격정책" border="2" color="16777215" x="11744" y="104" height="60" width="677"  name=chrg_kind_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="SEQ" border="2" color="16777215" x="12430" y="104" height="60" width="370"  name=seqno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="고객명" border="2" color="16777215" x="2944" y="104" height="60" width="672"  name=cust_name_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="주민번호/사업자번호" border="2" color="16777215" x="1902" y="104" height="60" width="599"  name=cust_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="법인등록번호" border="2" color="16777215" x="2510" y="104" height="60" width="425"  name=cmpn_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="보험료" border="2" color="16777215" x="10386" y="104" height="60" width="338"  name=prem_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="환급보험료" border="2" color="16777215" x="10734" y="104" height="60" width="370"  name=rew_prem_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="자료발생일" border="2" color="16777215" x="11113" y="104" height="60" width="325"  name=tran_date_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="전송시간" border="2" color="16777215" x="11447" y="104" height="60" width="288"  name=tran_time_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="10789024" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="256" format="[general]"  name=tele_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="274" y="8" height="60" width="265" format="[general]"  name=firm_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="549" y="8" height="60" width="567" format="[general]"  name=retn_code dddw.name=b1dc_dddw_creditstat dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1125" y="8" height="60" width="517" format="[general]"  name=mang_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1650" y="8" height="60" width="242" format="[general]"  name=cust_divs dddw.name=b1dc_dddw_customertype2 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1902" y="8" height="60" width="599" format="[general]"  name=cust_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2510" y="8" height="60" width="425" format="[general]"  name=cmpn_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2944" y="8" height="60" width="672" format="[general]"  name=cust_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3625" y="8" height="60" width="357" format="[general]"  name=appl_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3991" y="8" height="60" width="265" format="[general]"  name=mail_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4265" y="8" height="60" width="695" format="[general]"  name=home_addr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="4969" y="8" height="60" width="425" format="[general]"  name=home_tel edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="5403" y="8" height="60" width="421" format="[general]"  name=cmpn_tel edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="5833" y="8" height="60" width="530" format="[general]"  name=mobl_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="6373" y="8" height="60" width="690" format="[general]"  name=email_addr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="7072" y="8" height="60" width="421" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="7502" y="8" height="60" width="622" format="[general]"  name=agnc_code dddw.name=b2dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="8133" y="8" height="60" width="512" format="[general]"  name=assso_tel edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="8654" y="8" height="60" width="361" format="[general]"  name=insu_begn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="9024" y="8" height="60" width="325" format="[general]"  name=insu_fnsh edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="0" tabsequence=32766 border="0" color="0" x="9358" y="8" height="60" width="571" format="[general]"  name=bond_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=33 alignment="1" tabsequence=32766 border="0" color="0" x="9938" y="8" height="60" width="439" format="[general]"  name=penl edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=34 alignment="1" tabsequence=32766 border="0" color="0" x="10386" y="8" height="60" width="338" format="[general]"  name=prem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=35 alignment="1" tabsequence=32766 border="0" color="0" x="10734" y="8" height="60" width="370" format="[general]"  name=rew_prem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="0" color="0" x="11113" y="8" height="60" width="325" format="[general]"  name=tran_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=37 alignment="0" tabsequence=32766 border="0" color="0" x="11447" y="8" height="60" width="288" format="[general]"  name=tran_time edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=39 alignment="0" tabsequence=32766 border="0" color="0" x="11744" y="8" height="60" width="677" format="[general]"  name=chrg_kind dddw.name=b1dc_dddw_priceplan_svc dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=46 alignment="0" tabsequence=32766 border="0" color="0" x="12430" y="8" height="60" width="370" format="[general]"  name=seqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="9" y="28" height="56" width="288"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="3616" y="28" height="60" width="366"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1938" y="28" height="60" width="320"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="306" y="28" height="56" width="549"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="16711680" x="3991" y="28" height="60" width="265" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="2272" y="28" height="60" width="261"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

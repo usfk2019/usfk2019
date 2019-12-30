@@ -1,0 +1,34 @@
+﻿$PBExportHeader$ubs_dw_reg_mobilechange_mas.srd
+$PBExportComments$[jhchoi] 모바일 기기 변경 (Master) -  2009.03.16
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=contractseq dbname="contractmst.contractseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="contractmst.status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan dbname="contractmst.priceplan" )
+ column=(type=datetime update=yes updatewhereclause=yes name=activedt dbname="contractmst.activedt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=termdt dbname="contractmst.termdt" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="contractmst.customerid" )
+ retrieve="SELECT  CONTRACTMST.CONTRACTSEQ
+		, CONTRACTMST.STATUS
+		, CONTRACTMST.PRICEPLAN
+		, CONTRACTMST.ACTIVEDT
+		, CONTRACTMST.TERMDT
+		, CONTRACTMST.CUSTOMERID
+FROM    CONTRACTMST
+WHERE   CONTRACTMST.PRICEPLAN IN ( SELECT PRICEPLAN FROM AD_MOBILE_TYPE )" update="CONTRACTMST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Contract seq" border="2" color="1090519039" x="9" y="8" height="64" width="512"  name=contractseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Status" border="2" color="1090519039" x="530" y="8" height="64" width="347"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text=" Price plan" border="2" color="1090519039" x="887" y="8" height="64" width="823"  name=priceplan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Activation Date" border="2" color="1090519039" x="1719" y="8" height="64" width="489"  name=activedt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Termination Date" border="2" color="1090519039" x="2217" y="8" height="64" width="471"  name=termdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="9" y="4" height="68" width="512" format="[general]"  name=contractseq  tag="contractseq" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="530" y="4" height="68" width="347" format="[general]"  name=status  tag="status" dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="887" y="4" height="68" width="823" format="[general]"  name=priceplan  tag="priceplan" dddw.name=b1dc_dddw_priceplan_v20 dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1719" y="4" height="68" width="489" format="[shortdate] [time]"  name=activedt  tag="activedt" editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2217" y="4" height="68" width="471" format="[shortdate] [time]"  name=termdt  tag="termdt" editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

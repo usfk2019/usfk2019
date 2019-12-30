@@ -1,0 +1,19 @@
+﻿$PBExportHeader$b1dw_cnd_reg_validkey_noreq_assign.srd
+$PBExportComments$[ohj]대리점 인증key 무요청 할당
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=68 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=validkeymst_validkey dbname="validkeymst.validkey" )
+ retrieve="SELECT A.VALIDKEY
+  FROM VALIDKEYMST   A
+     , VALIDKEY_MOVE B 
+ WHERE A.MOVENO = B.MOVENO
+   AND A.MOVENO = :ll_moveno" arguments=(("ll_moveno", number)) )
+text(band=header alignment="2" text="할당된 인증KEY" border="2" color="16777215" x="9" y="8" height="64" width="777"  name=validkeymst_validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="68" width="777" format="[general]"  name=validkeymst_validkey edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="2" expression="'['+currentRow() + '/' + rowcount() +']'"border="0" color="0" x="9" y="4" height="60" width="777" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

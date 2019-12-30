@@ -1,0 +1,46 @@
+﻿$PBExportHeader$b1dw_cnd_reg_validkey_move.srd
+$PBExportComments$[ohj]대리점 인증key 이동
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=176 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=partner dbname="partnermst.partner" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="validkeymst.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=validkey_type dbname="validkeymst.validkey_type" )
+ column=(type=number updatewhereclause=yes name=tot_qty dbname="tot_qty" )
+ column=(type=number updatewhereclause=yes name=stock_qty dbname="stock_qty" )
+ column=(type=number updatewhereclause=yes name=sale_qty dbname="sale_qty" )
+ retrieve="  SELECT A.PARTNER
+       , B.PRICEPLAN
+       , B.VALIDKEY_TYPE
+       , COUNT(B.VALIDKEY)                  TOT_QTY
+       , SUM(DECODE(B.SALE_FLAG,'0',1,0))   STOCK_QTY
+       , SUM(DECODE(B.SALE_FLAG,'1',1,0))   SALE_QTY
+    FROM PARTNERMST  A
+       , VALIDKEYMST B
+   WHERE A.PARTNER   = B.PARTNER
+     AND A.PREFIXNO  = B.PARTNER_PREFIX  
+GROUP BY A.PARTNER
+       , B.PRICEPLAN
+       , B.VALIDKEY_TYPE
+" )
+text(band=background alignment="0" text="Order By" border="0" color="0" x="14" y="28" height="60" width="329"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="352" y="28" height="60" width="549"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1134" y="28" height="60" width="347"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="Total Rows" border="0" color="0" x="2290" y="28" height="60" width="315"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2619" y="28" height="60" width="553" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="736" format="[general]"  name=partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="754" y="8" height="60" width="731" format="[general]"  name=priceplan dddw.name=b1dc_dddw_priceplan_svc dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1495" y="8" height="60" width="553" format="#,##0"  name=tot_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2057" y="8" height="60" width="553" format="#,##0"  name=stock_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2619" y="8" height="60" width="553" format="#,##0"  name=sale_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1495" y="28" height="60" width="370"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="대리점" border="2" color="16777215" x="9" y="108" height="60" width="736"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="총할당수량" border="2" color="16777215" x="1495" y="108" height="60" width="553"  name=tot_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고수량" border="2" color="16777215" x="2057" y="108" height="60" width="553"  name=stock_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매출고수량" border="2" color="16777215" x="2619" y="108" height="60" width="553"  name=sale_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격정책" border="2" color="16777215" x="754" y="108" height="60" width="731"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

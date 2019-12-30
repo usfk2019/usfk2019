@@ -1,0 +1,115 @@
+﻿$PBExportHeader$ubs_dw_reg_equipment_mas.srd
+$PBExportComments$[jhchoi] 인증장비관리 (Master) - 2009.05.04
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes name=equipseq dbname="equipmst.equipseq" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="equipmst.serialno" )
+ column=(type=char(20) updatewhereclause=yes name=dacom_mng_no dbname="equipmst.dacom_mng_no" )
+ column=(type=char(30) updatewhereclause=yes name=mac_addr dbname="equipmst.mac_addr" )
+ column=(type=char(30) updatewhereclause=yes name=mac_addr2 dbname="equipmst.mac_addr2" )
+ column=(type=char(10) updatewhereclause=yes name=adtype dbname="equipmst.adtype" )
+ column=(type=char(10) updatewhereclause=yes name=makercd dbname="equipmst.makercd" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="equipmst.modelno" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="equipmst.status" )
+ column=(type=char(10) updatewhereclause=yes name=valid_status dbname="equipmst.valid_status" )
+ column=(type=char(10) updatewhereclause=yes name=sn_partner dbname="equipmst.sn_partner" )
+ column=(type=char(10) updatewhereclause=yes name=basecod dbname="basecod" )
+ column=(type=datetime updatewhereclause=yes name=idate dbname="equipmst.idate" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="equipmst.customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=roomno dbname="customerm.roomno" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="equipmst.contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_status dbname="contractmst.status" )
+ column=(type=datetime updatewhereclause=yes name=saledt dbname="equipmst.saledt" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="equipmst.orderno" )
+ column=(type=decimal(5) updatewhereclause=yes name=cust_no dbname="equipmst.cust_no" )
+ column=(type=char(20) updatewhereclause=yes name=sap_no dbname="equipmst.sap_no" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="validkey" )
+ retrieve="SELECT  MST.EQUIPSEQ
+        , MST.SERIALNO
+        , MST.DACOM_MNG_NO
+        , MST.MAC_ADDR
+        , MST.MAC_ADDR2
+        , MST.ADTYPE
+        , MST.MAKERCD
+        , MST.MODELNO
+        , MST.STATUS
+        , MST.VALID_STATUS
+        , MST.SN_PARTNER
+		  , ( SELECT PAR.BASECOD FROM PARTNERMST PAR
+				WHERE  PAR.PARTNER = MST.SN_PARTNER ) AS BASECOD
+        , MST.IDATE
+        , MST.CUSTOMERID
+        , CUS.CUSTOMERNM
+        , CUS.BUILDINGNO
+        , CUS.ROOMNO
+        , MST.CONTRACTSEQ
+		  , CON.STATUS
+        , MST.SALEDT
+        , MST.ORDERNO
+        , MST.CUST_NO
+        , MST.SAP_NO
+        , DECODE(MST.CONTRACTSEQ, NULL, NULL, ( SELECT MAX(VALIDKEY) FROM VALIDKEYMST VAD
+                                                WHERE  VAD.STATUS = '20'
+                                                AND    MST.CUSTOMERID = VAD.CUSTOMERID
+                                                AND    MST.CONTRACTSEQ = VAD.CONTRACTSEQ )) AS VALIDKEY                
+FROM    EQUIPMST MST, CUSTOMERM CUS, CONTRACTMST CON
+WHERE   MST.CUSTOMERID = CUS.CUSTOMERID(+)
+AND     MST.CONTRACTSEQ = CON.CONTRACTSEQ(+)" )
+text(band=background alignment="2" text="" border="0" color="8388608" x="12448" y="8" height="60" width="64"  name=order_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Equip No." border="2" color="15793151" x="9" y="8" height="60" width="338"  name=equipseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Serial No." border="2" color="15793151" x="357" y="8" height="60" width="343"  name=serialno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Model" border="2" color="15793151" x="3776" y="8" height="60" width="827"  name=modelno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="15793151" x="4613" y="8" height="60" width="329"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Entering Date" border="2" color="15793151" x="6807" y="8" height="60" width="411"  name=idate_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Mac Address" border="2" color="15793151" x="1170" y="8" height="60" width="754"  name=mac_addr_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sale Date" border="2" color="15793151" x="10080" y="8" height="60" width="393"  name=saledt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Mac Addr2" border="2" color="15793151" x="1934" y="8" height="60" width="681"  name=mac_addr2_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="LG U+ Mng No" border="2" color="15793151" x="709" y="8" height="60" width="453"  name=dacom_mng_no_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Equip. Type" border="2" color="15793151" x="2624" y="8" height="60" width="421"  name=adtype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Maker" border="2" color="15793151" x="3054" y="8" height="60" width="713"  name=makercd_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Valid Status" border="2" color="15793151" x="4951" y="8" height="60" width="466"  name=valid_status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer ID" border="2" color="15793151" x="7227" y="8" height="60" width="517"  name=customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer Name" border="2" color="15793151" x="7753" y="8" height="60" width="658"  name=customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Building No." border="2" color="15793151" x="8421" y="8" height="60" width="393"  name=buildingno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Room No." border="2" color="15793151" x="8823" y="8" height="60" width="315"  name=roomno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Contract Seq." border="2" color="15793151" x="9147" y="8" height="60" width="453"  name=contractseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Order No." border="2" color="15793151" x="10482" y="8" height="60" width="389"  name=orderno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Cust No." border="2" color="15793151" x="10880" y="8" height="60" width="439"  name=cust_no_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sap No" border="2" color="15793151" x="11328" y="8" height="60" width="453"  name=sap_no_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Current Shop" border="2" color="15793151" x="5426" y="8" height="60" width="695"  name=sn_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Basecod" border="2" color="15793151" x="6130" y="8" height="60" width="667"  name=obj_21138937  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Approval Key" border="2" color="15793151" x="11790" y="8" height="60" width="507"  name=validkey_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Contract Status" border="2" color="15793151" x="9609" y="8" height="60" width="462"  name=contractmst_status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="68" width="338" format="[general]"  name=equipseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="357" y="0" height="68" width="343" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3776" y="0" height="68" width="827" format="[general]"  name=modelno dddw.name=ubs_dddw_equipmentmodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="4613" y="0" height="68" width="329" format="[general]"  name=status dddw.name=ubs_dddw_equipmststatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="6807" y="0" height="68" width="411" format="[shortdate] [time]"  name=idate editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="5426" y="0" height="68" width="695" format="[general]"  name=sn_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1170" y="0" height="68" width="754" format="[general]"  name=mac_addr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=20 alignment="2" tabsequence=32766 border="0" color="0" x="10080" y="0" height="68" width="393" format="[shortdate] [time]"  name=saledt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1934" y="0" height="68" width="681" format="[general]"  name=mac_addr2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="709" y="0" height="68" width="453" format="[general]"  name=dacom_mng_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="9147" y="0" height="68" width="453" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="10482" y="0" height="68" width="389" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="10880" y="0" height="68" width="439" format="[general]"  name=cust_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="11328" y="0" height="68" width="453" format="[general]"  name=sap_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2624" y="0" height="68" width="421" format="[general]"  name=adtype dddw.name=ubs_dddw_equipmentname dddw.displaycolumn=adname dddw.datacolumn=adtype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3054" y="0" height="68" width="713" format="[general]"  name=makercd dddw.name=ubs_dddw_equipmaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4951" y="0" height="68" width="466" format="[general]"  name=valid_status dddw.name=ubs_dddw_equipvalidstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="7227" y="0" height="68" width="517" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="7753" y="0" height="68" width="658" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="8421" y="0" height="68" width="393" format="[general]"  name=buildingno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="8823" y="0" height="68" width="315" format="[general]"  name=roomno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="11790" y="0" height="68" width="507" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="6130" y="0" height="68" width="667" format="[general]"  name=basecod dddw.name=ssrt_dddw_basecod dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="9609" y="0" height="68" width="462" format="[general]"  name=contractmst_status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="" border="0" color="8388608" x="12393" y="8" height="60" width="46"  name=a_d visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

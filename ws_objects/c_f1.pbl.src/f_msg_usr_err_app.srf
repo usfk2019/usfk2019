@@ -1,0 +1,90 @@
+﻿$PBExportHeader$f_msg_usr_err_app.srf
+$PBExportComments$Application용 Message
+global type f_msg_usr_err_app from function_object
+end type
+
+forward prototypes
+global function string f_msg_usr_err_app (integer ai_usr_err_code, string as_title, string as_content)
+end prototypes
+
+global function string f_msg_usr_err_app (integer ai_usr_err_code, string as_title, string as_content);	//*******************************************************************
+// 함수 : f_msg_usr_err_app
+//
+// 목적 : 프로그램 실행도중에 필요한 메세지를 뿌려준다.(Warning)
+//
+// Scope : Public
+//
+// Parameter :
+//  1) ai_usr_err_code(Integer/Value) : 메세지의 코드
+//  2) as_title(String/Value) : 메세지 윈도우에서 title로 들어갈 이름
+//  3) as_content(String/Value) : 메세지 윈도우에서 내용에 추가적
+//    으로 들어갈 설명
+//
+// Return 값 : 
+//  없음
+//
+// Log : (날짜 : 이름 : 설명)
+//  97/02/03(수) : 안종태 : 최초 버젼
+//
+//*******************************************************************
+string ls_err_title	//에러메세지의 title
+String ls_err_content //에러메세지의 content
+long ll_length
+
+ls_err_title = as_title
+
+If as_content = "" Then
+	ls_err_content = ""
+ELSE
+	ls_err_content = " (" + as_content + ")"
+End If
+
+Choose Case ai_usr_err_code
+	Case 501
+		ls_err_content = "Main window not created." + &
+		 ls_err_content
+
+	Case 503
+		ls_err_content = "Window not opened." + &
+		 ls_err_content
+		 
+	Case 504
+		ls_err_content = "The same program is running." + ls_err_content
+//		ls_err_content = "동일 프로그램 실행중." + ls_err_content
+
+	Case 505
+		ls_err_content = "Window can't be opened over " + String(gi_max_win_no) + "." + ls_err_content
+//		ls_err_content = "창을 더 이상 열 수 없습니다. " + String(gi_max_win_no) + "." + ls_err_content 
+
+	Case 507
+		ls_err_content = "You can't run this program." + ls_err_content
+//		ls_err_content = "프로그램 수행 권한 없음." + ls_err_content
+
+	Case 600		//related with ini File
+		ls_err_content = "Error setting db parms from the <INI> file." + &
+		 ls_err_content
+
+	Case 610
+		ls_err_content = "File Not found" + ls_err_content
+//		ls_err_content = "파일이 존재 하지 않습니다." + ls_err_content
+		 
+//	Case 700		//related with db
+//		ls_err_content = "DB connected" + &
+//		 ls_err_content
+
+	Case 9000		//사용자가 임의로 메세지를 형성하게 함
+		ll_length = LenA(ls_err_content)
+		If ll_length <> 0 Then ls_err_content = MidA(ls_err_content, 3, ll_length - 3)
+
+	Case ELSE
+		ls_err_content = "Matching statement Not found.(" + String(ai_usr_err_code) + ")"
+
+End Choose
+
+If Not (RightA(as_title, 1) = "*") Then &
+ MessageBox(ls_err_title, ls_err_content, StopSign!)
+
+Return ls_err_content
+
+end function
+

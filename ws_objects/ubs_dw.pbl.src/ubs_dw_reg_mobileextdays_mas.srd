@@ -1,0 +1,110 @@
+﻿$PBExportHeader$ubs_dw_reg_mobileextdays_mas.srd
+$PBExportComments$[jhchoi] 모바일 렌탈 연장 ( Master ) -  2009.04.22
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=660 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=lease_period_from dbname="lease_period_from" )
+ column=(type=datetime updatewhereclause=yes name=lease_period dbname="lease_period" )
+ column=(type=char(30) updatewhereclause=yes name=contract_period dbname="contract_period" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=customerid dbname="customerm.customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=payid dbname="customerm.payid" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=lastname dbname="customerm.lastname" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=firstname dbname="customerm.firstname" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=midname dbname="customerm.midname" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=basecod dbname="customerm.basecod" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=roomno dbname="customerm.roomno" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=unit dbname="customerm.unit" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=homephone dbname="customerm.homephone" )
+ column=(type=datetime update=yes updatewhereclause=yes name=derosdt dbname="customerm.derosdt" )
+ column=(type=char(10) updatewhereclause=yes name=phone_type dbname="ad_mobile_rental.phone_type" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="ad_mobile_rental.serialno" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="ad_mobile_rental.validkey" )
+ column=(type=char(20) updatewhereclause=yes name=contno dbname="ad_mobile_rental.contno" )
+ column=(type=char(10) updatewhereclause=yes name=phone_model dbname="ad_mobile_rental.phone_model" )
+ column=(type=char(20) updatewhereclause=yes name=admst_contno dbname="admst.admst_contno" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractmst.contractseq" )
+ retrieve="SELECT  (SELECT MAX(DET.BIL_TODT) FROM CONTRACTDET DET WHERE DET.CONTRACTSEQ = CON.CONTRACTSEQ ) AS LEASE_PERIOD_FROM
+      , TO_DATE(TO_CHAR(SYSDATE, 'YYYYMMDD'), 'YYYYMMDD') LEASE_PERIOD
+      , '                              ' AS CONTRACT_PERIOD
+      , CUS.CUSTOMERID
+      , CUS.CUSTOMERNM
+      , CUS.PAYID
+      , CUS.LASTNAME
+      , CUS.FIRSTNAME
+      , CUS.MIDNAME
+      , CUS.BASECOD
+      , CUS.BUILDINGNO   
+      , CUS.ROOMNO
+      , CUS.UNIT
+      , CUS.HOMEPHONE   
+      , CUS.DEROSDT   
+      , ADREN.PHONE_TYPE
+      , ADREN.SERIALNO
+      , ADREN.VALIDKEY
+      , ADREN.CONTNO
+      , ADREN.PHONE_MODEL
+      , ADM.CONTNO AS ADMST_CONTNO
+      , CON.CONTRACTSEQ
+FROM    CUSTOMERM CUS, CONTRACTMST CON, AD_MOBILE_RENTAL ADREN, ADMST ADM
+WHERE   CUS.CUSTOMERID = :as_customerid
+AND     CUS.CUSTOMERID = CON.CUSTOMERID
+AND     CON.PRICEPLAN IN ( SELECT PRICEPLAN FROM AD_MOBILE_TYPE )
+AND     CON.STATUS = '20'
+AND     CON.CUSTOMERID  = ADREN.CUSTOMERID
+AND     CON.CONTRACTSEQ = ADREN.CONTRACTSEQ
+AND     CON.CUSTOMERID  = ADM.CUSTOMERID
+AND     CON.CONTRACTSEQ = ADM.CONTRACTSEQ
+AND     CON.CONTRACTSEQ = :as_contractseq
+" arguments=(("as_customerid", string),("as_contractseq", string)) )
+groupbox(band=detail text="Contract Info"border="5" color="8388608" x="37" y="456" height="176" width="3493"  name=gb_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Duty Phone" border="0" color="8388608" x="1728" y="2028" height="60" width="398"  name=dutyphone_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+groupbox(band=detail text="Personal Info"border="5" color="8388608" x="32" y="0" height="444" width="3493"  name=gb_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Middle Name" border="0" color="0" x="2427" y="200" height="60" width="384"  name=midname_t  tag=""  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="First Name" border="0" color="8388608" x="1161" y="200" height="60" width="521"  name=firstname_t  tag=""  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Last Name" border="0" color="8388608" x="59" y="200" height="60" width="421"  name=lastname_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=70 border="2" color="16777215" x="2834" y="280" height="60" width="622" format="[general]"  name=roomno  tag="Room No" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=11 alignment="0" tabsequence=60 border="2" color="16777215" x="1701" y="280" height="60" width="622" format="[general]"  name=buildingno  tag="Building No" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="1" text="Building No" border="0" color="8388608" x="1161" y="280" height="60" width="521"  name=buildingno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=50 border="2" color="16777215" x="498" y="280" height="60" width="613" format="[general]"  name=basecod  tag="Base" dddw.name=ssrt_dddw_basecod dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="1" text="Base" border="0" color="0" x="59" y="280" height="60" width="421"  name=basecod_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Room No" border="0" color="8388608" x="2427" y="280" height="60" width="384"  name=roomno_t  tag=""  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Unit" border="0" color="8388608" x="59" y="360" height="60" width="421"  name=organization_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=80 border="2" color="16777215" x="498" y="360" height="60" width="613" format="[general]"  name=unit  tag="Unit" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="1" text="Home Phone(Korea)" border="0" color="8388608" x="1161" y="360" height="60" width="521"  name=homephone_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=90 border="2" color="16777215" x="1701" y="360" height="60" width="622" format="[general]"  name=homephone  tag="Home Phone(KOREA)" editmask.mask="####################" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="1" text="Deros Date" border="0" color="8388608" x="2427" y="360" height="60" width="384"  name=derosdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=100 border="2" color="16777215" x="2834" y="360" height="60" width="622" format="[shortdate] [time]"  name=derosdt  tag="Deros Date" editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25989739" )
+button(band=detail text=""filename="calendar_on.bmp"action="0" border="0" color="0" x="1330" y="532" height="68" width="82" vtextalign="0" htextalign="0"  name=b_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=detail alignment="2" text="~~" border="0" color="8388608" x="923" y="536" height="60" width="41"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=110 border="2" color="16777215" x="974" y="536" height="60" width="347" format="[general]"  name=lease_period  tag="Leasing Period" editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=4 alignment="2" tabsequence=10 border="2" color="16777215" x="1701" y="88" height="60" width="622" format="[general]"  name=customerid  tag="CustomerID" edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="1" text="CustomerID" border="0" color="0" x="1161" y="88" height="60" width="521"  name=customerid_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2336" y="88" height="60" width="736" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="2331" y1="148" x2="3067" y2="148"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="8388608" x="603" y="536" height="60" width="311" format="[general]"  name=lease_period_from editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Extend Period" border="0" color="8388608" x="73" y="536" height="60" width="517"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Contract Period" border="0" color="8388608" x="1701" y="536" height="60" width="517"  name=t_6  hidesnaked=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="8388736" x="2235" y="536" height="60" width="832" format="[general]"  name=contract_period  tag="Contract period" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+groupbox(band=detail text="Phone & Card"border="5" color="8388608" x="41" y="712" height="428" width="3493"  name=gb_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Phone Control No" border="0" color="0" x="73" y="808" height="60" width="517"  name=nationality_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Leasing Phone Type" border="0" color="0" x="73" y="888" height="60" width="517"  name=corpnm_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Phone Serial No" border="0" color="0" x="73" y="968" height="60" width="517"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Phone Model" border="0" color="0" x="73" y="1048" height="60" width="517"  name=usstate_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="608" y="888" height="60" width="713" format="[general]"  name=phone_type  tag="Leasing Phone Type" dddw.name=ubs_dddw_phonetype dddw.displaycolumn=type_desc dddw.datacolumn=phone_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="608" y="968" height="60" width="713" format="[general]"  name=serialno  tag="Phone Serial No" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="608" y="1048" height="60" width="713" format="[general]"  name=phone_model  tag="Phone Model" dddw.name=ubs_dddw_phonemodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=120 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Act. Card No" border="0" color="0" x="1701" y="808" height="60" width="517"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Cell Phone Number" border="0" color="0" x="1701" y="888" height="60" width="517"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=130 border="0" color="0" x="2235" y="808" height="60" width="709" format="[general]"  name=admst_contno  tag="Act. Card No" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=18 alignment="0" tabsequence=140 border="0" color="0" x="2235" y="888" height="60" width="709" format="[general]"  name=validkey  tag="Cell Phone Number" editmask.autoskip=yes editmask.useformat=yes editmask.mask="##############" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=19 alignment="0" tabsequence=120 border="0" color="0" x="608" y="808" height="60" width="713" format="[general]"  name=contno  tag="Phone Control No" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=20 border="2" color="16777215" x="498" y="200" height="60" width="613" format="[general]"  name=lastname  tag="Last Name" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=8 alignment="0" tabsequence=30 border="2" color="16777215" x="1701" y="200" height="60" width="622" format="[general]"  name=firstname  tag="First Name" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=9 alignment="0" tabsequence=40 border="2" color="0" x="2834" y="200" height="60" width="622" format="[general]"  name=midname  tag="Middle Name" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="1280" y="684" height="60" width="992" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

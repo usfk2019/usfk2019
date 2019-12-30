@@ -1,0 +1,53 @@
+﻿$PBExportHeader$b0dw_reg_areazoncod.srd
+$PBExportComments$[ceusee] 지역별 대역 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=arezoncod_pricecod dbname="arezoncod.pricecod" )
+ column=(type=char(5) update=yes updatewhereclause=yes key=yes name=arezoncod_nodeno dbname="arezoncod.nodeno" )
+ column=(type=char(3) update=yes updatewhereclause=yes key=yes name=arezoncod_arecod dbname="arezoncod.arecod" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=arezoncod_zoncod dbname="arezoncod.zoncod" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=arezoncod_crt_user dbname="arezoncod.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=arezoncod_crtdt dbname="arezoncod.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=arezoncod_updt_user dbname="arezoncod.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=arezoncod_updtdt dbname="arezoncod.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=arezoncod_pgm_id dbname="arezoncod.pgm_id" )
+ column=(type=char(50) updatewhereclause=yes name=areamst_areanm dbname="areamst.areanm" )
+ column=(type=char(10) updatewhereclause=yes name=areamst_areagroup dbname="areamst.areagroup" )
+ column=(type=char(10) updatewhereclause=yes name=areamst_countrycod dbname="areamst.countrycod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=arezoncod_arenum dbname="arezoncod.arenum" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=arezoncod_arenm dbname="arezoncod.arenm" )
+ retrieve="SELECT   con.pricecod, con.nodeno,
+         con.arecod, con.zoncod,
+			con.crt_user, con.crtdt, con.updt_user, con.updtdt, con.pgm_id,
+         mst.areanm, mst.areagroup, mst.countrycod,
+			con.arenum, con.arenm
+         FROM arezoncod con, areamst mst
+   WHERE con.arecod = mst.areacod and con.pricecod = :as_priceplan and con.nodeno = :as_nodeno
+ORDER BY con.arecod, mst.areanm, mst.areagroup" update="arezoncod" updatewhere=1 updatekeyinplace=no arguments=(("as_priceplan", string),("as_nodeno", string)) )
+text(band=header alignment="2" text="지역코드" border="2" color="16777215" x="27" y="16" height="60" width="283"  name=arezoncod_areacod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="지역명" border="2" color="16777215" x="329" y="16" height="60" width="800"  name=areamst_areanm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="지역상위그룹" border="2" color="16777215" x="1147" y="16" height="60" width="489"  name=areamst_areagroup_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="국 가" border="2" color="16777215" x="1655" y="16" height="60" width="672"  name=areamst_countrycod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대 역" border="2" color="16777215" x="2345" y="16" height="60" width="800"  name=arezoncod_zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신지 Prefix" border="2" color="16777215" x="3163" y="16" height="60" width="549"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신지명" border="2" color="16777215" x="3730" y="16" height="60" width="841"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="16711680" x="78" y="208" height="60" width="471" format="[general]"  name=arezoncod_nodeno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="16711680" x="594" y="208" height="56" width="270" format="[general]"  name=arezoncod_pricecod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="16711680" x="910" y="216" height="56" width="219" format="[general]"  name=arezoncod_crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="16711680" x="1129" y="216" height="56" width="165" format="[shortdate] [time]"  name=arezoncod_crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="16711680" x="1294" y="216" height="56" width="219" format="[general]"  name=arezoncod_updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="16711680" x="1518" y="216" height="56" width="165" format="[shortdate] [time]"  name=arezoncod_updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="16711680" x="1678" y="216" height="56" width="219" format="[general]"  name=arezoncod_pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="329" y="8" height="60" width="800" format="[general]"  name=areamst_areanm dddw.name=b0dc_dddw_arecod dddw.displaycolumn=areanm dddw.datacolumn=areacod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="1147" y="8" height="60" width="489" format="[general]"  name=areamst_areagroup dddw.name=b0dc_dddw_areagroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="0" x="1655" y="8" height="60" width="672" format="[general]"  name=areamst_countrycod dddw.name=b0dc_dddw_country dddw.displaycolumn=countrynm dddw.datacolumn=countrycod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=13 alignment="0" tabsequence=30 border="2" color="16777215" x="3163" y="8" height="60" width="549" format="[general]"  name=arezoncod_arenum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=14 alignment="0" tabsequence=40 border="2" color="16777215" x="3730" y="8" height="60" width="841" format="[general]"  name=arezoncod_arenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="16777215" x="2345" y="8" height="60" width="800" format="[general]"  name=arezoncod_zoncod dddw.name=b0dc_dddw_zone dddw.displaycolumn=zonnm dddw.datacolumn=zoncod dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="16777215" x="27" y="8" height="60" width="283" format="[general]"  name=arezoncod_arecod dddw.name=b0dc_dddw_arecod dddw.displaycolumn=areacod dddw.datacolumn=areacod dddw.percentwidth=500 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

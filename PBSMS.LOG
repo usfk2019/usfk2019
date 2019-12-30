@@ -1,0 +1,2945 @@
+2003-07-29   17:51 	Source Management Initialization.
+					Application=Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+					  driver, pbscc70.dll, loaded.
+					RC=Failure
+
+2003-07-29   17:54 	SMS Checkout: b0w_reg_pricerate1.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0w.pbl
+					Work PBL: C:\PROJECT\삼성렌탈\1.0(SSRT)\c_f1.pbl
+					RC=Success
+
+
+2003-07-29   17:55 	SMS Checkout: b0w_reg_areamst.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b3w.pbl
+					RC=Success
+
+2003-07-29   17:56 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b3w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0w.pbl(b0w_reg_areamst.srw)
+					RC=Success
+
+2003-07-29   17:56 	Source Management Initialization.
+					Application=Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-07-29   17:56 	Source Management Initialization.
+					Application=Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-07-29   17:57 	Source Management Initialization.
+					Application=Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-07-29   17:57 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_XenerVoipASP.pbl
+2003-07-29   17:59 	SMS Checkout: b4w_reg_svcpromise.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b4w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b4w.pbl
+					RC=Success
+
+2003-07-29   17:59 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b4w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b4w.pbl(b4w_reg_svcpromise.srw)
+					RC=Success
+
+2003-07-30   14:40 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-07-30   14:57 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-07-30   15:54 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-30   15:58 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   10:21 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-07-31   10:24 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-07-31   10:57 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-07-31   12:00 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   13:17 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   13:20 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   13:54 	Source Management Initialization.
+					Application=Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-07-31   15:40 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-07-31   15:56 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   15:58 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   16:31 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   16:38 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-07-31   16:38 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-07-31   16:55 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   19:47 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   20:16 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-07-31   20:47 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-01   10:20 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-01   11:05 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-01   17:53 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-02   10:09 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-02   14:02 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-02   14:59 	Source Management Initialization.
+					Application=Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-02   15:24 	Source Management Initialization.
+					Application=Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-02   15:24 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-04   15:31 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-04   15:33 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-05   10:43 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-05   11:10 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-05   13:46 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-05   13:58 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-05   15:29 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-05   15:44 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-06   16:29 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-06   16:46 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-06   16:50 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_itian3.pbl
+2003-08-06   16:57 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-06   17:14 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-06   17:29 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_XenerVoipASP.pbl
+2003-08-06   19:28 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_XenerVoipASP.pbl
+2003-08-08   10:24 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-11   15:59 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-11   16:07 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-11   17:04 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+
+2003-08-11   18:30 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-12   10:52 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-12   15:24 	Source Management Initialization.
+					Application=Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-12   15:27 	SMS Checkout: b0w_reg_zone.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\test.pbl
+					RC=Success
+
+2003-08-12   15:33 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\test.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0w.pbl(b0w_reg_zone.srw)
+					RC=Success
+
+2003-08-13   11:12 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-13   11:49 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-13   11:53 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_XenerVoipASP.pbl
+2003-08-13   11:53 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_XenerVoipASP.pbl
+2003-08-13   11:54 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-13   11:55 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+
+
+
+2003-08-14   15:02 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-16   10:32 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-16   10:35 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-16   13:25 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-08-16   13:42 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-16   14:01 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-08-18   11:47 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-08-18   11:47 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-18   12:00 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-18   12:02 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-18   16:23 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-18   16:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-18   16:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-18   16:29 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+
+2003-08-18   16:30 	SMS Clear Checkout.
+			Object: c:\project\통합빌링시스템(pb7)\source(pbl)\b0w.pbl(b0w_reg_pricerate1.srw)
+					RC=Success
+
+2003-08-18   17:23 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-18   17:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-18   17:25 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-19   10:29 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-19   10:42 	SMS Checkout: c1w_reg_carrier_rate.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\c1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\c1w.pbl
+					RC=Success
+
+2003-08-19   10:43 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\c1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\c1w.pbl(c1w_reg_carrier_rate.srw)
+					RC=Success
+
+2003-08-19   10:50 	SMS Checkout: c1dw_cnd_reg_carrier_rate.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\c1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\c1dw.pbl
+					RC=Success
+
+2003-08-19   10:51 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\c1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\c1dw.pbl(c1dw_cnd_reg_carrier_rate.srd)
+					RC=Success
+
+2003-08-19   14:10 	SMS Checkout: c1dw_cnd_reg_carrier_rate.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\c1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\c1dw.pbl
+					RC=Success
+
+2003-08-19   14:23 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\c1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\c1dw.pbl(c1dw_cnd_reg_carrier_rate.srd)
+					RC=Success
+
+2003-08-19   15:13 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-19   15:20 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-19   20:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-20   14:15 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-20   14:18 	SMS Checkout: b1w_prt_refilllog_detail.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2003-08-20   14:18 	SMS Checkout: b1w_prt_refilllog.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-08-20   14:21 	SMS Checkout: b1dw_prt_refilllog_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-20   14:21 	SMS Checkout: b1dw_prt_refilllog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-20   14:22 	SMS Checkout: b1dw_cnd_prt_refilllog_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-20   14:22 	SMS Checkout: b1dw_cnd_prt_refilllog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-20   15:27 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-20   15:31 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_prt_refilllog_detail.srd)
+					RC=Success
+
+2003-08-20   15:32 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_prt_refilllog.srd)
+					RC=Success
+
+2003-08-20   15:32 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_refilllog_detail.srd)
+					RC=Success
+
+2003-08-20   15:32 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_refilllog.srd)
+					RC=Success
+
+2003-08-20   15:32 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_prt_refilllog.srw)
+					RC=Success
+2003-08-20   15:32 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_prt_refilllog_detail.srw)
+					RC=Success
+
+2003-08-20   15:43 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+
+2003-08-20   21:10 	SMS Checkout: b1dw_prt_refilllog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-20   21:10 	SMS Checkout: b1dw_prt_refilllog_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-20   21:19 	SMS Checkout: b1w_prt_refilllog.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2003-08-20   21:19 	SMS Checkout: b1w_prt_refilllog_detail.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2003-08-20   21:22 	SMS Checkout: b1dw_cnd_prt_refilllog_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-20   21:22 	SMS Checkout: b1dw_cnd_prt_refilllog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-20   22:06 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_refilllog.srd)
+					RC=Success
+2003-08-20   22:06 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_refilllog_detail.srd)
+					RC=Success
+
+2003-08-20   22:06 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_prt_refilllog.srw)
+					RC=Success
+2003-08-20   22:06 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_prt_refilllog_detail.srw)
+					RC=Success
+
+2003-08-20   22:06 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_prt_refilllog_detail.srd)
+					RC=Success
+2003-08-20   22:06 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_prt_refilllog.srd)
+					RC=Success
+
+2003-08-21   11:19 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-21   16:58 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-21   17:26 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-21   17:28 	SMS Checkout: b1dw_prt_refilllog_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-21   17:28 	SMS Checkout: b1dw_prt_refilllog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-21   17:47 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-21   17:47 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-21   17:53 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_refilllog_detail.srd)
+					RC=Success
+2003-08-21   17:53 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_refilllog.srd)
+					RC=Success
+
+2003-08-21   17:57 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-21   18:48 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-22   10:26 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-22   10:26 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-22   11:19 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-22   14:31 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-22   21:56 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-23   17:12 	SMS Checkout: p1w_reg_master.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+2003-08-23   21:32 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master.srw)
+					RC=Success
+
+2003-08-23   22:32 	SMS Checkout: p1dw_p_refilllog_pin.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-08-23   22:32 	SMS Checkout: p1dw_cnd_inq_p_refilllog_pin.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-08-23   22:32 	SMS Checkout: p1dw_reg_master_t6.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-08-23   22:32 	SMS Checkout: p1dw_reg_admst_temp_icn.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-08-23   22:33 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_cnd_inq_p_refilllog_pin.srd)
+					RC=Success
+2003-08-23   22:33 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_p_refilllog_pin.srd)
+					RC=Success
+2003-08-23   22:33 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_master_t6.srd)
+					RC=Success
+2003-08-23   22:33 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_admst_temp_icn.srd)
+					RC=Success
+
+2003-08-24   16:17 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2003-08-24   17:36 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-08-25   13:55 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-25   13:57 	SMS Checkout: p1w_reg_admst_temp_icn.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+2003-08-25   13:57 	SMS Checkout: p1c_dbmgr1.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+					RC=Success
+
+2003-08-25   13:58 	SMS Checkout: p1dw_reg_admst_temp_icn.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-08-25   13:58 	SMS Checkout: p1dw_cnd_reg_admst_temp_icn.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-08-25   14:02 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1c.pbl(p1c_dbmgr1.sru)
+					RC=Success
+
+2003-08-25   14:02 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_admst_temp_icn.srd)
+					RC=Success
+2003-08-25   14:02 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_cnd_reg_admst_temp_icn.srd)
+					RC=Success
+
+2003-08-25   14:02 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_admst_temp_icn.srw)
+					RC=Success
+
+2003-08-25   14:41 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-25   14:42 	SMS Checkout: p1c_dbmgr1.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+					RC=Success
+
+2003-08-25   15:02 	SMS Checkout: p1dw_reg_admst_temp_icn.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-08-25   15:02 	SMS Checkout: p1dw_cnd_reg_admst_temp_icn.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-08-25   15:17 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_admst_temp_icn.srd)
+					RC=Success
+2003-08-25   15:17 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_cnd_reg_admst_temp_icn.srd)
+					RC=Success
+
+2003-08-25   15:17 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1c.pbl(p1c_dbmgr1.sru)
+					RC=Success
+
+2003-08-25   15:53 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-08-25   16:16 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-25   17:20 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-25   17:33 	SMS Checkout: p1c_dbmgr1.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+					RC=Success
+
+2003-08-26   11:21 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1c.pbl(p1c_dbmgr1.sru)
+					RC=Success
+
+2003-08-26   11:22 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-26   11:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-26   13:37 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-26   16:16 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-26   16:27 	SMS Checkout: b1dw_prt_refilllog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-26   16:27 	SMS Checkout: b1dw_prt_refilllog_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-08-26   17:20 	SMS Clear Checkout.
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_refilllog.srd)
+					RC=Success
+
+2003-08-26   17:20 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_refilllog_detail.srd)
+					RC=Success
+
+2003-08-26   17:21 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   10:17 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   10:49 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   10:51 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   10:51 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   10:52 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   10:52 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   10:56 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   10:57 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-08-27   11:11 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-08-27   12:45 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2003-09-02   10:11 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-09-02   10:11 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-09-02   10:32 	SMS Checkout: b1u_check.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					RC=Success
+
+2003-09-02   10:33 	SMS Checkout: b1w_reg_customer_x1.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2003-09-02   10:33 	SMS Checkout: b1w_reg_customer_x1_a.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-09-02   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_customer_x1_a.srw)
+					RC=Success
+2003-09-02   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_customer_x1.srw)
+					RC=Success
+
+2003-09-02   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1u_check.sru)
+					RC=Success
+
+2003-09-02   14:22 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-09-03   15:40 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-03   15:41 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-03   21:08 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2003-09-03   21:10 	SMS Checkout: b5w_reg_sendemail.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b5w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5w.pbl
+					RC=Success
+
+2003-09-03   21:12 	SMS Checkout: b5dw_reg_sendemail_m.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+					RC=Success
+
+2003-09-03   21:12 	SMS Checkout: b5dw_reg_sendemail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b5dw.pbl
+					RC=Success
+
+2003-09-03   21:12 	SMS Checkout: b5dw_cnd_reg_sendemail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b5dw.pbl
+					RC=Success
+
+2003-09-04   11:39 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b5w.pbl(b5w_reg_sendemail.srw)
+					RC=Success
+
+2003-09-04   11:40 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b5dw.pbl(b5dw_reg_sendemail_m.srd)
+					RC=Success
+2003-09-04   11:40 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b5dw.pbl(b5dw_cnd_reg_sendemail.srd)
+					RC=Success
+2003-09-04   11:40 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b5dw.pbl(b5dw_reg_sendemail.srd)
+					RC=Success
+
+2003-09-04   14:13 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian4.pbl
+2003-09-04   19:17 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-04   20:21 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-05   09:58 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-05   10:43 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-05   12:44 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-05   14:21 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-05   18:14 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-05   19:22 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-05   19:30 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-05   22:36 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-06   11:51 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-06   12:46 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-06   14:02 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-06   14:56 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-06   16:40 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-08   09:05 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-08   10:37 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-08   10:39 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-08   10:40 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   10:40 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   10:41 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   10:41 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-08   10:43 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-08   10:55 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   10:58 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   11:03 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   13:45 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-09-08   14:08 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   14:23 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-09-08   17:00 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-09-08   17:57 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   19:00 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   19:25 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   20:52 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   20:56 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-08   20:58 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   20:58 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-08   20:58 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-09   08:51 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-09   09:55 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-09   10:29 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-09   20:31 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-09-09   21:05 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-17   09:28 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_XenerVoipASP.pbl
+2003-09-17   09:31 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\Template2.0\a0_XenerVoipASP.pbl
+2003-09-19   13:15 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-20   11:00 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-22   10:29 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-23   14:47 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-23   14:56 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-23   14:57 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-24   16:45 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-24   16:51 	SMS Checkout: b7w_prc_bill_agency_f.srw
+					Registration PBL: Z:\Project\VOIP\AnyUserJapan1\Source(pbl)\b7w.pbl
+					Work PBL: C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Source(pbl)\b7w.pbl
+					RC=Success
+
+2003-09-24   17:09 	SMS Checkin from Work PBL: C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Source(pbl)\b7w.pbl
+			Object: z:\project\voip\anyuserjapan1\source(pbl)\b7w.pbl(b7w_prc_bill_agency_f.srw)
+					RC=Success
+
+2003-09-24   17:10 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-25   10:12 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-26   10:05 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-26   10:27 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-09-26   10:55 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-26   17:22 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-26   17:22 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-26   20:07 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-26   20:19 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-09-26   21:13 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-29   09:07 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-29   14:53 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-29   15:25 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-09-30   13:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-09-30   13:53 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-09-30   13:53 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-01   11:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-10-01   15:21 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-10-02   14:00 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-02   15:29 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-02   15:31 	SMS Checkout: b7w_prc_bill_agency_f.srw
+					Registration PBL: Z:\Project\VOIP\AnyUserJapan1\Source(pbl)\b7w.pbl
+					Work PBL: C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Source(pbl)\b7w.pbl
+					RC=Success
+
+2003-10-02   15:40 	SMS Checkin from Work PBL: C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Source(pbl)\b7w.pbl
+			Object: z:\project\voip\anyuserjapan1\source(pbl)\b7w.pbl(b7w_prc_bill_agency_f.srw)
+					RC=Success
+
+2003-10-02   17:11 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-02   17:38 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-02   18:07 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-06   09:46 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-06   15:54 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-06   16:30 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-06   17:25 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-06   18:15 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   10:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-07   10:26 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-07   10:26 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   10:43 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   10:56 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   10:57 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   11:00 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   13:36 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   15:49 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   16:39 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-07   17:37 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-08   10:34 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-08   10:46 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2003-10-08   10:51 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2003-10-08   17:35 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-08   17:39 	SMS Checkout: u_trans_app.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+					RC=Success
+
+2003-10-08   22:12 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2003-10-09   09:52 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-09   09:56 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-09   10:38 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+			Object: z:\project\통합빌링시스템(pb7)\template2.0\a0_itian3.pbl(u_trans_app.sru)
+					RC=Success
+
+2003-10-09   13:26 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_comn.pbl
+2003-10-10   15:47 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2003-10-13   11:41 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-13   12:02 	SMS Checkout: b1w_hlp_payid.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2003-10-13   14:13 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-13   14:15 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_hlp_payid.srw)
+					RC=Success
+
+2003-10-14   09:34 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-14   14:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-14   14:27 	SMS Checkout: u_trans_app.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+					RC=Success
+
+2003-10-14   14:27 	SMS Checkout: itian3.sra
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\template2.0\a0_itian3.pbl
+					RC=Success
+
+2003-10-14   14:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+			Object: z:\project\통합빌링시스템(pb7)\template2.0\a0_itian3.pbl(u_trans_app.sru)
+					RC=Success
+2003-10-14   14:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+			Object: z:\project\통합빌링시스템(pb7)\template2.0\a0_itian3.pbl(itian3.sra)
+					RC=Success
+
+**					CheckIn of current application object successful. Switching to z:\project\통합빌링시스템(pb7)\template2.0\a0_itian3.pbl(itian3)
+					
+
+2003-10-14   14:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-14   14:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-14   14:33 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-14   14:44 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-14   15:03 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-10-14   16:02 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2003-10-14   16:38 	Source Management Initialization.
+					Application=C:\PROJECT\나래\Naray\Source\a0_naray.pbl
+2003-10-14   17:29 	Source Management Initialization.
+					Application=C:\PROJECT\나래\Naray\Source\a0_naray.pbl
+2003-10-14   17:33 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-14   17:34 	Source Management Initialization.
+					Application=C:\PROJECT\나래\Naray\Source\a0_naray.pbl
+2003-10-15   15:05 	Source Management Initialization.
+					Application=C:\PROJECT\나래\Naray\Source\a0_naray.pbl
+2003-10-16   10:37 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-16   14:44 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-17   10:07 	Source Management Initialization.
+					Application=C:\PROJECT\나래\Naray\Source\a0_naray.pbl
+2003-10-20   09:06 	Source Management Initialization.
+					Application=C:\PROJECT\나래\Naray\Source\a0_naray.pbl
+2003-10-20   11:41 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-20   17:38 	Source Management Initialization.
+					Application=C:\PROJECT\나래\Naray\Source\a0_naray.pbl
+2003-10-20   19:36 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian3.pbl
+2003-10-20   19:45 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-27   10:14 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-27   10:51 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-10-27   10:57 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-27   14:41 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-27   17:48 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-28   11:08 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-28   11:42 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-28   14:28 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-28   15:04 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-29   15:02 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-30   16:31 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-10-31   10:44 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-31   11:21 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-10-31   16:47 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-03   17:46 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-03   17:54 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-04   14:57 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-04   18:13 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-05   16:36 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-05   16:44 	SMS Checkout: u_trans_app.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+					RC=Success
+
+2003-11-06   11:55 	SMS Checkout: b2u_dbmgr.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b2c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2c.pbl
+					RC=Success
+
+2003-11-06   13:49 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-06   17:01 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-06   19:30 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-06   19:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-07   09:27 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-07   09:34 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-07   13:22 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-07   14:36 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-07   15:35 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-07   16:55 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-07   17:01 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-07   17:02 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-07   17:40 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b2c.pbl(b2u_dbmgr.sru)
+					RC=Success
+
+2003-11-07   17:41 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+			Object: z:\project\통합빌링시스템(pb7)\template2.0\a0_tncbil.pbl(u_trans_app.sru)
+					RC=Success
+
+2003-11-08   11:01 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-08   11:42 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-10   10:31 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-10   13:37 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2003-11-10   15:24 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-11   11:46 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-11   15:05 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-11   15:19 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-11   15:42 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-11   15:44 	SMS Checkout: b5w_prt_pay_remain_x1.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b5w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5w.pbl
+					RC=Success
+
+2003-11-11   15:45 	SMS Checkout: b5dw_prt_pay_remain_x1.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+					RC=Success
+
+2003-11-11   16:44 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b5w.pbl(b5w_prt_pay_remain_x1.srw)
+					RC=Success
+
+2003-11-11   16:44 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b5dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b5dw.pbl(b5dw_prt_pay_remain_x1.srd)
+					RC=Success
+
+2003-11-12   09:48 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-12   10:02 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-12   10:14 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-12   10:23 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-12   13:46 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-13   10:01 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-13   10:04 	SMS Checkout: b2w_prt_commdet2.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+					RC=Success
+
+2003-11-13   10:06 	SMS Checkout: b2dw_cnd_prt_commdet2.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b2dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2dw.pbl
+					RC=Success
+
+2003-11-13   10:06 	SMS Checkout: b2dw_prt_commdet2.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b2dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b2dw.pbl
+					RC=Success
+
+2003-11-13   10:24 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b2w.pbl(b2w_prt_commdet2.srw)
+					RC=Success
+
+2003-11-13   10:24 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b2dw.pbl(b2dw_cnd_prt_commdet2.srd)
+					RC=Success
+2003-11-13   10:24 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b2dw.pbl(b2dw_prt_commdet2.srd)
+					RC=Success
+
+2003-11-14   17:06 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-14   17:41 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-17   13:36 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-11-21   09:36 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-11-21   10:59 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-11-21   17:38 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-11-24   11:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-11-24   13:09 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-11-26   16:05 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-11-27   10:36 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-11-27   10:49 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-11-28   14:09 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-11-28   14:22 	SMS Checkout: b7dw_reg_edigr22_m.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b7dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b7dw.pbl
+					RC=Success
+
+2003-11-28   14:24 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b7dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b7dw.pbl(b7dw_reg_edigr22_m.srd)
+					RC=Success
+
+2003-12-01   09:52 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-12-01   09:52 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-01   09:58 	SMS Checkout: p1dw_reg_master_t1.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-01   10:10 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_master_t1.srd)
+					RC=Success
+
+
+2003-12-01   10:15 	SMS Checkout: p1w_reg_term_ani_popup.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   10:15 	SMS Checkout: p1w_reg_change_ani_popup.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   10:15 	SMS Checkout: p1w_reg_ani_insert.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   10:15 	SMS Checkout: p1w_reg_new_ani_popup.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   10:17 	SMS Checkout: p1dw_cnd_reg_ani_num.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-01   10:17 	SMS Checkout: p1dw_reg_aninum_master.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-01   10:17 	SMS Checkout: p1dw_reg_aninum_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-01   10:17 	SMS Checkout: p1dw_cnd_reg_aninum.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-01   10:17 	SMS Checkout: p1dw_inq_ani_num.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_cnd_reg_ani_num.srd)
+					RC=Success
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_aninum_master.srd)
+					RC=Success
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_inq_ani_num.srd)
+					RC=Success
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_cnd_reg_aninum.srd)
+					RC=Success
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_aninum_detail.srd)
+					RC=Success
+
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_term_ani_popup.srw)
+					RC=Success
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_change_ani_popup.srw)
+					RC=Success
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_new_ani_popup.srw)
+					RC=Success
+2003-12-01   10:52 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_ani_insert.srw)
+					RC=Success
+
+2003-12-01   17:43 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-12-01   20:37 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-12-01   20:53 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-12-01   20:58 	SMS Checkout: p1w_reg_master.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   20:58 	SMS Checkout: p1w_reg_master_cl.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   20:58 	SMS Checkout: p1w_reg_master_1.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   20:58 	SMS Checkout: p1w_reg_master_all.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   20:59 	SMS Checkout: p1w_reg_ani_insert.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-01   22:09 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master_1.srw)
+					RC=Success
+2003-12-01   22:09 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master_cl.srw)
+					RC=Success
+2003-12-01   22:10 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master_all.srw)
+					RC=Success
+2003-12-01   22:10 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_ani_insert.srw)
+					RC=Success
+2003-12-01   22:10 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master.srw)
+					RC=Success
+
+2003-12-02   21:00 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-02   21:01 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-03   10:16 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-12-03   19:34 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-04   10:33 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-04   10:36 	SMS Checkout: b1w_reg_trouble_categoryc.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-04   10:36 	SMS Checkout: b1w_reg_customertrouble.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-04   10:36 	SMS Checkout: b1w_reg_trouble_categoryb.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-04   10:36 	SMS Checkout: b1w_reg_customertrouble_cv.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-04   10:36 	SMS Checkout: b1w_reg_trouble_categorya.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-04   10:36 	SMS Checkout: b1w_reg_trouble_mst.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-04   10:36 	SMS Checkout: b1w_reg_customertrouble_1.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_trouble_categoryc.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_customeridtrouble_m.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_customertrouble_t1.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_reg_trouble_categoryc.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_prt_trouble_sumlist.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_reg_customeridtrouble_cv.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_trouble_categoryb.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_customeridtrouble_m_cv.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_reg_trouble_categoryb.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_customertrouble_t2.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_prt_trouble_list_1.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_reg_customeridtrouble_1.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_trouble_categorya.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_troublemst.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_customeridtrouble_m_1.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_reg_trouble_categorya.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_reg_customertrouble_t1_1.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_reg_troublemst.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_prt_trouble_list.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:41 	SMS Checkout: b1dw_cnd_reg_customeridtrouble.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-04   10:44 	SMS Checkout: b1dc_dddw_troubletypeb.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-04   10:44 	SMS Checkout: b1u_dbmgr5.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-04   10:44 	SMS Checkout: b1dc_dddw_troubletypea.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-04   10:44 	SMS Checkout: b1dc_dddw_troubletypemst.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-04   10:44 	SMS Checkout: b1dc_dddw_troubletype.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-04   10:44 	SMS Checkout: b1dc_dddw_troubletypec.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-04   11:25 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-04   17:28 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-12-05   11:43 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-12-05   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_customertrouble_cv.srw)
+					RC=Success
+2003-12-05   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_trouble_mst.srw)
+					RC=Success
+2003-12-05   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_trouble_categoryc.srw)
+					RC=Success
+2003-12-05   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_trouble_categorya.srw)
+					RC=Success
+2003-12-05   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_customertrouble.srw)
+					RC=Success
+2003-12-05   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_trouble_categoryb.srw)
+					RC=Success
+2003-12-05   13:28 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_customertrouble_1.srw)
+					RC=Success
+
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_troublemst.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_customertrouble_t1_1.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_trouble_categoryb.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_trouble_categorya.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_prt_trouble_sumlist.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_trouble_categorya.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_customeridtrouble_m_cv.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_customeridtrouble_cv.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_troublemst.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_trouble_categoryc.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_customeridtrouble_m_1.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_customeridtrouble_1.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_prt_trouble_list_1.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_trouble_categoryb.srd)
+					RC=Success
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_trouble_categoryc.srd)
+					RC=Success
+
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_customeridtrouble.srd)
+					RC=Success
+
+2003-12-05   13:29 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_customertrouble_t1.srd)
+					RC=Success
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_customertrouble_t2.srd)
+					RC=Success
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_prt_trouble_list.srd)
+					RC=Success
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_customeridtrouble_m.srd)
+					RC=Success
+
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletypea.srd)
+					RC=Success
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletypemst.srd)
+					RC=Success
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1u_dbmgr5.sru)
+					RC=Success
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletypeb.srd)
+					RC=Success
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletypec.srd)
+					RC=Success
+
+2003-12-05   13:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletype.srd)
+					RC=Success
+
+2003-12-06   13:08 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-10   11:27 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-10   11:30 	SMS Checkout: b1w_reg_trouble_categoryc.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-10   11:30 	SMS Checkout: b1w_reg_trouble_categoryb.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-10   11:30 	SMS Checkout: b1w_reg_customertrouble_1.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-10   11:30 	SMS Checkout: b1w_reg_customertrouble_cv.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-10   11:30 	SMS Checkout: b1w_reg_trouble_mst.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-10   11:30 	SMS Checkout: b1w_reg_trouble_categorya.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-10   11:30 	SMS Checkout: b1w_reg_customertrouble.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-10   11:43 	SMS Checkout: b1dw_cnd_reg_trouble_categoryc.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-10   11:43 	SMS Checkout: b1dw_reg_trouble_categoryb.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-10   11:43 	SMS Checkout: b1dw_cnd_reg_trouble_categoryb.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-10   11:43 	SMS Checkout: b1dw_reg_trouble_categorya.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-10   11:43 	SMS Checkout: b1dw_reg_troublemst.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-10   11:43 	SMS Checkout: b1dw_cnd_reg_troublemst.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-10   11:43 	SMS Checkout: b1dw_cnd_reg_trouble_categorya.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-10   11:43 	SMS Checkout: b1dw_reg_trouble_categoryc.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-10   11:45 	SMS Checkout: b1dc_dddw_troubletypeb.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-10   11:45 	SMS Checkout: b1dc_dddw_troubletype.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-10   11:45 	SMS Checkout: b1dc_dddw_troubletypec.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-10   11:45 	SMS Checkout: b1dc_dddw_troubletypemst.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-10   11:45 	SMS Checkout: b1dc_dddw_troubletypea.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl
+					RC=Success
+
+2003-12-11   11:03 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2003-12-11   11:03 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-11   11:03 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_trouble_categoryc.srw)
+					RC=Success
+2003-12-11   11:03 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_trouble_mst.srw)
+					RC=Success
+2003-12-11   11:03 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_trouble_categoryb.srw)
+					RC=Success
+2003-12-11   11:03 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_customertrouble.srw)
+					RC=Success
+2003-12-11   11:03 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_customertrouble_cv.srw)
+					RC=Success
+2003-12-11   11:03 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_trouble_categorya.srw)
+					RC=Success
+2003-12-11   11:03 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_reg_customertrouble_1.srw)
+					RC=Success
+
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_trouble_categoryb.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_trouble_categoryb.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_trouble_categorya.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_troublemst.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_trouble_categoryc.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_troublemst.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cnd_reg_trouble_categorya.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_trouble_categoryc.srd)
+					RC=Success
+
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletype.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletypec.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletypeb.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletypemst.srd)
+					RC=Success
+2003-12-11   11:04 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1c.pbl(b1dc_dddw_troubletypea.srd)
+					RC=Success
+
+2003-12-11   14:13 	SMS Checkout: p1w_reg_master.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-11   14:13 	SMS Checkout: p1w_reg_master_1.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-11   14:13 	SMS Checkout: p1w_reg_master_cl.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-11   14:13 	SMS Checkout: p1w_reg_ani_insert.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl
+					RC=Success
+
+2003-12-11   14:14 	SMS Checkout: p1dw_reg_aninum_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-11   14:14 	SMS Checkout: p1dw_reg_master_t1.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-11   14:14 	SMS Checkout: p1dw_reg_aninum_master.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-11   14:16 	SMS Checkout: p1dc_dddw_langtype.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+					RC=Success
+
+2003-12-11   14:25 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_aninum_detail.srd)
+					RC=Success
+2003-12-11   14:25 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_master_t1.srd)
+					RC=Success
+2003-12-11   14:25 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_reg_aninum_master.srd)
+					RC=Success
+
+2003-12-11   14:26 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master_1.srw)
+					RC=Success
+2003-12-11   14:26 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master.srw)
+					RC=Success
+2003-12-11   14:26 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_ani_insert.srw)
+					RC=Success
+2003-12-11   14:26 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master_cl.srw)
+					RC=Success
+
+2003-12-11   14:26 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1c.pbl(p1dc_dddw_langtype.srd)
+					RC=Success
+
+2003-12-11   14:29 	SMS Checkout: p1w_reg_master_all.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+
+2003-12-11   14:31 	SMS Checkout: p1d_reg_master_all.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-11   14:31 	SMS Checkout: p1d_cnd_reg_master_all.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-11   17:21 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1d_reg_master_all.srd)
+					RC=Success
+2003-12-11   17:21 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1d_cnd_reg_master_all.srd)
+					RC=Success
+
+2003-12-11   17:21 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_reg_master_all.srw)
+					RC=Success
+
+2003-12-13   16:26 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-15   15:16 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-15   16:29 	SMS Checkout: b1w_prt_validkey_list.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2003-12-15   16:31 	SMS Checkout: b1dw_prt_validkey_list.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-15   16:41 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_validkey_list.srd)
+					RC=Success
+
+2003-12-15   16:41 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_prt_validkey_list.srw)
+					RC=Success
+
+2003-12-15   16:58 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-16   10:09 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-16   10:16 	SMS Checkout: b1dw_reg_troublemst_d.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-16   10:18 	SMS Checkout: p1d_reg_master_all.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-16   10:18 	SMS Checkout: p1d_cnd_reg_master_all.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl
+					RC=Success
+
+2003-12-16   10:31 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-16   10:45 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_troublemst_d.srd)
+					RC=Success
+
+2003-12-16   10:46 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1d_cnd_reg_master_all.srd)
+					RC=Success
+2003-12-16   10:46 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1d_reg_master_all.srd)
+					RC=Success
+
+2003-12-17   17:22 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\영문(pbl)\Template_eng\a0_hktel.pbl
+2003-12-17   17:25 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-12-19   13:36 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2003-12-19   13:44 	SMS Checkout: b1dw_reg_customer_t4.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2003-12-19   13:46 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_customer_t4.srd)
+					RC=Success
+
+2003-12-22   11:18 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-23   11:14 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2003-12-23   11:17 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2003-12-26   11:21 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2004-01-02   09:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_voicall.pbl
+2004-01-05   10:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-01-06   09:54 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-01-06   09:57 	SMS Checkout: p1dw_prt_outlog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2004-01-06   10:11 	SMS Checkout: p1dw_cnd_prt_outlog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2004-01-06   10:14 	SMS Checkout: p1w_prt_outlog.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+2004-01-06   10:16 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_prt_outlog.srw)
+					RC=Success
+
+2004-01-06   10:17 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_cnd_prt_outlog.srd)
+					RC=Success
+2004-01-06   10:17 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_prt_outlog.srd)
+					RC=Success
+
+2004-01-07   20:19 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-01-08   11:18 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-01-08   11:20 	SMS Checkout: p1dw_prt_outlog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2004-01-08   11:21 	SMS Checkout: p1dw_cnd_prt_outlog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+					RC=Success
+
+2004-01-08   11:23 	SMS Checkout: p1w_prt_outlog.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+					RC=Success
+
+2004-01-08   11:24 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_prt_outlog.srd)
+					RC=Success
+2004-01-08   11:24 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1dw.pbl(p1dw_cnd_prt_outlog.srd)
+					RC=Success
+
+2004-01-08   11:24 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\p1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\p1w.pbl(p1w_prt_outlog.srw)
+					RC=Success
+
+2004-01-13   10:06 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-01-20   16:05 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-01-28   15:46 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-01-28   15:48 	SMS Checkout: b2w_prc_close_salecom_pre.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+					RC=Success
+
+2004-01-28   15:48 	SMS Checkout: b2w_prc_close_salecom.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b2w.pbl
+					RC=Success
+
+2004-01-28   15:48 	SMS Checkout: b2w_prc_close_contractcom.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b2w.pbl
+					RC=Success
+
+2004-01-28   16:09 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b2w.pbl(b2w_prc_close_salecom_pre.srw)
+					RC=Success
+2004-01-28   16:09 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b2w.pbl(b2w_prc_close_salecom.srw)
+					RC=Success
+2004-01-28   16:09 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b2w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b2w.pbl(b2w_prc_close_contractcom.srw)
+					RC=Success
+
+2004-01-30   15:42 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_comn.pbl
+2004-01-30   17:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-01-30   17:35 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-02-02   16:52 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-03   15:20 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-03   16:44 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_comn.pbl
+2004-02-03   16:45 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-03   16:45 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-02-03   20:02 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-04   15:25 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-04   19:34 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-05   11:34 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-06   13:45 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-06   14:33 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-06   14:36 	SMS Checkout: b1dw_reg_customer_t4.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2004-02-06   14:41 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_reg_customer_t4.srd)
+					RC=Success
+
+2004-02-06   14:45 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-02-06   15:14 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-02-10   13:01 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-10   13:17 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-10   17:11 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-11   15:27 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-12   13:29 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-02-12   13:57 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-13   10:51 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-13   11:03 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-13   16:10 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-16   09:46 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-16   09:54 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_XenerVoipASP.pbl
+2004-02-16   10:13 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-02-16   10:14 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-16   14:14 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-17   09:41 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-17   09:44 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-17   10:33 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-02-17   13:48 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-17   13:51 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-02-17   15:56 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-19   10:32 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-19   17:36 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-19   17:49 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-19   20:01 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-20   10:00 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-20   17:37 	SMS Checkout: sp0u_dbmgr.sru
+					Registration PBL: Z:\Project\Crediphone\Source\sp0dc.pbl
+					Work PBL: C:\PROJECT\Crediphone\Source\sp0dc.pbl
+					RC=Success
+
+2004-02-20   19:11 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_itian2.pbl
+2004-02-20   19:12 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-02-20   20:55 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-20   20:59 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-23   09:22 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-23   09:22 	SMS Checkin from Work PBL: C:\PROJECT\Crediphone\Source\sp0dc.pbl
+			Object: z:\project\crediphone\source\sp0dc.pbl(sp0u_dbmgr.sru)
+					RC=Success
+
+2004-02-23   09:35 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-23   15:45 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-23   17:53 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-24   10:51 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-24   11:09 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-02-25   14:36 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-25   15:28 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-27   20:28 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-02-27   21:43 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-03-02   10:13 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-03-02   21:26 	SMS Checkout: sp0dw_inq_shopsettle_t1.srd
+					Registration PBL: Z:\Project\Crediphone\Source\sp0dw.pbl
+					Work PBL: C:\PROJECT\Crediphone\Source\sp0dw.pbl
+					RC=Success
+
+2004-03-02   21:26 	SMS Checkout: sp0dw_inq_shopsettle_t2.srd
+					Registration PBL: Z:\Project\Crediphone\Source\sp0dw.pbl
+					Work PBL: c:\project\crediphone\source\sp0dw.pbl
+					RC=Success
+
+2004-03-02   21:26 	SMS Checkout: sp0dw_inq_shopsettle_t4.srd
+					Registration PBL: Z:\Project\Crediphone\Source\sp0dw.pbl
+					Work PBL: c:\project\crediphone\source\sp0dw.pbl
+					RC=Success
+
+2004-03-02   21:26 	SMS Checkout: sp0dw_inq_shopsettle_t3.srd
+					Registration PBL: Z:\Project\Crediphone\Source\sp0dw.pbl
+					Work PBL: c:\project\crediphone\source\sp0dw.pbl
+					RC=Success
+
+2004-03-02   21:26 	SMS Checkout: sp0w_inq_shopsettle.srw
+					Registration PBL: Z:\Project\Crediphone\Source\sp0w.pbl
+					Work PBL: C:\PROJECT\Crediphone\Source\sp0w.pbl
+					RC=Success
+
+2004-03-02   21:37 	SMS Checkin from Work PBL: C:\PROJECT\Crediphone\Source\sp0dw.pbl
+			Object: z:\project\crediphone\source\sp0dw.pbl(sp0dw_inq_shopsettle_t1.srd)
+					RC=Success
+
+2004-03-02   21:40 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-03   10:10 	SMS Checkin from Work PBL: C:\PROJECT\Crediphone\Source\sp0dw.pbl
+			Object: z:\project\crediphone\source\sp0dw.pbl(sp0dw_inq_shopsettle_t2.srd)
+					RC=Success
+2004-03-03   10:10 	SMS Checkin from Work PBL: C:\PROJECT\Crediphone\Source\sp0dw.pbl
+			Object: z:\project\crediphone\source\sp0dw.pbl(sp0dw_inq_shopsettle_t3.srd)
+					RC=Success
+2004-03-03   10:10 	SMS Checkin from Work PBL: C:\PROJECT\Crediphone\Source\sp0dw.pbl
+			Object: z:\project\crediphone\source\sp0dw.pbl(sp0dw_inq_shopsettle_t4.srd)
+					RC=Success
+
+2004-03-03   10:10 	SMS Checkin from Work PBL: C:\PROJECT\Crediphone\Source\sp0w.pbl
+			Object: z:\project\crediphone\source\sp0w.pbl(sp0w_inq_shopsettle.srw)
+					RC=Success
+
+2004-03-05   20:14 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-10   10:08 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-03-10   11:46 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-10   15:59 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-11   09:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-11   16:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-11   16:31 	SMS Checkout: b1w_prt_validkey_list.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+					RC=Success
+
+2004-03-11   16:32 	SMS Checkout: b1dw_prt_validkey_list.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2004-03-11   16:36 	SMS Checkout: b1dw_cond_prt_validkey_list.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+					RC=Success
+
+2004-03-11   16:48 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_cond_prt_validkey_list.srd)
+					RC=Success
+2004-03-11   16:48 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1dw.pbl(b1dw_prt_validkey_list.srd)
+					RC=Success
+
+2004-03-11   16:48 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b1w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b1w.pbl(b1w_prt_validkey_list.srw)
+					RC=Success
+
+2004-03-15   13:19 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-17   14:40 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-03-25   14:29 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-29   20:07 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-30   17:41 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-03-30   17:43 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_XenerVoipASP.pbl
+2004-03-30   17:50 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_itian2.pbl
+2004-03-30   17:52 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_itian5.pbl
+2004-03-30   17:53 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_XenerVoipASP.pbl
+2004-03-30   18:04 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_itian5.pbl
+2004-03-31   13:28 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-03-31   13:49 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_itian5.pbl
+2004-03-31   14:00 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_itian5.pbl
+2004-04-01   15:05 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-04-02   16:40 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_itian5.pbl
+2004-04-06   15:31 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_itian5.pbl
+2004-04-06   15:33 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_itian5.pbl
+2004-04-06   15:33 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-04-06   17:35 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_XenerVoipASP.pbl
+2004-04-06   17:36 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-04-06   17:49 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-05-28   10:11 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-06-08   14:24 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-06-15   11:29 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\ITIANASP\소스\Template2.0\a0_XenerVoipASP.pbl
+2004-06-15   11:30 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_XenerVoipASP.pbl
+2004-06-16   13:34 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_XenerVoipASP.pbl
+2004-06-18   11:14 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-06-28   18:10 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-07-07   14:59 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-07   15:00 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-07-08   13:51 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-07-08   17:47 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-07-09   14:00 	Source Management Initialization.
+					Application=C:\PROJECT\TeenCall(PB7)\1.0(TeenCall)\a0_teencall.pbl
+2004-07-09   18:21 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-07-09   18:22 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-13   14:57 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-07-13   14:59 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-15   10:03 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-15   16:19 	SMS Checkout: b0u_dbmgr.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+					RC=Success
+
+2004-07-16   15:54 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-16   15:55 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0c.pbl(b0u_dbmgr.sru)
+					RC=Success
+
+2004-07-20   11:03 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-20   11:08 	SMS Checkout: b0u_dbmgr.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+					RC=Success
+
+2004-07-21   14:39 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-21   14:43 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-21   15:01 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-26   10:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-26   11:15 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-26   21:55 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-26   22:08 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-26   22:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-26   22:30 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0c.pbl(b0u_dbmgr.sru)
+					RC=Success
+
+
+2004-07-26   22:35 	SMS Checkout: b0u_dbmgr.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+					RC=Success
+
+2004-07-26   22:37 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0c.pbl(b0u_dbmgr.sru)
+					RC=Success
+
+2004-07-27   09:18 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-27   09:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-27   09:39 	SMS Checkout: b0u_dbmgr.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+					RC=Success
+
+2004-07-27   09:40 	SMS Checkout: b0dw_msg_calc_rating.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0dw.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0dw.pbl
+					RC=Success
+
+2004-07-27   09:40 	SMS Checkout: b0dw_cnd_cal_rating.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0dw.pbl
+					Work PBL: c:\project\통합빌링시스템(pb7)\source(pbl)\b0dw.pbl
+					RC=Success
+
+2004-07-27   09:40 	SMS Checkout: b0w_cal_rating.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Source(pbl)\b0w.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0w.pbl
+					RC=Success
+
+2004-07-27   13:42 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0c.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0c.pbl(b0u_dbmgr.sru)
+					RC=Success
+
+2004-07-27   13:42 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0dw.pbl(b0dw_cnd_cal_rating.srd)
+					RC=Success
+2004-07-27   13:42 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0dw.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0dw.pbl(b0dw_msg_calc_rating.srd)
+					RC=Success
+
+2004-07-27   13:42 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Source(pbl)\b0w.pbl
+			Object: z:\project\통합빌링시스템(pb7)\source(pbl)\b0w.pbl(b0w_cal_rating.srw)
+					RC=Success
+
+2004-07-27   13:49 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-07-27   13:55 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-07-27   14:08 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-07-27   15:39 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-07-27   16:41 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-07-28   11:16 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-07-28   11:16 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-07-28   14:55 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-07-29   10:11 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-07-29   10:53 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-02   11:04 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-04   16:11 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-08-04   16:13 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-12   14:01 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-12   16:39 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-12   18:10 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-12   18:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-13   11:21 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-13   15:34 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-13   18:50 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-13   19:21 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-13   19:29 	SMS Checkout: e03u_cust_db03.sru
+					Registration PBL: Z:\Project\나래텔레콤\Naray\Source\e03pps03.pbl
+					Work PBL: Z:\Project\나래텔레콤\Naray\Source\e03pps01.pbl
+					RC=Success
+
+
+2004-08-13   19:32 	SMS Checkin from Work PBL: Z:\Project\나래텔레콤\Naray\Source\e03pps01.pbl
+			Object: z:\project\나래텔레콤\naray\source\e03pps03.pbl(e03u_cust_db03.sru)
+					RC=Success
+
+2004-08-16   09:01 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-16   13:55 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2004-08-17   13:18 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-17   13:21 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-17   13:34 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-17   13:44 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-17   13:47 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-17   13:53 	SMS Checkout: b1w_reg_refill.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1w_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\b1w_eng.pbl
+					RC=Success
+
+2004-08-17   13:57 	SMS Checkout: b1dw_reg_refill.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1dw_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+					RC=Success
+
+2004-08-17   13:57 	SMS Checkout: b1dw_cnd_reg_refill.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\b1dw_eng.pbl
+					RC=Success
+
+2004-08-17   15:46 	SMS Checkout: b1w_prt_refilllog.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1w_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\b1w_eng.pbl
+					RC=Success
+
+2004-08-17   15:46 	SMS Checkout: b1w_prt_refilllog_detail.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1w_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\b1w_eng.pbl
+					RC=Success
+
+2004-08-17   15:49 	SMS Checkout: b1dw_cnd_prt_refilllog_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1dw_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+					RC=Success
+
+2004-08-17   15:49 	SMS Checkout: b1dw_prt_refilllog_detail.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\b1dw_eng.pbl
+					RC=Success
+
+2004-08-17   15:49 	SMS Checkout: b1dw_cnd_prt_refilllog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\b1dw_eng.pbl
+					RC=Success
+
+2004-08-17   15:49 	SMS Checkout: b1dw_prt_refilllog.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\b1dw_eng.pbl
+					RC=Success
+
+2004-08-17   16:11 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-17   16:37 	SMS Checkout: p0w_reg_return_card.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0w_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\p0w_eng.pbl
+					RC=Success
+
+2004-08-17   16:37 	SMS Checkout: p0w_reg_return_up.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0w_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\p0w_eng.pbl
+					RC=Success
+
+2004-08-17   16:37 	SMS Checkout: p0w_prt_return.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0w_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\p0w_eng.pbl
+					RC=Success
+
+2004-08-17   16:39 	SMS Checkout: p0dw_reg_return_card.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0dw_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+					RC=Success
+
+2004-08-17   16:39 	SMS Checkout: p0dw_cnd_reg_return_up.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\p0dw_eng.pbl
+					RC=Success
+
+2004-08-17   16:39 	SMS Checkout: p0dw_cnd_reg_return_card.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\p0dw_eng.pbl
+					RC=Success
+
+2004-08-17   16:39 	SMS Checkout: p0dw_cnd_prt_return.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\p0dw_eng.pbl
+					RC=Success
+
+2004-08-17   16:39 	SMS Checkout: p0dw_reg_return_up.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\p0dw_eng.pbl
+					RC=Success
+
+2004-08-17   16:40 	SMS Checkout: p0dw_prt_return_partner.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0dw_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+					RC=Success
+
+2004-08-17   16:41 	SMS Checkout: p0dw_prt_return_period.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\p0dw_eng.pbl
+					Work PBL: c:\project\영문화\source(pbl)\p0dw_eng.pbl
+					RC=Success
+
+2004-08-18   14:05 	SMS Checkout: tncbill.sra
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Template_eng\a0_tncbil_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+					RC=Success
+
+2004-08-18   14:05 	SMS Checkout: u_trans_app.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Template_eng\a0_tncbil_eng.pbl
+					Work PBL: c:\project\영문화\template_eng\a0_tncbil_eng.pbl
+					RC=Success
+
+2004-08-18   14:17 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-18   14:19 	SMS Checkout: u_trans_app.sru
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+					Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+					RC=Success
+
+2004-08-18   14:20 	SMS Checkin from Work PBL: C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+			Object: z:\project\통합빌링시스템(pb7)\template2.0\a0_tncbil.pbl(u_trans_app.sru)
+					RC=Success
+
+2004-08-18   14:20 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\template_eng\a0_tncbil_eng.pbl(tncbill.sra)
+					RC=Success
+
+**					CheckIn of current application object successful. Switching to z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\template_eng\a0_tncbil_eng.pbl(tncbill)
+					
+
+2004-08-18   14:21 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\template_eng\a0_tncbil_eng.pbl(u_trans_app.sru)
+					RC=Success
+
+2004-08-18   14:22 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-18   14:25 	SMS Checkout: b1w_prc_appendpre_bilcdr.srw
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1w_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\b1w_eng.pbl
+					RC=Success
+
+2004-08-18   14:28 	SMS Checkout: b1dw_cnd_prc_appendpre_bilcdr.srd
+					Registration PBL: Z:\Project\통합빌링시스템(PB7)\영문(pbl)2.0\Source(pbl)\b1dw_eng.pbl
+					Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+					RC=Success
+
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0w_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0w_eng.pbl(p0w_reg_return_card.srw)
+					RC=Success
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0w_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0w_eng.pbl(p0w_prt_return.srw)
+					RC=Success
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0w_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0w_eng.pbl(p0w_reg_return_up.srw)
+					RC=Success
+
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0dw_eng.pbl(p0dw_prt_return_partner.srd)
+					RC=Success
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0dw_eng.pbl(p0dw_prt_return_period.srd)
+					RC=Success
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0dw_eng.pbl(p0dw_cnd_reg_return_up.srd)
+					RC=Success
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0dw_eng.pbl(p0dw_cnd_prt_return.srd)
+					RC=Success
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0dw_eng.pbl(p0dw_cnd_reg_return_card.srd)
+					RC=Success
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0dw_eng.pbl(p0dw_reg_return_up.srd)
+					RC=Success
+2004-08-18   15:08 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\p0dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\p0dw_eng.pbl(p0dw_reg_return_card.srd)
+					RC=Success
+
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1dw_eng.pbl(b1dw_cnd_prc_appendpre_bilcdr.srd)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1dw_eng.pbl(b1dw_prt_refilllog.srd)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1dw_eng.pbl(b1dw_cnd_prt_refilllog_detail.srd)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1dw_eng.pbl(b1dw_cnd_prt_refilllog.srd)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1dw_eng.pbl(b1dw_prt_refilllog_detail.srd)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1dw_eng.pbl(b1dw_cnd_reg_refill.srd)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1dw_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1dw_eng.pbl(b1dw_reg_refill.srd)
+					RC=Success
+
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1w_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1w_eng.pbl(b1w_prt_refilllog_detail.srw)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1w_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1w_eng.pbl(b1w_reg_refill.srw)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1w_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1w_eng.pbl(b1w_prc_appendpre_bilcdr.srw)
+					RC=Success
+2004-08-18   15:09 	SMS Checkin from Work PBL: C:\PROJECT\영문화\Source(pbl)\b1w_eng.pbl
+			Object: z:\project\통합빌링시스템(pb7)\영문(pbl)2.0\source(pbl)\b1w_eng.pbl(b1w_prt_refilllog.srw)
+					RC=Success
+
+2004-08-18   16:53 	Source Management Initialization.
+					Application=C:\PROJECT\TeenCall(PB7)\1.0(TeenCall)\a0_teencall.pbl
+2004-08-20   09:43 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-20   15:55 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-20   15:55 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-23   11:11 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-23   11:12 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-23   14:06 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-23   15:49 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-23   15:51 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-23   16:13 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-23   16:18 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-23   18:08 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-23   18:09 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-23   18:27 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-24   09:34 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-24   10:17 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-24   10:18 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-24   14:03 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-24   17:39 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-24   17:40 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-25   10:22 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-25   17:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-25   19:26 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-08-25   21:18 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-26   19:12 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-26   21:52 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-27   09:28 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-27   13:03 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-27   13:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-27   13:17 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-27   19:09 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-27   19:33 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-27   20:53 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-30   13:20 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-08-30   13:23 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-08-31   11:29 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-31   16:55 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-08-31   16:57 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-09-01   10:57 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-01   11:06 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-03   16:59 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-09-03   17:10 	Source Management Initialization.
+					Application=C:\PROJECT\도시가스(PB7)\Template2.0\a0_citygas.pbl
+2004-09-06   09:39 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-06   11:30 	Source Management Initialization.
+					Application=C:\PROJECT\ITIAN ASP\Template2.0\a0_XenerVoipASP.pbl
+2004-09-06   14:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-09-07   10:24 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-08   09:24 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-09-08   10:27 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-08   18:23 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-09-09   11:00 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-09-10   14:56 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-10   15:22 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-09-10   17:10 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-10   17:31 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-13   10:27 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-13   13:58 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-09-14   09:29 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-09-14   16:49 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-15   10:31 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-15   11:16 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-09-15   14:02 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-15   14:35 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-09-16   09:33 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-09-16   09:48 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-16   11:02 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-20   20:43 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-09-21   14:11 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-21   14:31 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-21   20:00 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-21   20:19 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-22   09:33 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-09-22   11:39 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-09-22   11:48 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-22   17:16 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-09-23   15:23 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-10-05   17:05 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-10-07   10:27 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-10-07   11:52 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-10-07   11:59 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-10-07   16:52 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-10-08   15:44 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-10-10   14:17 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-10-11   10:36 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-10-11   11:47 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-10-12   20:24 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-10-13   18:18 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-10-26   17:51 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-10-26   17:52 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-10-26   18:32 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-10-28   14:08 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-11-02   18:45 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-11-05   10:08 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-11-05   10:16 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-11-05   11:00 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-11-10   15:51 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-11-10   21:28 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-11-19   09:45 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbilws.pbl
+2004-11-29   14:00 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-11-29   14:39 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-12-01   18:03 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-12-02   16:22 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_hanaro.pbl
+2004-12-02   16:23 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_hanaro.pbl
+2004-12-02   16:23 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-04   11:27 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_hanaro.pbl
+2004-12-04   11:42 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-04   21:53 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-05   16:31 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_hanaro.pbl
+2004-12-06   09:59 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_hanaro.pbl
+2004-12-06   11:35 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-06   11:39 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_hanaro.pbl
+2004-12-06   16:48 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2004-12-07   11:16 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-07   15:09 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-07   15:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-07   15:21 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-12-07   16:07 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2004-12-10   10:26 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-15   16:15 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-12-15   16:16 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-16   10:05 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-16   10:10 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-12-16   10:13 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-16   10:24 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2004-12-16   10:28 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2004-12-16   10:43 	Source Management Initialization.
+					Application=C:\PROJECT\영문화\Template_eng\a0_tncbil_eng.pbl
+2005-01-03   11:13 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2005-01-05   13:46 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2005-01-06   11:21 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2005-01-12   14:51 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2005-01-27   11:53 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2005-01-28   11:30 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2005-01-28   14:53 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2005-02-15   14:34 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2005-02-15   14:34 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2005-03-14   09:56 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2005-03-15   20:06 	Source Management Initialization.
+					Application=C:\PROJECT\애니유저넷저팬\AnyUserJapan1\Template1.0\a0_anyuserJ.pbl
+2005-03-15   20:48 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2005-04-22   16:39 	Source Management Initialization.
+					Application=C:\PROJECT\Crediphone\Template\a0_cphone.pbl
+2005-04-27   14:14 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2005-07-30   23:10 	Source Management Initialization.
+					Application=C:\PROJECT\통합빌링시스템(PB7)\Template2.0\a0_tncbil.pbl
+2005-09-12   10:54 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2005-09-12   10:58 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2005-09-12   10:59 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2005-09-12   13:46 	Source Management Initialization.
+					Application=C:\PROJECT\나래\나래텔레콤\Source\a0_naray.pbl
+2005-09-12   15:01 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-12   16:37 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-13   09:15 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-13   09:15 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-14   09:02 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-14   09:53 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-15   16:41 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-15   18:08 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-16   10:05 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-21   09:24 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-21   09:31 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl
+2005-09-22   09:19 	Source Management Initialization.
+					Application=D:\project\통합빌링시스템\Template2.0\a0_tncbil_v2.pbl

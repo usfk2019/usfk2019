@@ -1,0 +1,47 @@
+﻿$PBExportHeader$p1dw_reg_call_cancel_1.srd
+$PBExportComments$[kem] 이중호 해지
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=176 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes key=yes name=validkey dbname="validinfo.validkey" )
+ column=(type=datetime updatewhereclause=yes key=yes name=fromdt dbname="validinfo.fromdt" )
+ column=(type=datetime updatewhereclause=yes name=todt dbname="validinfo.todt" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="validinfo.status" )
+ column=(type=char(10) updatewhereclause=yes key=yes name=svccod dbname="validinfo.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="validinfo.priceplan" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="validinfo.contractseq" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chk dbname="chk" values="	Y/	N" )
+ retrieve="  SELECT VALIDKEY, 
+         FROMDT,
+         TODT,
+         STATUS,
+         SVCCOD,
+         PRICEPLAN,
+         CONTRACTSEQ,
+         'N' chk  
+    FROM VALIDINFO
+ORDER BY FROMDT DESC,
+         VALIDKEY ASC" update="VALIDINFO" updatewhere=0 updatekeyinplace=no )
+button(band=header text="전체선택"filename=""action="0" border="0" color="0" x="3145" y="16" height="80" width="361" vtextalign="0" htextalign="0"  name=b_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+line(band=detail x1="5" y1="72" x2="3520" y2="72"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1381" y="4" height="60" width="366" format="[general]"  name=status dddw.name=p1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=10 border="0" color="0" x="3319" y="4" height="60" width="197" format="[general]"  name=chk checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="942" y="4" height="60" width="421" format="[shortdate] [time]"  name=todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="503" y="4" height="60" width="421" format="[shortdate] [time]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="475" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2949" y="4" height="60" width="352" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2313" y="4" height="60" width="617" format="[general]"  name=priceplan dddw.name=p1dc_dddw_priceplan1 dddw.displaycolumn=priceplanmst_priceplan_desc dddw.datacolumn=priceplanmst_priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1765" y="4" height="60" width="530" format="[general]"  name=svccod dddw.name=p1dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="2" text="상태" border="2" color="15793151" x="1381" y="108" height="60" width="366"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=foreground alignment="2" text="선택" border="2" color="15793151" x="3319" y="108" height="60" width="197"  name=chk_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=foreground alignment="2" text="적용종료일" border="2" color="15793151" x="942" y="108" height="60" width="421"  name=todt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=foreground alignment="2" text="적용개시일" border="2" color="15793151" x="503" y="108" height="60" width="421"  name=fromdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=foreground alignment="2" text="Ani#" border="2" color="15793151" x="9" y="108" height="60" width="475"  name=contno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=foreground alignment="2" text="계약Seq." border="2" color="15793151" x="2949" y="108" height="60" width="352"  name=contractseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=foreground alignment="2" text="가격정책" border="2" color="15793151" x="2313" y="108" height="60" width="617"  name=priceplan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=foreground alignment="2" text="서비스" border="2" color="15793151" x="1765" y="108" height="60" width="530"  name=svccod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

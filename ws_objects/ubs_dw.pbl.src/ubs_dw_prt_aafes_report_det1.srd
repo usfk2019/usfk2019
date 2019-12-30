@@ -1,0 +1,118 @@
+﻿$PBExportHeader$ubs_dw_prt_aafes_report_det1.srd
+$PBExportComments$[ceusee] 상품별 일일 통계보고서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 2 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=316 color="536870912" )
+summary(height=112 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=svc_type dbname="svc_type" )
+ column=(type=char(10) updatewhereclause=yes name=vendor_code dbname="vendor_code" )
+ column=(type=char(10) updatewhereclause=yes name=exchno dbname="exchno" )
+ column=(type=char(10) updatewhereclause=yes name=anx dbname="anx" )
+ column=(type=char(10) updatewhereclause=yes name=cutoff_dt dbname="cutoff_dt" )
+ column=(type=char(24) updatewhereclause=yes name=sales_date dbname="sales_date" )
+ column=(type=number updatewhereclause=yes name=gross_amt dbname="gross_amt" )
+ column=(type=number updatewhereclause=yes name=milstar_amt dbname="milstar_amt" )
+ column=(type=number updatewhereclause=yes name=bulk_amt dbname="bulk_amt" )
+ column=(type=number updatewhereclause=yes name=other_amt dbname="other_amt" )
+ column=(type=number updatewhereclause=yes name=total_amt dbname="total_amt" )
+ retrieve="SELECT X.SVC_TYPE, X.VENDOR_CODE, X.EXCHNO, X.ANX, 
+		 '          ' AS CUTOFF_DT,
+		 '                        ' AS SALES_DATE,
+       SUM(DECODE(X.PAYMETHOD, '101', X.PAYAMT, '102', X.PAYAMT, 0)) AS GROSS_AMT,
+       SUM(DECODE(X.PAYMETHOD, '103', X.PAYAMT, '104', X.PAYAMT, 0)) AS MILSTAR_AMT,
+       0 AS BULK_AMT,
+       SUM(DECODE(X.PAYMETHOD, '105', X.PAYAMT, '107', X.PAYAMT, 0)) AS OTHER_AMT,
+       SUM(X.PAYAMT) AS TOTAL_AMT
+FROM (
+SELECT A.BASECOD, A.PAYID, A.ITEMCOD, A.REGCOD, B.KEYNUM, 
+       SUBSTR(C.INDEXDESC, 1, 4) AS EXCHNO,
+       SUBSTR(C.INDEXDESC, 6, 4) AS VENDOR_CODE,
+       SUBSTR(C.INDEXDESC, 11, 2) AS ANX,
+       C.INDEXDESC,
+       A.PAYAMT,
+       B.REGTYPE,
+       A.PAYMETHOD,
+       B.SVC_TYPE  
+FROM   DAILYPAYMENT A, REGCODMST B, SHOP_REGIDX C
+WHERE  A.PAYDT >= TO_DATE('20110314', 'YYYYMMDD')
+AND    A.PAYDT <= TO_DATE('20110314', 'YYYYMMDD')
+AND    A.REGCOD = B.REGCOD
+AND    B.REGTYPE = '01'
+AND    A.SHOPID = C.SHOPID
+AND    A.REGCOD = C.REGCOD
+UNION ALL
+SELECT A.CAMP, A.PAYID, A.ITEMCOD, A.REGCOD, TO_NUMBER(A.KEY_NO),
+       A.EXCHNO, A.VENDOR_CODE, A.ANX, 
+       A.EXCHNO||'-'||A.VENDOR_CODE||'-'||A.ANX AS INDEXDESC,
+       A.AMOUNT,
+       B.REGTYPE,
+       '101' AS PAYMETHOD,
+       B.SVC_TYPE
+FROM   AAFES_DATA A, REGCODMST B
+WHERE  A.CUTOFF_DT = TO_DATE('20110314', 'YYYYMMDD')
+AND    A.REGCOD = B.REGCOD
+AND    B.REGTYPE = '01'  ) X
+GROUP BY X.SVC_TYPE, X.VENDOR_CODE, X.EXCHNO, X.ANX"  sort="svc_type A vendor_code A exchno A anx A " )
+group(level=1 header.height=80 trailer.height=108 by=("svc_type" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=156 trailer.height=108 by=("vendor_code" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+group(level=3 header.height=0 trailer.height=120 by=("exchno" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="1262" y="172" height="52" width="622"  name=date_time visible="1~t0"  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1070" y="184" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1143" y="184" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="CUTOFF :" border="0" color="0" x="91" y="248" height="60" width="247"  name=t_9  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header id=5 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="248" height="60" width="379" format="[general]"  name=cutoff_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="2789" y="248" height="60" width="539" format="[SHORTDATE] [TIME]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="91" y="64" height="88" width="3241"  name=title visible="1~t0"  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="MONTHLY CONCESSION VENDOR INCOME SUMMARY ( SERVICE TYPE )" border="0" color="0" x="87" y="64" height="80" width="3241"  name=t_8  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="SALES DATE :" border="0" color="0" x="1225" y="248" height="60" width="357"  name=t_10  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1595" y="248" height="60" width="864" format="[general]"  name=sales_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="0" text="TYPE :" border="0" color="0" x="91" y="8" height="60" width="178"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="283" y="8" height="60" width="1088" format="[general]"  name=svc_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header.2 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="366" y="4" height="60" width="197" format="[general]"  name=vendor_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.2 alignment="1" text="GROSSRECEIPTS" border="0" color="0" x="617" y="12" height="116" width="498"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.2 alignment="1" text="MILSTARCCARD SLS" border="0" color="0" x="1175" y="12" height="120" width="489"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.2 alignment="1" text="BULK SALES" border="0" color="0" x="1728" y="72" height="60" width="489"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.2 alignment="1" text="OTHER SALES" border="0" color="0" x="2281" y="72" height="60" width="489"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header.2 x1="87" y1="148" x2="3328" y2="148"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.2 alignment="1" text="TOTAL SALES" border="0" color="0" x="2830" y="72" height="60" width="489"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.2 alignment="1" text="ANX" border="0" color="0" x="375" y="72" height="60" width="187"  name=t_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.2 alignment="0" text="EXCH" border="0" color="0" x="91" y="72" height="60" width="265"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.2 alignment="0" text="VENDOR :" border="0" color="0" x="91" y="4" height="60" width="261"  name=t_16  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="617" y="8" height="60" width="498" format="#,##0.00"  name=gross_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1175" y="8" height="60" width="489" format="#,##0.00"  name=milstar_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1728" y="8" height="60" width="489" format="#,##0.00"  name=bulk_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2281" y="8" height="60" width="489" format="#,##0.00"  name=other_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2830" y="8" height="60" width="489" format="#,##0.00"  name=total_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="375" y="8" height="60" width="187" format="[general]"  name=anx edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="91" y="8" height="60" width="265" format="[general]"  name=exchno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.3 alignment="1" expression="sum(total_amt for group 3)"border="0" color="0" x="2830" y="28" height="60" width="489" format="#,##0.00"  name=compute_21  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.3 alignment="1" expression="sum(other_amt for group 3)"border="0" color="0" x="2281" y="28" height="60" width="489" format="#,##0.00"  name=compute_20  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.3 alignment="1" expression="sum(bulk_amt for group 3)"border="0" color="0" x="1728" y="28" height="60" width="489" format="#,##0.00"  name=compute_19  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.3 alignment="1" expression="sum(milstar_amt for group 3)"border="0" color="0" x="1175" y="28" height="60" width="489" format="#,##0.00"  name=compute_18  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.3 alignment="1" expression="sum(gross_amt for group 3)"border="0" color="0" x="617" y="28" height="60" width="498" format="#,##0.00"  name=compute_17  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=trailer.3 alignment="0" text="SUB TOT" border="0" color="0" x="91" y="28" height="60" width="466"  name=t_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=trailer.2 alignment="0" text="VENDOR TOT" border="0" color="0" x="91" y="16" height="60" width="466"  name=t_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression="sum(gross_amt for group 2)"border="0" color="0" x="617" y="16" height="60" width="498" format="#,##0.00"  name=compute_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression="sum(milstar_amt for group 2)"border="0" color="0" x="1175" y="16" height="60" width="489" format="#,##0.00"  name=compute_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression="sum(bulk_amt for group 2)"border="0" color="0" x="1728" y="16" height="60" width="489" format="#,##0.00"  name=compute_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression="sum(other_amt for group 2)"border="0" color="0" x="2281" y="16" height="60" width="489" format="#,##0.00"  name=compute_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression="sum(total_amt for group 2)"border="0" color="0" x="2830" y="16" height="60" width="489" format="#,##0.00"  name=compute_16  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=trailer.2 x1="87" y1="96" x2="3328" y2="96"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=trailer.1 alignment="0" text="TYPE TOT" border="0" color="0" x="91" y="16" height="60" width="466"  name=t_11  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="87" y1="96" x2="3328" y2="96"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(gross_amt for group 1)"border="0" color="0" x="617" y="16" height="60" width="498" format="#,##0.00"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(milstar_amt for group 1)"border="0" color="0" x="1175" y="16" height="60" width="489" format="#,##0.00"  name=compute_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(bulk_amt for group 1)"border="0" color="0" x="1728" y="16" height="60" width="489" format="#,##0.00"  name=compute_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(other_amt for group 1)"border="0" color="0" x="2281" y="16" height="60" width="489" format="#,##0.00"  name=compute_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(total_amt for group 1)"border="0" color="0" x="2830" y="16" height="60" width="489" format="#,##0.00"  name=compute_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=summary alignment="0" text="TOTAL" border="0" color="0" x="91" y="16" height="60" width="466"  name=t_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(gross_amt for all)"border="0" color="0" x="617" y="16" height="60" width="498" format="#,##0.00"  name=compute_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(milstar_amt for all)"border="0" color="0" x="1175" y="16" height="60" width="489" format="#,##0.00"  name=compute_8  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(bulk_amt for all)"border="0" color="0" x="1728" y="16" height="60" width="489" format="#,##0.00"  name=compute_9  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(other_amt for all)"border="0" color="0" x="2281" y="16" height="60" width="489" format="#,##0.00"  name=compute_10  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(total_amt for all)"border="0" color="0" x="2830" y="16" height="60" width="489" format="#,##0.00"  name=compute_11  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="87" y1="96" x2="3328" y2="96"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

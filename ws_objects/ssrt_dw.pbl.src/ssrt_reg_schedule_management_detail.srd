@@ -1,0 +1,73 @@
+﻿$PBExportHeader$ssrt_reg_schedule_management_detail.srd
+$PBExportComments$[kem] 서비스 신청시 장비/할부 정보 조건 - com&life
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=644 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=scheduleseq dbname="schedule_detail.scheduleseq" )
+ column=(type=datetime updatewhereclause=yes name=yyyymmdd dbname="yyyymmdd" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=worktime dbname="schedule_detail.worktime" values="00:00	0000/00:30	0030/01:00	0100/01:30	0130/02:00	0200/02:30	0230/03:00	0300/03:30	0330/04:00	0400/04:30	0430/05:00	0500/05:30	0530/06:00	0600/06:30	0630/07:00	0700/07:30	0730/08:00	0800/08:30	0830/09:00	0900/09:30	0930/10:00	1000/10:30	1030/11:00	1100/11:30	1130/12:00	1200/12:30	1230/13:00	1300/13:30	1330/14:00	1400/14:30	1430/15:00	1500/15:30	1530/16:00	1600/16:30	1630/17:00	1700/17:30	1730/18:00	1800/18:30	1830/19:00	1900/19:30	1930/20:00	2000/20:30	2030/21:00	2100/21:30	2130/22:00	2200/22:30	2230/23:00	2300/23:30	2330/" )
+ column=(type=datetime update=yes updatewhereclause=yes name=requestdt dbname="schedule_detail.requestdt" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=customerid dbname="schedule_detail.customerid" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=description dbname="schedule_detail.description" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=worktype dbname="schedule_detail.worktype" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=orderno dbname="schedule_detail.orderno" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=troubleno dbname="schedule_detail.troubleno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=svccod dbname="schedule_detail.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan dbname="schedule_detail.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=partner_work dbname="schedule_detail.partner_work" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=partner_req dbname="schedule_detail.partner_req" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="schedule_detail.crt_user" )
+ retrieve="SELECT   SCHEDULESEQ,   
+         to_date(YYYYMMDD,'yyyymmdd') yyyymmdd,   
+         WORKTIME,   
+         REQUESTDT,   
+         CUSTOMERID,   
+         DESCRIPTION,   
+         WORKTYPE,   
+         ORDERNO,   
+         TROUBLENO,   
+         SVCCOD,   
+         PRICEPLAN,   
+         PARTNER_WORK,   
+         PARTNER_REQ,   
+         CRT_USER  
+    FROM SCHEDULE_DETAIL
+" update="SCHEDULE_DETAIL" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="18" y="8" height="628" width="3328"  name=r_1 brush.hatch="7" brush.color="536903808" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="536903808" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="3424" y="508" height="60" width="320" format="[general]"  name=crt_user visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+rectangle(band=detail x="1097" y="96" height="176" width="366"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478337"  background.mode="2" background.color="31516640" )
+rectangle(band=detail x="1979" y="12" height="260" width="366"  name=r_4 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478337"  background.mode="2" background.color="31516640" )
+rectangle(band=detail x="23" y="12" height="620" width="366"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478337"  background.mode="2" background.color="31516640" )
+line(band=detail x1="384" y1="12" x2="384" y2="636"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="29478337" )
+column(band=detail id=6 alignment="0" tabsequence=90 border="2" color="0" x="411" y="288" height="328" width="2907" format="[general]"  name=description edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=60 border="2" color="0" x="411" y="200" height="60" width="658" format="[general]"  name=priceplan dddw.name=b1dc_dddw_priceplan_v20 dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=150 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="1979" y1="12" x2="1979" y2="272"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="29478337" )
+line(band=detail x1="2341" y1="12" x2="2341" y2="272"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="29478337" )
+text(band=detail alignment="2" text="Customer ID" border="0" color="0" x="46" y="24" height="60" width="320"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Price Plan" border="0" color="0" x="41" y="200" height="60" width="325"  name=priceplan_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Description" border="0" color="0" x="41" y="288" height="60" width="325"  name=description_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Order No" border="0" color="0" x="1111" y="200" height="60" width="334"  name=orderno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Service" border="0" color="0" x="1998" y="24" height="60" width="334"  name=svccod_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Trouble No" border="0" color="0" x="1998" y="200" height="60" width="334"  name=troubleno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Date" border="0" color="0" x="46" y="112" height="60" width="325"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="2" color="16777215" x="411" y="24" height="60" width="658" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+line(band=detail x1="18" y1="184" x2="3342" y2="184"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="18" y1="272" x2="3342" y2="272"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+column(band=detail id=9 alignment="0" tabsequence=80 border="2" color="0" x="2363" y="200" height="60" width="955" format="[general]"  name=troubleno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="1458" y1="100" x2="1458" y2="272"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="29478337" )
+line(band=detail x1="1093" y1="100" x2="1093" y2="272"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="29478337" )
+column(band=detail id=10 alignment="0" tabsequence=30 border="2" color="0" x="2363" y="24" height="60" width="955" format="[general]"  name=svccod dddw.name=b1dc_dddw_svcmst_v20 dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="2" color="0" x="1481" y="200" height="60" width="475" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="Work Type" border="0" color="0" x="1993" y="112" height="60" width="334"  name=worktype_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=20 border="2" color="16777215" x="2363" y="112" height="60" width="955" format="[general]"  name=worktype dddw.name=ssrt_dddw_worktype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="2" tabsequence=40 border="2" color="16777215" x="411" y="112" height="60" width="658" format="[shortdate] [time]"  name=yyyymmdd editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="2" text="Time" border="0" color="0" x="1106" y="112" height="60" width="334"  name=worktime_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="18" y1="96" x2="3342" y2="96"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="0" tabsequence=50 border="2" color="16777215" x="1481" y="112" height="60" width="475" format="[general]"  name=worktime ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+text(band=detail alignment="0" text="" border="4" color="0" x="1102" y="24" height="60" width="855"  name=t_customernm  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=summary id=1 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="56" height="76" width="512" format="[general]"  name=scheduleseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=summary id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1074" y="56" height="56" width="274" format="[shortdate] [time]"  name=requestdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

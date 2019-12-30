@@ -1,0 +1,112 @@
+﻿$PBExportHeader$f_msg_sql_err.srf
+global type f_msg_sql_err from function_object
+end type
+
+forward prototypes
+global subroutine f_msg_sql_err (string as_title, string as_content)
+end prototypes
+
+global subroutine f_msg_sql_err (string as_title, string as_content);// as_title: 프로그램이름, as_content: 테이블이름
+
+String ls_err_title	//에러메세지의 title
+String ls_err_content //에러메세지의 content
+string ls_isam_code
+
+
+
+Choose Case gs_database
+	Case "ORACLE", "ORACLE7", "ORACLE8"
+		Choose Case SQLCA.SQLDBCode
+// The following 2 lines is commented for example..
+//			Case	-193
+//				ls_err_content = "자료가 이미 존재합니다." + ls_err_content
+			CASE -1
+				ls_err_content =" Can't connect to the database because of missing values in the transaction object."
+//				ls_err_content =" 데이터베이스 연결 실패 (Missing values in the transaction object)"
+			CASE -2
+				ls_err_content =" Can't connect to the database."
+//				ls_err_content =" 데이터베이스 연결 할 수 없습니다. "
+			CASE -3
+				ls_err_content =" The key specified in an Update or Retrieve no longer matches an existing row. "
+				/* (This can happen when another user has changed the row after you retrieved it.)*/
+			CASE -4
+				ls_err_content =" Writing a blob to the database failed."
+//				ls_err_content =" Writing a blob to the database failed."
+			CASE 1
+				ls_err_content =" Duplicated data."	
+//				ls_err_content =" 입력 하신 자료가 이미 존재 합니다."	
+			CASE 1400
+				ls_err_content =" Input Mandatory data "
+//				ls_err_content =" 필수 항목 자료를 입력 하세요."
+				/*hhm*/
+			CASE 1438
+				ls_err_content =" Value lager than specified precision. "	
+//				ls_err_content =" 입력한 값이 범위를 벗어 납니다. "	
+				/*HHM */	
+			CASE 3113
+				ls_err_content = " Network Communication Error. Restart application. "
+//				ls_err_content = " 네트워크가 끊겼습니다. 프로그램 종료후 재 시작 하세요. "
+		
+			CASE 3114
+				ls_err_content = " Oracle not connected. Restart application. "
+//				ls_err_content = " 데이터베이스에 연결 되어 있지 않습니다. ~r~n 프로그램 종료후 재 시작 하세요. "				
+			Case Else
+				ls_err_content = "알 수 없는 데이터베이스 오류입니다.(sql_err) ~r~n SQLDBCode = " + &
+			 	 String(SQLCA.SQLDBCode) + " ~r~n " + SQLCA.SQLErrText + &
+			 	 ls_err_content
+		End Choose
+	Case "WATCOM"
+		Choose Case SQLCA.SQLDBCode
+			Case -193
+				ls_err_content = "Data already exists." + ls_err_content
+			Case Else
+				ls_err_content = "Database error. = " + &
+			 	String(SQLCA.SQLDBCode) + ". " + SQLCA.SQLErrText + &
+			 	ls_err_content
+	 	End Choose
+	Case "INFORMIX"
+//		ls_isam_code = fs_find_isam_err(SQLCA.SQLErrText)
+		If Trim(ls_isam_code) <> "" Then 
+			Choose Case ls_isam_code
+				Case "-107","-144","-154"
+					ls_err_content = "Record is in use." + ls_err_content
+      		Case "-100"  //중복자료의 경우
+					ls_err_content = "Record already exists or in use by other user" + &
+                              + ls_err_content
+				Case Else
+					ls_err_content = "Database error. = " + &
+			 		String(SQLCA.SQLDBCode) + ". " + SQLCA.SQLErrText + &
+		 			ls_err_content
+	 		End Choose
+   	Else
+	      Choose Case SQLCA.SQLDBCode
+   	   	Case 9999999 //임시로
+					ls_err_content = "" + ls_err_content
+				Case Else
+					ls_err_content = "Database error. = " + &
+			 		String(SQLCA.SQLDBCode) + ". " + SQLCA.SQLErrText + &
+			 		ls_err_content
+	 		End Choose
+   	End If
+		
+	Case Else
+		ls_err_content = "Database error. = " + &
+			 		String(SQLCA.SQLDBCode) + ". " + SQLCA.SQLErrText + &
+			 		ls_err_content
+End Choose
+
+If as_title = "" Then
+	ls_err_title = "NOTICE"
+Else
+	ls_err_title = "NOTICE(" + as_title + ")"	
+End If
+
+If as_content = "" Then
+	ls_err_content = ""
+Else
+	ls_err_content += " (" + as_content + ")"
+End If
+
+MessageBox(ls_err_title, ls_err_content, StopSign!)
+end subroutine
+

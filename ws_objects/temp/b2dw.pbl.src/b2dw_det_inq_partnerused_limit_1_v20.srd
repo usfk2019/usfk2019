@@ -1,0 +1,37 @@
+﻿$PBExportHeader$b2dw_det_inq_partnerused_limit_1_v20.srd
+$PBExportComments$[ssong]대리점 사용한도 조회 det 1 (all)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=partner dbname="partnerused_limit.partner" )
+ column=(type=char(60) updatewhereclause=yes name=partner_prefixno dbname="partnerused_limit.partner_prefixno" )
+ column=(type=char(50) updatewhereclause=yes name=partnermst_partnernm dbname="partnermst.partnernm" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_0004 dbname="compute_0004" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_0005 dbname="compute_0005" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_0006 dbname="compute_0006" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_0007 dbname="compute_0007" )
+ retrieve="SELECT A.PARTNER
+       , A.PARTNER_PREFIXNO
+       , B.PARTNERNM
+       , SUM(NVL(A.LIMITBAL_QTY,0))
+       , SUM(NVL(A.QUOTA_QTY,   0))
+       , SUM(NVL(A.USED_QTY,    0))
+       , SUM(NVL(A.MOVE_QTY,    0))
+    FROM PARTNERUSED_LIMIT A, PARTNERMST B
+   WHERE A.PARTNER = B.PARTNER
+GROUP BY A.PARTNER_PREFIXNO,A.PARTNER, B.PARTNERNM" )
+text(band=header alignment="2" text="사용한도" border="2" color="16777215" x="727" y="12" height="60" width="727"  name=compute_0003_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="총 사용량" border="2" color="16777215" x="2217" y="12" height="60" width="727"  name=compute_0005_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="이동량" border="2" color="16777215" x="2962" y="12" height="60" width="727"  name=compute_0006_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="총할당" border="2" color="16777215" x="1472" y="12" height="60" width="727"  name=compute_0004_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대리점" border="2" color="16777215" x="9" y="12" height="60" width="699"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0" x="727" y="4" height="60" width="727" format="#,##0.00"  name=compute_0004 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="0" x="2217" y="4" height="60" width="727" format="#,##0.00"  name=compute_0006 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="2" color="0" x="2962" y="4" height="60" width="727" format="#,##0.00"  name=compute_0007 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="2" color="0" x="1472" y="4" height="60" width="727" format="#,##0.00"  name=compute_0005 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="case(  len(partner_prefixno)  when 3 then partnermst_partnernm when 6 then ~"   ~" +  partnermst_partnernm  when 9 then ~"      ~" +  partnermst_partnernm else ~"         ~" +  partnermst_partnernm  )"border="2" color="0" x="9" y="4" height="60" width="699" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

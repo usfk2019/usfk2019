@@ -1,0 +1,189 @@
+﻿$PBExportHeader$b1dw_prt_trouble_list_1.srd
+$PBExportComments$[chooys] 유형별 민원내역 리스트_1
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=544 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customer_trouble_customerid dbname="customer_trouble.customerid" )
+ column=(type=char(30) updatewhereclause=yes name=basemst_basenm dbname="basemst.basenm" )
+ column=(type=char(60) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_roomno dbname="customerm.roomno" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_homephone dbname="customerm.homephone" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_cellphone dbname="customerm.cellphone" )
+ column=(type=char(30) updatewhereclause=yes name=customerm_firstname dbname="customerm.firstname" )
+ column=(type=char(30) updatewhereclause=yes name=customerm_midname dbname="customerm.midname" )
+ column=(type=char(30) updatewhereclause=yes name=customerm_lastname dbname="customerm.lastname" )
+ column=(type=char(50) updatewhereclause=yes name=svcmst_svcdesc dbname="svcmst.svcdesc" )
+ column=(type=char(50) updatewhereclause=yes name=priceplanmst_priceplan_desc dbname="priceplanmst.priceplan_desc" )
+ column=(type=char(60) updatewhereclause=yes name=troubletypemst_troubletypenm dbname="troubletypemst.troubletypenm" )
+ column=(type=char(60) updatewhereclause=yes name=troubletypeb_troubletypebnm dbname="troubletypeb.troubletypebnm" )
+ column=(type=char(60) updatewhereclause=yes name=trouble_status dbname="trouble_status" )
+ column=(type=char(30) updatewhereclause=yes name=receip_user dbname="receip_user" )
+ column=(type=char(50) updatewhereclause=yes name=receipt_partner dbname="receipt_partner" )
+ column=(type=char(50) updatewhereclause=yes name=close_partner dbname="close_partner" )
+ column=(type=char(10) updatewhereclause=yes name=receiptdt dbname="receiptdt" )
+ column=(type=char(1) updatewhereclause=yes name=customer_trouble_closeyn dbname="customer_trouble.closeyn" values="Yes	Y/No	N/" )
+ column=(type=char(30) updatewhereclause=yes name=close_user dbname="close_user" )
+ column=(type=char(10) updatewhereclause=yes name=closedt dbname="closedt" )
+ column=(type=char(300) updatewhereclause=yes name=customer_trouble_trouble_note dbname="customer_trouble.trouble_note" )
+ column=(type=decimal(0) updatewhereclause=yes name=customer_trouble_troubleno dbname="customer_trouble.troubleno" )
+ column=(type=char(30) updatewhereclause=yes name=response_user dbname="response_user" )
+ column=(type=char(50) updatewhereclause=yes name=res_partner dbname="res_partner" )
+ column=(type=char(10) updatewhereclause=yes name=responsedt dbname="responsedt" )
+ column=(type=char(200) updatewhereclause=yes name=customer_trouble_close_note dbname="customer_trouble.close_note" )
+ column=(type=datetime updatewhereclause=yes name=customer_trouble_requestdt dbname="customer_trouble.requestdt" )
+ column=(type=char(60) updatewhereclause=yes name=troubletypea_troubletypeanm dbname="troubletypea.troubletypeanm" )
+ retrieve="SELECT tro.customerid,
+	    base.basenm,
+		 cus.customernm,
+       cus.BUILDINGNO, 
+       cus.ROOMNO, 
+       cus.HOMEPHONE, 
+       cus.CELLPHONE, 
+       cus.FIRSTNAME, 
+       cus.MIDNAME, 
+       cus.LASTNAME,
+	    svc.svcdesc,
+	    price.priceplan_desc,
+		 tm.troubletypenm,
+	    tb.troubletypebnm,
+	    (SELECT codenm FROM syscod2t WHERE grcode = 'B331' AND code = tro.trouble_status) trouble_status, 
+		 (SELECT empnm FROM sysusr1t WHERE emp_id = tro.receipt_user) receip_user,
+	    (SELECT partnernm FROM partnermst WHERE partner = tro.receipt_partner) receipt_partner,
+	    (SELECT partnernm FROM partnermst WHERE partner = tro.close_partner) close_partner,	   
+		 TO_CHAR(tro.receiptdt,'yyyy-mm-dd') receiptdt,
+	    tro.closeyn,
+		 (SELECT empnm FROM sysusr1t WHERE emp_id = tro.close_user) close_user,
+		 TO_CHAR(tro.closedt,'yyyy-mm-dd') closedt,
+		 tro.trouble_note,
+		 tro.troubleno,
+		 (SELECT empnm FROM sysusr1t WHERE emp_id = tro.response_user) response_user,
+	    (SELECT partnernm FROM partnermst WHERE partner = res.partner) res_partner,	
+		 TO_CHAR(res.responsedt,'yyyy-mm-dd') responsedt,
+		 tro.close_note,
+       tro.requestdt,
+       ta.troubletypeanm
+  FROM customer_trouble tro, 
+       customerm cus, 
+       troubl_response res,
+		 troubletypemst tm, 
+       troubletypea ta, 
+       troubletypeb tb, 
+       troubletypec tc,
+	    basemst base,
+	    svcmst svc,
+	    priceplanmst price
+ WHERE tro.customerid  = cus.customerid
+   AND base.basecod    = cus.basecod
+   AND svc.svccod      = tro.svccod
+   AND price.priceplan = tro.priceplan
+   AND tro.troubleno   = res.troubleno(+)
+   AND tro.troubletype = tm.troubletype(+)
+   AND tm.troubletypea = ta.troubletypea(+)
+   AND ta.troubletypeb = tb.troubletypeb(+)
+   AND tb.troubletypec = tc.troubletypec(+)" )
+group(level=1 header.height=184 trailer.height=92 by=("customer_trouble_customerid" , "customer_trouble_troubleno" ) header.color="536870912" trailer.color="536870912" )
+line(band=header x1="1399" y1="380" x2="1399" y2="544"  name=l_13 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="2382" y1="380" x2="2382" y2="544"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="" border="0" color="0" x="2432" y="196" height="60" width="59"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2505" y="196" height="60" width="55"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="4896" y1="376" x2="4896" y2="536"  name=l_9 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="4229" y="228" height="64" width="667"  name=date_time  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4238" y="300" height="64" width="658" format="[GENERAL]"  name=page  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="3662" y1="380" x2="3662" y2="544"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1678" y1="372" x2="1678" y2="536"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1097" y1="380" x2="1097" y2="460"  name=l_28 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="완료처" border="0" color="0" x="2395" y="468" height="60" width="585"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수내용" border="0" color="0" x="3675" y="388" height="60" width="1207"  name=customer_trouble_tronote_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객번호" border="0" color="0" x="27" y="388" height="60" width="274"  name=customer_trouble_customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="14" y1="372" x2="14" y2="536"  name=l_8 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="311" y1="376" x2="311" y2="456"  name=l_14 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="736" y1="376" x2="736" y2="540"  name=l_18 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text=" Base" border="0" color="0" x="325" y="388" height="60" width="402"  name=trouble_shooting_operator_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객명" border="0" color="0" x="27" y="468" height="60" width="699"  name=name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Service" border="0" color="0" x="750" y="388" height="60" width="338"  name=customerm_homephone_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수번호" border="0" color="0" x="1111" y="388" height="60" width="279"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="처리상태" border="0" color="0" x="1413" y="468" height="60" width="256"  name=t_9  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완료일자" border="0" color="0" x="3003" y="468" height="60" width="279"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Price Plan" border="0" color="0" x="750" y="468" height="60" width="640"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="처리완료" border="0" color="0" x="1413" y="388" height="60" width="256"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="장애유형" border="0" color="0" x="1691" y="468" height="60" width="681"  name=customer_trouble_troubletype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수일자" border="0" color="0" x="3003" y="388" height="60" width="279"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="2990" y1="380" x2="2990" y2="544"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="3291" y1="380" x2="3291" y2="544"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="장애종류" border="0" color="0" x="1691" y="388" height="60" width="681"  name=t_11  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수처" border="0" color="0" x="2395" y="388" height="60" width="585"  name=t_10  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="14" y="76" height="92" width="4887"  name=title  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+line(band=header x1="14" y1="376" x2="4896" y2="376"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="14" y1="456" x2="4891" y2="456"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="14" y1="540" x2="4896" y2="540"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="완료자" border="0" color="0" x="3305" y="468" height="60" width="347"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수자" border="0" color="0" x="3305" y="388" height="60" width="347"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완료내용" border="0" color="0" x="3675" y="468" height="60" width="1207"  name=trouble_shooting_shonote_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=header.1 x="2464" y="460" height="104" width="2427"  name=r_1 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="15793151" )
+line(band=header.1 x1="1097" y1="0" x2="1097" y2="80"  name=l_21 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="2377" y1="76" x2="731" y2="76"  name=l_15 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="88" height="60" width="699" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1399" y1="0" x2="1399" y2="156"  name=l_22 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=header.1 id=19 alignment="2" tabsequence=32766 border="0" color="0" x="3003" y="44" height="60" width="279" format="[general]"  name=receiptdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="320" y="8" height="60" width="402" format="[general]"  name=basemst_basenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="8" height="60" width="274" format="[general]"  name=customer_trouble_customerid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=11 alignment="0" tabsequence=32766 border="0" color="0" x="750" y="8" height="60" width="338" format="[general]"  name=svcmst_svcdesc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=12 alignment="0" tabsequence=32766 border="0" color="0" x="750" y="88" height="60" width="640" format="[general]"  name=priceplanmst_priceplan_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="745" y1="176" x2="4891" y2="176"  name=l_37 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=header.1 id=15 alignment="0" tabsequence=32766 border="0" color="0" x="1413" y="88" height="60" width="256" format="[general]"  name=trouble_status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=16 alignment="0" tabsequence=32766 border="0" color="0" x="3305" y="44" height="60" width="347" format="[general]"  name=receip_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=17 alignment="0" tabsequence=32766 border="0" color="0" x="2395" y="44" height="60" width="585" format="[general]"  name=receipt_partner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1691" y="88" height="60" width="681" format="[general]"  name=troubletypemst_troubletypenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=14 alignment="0" tabsequence=32766 border="0" color="0" x="1691" y="8" height="60" width="681" format="[general]"  name=troubletypeb_troubletypebnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=20 alignment="2" tabsequence=32766 border="0" color="0" x="1413" y="8" height="60" width="256" format="[general]"  name=customer_trouble_closeyn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=24 alignment="2" tabsequence=32766 border="0" color="0" x="1111" y="8" height="60" width="279" format="[general]"  name=customer_trouble_troubleno edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=29 alignment="0" tabsequence=32766 border="0" color="0" x="4905" y="8" height="60" width="41" format="[shortdate] [time]"  name=customer_trouble_requestdt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=30 alignment="0" tabsequence=32766 border="0" color="0" x="4901" y="84" height="60" width="32" format="[general]"  name=troubletypea_troubletypeanm visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=23 alignment="0" tabsequence=32766 border="0" color="0" x="3675" y="4" height="164" width="1207" format="[general]"  name=customer_trouble_trouble_note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="2382" y1="280" x2="2382" y2="376"  name=l_31 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=header.1 id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3799" y="248" height="60" width="809" format="[general]"  name=customerm_lastname visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2990" y="248" height="60" width="809" format="[general]"  name=customerm_midname visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2181" y="248" height="60" width="809" format="[general]"  name=customerm_firstname visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1641" y="248" height="60" width="539" format="[general]"  name=customerm_cellphone visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1102" y="248" height="60" width="539" format="[general]"  name=customerm_homephone visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=5 alignment="0" tabsequence=32766 border="0" color="0" x="562" y="248" height="60" width="539" format="[general]"  name=customerm_roomno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=4 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="248" height="60" width="539" format="[general]"  name=customerm_buildingno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="14" y1="0" x2="14" y2="180"  name=l_16 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="736" y1="0" x2="736" y2="180"  name=l_20 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="1678" y1="0" x2="1678" y2="180"  name=l_23 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="2382" y1="0" x2="2382" y2="180"  name=l_25 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="2990" y1="0" x2="2990" y2="180"  name=l_27 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="3291" y1="0" x2="3291" y2="180"  name=l_24 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="3662" y1="0" x2="3662" y2="184"  name=l_26 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="4896" y1="0" x2="4896" y2="180"  name=l_10 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3296" y1="148" x2="3296" y2="244"  name=l_33 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2382" y1="76" x2="4891" y2="76"  name=l_39 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="14" y1="88" x2="4896" y2="88"  name=l_11 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="0" x2="14" y2="116"  name=l_17 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="736" y1="4" x2="736" y2="116"  name=l_35 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="4896" y1="0" x2="4896" y2="76"  name=l_19 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2990" y1="0" x2="2990" y2="76"  name=l_30 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2382" y1="0" x2="2382" y2="76"  name=l_36 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="736" y1="0" x2="736" y2="112"  name=l_42 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3291" y1="0" x2="3291" y2="76"  name=l_32 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3662" y1="0" x2="3662" y2="76"  name=l_44 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="2395" y="12" height="60" width="585" format="[general]"  name=res_partner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="2" tabsequence=32766 border="0" color="0" x="3003" y="12" height="60" width="279" format="[general]"  name=responsedt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="3305" y="12" height="60" width="347" format="[general]"  name=response_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="3680" y="12" height="60" width="1207" format="[general]"  name=customer_trouble_close_note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=18 alignment="0" tabsequence=32766 border="0" color="0" x="2395" y="8" height="60" width="585" format="[general]"  name=close_partner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=22 alignment="2" tabsequence=32766 border="0" color="0" x="3003" y="8" height="64" width="279" format="[general]"  name=closedt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=21 alignment="0" tabsequence=32766 border="0" color="0" x="3305" y="12" height="60" width="347" format="[general]"  name=close_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="4896" y1="0" x2="4896" y2="80"  name=l_38 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="3291" y1="8" x2="3291" y2="80"  name=l_34 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="2990" y1="4" x2="2990" y2="76"  name=l_29 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="2382" y1="0" x2="2382" y2="80"  name=l_40 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="736" y1="0" x2="736" y2="88"  name=l_43 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="14" y1="0" x2="14" y2="84"  name=l_41 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+
+sparse(names="customer_trouble_customerid	customerm_customernm	closedt	customer_trouble_troubleno	receiptdt	customer_trouble_closeyn")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

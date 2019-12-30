@@ -1,0 +1,43 @@
+﻿$PBExportHeader$b0dw_reg_p_pricemst.srd
+$PBExportComments$[kem] 통화요금상품등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="p_pricemst.partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=vpricecod dbname="p_pricemst.vpricecod" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=vpricenm dbname="p_pricemst.vpricenm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="p_pricemst.use_yn" initial="Y" values="Yes	Y/No	N/" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="p_pricemst.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="p_pricemst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="p_pricemst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="p_pricemst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="p_pricemst.pgm_id" )
+ retrieve="SELECT partner,
+		 vpricecod,
+		 vpricenm,
+		 use_yn,
+	    crt_user,
+		 updt_user,
+		 crtdt,
+		 updtdt,
+		 pgm_id
+  FROM p_pricemst
+ORDER BY partner" update="p_pricemst" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2354" y="96" height="64" width="247" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1728" y="96" height="64" width="603" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1033" y="96" height="64" width="603" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="763" y="96" height="64" width="247" format="[general]"  name=updt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="96" height="64" width="247" format="[general]"  name=crt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사업자" border="2" color="16777215" x="37" y="20" height="60" width="576"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요금상품코드" border="2" color="16777215" x="631" y="20" height="60" width="439"  name=vpricecod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요금상품명" border="2" color="16777215" x="1088" y="20" height="60" width="1399"  name=vpricenm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용여부" border="2" color="16777215" x="2505" y="20" height="60" width="549"  name=use_yn_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="37" y="8" height="60" width="576" format="[general]"  name=partner dddw.name=b0dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="631" y="8" height="60" width="439" format="[general]"  name=vpricecod edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="1088" y="8" height="60" width="1399" format="[general]"  name=vpricenm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="16777215" x="2505" y="8" height="60" width="549" format="[general]"  name=use_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

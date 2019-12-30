@@ -1,0 +1,20 @@
+﻿$PBExportHeader$b0dw_cnd_prtzoncst.srd
+$PBExportComments$[chooys] 대역별 요금리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=252 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemcod" )
+ column=(type=date updatewhereclause=yes name=opendt dbname="opendt" )
+ )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="1522" y="40" height="60" width="901" format="[general]"  name=itemcod dddw.name=b0dc_dddw_item_voice dddw.displaycolumn=itemnm dddw.datacolumn=itemmst_itemcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="품   목" border="0" color="0" x="1303" y="40" height="56" width="206"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="가격정책" border="0" color="0" x="119" y="40" height="56" width="247"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="이후" border="0" color="0" x="759" y="132" height="56" width="183"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="적용기준일자" border="0" color="0" x="27" y="132" height="56" width="338"  name=opendt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="389" y="40" height="60" width="864" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan_voice dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="2" color="0" x="389" y="132" height="60" width="338" format="yyyy-MM-dd"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

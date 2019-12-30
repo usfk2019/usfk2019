@@ -1,0 +1,47 @@
+﻿$PBExportHeader$p1dw_p_anilog.srd
+$PBExportComments$[parkkh] anilog 조회  dw
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=144 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=logseq dbname="p_anilog.logseq" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=validkey dbname="p_anilog.validkey" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=pid dbname="p_anilog.pid" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=remark dbname="p_anilog.remark" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="p_anilog.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="p_anilog.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="p_anilog.pgm_id" )
+ retrieve="  SELECT ~"P_ANILOG~".~"LOGSEQ~",   
+         ~"P_ANILOG~".~"VALIDKEY~",   
+         ~"P_ANILOG~".~"PID~",   
+         ~"P_ANILOG~".~"REMARK~",   
+         ~"P_ANILOG~".~"CRTDT~",   
+         ~"P_ANILOG~".~"CRT_USER~",   
+         ~"P_ANILOG~".~"PGM_ID~"  
+    FROM ~"P_ANILOG~" 
+ORDER BY ~"P_ANILOG~".~"LOGSEQ~" ASC  
+" update="P_ANILOG" updatewhere=1 updatekeyinplace=no )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2551" y="16" height="52" width="453" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Seq." border="2" color="16777215" x="9" y="80" height="56" width="219"  name=logseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비   고" border="2" color="16777215" x="1111" y="80" height="56" width="576"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업인" border="2" color="16777215" x="1696" y="80" height="56" width="398"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수정일자" border="2" color="16777215" x="2103" y="80" height="56" width="439"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수정프로그램" border="2" color="16777215" x="2551" y="80" height="56" width="453"  name=pgm_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Ani #" border="2" color="16777215" x="238" y="80" height="56" width="443"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pin #" border="2" color="16777215" x="690" y="80" height="56" width="411"  name=pid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="56" width="219" format="[general]"  name=logseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="238" y="8" height="56" width="443" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="690" y="8" height="56" width="411" format="[general]"  name=pid edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1111" y="8" height="56" width="576" format="[general]"  name=remark edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2103" y="8" height="56" width="439" format="yy-mm-dd hh:mm"  name=crtdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1696" y="8" height="56" width="398" format="[general]"  name=crt_user edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2551" y="8" height="56" width="453" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="1" text="ORDER BY" border="0" color="0" x="14" y="8" height="60" width="288"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="315" y="8" height="60" width="535"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="1" text="ASC/DESC" border="0" color="0" x="1129" y="8" height="60" width="302"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1449" y="8" height="60" width="137"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="1" text="TOTAL ROWS" border="0" color="0" x="2149" y="8" height="60" width="384"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

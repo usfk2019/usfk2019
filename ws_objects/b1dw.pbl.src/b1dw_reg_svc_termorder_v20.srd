@@ -1,0 +1,97 @@
+﻿$PBExportHeader$b1dw_reg_svc_termorder_v20.srd
+$PBExportComments$[parkkh]서비스해지신청master-선불제&후불
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=172 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=contractmst_contractseq dbname="contractmst.contractseq" )
+ column=(type=char(14) updatewhereclause=yes name=contractmst_customerid dbname="contractmst.customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_termtype dbname="contractmst.termtype" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_status dbname="contractmst.status" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_svccod dbname="contractmst.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_priceplan dbname="contractmst.priceplan" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_activedt dbname="contractmst.activedt" )
+ column=(type=char(10) updatewhereclause=yes name=memberid dbname="customerm.memberid" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid dbname="customerm.payid" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid dbname="customerm.payid" )
+ column=(type=char(20) updatewhereclause=yes name=contractmst_contractno dbname="contractmst.contractno" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_bil_fromdt dbname="contractmst.bil_fromdt" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_prmtype dbname="contractmst.prmtype" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_reg_partner dbname="contractmst.reg_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_sale_partner dbname="contractmst.sale_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_maintain_partner dbname="contractmst.maintain_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_settle_partner dbname="contractmst.settle_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_pricemodel dbname="contractmst.pricemodel" )
+ column=(type=decimal(2) updatewhereclause=yes name=contractmst_first_sale_amt dbname="contractmst.first_sale_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=contractmst_balance dbname="contractmst.balance" )
+ retrieve="  SELECT ~"CONTRACTMST~".~"CONTRACTSEQ~",   
+         ~"CONTRACTMST~".~"CUSTOMERID~",   
+         ~"CUSTOMERM_A~".~"CUSTOMERNM~",   
+         ~"CONTRACTMST~".~"TERMTYPE~",   
+         ~"CONTRACTMST~".~"STATUS~",   
+         ~"CONTRACTMST~".~"SVCCOD~",   
+         ~"CONTRACTMST~".~"PRICEPLAN~",   
+         ~"CONTRACTMST~".~"ACTIVEDT~",   
+         ~"CUSTOMERM_A~".~"MEMBERID~",
+         ~"CUSTOMERM_A~".~"PAYID~",
+		   ~"CUSTOMERM_A~".~"PAYID~",   
+         ~"CONTRACTMST~".~"CONTRACTNO~",   
+         ~"CONTRACTMST~".~"BIL_FROMDT~",   
+         ~"CONTRACTMST~".~"PRMTYPE~",   
+         ~"CONTRACTMST~".~"REG_PARTNER~",   
+         ~"CONTRACTMST~".~"SALE_PARTNER~",   
+         ~"CONTRACTMST~".~"MAINTAIN_PARTNER~",   
+         ~"CONTRACTMST~".~"SETTLE_PARTNER~",
+		  contractmst.pricemodel,
+		  contractmst.first_sale_amt,
+          contractmst.balance
+    FROM ~"CONTRACTMST~",   
+         ~"CUSTOMERM~" ~"CUSTOMERM_A~"
+    WHERE ( ~"CONTRACTMST~".~"CUSTOMERID~" = ~"CUSTOMERM_A~".~"CUSTOMERID~" )
+ORDER BY ~"CONTRACTMST~".~"CONTRACTSEQ~" DESC" )
+text(band=background alignment="2" text="ORDER BY" border="0" color="0" x="233" y="28" height="60" width="297"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="649" y="28" height="60" width="754"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="2528" y="28" height="60" width="334"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="TOTAL ROWS" border="0" color="0" x="4526" y="28" height="60" width="585"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="ActivationSeq" border="2" color="16777215" x="23" y="104" height="60" width="498"  name=contractmst_contractseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="CustomerID" border="2" color="16777215" x="530" y="104" height="60" width="375"  name=contractmst_customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer" border="2" color="16777215" x="914" y="104" height="60" width="503"  name=customerm_customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Activation Status" border="2" color="16777215" x="1426" y="104" height="60" width="599"  name=contractmst_status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Service" border="2" color="16777215" x="2034" y="104" height="60" width="658"  name=contractmst_svccod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Price Plan" border="2" color="16777215" x="2702" y="104" height="60" width="571"  name=contractmst_priceplan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Activation Date" border="2" color="16777215" x="5129" y="104" height="60" width="494"  name=contractmst_activedt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Payer" border="2" color="16777215" x="5984" y="104" height="60" width="302"  name=customerm_payid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bill Date" border="2" color="16777215" x="5632" y="104" height="60" width="343"  name=contractmst_bil_fromdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Attraction Place" border="2" color="16777215" x="6295" y="104" height="60" width="553"  name=contractmst_reg_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Type of Agreement" border="2" color="16777215" x="4443" y="104" height="60" width="677"  name=contractmst_prmtype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Model" border="2" color="16777215" x="3282" y="104" height="60" width="498"  name=contractmst_pricemodel_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sales Amount" border="2" color="16777215" x="3790" y="104" height="60" width="325"  name=contractmst_first_sale_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Balance" border="2" color="16777215" x="4123" y="104" height="60" width="311"  name=contractmst_balance_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="5129" y="28" height="60" width="494" format="[GENERAL]"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Sales Location" border="2" color="16777215" x="6857" y="104" height="60" width="480"  name=contractmst_sale_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Memberid" border="2" color="16777215" x="7346" y="104" height="60" width="219"  name=memberid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="TermType" border="2" color="16777215" x="7575" y="104" height="60" width="219"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="64" width="5" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="4" height="64" width="498" format="[general]"  name=contractmst_contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="530" y="4" height="64" width="375" format="[general]"  name=contractmst_customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="914" y="4" height="64" width="503" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1426" y="4" height="64" width="599" format="[general]"  name=contractmst_status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2034" y="4" height="64" width="658" format="[general]"  name=contractmst_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2702" y="4" height="64" width="571" format="[general]"  name=contractmst_priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="5129" y="4" height="64" width="494" format="yyyy-mm-dd"  name=contractmst_activedt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="5984" y="4" height="64" width="302" format="[general]"  name=customerm_payid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="5632" y="4" height="64" width="343" format="yyyy-mm-dd"  name=contractmst_bil_fromdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="6295" y="4" height="64" width="553" format="[general]"  name=contractmst_reg_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="4443" y="4" height="64" width="677" format="[general]"  name=contractmst_prmtype dddw.name=b1dc_dddw_svcpromise_svc dddw.displaycolumn=prmnm dddw.datacolumn=prmtype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="3282" y="4" height="64" width="498" format="[general]"  name=contractmst_pricemodel dddw.name=b1dc_dddw_pricemodel dddw.displaycolumn=pricemodelnm dddw.datacolumn=pricemodel dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="0" x="3790" y="4" height="64" width="325" format="#,##0.00"  name=contractmst_first_sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="0" color="0" x="4123" y="4" height="64" width="311" format="#,##0.00"  name=contractmst_balance edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="6857" y="4" height="64" width="480" format="[general]"  name=contractmst_sale_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="7346" y="4" height="64" width="219" format="[general]"  name=memberid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="7575" y="4" height="64" width="219" format="[general]"  name=contractmst_termtype dddw.name=b1dc_dddw_termtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="2875" y="28" height="60" width="233"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

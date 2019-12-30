@@ -1,0 +1,19 @@
+﻿$PBExportHeader$mobile_dddw_settle_partner.srd
+$PBExportComments$[kem] partner에 해당하는 Price Plan Code
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=partnermst_partner dbname="partnermst.partner" )
+ column=(type=char(50) updatewhereclause=yes name=partnermst_partnernm dbname="partnermst.partnernm" )
+ column=(type=char(60) updatewhereclause=yes name=codenm dbname="syscod2t.codenm" )
+ retrieve="SELECT PARTNER, PARTNERNM, B.CODENM
+FROM PARTNERMST A, SYSCOD2T B
+WHERE A.PARTNER = B.CODE
+   AND B.GRCODE = 'ZM300'" )
+line(band=detail x1="0" y1="72" x2="1696" y2="72"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="37" y="96" height="68" width="1600" format="[general]"  name=partnermst_partnernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="14" y="0" height="60" width="1669"  name=codenm  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,27 @@
+﻿$PBExportHeader$b1dw_reg_cdrflag_info_v20.srd
+$PBExportComments$[ssong]cdrflag_info
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=flag dbname="cdrflag_info.flag" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=flag_desc dbname="cdrflag_info.flag_desc" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=flag_group dbname="cdrflag_info.flag_group" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=flag_type dbname="cdrflag_info.flag_type" initial="A" )
+ retrieve="SELECT FLAG
+     , FLAG_DESC
+     , FLAG_GROUP
+     , FLAG_TYPE
+  FROM CDRFLAG_INFO" update="CDRFLAG_INFO" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Flag Type" border="2" color="15793151" x="1774" y="16" height="60" width="599"  name=flag_type_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Flag Group" border="2" color="15793151" x="1157" y="16" height="60" width="599"  name=flag_group_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Flag Desc" border="2" color="15793151" x="539" y="16" height="60" width="599"  name=flag_desc_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Flag" border="2" color="15793151" x="23" y="16" height="60" width="498"  name=flag_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="23" y="8" height="60" width="498" format="[general]"  name=flag edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="539" y="8" height="60" width="599" format="[general]"  name=flag_desc edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="1157" y="8" height="60" width="599" format="[general]"  name=flag_group dddw.name=b1dc_dddw_cdrgroupflag_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="16777215" x="1774" y="8" height="60" width="599" format="[general]"  name=flag_type edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

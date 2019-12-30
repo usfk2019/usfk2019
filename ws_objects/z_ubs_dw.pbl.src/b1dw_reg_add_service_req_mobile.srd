@@ -1,0 +1,77 @@
+﻿$PBExportHeader$b1dw_reg_add_service_req_mobile.srd
+$PBExportComments$[부가서비스 등록/해지 신청) - 계약품목 정보 - 2015.03.14. lys
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="customerid" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractseq" )
+ column=(type=char(1) updatewhereclause=yes name=selection dbname="selection" values="	Y/	N" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemnm" )
+ column=(type=char(10) updatewhereclause=yes name=bil_fromdt dbname="bil_fromdt" )
+ column=(type=char(10) updatewhereclause=yes name=bil_todt dbname="bil_todt" )
+ column=(type=char(6) updatewhereclause=yes name=req_code dbname="req_code" values="등록	SVCADD/해지	SVCDEL/" )
+ column=(type=char(10) updatewhereclause=yes name=req_code_svc dbname="req_code_svc" values="등록	SVCADD/해지	SVCDEL/" )
+ column=(type=char(1) updatewhereclause=yes name=request_status dbname="request_status" values="	N/신청중	Y/" )
+ column=(type=char(10) updatewhereclause=yes name=settle_partner dbname="settle_partner" )
+ retrieve="SELECT A.CUSTOMERID
+     , A.CONTRACTSEQ
+     , (CASE WHEN A.CONTRACTSEQ IS NULL  or a.bil_todt is not null THEN 'N' ELSE 'Y' END) AS SELECTION
+     , B.ITEMCOD
+     , (SELECT C.ITEMNM FROM ITEMMST C WHERE C.ITEMCOD = B.ITEMCOD) AS ITEMNM
+     , TO_CHAR(A.BIL_FROMDT, 'YYYY-MM-DD') AS BIL_FROMDT
+     , TO_CHAR(A.BIL_TODT, 'YYYY-MM-DD')   AS BIL_TODT
+     , (CASE WHEN A.CONTRACTSEQ IS NULL  or a.bil_todt is not null THEN 'SVCADD' ELSE 'SVCDEL' END) AS REQ_CODE
+     , (Select req_code from svc_req_mst where reqdt = TRUNC(SYSDATE) and contractseq = :as_contractseq and itemcod = B.itemcod) AS REQ_CODE_SVC
+     , NVL((
+       SELECT 'Y' FROM SVC_REQ_MST R 
+        WHERE 1=1
+          AND R.REQDT        = TRUNC(SYSDATE)
+          AND R.COMEPLETE_YN ='N' 
+          AND R.CONTRACTSEQ  = :as_contractseq
+          AND R.ITEMCOD      = B.ITEMCOD
+       ), 'N') AS REQUEST_STATUS
+     , A.SETTLE_PARTNER  AS SETTLE_PARTNER
+  FROM (
+       SELECT B.CUSTOMERID
+            , D.CONTRACTSEQ
+            , D.ITEMCOD
+            , D.BIL_FROMDT
+            , D.BIL_TODT
+            , B.PRICEPLAN
+            , B.SETTLE_PARTNER
+         FROM CONTRACTDET D, CONTRACTMST B
+        WHERE 1=1
+          AND D.CONTRACTSEQ = B.CONTRACTSEQ
+          AND B.CONTRACTSEQ = :as_contractseq
+       ) A
+     , PRICEPLANDET B
+ WHERE 1=1
+   AND A.PRICEPLAN(+) = B.PRICEPLAN
+   AND A.ITEMCOD(+)   = B.ITEMCOD
+   AND B.PRICEPLAN    = :as_priceplan
+   AND B.GROUPNO      = '4'
+" arguments=(("as_contractseq", number),("as_priceplan", string)) )
+text(band=header alignment="2" text="Selection" border="2" color="16777215" x="9" y="88" height="60" width="315"  name=selection_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Code" border="2" color="16777215" x="667" y="88" height="60" width="366"  name=itemcod_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Name" border="2" color="16777215" x="1042" y="88" height="60" width="1399"  name=itemnm_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bil From Date" border="2" color="16777215" x="2450" y="88" height="60" width="471"  name=bil_fromdt_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Action" border="2" color="16777215" x="334" y="88" height="60" width="325"  name=t_1  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Req. Status" border="2" color="16777215" x="3707" y="88" height="60" width="402"  name=request_status_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개통처" border="2" color="16777215" x="4119" y="88" height="60" width="699"  name=settle_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bil To Date" border="2" color="16777215" x="2930" y="88" height="60" width="475"  name=bil_todt_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Req Code" border="2" color="16777215" x="3415" y="88" height="60" width="283"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="0" color="0" x="9" y="8" height="60" width="315" format="[general]" protect="0~tif( request_status ='Y', 1, 0)"  name=selection checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+compute(band=detail alignment="2" expression="if(req_code = 'SVCADD', if(selection='Y', '등록신청', ''), if(selection='N', '해지신청', ''))"border="0" color="0~tif( selection = 'Y', rgb(0, 84, 255), rgb(255, 0, 0))" x="334" y="8" height="60" width="325" format="[General]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="667" y="8" height="60" width="366" format="[general]"  name=itemcod edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1042" y="8" height="60" width="1399" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4119" y="8" height="60" width="699" format="[general]"  name=settle_partner dddw.name=mobile_dddw_settle_partner dddw.displaycolumn=partnermst_partnernm dddw.datacolumn=partnermst_partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2450" y="8" height="60" width="471" format="[general]"  name=bil_fromdt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="2930" y="8" height="60" width="475" format="[general]"  name=bil_todt edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0~tif( request_status = 'Y', rgb(0, 84, 255), rgb(0, 0, 0))" x="3707" y="8" height="60" width="402" format="[general]"  name=request_status ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400~tif( request_status = 'Y', rgb(0, 84, 255), rgb(0, 0, 0))"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0~tif( request_status = 'Y', rgb(0, 84, 255), rgb(0, 0, 0))" x="3415" y="8" height="60" width="283" format="[general]"  name=req_code_svc ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400~tif( request_status = 'Y', rgb(0, 84, 255), rgb(0, 0, 0))"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif(request_status = 'Y', rgb(234,234,234), rgb(255,255,255))" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

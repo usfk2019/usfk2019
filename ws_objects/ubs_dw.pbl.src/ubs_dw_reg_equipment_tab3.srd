@@ -1,0 +1,52 @@
+﻿$PBExportHeader$ubs_dw_reg_equipment_tab3.srd
+$PBExportComments$[jhchoi] 인증장비관리 (tab3 - validation history) - 2009.05.04
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=148 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(40) updatewhereclause=yes name=timestamp dbname="bc_auth.timestamp" )
+ column=(type=char(40) updatewhereclause=yes name=action dbname="bc_auth.action" )
+ column=(type=char(40) updatewhereclause=yes name=status dbname="bc_auth.status" )
+ column=(type=char(40) updatewhereclause=yes name=flag dbname="bc_auth.flag" values="성공	1/실패	8/처리중	10/" )
+ column=(type=char(200) updatewhereclause=yes name=failcause dbname="bc_auth.failcause" )
+ column=(type=char(40) updatewhereclause=yes name=effectdate dbname="bc_auth.effectdate" )
+ column=(type=decimal(5) updatewhereclause=yes name=subsno dbname="bc_auth.subsno" )
+ column=(type=char(40) updatewhereclause=yes name=addservice3 dbname="bc_auth.addservice3" )
+ column=(type=char(20) updatewhereclause=yes name=userno dbname="bc_auth.userno" )
+ retrieve="SELECT  TIMESTAMP
+		, ACTION
+		, STATUS
+		, FLAG
+		, FAILCAUSE
+		, EFFECTDATE
+		, SUBSNO
+		, ADDSERVICE3
+		, USERNO
+FROM   BC_AUTH
+ORDER BY TIMESTAMP DESC"  sort="timestamp D " )
+text(band=header alignment="1" text="Order By :" border="0" color="0" x="133" y="8" height="60" width="251"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="DESC/ASC :" border="0" color="0" x="1234" y="8" height="60" width="320"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="1568" y="8" height="60" width="549"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="398" y="8" height="60" width="782"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Date" border="2" color="15793151" x="128" y="80" height="60" width="535"  name=timestamp_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Action" border="2" color="15793151" x="686" y="80" height="60" width="375"  name=action_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="15793151" x="1083" y="80" height="60" width="375"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Flag" border="2" color="15793151" x="1486" y="80" height="60" width="370"  name=flag_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Fail Cause" border="2" color="15793151" x="1879" y="80" height="60" width="1298"  name=failcause_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Effect Date" border="2" color="15793151" x="3195" y="80" height="60" width="466"  name=effectdate_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가입자번호" border="2" color="15793151" x="3680" y="80" height="60" width="343"  name=subsno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비인가 VoIP 차단여부" border="2" color="15793151" x="4041" y="80" height="60" width="590"  name=addservice3_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="속도" border="2" color="15793151" x="4649" y="80" height="60" width="256"  name=userno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="128" y="0" height="68" width="535" format="[general]"  name=timestamp edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="686" y="0" height="68" width="375" format="[general]"  name=action edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="1083" y="0" height="68" width="375" format="[general]"  name=status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1486" y="0" height="68" width="370" format="[general]"  name=flag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1879" y="0" height="68" width="1298" format="[general]"  name=failcause edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="3195" y="0" height="68" width="466" format="[general]"  name=effectdate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="3680" y="0" height="68" width="343" format="[general]"  name=subsno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="4041" y="0" height="68" width="590" format="[general]"  name=addservice3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="2" color="0" x="4649" y="0" height="68" width="256" format="[general]"  name=userno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

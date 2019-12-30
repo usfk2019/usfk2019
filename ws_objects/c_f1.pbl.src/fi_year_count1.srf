@@ -1,0 +1,30 @@
+﻿$PBExportHeader$fi_year_count1.srf
+$PBExportComments$나이를 구하는 프로그램 (월, 일은 제외)
+global type fi_year_count1 from function_object
+end type
+
+forward prototypes
+global function integer fi_year_count1 (date ad_birth_day, date ad_to_day)
+end prototypes
+
+global function integer fi_year_count1 (date ad_birth_day, date ad_to_day);//특정인의 생년월일을 입력하면 나이를 구하는 함수 
+//단, 월일은 무시하고 년으로만 '만'으로 나이를 구함 , Error시 -1을 Return
+// 예) 생년월일 : 1993/12/25, 현재일 : 1994/1/30 ==> 나이는 1살
+
+Int li_birth_year, li_current_year
+Int li_how_old
+
+If NOT Isdate(String(ad_birth_day)) Or IsNull(ad_birth_day) Then
+	Return -1
+End If
+
+li_birth_year = Integer(year(ad_birth_day))
+li_current_year = Integer(year(ad_to_day))
+
+li_how_old = li_current_year - li_birth_year
+
+If li_how_old < 0 Then Return -1
+
+Return li_how_old
+end function
+

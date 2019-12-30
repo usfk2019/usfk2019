@@ -1,0 +1,67 @@
+﻿$PBExportHeader$b0dw_reg_itemmst_3_sc.srd
+$PBExportComments$[parkkh] 품목 마스타 등록 master data window
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=itemmst_itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_category dbname="itemmst.category" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_mainitem_yn dbname="itemmst.mainitem_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_dailyprorata_yn dbname="itemmst.dailyprorata_yn" initial="Y" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_bilitem_yn dbname="itemmst.bilitem_yn" initial="Y" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_quota_yn dbname="itemmst.quota_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_prebil_yn dbname="itemmst.prebil_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_package_yn dbname="itemmst.package_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_pricetable dbname="itemmst.pricetable" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_trcod dbname="itemmst.trcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_crt_user dbname="itemmst.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_updt_user dbname="itemmst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=itemmst_crtdt dbname="itemmst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=itemmst_updtdt dbname="itemmst.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_pgm_id dbname="itemmst.pgm_id" )
+ retrieve="SELECT  ~"ITEMMST~".~"ITEMCOD~" ,
+           ~"ITEMMST~".~"ITEMNM~" ,
+           ~"ITEMMST~".~"CATEGORY~" ,
+           ~"ITEMMST~".~"MAINITEM_YN~" ,
+           ~"ITEMMST~".~"DAILYPRORATA_YN~" ,
+           ~"ITEMMST~".~"BILITEM_YN~" ,
+           itemmst.QUOTA_YN ,
+           itemmst.PREBIL_YN,
+           itemmst.PACKAGE_YN,
+           ~"ITEMMST~".~"PRICETABLE~" ,
+           ~"ITEMMST~".~"TRCOD~" ,
+           ~"ITEMMST~".~"CRT_USER~" ,
+           ~"ITEMMST~".~"UPDT_USER~" ,
+           ~"ITEMMST~".~"CRTDT~" ,
+           ~"ITEMMST~".~"UPDTDT~" ,
+           ~"ITEMMST~".~"PGM_ID~"     
+        FROM  ~"ITEMMST~"     
+        ORDER BY ~"ITEMMST~".~"ITEMCOD~"          ASC,
+           ~"ITEMMST~".~"ITEMNM~"          ASC  " update="ITEMMST" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="품목 ID" border="2" color="15793151" x="9" y="8" height="60" width="302"  name=itemmst_itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용요율형식" border="2" color="15793151" x="4485" y="8" height="60" width="791"  name=itemmst_pricetable_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래유형" border="2" color="15793151" x="3685" y="8" height="60" width="791"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본품목" border="2" color="15793151" x="1723" y="8" height="60" width="347"  name=itemmst_mainitem_yn_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구품목" border="2" color="16777215" x="2080" y="8" height="60" width="288"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="일할계산" border="2" color="15793151" x="2377" y="8" height="60" width="302"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="장비여부" border="2" color="15793151" x="3035" y="8" height="60" width="343"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pakage" border="2" color="15793151" x="3387" y="8" height="60" width="288"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="선납품목" border="2" color="16777215" x="2688" y="8" height="60" width="338"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="15793151" x="320" y="8" height="60" width="896"  name=itemmst_itemnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목구분" border="2" color="16777215" x="1225" y="8" height="60" width="489"  name=category_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="16777215" x="9" y="8" height="60" width="302" format="[general]"  name=itemmst_itemcod edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="16777215" x="320" y="8" height="60" width="896" format="[general]"  name=itemmst_itemnm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=10 alignment="0" tabsequence=110 border="0" color="16777215" x="4485" y="8" height="60" width="791" format="[general]"  name=itemmst_pricetable dddw.name=b0dc_dddw_pricetable dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="0" color="16777215" x="3685" y="8" height="60" width="791" format="[general]"  name=itemmst_trcod dddw.name=b0dc_dddw_trcod dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=5 alignment="0" tabsequence=60 border="0" color="16777215" x="2377" y="8" height="60" width="302" format="[general]"  name=itemmst_dailyprorata_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="16777215" x="1723" y="8" height="60" width="347" format="[general]"  name=itemmst_mainitem_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="0" color="16777215" x="2080" y="8" height="60" width="288" format="[general]"  name=itemmst_bilitem_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=7 alignment="0" tabsequence=80 border="0" color="16777215" x="3035" y="8" height="60" width="343" format="[general]"  name=itemmst_quota_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="0" color="16777215" x="3387" y="8" height="60" width="288" format="[general]"  name=itemmst_package_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="0" color="16777215" x="2688" y="8" height="60" width="338" format="[general]"  name=itemmst_prebil_yn checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="16777215" x="1225" y="8" height="60" width="489" format="[general]"  name=itemmst_category dddw.name=b0dc_dddw_category_sc dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=3 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

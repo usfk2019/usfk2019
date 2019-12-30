@@ -1,0 +1,56 @@
+﻿$PBExportHeader$b2dw_reg_settle_rate_t1.srd
+$PBExportComments$[ceusee] 유치 수수료율
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=regseq dbname="settle_regcommst.regseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=partner dbname="settle_regcommst.partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="settle_regcommst.itemcod" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fromdt dbname="settle_regcommst.fromdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=fromcnt dbname="settle_regcommst.fromcnt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tocnt dbname="settle_regcommst.tocnt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=comamt dbname="settle_regcommst.comamt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="settle_regcommst.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="settle_regcommst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="settle_regcommst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="settle_regcommst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="settle_regcommst.pgm_id" )
+ retrieve="  SELECT ~"SETTLE_REGCOMMST~".~"REGSEQ~",   
+         ~"SETTLE_REGCOMMST~".~"PARTNER~",   
+         ~"SETTLE_REGCOMMST~".~"ITEMCOD~",   
+         ~"SETTLE_REGCOMMST~".~"FROMDT~",   
+         ~"SETTLE_REGCOMMST~".~"FROMCNT~",   
+         ~"SETTLE_REGCOMMST~".~"TOCNT~",   
+         ~"SETTLE_REGCOMMST~".~"COMAMT~",   
+         ~"SETTLE_REGCOMMST~".~"CRT_USER~",   
+         ~"SETTLE_REGCOMMST~".~"UPDT_USER~",   
+         ~"SETTLE_REGCOMMST~".~"CRTDT~",   
+         ~"SETTLE_REGCOMMST~".~"UPDTDT~",   
+         ~"SETTLE_REGCOMMST~".~"PGM_ID~"  
+    FROM ~"SETTLE_REGCOMMST~"   
+    ORDER BY to_char(~"SETTLE_REGCOMMST~".~"FROMDT~",'YYYYMMDD') DESC, ~"SETTLE_REGCOMMST~".~"ITEMCOD~", ~"SETTLE_REGCOMMST~".~"FROMCNT~"
+" update="SETTLE_REGCOMMST" updatewhere=0 updatekeyinplace=no )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="151" y="156" height="76" width="320" format="[general]"  name=partner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="864" y="168" height="76" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1088" y="172" height="76" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="1280" y="172" height="76" width="256" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="16777215" x="640" y="176" height="76" width="800" format="[general]"  name=regseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="적용개시일" border="2" color="16777215" x="18" y="16" height="60" width="393"  name=comamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품 목 명" border="2" color="16777215" x="425" y="16" height="60" width="869"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="건별수수료" border="2" color="16777215" x="2405" y="16" height="60" width="471"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="등록자" border="2" color="16777215" x="2889" y="16" height="60" width="366"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수정자" border="2" color="16777215" x="3269" y="16" height="60" width="366"  name=updt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="유치건수To(<)" border="2" color="16777215" x="1902" y="16" height="60" width="489"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="유치건수From(>=)" border="2" color="16777215" x="1307" y="16" height="60" width="581"  name=comrate_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="2" tabsequence=10 border="2" color="16777215" x="18" y="8" height="60" width="393" format="[shortdate] [time]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="16777215" x="425" y="8" height="60" width="869" format="[general]"  name=itemcod dddw.name=b0dc_dddw_item_by_svc dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="1" tabsequence=50 border="2" color="16777215" x="2405" y="8" height="60" width="471" format="#,##0"  name=comamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="1" tabsequence=40 border="2" color="0" x="1902" y="8" height="60" width="489" format="[general]"  name=tocnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=30 border="2" color="16777215" x="1307" y="8" height="60" width="581" format="#,##0"  name=fromcnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=8 alignment="0" tabsequence=60 border="2" color="0" x="2889" y="8" height="60" width="366" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=70 border="2" color="0" x="3269" y="8" height="60" width="366" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

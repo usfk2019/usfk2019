@@ -1,0 +1,47 @@
+﻿$PBExportHeader$ubs_dw_pop_equipvalid_det.srd
+$PBExportComments$[jhchoi] 장비인증 팝업 ( Detail ) - 2009.05.07
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(61) updatewhereclause=yes name=rental_equip dbname="rental_equip" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=equipseq dbname="equipmst.equipseq" )
+ column=(type=char(1) updatewhereclause=yes name=data_check dbname="data_check" values="	R/추가	I/삭제등록	D/" )
+ column=(type=char(30) updatewhereclause=yes name=spec_item1 dbname="equipmst.spec_item1" )
+ column=(type=char(1) updatewhereclause=yes name=new_check dbname="new_check" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="equipmst.contractseq" )
+ column=(type=decimal(5) updatewhereclause=yes name=cust_no dbname="equipmst.cust_no" )
+ column=(type=char(10) updatewhereclause=yes name=adtype dbname="equipmst.adtype" )
+ retrieve="SELECT  DECODE(SALE_FLAG, '0', DACOM_MNG_NO||':'||MAC_ADDR, '1', SERIALNO||':'||MAC_ADDR) AS RENTAL_EQUIP 
+	   , EQUIPSEQ 
+		, DECODE(SPEC_ITEM1, 'Y', 'I', 'R') AS DATA_CHECK
+		, SPEC_ITEM1
+		, 'N' AS NEW_CHECK
+      , CONTRACTSEQ
+      , CUST_NO
+	 , ADTYPE
+FROM    EQUIPMST" update="EQUIPMST" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="임대/예약중 장비" border="2" color="15793151" x="9" y="8" height="60" width="1234" html.valueishtml="0"  name=equipseq_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="구분" border="2" color="15793151" x="1257" y="8" height="60" width="338" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="/* IF( chk = 1, 1, 0)  */"border="0" color="0" x="96" y="212" height="76" width="256" format="[General]" html.valueishtml="0"  name=cp_su visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0~tif ( data_check = 'D', rgb(255, 0, 0), if ( spec_item1= 'Y', rgb(0, 255, 0), rgb(0, 0, 0)))" x="9" y="0" height="60" width="1234" format="[general]" html.valueishtml="0"  name=rental_equip visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="215" y="80" height="60" width="987" format="[general]" html.valueishtml="0"  name=equipseq visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0~tcase ( data_check when 'I' then rgb(0, 0, 255) when 'D' then rgb(255, 0, 0) else rgb(0,0,0))" x="1257" y="0" height="60" width="338" format="[general]" html.valueishtml="0"  name=data_check visible="1" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="503" y="88" height="60" width="347" format="[general]" html.valueishtml="0"  name=spec_item1 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="928" y="84" height="60" width="183" format="[general]" html.valueishtml="0"  name=new_check visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1595" y="0" height="60" width="558" format="[general]" html.valueishtml="0"  name=contractseq visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2167" y="0" height="60" width="987" format="[general]" html.valueishtml="0"  name=cust_no visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="0" color="0" x="3154" y="0" height="60" width="229" html.valueishtml="0"  name=adtype visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

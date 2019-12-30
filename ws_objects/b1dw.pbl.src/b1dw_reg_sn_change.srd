@@ -1,0 +1,93 @@
+﻿$PBExportHeader$b1dw_reg_sn_change.srd
+$PBExportComments$[kem] 기기변경
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=156 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=148 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=snchgreq_seq dbname="snchgreq.seq" )
+ column=(type=char(10) updatewhereclause=yes name=snchgreq_partner dbname="snchgreq.partner" )
+ column=(type=datetime updatewhereclause=yes name=snchgreq_chgreqdt dbname="snchgreq.chgreqdt" )
+ column=(type=char(10) updatewhereclause=yes name=snchgreq_act_status dbname="snchgreq.act_status" )
+ column=(type=char(14) updatewhereclause=yes name=snchgreq_customerid dbname="snchgreq.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_ssno dbname="customerm.ssno" )
+ column=(type=char(10) updatewhereclause=yes name=snchgreq_bef_modelno dbname="snchgreq.bef_modelno" )
+ column=(type=char(30) updatewhereclause=yes name=snchgreq_bef_sn dbname="snchgreq.bef_sn" )
+ column=(type=decimal(0) updatewhereclause=yes name=snchgreq_bef_adseq dbname="snchgreq.bef_adseq" )
+ column=(type=char(1) updatewhereclause=yes name=snchgreq_badflag dbname="snchgreq.badflag" values="	Y/	N" )
+ column=(type=datetime update=yes updatewhereclause=yes name=snchgreq_chgdt dbname="chgdt" )
+ column=(type=char(60) updatewhereclause=yes name=snchgreq_remark dbname="snchgreq.remark" )
+ column=(type=char(10) updatewhereclause=yes name=snchgreq_aft_modelno dbname="snchgreq.aft_modelno" )
+ column=(type=char(30) updatewhereclause=yes name=snchgreq_aft_sn dbname="snchgreq.aft_sn" )
+ column=(type=decimal(0) updatewhereclause=yes name=snchgreq_aft_adseq dbname="snchgreq.aft_adseq" )
+ column=(type=char(1) updatewhereclause=yes name=chagflag dbname="chagflag" values="	Y/	N" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=snchgreq_updt_user dbname="snchgreq.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=snchgreq_updtdt dbname="snchgreq.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=snchgreq_pgm_id dbname="snchgreq.pgm_id" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="status" )
+ column=(type=char(10) updatewhereclause=yes name=use_user dbname="use_user" )
+ retrieve="  SELECT SNC.SEQ,   
+         SNC.PARTNER,   
+         SNC.CHGREQDT,   
+         SNC.ACT_STATUS,   
+         SNC.CUSTOMERID,   
+         CUS.CUSTOMERNM,   
+         CUS.SSNO,
+        	SNC.BEF_MODELNO,
+         SNC.BEF_SN,
+         SNC.BEF_ADSEQ,   
+         SNC.BADFLAG,   
+         nvl(SNC.CHGDT,chgreqdt) chgdt,   
+         SNC.REMARK,   
+         SNC.AFT_MODELNO,   
+         SNC.AFT_SN,   
+         SNC.AFT_ADSEQ,   
+  	      'N' CHAGFLAG,
+         SNC.UPDT_USER,   
+         SNC.UPDTDT,   
+         SNC.PGM_ID,
+			rpad(:as_status,10,' ') status,
+ 			rpad(:as_user,10,' ') use_user
+    FROM CUSTOMERM CUS,   
+	      SNCHGREQ SNC  
+   WHERE ( CUS.CUSTOMERID = SNC.CUSTOMERID ) 
+ORDER BY SNC.SEQ   " arguments=(("as_status", string),("as_user", string)) )
+text(band=header alignment="2" text="Seq" border="2" color="16777215" x="14" y="20" height="60" width="320"  name=snchgreq_seq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청일자" border="2" color="16777215" x="809" y="20" height="60" width="288"  name=snchgreq_chgreqdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경전모델" border="2" color="16777215" x="2583" y="20" height="60" width="526"  name=snchgreq_bef_modelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청대리점" border="2" color="16777215" x="347" y="20" height="60" width="448"  name=snchgreq_partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상  태" border="2" color="16777215" x="1111" y="20" height="60" width="370"  name=snchgreq_act_status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객번호" border="2" color="16777215" x="1495" y="20" height="60" width="270"  name=snchgreq_customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객명" border="2" color="16777215" x="1778" y="20" height="60" width="366"  name=customerm_customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="주민등록번호" border="2" color="16777215" x="2158" y="20" height="60" width="411"  name=customerm_ssno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경전SN" border="2" color="16777215" x="3122" y="20" height="60" width="530"  name=snchgreq_bef_sn_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경처리일자" border="2" color="16777215" x="3666" y="20" height="60" width="407"  name=snchgreq_chgdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기기불량" border="2" color="16777215" x="4087" y="20" height="60" width="283"  name=snchgreq_badflag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비   고" border="2" color="16777215" x="809" y="92" height="60" width="1760"  name=snchgreq_remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경후모델" border="2" color="16777215" x="2583" y="92" height="60" width="526"  name=snchgreq_aft_modelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경후SN" border="2" color="16777215" x="3122" y="92" height="60" width="530"  name=snchgreq_aft_sn_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경처리자" border="2" color="16777215" x="3666" y="92" height="60" width="407"  name=snchgreq_updt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경적용" border="2" color="16777215" x="4087" y="92" height="60" width="283"  name=chagflag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="14" y="4" height="64" width="320" format="[general]"  name=snchgreq_seq edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="809" y="4" height="64" width="288" format="[shortdate] [time]"  name=snchgreq_chgreqdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="2583" y="4" height="64" width="526" format="[general]"  name=snchgreq_bef_modelno dddw.name=b1dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="2" color="0" x="809" y="80" height="64" width="1760" format="[general]"  name=snchgreq_remark edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="2" color="0" x="2583" y="80" height="64" width="526" format="[general]"  name=snchgreq_aft_modelno dddw.name=b1dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="347" y="4" height="64" width="448" format="[general]"  name=snchgreq_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1111" y="4" height="64" width="370" format="[general]"  name=snchgreq_act_status dddw.name=b1dc_dddw_snchgstat dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="2" color="0" x="1495" y="4" height="64" width="270" format="[general]"  name=snchgreq_customerid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="1778" y="4" height="64" width="366" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="2158" y="4" height="64" width="411" format="@@@@@@-@@@@@@@"  name=customerm_ssno edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="3122" y="4" height="64" width="530" format="[general]"  name=snchgreq_bef_sn edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="2" color="0" x="3122" y="80" height="64" width="530" format="[general]"  name=snchgreq_aft_sn edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="2" tabsequence=10 border="2" color="8388608~tif(statuscf= snchgreq_act_status,16777215,0)" x="3666" y="4" height="64" width="407" format="[shortdate] [time]" protect="0~tif(statuscf= snchgreq_act_status,0,1)"  name=snchgreq_chgdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(statuscf= snchgreq_act_status,9016172,15793151)" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="2" color="0" x="3666" y="80" height="64" width="407" format="[general]"  name=use_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=20 border="5" color="16711680" x="4206" y="80" height="52" width="59" format="[general]" protect="0~tif(statuscf= snchgreq_act_status,0,1)"  name=chagflag checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(statuscf= snchgreq_act_status,8421376,15793151)" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4206" y="4" height="52" width="59" format="[general]"  name=snchgreq_badflag checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="rightTrim( status )"border="0" color="16711680" x="3653" y="200" height="64" width="370" format="[GENERAL]"  name=statuscf  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="lookupdisplay(  snchgreq_aft_modelno  )"border="0" color="16711680" x="2848" y="196" height="56" width="215" format="[GENERAL]"  name=aft_modelnm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="lookupdisplay(  snchgreq_bef_modelno  )"border="0" color="16711680" x="2583" y="200" height="56" width="215" format="[GENERAL]"  name=bef_modelnm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

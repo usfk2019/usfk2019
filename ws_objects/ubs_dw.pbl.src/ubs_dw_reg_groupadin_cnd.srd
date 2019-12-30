@@ -1,0 +1,20 @@
+﻿$PBExportHeader$ubs_dw_reg_groupadin_cnd.srd
+$PBExportComments$[jhchoi] 인증장비 이동 (Cond) - 2009.04.13
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=4 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=196 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=shop dbname="shop" )
+ column=(type=char(10) updatewhereclause=no name=action dbname="action" values="Registration	I/Send	S/Receive	R/Closing	E/" )
+ column=(type=date updatewhereclause=no name=sysdt dbname="sysdt" )
+ )
+text(band=detail alignment="1" text="Shop" border="0" color="0" x="1033" y="96" height="60" width="297"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="2" color="1090519039" x="1349" y="96" height="60" width="722" format="[general]"  name=shop dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="1" text="Action" border="0" color="0" x="18" y="96" height="60" width="334"  name=customerid_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Date" border="0" color="0" x="18" y="12" height="60" width="334"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="1090519039" x="366" y="96" height="60" width="581" format="[general]"  name=action ddlb.limit=4 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="366" y="12" height="60" width="325" format="[general]"  name=sysdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

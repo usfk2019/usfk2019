@@ -1,0 +1,49 @@
+﻿$PBExportHeader$b5dw_reg_invcan_per.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) update=yes updatewhereclause=yes key=yes name=payid dbname="reqcan.payid" )
+ column=(type=char(50) updatewhereclause=yes name=paynm dbname="paynm" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=trdt dbname="reqcan.trdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=chargedt dbname="reqcan.chargedt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="reqcan.seq" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="reqcan.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="reqcan.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="reqcan.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="reqcan.updtdt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=flag dbname="reqcan.flag" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="reqcan.pgm_id" )
+ retrieve="SELECT A.PAYID
+     , NVL(B.CUSTOMERNM,'ALL') PAYNM
+     , A.TRDT
+     , A.CHARGEDT
+     , A.SEQ
+     , A.CRT_USER
+     , A.UPDT_USER
+     , A.CRTDT
+     , A.UPDTDT
+     , A.FLAG
+     , A.PGM_ID 
+  FROM REQCAN A, CUSTOMERM B
+ WHERE A.PAYID = B.PAYID (+)
+ ORDER BY A.PAYID
+        , A.TRDT" update="REQCAN" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="납입고객번호" border="2" color="15793151" x="37" y="16" height="60" width="462"  name=payid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구기준일" border="2" color="15793151" x="1262" y="16" height="60" width="475"  name=trdt_t visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객명" border="2" color="15793151" x="517" y="16" height="60" width="727"  name=paynm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="283" y="120" height="76" width="302" format="[general]"  name=chargedt edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="590" y="120" height="76" width="329" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="923" y="120" height="76" width="247" format="[general]"  name=crt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1175" y="120" height="76" width="247" format="[general]"  name=updt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1449" y="120" height="76" width="599" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2057" y="120" height="76" width="599" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1774" y="0" height="60" width="146" format="[general]"  name=flag visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="2002" y="8" height="60" width="215" format="[general]"  name=pgm_id visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1262" y="4" height="60" width="475" format="[shortdate] [time]"  name=trdt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="1090519039" x="37" y="4" height="60" width="462" format="[general]"  name=payid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="517" y="4" height="60" width="727" format="[general]"  name=paynm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

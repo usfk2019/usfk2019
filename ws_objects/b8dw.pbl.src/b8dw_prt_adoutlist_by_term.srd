@@ -1,0 +1,78 @@
+﻿$PBExportHeader$b8dw_prt_adoutlist_by_term.srd
+$PBExportComments$[parkkh] 일자별입고리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=444 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=28 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=movedt dbname="movedt" )
+ column=(type=char(10) updatewhereclause=yes name=admovedtl_modelno dbname="admovedtl.modelno" )
+ column=(type=char(10) updatewhereclause=yes name=admovedtl_fr_partner dbname="admovedtl.fr_partner" )
+ column=(type=char(10) updatewhereclause=yes name=admovedtl_to_partner dbname="admovedtl.to_partner" )
+ column=(type=decimal(0) updatewhereclause=yes name=admovedtl_moveqty dbname="admovedtl.moveqty" )
+ column=(type=decimal(2) updatewhereclause=yes name=admodel_sale_amt dbname="admodel.sale_amt" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_1 dbname="compute_0007" )
+ column=(type=decimal(0) updatewhereclause=yes name=admovedtl_moveno dbname="admovedtl.moveno" )
+ column=(type=char(20) updatewhereclause=yes name=admovedtl_oman dbname="admovedtl.oman" )
+ retrieve="SELECT	to_char(dtl.movedt,'yyyy-mm-dd') movedt,
+			dtl.modelno,
+			dtl.fr_partner,
+		 	dtl.to_partner,
+			dtl.moveqty,
+			mo.sale_amt,
+			dtl.moveqty * mo.sale_amt,
+			dtl.moveno,
+			dtl.oman
+  FROM admovedtl dtl, admodel mo
+ WHERE dtl.modelno = mo.modelno
+"  sort="movedt A admovedtl_fr_partner A admovedtl_modelno A admovedtl_to_partner A " )
+group(level=1 header.height=0 trailer.height=80 by=("movedt" , "admovedtl_fr_partner" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=76 by=("movedt" , "admovedtl_fr_partner" , "admovedtl_modelno" ) header.color="536870912" trailer.color="536870912" )
+rectangle(band=header x="5" y="352" height="92" width="4745"  name=r_1 brush.hatch="6" brush.color="31844325" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+text(band=header alignment="2" text="" border="0" color="0" x="2432" y="196" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2505" y="196" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="4064" y="204" height="60" width="667"  name=date_time  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4064" y="272" height="64" width="667" format="[GENERAL]"  name=page  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="9" y1="440" x2="4745" y2="440"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="9" y1="352" x2="4745" y2="352"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="14" y="76" height="88" width="4736"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="이동일자" border="0" color="0" x="23" y="364" height="60" width="329"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="이동입고대리점" border="0" color="0" x="1787" y="364" height="60" width="658"  name=modelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="1" text="이동기준가" border="0" color="0" x="2853" y="364" height="60" width="457"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="1" text="이동금액" border="0" color="0" x="3337" y="364" height="60" width="594"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="이동번호" border="0" color="0" x="3963" y="364" height="60" width="361"  name=iqty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="이동담당자" border="0" color="0" x="4343" y="364" height="60" width="402"  name=sale_cnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="이동출고대리점" border="0" color="0" x="366" y="364" height="60" width="658"  name=adtype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="모  델" border="0" color="0" x="1038" y="364" height="60" width="736"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="이동일자:" border="0" color="0" x="23" y="272" height="56" width="325"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="이동수량" border="0" color="0" x="2459" y="364" height="60" width="379"  name=makercd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="" border="0" color="0" x="370" y="272" height="56" width="366"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="" border="0" color="0" x="805" y="272" height="56" width="366"  name=todt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="~~" border="0" color="0" x="745" y="272" height="56" width="50"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="cumulativeSum( cnt for group 2 )"border="0" color="0" x="4366" y="108" height="52" width="215" format="[GENERAL]"  name=visible2 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="cumulativeSum(  cnt  for group 1 )"border="0" color="0" x="4087" y="108" height="52" width="256" format="[GENERAL]"  name=visible visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="1"border="0" color="0" x="3808" y="108" height="52" width="256" format="[GENERAL]"  name=cnt visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1787" y="8" height="60" width="658" format="[general]"  name=admovedtl_to_partner dddw.name=b8dc_dddw_partner_agent dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+rectangle(band=trailer.2 x="5" y="0" height="92" width="4745"  name=r_3 brush.hatch="6" brush.color="31844325" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+line(band=trailer.2 x1="9" y1="72" x2="4745" y2="72"  name=l_6 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+compute(band=trailer.2 alignment="0" expression="~"[ ~" + lookupdisplay(   admovedtl_modelno  ) + ~" 계 ]~""border="0" color="0" x="1038" y="8" height="60" width="736" format="[GENERAL]"  name=compute_6  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="1" expression="sum(  admovedtl_moveqty  for group 2 ) "border="0" color="0" x="2459" y="8" height="60" width="379" format="#,##0"  name=sum_1  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression=" sum(  compute_1  for group 2 ) "border="0" color="0" x="3337" y="8" height="60" width="594" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+rectangle(band=trailer.1 x="5" y="0" height="92" width="4745"  name=r_2 brush.hatch="6" brush.color="80269524" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="9" y1="76" x2="4745" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+compute(band=trailer.1 alignment="0" expression="~"[ ~" + lookupdisplay(   movedt   ) + ~" 계 ]~""border="0" color="0" x="1038" y="12" height="60" width="736" format="[GENERAL]"  name=compute_5  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=trailer.1 alignment="1" expression="/* sum(  compute_0007  for group 1 ) */"border="0" color="0" x="3337" y="4" height="60" width="594" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  admovedtl_moveqty  for group 1 ) "border="0" color="0" x="2459" y="4" height="60" width="379" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="9" y1="4" x2="4745" y2="4"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2459" y="8" height="60" width="379" format="#,##0"  name=admovedtl_moveqty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2866" y="8" height="60" width="443" format="#,##0.00"  name=admodel_sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="3337" y="8" height="60" width="594" format="#,##0"  name=compute_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="3968" y="8" height="60" width="343" format="[general]"  name=admovedtl_moveno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4347" y="8" height="60" width="393" format="[general]"  name=admovedtl_oman edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="9" y1="76" x2="4745" y2="76"  name=l_4 visible="1~t0" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="23" y="8" height="60" width="329" format="[general]"  name=movedt visible="1~tif(visible = 1 ,1,0)" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="366" y="8" height="60" width="658" format="[general]"  name=admovedtl_fr_partner visible="1~tif(visible2=1, 1,0)" dddw.name=b8dc_dddw_partner_agent dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1038" y="8" height="60" width="736" format="[general]"  name=admovedtl_modelno visible="1~tif(visible = 1 ,1,0)" dddw.name=b8dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

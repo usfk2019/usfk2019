@@ -1,0 +1,60 @@
+﻿$PBExportHeader$ubs_dw_reg_hotbill_others.srd
+$PBExportComments$[unknown] 연체자 조치사항 등록
+release 10;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=164 color="536870912" )
+summary(height=76 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=number updatewhereclause=yes name=sale_amt dbname="sale_amt" )
+ column=(type=char(10) updatewhereclause=yes name=trcod dbname="itemmst.trcod" )
+ column=(type=char(10) updatewhereclause=yes name=regcod dbname="itemmst.regcod" )
+ column=(type=char(0) updatewhereclause=yes name=manual_yn dbname="manual_yn" initial="Y" )
+ column=(type=decimal(0) updatewhereclause=yes name=priority dbname="itemmst.priority" )
+ column=(type=char(0) updatewhereclause=yes name=remark dbname="remark" )
+ column=(type=char(1) updatewhereclause=yes name=add_check dbname="add_check" )
+ column=(type=number updatewhereclause=yes name=taxamt dbname="taxamt" )
+ retrieve="SELECT ITEMCOD,
+       ITEMNM,
+		 0 SALE_AMT,
+		 TRCOD,
+		 REGCOD,
+		 '' MANUAL_YN,
+		 PRIORITY,
+		 '' REMARK,
+		 'N' ADD_CHECK,
+          0 TAXAMT
+FROM   ITEMMST 
+ " update="ITEMMST" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="[Others]" border="0" color="8388736" x="14" y="12" height="72" width="288" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-11" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Item" border="2" color="15793151" x="14" y="100" height="60" width="855" html.valueishtml="0"  name=itemcod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Sale Amount" border="2" color="15793151" x="882" y="100" height="60" width="338" html.valueishtml="0"  name=sale_amt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+button(band=header text="Exchange Rate" filename="" enabled=yes action="0" border="0" color="0" x="2281" y="16" height="76" width="530" vtextalign="0" htextalign="0"  name=b_rate visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+button(band=header text="none" filename="" enabled=yes action="0" border="0" color="0" x="2834" y="40" height="120" width="320" vtextalign="0" htextalign="0"  name=b_ani visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Note " border="2" color="15793151" x="1454" y="100" height="60" width="1353" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="VAT" border="2" color="15793151" x="1239" y="100" height="60" width="201" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="411" y="148" height="60" width="270" format="[general]" html.valueishtml="0"  name=itemnm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="718" y="152" height="60" width="233" format="[general]" html.valueishtml="0"  name=trcod visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="1737" y="152" height="60" width="329" format="[general]" html.valueishtml="0"  name=manual_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="14" y="4" height="60" width="855" format="[general]" html.valueishtml="0"  name=itemcod visible="1" dddw.name=ubs_dddw_othersitemcod dddw.displaycolumn=itemnm dddw.datacolumn=code dddw.percentwidth=120 dddw.lines=4 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2464" y="88" height="60" width="82" format="[general]" html.valueishtml="0"  name=add_check visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=20 border="2" color="0" x="882" y="4" height="60" width="338" format="[general]" html.valueishtml="0"  name=sale_amt visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+button(band=detail text="Add" filename="" enabled=yes action="0" border="0" color="0" x="2816" y="4" height="64" width="206" vtextalign="0" htextalign="0"  name=b_add visible="1~tif ( add_check = 'Y', 0, 1)"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=8 alignment="0" tabsequence=40 border="2" color="0" x="1454" y="4" height="60" width="1353" format="[general]" html.valueishtml="0"  name=remark visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="1" tabsequence=30 border="2" color="0" x="1234" y="4" height="60" width="206" format="#,##0.00" html.valueishtml="0"  name=taxamt visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=summary alignment="2" text="TOTAL" border="6" color="0" x="14" y="8" height="60" width="855" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  sale_amt  for all )"border="6" color="0" x="882" y="8" height="60" width="338" format="#,##0.00" html.valueishtml="0"  name=cp_total visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(taxamt for all)"border="6" color="0" x="1234" y="8" height="60" width="206" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

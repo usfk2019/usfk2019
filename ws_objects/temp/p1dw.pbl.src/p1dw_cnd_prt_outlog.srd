@@ -1,0 +1,22 @@
+﻿$PBExportHeader$p1dw_cnd_prt_outlog.srd
+$PBExportComments$[jsha] 출고이력조회
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=200 color="536870912" )
+table(column=(type=date updatewhereclause=yes name=outdt_fr dbname="outdt_fr" )
+ column=(type=date updatewhereclause=yes name=outdt_to dbname="outdt_to" )
+ column=(type=char(10) updatewhereclause=yes name=pricemodel dbname="pricemodel" )
+ column=(type=char(60) updatewhereclause=yes name=partner_prefix dbname="partner_prefix" )
+ )
+text(band=detail alignment="1" text="출고일자" border="0" color="0" x="18" y="28" height="60" width="306"  name=outdt_fr_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="0" x="343" y="28" height="60" width="393" format="[shortdate] [time]"  name=outdt_fr editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="750" y="28" height="60" width="55"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="0" x="818" y="28" height="60" width="393" format="[shortdate] [time]"  name=outdt_to editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="모델" border="0" color="0" x="133" y="120" height="60" width="192"  name=pricemodel_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="343" y="120" height="60" width="608" format="[general]"  name=pricemodel dddw.name=p1dc_dddw_model dddw.displaycolumn=pricemodelnm dddw.datacolumn=pricemodel dddw.percentwidth=120 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="출고대리점" border="0" color="0" x="1010" y="120" height="60" width="306"  name=partner_prefix_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1335" y="120" height="60" width="645" format="[general]"  name=partner_prefix dddw.name=p1dc_dddw_partner_0 dddw.displaycolumn=partnernm dddw.datacolumn=prefixno dddw.percentwidth=120 dddw.lines=5 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

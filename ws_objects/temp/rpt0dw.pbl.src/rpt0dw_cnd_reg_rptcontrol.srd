@@ -1,0 +1,21 @@
+﻿$PBExportHeader$rpt0dw_cnd_reg_rptcontrol.srd
+$PBExportComments$[parkkh] 계정Control등록  조건DW
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=240 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=new dbname="new" values="신규등록	Y/신규등록	N" )
+ column=(type=char(20) updatewhereclause=no name=rptcont dbname="rptcont" values="신규	Y/신규	N" )
+ column=(type=char(30) updatewhereclause=no name=rptcontnm dbname="rptcontnm" )
+ column=(type=char(10) updatewhereclause=no name=rptgroup dbname="rptgroup" )
+ column=(type=char(10) updatewhereclause=no name=rptcontgroup dbname="rptcontgroup" )
+ )
+text(band=detail alignment="1" text="계정Control코드" border="0" color="0" x="37" y="40" height="60" width="430"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="0" x="480" y="40" height="60" width="471" format="[general]"  name=rptcont edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="계정 Control TYPE" border="0" color="0" x="1120" y="40" height="60" width="485"  name=prefixno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="0" x="1618" y="40" height="60" width="649" format="[general]"  name=rptgroup dddw.name=rpt0dc_dddw_rptgroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="계정Control명" border="0" color="0" x="37" y="132" height="60" width="430"  name=partnernm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="480" y="132" height="60" width="562" format="[general]"  name=rptcontnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

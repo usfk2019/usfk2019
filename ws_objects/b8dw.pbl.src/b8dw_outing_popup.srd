@@ -1,0 +1,43 @@
+﻿$PBExportHeader$b8dw_outing_popup.srd
+$PBExportComments$[parkkh] 대리점 입고내역 popup
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=adseq dbname="admst.adseq" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="admst.serialno" )
+ column=(type=char(1) updatewhereclause=yes name=admst_sale_flag dbname="admst.sale_flag" values="판매	1/임대	2/" )
+ column=(type=char(10) updatewhereclause=yes name=compute_0004 dbname="compute_0004" )
+ column=(type=char(15) updatewhereclause=yes name=admst_pid dbname="admst.pid" )
+ column=(type=char(14) updatewhereclause=yes name=admst_customerid dbname="admst.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ retrieve="SELECT ad.adseq,
+		 ad.serialno,
+		 ad.sale_flag,
+		 to_char(ad.movedt,'yyyy-mm-dd'),
+		 ad.pid,
+		 ad.customerid,
+		 cus.customernm
+  FROM admst ad, customerm cus
+ WHERE mv_partner = :as_partner
+   AND modelno = :as_model
+   AND ad.customerid = cus.customerid
+" arguments=(("as_partner", string),("as_model", string)) )
+text(band=header alignment="2" text="고객명" border="2" color="16777215" x="2528" y="12" height="60" width="672"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="출고구분" border="2" color="16777215" x="969" y="12" height="60" width="315"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="출고일자" border="2" color="16777215" x="1294" y="12" height="60" width="361"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pin#" border="2" color="16777215" x="1664" y="12" height="60" width="480"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객번호" border="2" color="16777215" x="2153" y="12" height="60" width="366"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="393" format="[general]"  name=adseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="411" y="8" height="60" width="549" format="[general]"  name=serialno edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="969" y="8" height="60" width="315" format="[general]"  name=admst_sale_flag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1294" y="8" height="60" width="361" format="[general]"  name=compute_0004 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1664" y="8" height="60" width="480" format="[general]"  name=admst_pid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2153" y="8" height="60" width="366" format="[general]"  name=admst_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2528" y="8" height="60" width="672" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Seq" border="2" color="16777215" x="9" y="12" height="60" width="393"  name=adseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Serial No." border="2" color="16777215" x="411" y="12" height="60" width="549"  name=serialno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,58 @@
+﻿$PBExportHeader$b7dw_m_prc_cardtext_pay_v20.srd
+$PBExportComments$[jsha]
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=workno dbname="workno" )
+ column=(type=char(10) updatewhereclause=yes name=chargedt dbname="chargedt" )
+ column=(type=char(23) updatewhereclause=yes name=period dbname="period" )
+ column=(type=decimal(0) updatewhereclause=yes name=reqcnt dbname="reqcnt" )
+ column=(type=decimal(2) updatewhereclause=yes name=reqamt dbname="reqamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=approvalcnt dbname="approvalcnt" )
+ column=(type=decimal(2) updatewhereclause=yes name=approvalamt dbname="approvalamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=errcnt dbname="errcnt" )
+ column=(type=decimal(2) updatewhereclause=yes name=erramt dbname="erramt" )
+ retrieve="	SELECT	a.workno,
+				a.chargedt,
+				to_char(b.useddt_fr, 'yyyy-mm-dd') || ' ~~ ' || to_char(b.useddt_to, 'yyyy-mm-dd') as period,
+				a.reqcnt,
+				a.reqamt,
+				a.approvalcnt,
+				a.approvalamt,
+				a.errcnt,
+				a.erramt
+	 FROM		cardreqstatus a,
+				(
+				 SELECT chargedt, reqdt, useddt_fr, useddt_to
+					FROM reqconf
+				 UNION ALL
+				 SELECT chargedt, reqdt, useddt_fr, useddt_to
+					FROM reqconfh
+				) b
+	 WHERE	a.chargedt = b.chargedt
+	 AND		a.trdt = b.reqdt
+	 AND		a.status = :as_data
+	 ORDER BY a.workno" arguments=(("as_data", string)) )
+text(band=header alignment="2" text="작업번호" border="2" color="15793151" x="9" y="24" height="56" width="393"  name=workno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구주기" border="2" color="15793151" x="411" y="24" height="56" width="622"  name=chargedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구기간" border="2" color="15793151" x="1042" y="24" height="56" width="690"  name=period_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대상건수" border="2" color="15793151" x="1742" y="24" height="56" width="329"  name=reqcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대상금액" border="2" color="15793151" x="2080" y="24" height="56" width="480"  name=reqamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="승인건수" border="2" color="15793151" x="2569" y="24" height="56" width="329"  name=approvalcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="승인금액" border="2" color="15793151" x="2907" y="24" height="56" width="462"  name=approvalamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="에러건수" border="2" color="15793151" x="3378" y="24" height="56" width="329"  name=errcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="에러금액" border="2" color="15793151" x="3717" y="24" height="56" width="430"  name=erramt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="393" format="[general]"  name=workno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="411" y="8" height="60" width="622" format="[general]"  name=chargedt dddw.name=b7dc_dddw_chargedt dddw.displaycolumn=description dddw.datacolumn=chargedt dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1042" y="8" height="60" width="690" format="[general]"  name=period edit.limit=19 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1742" y="8" height="60" width="329" format="#,##0"  name=reqcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2080" y="8" height="60" width="480" format="#,##0"  name=reqamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2569" y="8" height="60" width="329" format="#,##0"  name=approvalcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2907" y="8" height="60" width="462" format="#,##0"  name=approvalamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3378" y="8" height="60" width="329" format="#,##0"  name=errcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="3717" y="8" height="60" width="430" format="#,##0"  name=erramt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

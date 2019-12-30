@@ -1,0 +1,84 @@
+﻿$PBExportHeader$b5dw_master_inq_prt_taxsheet.srd
+$PBExportComments$[jwlee]세금계산서발행정보리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes name=taxsheetseq dbname="taxsheet_info.taxsheetseq" )
+ column=(type=decimal(0) updatewhereclause=yes name=taxissueseq dbname="taxsheet_info.taxissueseq" )
+ column=(type=datetime updatewhereclause=yes name=taxissuedt dbname="taxsheet_info.taxissuedt" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="taxsheet_info.customerid" )
+ column=(type=decimal(2) updatewhereclause=yes name=supplyamt dbname="taxsheet_info.supplyamt" )
+ column=(type=decimal(2) updatewhereclause=yes name=surtax dbname="taxsheet_info.surtax" )
+ column=(type=char(20) updatewhereclause=yes name=cregno dbname="taxsheet_info.cregno" )
+ column=(type=char(50) updatewhereclause=yes name=corpnm dbname="taxsheet_info.corpnm" )
+ column=(type=char(50) updatewhereclause=yes name=representative dbname="taxsheet_info.representative" )
+ column=(type=char(80) updatewhereclause=yes name=businesstype dbname="taxsheet_info.businesstype" )
+ column=(type=char(80) updatewhereclause=yes name=businessitem dbname="taxsheet_info.businessitem" )
+ column=(type=char(60) updatewhereclause=yes name=addr1 dbname="taxsheet_info.addr1" )
+ column=(type=char(60) updatewhereclause=yes name=addr2 dbname="taxsheet_info.addr2" )
+ column=(type=char(10) updatewhereclause=yes name=type dbname="taxsheet_info.type" )
+ column=(type=char(10) updatewhereclause=yes name=taxitem dbname="taxsheet_info.taxitem" )
+ column=(type=datetime updatewhereclause=yes name=trdt dbname="taxsheet_info.trdt" )
+ column=(type=char(30) updatewhereclause=yes name=remark dbname="taxsheet_info.remark" )
+ column=(type=datetime updatewhereclause=yes name=paydt dbname="taxsheet_info.paydt" )
+ column=(type=char(0) updatewhereclause=yes name=chktbl dbname="chktbl" )
+ retrieve="
+SELECT  A.TAXSHEETSEQ TAXSHEETSEQ,
+        A.TAXISSUESEQ TAXISSUESEQ,
+        A.TAXISSUEDT,
+        A.CUSTOMERID CUSTOMERID,
+        A.SUPPLYAMT,
+        A.SURTAX,
+        A.CREGNO,
+        A.CORPNM,
+        A.REPRESENTATIVE,
+        A.BUSINESSTYPE,
+        A.BUSINESSITEM,
+        A.ADDR1,
+        A.ADDR2,
+        A.TYPE,
+        A.TAXITEM,
+        A.TRDT TRDT,
+        A.REMARK REMARK,
+        A.PAYDT,
+		  '' chktbl
+    FROM TAXSHEET_INFO A" update="TAXSHEET_INFO" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="세금계산서번호" border="2" color="16777215" x="7698" y="100" height="56" width="741"  name=taxsheetseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발행번호" border="2" color="16777215" x="8448" y="100" height="56" width="617"  name=taxissueseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객번호" border="2" color="16777215" x="7250" y="100" height="56" width="439"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="공급가액" border="2" color="16777215" x="6057" y="100" height="56" width="631"  name=supplyamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="부가세" border="2" color="16777215" x="6697" y="100" height="56" width="544"  name=surtax_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사업자(주민)번호" border="2" color="16777215" x="1883" y="100" height="56" width="631"  name=cregno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대표자명" border="2" color="16777215" x="1010" y="100" height="56" width="864"  name=representative_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="업태" border="2" color="16777215" x="4503" y="100" height="56" width="517"  name=businesstype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="종목" border="2" color="16777215" x="5029" y="100" height="56" width="699"  name=businessitem_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="주소" border="2" color="16777215" x="2523" y="100" height="56" width="1426"  name=addr1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="주소" border="2" color="16777215" x="3959" y="100" height="56" width="535"  name=addr2_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목" border="2" color="16777215" x="5737" y="100" height="56" width="311"  name=taxitem_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상호" border="2" color="16777215" x="347" y="100" height="56" width="654"  name=corpnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입금일" border="2" color="16777215" x="9" y="100" height="56" width="329"  name=paydt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="7698" y="4" height="64" width="741" format="[general]"  name=taxsheetseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="8448" y="4" height="64" width="617" format="[general]"  name=taxissueseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="7250" y="4" height="64" width="439" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="6057" y="4" height="64" width="631" format="[general]"  name=supplyamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="6697" y="4" height="64" width="544" format="[general]"  name=surtax edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1883" y="4" height="64" width="631" format="[general]"  name=cregno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1010" y="4" height="64" width="864" format="[general]"  name=representative edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4503" y="4" height="64" width="517" format="[general]"  name=businesstype edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="5029" y="4" height="64" width="699" format="[general]"  name=businessitem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="2523" y="4" height="64" width="1426" format="[general]"  name=addr1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3959" y="4" height="64" width="535" format="[general]"  name=addr2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="5737" y="4" height="64" width="311" format="[general]"  name=taxitem dddw.name=b5dc_dddw_taxsheetitem dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="347" y="4" height="64" width="654" format="[general]"  name=corpnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=18 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="329" format="[shortdate]"  name=paydt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="ORDER BY" border="0" color="0" x="5" y="24" height="60" width="338"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="379" y="24" height="60" width="425"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="ASC/DESC" border="0" color="0" x="864" y="24" height="60" width="311"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1193" y="24" height="60" width="425"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="TOTAL ROWS" border="0" color="0" x="2144" y="24" height="60" width="379"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=foreground alignment="0" expression="rowcount()"border="0" color="8388608" x="2533" y="24" height="60" width="631" format="#,##0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

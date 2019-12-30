@@ -1,0 +1,128 @@
+﻿$PBExportHeader$d_inq_scan_rescan.srd
+$PBExportComments$스캔업무처리관리(신청시)
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=80 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=u_reqno dbname="intf_req_scan.u_reqno" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="intf_req_scan.crtdt" )
+ column=(type=char(20) updatewhereclause=yes name=intfcid dbname="intf_req_scan.intfcid" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="intf_req_scan.status" )
+ column=(type=char(10) updatewhereclause=yes name=response_code dbname="intf_req_scan.response_code" )
+ column=(type=char(8) updatewhereclause=yes name=g_orderdt dbname="intf_req_scan.g_orderdt" )
+ column=(type=char(20) updatewhereclause=yes name=g_order_user dbname="intf_req_scan.g_order_user" )
+ column=(type=char(10) updatewhereclause=yes name=doc_type dbname="intf_req_scan.doc_type" )
+ column=(type=decimal(0) updatewhereclause=yes name=doc_type_qty dbname="intf_req_scan.doc_type_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=doc_reg_qty dbname="intf_req_scan.doc_reg_qty" )
+ column=(type=char(1) updatewhereclause=yes name=proc_close_yn dbname="intf_req_scan.proc_close_yn" )
+ column=(type=char(50) updatewhereclause=yes name=customerid dbname="intf_req_scan.customerid" )
+ column=(type=char(30) updatewhereclause=yes name=docno dbname="intf_req_scan.docno" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=seqno dbname="intf_req_scan.seqno" )
+ column=(type=char(20) updatewhereclause=yes name=crt_user dbname="intf_req_scan.crt_user" )
+ column=(type=char(30) updatewhereclause=yes name=crt_user_nm dbname="crt_user_nm" )
+ retrieve="SELECT  U_REQNO       AS U_REQNO,
+        CRTDT         AS CRTDT,
+        INTFCID       AS INTFCID,
+        STATUS        AS STATUS,
+        RESPONSE_CODE AS RESPONSE_CODE,
+        G_ORDERDT     AS G_ORDERDT,
+        G_ORDER_USER  AS G_ORDER_USER,        
+        DOC_TYPE      AS DOC_TYPE,
+        DOC_TYPE_QTY  AS DOC_TYPE_QTY,
+        DOC_REG_QTY   AS DOC_REG_QTY,
+        PROC_CLOSE_YN AS PROC_CLOSE_YN,
+        CUSTOMERID    AS CUSTOMERID,
+        DOCNO         AS DOCNO,
+        SEQNO         AS SEQNO,
+        CRT_USER      AS CRT_USER,
+        (SELECT EMPNM FROM SYSUSR1T WHERE EMP_ID = CRT_USER) CRT_USER_NM
+FROM    INTF_REQ_SCAN 
+WHERE   U_REQNO         LIKE :as_u_reqno||'%'
+AND     CUSTOMERID      LIKE :as_customerid||'%'
+AND     NVL(DOCNO, '%') LIKE :as_docno||'%'
+AND     G_ORDERDT       BETWEEN NVL(:as_ufdate,'19000101') AND NVL(:as_utdate,'99991231')
+AND     G_ORDER_USER    LIKE :as_u_user_id||'%'
+AND     TO_CHAR(CRTDT,'YYYYMMDD')  BETWEEN NVL(:as_fdate,'19000101')  AND NVL(:as_tdate,'99991231')
+AND     U_REQNO         IN (SELECT DISTINCT U_REQNO FROM ORDER_DOCGROUP WHERE ORDERNO LIKE :as_orderno||'%')
+AND     U_REQNO         IN (SELECT DISTINCT U_REQNO FROM ORDER_DOCGROUP A ,SVCORDER B WHERE A.ORDERNO = B.ORDERNO AND B.PARTNER  LIKE :as_partner)
+AND     NVL(RESPONSE_CODE,'%') LIKE :as_response_code
+AND     NVL(INTFCID, '%')      LIKE :as_intfcid
+AND     NVL(STATUS, '%')       LIKE :as_status
+AND     CRT_USER        LIKE :as_operator
+UNION
+SELECT  U_REQNO       AS U_REQNO,
+        CRTDT         AS CRTDT,
+        INTFCID       AS INTFCID,
+        STATUS        AS STATUS,
+        RESPONSE_CODE AS RESPONSE_CODE,
+        G_ORDERDT     AS G_ORDERDT,
+        G_ORDER_USER  AS G_ORDER_USER,        
+        DOC_TYPE      AS DOC_TYPE,
+        DOC_TYPE_QTY  AS DOC_TYPE_QTY,
+        DOC_REG_QTY   AS DOC_REG_QTY,
+        PROC_CLOSE_YN AS PROC_CLOSE_YN,
+        CUSTOMERID    AS CUSTOMERID,
+        DOCNO         AS DOCNO,
+        SEQNO         AS SEQNO,
+        CRT_USER      AS CRT_USER,
+        (SELECT EMPNM FROM SYSUSR1T WHERE EMP_ID = CRT_USER) CRT_USER_NM
+FROM    INTF_REQ_SCAN 
+WHERE   U_REQNO         LIKE :as_u_reqno||'%'
+AND     CUSTOMERID      LIKE :as_customerid||'%'
+AND     NVL(DOCNO, '%') LIKE :as_docno||'%'
+AND     G_ORDERDT       BETWEEN NVL(:as_ufdate,'19000101') AND NVL(:as_utdate,'99991231')
+AND     G_ORDER_USER    LIKE :as_u_user_id||'%'
+AND     TO_CHAR(CRTDT,'YYYYMMDD')  BETWEEN NVL(:as_fdate,'19000101')  AND NVL(:as_tdate,'99991231')
+AND     NVL(RESPONSE_CODE,'%') LIKE :as_response_code
+AND     NVL(INTFCID, '%')      LIKE :as_intfcid
+AND     NVL(STATUS, '%')       LIKE :as_status
+AND     :as_orderno IS NULL
+AND     :as_partner ='%'
+AND     CRT_USER        LIKE :as_operator" update="INTF_REQ_SCAN" updatewhere=0 updatekeyinplace=no arguments=(("as_u_reqno", number),("as_customerid", string),("as_docno", string),("as_ufdate", string),("as_utdate", string),("as_u_user_id", string),("as_fdate", string),("as_tdate", string),("as_intfcid", string),("as_status", string),("as_orderno", number),("as_partner", string),("as_response_code", string),("as_operator", string))  sort="u_reqno A " )
+text(band=header alignment="2" text="U_Order번호" border="2" color="16777215" x="9" y="4" height="56" width="439" html.valueishtml="0"  name=u_reqno_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="스캔요청일자" border="2" color="16777215" x="457" y="4" height="56" width="603" html.valueishtml="0"  name=crtdt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="전문ID" border="2" color="16777215" x="1070" y="4" height="56" width="347" html.valueishtml="0"  name=intfcid_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="서류 Type" border="2" color="16777215" x="3054" y="4" height="56" width="311" html.valueishtml="0"  name=doc_type_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="구비장수" border="2" color="16777215" x="3374" y="4" height="56" width="261" html.valueishtml="0"  name=doc_type_qty_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="스캔장수" border="2" color="16777215" x="3643" y="4" height="56" width="279" html.valueishtml="0"  name=doc_reg_qty_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="스캔완료여부" border="2" color="16777215" x="3931" y="4" height="56" width="384" html.valueishtml="0"  name=proc_close_yn_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="16777215" x="1426" y="4" height="56" width="347" html.valueishtml="0"  name=status_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="응답코드" border="2" color="16777215" x="1783" y="4" height="56" width="421" html.valueishtml="0"  name=response_code_1_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="U_요청일자" border="2" color="16777215" x="2213" y="4" height="56" width="425" html.valueishtml="0"  name=g_orderdt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="U_신청User" border="2" color="16777215" x="2647" y="4" height="56" width="398" html.valueishtml="0"  name=g_order_user_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customerid" border="2" color="16777215" x="4325" y="4" height="56" width="375" html.valueishtml="0"  name=customerid_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="문서번호" border="2" color="16777215" x="4709" y="4" height="56" width="489" html.valueishtml="0"  name=docno_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="스캔신청작업자ID" border="2" color="16777215" x="5207" y="4" height="56" width="503" html.valueishtml="0"  name=crt_user_t visible="1"  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="스캔신청작업자" border="2" color="16777215" x="5719" y="4" height="56" width="594" html.valueishtml="0"  name=crt_user_nm_t visible="1"  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Seqno" border="0" color="0" x="6322" y="4" height="56" width="293" html.valueishtml="0"  name=seqno_t visible="0"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="0" color="0" x="9" y="8" height="60" width="439" format="[general]" html.valueishtml="0"  name=u_reqno visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.displayonly=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="457" y="8" height="60" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=crtdt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1070" y="8" height="60" width="347" format="[general]" html.valueishtml="0"  name=intfcid visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="3054" y="8" height="60" width="311" format="[general]" html.valueishtml="0"  name=doc_type visible="1" dddw.name=ubs_dddw_doc_type dddw.displaycolumn=doc_type_desc dddw.datacolumn=doc_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="3374" y="8" height="60" width="261" format="#,##0" html.valueishtml="0"  name=doc_type_qty visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="3643" y="8" height="60" width="279" format="#,##0" html.valueishtml="0"  name=doc_reg_qty visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="0" color="0" x="3931" y="8" height="60" width="384" format="[general]" html.valueishtml="0"  name=proc_close_yn visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="4709" y="8" height="60" width="489" format="[general]" html.valueishtml="0"  name=docno visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1426" y="8" height="60" width="347" format="[general]" html.valueishtml="0"  name=status visible="1" dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.autoretrieve=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1783" y="8" height="60" width="421" format="[general]" html.valueishtml="0"  name=response_code visible="1" dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.autoretrieve=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2213" y="8" height="60" width="425" format="[general]" html.valueishtml="0"  name=g_orderdt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="2647" y="8" height="60" width="398" format="[general]" html.valueishtml="0"  name=g_order_user visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="0" color="0" x="4325" y="8" height="60" width="375" format="[general]" html.valueishtml="0"  name=customerid visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="0" color="0" x="5207" y="8" height="60" width="503" format="[general]" html.valueishtml="0"  name=crt_user visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="5719" y="8" height="60" width="594" format="[general]" html.valueishtml="0"  name=crt_user_nm visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="6322" y="8" height="60" width="293" format="[general]" html.valueishtml="0"  name=seqno visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=footer alignment="1" text="건수합계 :" border="0" color="0" x="9" y="12" height="60" width="439" html.valueishtml="0"  name=t_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="2" expression="rowcount() + '건'"border="0" color="0" x="457" y="12" height="60" width="603" format="[General]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

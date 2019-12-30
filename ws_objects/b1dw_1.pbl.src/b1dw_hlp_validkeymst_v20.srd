@@ -1,0 +1,46 @@
+﻿$PBExportHeader$b1dw_hlp_validkeymst_v20.srd
+$PBExportComments$[parkkh] Validkey MST Help 조회
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(30) update=yes updatewhereclause=yes key=yes name=validkey dbname="validkeymst.validkey" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=validkey_type dbname="validkeymst.validkey_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="validkeymst.status" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sale_flag dbname="validkeymst.sale_flag" )
+ column=(type=datetime update=yes updatewhereclause=yes name=idate dbname="validkeymst.idate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=iseqno dbname="validkeymst.iseqno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=partner dbname="validkeymst.partner" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=remark dbname="validkeymst.remark" )
+ retrieve="SELECT validkey,
+       validkey_type,
+       status,
+       sale_flag,
+       idate,
+       iseqno,
+       partner,
+       remark
+  FROM validkeymst   
+ WHERE sale_flag = '0' " update="validkeymst" updatewhere=1 updatekeyinplace=no )
+text(band=background alignment="2" text="ORDER BY" border="0" color="0" x="14" y="20" height="60" width="357"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="393" y="24" height="60" width="603"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1646" y="24" height="60" width="302"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="ApprovalKey" border="2" color="16777215" x="9" y="100" height="56" width="457"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Key Type" border="2" color="16777215" x="475" y="100" height="60" width="375"  name=validkey_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="16777215" x="859" y="100" height="56" width="311"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입고일" border="2" color="16777215" x="1179" y="100" height="60" width="416"  name=idate_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입고번호" border="2" color="16777215" x="1605" y="100" height="60" width="347"  name=iseqno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Shop" border="2" color="16777215" x="1961" y="100" height="56" width="517"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark" border="2" color="16777215" x="2487" y="100" height="56" width="818"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="8" height="56" width="375" format="[general]"  name=validkey_type dddw.name=b1dc_dddw_validkey_typenm_v20 dddw.displaycolumn=validkey_typenm dddw.datacolumn=validkey_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="859" y="8" height="56" width="311" format="[general]"  name=status dddw.name=b1dc_dddw_validkeymst_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1179" y="8" height="56" width="416" format="yyyy-mm-dd"  name=idate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1605" y="8" height="56" width="347" format="[general]"  name=iseqno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1961" y="8" height="56" width="517" format="[general]"  name=partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2487" y="8" height="56" width="818" format="[general]"  name=remark edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="56" width="457" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1970" y="24" height="60" width="233"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

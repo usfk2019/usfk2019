@@ -1,0 +1,71 @@
+﻿$PBExportHeader$e01d_prt_delay01.srd
+$PBExportComments$[jybaek] 연체대상자 출력 - 상세
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=412 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=dlymst_payid dbname="dlymst.payid" )
+ column=(type=decimal(2) updatewhereclause=yes name=dlymst_amount dbname="dlymst.amount" )
+ column=(type=datetime updatewhereclause=yes name=dlymst_first_date dbname="dlymst.first_date" )
+ column=(type=datetime updatewhereclause=yes name=dlymst_modify_date dbname="dlymst.modify_date" )
+ column=(type=datetime updatewhereclause=yes name=dlymst_amt_date dbname="dlymst.amt_date" )
+ column=(type=datetime updatewhereclause=yes name=reqdtl_trdt dbname="reqdtl.trdt" )
+ column=(type=decimal(2) updatewhereclause=yes name=reqdtl_tramt dbname="reqdtl.tramt" )
+ column=(type=decimal(0) updatewhereclause=yes name=reqdtl_trcnt dbname="reqdtl.trcnt" )
+ column=(type=char(14) updatewhereclause=yes name=billinginfo_customerid dbname="billinginfo.customerid" )
+ column=(type=char(120) updatewhereclause=yes name=compute_0010 dbname="compute_0010" )
+ column=(type=char(50) updatewhereclause=yes name=trcode_trcodnm dbname="trcode.trcodnm" )
+ column=(type=datetime updatewhereclause=yes name=ccur_date dbname="dlymst.cur_date" )
+ retrieve="SELECT  DLYMST.PAYID ,
+           DLYMST.AMOUNT ,
+           DLYMST.FIRST_DATE ,
+           DLYMST.MODIFY_DATE ,
+           DLYMST.AMT_DATE ,
+           REQDTL.TRDT ,
+           REQDTL.TRAMT ,
+           REQDTL.TRCNT ,
+           bil.customerid ,
+           nvl(bil.bil_addr1,'') || nvl(bil.bil_addr2,'') ,
+           TRCODE.TRCODNM ,
+           sysdate cur_date    
+        FROM DLYMST ,
+          	      REQDTL ,
+	      billinginfo bil,
+	      TRCODE     
+        WHERE ( DLYMST.PAYID = REQDTL.PAYID ) and
+          ( DLYMST.PAYID = bil.customerid ) and
+          ( REQDTL.TRCOD = TRCODE.TRCOD ) and
+          ( ( bil.overdue_MONTHS is not null ) and
+          ( REQDTL.MARK <> 'D' OR REQDTL.MARK IS NULL) )  "  sort="dlymst_payid A reqdtl_trdt A " )
+group(level=1 header.height=0 trailer.height=4 by=("dlymst_payid" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2331" y="104" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="2373" y="104" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="18" y="20" height="88" width="4882"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="736" y="4" height="64" width="1861" format="[general]"  name=compute_0010 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4224" y="4" height="64" width="599" format="[general]"  name=trcode_trcodnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="3808" y="4" height="64" width="352" format="#,##0"  name=reqdtl_tramt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="3442" y="4" height="64" width="343" format="yyyy-mm-dd"  name=reqdtl_trdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="3077" y="4" height="64" width="343" format="yyyy-mm-dd"  name=dlymst_modify_date edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="2619" y="4" height="64" width="379" format="#,##0"  name=dlymst_amount edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="370" y="4" height="64" width="343" format="[general]"  name=billinginfo_customerid dddw.name=e01dc_dddw_customerid dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="59" y="4" height="64" width="288" format="[general]"  name=dlymst_payid edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="37" y1="76" x2="4837" y2="76"  name=l_5 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+line(band=trailer.1 x1="37" y1="0" x2="4837" y2="0"  name=l_3 visible="1~tif(getrow()=long(describe(~"datawindow.lastrowonpage~")), 0, 1)" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="37" y1="4" x2="4837" y2="4"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="3927" y="180" height="56" width="741"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="3922" y="244" height="60" width="741" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header x1="37" y1="408" x2="4837" y2="408"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="주소" border="0" color="0" x="1211" y="340" height="56" width="178"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="거래유형" border="0" color="0" x="4224" y="340" height="56" width="599"  name=reqdtl_trcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="거래금액" border="0" color="0" x="3781" y="340" height="56" width="453"  name=reqdtl_tramt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="거래일자" border="0" color="0" x="3433" y="340" height="56" width="357"  name=reqdtl_trdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="상태갱신일" border="0" color="0" x="3031" y="340" height="56" width="430"  name=dlymst_modify_date_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="연체금액" border="0" color="0" x="2610" y="340" height="56" width="453"  name=dlymst_amount_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="연체고객명" border="0" color="0" x="370" y="340" height="56" width="558"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="번호" border="0" color="0" x="59" y="340" height="56" width="288"  name=dlymst_payid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="37" y1="320" x2="4837" y2="320"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+
+sparse(names="dlymst_payid	dlymst_amount	dlymst_modify_date	billinginfo_customerid	compute_0010")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

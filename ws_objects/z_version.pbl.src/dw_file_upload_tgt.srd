@@ -1,0 +1,54 @@
+﻿$PBExportHeader$dw_file_upload_tgt.srd
+$PBExportComments$파일 업로드 대상
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=file_id dbname="syspgm_ver.file_id" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=file_path dbname="syspgm_ver.file_path" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=file_comment dbname="syspgm_ver.file_comment" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=file_dt dbname="syspgm_ver.file_dt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="syspgm_ver.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="syspgm_ver.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="syspgm_ver.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="syspgm_ver.updtdt" )
+ column=(type=number updatewhereclause=yes name=chk dbname="chk" )
+ retrieve="SELECT FILE_ID
+     , FILE_PATH
+     , FILE_COMMENT
+     , FILE_DT
+     , CRT_USER
+     , CRTDT
+     , UPDT_USER
+     , UPDTDT
+     , 0 CHK
+  FROM SYSPGM_VER" update="SYSPGM_VER" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="파일명" border="6" color="33554432" x="9" y="4" height="60" width="475" html.valueishtml="0"  name=file_id_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+text(band=header alignment="2" text="파일경로" border="6" color="33554432" x="494" y="4" height="60" width="887" html.valueishtml="0"  name=file_path_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+text(band=header alignment="2" text="파일 Comment" border="6" color="33554432" x="1390" y="4" height="60" width="951" html.valueishtml="0"  name=file_comment_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+text(band=header alignment="2" text="업로드일시" border="6" color="33554432" x="2350" y="4" height="60" width="411" html.valueishtml="0"  name=file_dt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+text(band=header alignment="2" text="생성자" border="6" color="33554432" x="2770" y="4" height="60" width="247" html.valueishtml="0"  name=crt_user_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+text(band=header alignment="2" text="생성일시" border="6" color="33554432" x="3026" y="4" height="60" width="603" html.valueishtml="0"  name=crtdt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+text(band=header alignment="2" text="수정자" border="6" color="33554432" x="3639" y="4" height="60" width="265" html.valueishtml="0"  name=updt_user_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+text(band=header alignment="2" text="수정일시" border="6" color="33554432" x="3913" y="4" height="60" width="603" html.valueishtml="0"  name=updtdt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="33554432" x="9" y="4" height="76" width="475" format="[general]" html.valueishtml="0"  name=file_id visible="1" edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="33554432" x="494" y="4" height="76" width="887" format="[general]" html.valueishtml="0"  name=file_path visible="1" edit.limit=150 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="33554432" x="1390" y="4" height="76" width="951" format="[general]" html.valueishtml="0"  name=file_comment visible="1" edit.limit=150 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="33554432" x="2350" y="4" height="76" width="411" format="[general]" html.valueishtml="0"  name=file_dt visible="1" edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="33554432" x="2770" y="4" height="76" width="247" format="[general]" html.valueishtml="0"  name=crt_user visible="1" edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="33554432" x="3026" y="4" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=crtdt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="33554432" x="3639" y="4" height="76" width="265" format="[general]" html.valueishtml="0"  name=updt_user visible="1" edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="33554432" x="3913" y="4" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=updtdt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

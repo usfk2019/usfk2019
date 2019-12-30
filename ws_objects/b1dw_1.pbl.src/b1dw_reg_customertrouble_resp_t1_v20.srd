@@ -1,0 +1,184 @@
+﻿$PBExportHeader$b1dw_reg_customertrouble_resp_t1_v20.srd
+$PBExportComments$[hcjung] 고객민원처리 및 마감 tab1
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1032 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=customer_trouble_troubleno dbname="customer_trouble.troubleno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_troubletype dbname="customer_trouble.troubletype" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=customer_trouble_customerid dbname="customer_trouble.customerid" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_receiptdt dbname="customer_trouble.receiptdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_requestdt dbname="customer_trouble.requestdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_receipt_user dbname="customer_trouble.receipt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_partner dbname="customer_trouble.partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_svccod dbname="customer_trouble.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_priceplan dbname="customer_trouble.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_close_partner dbname="customer_trouble.close_partner" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=customer_trouble_close_note dbname="customer_trouble.close_note" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=customer_trouble_send_msg dbname="customer_trouble.send_msg" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=customer_trouble_sms_yn dbname="customer_trouble.sms_yn" initial="N" values="Yes	Y/No	N/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=customer_trouble_email_yn dbname="customer_trouble.email_yn" initial="N" values="Yes	Y/No	N/" )
+ column=(type=char(300) update=yes updatewhereclause=yes name=customer_trouble_trouble_note dbname="customer_trouble.trouble_note" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=customer_trouble_closeyn dbname="customer_trouble.closeyn" initial="N" values="Yes	Y/No	N/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_close_user dbname="customer_trouble.close_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_closedt dbname="customer_trouble.closedt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_crtdt dbname="customer_trouble.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_updtdt dbname="customer_trouble.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=customer_trouble_pgm_id dbname="customer_trouble.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_crt_user dbname="customer_trouble.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_updt_user dbname="customer_trouble.updt_user" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=customer_trouble_customernm dbname="customer_trouble.customernm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_trouble_status dbname="customer_trouble.trouble_status" initial="A01" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_modelno dbname="customer_trouble.modelno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=customer_trouble_ssno dbname="customer_trouble.ssno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_cregno dbname="customer_trouble.cregno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_country dbname="customer_trouble.country" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_sacnum dbname="customer_trouble.sacnum" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=customer_trouble_callforwardno dbname="customer_trouble.callforwardno" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=customer_trouble_sendno dbname="customer_trouble.sendno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=customer_trouble_pid dbname="customer_trouble.pid" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=customer_trouble_validkey dbname="customer_trouble.validkey" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=customer_trouble_phone dbname="customer_trouble.phone" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_inid dbname="customer_trouble.inid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_outid dbname="customer_trouble.outid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_inid_after dbname="customer_trouble.inid_after" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_outid_after dbname="customer_trouble.outid_after" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_restype dbname="customer_trouble.restype" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=customer_trouble_contractseq dbname="customer_trouble.contractseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_receipt_partner dbname="customer_trouble.receipt_partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_close_troubletype dbname="customer_trouble.close_troubletype" )
+ column=(type=char(10) updatewhereclause=yes name=troubletypemst_troubletypea dbname="troubletypemst.troubletypea" )
+ column=(type=char(10) updatewhereclause=yes name=troubletypea_troubletypeb dbname="troubletypea.troubletypeb" )
+ column=(type=char(10) updatewhereclause=yes name=troubletypeb_troubletypec dbname="troubletypeb.troubletypec" )
+ column=(type=char(1) updatewhereclause=yes name=partner_auth dbname="troubletypemst.partner_auth" )
+ retrieve="  SELECT ~"CUSTOMER_TROUBLE~".~"TROUBLENO~",   
+         ~"CUSTOMER_TROUBLE~".~"TROUBLETYPE~",   
+         ~"CUSTOMER_TROUBLE~".~"CUSTOMERID~",   
+         ~"CUSTOMER_TROUBLE~".~"RECEIPTDT~",    
+         ~"CUSTOMER_TROUBLE~".~"REQUESTDT~",   
+         ~"CUSTOMER_TROUBLE~".~"RECEIPT_USER~",   
+         ~"CUSTOMER_TROUBLE~".~"PARTNER~",   
+         ~"CUSTOMER_TROUBLE~".~"SVCCOD~",    
+         ~"CUSTOMER_TROUBLE~".~"PRICEPLAN~",    
+         ~"CUSTOMER_TROUBLE~".~"CLOSE_PARTNER~",    
+         ~"CUSTOMER_TROUBLE~".~"CLOSE_NOTE~",    
+         ~"CUSTOMER_TROUBLE~".~"SEND_MSG~",     
+         ~"CUSTOMER_TROUBLE~".~"SMS_YN~",     
+         ~"CUSTOMER_TROUBLE~".~"EMAIL_YN~",   
+         ~"CUSTOMER_TROUBLE~".~"TROUBLE_NOTE~",   
+         ~"CUSTOMER_TROUBLE~".~"CLOSEYN~",   
+         ~"CUSTOMER_TROUBLE~".~"CLOSE_USER~",   
+         ~"CUSTOMER_TROUBLE~".~"CLOSEDT~",   
+         ~"CUSTOMER_TROUBLE~".~"CRTDT~",   
+         ~"CUSTOMER_TROUBLE~".~"UPDTDT~",   
+         ~"CUSTOMER_TROUBLE~".~"PGM_ID~",   
+         ~"CUSTOMER_TROUBLE~".~"CRT_USER~",   
+         ~"CUSTOMER_TROUBLE~".~"UPDT_USER~",   
+			~"CUSTOMER_TROUBLE~".~"CUSTOMERNM~",
+         ~"CUSTOMER_TROUBLE~".~"TROUBLE_STATUS~",   
+         ~"CUSTOMER_TROUBLE~".~"MODELNO~",
+			~"CUSTOMER_TROUBLE~".~"SSNO~",
+			~"CUSTOMER_TROUBLE~".~"CREGNO~",
+			~"CUSTOMER_TROUBLE~".~"COUNTRY~",
+			~"CUSTOMER_TROUBLE~".~"SACNUM~",
+			~"CUSTOMER_TROUBLE~".~"CALLFORWARDNO~",
+			~"CUSTOMER_TROUBLE~".~"SENDNO~",
+			~"CUSTOMER_TROUBLE~".~"PID~",
+			~"CUSTOMER_TROUBLE~".~"VALIDKEY~",
+			~"CUSTOMER_TROUBLE~".~"PHONE~",
+			~"CUSTOMER_TROUBLE~".~"INID~",
+			~"CUSTOMER_TROUBLE~".~"OUTID~",
+			~"CUSTOMER_TROUBLE~".~"INID_AFTER~",
+			~"CUSTOMER_TROUBLE~".~"OUTID_AFTER~",
+			~"CUSTOMER_TROUBLE~".~"RESTYPE~",
+			~"CUSTOMER_TROUBLE~".~"CONTRACTSEQ~",
+			~"CUSTOMER_TROUBLE~".~"RECEIPT_PARTNER~",
+			~"CUSTOMER_TROUBLE~".~"CLOSE_TROUBLETYPE~",
+         ~"TROUBLETYPEMST~".~"TROUBLETYPEA~",   
+         ~"TROUBLETYPEA~".~"TROUBLETYPEB~",   
+         ~"TROUBLETYPEB~".~"TROUBLETYPEC~",   
+         ~"TROUBLETYPEMST~".~"PARTNER_AUTH~"
+    FROM ~"CUSTOMER_TROUBLE~",   
+         ~"TROUBLETYPEA~",   
+         ~"TROUBLETYPEB~",   
+         ~"TROUBLETYPEMST~"  
+   WHERE ( troubletypea.troubletypeb = troubletypeb.troubletypeb (+)) and  
+         ( troubletypemst.troubletypea = troubletypea.troubletypea (+)) and  
+         ( customer_trouble.troubletype = troubletypemst.troubletype (+))" update="CUSTOMER_TROUBLE" updatewhere=0 updatekeyinplace=no )
+line(band=header x1="453" y1="44" x2="453" y2="908"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="1097" y1="52" x2="1097" y2="592"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="1495" y1="40" x2="1495" y2="584"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+rectangle(band=detail x="18" y="16" height="976" width="3369"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="23" y="20" height="972" width="439"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="5" pen.width="5" pen.color="33554431"  background.mode="2" background.color="33554431" )
+rectangle(band=detail x="2135" y="120" height="300" width="439"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="5" pen.width="5" pen.color="33554431"  background.mode="2" background.color="33554431" )
+rectangle(band=detail x="1097" y="20" height="508" width="402"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="5" pen.width="5" pen.color="33554431"  background.mode="2" background.color="33554431" )
+line(band=detail x1="2569" y1="120" x2="2569" y2="416"  name=l_12 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2135" y1="116" x2="2135" y2="416"  name=l_18 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="고객번호" border="0" color="0" x="1106" y="36" height="60" width="384"  name=customer_trouble_customerid_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="4" color="0" x="2139" y="32" height="64" width="1225" format="[general]"  name=customer_trouble_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="장애유형" border="0" color="0" x="1111" y="440" height="60" width="389"  name=customer_trouble_troubletype_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=70 border="5" color="0" x="480" y="552" height="408" width="2875" format="[general]"  name=customer_trouble_trouble_note edit.limit=300 edit.case=any edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="36" height="64" width="599" format="[general]"  name=customer_trouble_troubleno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="16777215" x="1522" y="36" height="64" width="594" format="[general]"  name=customer_trouble_customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+text(band=detail alignment="2" text="민원유형중분류" border="0" color="0" x="3575" y="996" height="60" width="407"  name=t_2 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="SMS 알림" border="0" color="0" x="4384" y="32" height="60" width="384"  name=t_27 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="5" color="0" x="3602" y="180" height="64" width="594" format="[general]"  name=customer_trouble_cregno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="사업자번호" border="0" color="0" x="3589" y="104" height="60" width="384"  name=t_7 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="인증Key" border="0" color="0" x="3579" y="452" height="60" width="389"  name=t_23 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="착신번호" border="0" color="0" x="4347" y="684" height="60" width="389"  name=t_10 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="발신번호" border="0" color="0" x="4366" y="864" height="60" width="389"  name=t_11 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=34 alignment="0" tabsequence=32766 border="5" color="0" x="3575" y="532" height="64" width="599" format="[general]"  name=customer_trouble_validkey visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=33 alignment="0" tabsequence=32766 border="5" color="0" x="3643" y="352" height="64" width="576" format="[general]"  name=customer_trouble_pid visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="고객명" border="0" color="0" x="3589" y="20" height="60" width="402"  name=t_14 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="PIN#" border="0" color="0" x="3643" y="268" height="60" width="402"  name=t_13 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="민원유형대분류" border="0" color="0" x="3547" y="832" height="60" width="389"  name=t_1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="4379" y="328" height="160" width="2702" format="[general]"  name=customer_trouble_send_msg visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="전송 메시지" border="0" color="0" x="4366" y="224" height="60" width="389"  name=t_20 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=46 alignment="0" tabsequence=32766 border="5" color="16777215" x="3561" y="900" height="64" width="599" format="[general]"  name=troubletypeb_troubletypec visible="1~t0" dddw.name=b1dc_dddw_troubletypec_v20 dddw.displaycolumn=troubletypecnm dddw.datacolumn=troubletypec dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+text(band=detail alignment="2" text="E-mail 알림" border="0" color="0" x="3570" y="1184" height="60" width="389"  name=t_26 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="민원처리권한" border="0" color="0" x="3639" y="632" height="60" width="384"  name=customer_trouble_partner_t visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="3589" y="1276" height="64" width="594" format="[general]"  name=customer_trouble_sms_yn visible="1~t0" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="0" color="0" x="4370" y="124" height="64" width="594" format="[general]"  name=customer_trouble_email_yn visible="1~t0" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="접속번호" border="0" color="0" x="4379" y="500" height="60" width="389"  name=t_9 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="장애국가" border="0" color="0" x="4366" y="1036" height="60" width="389"  name=t_8 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="0" tabsequence=32766 border="5" color="0" x="4347" y="952" height="60" width="576" format="[general]"  name=customer_trouble_sendno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="5" color="0" x="4366" y="600" height="60" width="599" format="[general]"  name=customer_trouble_sacnum visible="1~t0" dddw.name=b0dc_dddw_sacnum dddw.displaycolumn=sacnum dddw.datacolumn=sacnum dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=47 alignment="0" tabsequence=32766 border="0" color="0" x="3593" y="740" height="64" width="594" format="[general]"  name=partner_auth visible="1~t0" dddw.name=b1dc_dddw_trouble_auth dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="5" color="0" x="4389" y="768" height="60" width="594" format="[general]"  name=customer_trouble_callforwardno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="5" color="0" x="4347" y="1116" height="64" width="599" format="[general]"  name=customer_trouble_country visible="1~t0" dddw.name=b0dc_dddw_country dddw.displaycolumn=countrynm dddw.datacolumn=countrycod dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="대상서비스" border="0" color="0" x="1111" y="136" height="60" width="384"  name=customer_trouble_svccod_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="가격정책" border="0" color="0" x="2153" y="136" height="60" width="402"  name=t_24  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="접수번호" border="0" color="0" x="46" y="36" height="60" width="389"  name=customer_trouble_troubleno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="계약번호" border="0" color="0" x="46" y="136" height="60" width="389"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="접수내역" border="0" color="0" x="41" y="548" height="60" width="389"  name=customer_trouble_trouble_note_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="처리요청일" border="0" color="0" x="46" y="236" height="60" width="384"  name=t_25  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="처리상태" border="0" color="0" x="1097" y="236" height="60" width="402"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="처리처" border="0" color="0" x="2158" y="236" height="60" width="402"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="접수일자" border="0" color="0" x="41" y="336" height="60" width="389"  name=customer_trouble_receiptdt_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="접 수 자" border="0" color="0" x="1097" y="336" height="60" width="402"  name=customer_trouble_receipt_user_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="접수처" border="0" color="0" x="2162" y="336" height="60" width="389"  name=t_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1097" y1="20" x2="1097" y2="524"  name=l_19 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1495" y1="20" x2="1495" y2="524"  name=l_20 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="453" y1="20" x2="453" y2="988"  name=l_21 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=41 alignment="0" tabsequence=20 border="5" color="16777215" x="480" y="140" height="56" width="599" format="[general]"  name=customer_trouble_contractseq dddw.name=ssrt2_dddw_contractseq_new dddw.displaycolumn=contractmst_contractseq dddw.datacolumn=contractmst_contractseq dddw.percentwidth=250 dddw.lines=5 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="2" tabsequence=30 border="5" color="16777215" x="480" y="240" height="56" width="599" format="yyyy-mm-dd"  name=customer_trouble_requestdt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=44 alignment="0" tabsequence=32766 border="5" color="16777215" x="3511" y="1084" height="64" width="599" format="[general]"  name=troubletypemst_troubletypea visible="1~t0" dddw.name=ssrt2_dddw_troubletypea dddw.displaycolumn=troubletypea_troubletypeanm dddw.datacolumn=troubletypea_troubletypea dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="1518" y="232" height="64" width="594" format="[general]"  name=customer_trouble_trouble_status dddw.name=b1dc_dddw_trouble_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=3 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1518" y="140" height="56" width="594" format="[general]"  name=customer_trouble_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=10 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="23" y1="116" x2="3383" y2="116"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="23" y1="216" x2="3383" y2="216"  name=l_16 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="23" y1="316" x2="3383" y2="316"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2592" y="140" height="56" width="773" format="[general]"  name=customer_trouble_priceplan dddw.name=b1dc_dddw_priceplan_svc dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=40 border="5" color="16777215" x="2592" y="232" height="64" width="773" format="[general]"  name=customer_trouble_partner dddw.name=b1dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=160 dddw.lines=7 dddw.limit=10 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=42 alignment="0" tabsequence=32766 border="0" color="0" x="2592" y="332" height="64" width="773" format="[general]"  name=customer_trouble_receipt_partner dddw.name=b1dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="23" y1="416" x2="3383" y2="416"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="23" y1="524" x2="3383" y2="524"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="장애종류" border="0" color="0" x="23" y="440" height="60" width="425"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="5" color="16777215" x="480" y="332" height="64" width="599" format="yyyy-mm-dd"  name=customer_trouble_receiptdt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1518" y="340" height="56" width="594" format="[general]"  name=customer_trouble_receipt_user dddw.name=b1dc_dddw_userid_v20 dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=60 border="5" color="16777215" x="1518" y="440" height="64" width="1847" format="[general]"  name=customer_trouble_troubletype dddw.name=b1dc_dddw_troubletypemst dddw.displaycolumn=troubletypenm dddw.datacolumn=troubletype dddw.percentwidth=250 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=45 alignment="0" tabsequence=50 border="5" color="16777215" x="480" y="444" height="60" width="599" format="[general]"  name=troubletypea_troubletypeb dddw.name=ssrt2_dddw_troubletypeb dddw.displaycolumn=troubletypebnm dddw.datacolumn=troubletypeb_troubletypeb dddw.percentwidth=150 dddw.lines=2 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=43 alignment="0" tabsequence=32766 border="0" color="0" x="4878" y="240" height="60" width="233" format="[general]"  name=customer_trouble_close_troubletype visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

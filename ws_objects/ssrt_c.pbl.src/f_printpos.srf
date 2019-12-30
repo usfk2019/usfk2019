@@ -1,0 +1,16 @@
+﻿$PBExportHeader$f_printpos.srf
+global type f_printpos from function_object
+end type
+
+forward prototypes
+global subroutine f_printpos (string fs_buf)
+end prototypes
+
+global subroutine f_printpos (string fs_buf);Integer li_len
+
+li_len = LenA(fs_buf)
+PRN_PutBufN(fs_buf, li_len)
+	
+return
+end subroutine
+

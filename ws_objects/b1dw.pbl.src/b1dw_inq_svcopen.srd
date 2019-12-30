@@ -1,0 +1,17 @@
+﻿$PBExportHeader$b1dw_inq_svcopen.srd
+$PBExportComments$[kem] 구매확인Call - Master
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=orderno dbname="svcorder.orderno" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=customerid dbname="svcorder.customerid" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"svcorder~" ) COLUMN(NAME=~"svcorder.orderno~") COLUMN(NAME=~"svcorder.customerid~")) " update="SVCORDER" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="1" tabsequence=10 border="0" color="0" x="5" y="4" height="76" width="329" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="338" y="4" height="76" width="411" format="[general]"  name=customerid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Orderno" border="0" color="0" x="5" y="8" height="56" width="329"  name=orderno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Customerid" border="0" color="0" x="338" y="8" height="56" width="411"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

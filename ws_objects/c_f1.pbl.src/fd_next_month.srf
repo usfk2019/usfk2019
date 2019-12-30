@@ -1,0 +1,58 @@
+﻿$PBExportHeader$fd_next_month.srf
+$PBExportComments$다음달을 구하는 함수
+global type fd_next_month from function_object
+end type
+
+forward prototypes
+global function date fd_next_month (date ad_date, integer ai_day)
+end prototypes
+
+global function date fd_next_month (date ad_date, integer ai_day);//*********************************************************************
+//다음 달을 구하는 함수
+//When ai_day = 0 일경우는 날짜는 무조건 1로
+//Error code : Date('00/00/00')
+//
+// [Log]
+// kEnn : 1999-10-08 금
+//      : 다음달의 년월일중 일을 해당년월의 마지막과 비교해서 구함
+//        예)1999-01-31의 다음달은 1999-02-28이 된다.
+//*********************************************************************
+Integer li_year, li_month, li_day
+Integer li_ret_year, li_ret_month, li_ret_day
+
+li_year = Year(ad_date)
+li_month = Month(ad_date)
+li_day = Day(ad_date)
+
+If li_year = 1900 Then
+	f_msg_usr_err(210, "fd_next_month", "")
+	Return Date('00/00/00')
+End If
+
+If li_month = 12 Then
+	li_ret_year = li_year + 1
+	li_ret_month = 1
+Else
+	li_ret_year = li_year
+	li_ret_month = li_month + 1
+End If
+
+If ai_day = 0 Then
+	//Return Date('01/' + String(li_ret_month) + '/' + String(li_ret_year))
+	//Return Date(String(li_ret_year) +'/' + String(li_ret_month) + '/' + '01' )
+
+	Return Date(li_ret_year, li_ret_month, 1)
+Else
+	//Return Date(String(li_day) + '/' + String(li_ret_month) + '/' + String(li_ret_year))
+	//Return Date(String(li_ret_year) + '/' + String(li_ret_month) + '/' + String(li_day))
+
+	li_ret_day = fl_date_count_in_month(li_ret_year, li_ret_month)
+	If li_day <= li_ret_day Then
+		Return Date(li_ret_year, li_ret_month, li_day)
+	Else
+		Return Date(li_ret_year, li_ret_month, li_ret_day)
+	End If
+End If
+
+end function
+

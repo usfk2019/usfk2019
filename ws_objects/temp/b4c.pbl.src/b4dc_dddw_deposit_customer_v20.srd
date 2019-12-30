@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b4dc_dddw_deposit_customer_v20.srd
+$PBExportComments$[ohj] 보증금 고객 v20
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="customerm.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="customer_deposit.svccod" )
+ retrieve="	 SELECT CUSTOMERID
+         , CUSTOMERNM
+         , SVCCOD
+    FROM CUSTOMERM A 
+       , CUSTOMER_DEPOSIT B
+   WHERE A.CUSTOMERID = B.PAYID
+ORDER BY A.CUSTOMERID ASC   
+       , A.CUSTOMERNM ASC  " )
+line(band=detail x1="0" y1="80" x2="1129" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="12" height="60" width="302" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="334" y="12" height="60" width="759" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

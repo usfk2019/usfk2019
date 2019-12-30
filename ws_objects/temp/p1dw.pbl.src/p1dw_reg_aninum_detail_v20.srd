@@ -1,0 +1,66 @@
+﻿$PBExportHeader$p1dw_reg_aninum_detail_v20.srd
+$PBExportComments$[ohj] ANI# 등록 v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(30) update=yes updatewhereclause=yes key=yes name=validkey dbname="validinfo.validkey" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=pid dbname="validinfo.pid" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="validinfo.fromdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="validinfo.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="validinfo.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="validinfo.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="validinfo.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="validinfo.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="validinfo.status" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=svccod dbname="validinfo.svccod" )
+ column=(type=datetime update=yes updatewhereclause=yes name=todt dbname="validinfo.todt" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=customerid dbname="validinfo.customerid" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=svctype dbname="validinfo.svctype" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan dbname="validinfo.priceplan" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=contractseq dbname="validinfo.contractseq" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="validinfo.use_yn" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=langtype dbname="validinfo.langtype" )
+ retrieve="  SELECT ~"VALIDINFO~".~"VALIDKEY~",   
+         ~"VALIDINFO~".~"PID~",   
+         ~"VALIDINFO~".~"FROMDT~",  
+         ~"VALIDINFO~".~"CRTDT~",   
+         ~"VALIDINFO~".~"CRT_USER~",   
+         ~"VALIDINFO~".~"PGM_ID~",   
+         ~"VALIDINFO~".~"UPDT_USER~",   
+         ~"VALIDINFO~".~"UPDTDT~",   
+         ~"VALIDINFO~".~"STATUS~",   
+         ~"VALIDINFO~".~"SVCCOD~",   
+         ~"VALIDINFO~".~"TODT~",   
+         ~"VALIDINFO~".~"CUSTOMERID~",   
+         ~"VALIDINFO~".~"SVCTYPE~",   
+         ~"VALIDINFO~".~"PRICEPLAN~",   
+         ~"VALIDINFO~".~"CONTRACTSEQ~",   
+         ~"VALIDINFO~".~"USE_YN~",   
+         ~"VALIDINFO~".~"LANGTYPE~"  
+    FROM ~"VALIDINFO~" 
+ORDER BY ~"VALIDINFO~".~"FROMDT~" DESC, ~"VALIDINFO~".~"VALIDKEY~" ASC  
+" update="VALIDINFO" updatewhere=1 updatekeyinplace=yes )
+text(band=header alignment="2" text="Ani #" border="2" color="16777215" x="9" y="24" height="60" width="850"  name=validkey_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pin #" border="2" color="16777215" x="878" y="24" height="60" width="571"  name=pid_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용 시작일" border="2" color="16777215" x="1467" y="24" height="60" width="430"  name=fromdt_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="멘트언어" border="2" color="16777215" x="2368" y="24" height="60" width="439"  name=t_1  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="등록일" border="2" color="16777215" x="2825" y="24" height="60" width="430"  name=t_2  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용 종료일" border="2" color="16777215" x="1915" y="24" height="60" width="430"  name=t_3  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="16777215" x="27" y="136" height="60" width="206" format="[general]"  name=status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="16777215" x="251" y="136" height="60" width="210" format="[general]"  name=svccod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="16777215" x="1170" y="136" height="60" width="270" format="[general]"  name=priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="16777215" x="1463" y="136" height="60" width="128" format="[general]"  name=use_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="16777215" x="1605" y="136" height="60" width="489" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="16777215" x="942" y="136" height="60" width="215" format="[general]"  name=svctype edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="16777215" x="658" y="136" height="60" width="270" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="9" y="8" height="60" width="850" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="878" y="8" height="60" width="571" format="[general]"  name=pid edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=17 alignment="0" tabsequence=40 border="2" color="16777215" x="2363" y="8" height="60" width="443" format="[general]"  name=langtype dddw.name=p0dc_dddw_langtype_key_v20 dddw.displaycolumn=langtypenm dddw.datacolumn=langtype dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0" x="2825" y="8" height="60" width="430" format="[shortdate] [time]"  name=crtdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="2" color="16777215" x="1467" y="8" height="60" width="430" format="[shortdate] [time]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=11 alignment="2" tabsequence=30 border="2" color="0" x="1915" y="8" height="60" width="430" format="[shortdate] [time]"  name=todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

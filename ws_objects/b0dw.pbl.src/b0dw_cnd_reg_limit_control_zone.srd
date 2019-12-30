@@ -1,0 +1,47 @@
+﻿$PBExportHeader$b0dw_cnd_reg_limit_control_zone.srd
+$PBExportComments$[ohj] 한도월정액 대상 품목관리
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplan_rate2.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="priceplan_rate2.itemcod" )
+ column=(type=datetime updatewhereclause=yes name=fromdt dbname="priceplan_rate2.fromdt" )
+ column=(type=datetime updatewhereclause=yes name=todt dbname="priceplan_rate2.todt" )
+ column=(type=char(1) updatewhereclause=yes name=method dbname="priceplan_rate2.method" )
+ column=(type=char(1) updatewhereclause=yes name=target_type dbname="limit_control_zone.target_type" values="품목	I/대역	Z/" )
+ column=(type=char(1) updatewhereclause=yes name=check_gubun dbname="limit_control_zone.check_gubun" )
+ retrieve="SELECT DISTINCT A.PRICEPLAN
+     , A.ITEMCOD
+     , A.FROMDT
+     , A.TODT
+     , A.METHOD
+     , B.TARGET_TYPE
+     , B.TARGET_TYPE  AS CHECK_GUBUN
+  FROM PRICEPLAN_RATE2    A
+     , LIMIT_CONTROL_ZONE B
+     , PRICEPLANMST       C
+     , ITEMMST            D
+ WHERE A.PRICEPLAN   = B.PRICEPLAN(+)
+   AND A.ITEMCOD     = B.ITEMCOD  (+)
+   AND A.PRICEPLAN   = C.PRICEPLAN
+   AND A.ITEMCOD     = D.ITEMCOD 
+   AND (D.MAINITEM_YN = 'Y' OR D.BILITEM_YN = 'Y')
+"  sort="priceplan A itemcod A " )
+text(band=header alignment="2" text="가격정책" border="2" color="15793151" x="9" y="20" height="56" width="590"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목" border="2" color="15793151" x="608" y="20" height="56" width="658"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용개시일" border="2" color="15793151" x="1275" y="20" height="56" width="411"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용종료일" border="2" color="15793151" x="1696" y="20" height="56" width="375"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="과금방식" border="2" color="15793151" x="2080" y="20" height="56" width="736"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대상유형" border="2" color="15793151" x="2825" y="20" height="56" width="512"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="64" width="590" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2080" y="8" height="64" width="736" format="[general]"  name=method dddw.name=b0dc_dddw_method dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="608" y="8" height="64" width="658" format="[general]"  name=itemcod dddw.name=b0dc_dddw_priceplandet_item dddw.displaycolumn=itemnm dddw.datacolumn=priceplandet_itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1275" y="8" height="64" width="411" format="[shortdate] [time]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1696" y="8" height="64" width="375" format="[shortdate] [time]"  name=todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="2" tabsequence=10 border="0" color="16777215~tif( isNull(check_gubun) ,rgb(255,255,255), rgb(0,0,0) )" x="2825" y="8" height="60" width="512" format="[general]"  name=target_type radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="25793388~tif( isnull(check_gubun), rgb(108,147,137), rgb(255,255,240) )" )
+
+sparse(names="priceplan	itemcod")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

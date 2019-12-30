@@ -1,0 +1,43 @@
+﻿$PBExportHeader$b0dw_reg_det_connection_tmcod_v20.srd
+$PBExportComments$[ssong] 접속료 시간대 구성 등록  detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=svccod dbname="connection_tmcod.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="connection_tmcod.priceplan" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=opendt dbname="connection_tmcod.opendt" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=tmcod dbname="connection_tmcod.tmcod" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=opentm dbname="connection_tmcod.opentm" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=endtm dbname="connection_tmcod.endtm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="connection_tmcod.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="connection_tmcod.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="connection_tmcod.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="connection_tmcod.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="connection_tmcod.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=customer_type dbname="connection_tmcod.customer_type" )
+ retrieve="SELECT SVCCOD
+     , PRICEPLAN
+     , OPENDT
+     , TMCOD
+     , OPENTM
+     , ENDTM
+     , CRT_USER
+     , UPDT_USER
+     , CRTDT
+     , UPDTDT
+     , PGM_ID
+     , CUSTOMER_TYPE
+  FROM CONNECTION_TMCOD" update="CONNECTION_TMCOD" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="적용개시일" border="2" color="15793151" x="32" y="16" height="60" width="448"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시간대" border="2" color="15793151" x="498" y="16" height="60" width="727"  name=tmcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시작 시간(>=)" border="2" color="15793151" x="1243" y="16" height="60" width="448"  name=opentm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="종료 시간(<)" border="2" color="15793151" x="1710" y="16" height="60" width="448"  name=endtm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="2" color="16777215" x="32" y="8" height="60" width="448" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="16777215" x="498" y="8" height="60" width="727" format="[general]"  name=tmcod dddw.name=b0dc_dddw_connection_tmcod dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="2" tabsequence=50 border="2" color="16777215" x="1243" y="8" height="60" width="448" format="[general]"  name=opentm editmask.autoskip=yes editmask.mask="##:##" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="2" tabsequence=60 border="2" color="16777215" x="1710" y="8" height="60" width="448" format="[general]"  name=endtm editmask.mask="##:##" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

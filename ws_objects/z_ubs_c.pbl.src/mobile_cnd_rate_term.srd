@@ -1,0 +1,31 @@
+﻿$PBExportHeader$mobile_cnd_rate_term.srd
+$PBExportComments$[parkkh] 모델 DDDW
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=fromdt dbname="fromdt" )
+ column=(type=decimal(2) updatewhereclause=yes name=exrate dbname="exrate" )
+ column=(type=decimal(2) updatewhereclause=yes name=margin dbname="margin" )
+ retrieve="    SELECT A.FROMDT, C.RATE AS EXRATE, B.RATE AS MARGIN
+    FROM
+    (SELECT TO_DATE(:as_fromdt) AS FROMDT FROM DUAL) A,
+    (SELECT FROMDT, RATE
+      FROM MARGIN_TERM
+      WHERE FROMDT = (SELECT MAX(FROMDT) FROM MARGIN_TERM
+                                     WHERE FROMDT <= TO_DATE(:as_fromdt))) B,
+    (SELECT FROMDT, RATE
+      FROM EXCHANGERATE_TERM
+      WHERE FROMDT = (SELECT MAX(FROMDT) FROM EXCHANGERATE_TERM 
+                                      WHERE FROMDT <= TO_DATE(:as_fromdt))) C
+" arguments=(("as_fromdt", string)) )
+line(band=detail x1="50" y1="72" x2="1211" y2="72"  name=l_1 pen.style="0" pen.width="5" pen.color="255"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="50" y="232" height="60" width="169" format="[general]"  name=fromdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="5" y1="156" x2="1239" y2="156"  name=l_2 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="적용환율" border="0" color="0" x="23" y="4" height="60" width="247"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+text(band=detail alignment="1" text="마진율" border="0" color="0" x="617" y="4" height="60" width="247"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="2" color="1090519039" x="274" y="4" height="60" width="338" format="[general]"  name=exrate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="2" color="1090519039" x="869" y="4" height="60" width="338" format="[general]"  name=margin edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

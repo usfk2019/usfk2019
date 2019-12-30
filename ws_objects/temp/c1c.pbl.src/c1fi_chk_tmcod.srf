@@ -1,0 +1,57 @@
+﻿$PBExportHeader$c1fi_chk_tmcod.srf
+$PBExportComments$[ceusee] Time Code Check
+global type c1fi_chk_tmcod from function_object
+end type
+
+forward prototypes
+global function integer c1fi_chk_tmcod (string as_priceplan, string as_tmcodxy, ref integer ai_rtmcnt, string as_title)
+end prototypes
+
+global function integer c1fi_chk_tmcod (string as_priceplan, string as_tmcodxy, ref integer ai_rtmcnt, string as_title);String ls_tmcod
+
+If LeftA(as_tmcodxy, 1) = "X" Then
+	ls_tmcod = as_tmcodxy + '%'
+	
+	SELECT count(*)
+	INTO :ai_rtmcnt	
+	FROM (
+		SELECT distinct tmcod
+		FROM tmcod
+		WHERE to_char(opendt,'yyyymmdd') = ( select to_char(max(opendt),'yyyymmdd')
+								 from tmcod
+								where to_char(opendt,'yyyymmdd') <= to_char(sysdate,'yyyymmdd')
+								  and tmcod like :ls_tmcod
+								  and priceplan = :as_priceplan )
+		  AND tmcod like :ls_tmcod
+		  AND priceplan = :as_priceplan ) a;
+	If SQLCA.SQLCode < 0 Then
+		f_msg_sql_err(as_title, "SELECT count(*) FROM tmcod")
+		Return -2
+	End If
+Else
+	
+	ls_tmcod = MidA(as_tmcodxy, 2, 1)
+
+	SELECT count(*)
+	INTO :ai_rtmcnt
+	FROM (
+		SELECT distinct tmcod
+		FROM tmcod
+		WHERE to_char(opendt,'yyyymmdd') = ( select to_char(max(opendt) ,'yyyymmdd')
+								 from tmcod
+								where   to_char(opendt,'yyymmdd') <= to_char(sysdate ,'yyyyymmdd')
+								  and  substr(tmcod, 1, 1) <> 'X'
+								  and substr(tmcod, 2, 1) = :ls_tmcod
+								  and priceplan = :as_priceplan )
+		  AND substr(tmcod, 1, 1) <> 'X'
+		  AND substr(tmcod, 2, 1) = :ls_tmcod
+		  AND priceplan = :as_priceplan) a;	  
+	If SQLCA.SQLCode < 0 Then
+		f_msg_sql_err(as_title, "SELECT count(*) FROM tmcod")
+		Return -2
+	End If
+End If
+
+Return 0
+end function
+

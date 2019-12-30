@@ -1,0 +1,31 @@
+﻿$PBExportHeader$c1dw_reg_wholesale_customer.srd
+$PBExportComments$[ohj]홀세일사업자 등록 v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=156 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="customerm.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="svcmst.svccod" )
+ retrieve="SELECT DISTINCT
+       A.CUSTOMERID, A.CUSTOMERNM, C.SVCCOD
+  FROM CUSTOMERM   A
+     , CONTRACTMST B
+     , SVCMST      C
+ WHERE A.CUSTOMERID = B.CUSTOMERID
+   AND B.SVCCOD     = C.SVCCOD
+   AND B.STATUS    <>  :as_status
+   AND C.SVCTYPE   IN (:as_svctype_in, :as_svctype_out)
+" arguments=(("as_status", string),("as_svctype_in", string),("as_svctype_out", string))  sort="customerid A " )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="14" y="16" height="60" width="288"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="969" y="16" height="60" width="315"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="315" y="16" height="60" width="549"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="사업자명" border="2" color="15793151" x="457" y="92" height="60" width="1125"  name=customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사업자ID" border="2" color="15793151" x="9" y="92" height="60" width="439"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="457" y="0" height="64" width="1125" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="64" width="439" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1307" y="16" height="60" width="261"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

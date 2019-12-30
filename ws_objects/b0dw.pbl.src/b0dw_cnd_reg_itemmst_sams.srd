@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b0dw_cnd_reg_itemmst_sams.srd
+$PBExportComments$[parkkh] 품목코드등록 condition data window
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=8 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=216 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=selectcod dbname="selectcod" values="Category C	categoryC/Category B	categoryB/Category A	categoryA/" )
+ column=(type=char(10) updatewhereclause=no name=category dbname="category" )
+ column=(type=char(10) updatewhereclause=no name=svccod dbname="svccod" )
+ column=(type=char(50) updatewhereclause=no name=itemnm dbname="itemnm" values="대분류	C/중분류	B/소분류	A/" )
+ )
+text(band=detail alignment="1" text="Category" border="0" color="0" x="0" y="32" height="60" width="247"  name=category_a_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Service" border="0" color="0" x="5" y="132" height="60" width="242"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="800" y="32" height="60" width="997" format="[general]"  name=category dddw.name=b0dc_dddw_categorya dddw.displaycolumn=categoryanm dddw.datacolumn=categorya dddw.percentwidth=110 dddw.lines=7 dddw.limit=50 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1166" y="132" height="60" width="887" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Item" border="0" color="0" x="983" y="132" height="60" width="169"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="2" color="0" x="261" y="32" height="60" width="526" format="[general]"  name=selectcod ddlb.limit=10 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="261" y="132" height="60" width="704" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=120 dddw.lines=7 dddw.limit=50 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

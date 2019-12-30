@@ -1,0 +1,158 @@
+﻿$PBExportHeader$b4dw_inq_detail_inqpenaltydet.srd
+$PBExportComments$[chooys] 위약금내역조회 - Detail  DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1696 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=penaltydet_customerid dbname="penaltydet.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=decimal(0) updatewhereclause=yes name=penaltydet_contractseq dbname="penaltydet.contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=penaltydet_svccod dbname="penaltydet.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=penaltydet_prmtype dbname="penaltydet.prmtype" )
+ column=(type=datetime updatewhereclause=yes name=penaltydet_bil_fromdt dbname="penaltydet.bil_fromdt" )
+ column=(type=datetime updatewhereclause=yes name=penaltydet_termdt dbname="penaltydet.termdt" )
+ column=(type=decimal(0) updatewhereclause=yes name=penaltydet_prm_months dbname="penaltydet.prm_months" )
+ column=(type=number updatewhereclause=yes name=use_months dbname="use_months" )
+ column=(type=decimal(0) updatewhereclause=yes name=penaltydet_brk_months dbname="penaltydet.brk_months" )
+ column=(type=decimal(6) updatewhereclause=yes name=penaltydet_prm_penalty dbname="penaltydet.prm_penalty" )
+ column=(type=decimal(6) updatewhereclause=yes name=penaltydet_penalty dbname="penaltydet.penalty" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractmst_contractseq dbname="contractmst.contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_status dbname="contractmst.status" )
+ column=(type=char(20) updatewhereclause=yes name=contractmst_contractno dbname="contractmst.contractno" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_priceplan dbname="contractmst.priceplan" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_activedt dbname="contractmst.activedt" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_bil_fromdt dbname="contractmst.bil_fromdt" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_bil_todt dbname="contractmst.bil_todt" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_reg_partner dbname="contractmst.reg_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_sale_partner dbname="contractmst.sale_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_maintain_partner dbname="contractmst.maintain_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_settle_partner dbname="contractmst.settle_partner" )
+ retrieve="  SELECT ~"PENALTYDET~".~"CUSTOMERID~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         ~"PENALTYDET~".~"CONTRACTSEQ~",   
+         ~"PENALTYDET~".~"SVCCOD~",   
+         ~"PENALTYDET~".~"PRMTYPE~",   
+         ~"PENALTYDET~".~"BIL_FROMDT~",   
+         ~"PENALTYDET~".~"TERMDT~",   
+         ~"PENALTYDET~".~"PRM_MONTHS~",   
+			~"PENALTYDET~".~"PRM_MONTHS~" - ~"PENALTYDET~".~"BRK_MONTHS~" USE_MONTHS,
+         ~"PENALTYDET~".~"BRK_MONTHS~",   
+         ~"PENALTYDET~".~"PRM_PENALTY~",   
+         ~"PENALTYDET~".~"PENALTY~",   
+         ~"CONTRACTMST~".~"CONTRACTSEQ~",   
+         ~"CONTRACTMST~".~"STATUS~",   
+         ~"CONTRACTMST~".~"CONTRACTNO~",   
+         ~"CONTRACTMST~".~"PRICEPLAN~",   
+         ~"CONTRACTMST~".~"ACTIVEDT~",   
+         ~"CONTRACTMST~".~"BIL_FROMDT~",   
+         ~"CONTRACTMST~".~"BIL_TODT~",   
+         ~"CONTRACTMST~".~"REG_PARTNER~",   
+         ~"CONTRACTMST~".~"SALE_PARTNER~",   
+         ~"CONTRACTMST~".~"MAINTAIN_PARTNER~",   
+         ~"CONTRACTMST~".~"SETTLE_PARTNER~"  
+    FROM ~"CONTRACTMST~",   
+         ~"CUSTOMERM~",   
+         ~"PENALTYDET~"  
+   WHERE ( ~"CONTRACTMST~".~"CUSTOMERID~" = ~"CUSTOMERM~".~"CUSTOMERID~" ) and  
+         ( ~"CUSTOMERM~".~"CUSTOMERID~" = ~"PENALTYDET~".~"CUSTOMERID~" )    
+" )
+rectangle(band=detail x="1358" y="112" height="596" width="416"  name=r_4 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478337"  background.mode="2" background.color="29478337" )
+rectangle(band=detail x="32" y="112" height="596" width="398"  name=r_8 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31516640"  background.mode="2" background.color="81324524" )
+rectangle(band=detail x="32" y="860" height="704" width="407"  name=r_11 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31516640"  background.mode="2" background.color="81324524" )
+text(band=detail alignment="2" text="개 통 일" border="0" color="0" x="32" y="1080" height="56" width="402"  name=t_31  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="27" y="856" height="708" width="2811"  name=r_9 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="27" y="856" height="708" width="2811"  name=r_12 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="32" y="112" height="600" width="398"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478337"  background.mode="2" background.color="31516640" )
+text(band=detail alignment="2" text="약정월수" border="0" color="0" x="32" y="332" height="56" width="398"  name=svcorder_status_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="약정월수" border="0" color="0" x="32" y="332" height="56" width="398"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="27" y="108" height="604" width="2811"  name=r_6 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+line(band=detail x1="443" y1="84" x2="859" y2="84"  name=l_2 pen.style="0" pen.width="5" pen.color="27306400"  background.mode="2" background.color="27306400" )
+line(band=detail x1="901" y1="84" x2="1605" y2="84"  name=l_9 pen.style="0" pen.width="5" pen.color="27306400"  background.mode="2" background.color="27306400" )
+line(band=detail x1="27" y1="508" x2="2834" y2="508"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="408" x2="2834" y2="408"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="308" x2="2834" y2="308"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="208" x2="2834" y2="208"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="608" x2="2834" y2="608"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="708" x2="2834" y2="708"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="508" x2="2834" y2="508"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="408" x2="2834" y2="408"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="308" x2="2834" y2="308"  name=l_12 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="208" x2="2834" y2="208"  name=l_14 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="608" x2="2834" y2="608"  name=l_15 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="708" x2="2834" y2="708"  name=l_16 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="1362" y1="108" x2="1362" y2="708"  name=l_17 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="434" y1="112" x2="430" y2="708"  name=l_19 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="27" y1="508" x2="2834" y2="508"  name=l_20 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="408" x2="2834" y2="408"  name=l_21 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="308" x2="2834" y2="308"  name=l_22 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="208" x2="2834" y2="208"  name=l_23 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="608" x2="2834" y2="608"  name=l_24 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="1769" y1="108" x2="1769" y2="712"  name=l_18 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+rectangle(band=detail x="1358" y="860" height="700" width="416"  name=r_10 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478337"  background.mode="2" background.color="31516640" )
+line(band=detail x1="27" y1="956" x2="2834" y2="956"  name=l_32 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="1056" x2="2834" y2="1056"  name=l_31 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="1156" x2="2834" y2="1156"  name=l_30 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="1256" x2="2834" y2="1256"  name=l_29 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="1356" x2="2834" y2="1356"  name=l_33 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="27" y1="1456" x2="2834" y2="1456"  name=l_34 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="434" y1="860" x2="434" y2="1564"  name=l_28 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1362" y1="856" x2="1362" y2="1560"  name=l_35 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1769" y1="856" x2="1769" y2="1556"  name=l_36 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="448" y="28" height="56" width="411" format="[general]"  name=penaltydet_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="901" y="28" height="56" width="736" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="서 비 스" border="0" color="0" x="32" y="132" height="56" width="402"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="과금시작일" border="0" color="0" x="27" y="232" height="56" width="402"  name=svcorder_orderno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="사용월수" border="0" color="0" x="32" y="432" height="56" width="402"  name=svcorder_svccod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="위약월수" border="0" color="0" x="32" y="532" height="56" width="402"  name=svcorder_priceplan_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="총 위약금" border="0" color="0" x="32" y="632" height="56" width="402"  name=svcorder_prmtype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="약정유형" border="0" color="0" x="1367" y="132" height="56" width="398"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="해지기준일" border="0" color="0" x="1362" y="232" height="56" width="402"  name=svcorder_customerid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="과금시작일" border="0" color="0" x="27" y="232" height="56" width="402"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="사용월수" border="0" color="0" x="32" y="432" height="56" width="402"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="위약월수" border="0" color="0" x="32" y="532" height="56" width="402"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="총 위약금" border="0" color="0" x="32" y="632" height="56" width="402"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="약정유형" border="0" color="0" x="1367" y="132" height="56" width="398"  name=t_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="해지기준일" border="0" color="0" x="1362" y="232" height="56" width="402"  name=t_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="약정유형" border="0" color="0" x="1367" y="132" height="56" width="398"  name=t_25  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="유 치 처" border="0" color="0" x="32" y="1280" height="56" width="402"  name=t_33  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="관 리 처" border="0" color="0" x="32" y="1480" height="56" width="402"  name=t_28  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="정산사업자" border="0" color="0" x="1367" y="1480" height="56" width="402"  name=t_35  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="과금종료" border="0" color="0" x="1367" y="1180" height="56" width="398"  name=t_38  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="가격정책" border="0" color="0" x="1367" y="980" height="56" width="398"  name=t_37  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="계약상태" border="0" color="0" x="1367" y="880" height="56" width="398"  name=t_36  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="매 출 처" border="0" color="0" x="32" y="1380" height="56" width="402"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="서 비 스" border="0" color="0" x="32" y="132" height="56" width="402"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="과금시작일" border="0" color="0" x="27" y="232" height="56" width="402"  name=t_19  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="사용월수" border="0" color="0" x="32" y="432" height="56" width="402"  name=t_21  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="위약월수" border="0" color="0" x="32" y="532" height="56" width="402"  name=t_22  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="총 위약금" border="0" color="0" x="32" y="632" height="56" width="402"  name=t_23  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="계약 Seq" border="0" color="0" x="32" y="880" height="56" width="402"  name=t_29  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="계약번호" border="0" color="0" x="32" y="980" height="56" width="402"  name=t_30  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="과금시작" border="0" color="0" x="32" y="1180" height="56" width="402"  name=t_32  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="해지기준일" border="0" color="0" x="1362" y="232" height="56" width="402"  name=t_26  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="월별위약금" border="0" color="0" x="1362" y="532" height="56" width="402"  name=svcorder_ref_contractseq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="532" height="56" width="869" format="[general]"  name=penaltydet_brk_months edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="432" height="56" width="869" format="[general]"  name=use_months edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="332" height="56" width="869" format="[general]"  name=penaltydet_prm_months edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="232" height="56" width="869" format="[shortdate] [time]"  name=penaltydet_bil_fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="132" height="56" width="869" format="[general]"  name=penaltydet_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="632" height="56" width="869" format="[general]"  name=penaltydet_penalty editmask.mask="###,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="[ 계약내역 ]" border="0" color="0" x="32" y="780" height="56" width="379"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="[ 고객번호 ]" border="0" color="0" x="32" y="32" height="56" width="379"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="980" height="56" width="869" format="[general]"  name=contractmst_contractno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="880" height="56" width="869" format="[general]"  name=contractmst_contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="1080" height="56" width="869" format="[shortdate] [time]"  name=contractmst_activedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="1180" height="56" width="869" format="[shortdate] [time]"  name=contractmst_bil_fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="1280" height="56" width="869" format="[general]"  name=contractmst_reg_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="1380" height="56" width="869" format="[general]"  name=contractmst_sale_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="1480" height="56" width="869" format="[general]"  name=contractmst_maintain_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="128" height="56" width="901" format="[general]"  name=penaltydet_prmtype dddw.name=b1dc_dddw_svcpromise_svc dddw.displaycolumn=prmnm dddw.datacolumn=prmtype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="232" height="56" width="901" format="[shortdate] [time]"  name=penaltydet_termdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="532" height="56" width="901" format="[general]"  name=penaltydet_prm_penalty editmask.mask="###,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="880" height="56" width="901" format="[general]"  name=contractmst_status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="980" height="56" width="901" format="[general]"  name=contractmst_priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="1180" height="56" width="901" format="[shortdate] [time]"  name=contractmst_bil_todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="1480" height="56" width="901" format="[general]"  name=contractmst_settle_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

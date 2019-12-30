@@ -1,0 +1,19 @@
+﻿$PBExportHeader$b2dw_cnd_reg_partner_ardtl.srd
+$PBExportComments$[y.k.min] 미수금수동거래등록
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=168 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=org_partner dbname="name_3" )
+ column=(type=date updatewhereclause=no name=trdt_to dbname="name_2" )
+ column=(type=date updatewhereclause=no name=trdt_fr dbname="name_1" )
+ )
+text(band=detail alignment="0" text="거래일자" border="0" color="0" x="69" y="60" height="60" width="357"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="2" color="0" x="379" y="60" height="60" width="347" format="[general]"  name=trdt_fr editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="~~" border="0" color="0" x="754" y="60" height="60" width="46"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="0" x="827" y="60" height="60" width="347" format="[general]"  name=trdt_to editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="유치처" border="0" color="0" x="1248" y="60" height="60" width="247"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=30 border="2" color="0" x="1486" y="60" height="60" width="681" format="[general]"  name=org_partner dddw.name=b1dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

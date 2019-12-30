@@ -1,0 +1,73 @@
+﻿$PBExportHeader$p1dw_reg_master_t3.srd
+$PBExportComments$[chooys] 카드 Master 수정조회 Tab3
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=172 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=number updatewhereclause=yes key=yes name=seqno dbname="pre_bilcdr.seqno" )
+ column=(type=char(8) updatewhereclause=yes name=yyyymmdd dbname="pre_bilcdr.yyyymmdd" )
+ column=(type=datetime updatewhereclause=yes name=stime dbname="pre_bilcdr.stime" )
+ column=(type=datetime updatewhereclause=yes name=etime dbname="pre_bilcdr.etime" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="pre_bilcdr.biltime" )
+ column=(type=char(10) updatewhereclause=yes name=nodeno dbname="pre_bilcdr.nodeno" )
+ column=(type=char(30) updatewhereclause=yes name=rtelnum dbname="pre_bilcdr.rtelnum" )
+ column=(type=char(20) updatewhereclause=yes name=areacod dbname="pre_bilcdr.areacod" )
+ column=(type=number updatewhereclause=yes name=bilamt dbname="pre_bilcdr.bilamt" )
+ retrieve="  SELECT SEQNO,   
+         YYYYMMDD,   
+			STIME,
+			ETIME,
+         BILTIME,   
+         NODENO,   
+         RTELNUM, 
+			AREACOD,  
+         BILAMT
+    FROM PRE_BILCDR
+	WHERE YYYYMMDD >= :as_yyyymmdd_fr
+	AND YYYYMMDD <= :as_yyyymmdd_to
+	AND PID = :as_validkey
+ UNION ALL
+   SELECT SEQNO,   
+          YYYYMMDD,   
+		    STIME,
+			 ETIME,
+          BILTIME,   
+          NODENO,   
+          RTELNUM, 
+			 AREACOD,  
+          BILAMT  
+   FROM PRE_BILCDRH
+	WHERE YYYYMMDD >= :as_yyyymmdd_fr
+	AND YYYYMMDD <= :as_yyyymmdd_to
+	AND PID = :as_validkey
+  ORDER BY STIME DESC" update="PRE_BILCDR" updatewhere=0 updatekeyinplace=no arguments=(("as_validkey", string),("as_yyyymmdd_fr", string),("as_yyyymmdd_to", string)) )
+text(band=header alignment="1" text="Pin # :" border="0" color="0" x="9" y="28" height="60" width="297"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="관리번호 :" border="0" color="0" x="1184" y="28" height="60" width="411"  name=t_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="1614" y="28" height="60" width="530"  name=contno  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="325" y="28" height="60" width="576"  name=pid  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="통화일자" border="2" color="15793151" x="567" y="108" height="60" width="448"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신지역" border="2" color="15793151" x="3936" y="108" height="60" width="498"  name=bilamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용요금" border="2" color="15793151" x="4448" y="108" height="60" width="466"  name=areacod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화시작시간" border="2" color="15793151" x="1029" y="108" height="60" width="539"  name=stime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화종료시간" border="2" color="15793151" x="1582" y="108" height="60" width="539"  name=etime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화시간(초)" border="2" color="15793151" x="2135" y="108" height="60" width="398"  name=biltime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발신지역" border="2" color="15793151" x="2546" y="108" height="60" width="567"  name=nodeno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Seq" border="2" color="15793151" x="5" y="108" height="60" width="544"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신전화번호" border="2" color="15793151" x="3127" y="108" height="60" width="795"  name=rtelnum_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="544" format="[general]"  name=seqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="567" y="4" height="60" width="448" format="@@@@-@@-@@"  name=yyyymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1029" y="4" height="60" width="539" format="[shortdate] [time]"  name=stime editmask.mask="yy-mm-dd hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="4448" y="4" height="60" width="475" format="[general]"  name=bilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3936" y="4" height="60" width="498" format="[general]"  name=areacod dddw.name=p1dc_dddw_arecod dddw.displaycolumn=areanm dddw.datacolumn=areacod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1582" y="4" height="60" width="539" format="[shortdate] [time]"  name=etime editmask.mask="yy-mm-dd hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2135" y="4" height="60" width="398" format="#,##0"  name=biltime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2546" y="4" height="60" width="567" format="[general]"  name=nodeno dddw.name=p1dc_dddw_nodenum dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3127" y="4" height="60" width="795" format="[general]"  name=rtelnum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="금 액 :" border="0" color="0" x="3630" y="28" height="60" width="215"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="0" expression="sum(  bilamt  for all ) "border="0" color="0" x="3854" y="28" height="60" width="443" format=""  name=compute_3  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="1" text="시간 :" border="0" color="0" x="2432" y="28" height="60" width="251"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="0" expression="truncate( sum(  biltime  for all )/60, 0 ) + ~" : ~"  + String(mod(sum(biltime for all ),60) , ~"00~")"border="0" color="0" x="2693" y="28" height="60" width="507" format="[General]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,19 @@
+﻿$PBExportHeader$b8dw_cnd_prt_adinlist_by_term.srd
+$PBExportComments$[parkkh] 서비스해지신청 조건 datawindow
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=date updatewhereclause=no name=idate_fr dbname="idate_fr" )
+ column=(type=char(1) updatewhereclause=no name=ret_yn dbname="ret_yn" values="반품입고	Y/입고	N/	/" )
+ column=(type=date updatewhereclause=no name=idate_to dbname="idate_to" )
+ )
+text(band=detail alignment="1" text="입고일자" border="0" color="0" x="9" y="12" height="64" width="233"  name=activedt_fr_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="658" y="12" height="60" width="69"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="입고구분" border="0" color="0" x="1083" y="12" height="60" width="416"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="0" x="261" y="12" height="60" width="375" format="yyyy-mm-dd"  name=idate_fr editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="2" color="0" x="745" y="12" height="60" width="375" format="yyyy-mm-dd"  name=idate_to editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="2" color="0" x="1518" y="12" height="60" width="466" format="[general]"  name=ret_yn ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

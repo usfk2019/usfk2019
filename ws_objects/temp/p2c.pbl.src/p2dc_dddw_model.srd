@@ -1,0 +1,24 @@
+﻿$PBExportHeader$p2dc_dddw_model.srd
+$PBExportComments$[ceusee] 선불카드 모델
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=pricemodel dbname="salepricemodel.pricemodel" )
+ column=(type=char(50) updatewhereclause=yes name=pricemodelnm dbname="salepricemodel.pricemodelnm" )
+ column=(type=decimal(2) updatewhereclause=yes name=price dbname="salepricemodel.price" )
+ column=(type=decimal(0) updatewhereclause=yes name=extdays dbname="salepricemodel.extdays" )
+ retrieve="SELECT PRICEMODEL
+     , PRICEMODELNM
+     , PRICE
+     , EXTDAYS
+  FROM SALEPRICEMODEL 
+ ORDER BY PRICEMODELNM, PRICEMODEL ASC" update="SALEPRICEMODEL" updatewhere=0 updatekeyinplace=no  sort="pricemodelnm A " )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="8" height="60" width="837" format="[general]"  name=pricemodelnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="0" y1="76" x2="1289" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="928" y="8" height="60" width="329" format="[general]"  name=price visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1358" y="20" height="60" width="302" format="[general]"  name=pricemodel visible="1~t0" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1746" y="16" height="56" width="366" format="[general]"  name=extdays edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

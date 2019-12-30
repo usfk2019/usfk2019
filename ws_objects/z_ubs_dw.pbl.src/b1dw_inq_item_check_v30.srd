@@ -1,0 +1,40 @@
+﻿$PBExportHeader$b1dw_inq_item_check_v30.srd
+$PBExportComments$[ohj] 서비스 가입예약 v20 - master
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=fileformcd dbname="reqfileformdet.fileformcd" )
+ column=(type=char(50) updatewhereclause=yes key=yes name=fileitem dbname="reqfileformdet.fileitem" )
+ column=(type=char(10) updatewhereclause=yes name=datatype dbname="reqfileformdet.datatype" )
+ column=(type=char(10) updatewhereclause=yes name=groupno dbname="reqfileformdet.groupno" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="reqfileformdet.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=remark dbname="reqfileformdet.remark" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="reqfileformdet.crt_user" )
+ column=(type=char(10) updatewhereclause=yes name=updt_user dbname="reqfileformdet.updt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="reqfileformdet.crtdt" )
+ column=(type=datetime updatewhereclause=yes name=updt dbname="reqfileformdet.updt" )
+ column=(type=char(8) updatewhereclause=yes name=pgm_id dbname="reqfileformdet.pgm_id" )
+ column=(type=char(0) updatewhereclause=yes name=remark2 dbname="remark2" )
+ retrieve="
+SELECT 	FILEFORMCD,
+             FILEITEM,
+             DATATYPE,
+             GROUPNO,
+             ITEMCOD,
+             REMARK,
+             CRT_USER,
+             UPDT_USER,
+             CRTDT,
+             UPDT,
+             PGM_ID,
+			'' REMARK2
+ FROM	REQFILEFORMDET" update="REQFILEFORMDET" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="누락 비교항목명" border="2" color="16777215" x="9" y="8" height="80" width="1097"  name=fileitem_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="누락 항목명" border="2" color="16777215" x="1115" y="8" height="80" width="1079"  name=remark2_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="0" color="0" x="9" y="0" height="76" width="1097" format="[general]"  name=fileitem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="0" color="0" x="1115" y="0" height="76" width="1079" format="[general]"  name=remark2 dddw.name=b1dc_dddw_reqfileformdet_remark dddw.displaycolumn=remark dddw.datacolumn=fileitem dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

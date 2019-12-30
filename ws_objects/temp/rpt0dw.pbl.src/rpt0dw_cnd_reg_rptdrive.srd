@@ -1,0 +1,22 @@
+﻿$PBExportHeader$rpt0dw_cnd_reg_rptdrive.srd
+$PBExportComments$[parkkh] Page 등록 조건DW
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=196 color="536870912" )
+table(column=(type=char(5) updatewhereclause=no name=pageno_fr dbname="pageno_fr" )
+ column=(type=char(5) updatewhereclause=no name=pageno_to dbname="pageno_to" )
+ column=(type=char(50) updatewhereclause=no name=description dbname="description" )
+ column=(type=char(10) updatewhereclause=no name=selection dbname="selection" initial="A" values="All	A/Use	U/Delete 	D/" )
+ )
+groupbox(band=detail text="작업선택"border="2" color="0" x="1285" y="4" height="176" width="942"  name=gb_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="1" text="Page No" border="0" color="0" x="14" y="24" height="60" width="325"  name=recno_fr_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="352" y="24" height="60" width="270" format="[general]"  name=pageno_fr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="635" y="24" height="60" width="41"  name=recno_to_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="690" y="24" height="60" width="270" format="[general]"  name=pageno_to edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Description" border="0" color="0" x="14" y="120" height="60" width="325"  name=description_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="2" color="0" x="352" y="120" height="60" width="887" format="[general]"  name=description edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="0" x="1330" y="84" height="64" width="850" format="[general]"  name=selection radiobuttons.columns=3 radiobuttons.lefttext=yes radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

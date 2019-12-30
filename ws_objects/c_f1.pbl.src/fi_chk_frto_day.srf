@@ -1,0 +1,27 @@
+﻿$PBExportHeader$fi_chk_frto_day.srf
+$PBExportComments$시작일과 종료일이 순서대로 입력되었는지파악
+global type fi_chk_frto_day from function_object
+end type
+
+forward prototypes
+global function integer fi_chk_frto_day (date ad_frday, date ad_today)
+end prototypes
+
+global function integer fi_chk_frto_day (date ad_frday, date ad_today);//기간에서 시작일과 종료일이 순서대로 이루어진지를 파악
+//리턴코드 : 에러 = -1, -2, -3; 정상 = 0
+
+//인자가 Date Type인지를 확인
+If (Not IsDate(String(ad_frday))) Or (Not IsDate(String(ad_today))) Or &
+	IsNull(ad_frday) Or IsNull(ad_today) Then
+	Return -2
+End If
+
+If DaysAfter(ad_frday, ad_today) < 0 Then
+	Return -1
+ElseIf DaysAfter(ad_frday, ad_today) = 0 Then
+	Return -3
+End If
+
+Return 0
+end function
+

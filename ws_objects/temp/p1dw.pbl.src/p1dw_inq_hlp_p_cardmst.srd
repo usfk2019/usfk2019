@@ -1,0 +1,47 @@
+﻿$PBExportHeader$p1dw_inq_hlp_p_cardmst.srd
+$PBExportComments$[parkkh] P_cardmst pid hlp
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes name=pid dbname="p_cardmst.pid" )
+ column=(type=char(15) update=yes updatewhereclause=yes key=yes name=contno dbname="p_cardmst.contno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="p_cardmst.status" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=balance dbname="p_cardmst.balance" )
+ column=(type=datetime update=yes updatewhereclause=yes name=opendt dbname="p_cardmst.opendt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=enddt dbname="p_cardmst.enddt" )
+ retrieve="  SELECT ~"P_CARDMST~".~"PID~",   
+         ~"P_CARDMST~".~"CONTNO~",   
+         ~"P_CARDMST~".~"STATUS~",   
+         ~"P_CARDMST~".~"BALANCE~",   
+         ~"P_CARDMST~".~"OPENDT~",   
+         ~"P_CARDMST~".~"ENDDT~"  
+    FROM ~"P_CARDMST~"
+ORDER BY ~"P_CARDMST~".~"CONTNO~",   
+         ~"P_CARDMST~".~"PID~",   
+         ~"P_CARDMST~".~"STATUS~",   
+         ~"P_CARDMST~".~"BALANCE~",   
+         ~"P_CARDMST~".~"OPENDT~",   
+         ~"P_CARDMST~".~"ENDDT~" ASC   
+" update="P_CARDMST" updatewhere=1 updatekeyinplace=no )
+text(band=background alignment="2" text="ORDER BY" border="0" color="0" x="27" y="20" height="60" width="288"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="329" y="20" height="60" width="603"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="ASC/DESC " border="0" color="0" x="1504" y="20" height="60" width="352"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Pin" border="2" color="16777215" x="503" y="104" height="60" width="571"  name=pid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="관리번호" border="2" color="16777215" x="27" y="104" height="60" width="466"  name=contno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="16777215" x="1083" y="104" height="60" width="443"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="잔액" border="2" color="16777215" x="1536" y="104" height="60" width="416"  name=balance_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발행일자" border="2" color="16777215" x="1961" y="104" height="60" width="416"  name=opendt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="유효기간" border="2" color="16777215" x="2386" y="104" height="60" width="407"  name=enddt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="503" y="8" height="60" width="571" format="[general]"  name=pid edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="8" height="60" width="466" format="[general]"  name=contno edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1083" y="8" height="60" width="443" format="[general]"  name=status dddw.name=p1dc_dddw_cardstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1536" y="8" height="60" width="416" format="#,##0.00"  name=balance edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2386" y="8" height="60" width="407" format="yyyy-mm-dd"  name=enddt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1961" y="8" height="60" width="416" format="yyyy-mm-dd"  name=opendt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="64" width="9" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1870" y="20" height="60" width="151"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

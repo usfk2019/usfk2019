@@ -1,0 +1,69 @@
+﻿$PBExportHeader$f_dsp_init.srf
+$PBExportComments$[1hear]고객 Display용 초기 정의
+global type f_dsp_init from function_object
+end type
+
+forward prototypes
+global function integer f_dsp_init (string fs_buf1, string fs_buf2, integer fi_sw)
+end prototypes
+
+global function integer f_dsp_init (string fs_buf1, string fs_buf2, integer fi_sw);//Display 출력용 Function
+//fs_buf1 		: DDisplay 내용1
+//fs_buf2 		: DDisplay 내용2
+// Porgram by k.b.CHO [1hera]
+
+String	ls_ref_desc, &
+			ls_temp, ls_name[], ls_display1, ls_display2
+Integer	li_len1, li_len2
+boolean 	rtn
+
+
+DSP_INIT()
+//POS관련 설정값
+//Display
+ls_ref_desc 	= ""
+ls_temp 			= ""
+ls_temp 			= fs_get_control("S1", "B200", ls_ref_desc)
+//COM1;6;8;2;0
+If ls_temp 		= "" Then Return -99
+fi_cut_string(ls_temp, ";", ls_name[])
+
+IF DSP_IsOpen() = False THEN
+	rtn = DSP_OpenPort(ls_name[1])
+	IF rtn = False then return -1
+	rtn = DSP_SetPort(INTEGER(ls_name[2]), INTEGER(ls_name[3]), INTEGER(ls_name[4]), INTEGER(ls_name[5]))
+	IF rtn = False then return -2
+	rtn = DSP_SetTimeout()
+	IF rtn = False then return -3
+END IF
+choose case fi_sw
+	case 1
+		ls_display1 = 'Welcome to '
+		ls_display2 = 'LG Uplus !'
+		li_len1 = LenA(ls_display1)
+		li_len2 = LenA(ls_display2)
+	case 2
+		ls_display1 = trim(fs_buf1)
+		ls_display2 = trim(fs_buf2)
+		li_len1 = LenA(ls_display1)
+		li_len2 = LenA(ls_display2)
+	case 3
+		ls_display1 = '** LG Uplus **'
+		ls_display2 = 'Total :  ' + trim(fs_buf2)
+		li_len1 = LenA(ls_display1)
+		li_len2 = LenA(ls_display2)
+	case 4
+		ls_display1 = 'Received :  ' + trim(fs_buf1)
+		ls_display2 = 'Change   :  ' + trim(fs_buf2)
+		li_len1 = LenA(ls_display1)
+		li_len2 = LenA(ls_display2)
+end choose
+
+rtn = DSP_PutBuf(fs_buf1, li_len1)
+rtn = DSP_PutBuf(fs_buf2, li_len2)
+
+DSP_ClosePort()
+return  0
+
+end function
+

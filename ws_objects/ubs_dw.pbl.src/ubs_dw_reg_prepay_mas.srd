@@ -1,0 +1,62 @@
+﻿$PBExportHeader$ubs_dw_reg_prepay_mas.srd
+$PBExportComments$[jhchoi] 선수금 관리 (Master) - 2009.04.29
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=140 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=payid dbname="prepaydet.payid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=number updatewhereclause=yes name=prepaytotal dbname="prepaytotal" )
+ column=(type=number updatewhereclause=yes name=usedtotal dbname="usedtotal" )
+ column=(type=number updatewhereclause=yes name=curbalance dbname="curbalance" )
+ column=(type=number updatewhereclause=yes name=prepaytotal_m dbname="prepaytotal_m" )
+ column=(type=number updatewhereclause=yes name=usedtotal_m dbname="usedtotal_m" )
+ column=(type=number updatewhereclause=yes name=curbalance_m dbname="curbalance_m" )
+ retrieve="SELECT    PRE.PAYID
+        , CUS.CUSTOMERNM
+        , SUM(DECODE(RECTYPE, 'I', decode(sub_itemcod, null, NVL(TRAMT, 0) + NVL(TAXAMT,0),0))) AS PREPAYTOTAL
+        , SUM(DECODE(RECTYPE, 'O', decode(sub_itemcod, null, NVL(TRAMT, 0) + NVL(TAXAMT,0),0))) AS USEDTOTAL
+        , SUM(decode(sub_itemcod,null, NVL(TRAMT, 0) + NVL(TAXAMT,0),0)) AS CURBALANCE
+        , SUM(DECODE(RECTYPE, 'I', decode(sub_itemcod, null, 0, NVL(TRAMT, 0) + NVL(TAXAMT,0)))) AS PREPAYTOTAL_M
+        , SUM(DECODE(RECTYPE, 'O', decode(sub_itemcod, null, 0, NVL(TRAMT, 0) + NVL(TAXAMT,0)))) AS USEDTOTAL_m
+        , SUM(decode(sub_itemcod,null, 0,NVL(TRAMT,0) + NVL(TAXAMT,0))) AS CURBALANCE_M
+FROM    CUSTOMERM CUS, PREPAYDET PRE
+WHERE   CUS.CUSTOMERID = PRE.PAYID
+GROUP BY PRE.PAYID, CUS.CUSTOMERNM" )
+text(band=header alignment="0" text="" border="0" color="0" x="9" y="100" height="52" width="398" html.valueishtml="0"  name=a_d visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="9" y="104" height="44" width="398" html.valueishtml="0"  name=order_name visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Pay ID" border="2" color="1090519039" x="9" y="76" height="60" width="398" html.valueishtml="0"  name=payid_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Customer Name" border="2" color="1090519039" x="416" y="76" height="60" width="658" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="" border="2" color="1090519039" x="3013" y="12" height="60" width="425" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="" border="2" color="1090519039" x="3447" y="12" height="60" width="416" html.valueishtml="0"  name=t_10 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="" border="2" color="1090519039" x="1618" y="12" height="60" width="448" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="" border="2" color="1090519039" x="2075" y="12" height="60" width="457" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="단말할부제외" border="2" color="128" x="1083" y="12" height="60" width="526" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="Prepayment Total" border="2" color="128" x="1083" y="76" height="60" width="526" html.valueishtml="0"  name=prepaytotal_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="Used Total" border="2" color="128" x="1618" y="76" height="60" width="448" html.valueishtml="0"  name=usedtotal_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="Current Balance" border="2" color="128" x="2075" y="76" height="60" width="457" html.valueishtml="0"  name=curbalance_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="단말할부" border="2" color="8388608" x="2542" y="12" height="60" width="462" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="Prepay total" border="2" color="8388608" x="2542" y="76" height="60" width="462" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="Used total" border="2" color="8388608" x="3013" y="76" height="60" width="425" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="Curbalance" border="2" color="8388608" x="3447" y="76" height="60" width="416" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="0" height="68" width="398" format="[general]" html.valueishtml="0"  name=payid visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="416" y="0" height="68" width="658" format="[general]" html.valueishtml="0"  name=customernm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1083" y="0" height="68" width="526" format="#,##0.00" html.valueishtml="0"  name=prepaytotal visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1618" y="0" height="68" width="448" format="#,##0.00" html.valueishtml="0"  name=usedtotal visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2075" y="0" height="68" width="457" format="#,##0.00" html.valueishtml="0"  name=curbalance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3447" y="0" height="68" width="416" format="#,##0.00" html.valueishtml="0"  name=curbalance_m visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="3013" y="0" height="68" width="425" format="#,##0.00" html.valueishtml="0"  name=usedtotal_m visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2542" y="0" height="68" width="462" format="#,##0.00" html.valueishtml="0"  name=prepaytotal_m visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,142 @@
+﻿$PBExportHeader$fdc_get_randompwd.srf
+$PBExportComments$[chooys] 입력한 자리수 Ramdom 숫자 리턴함수
+global type fdc_get_randompwd from function_object
+end type
+
+forward prototypes
+global function string fs_get_randompwd (integer ai_cipher)
+global function string fdc_get_randompwd (integer ai_cipher, string as_method)
+end prototypes
+
+global function string fs_get_randompwd (integer ai_cipher);//ai_cipher //Random 자리수
+String ls_randomno
+String ls_tmp
+String ls_result
+Int i
+String ls_passwd[]
+
+ls_passwd[1] = "0"
+ls_passwd[2] = "1"
+ls_passwd[3] = "2"
+ls_passwd[4] = "3"
+ls_passwd[5] = "4"
+ls_passwd[6] = "5"
+ls_passwd[7] = "6"
+ls_passwd[8] = "7"
+ls_passwd[9] = "8"
+ls_passwd[10] = "9"
+ls_passwd[11] = "A"
+ls_passwd[12] = "B"
+ls_passwd[13] = "C"
+ls_passwd[14] = "D"
+ls_passwd[15] = "E"
+ls_passwd[16] = "F"
+ls_passwd[17] = "G"
+ls_passwd[18] = "H"
+ls_passwd[19] = "I"
+ls_passwd[20] = "J"
+ls_passwd[21] = "K"
+ls_passwd[22] = "L"
+ls_passwd[23] = "M"
+ls_passwd[24] = "N"
+ls_passwd[25] = "O"
+ls_passwd[26] = "P"
+ls_passwd[27] = "Q"
+ls_passwd[28] = "R"
+ls_passwd[29] = "S"
+ls_passwd[30] = "T"
+ls_passwd[31] = "U"
+ls_passwd[32] = "V"
+ls_passwd[33] = "W"
+ls_passwd[34] = "X"
+ls_passwd[35] = "Y"
+ls_passwd[36] = "Z"
+
+ls_randomno = String(Rand(35))
+
+FOR i=1 TO ai_cipher
+	ls_tmp = String(Rand(10)-1)
+	ls_randomno = ls_randomno + ls_tmp
+	
+	ls_result = ls_result + ls_passwd[Integer(ls_tmp)]
+NEXT
+
+IF LenA(ls_result) <> ai_cipher THEN
+	ls_result = "0"
+END IF
+
+return ls_result
+
+
+
+
+
+
+end function
+
+global function string fdc_get_randompwd (integer ai_cipher, string as_method);//ai_cipher //Random 자리수
+String ls_randomno
+String ls_tmp
+String ls_result
+Int i
+String ls_passwd[]
+
+ls_result = "" 
+
+If as_method = "1" Then
+	ls_passwd[1] = "0"
+	ls_passwd[2] = "1"
+	ls_passwd[3] = "2"
+	ls_passwd[4] = "3"
+	ls_passwd[5] = "4"
+	ls_passwd[6] = "5"
+	ls_passwd[7] = "6"
+	ls_passwd[8] = "7"
+	ls_passwd[9] = "8"
+	ls_passwd[10] = "9"
+	ls_passwd[11] = "A"
+	ls_passwd[12] = "B"
+	ls_passwd[13] = "C"
+	ls_passwd[14] = "D"
+	ls_passwd[15] = "E"
+	ls_passwd[16] = "F"
+	ls_passwd[17] = "G"
+	ls_passwd[18] = "H"
+	ls_passwd[19] = "I"
+	ls_passwd[20] = "J"
+	ls_passwd[21] = "K"
+	ls_passwd[22] = "L"
+	ls_passwd[23] = "M"
+	ls_passwd[24] = "N"
+	ls_passwd[25] = "O"
+	ls_passwd[26] = "P"
+	ls_passwd[27] = "Q"
+	ls_passwd[28] = "R"
+	ls_passwd[29] = "S"
+	ls_passwd[30] = "T"
+	ls_passwd[31] = "U"
+	ls_passwd[32] = "V"
+	ls_passwd[33] = "W"
+	ls_passwd[34] = "X"
+	ls_passwd[35] = "Y"
+	ls_passwd[36] = "Z"
+	
+	FOR i=1 TO ai_cipher
+		ls_tmp = String(Rand(36))
+		ls_result = ls_result + ls_passwd[Integer(ls_tmp)]
+	NEXT
+
+	IF LenA(ls_result) <> ai_cipher THEN
+		ls_result = ""
+	END IF
+End If
+
+return ls_result
+
+
+
+
+
+
+end function
+

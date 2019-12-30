@@ -1,0 +1,37 @@
+﻿$PBExportHeader$b1dw_inq_popup_svcorderad.srd
+$PBExportComments$[chooys] 서비스 신청내역 조회/취소 PopUp DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=svcorder_orderno dbname="svcorder.orderno" )
+ column=(type=char(10) updatewhereclause=yes name=admst_modelno dbname="admst.modelno" )
+ column=(type=char(30) updatewhereclause=yes name=admst_serialno dbname="admst.serialno" )
+ column=(type=decimal(0) updatewhereclause=yes name=admst_adseq dbname="admst.adseq" )
+ column=(type=char(10) updatewhereclause=yes name=admst_makercd dbname="admst.makercd" )
+ retrieve="  SELECT ~"SVCORDER~".~"ORDERNO~",   
+         ~"ADMST~".~"MODELNO~",   
+         ~"ADMST~".~"SERIALNO~",   
+         ~"ADMST~".~"ADSEQ~",
+         ~"ADMST~".~"MAKERCD~"
+    FROM ~"SVCORDER~",   
+         ~"ADMST~"  
+   WHERE ( ~"SVCORDER~".~"ORDERNO~" = ~"ADMST~".~"ORDERNO~" ) and  
+         ( ( to_char(~"SVCORDER~".~"ORDERNO~") = :as_order )   
+         )   
+ORDER BY ~"SVCORDER~".~"ORDERNO~" ASC   
+" arguments=(("as_order", string)) )
+text(band=header alignment="2" text="신청번호" border="2" color="16777215" x="9" y="8" height="60" width="398"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="장비모델" border="2" color="16777215" x="416" y="8" height="60" width="562"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Serialno No." border="2" color="16777215" x="987" y="8" height="60" width="585"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="seq" border="2" color="16777215" x="1582" y="8" height="60" width="384"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="제조사" border="2" color="16777215" x="1975" y="8" height="60" width="622"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="398" format="[general]"  name=svcorder_orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="416" y="8" height="60" width="562" format="[general]"  name=admst_modelno dddw.name=b1dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="987" y="8" height="60" width="585" format="[general]"  name=admst_serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1582" y="8" height="60" width="384" format="[general]"  name=admst_adseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1975" y="8" height="60" width="622" format="[general]"  name=admst_makercd dddw.name=b8dc_dddw_admaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

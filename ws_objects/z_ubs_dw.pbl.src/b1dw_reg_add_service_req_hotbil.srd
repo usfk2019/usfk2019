@@ -1,0 +1,56 @@
+﻿$PBExportHeader$b1dw_reg_add_service_req_hotbil.srd
+$PBExportComments$[mkhan] Hotbill 해지정산내역 입력 결과
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=232 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=reqno dbname="svc_req_mst.reqno" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="svc_req_mst.contractseq" )
+ column=(type=datetime updatewhereclause=yes name=sale_month dbname="hot_partner_sale.sale_month" )
+ column=(type=char(50) updatewhereclause=yes name=hot_partner_sale_fileitem dbname="hot_partner_sale.fileitem" )
+ column=(type=char(10) updatewhereclause=yes name=hot_partner_sale_itemcod dbname="hot_partner_sale.itemcod" )
+ column=(type=number updatewhereclause=yes name=saleamt dbname="saleamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=hot_partner_sale_seq dbname="hot_partner_sale.seq" )
+ retrieve="select         a.reqno, 
+                a.contractseq, 
+                b.sale_month, 
+                b.fileitem,
+					 b.itemcod,
+                sum(saleamt) as saleamt,
+					b.seq
+from svc_req_mst a, hot_partner_sale b
+where a.req_code = 'HOTBIL'
+    and a.reqno = :al_reqno
+    and a.customerid = :as_customerid
+    and a.reqno = b.ref_reqno
+    and a.contractseq = b.contractseq
+     and a.contractseq = :al_contractseq
+group by a.reqno, a.contractseq,  b.sale_month, b.fileitem, b.itemcod, b.seq
+order by b.sale_month, a.contractseq, b.seq" arguments=(("al_reqno", number),("as_customerid", string),("al_contractseq", number)) )
+group(level=1 header.height=0 trailer.height=152 by=("reqno" , "contractseq" , "sale_month" ) header.color="536870912" trailer.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="37" y="0" height="60" width="347" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="398" y="0" height="60" width="521" format="[shortdate] [time]"  name=sale_month editmask.mask="yyyy/mm/dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="933" y="0" height="60" width="1211" format="[general]"  name=hot_partner_sale_fileitem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=summary x1="366" y1="424" x2="786" y2="424"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=summary x1="1911" y1="72" x2="2331" y2="72"  name=l_2 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="0" x="2158" y="0" height="60" width="530" format="#,##0"  name=saleamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum(saleamt for group 1)"border="2" color="8388736" x="2162" y="80" height="60" width="530" format="#,##0"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="신청번호" border="2" color="15793151" x="37" y="92" height="56" width="347"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약번호" border="2" color="15793151" x="37" y="172" height="56" width="347"  name=tramt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="매출일자" border="2" color="15793151" x="398" y="172" height="56" width="521"  name=preamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=header id=1 alignment="0" tabsequence=32766 border="2" color="0" x="402" y="92" height="60" width="347" format="[general]"  name=reqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="금액" border="2" color="15793151" x="2158" y="172" height="56" width="530"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목" border="2" color="15793151" x="933" y="172" height="56" width="1211"  name=trcodnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="1" text="(단위:원)" border="0" color="0" x="1513" y="20" height="60" width="229"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="sum(saleamt for group 1)"border="2" color="8388736" x="2322" y="92" height="60" width="366" format="#,##0"  name=compute_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="월      계 (총합):" border="0" color="8388736" x="1760" y="92" height="56" width="549"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="2" background.color="15793151" )
+text(band=header alignment="1" text="월      계 (과금):" border="0" color="255" x="1760" y="20" height="56" width="549"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="2" background.color="15793151" )
+text(band=trailer.1 alignment="1" text="월      계 (과금):" border="0" color="255" x="1175" y="12" height="56" width="969"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="2" background.color="15793151" )
+text(band=trailer.1 alignment="1" text="월      계 (총합):" border="0" color="8388736" x="1175" y="84" height="56" width="969"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="2" background.color="15793151" )
+compute(band=header alignment="1" expression="sum(if ( isnull(len( hot_partner_sale_itemcod )) , 0, saleamt) for group 1)"border="2" color="255" x="2322" y="20" height="56" width="366" format="#,##0"  name=compute_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum(if ( isnull(len( hot_partner_sale_itemcod )) , 0, saleamt) for group 1)"border="2" color="255" x="2162" y="12" height="56" width="530" format="#,##0"  name=compute_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+
+sparse(names="contractseq	sale_month")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

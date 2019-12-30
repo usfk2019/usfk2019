@@ -1,0 +1,58 @@
+﻿$PBExportHeader$b5dw_reg_hotbill.srd
+$PBExportComments$[ceusee] Hotbill 처리 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=192 color="536870912" )
+summary(height=272 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=payid dbname="payid" )
+ column=(type=datetime updatewhereclause=yes name=trdt dbname="trdt" )
+ column=(type=char(8) updatewhereclause=yes name=reqnum dbname="reqnum" )
+ column=(type=decimal(0) updatewhereclause=yes name=seq dbname="seq" )
+ column=(type=char(10) updatewhereclause=yes name=trcod dbname="trcod" )
+ column=(type=char(50) updatewhereclause=yes name=trcodnm dbname="trcodnm" )
+ column=(type=decimal(2) updatewhereclause=yes name=tramt dbname="tramt" )
+ column=(type=decimal(2) updatewhereclause=yes name=preamt dbname="preamt" )
+ column=(type=decimal(2) updatewhereclause=yes name=adjamt dbname="adjamt" initial="0" )
+ retrieve="select a.payid,
+       a.trdt,
+       a.reqnum, 
+       a.seq, 
+       a.trcod,
+       b.trcodnm, 
+       a.tramt,
+       c.tramt preamt,
+       a.adjamt
+  from (select trdt,payid, reqnum, seq, trcod, tramt, adjamt from hotreqdtl where trcod is not null) a,
+       (select trdt,payid, reqnum, seq, trcod,tramt from hotreqdtl where trcod is null) c,
+       trcode b      
+where  a.trcod = b.trcod and
+       c.payid = a.payid and
+       a.trdt = c.trdt and a.payid = :as_payid
+order by a.seq" arguments=(("as_payid", string)) )
+text(band=header alignment="2" text="금액" border="2" color="15793151" x="841" y="128" height="56" width="430"  name=tramt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="조정금액" border="2" color="15793151" x="1294" y="128" height="56" width="430"  name=preamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래 유형" border="2" color="15793151" x="41" y="128" height="56" width="777"  name=trcodnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=header id=2 alignment="0" tabsequence=32766 border="0" color="0" x="430" y="24" height="60" width="393" format="[shortdate] [time]"  name=trdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="청구기준일 :" border="0" color="0" x="37" y="24" height="56" width="375"  name=trdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="처리일자 :" border="0" color="0" x="882" y="24" height="56" width="466"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1367" y="24" height="56" width="393"  name=t_termdt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="2" color="0" x="841" y="4" height="60" width="430" format="[general]"  name=tramt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="41" y="12" height="56" width="777" format="[general]"  name=trcodnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=10 border="2" color="0" x="1294" y="4" height="60" width="430" format="[general]"  name=adjamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1760" y="8" height="56" width="270" format="[general]"  name=trcod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="366" y1="152" x2="786" y2="152"  name=l_2 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=summary x1="1294" y1="76" x2="1723" y2="76"  name=l_3 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=summary x1="366" y1="264" x2="786" y2="264"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="당월 합계 :" border="0" color="0" x="41" y="16" height="56" width="306"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=summary alignment="1" text="청구 합계 :" border="0" color="0" x="41" y="92" height="56" width="306"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=summary alignment="1" text="수 납 액 :" border="0" color="0" x="41" y="204" height="56" width="306"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=summary alignment="1" text="전월미납액 :" border="0" color="0" x="846" y="16" height="56" width="421"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=summary x1="366" y1="76" x2="795" y2="76"  name=l_4 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=summary id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1294" y="16" height="56" width="430" format="[general]"  name=preamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( tramt + adjamt )"border="0" color="0" x="370" y="16" height="56" width="411" format="#,##0.00"  name=balance  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="balance + preamt"border="0" color="0" x="370" y="92" height="56" width="411" format="#,##0.00"  name=sum_amt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="balance + preamt"border="0" color="0" x="370" y="204" height="56" width="411" format="#,##0.00"  name=totamt  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

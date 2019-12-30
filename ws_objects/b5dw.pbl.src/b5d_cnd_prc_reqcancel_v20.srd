@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b5d_cnd_prc_reqcancel_v20.srd
+$PBExportComments$[backgu] 청구작업절차별 취소 처리
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=4 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=224 color="536870912" )
+table(column=(type=char(3) updatewhereclause=no name=chargedt dbname="chargedt" )
+ column=(type=date updatewhereclause=no name=frdate dbname="frdate" )
+ column=(type=date updatewhereclause=no name=todate dbname="todate" )
+ column=(type=date updatewhereclause=no name=frdate_call dbname="frdate_call" )
+ column=(type=date updatewhereclause=no name=todate_call dbname="todate_call" )
+ )
+text(band=detail alignment="1" text="청구주기(납기일)" border="0" color="0" x="37" y="32" height="60" width="485"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="사용기간" border="0" color="0" x="133" y="124" height="60" width="389"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="549" y="32" height="60" width="777" format="[general]"  name=chargedt dddw.name=b5dc_dddw_chargedt dddw.displaycolumn=description dddw.datacolumn=chargedt dddw.percentwidth=120 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="544" y="124" height="60" width="343" format="[general]"  name=frdate editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="905" y="124" height="56" width="55"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="978" y="124" height="60" width="343" format="[general]"  name=todate editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

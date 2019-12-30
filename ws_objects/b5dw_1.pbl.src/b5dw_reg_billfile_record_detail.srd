@@ -1,0 +1,65 @@
+﻿$PBExportHeader$b5dw_reg_billfile_record_detail.srd
+$PBExportComments$[ohj] 청구file record  상세구성
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=invf_type dbname="invf_recorddet.invf_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=record dbname="invf_recorddet.record" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seqno dbname="invf_recorddet.seqno" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=itemkey dbname="invf_recorddet.itemkey" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=itemkey_desc dbname="invf_recorddet.itemkey_desc" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemkey_property dbname="invf_recorddet.itemkey_property" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=item_value dbname="invf_recorddet.item_value" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemtype dbname="invf_recorddet.itemtype" values="Value	V/PGM	P/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pgmcode dbname="invf_recorddet.pgmcode" values="Value	V/PGM	P/" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=maxlength dbname="invf_recorddet.maxlength" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pad_type dbname="invf_recorddet.pad_type" values="None	0/Left	1/Right	2/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pad_value dbname="invf_recorddet.pad_value" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=sampledata dbname="invf_recorddet.sampledata" )
+ retrieve="SELECT INVF_TYPE
+     , RECORD
+     , SEQNO
+     , ITEMKEY
+     , ITEMKEY_DESC
+     , ITEMKEY_PROPERTY
+     , ITEM_VALUE
+     , ITEMTYPE
+     , PGMCODE
+     , MAXLENGTH
+     , PAD_TYPE
+     , PAD_VALUE
+     , SAMPLEDATA
+  FROM INVF_RECORDDET
+
+" update="INVF_RECORDDET" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Seq" border="2" color="15793151" x="18" y="20" height="60" width="279"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Description" border="2" color="15793151" x="677" y="20" height="60" width="731"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item" border="2" color="15793151" x="315" y="20" height="60" width="343"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Property" border="2" color="15793151" x="1426" y="20" height="60" width="352"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Type" border="2" color="15793151" x="1797" y="20" height="60" width="347"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Value" border="2" color="15793151" x="2162" y="20" height="60" width="347"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Max Length" border="2" color="15793151" x="2528" y="20" height="60" width="347"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Put method" border="2" color="15793151" x="2894" y="20" height="60" width="352"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sample" border="2" color="15793151" x="3634" y="20" height="60" width="352"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Put Value" border="2" color="15793151" x="3264" y="20" height="60" width="352"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="2" color="16777215~tcase( mid(   itemtype , 1,1) when ~"P~" then rgb(0,0,0)  when ~"V~" then rgb(255,255,255) else rgb(0,0,0))
+" x="677" y="8" height="60" width="731" format="[general]" protect="0~tif( mid(   itemtype , 1,1) =  'V',0,1  )"  name=itemkey_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="25793388~tcase( mid(   itemtype ,1,1) when ~"P~" then rgb(255, 251, 240) when ~"V~" then rgb(108,147,137)  else rgb(255,255,255))
+" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="315" y="8" height="60" width="343" format="[general]"  name=itemkey dddw.name=b5dc_dddw_itemtype dddw.displaycolumn=itemkey dddw.datacolumn=itemkey dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="0" expression="getrow()"border="2" color="0" x="14" y="8" height="60" width="279" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=20 border="2" color="0" x="1426" y="8" height="60" width="352" format="[general]"  name=itemkey_property dddw.name=b5dc_dddw_itemcolumn_property dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=70 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="1797" y="8" height="60" width="352" format="[general]"  name=itemtype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=40 border="2" color="16777215" x="2528" y="8" height="60" width="347" format="[general]"  name=maxlength edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=11 alignment="0" tabsequence=50 border="2" color="16777215" x="2894" y="8" height="60" width="352" format="[general]"  name=pad_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=30 border="2" color="16777215~tcase( mid(   itemtype , 1,1) when ~"P~" then rgb(0,0,0)  when ~"V~" then rgb(255,255,255) else rgb(0,0,0))
+" x="2162" y="8" height="60" width="347" format="[general]" protect="0~tif( mid(   itemtype , 1,1) =  'V',0,1  )"  name=item_value edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="25793388~tcase( mid(   itemtype ,1,1) when ~"P~" then rgb(255, 251, 240) when ~"V~" then rgb(108,147,137)  else rgb(255,255,255))
+" )
+column(band=detail id=13 alignment="0" tabsequence=70 border="2" color="0" x="3634" y="8" height="60" width="352" format="[general]"  name=sampledata edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=60 border="2" color="16777215~tcase( mid(   pad_type , 1,1) when ~"0~" then rgb(0,0,0)  when ~"V~" then rgb(255,255,255) else rgb(0,0,0))
+" x="3264" y="8" height="60" width="352" format="[general]" protect="0~tif( pad_type =  '0',1,0  )"  name=pad_value edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="25793388~tcase( mid(   pad_type ,1,1) when ~"0~" then rgb(255, 251, 240) when ~"V~" then rgb(108,147,137)  else rgb(255,255,255))
+" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

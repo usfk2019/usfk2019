@@ -1,0 +1,51 @@
+﻿$PBExportHeader$fb_chk_stringtime.srf
+$PBExportComments$[kenn] Check String formatted Time Value
+global type fb_chk_stringtime from function_object
+end type
+
+forward prototypes
+global function boolean fb_chk_stringtime (string as_stringtime)
+end prototypes
+
+global function boolean fb_chk_stringtime (string as_stringtime);//*******************************************************************
+// Fuction ID : fb_chk_stringtime
+//
+// Purpose : Check the String Type Time Value
+//
+// Scope : Public
+//
+// Parameter :
+//  1) as_stringtime(String/Value) : Time Value
+//
+// Return Value : (Boolean) 
+//  Returns TRUE if stringtimevalue is a valid time and FALSE if it is not.
+//						
+// Log :
+//(Date      : Name      : Version)
+//1999-09-15 : kenn      : Original
+//
+//*******************************************************************
+String ls_time
+Integer li_hh, li_mm
+
+ls_time = Trim(as_stringtime)
+
+//hhmm형식
+//자리수가 4자리인지 확인
+If LenA(ls_time) <> 4 Then Return False
+
+//숫자로 구성되어졌는지 확인
+If Not IsNumber(ls_time) Then Return False
+
+//앞의 2자리 확인
+li_hh = Integer(MidA(ls_time, 1, 2))
+If Not (li_hh >= 0 And li_hh <= 23) Then Return False
+
+//뒤의 2자리 확인
+li_mm = Integer(MidA(ls_time, 3, 2))
+If Not (li_mm >= 0 And li_mm <= 59) Then Return False
+
+Return True
+
+end function
+

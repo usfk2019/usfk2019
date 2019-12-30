@@ -1,0 +1,22 @@
+﻿$PBExportHeader$p1dw_cnd_inq_p_anilog.srd
+$PBExportComments$[parkkh] anilog 조회 조건 dw
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=216 color="536870912" )
+table(column=(type=date updatewhereclause=no name=crtdt_fr dbname="crtdt_fr" )
+ column=(type=date updatewhereclause=no name=crtdt_to dbname="crtdt_to" )
+ column=(type=char(30) updatewhereclause=no name=pid dbname="pid" )
+ column=(type=char(30) updatewhereclause=no name=validkey dbname="validkey" )
+ )
+column(band=detail id=1 alignment="2" tabsequence=30 border="2" color="0" x="238" y="124" height="56" width="352" format="yyyy-mm-dd"  name=crtdt_fr editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="603" y="124" height="56" width="55"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=40 border="2" color="0" x="672" y="124" height="56" width="352" format="yyyy-mm-dd"  name=crtdt_to editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="0" x="238" y="32" height="60" width="539" format="[general]"  name=pid edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Ani#" border="0" color="0" x="809" y="32" height="60" width="155"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="0" x="978" y="32" height="60" width="544" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Pin#" border="0" color="0" x="37" y="32" height="60" width="183"  name=pid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="수정일" border="0" color="0" x="37" y="124" height="56" width="183"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

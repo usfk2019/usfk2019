@@ -1,0 +1,58 @@
+﻿$PBExportHeader$b1dw_reg_svc_actorder_det_v20.srd
+$PBExportComments$[ohj] 선불서비스 신청(품목) - detail v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(1) updatewhereclause=yes name=quota_yn dbname="itemmst.quota_yn" values="Yes	Y/No	N/" )
+ column=(type=char(5) updatewhereclause=yes name=chk dbname="chk" initial="Y" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=mainitem_yn dbname="itemmst.mainitem_yn" )
+ column=(type=char(1) updatewhereclause=yes name=prebil_yn dbname="prebil_yn" )
+ column=(type=char(1) updatewhereclause=yes name=oneoffcharge_yn dbname="itemmst.oneoffcharge_yn" )
+ column=(type=decimal(0) updatewhereclause=yes name=groupno dbname="priceplandet.groupno" )
+ column=(type=decimal(0) updatewhereclause=yes name=grouptype dbname="priceplandet.grouptype" values="동일그룹중1개만선택가능	0/동일그룹중1개이상선택가능 	1/" )
+ column=(type=char(10) updatewhereclause=yes name=itemmst_addition_code dbname="itemmst.addition_code" )
+ retrieve="SELECT item.itemcod,
+       item.itemnm,
+       item.quota_yn, 
+		 ('check') chk,
+       item.mainitem_yn,
+       nvl(item.prebil_yn, 'N') as prebil_yn,
+       item.oneoffcharge_yn,
+       det.groupno, 
+       det.grouptype,
+       item.addition_code
+  FROM itemmst item,
+       priceplandet det
+ WHERE item.itemcod  = det.itemcod
+ GROUP BY  item.itemcod,
+       item.itemnm,
+       item.quota_yn, 
+       item.mainitem_yn,
+       item.prebil_yn,
+       item.oneoffcharge_yn,
+       det.groupno, 
+       det.grouptype,
+       item.addition_code  "  sort="prebil_yn D groupno A mainitem_yn D quota_yn D itemcod A " )
+text(band=header alignment="2" text="품목 ID" border="2" color="16777215" x="18" y="16" height="60" width="421"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="16777215" x="457" y="16" height="60" width="1353"  name=itemnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Group" border="2" color="16777215" x="1829" y="16" height="60" width="219"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="신청여부" border="2" color="16777215" x="2747" y="16" height="60" width="279"  name=compute_0004_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="선택유형" border="2" color="16777215" x="2066" y="16" height="60" width="663"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="부가서비스유형" border="2" color="16777215" x="3045" y="16" height="60" width="1125"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0~tif( mainitem_yn ='Y' , 10355177 , RGB(0,0,0)) " x="18" y="4" height="60" width="421" format="[general]"  name=itemcod edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0~tif( mainitem_yn ='Y' , 10355177 , RGB(0,0,0)) " x="457" y="4" height="60" width="1353" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="2" color="0" x="1829" y="4" height="60" width="219" format="[general]"  name=groupno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=10 border="0" color="0~tif( mainitem_yn ='Y' , 10355177 , RGB(0,0,0)) " x="2848" y="4" height="60" width="78" format="[general]" protect="0~tif(  mainitem_yn = 'Y', 1, 0)"  name=chk checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2999" y="4" height="60" width="27" format="[general]"  name=prebil_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2953" y="4" height="60" width="73" format="[general]"  name=mainitem_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2747" y="4" height="60" width="64" format="[general]"  name=quota_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="4187" y="4" height="60" width="27" format="[general]"  name=oneoffcharge_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="2066" y="4" height="60" width="663" format="[general]"  name=grouptype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="3045" y="4" height="60" width="1125" format="[general]"  name=itemmst_addition_code dddw.name=b0dc_dddw_addtioncode_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

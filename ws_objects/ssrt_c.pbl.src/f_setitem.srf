@@ -1,0 +1,25 @@
+﻿$PBExportHeader$f_setitem.srf
+$PBExportComments$[1hear]setitem처리
+global type f_setitem from function_object
+end type
+
+forward prototypes
+global function integer f_setitem (datawindow f_dw, string f_atm, string f_atmnm, string f_desc, decimal f_btramt)
+end prototypes
+
+global function integer f_setitem (datawindow f_dw, string f_atm, string f_atmnm, string f_desc, decimal f_btramt);String ls_mod
+
+If f_desc <> '' Then
+			f_dw.SetItem(1, f_atm, f_btramt)
+			f_dw.SetItem(1, f_atmnm, f_desc)
+			ls_mod = f_atm + ".Visible=1"
+			f_dw.Modify(ls_mod)
+			ls_mod = f_atmnm + ".Visible=1"
+			f_dw.Modify(ls_mod)
+End if
+
+Return 0
+
+ 
+end function
+

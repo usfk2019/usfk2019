@@ -1,0 +1,19 @@
+﻿$PBExportHeader$b1dw_cnd_reg_troublemst.srd
+$PBExportComments$[chooys] 민원유형마스터등록 condition data window
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=8 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=216 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=selectcod dbname="selectcod" values="대분류	categoryC/중분류	categoryB/소분류	categoryA/" )
+ column=(type=char(10) updatewhereclause=no name=category dbname="category" )
+ column=(type=char(50) updatewhereclause=no name=troublenm dbname="troublenm" values="대분류	C/중분류	B/소분류	A/" )
+ )
+text(band=detail alignment="1" text="민원유형명" border="0" color="0" x="5" y="132" height="56" width="279"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="1" text="분류선택" border="0" color="0" x="14" y="28" height="56" width="270"  name=category_a_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="878" y="28" height="60" width="997" format="[general]"  name=category dddw.name=b1dc_dddw_troubletypec dddw.displaycolumn=troubletypecnm dddw.datacolumn=troubletypec dddw.percentwidth=0 dddw.lines=7 dddw.limit=50 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="2" color="0" x="302" y="28" height="60" width="526" format="[general]"  name=selectcod ddlb.limit=10 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="302" y="132" height="60" width="887" format="[general]"  name=troublenm edit.limit=50 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

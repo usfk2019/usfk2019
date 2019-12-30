@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_cnd_pgm_item.srd
+$PBExportComments$Cond : program flag, program ID, program name
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=268 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=item_type dbname="pg_flag" initial="empty" values="Group	M/Program	P/[None]	 /" )
+ column=(type=char(8) updatewhereclause=no name=item_id dbname="pg_id" initial="empty" )
+ column=(type=char(50) updatewhereclause=no name=item_name dbname="pg_name" initial="empty" )
+ column=(type=char(8) updatewhereclause=no name=p_pgm_id dbname="p_pgm_id" )
+ )
+text(band=detail alignment="1" text="PGM Name" border="0" color="0" x="23" y="192" height="60" width="334"  name=pg_name_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="2" color="0" x="384" y="192" height="60" width="1371" format="[general]"  name=item_name edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Item Type" border="0" color="0" x="23" y="16" height="60" width="334"  name=pg_flag_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="384" y="16" height="60" width="357" format="[general]"  name=item_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.autohscroll=yes ddlb.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="PGM ID" border="0" color="0" x="23" y="104" height="60" width="334"  name=pg_id_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="384" y="104" height="60" width="357" format="[general]"  name=item_id edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="2" color="0" x="1394" y="104" height="60" width="357" format="[general]"  name=p_pgm_id edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Parent" border="0" color="0" x="1152" y="104" height="60" width="215"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

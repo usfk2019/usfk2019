@@ -1,0 +1,59 @@
+﻿$PBExportHeader$b1fi_validkey_type_info_v20.srf
+$PBExportComments$[parkkh] Funtion - validkey_type 정보 search
+global type b1fi_validkey_type_info_v20 from function_object
+end type
+
+forward prototypes
+global function integer b1fi_validkey_type_info_v20 (string as_title, string as_validkey_type, ref string as_validkey_typenm, ref string as_crt_kind, ref string as_prefix, ref long al_length, ref string as_auth_method, ref string as_type, ref string as_used_level)
+end prototypes
+
+global function integer b1fi_validkey_type_info_v20 (string as_title, string as_validkey_type, ref string as_validkey_typenm, ref string as_crt_kind, ref string as_prefix, ref long al_length, ref string as_auth_method, ref string as_type, ref string as_used_level);//********************************************************************************
+// Fuction ID : b1fi_validkey_type_info_v20
+// Purpose    : argument 서비스코드(as_validkey_type)으로 validkey_type에 
+//	            infomation(정보)를 가져온다.
+// Scope      : Public
+// Argument   :
+//              1) as_title(String/Value) : Massage content
+//              2) as_validkey_type(String/Value) : Select PK 
+//              3) as_validkey_typenm(String/Reference) : return data
+//              4) as_crt_kind(String/Reference) : return data
+//              5) as_prefix(String/Reference) : return data
+//              6) al_length(long/Reference) : return data
+//              7) as_auth_method(String/Reference) : return data
+//              8) as_type(String/Reference) : return data
+//              9) as_used_level(String/Reference) : return data
+// Return Value : integer
+//					  -1 : error
+//					   1 : ok
+// Log : (Date : Name : Version)
+// 	      2005/04/14 : Park Kyung Hae : Original 1.0
+//********************************************************************************
+String ls_title
+
+ls_title = "b1fi_validkey_type_info_v20"
+
+Select validkey_typenm,
+       crt_kind,
+	   prefix,
+	   length,
+	   auth_method,
+	   type,
+	   used_level
+ into :as_validkey_typenm,
+      :as_crt_kind,
+	  :as_prefix,
+	  :al_length,
+	  :as_auth_method,
+	  :as_type,
+	  :as_used_level
+ from validkey_type                                                                                                                                                                          
+where validkey_type = :as_validkey_type;
+
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + " Select Error(validkey_type)")
+	Return -1
+End If
+
+Return 1
+end function
+

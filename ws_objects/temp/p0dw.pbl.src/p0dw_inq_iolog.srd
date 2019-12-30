@@ -1,0 +1,47 @@
+﻿$PBExportHeader$p0dw_inq_iolog.srd
+$PBExportComments$[y.k.min] 수불작업로그조회
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=ioseq dbname="p_iohistory.ioseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=issuestat dbname="p_iohistory.issuestat" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=workdt dbname="workdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=card_marker dbname="p_iohistory.card_marker" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=orderdt dbname="orderdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=indt dbname="indt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sale_flag dbname="p_iohistory.sale_flag" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="p_iohistory.remark" )
+ retrieve="SELECT	IOSEQ,
+			ISSUESTAT,
+			TO_CHAR(WORKDT, 'YYYY-MM-DD') WORKDT,
+			CARD_MARKER,
+			TO_CHAR(ORDERDT, 'YYYY-MM-DD') ORDERDT,
+			TO_CHAR(INDT, 'YYYY-MM-DD') INDT,
+			SALE_FLAG,
+			REMARK
+FROM		P_IOHISTORY
+ORDER BY IOSEQ DESC" update="P_IOHISTORY" updatewhere=1 updatekeyinplace=no )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="3090" y="28" height="60" width="430"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Seq." border="2" color="16777215" x="9" y="104" height="60" width="329"  name=ioseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발행상태" border="2" color="16777215" x="347" y="104" height="60" width="384"  name=issuestat_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일자" border="2" color="16777215" x="741" y="104" height="60" width="329"  name=workdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="제조사" border="2" color="16777215" x="1079" y="104" height="60" width="430"  name=card_marker_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="주문일자" border="2" color="16777215" x="1518" y="104" height="60" width="347"  name=orderdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입고일자" border="2" color="16777215" x="1874" y="104" height="60" width="366"  name=indt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+button(band=header text="&Print"filename=""action="15" border="0" color="0" x="9" y="20" height="76" width="320" vtextalign="0" htextalign="0"  name=b_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=header alignment="2" text="비고" border="2" color="16777215" x="2610" y="104" height="60" width="1042"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고상태" border="2" color="16777215" x="2249" y="104" height="60" width="352"  name=sale_flag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="329" format="[general]"  name=ioseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="347" y="8" height="60" width="384" format="[general]"  name=issuestat dddw.name=p0dc_dddw_issuelog dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="741" y="8" height="60" width="329" format="[general]"  name=workdt edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1079" y="8" height="60" width="430" format="[general]"  name=card_marker dddw.name=p0dc_dddw_card_maker dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2249" y="8" height="60" width="352" format="[general]"  name=sale_flag dddw.name=p0dc_dddw_saleflag dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2610" y="8" height="60" width="1042" format="[general]"  name=remark edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1518" y="8" height="60" width="347" format="[general]"  name=orderdt edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1874" y="8" height="60" width="366" format="[general]"  name=indt edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="1" expression="rowcount()"border="0" color="8388608" x="3529" y="28" height="60" width="119" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

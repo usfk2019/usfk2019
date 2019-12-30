@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_calendar_sams.srs
+$PBExportComments$Arguments for drop-down calendar
+global type s_calendar_sams from structure
+	date		caldate
+	integer		x
+	integer		y
+	window		window
+	datawindow		dw
+	string		column
+end type
+

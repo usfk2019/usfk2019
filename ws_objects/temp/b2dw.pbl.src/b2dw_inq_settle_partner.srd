@@ -1,0 +1,44 @@
+﻿$PBExportHeader$b2dw_inq_settle_partner.srd
+$PBExportComments$[parkkh] 대리점정보등록master
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=176 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=partner dbname="partnermst.partner" )
+ column=(type=char(50) updatewhereclause=yes name=partnernm dbname="partnermst.partnernm" )
+ column=(type=char(10) updatewhereclause=yes name=levelcod dbname="partnermst.levelcod" )
+ column=(type=char(20) updatewhereclause=yes name=logid dbname="partnermst.logid" )
+ column=(type=char(20) updatewhereclause=yes name=phone dbname="partnermst.phone" )
+ column=(type=char(60) updatewhereclause=yes name=prefixno dbname="partnermst.prefixno" )
+ column=(type=char(10) updatewhereclause=yes name=cregno dbname="partnermst.cregno" )
+ retrieve="SELECT partner, 
+		 partnernm,
+		 levelcod,
+		 logid,
+		 phone,
+		 prefixno,
+		 cregno
+ FROM partnermst
+WHERE partner_type = '1'
+ORDER BY partner, partnernm" update="partnermst" updatewhere=0 updatekeyinplace=no )
+text(band=background alignment="2" text="Order By" border="0" color="0" x="23" y="28" height="60" width="361"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="ASC/DESC " border="0" color="0" x="1307" y="28" height="60" width="325"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="Total Rows" border="0" color="0" x="2254" y="28" height="60" width="384"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="398" y="28" height="60" width="709"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2656" y="28" height="60" width="530" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="64" width="14" format="[GENERAL]"  name=compute_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="32" y="8" height="60" width="416" format="[general]"  name=partner edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="457" y="8" height="60" width="978" format="[general]"  name=partnernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1445" y="8" height="60" width="562" format="[general]"  name=logid edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2016" y="8" height="60" width="631" format="[general]"  name=phone edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2656" y="8" height="60" width="530" format="@@@-@@-@@@@@"  name=cregno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1646" y="28" height="60" width="325"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="사업자코드" border="2" color="16777215" x="32" y="108" height="64" width="416"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사업자명" border="2" color="16777215" x="457" y="108" height="64" width="978"  name=partnernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Web LoginID" border="2" color="16777215" x="1445" y="108" height="64" width="562"  name=logid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="전화번호" border="2" color="16777215" x="2016" y="108" height="64" width="631"  name=phone_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사업자등록번호" border="2" color="16777215" x="2656" y="108" height="64" width="530"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

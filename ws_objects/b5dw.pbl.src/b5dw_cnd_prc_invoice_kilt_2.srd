@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b5dw_cnd_prc_invoice_kilt_2.srd
+$PBExportComments$[islim] 청구서 대행 발송 조건 - 킬트 미납액지로
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=272 color="536870912" )
+table(column=(type=char(2) updatewhereclause=no name=chargedt dbname="chargedt" )
+ column=(type=date updatewhereclause=no name=trdt dbname="trdt" )
+ column=(type=char(1) updatewhereclause=no name=giro dbname="giro" initial="N" values="지로	Y/지로	N" )
+ column=(type=char(1) updatewhereclause=no name=giro_delay dbname="giro_delay" initial="N" values="지로+미납	Y/지로+미납	N" )
+ column=(type=char(1) updatewhereclause=no name=cms dbname="cms" initial="N" values="자동이체	Y/자동이체	N" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="338" y="40" height="60" width="608" format="[general]"  name=chargedt dddw.name=b5dc_dddw_cycle dddw.displaycolumn=description dddw.datacolumn=chargedt dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="16777215" x="338" y="124" height="60" width="361" format="[general]"  name=trdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="청구주기" border="0" color="0" x="50" y="40" height="56" width="265"  name=chargedt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="청구기준일" border="0" color="0" x="14" y="124" height="56" width="302"  name=trdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="174" y="212" height="56" width="247" format="[general]"  name=giro checkbox.text="지로" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="453" y="212" height="52" width="347" format="[general]"  name=giro_delay checkbox.text="지로+미납" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="823" y="212" height="60" width="343" format="[general]"  name=cms checkbox.text="자동이체" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

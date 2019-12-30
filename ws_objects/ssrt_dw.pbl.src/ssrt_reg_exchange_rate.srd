@@ -1,0 +1,16 @@
+﻿$PBExportHeader$ssrt_reg_exchange_rate.srd
+$PBExportComments$[ceusee] Email 조건 입력
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=236 color="536870912" )
+table(column=(type=decimal(2) updatewhereclause=no name=won dbname="won" initial="0" )
+ column=(type=decimal(2) updatewhereclause=no name=usd dbname="usd" initial="0" )
+ )
+text(band=detail alignment="1" text="KRW" border="0" color="0" x="41" y="28" height="60" width="421"  name=emailid_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="USD" border="0" color="0" x="41" y="128" height="60" width="421"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="2" color="0" x="494" y="28" height="60" width="512" format="#,##0.00"  name=won editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="2" color="0" x="494" y="128" height="60" width="512" format="#,##0.00"  name=usd editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

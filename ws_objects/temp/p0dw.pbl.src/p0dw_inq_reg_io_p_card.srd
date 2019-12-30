@@ -1,0 +1,64 @@
+﻿$PBExportHeader$p0dw_inq_reg_io_p_card.srd
+$PBExportComments$[chooys] 선불카드 수불관리 P_CARDMST DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=172 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(15) updatewhereclause=yes key=yes name=contno dbname="p_cardmst.contno" )
+ column=(type=char(20) updatewhereclause=yes name=pid dbname="p_cardmst.pid" )
+ column=(type=decimal(2) updatewhereclause=yes name=balance dbname="p_cardmst.balance" )
+ column=(type=char(10) updatewhereclause=yes name=pricemodel dbname="p_cardmst.pricemodel" )
+ column=(type=char(10) updatewhereclause=yes name=card_marker dbname="p_cardmst.card_marker" )
+ column=(type=datetime updatewhereclause=yes name=orderdt dbname="p_cardmst.orderdt" )
+ column=(type=datetime updatewhereclause=yes name=indt dbname="p_cardmst.indt" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="p_cardmst.status" )
+ column=(type=char(1) updatewhereclause=yes name=sale_flag dbname="p_cardmst.sale_flag" )
+ retrieve="  SELECT ~"P_CARDMST~".~"CONTNO~",   
+         ~"P_CARDMST~".~"PID~",   
+         ~"P_CARDMST~".~"BALANCE~",   
+         ~"P_CARDMST~".~"PRICEMODEL~",   
+         ~"P_CARDMST~".~"CARD_MARKER~",   
+         ~"P_CARDMST~".~"ORDERDT~",   
+         ~"P_CARDMST~".~"INDT~",   
+         ~"P_CARDMST~".~"STATUS~",   
+         ~"P_CARDMST~".~"SALE_FLAG~"  
+    FROM ~"P_CARDMST~" 
+ORDER BY ~"P_CARDMST~".~"CONTNO~",   
+         ~"P_CARDMST~".~"PID~",   
+         ~"P_CARDMST~".~"BALANCE~",   
+         ~"P_CARDMST~".~"PRICEMODEL~",   
+         ~"P_CARDMST~".~"CARD_MARKER~",   
+         ~"P_CARDMST~".~"ORDERDT~",   
+         ~"P_CARDMST~".~"INDT~",   
+         ~"P_CARDMST~".~"STATUS~",   
+         ~"P_CARDMST~".~"SALE_FLAG~"  ASC 
+" update="P_CARDMST" updatewhere=0 updatekeyinplace=no )
+text(band=background alignment="2" text="ORDER BY" border="0" color="0" x="46" y="32" height="60" width="288"  name=t_2 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="357" y="32" height="60" width="754"  name=order_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="ASC/DESC " border="0" color="0" x="1335" y="32" height="60" width="325"  name=t_3 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="TOTAL ROWS" border="0" color="0" x="2222" y="32" height="60" width="370"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="관리번호" border="2" color="15793151" x="27" y="108" height="60" width="320"  name=contno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pin#" border="2" color="15793151" x="357" y="108" height="60" width="571"  name=pid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="카드금액" border="2" color="15793151" x="937" y="108" height="60" width="439"  name=balance_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Model" border="2" color="15793151" x="1385" y="108" height="60" width="498"  name=pricemodel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="제조사" border="2" color="15793151" x="1893" y="108" height="60" width="535"  name=card_marker_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="주문일" border="2" color="15793151" x="2437" y="108" height="60" width="375"  name=orderdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입고일" border="2" color="15793151" x="2821" y="108" height="60" width="366"  name=indt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="카드상태" border="2" color="15793151" x="3195" y="108" height="60" width="315"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2821" y="32" height="60" width="366" format="[GENERAL]"  name=compute_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="재고상태" border="2" color="15793151" x="3520" y="108" height="60" width="334"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="32" height="56" width="9" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="12" height="60" width="320" format="[general]"  name=contno edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="357" y="12" height="60" width="571" format="[general]"  name=pid edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="937" y="12" height="60" width="439" format="#,##0.00"  name=balance edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1385" y="12" height="60" width="498" format="[general]"  name=pricemodel dddw.name=p0dc_dddw_model dddw.displaycolumn=pricemodelnm dddw.datacolumn=pricemodel dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1893" y="12" height="60" width="535" format="[general]"  name=card_marker dddw.name=p0dc_dddw_card_maker dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="2821" y="12" height="60" width="366" format="[shortdate] [time]"  name=indt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2437" y="12" height="60" width="375" format="[shortdate] [time]"  name=orderdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3195" y="12" height="56" width="315" format="[general]"  name=status dddw.name=p0dc_dddw_cardstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3520" y="12" height="56" width="334" format="[general]"  name=sale_flag dddw.name=p0dc_dddw_saleflag dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1673" y="32" height="60" width="347"  name=a_d visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

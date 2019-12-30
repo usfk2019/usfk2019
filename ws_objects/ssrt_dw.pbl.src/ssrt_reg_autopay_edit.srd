@@ -1,0 +1,61 @@
+﻿$PBExportHeader$ssrt_reg_autopay_edit.srd
+$PBExportComments$[ohj] 후불서비스 신청(품목) - detail  v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=96 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=requestdt dbname="kcpbatch.requestdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="kcpbatch.seq" )
+ column=(type=datetime update=yes updatewhereclause=yes name=trdt dbname="kcpbatch.trdt" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=rectype dbname="kcpbatch.rectype" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=groupid dbname="kcpbatch.groupid" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=payid dbname="kcpbatch.payid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(16) update=yes updatewhereclause=yes name=cardno dbname="kcpbatch.cardno" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=expdt dbname="kcpbatch.expdt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=reqamt dbname="kcpbatch.reqamt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=apprvamt dbname="kcpbatch.apprvamt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=result dbname="kcpbatch.result" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="kcpbatch.status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=apprvno dbname="kcpbatch.apprvno" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=apprvdt dbname="kcpbatch.apprvdt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=paymentflag dbname="kcpbatch.paymentflag" )
+ column=(type=datetime update=yes updatewhereclause=yes name=workdt dbname="kcpbatch.workdt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=request_yn dbname="kcpbatch.request_yn" )
+ retrieve="SELECT A.REQUESTDT,	
+	   A.SEQ,
+	   A.TRDT,
+	   A.RECTYPE,
+	   A.GROUPID,
+	   A.PAYID,
+      B.CUSTOMERNM,
+	   A.CARDNO,
+	   A.EXPDT,
+	   A.REQAMT,
+	   A.APPRVAMT,
+	   A.RESULT,
+	   A.STATUS,
+	   A.APPRVNO,
+	   A.APPRVDT,
+	   A.PAYMENTFLAG,
+	   A.WORKDT,
+	   A.REQUEST_YN
+ FROM KCPBATCH A, customerm b
+WHERE a.payid = b.customerid" update="KCPBATCH" updatewhere=1 updatekeyinplace=no )
+line(band=detail x1="14" y1="80" x2="2382" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Seq." border="2" color="16777215" x="23" y="16" height="60" width="160"  name=seq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="23" y="4" height="60" width="160" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Payer ID" border="2" color="16777215" x="201" y="16" height="60" width="311"  name=payid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="201" y="4" height="60" width="311" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Payer Name" border="2" color="16777215" x="530" y="16" height="60" width="613"  name=customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="530" y="4" height="60" width="613" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Request Date" border="2" color="16777215" x="1161" y="16" height="60" width="361"  name=requestdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1161" y="4" height="60" width="361" format="[general]"  name=requestdt editmask.mask="XXXXXXXXXXXXXXXXXXXX" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Request Amount" border="2" color="16777215" x="1541" y="16" height="60" width="453"  name=reqamt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=10 alignment="1" tabsequence=10 border="0" color="0" x="1541" y="4" height="60" width="453" format="[general]"  name=reqamt editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2011" y="4" height="60" width="352" format="[general]"  name=cardno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Card No." border="2" color="16777215" x="2011" y="16" height="60" width="352"  name=cardno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,51 @@
+﻿$PBExportHeader$b0dw_reg_rerate_itemcod.srd
+$PBExportComments$[parkkh] 대역코드 등록 master data window
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="rerate_itemcod.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=itemcod dbname="rerate_itemcod.itemcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=use_yn dbname="rerate_itemcod.use_yn" values="	Y/	N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="rerate_itemcod.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="rerate_itemcod.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="rerate_itemcod.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="rerate_itemcod.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pgm_id dbname="rerate_itemcod.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bilamt_yn dbname="rerate_itemcod.bilamt_yn" values="	Y/	N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=dcbilamt_yn dbname="rerate_itemcod.dcbilamt_yn" values="	Y/	N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=contractdet_yn dbname="rerate_itemcod.contractdet_yn" values="	Y/	N" )
+ retrieve="SELECT	PRICEPLAN,
+			ITEMCOD,
+			USE_YN,
+			CRT_USER,
+			CRTDT,
+         UPDT_USER,
+			UPDTDT,
+			PGM_ID,
+		   BILAMT_YN,
+			DCBILAMT_YN,
+			CONTRACTDET_YN
+FROM		RERATE_ITEMCOD
+ORDER BY PRICEPLAN, ITEMCOD" update="RERATE_ITEMCOD" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Use" border="2" color="16777215" x="14" y="16" height="56" width="146"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Price Plan" border="2" color="16777215" x="178" y="16" height="56" width="873"  name=zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item" border="2" color="16777215" x="1074" y="16" height="56" width="901"  name=zonnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="BILAMT" border="2" color="16777215" x="1998" y="16" height="56" width="265"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="DCBILAMT" border="2" color="16777215" x="2286" y="16" height="56" width="283"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Check" border="2" color="16777215" x="2592" y="16" height="56" width="334"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="544" y="144" height="76" width="320" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="864" y="144" height="76" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1056" y="144" height="76" width="320" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1376" y="144" height="76" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1568" y="144" height="76" width="320" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="0" color="16777215" x="14" y="8" height="68" width="146" format="[general]"  name=use_yn checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="178" y="8" height="68" width="873" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=120 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="1074" y="8" height="68" width="901" format="[general]"  name=itemcod dddw.name=b0dc_dddw_itemcod_voice dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=150 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=9 alignment="2" tabsequence=30 border="2" color="0" x="1998" y="8" height="68" width="265" format="[general]"  name=bilamt_yn checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="2" tabsequence=40 border="2" color="0" x="2286" y="8" height="68" width="283" format="[general]"  name=dcbilamt_yn checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="2" tabsequence=50 border="2" color="0" x="2592" y="8" height="68" width="334" format="[general]"  name=contractdet_yn checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

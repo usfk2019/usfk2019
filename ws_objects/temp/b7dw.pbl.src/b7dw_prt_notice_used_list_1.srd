@@ -1,0 +1,93 @@
+﻿$PBExportHeader$b7dw_prt_notice_used_list_1.srd
+$PBExportComments$[jybaek] 자동이체/신용카드 청구서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 2 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=700 color="536870912" )
+summary(height=112 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912"  height.autosize=yes)
+table(column=(type=char(14) updatewhereclause=yes name=post_bilcdr_payid dbname="post_bilcdr.payid" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="post_bilcdr.validkey" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(7) updatewhereclause=yes name=sale_month dbname="sale_month" )
+ column=(type=number updatewhereclause=yes name=amt1 dbname="amt1" )
+ column=(type=number updatewhereclause=yes name=amt2 dbname="amt2" )
+ column=(type=number updatewhereclause=yes name=amt3 dbname="amt3" )
+ column=(type=number updatewhereclause=yes name=amt4 dbname="amt4" )
+ column=(type=number updatewhereclause=yes name=amt5 dbname="amt5" )
+ column=(type=number updatewhereclause=yes name=amt6 dbname="amt6" )
+ retrieve="SELECT p.payid, p.validkey,c.customernm, to_char(to_date(:as_trdt,'yyyy-mm-dd')-1,'yyyy-mm') sale_month, 
+			 SUM(DECODE(i.trcod,'120',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt1,
+			 SUM(DECODE(i.trcod,'130',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt2,
+			 SUM(DECODE(i.trcod,'140',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt3,
+			 SUM(DECODE(i.trcod,'160',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt4,
+			 SUM(DECODE(i.trcod,'180',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt5,
+			 SUM(nvl(p.bilamt0,0)) amt6
+	FROM post_bilcdr p, trcode t, itemmst i, customerm c
+  WHERE  to_char(p.trdt, 'yyyymmdd') =:as_trdt		
+    AND p.payid = :as_payid
+	 and p.payid = c.CUSTOMERID
+	 AND p.itemcod = i.itemcod
+	 AND i.trcod = t.trcod
+GROUP BY p.PAYID, P.VALIDKEY,c.customernm
+union all
+SELECT p.payid, p.validkey,c.customernm, to_char(to_date(:as_trdt,'yyyy-mm-dd')-1,'yyyy-mm') sale_month, 
+			 SUM(DECODE(i.trcod,'120',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt1,
+			 SUM(DECODE(i.trcod,'130',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt2,
+			 SUM(DECODE(i.trcod,'140',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt3,
+			 SUM(DECODE(i.trcod,'160',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt4,
+			 SUM(DECODE(i.trcod,'180',nvl(p.bilamt,0)-nvl(p.dcbilamt,0),0)) amt5,
+			 SUM(nvl(p.bilamt0,0)) amt6
+	FROM post_bilcdrh p, trcode t, itemmst i, customerm c
+  WHERE  to_char(p.trdt, 'yyyymmdd') =:as_trdt		
+    AND p.payid = :as_payid
+	 and p.payid = c.CUSTOMERID
+	 AND p.itemcod = i.itemcod
+	 AND i.trcod = t.trcod
+GROUP BY p.PAYID, P.VALIDKEY,c.customernm" arguments=(("as_payid", string),("as_trdt", string)) )
+group(level=1 header.height=0 trailer.height=0 by=("" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="전 화 번 호 별 사 용 내 역" border="0" color="0" x="91" y="464" height="60" width="1239"  name=t_10  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="0" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="고 객 정 보" border="0" color="0" x="105" y="176" height="60" width="448"  name=t_13  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="0" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="* 고  객   명 :" border="0" color="0" x="233" y="360" height="56" width="421"  name=t_16  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="(VAT제외)" border="0" color="0" x="2331" y="544" height="56" width="352"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="전화번호" border="0" color="0" x="91" y="628" height="56" width="389"  name=t_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="인접통화료" border="0" color="0" x="869" y="628" height="56" width="343"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시외통화료" border="0" color="0" x="1234" y="628" height="56" width="343"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="이동통화료" border="0" color="0" x="1600" y="628" height="56" width="343"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="국제통화료" border="0" color="0" x="1966" y="628" height="56" width="343"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="전화요금계" border="0" color="0" x="2331" y="628" height="56" width="343"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="할인율" border="0" color="0" x="3067" y="628" height="56" width="215"  name=t_1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시내통화료" border="0" color="0" x="503" y="628" height="56" width="343"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="▶ 사용년월 :" border="0" color="0" x="91" y="548" height="60" width="357"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=4 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="548" height="56" width="229" format="[general]"  name=sale_month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="월분" border="0" color="0" x="718" y="548" height="56" width="357"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=3 alignment="0" tabsequence=32766 border="0" color="0" x="677" y="356" height="56" width="855" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="* 고 객 번 호 :" border="0" color="0" x="233" y="280" height="60" width="421"  name=t_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=1 alignment="0" tabsequence=32766 border="0" color="0" x="677" y="280" height="56" width="681" format="[general]"  name=post_bilcdr_payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="할인전요금" border="0" color="0" x="2697" y="628" height="56" width="347"  name=t_7 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="96" y="12" height="56" width="389" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" font.italic="1" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="(( amt6 - compute_1 )/ amt6 )*100"border="0" color="0" x="3072" y="12" height="56" width="215" format="0%"  name=compute_2 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="507" y="12" height="56" width="302" format="#,##0"  name=amt1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="873" y="12" height="56" width="315" format="#,##0"  name=amt2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1239" y="12" height="56" width="306" format="#,##0"  name=amt3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1605" y="12" height="56" width="315" format="#,##0"  name=amt4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1970" y="12" height="56" width="306" format="#,##0"  name=amt5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" amt1  +  amt2  +  amt3  +  amt4  +  amt5  "border="0" color="0" x="2331" y="12" height="56" width="315" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2702" y="12" height="56" width="306" format="#,##0"  name=amt6 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="총합계" border="0" color="0" x="96" y="32" height="56" width="338"  name=t_17  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="(( sum_amt6 -sum_cur )/ sum_amt6 )*100"border="0" color="0" x="3072" y="32" height="56" width="215" format="[GENERAL]"  name=compute_3 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  amt1  for all )"border="0" color="0" x="466" y="32" height="56" width="343" format="#,##0"  name=sum_amt1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  amt2  for all )"border="0" color="0" x="846" y="32" height="56" width="343" format="#,##0"  name=sum_amt2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  amt3  for all )"border="0" color="0" x="1202" y="32" height="56" width="343" format="#,##0"  name=sum_amt3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  amt4  for all )"border="0" color="0" x="1577" y="32" height="56" width="343" format="#,##0"  name=sum_amt4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  amt5  for all )"border="0" color="0" x="1934" y="32" height="56" width="343" format="#,##0"  name=sum_amt5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  compute_1  for all )"border="0" color="0" x="2304" y="32" height="56" width="343" format="#,##0"  name=sum_cur  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  amt6  for all )"border="0" color="0" x="2661" y="32" height="56" width="347" format="#,##0"  name=sum_amt6 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="73" y1="616" x2="3319" y2="616"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="73" y1="692" x2="3319" y2="692"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="69" y1="8" x2="3314" y2="8"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="69" y1="16" x2="3314" y2="16"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="69" y1="92" x2="3314" y2="92"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+
+sparse(names="validkey")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

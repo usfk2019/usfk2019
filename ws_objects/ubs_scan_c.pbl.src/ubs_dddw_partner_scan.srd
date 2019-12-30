@@ -1,0 +1,38 @@
+﻿$PBExportHeader$ubs_dddw_partner_scan.srd
+$PBExportComments$해당그룹별partner list
+release 10;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(50) update=yes updatewhereclause=yes name=partnernm dbname="partnermst.partnernm" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="partnermst.partner" )
+ column=(type=number updatewhereclause=yes name=sort dbname="sort" )
+ retrieve="SELECT PARTNERNM,   
+       PARTNER,
+       1  AS SORT
+FROM   PARTNERMST
+WHERE  USE_YN = 'Y'
+UNION ALL
+SELECT 'ALL',   
+       '%', 
+       0  AS SORT
+FROM   DUAL" update="PARTNERMST" updatewhere=1 updatekeyinplace=no  sort="sort A partnernm A " )
+text(band=header alignment="2" text="Partnernm" border="0" color="0" x="9" y="8" height="64" width="1070" html.valueishtml="0"  name=partnernm_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Partner" border="0" color="0" x="9" y="8" height="64" width="1070" html.valueishtml="0"  name=partner_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Group Id" border="0" color="0" x="9" y="4" height="76" width="1070" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Sort" border="0" color="0" x="1102" y="4" height="76" width="3648" html.valueishtml="0"  name=sort_t visible="1"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="64" width="1070" format="[general]" html.valueishtml="0"  name=partnernm visible="1" edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="1088" y="8" height="64" width="5" format="[general]" html.valueishtml="0"  name=partner visible="0~t0" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="1102" y="0" height="60" width="3648" format="[general]" html.valueishtml="0"  name=sort visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

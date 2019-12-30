@@ -1,0 +1,46 @@
+﻿$PBExportHeader$ubs_dw_prc_validresult_mas.srd
+$PBExportComments$[jhchoi] 장비인증 결과 조회 팝업(Master) -  2009.06.09
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=464 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="svcorder.customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="svcorder.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="svcorder.priceplan" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="svcorder.orderno" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="svcorder.status" )
+ column=(type=char(20) updatewhereclause=yes name=phone1 dbname="customerm.phone1" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=roomno dbname="customerm.roomno" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="validkey" )
+ retrieve="select a.customerid, b.customernm, a.svccod, a.priceplan, a.orderno, a.status, b.phone1, b.buildingno, b.roomno,
+		 (select min(x.validkey) from validkeymst x where x.orderno = a.orderno) as validkey
+from   svcorder a, customerm b
+where  a.customerid = b.customerid
+and    a.orderno = :v_orderno
+" arguments=(("v_orderno", number)) )
+text(band=detail alignment="1" text="Duty Phone" border="0" color="8388608" x="1728" y="2028" height="60" width="398"  name=dutyphone_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1134" y1="104" x2="1989" y2="104"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Phone" border="0" color="0" x="59" y="280" height="60" width="521"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="CustomerID" border="0" color="0" x="59" y="40" height="60" width="521"  name=customerid_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1134" y="40" height="60" width="855" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Order No." border="0" color="0" x="59" y="200" height="60" width="521"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Service" border="0" color="0" x="59" y="120" height="60" width="521"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="599" y="40" height="60" width="521" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Price Plan" border="0" color="0" x="1294" y="120" height="60" width="521"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Order Status" border="0" color="0" x="1294" y="200" height="60" width="521"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1833" y="120" height="60" width="731" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="599" y="120" height="60" width="677" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="599" y="200" height="60" width="677" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="599" y="280" height="60" width="677" format="[general]"  name=phone1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Building No." border="0" color="0" x="64" y="360" height="60" width="521"  name=buildingno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="599" y="360" height="60" width="677" format="[general]"  name=buildingno  tag="Building No" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Room No." border="0" color="0" x="1294" y="360" height="60" width="521"  name=t_8  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="1833" y="360" height="60" width="731" format="[general]"  name=roomno  tag="Room No" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Validkey" border="0" color="0" x="1294" y="280" height="60" width="521"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="1833" y="200" height="60" width="731" format="[general]"  name=status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="1833" y="280" height="60" width="731"  name=validkey  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

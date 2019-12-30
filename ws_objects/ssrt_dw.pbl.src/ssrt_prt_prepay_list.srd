@@ -1,0 +1,59 @@
+﻿$PBExportHeader$ssrt_prt_prepay_list.srd
+$PBExportComments$[ojy]연제자리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=33554431 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=464 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=basenm dbname="basemst.basenm" )
+ column=(type=char(14) updatewhereclause=yes name=payid dbname="prepaymst.payid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=number updatewhereclause=yes name=mobile_prepay dbname="prepaymst.mobile_prepay" )
+ column=(type=number updatewhereclause=yes name=internet_prepay dbname="prepaymst.internet_prepay" )
+ column=(type=number updatewhereclause=yes name=total_prepay dbname="total_prepay" )
+ column=(type=datetime updatewhereclause=yes name=updtdt dbname="prepaymst.updtdt" )
+ retrieve="SELECT C.BASENM, 
+		 A.PAYID,
+       B.CUSTOMERNM,
+       0 MOBILE_PREPAY,
+       0 INTERNET_PREPAY,
+       A.prepay_amt + A.forward_amt TOTAL_PREPAY,
+       A.updtdt
+ FROM PREPAYMST A, CUSTOMERM B, BASEMST C
+ WHERE (A.PAYID   = B.CUSTOMERID) 
+   AND (B.BASECOD = C.BASECOD )
+" )
+text(band=header alignment="0" text="" border="0" color="0" x="32" y="236" height="56" width="2322"  name=t_final  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1371" y="128" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1413" y="128" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="23" y1="456" x2="3392" y2="456"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2651" y="232" height="60" width="741" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="2651" y="168" height="60" width="741"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="23" y="36" height="88" width="3369"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="23" y1="312" x2="3392" y2="312"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Base" border="0" color="0" x="32" y="352" height="60" width="421"  name=basenm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Last Update" border="0" color="0" x="3054" y="352" height="60" width="320"  name=updtdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Customer Name" border="0" color="0" x="773" y="352" height="60" width="736"  name=customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Payer ID" border="0" color="0" x="471" y="352" height="60" width="274"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="37" y="8" height="56" width="421" format="[general]"  name=basenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF (getrow() = currentrow(),rgb(200,225,235), rgb(255,255,255)) " )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="8" height="60" width="279" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF (getrow() = currentrow(),rgb(200,225,235), rgb(255,255,255)) " )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="768" y="8" height="56" width="736" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF (getrow() = currentrow(),rgb(200,225,235), rgb(255,255,255)) " )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="3054" y="8" height="60" width="320" format="[shortdate] [time]"  name=updtdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF (getrow() = currentrow(),rgb(200,225,235), rgb(255,255,255)) " )
+line(band=summary x1="27" y1="4" x2="3397" y2="4"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="27" y1="92" x2="3397" y2="92"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="Total : " border="0" color="0" x="1033" y="20" height="60" width="169"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="rowcount()"border="0" color="0" x="1239" y="20" height="60" width="183" format="#,##0"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Mobile
+Prepayment" border="0" color="0" x="1531" y="324" height="120" width="498"  name=mobile_prepay_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1531" y="8" height="60" width="498" format="#,##0.00"  name=mobile_prepay edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF (getrow() = currentrow(),rgb(200,225,235), rgb(255,255,255)) " )
+compute(band=summary alignment="1" expression="sum(  mobile_prepay  for all )"border="0" color="0" x="1531" y="16" height="60" width="498" format="#,##0.00"  name=compute_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Internet
+Prepayment" border="0" color="0" x="2053" y="324" height="120" width="485"  name=internet_prepay_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2053" y="8" height="60" width="485" format="#,##0.00"  name=internet_prepay edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF (getrow() = currentrow(),rgb(200,225,235), rgb(255,255,255)) " )
+compute(band=summary alignment="1" expression="sum(  internet_prepay  for all )"border="0" color="0" x="2053" y="16" height="60" width="485" format="#,##0.00"  name=compute_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Total" border="0" color="0" x="2555" y="352" height="60" width="480"  name=total_prepay_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2555" y="8" height="60" width="480" format="#,##0.00"  name=total_prepay edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="16777215~tIF (getrow() = currentrow(),rgb(200,225,235), rgb(255,255,255)) " )
+compute(band=summary alignment="1" expression="sum( total_prepay  for all )"border="0" color="0" x="2555" y="16" height="60" width="480" format="#,##0.00"  name=compute_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

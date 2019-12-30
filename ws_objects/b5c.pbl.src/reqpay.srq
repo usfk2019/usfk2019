@@ -1,0 +1,17 @@
+﻿$PBExportHeader$reqpay.srq
+  SELECT REQ.PAYDT,   
+         REQ.PAYAMT,   
+         REQ.TRCOD,   
+         REQ.PAYTYPE,   
+         REQ.PRC_YN,   
+         REQ.TRDT,   
+         REQ.CRTDT,   
+         REQ.REMARK,   
+         SYSA.CODENM,
+         SYSB.CODENM
+    FROM REQPAY REQ,   
+         SYSCOD2T SYSA,
+         SYSCOD2T SYSB
+   WHERE ( REQ.TRCOD = SYSA.CODE ) AND
+         ( REQ.PAYTYPE = SYSB.CODE ) 
+ORDER BY REQ.PAYDT DESC

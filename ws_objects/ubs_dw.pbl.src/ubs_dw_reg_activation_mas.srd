@@ -1,0 +1,67 @@
+﻿$PBExportHeader$ubs_dw_reg_activation_mas.srd
+$PBExportComments$[ohj] 서비스개통처리(후불) v20 - master
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=svcorder_orderno dbname="svcorder.orderno" )
+ column=(type=datetime updatewhereclause=yes name=svcorder_orderdt dbname="svcorder.orderdt" )
+ column=(type=char(14) updatewhereclause=yes name=svcorder_customerid dbname="svcorder.customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=datetime updatewhereclause=yes name=svcorder_requestdt dbname="svcorder.requestdt" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_roomno dbname="customerm.roomno" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_svccod dbname="svcorder.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_crt_user dbname="svcorder.crt_user" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_priceplan dbname="svcorder.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_partner dbname="svcorder.partner" )
+ column=(type=decimal(0) updatewhereclause=yes name=svcorder_related_orderno dbname="svcorder.related_orderno" )
+ retrieve="SELECT	~"SVCORDER~".~"ORDERNO~",   
+         ~"SVCORDER~".~"ORDERDT~",   
+         ~"SVCORDER~".~"CUSTOMERID~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         ~"SVCORDER~".~"REQUESTDT~",
+         ~"CUSTOMERM~".~"BUILDINGNO~",
+         ~"CUSTOMERM~".~"ROOMNO~",   
+         ~"SVCORDER~".~"SVCCOD~",   
+         ~"SVCORDER~".~"CRT_USER~",   
+         ~"SVCORDER~".~"PRICEPLAN~",   
+         ~"SVCORDER~".~"PARTNER~",   
+			~"SVCORDER~".~"RELATED_ORDERNO~"  
+    FROM ~"CUSTOMERM~",   
+         ~"SVCORDER~"  
+   WHERE ( ~"CUSTOMERM~".~"CUSTOMERID~" = ~"SVCORDER~".~"CUSTOMERID~" )   
+     AND svcorder.svccod in ( select svccod from svcmst
+                      where svctype in ( select rtrim(ltrim(ref_content)) 
+										from sysctl1t where module = 'B0' and ref_no IN ('P102', 'P108', 'P109')))
+ORDER BY ~"SVCORDER~".~"ORDERNO~" DESC
+" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="5531" y="12" height="60" width="55"  name=order_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Order No." border="2" color="15793151" x="27" y="8" height="60" width="384"  name=svcorder_orderno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Order Date" border="2" color="15793151" x="421" y="8" height="60" width="357"  name=svcorder_orderdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer ID" border="2" color="15793151" x="786" y="8" height="60" width="384"  name=svcorder_customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer Name" border="2" color="15793151" x="1179" y="8" height="60" width="539"  name=customerm_customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Request Date" border="2" color="15793151" x="1728" y="8" height="60" width="389"  name=svcorder_requestdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Buildingno" border="2" color="15793151" x="2126" y="8" height="60" width="393"  name=customerm_buildingno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Roomno" border="2" color="15793151" x="2528" y="8" height="60" width="384"  name=customerm_roomno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Operator" border="2" color="15793151" x="4411" y="8" height="60" width="430"  name=svcorder_crt_user_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Shop" border="2" color="15793151" x="4850" y="8" height="60" width="658"  name=svcorder_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Service" border="2" color="15793151" x="2921" y="8" height="60" width="805"  name=svcorder_svccod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Price Plan" border="2" color="15793151" x="3735" y="8" height="60" width="667"  name=svcorder_priceplan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~" ~""border="0" color="0" x="9" y="8" height="60" width="9" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="4" height="60" width="384" format="[general]"  name=svcorder_orderno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="421" y="4" height="60" width="357" format="yyyy-mm-dd"  name=svcorder_orderdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="786" y="4" height="60" width="384" format="[general]"  name=svcorder_customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1179" y="4" height="60" width="539" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1728" y="4" height="60" width="389" format="yyyy-mm-dd"  name=svcorder_requestdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2921" y="4" height="60" width="805" format="[general]"  name=svcorder_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4411" y="4" height="60" width="430" format="[general]"  name=svcorder_crt_user edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4850" y="4" height="60" width="658" format="[general]"  name=svcorder_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3735" y="4" height="60" width="667" format="[general]"  name=svcorder_priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2126" y="4" height="60" width="393" format="[general]"  name=customerm_buildingno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2528" y="4" height="60" width="384" format="[general]"  name=customerm_roomno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="5605" y="12" height="56" width="73"  name=a_d visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

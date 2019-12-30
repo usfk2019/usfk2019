@@ -1,0 +1,104 @@
+﻿$PBExportHeader$f_print_receipt.srf
+$PBExportComments$[1hear]영수증출력용 함수임.
+global type f_print_receipt from function_object
+end type
+
+forward prototypes
+global function integer f_print_receipt (string fs_partner, date fdt_trdt, string fs_type, string fs_empnm)
+end prototypes
+
+global function integer f_print_receipt (string fs_partner, date fdt_trdt, string fs_type, string fs_empnm);//영수증 출력용 Function
+//fs_partner 	: 파트너 정보
+//fdt_trdt 		:  거래일자
+//fs_type		: 영수증구분
+// Porgram by k.b.CHO [1hera]
+
+String ls_partnernm, ls_phone, ls_addr
+String	ls_ref_desc, &
+			ls_temp, ls_name[]
+String	ls_head
+Long		ll_seq
+datetime ldt_now
+
+
+
+select PARTNERNM,     PHONE,	   addr1
+  INTO :ls_partnernm, :ls_phone, :ls_addr
+  FROM PARTNERMST
+ WHERE PARTNER = :fs_partner ;
+
+IF sqlca.sqlcode <> 0 OR IsNull(ls_partnernm) 	then ls_partnernm = ''
+IF sqlca.sqlcode <> 0 OR IsNull(ls_phone) 		then ls_phone 		= ''
+
+
+//POS관련 설정값
+//Print
+ls_ref_desc 	= ""
+ls_temp 			= ""
+ls_temp 			= fs_get_control("S1", "B100", ls_ref_desc)
+//COM1;6;8;2;0
+If ls_temp 		= "" Then Return 0
+fi_cut_string(ls_temp, ";", ls_name[])
+
+IF PRN_IsOpen() = False THEN
+	PRN_OpenPort(ls_name[1])
+	PRN_SetPort(INTEGER(ls_name[2]), INTEGER(ls_name[3]), INTEGER(ls_name[4]), INTEGER(ls_name[5]))
+	PRN_SetTimeout()
+END IF
+IF PRN_CDOPEN() THEN
+	//1. Head   부분출력
+	ls_head = 'LG Uplus ' + trim(ls_partnernm) + ' Camp'
+	f_printpos_center("LG Uplus")
+	f_printpos_center("( X Receipt )")
+	f_printpos(ls_head)
+	f_printpos("Tel."+ Trim(ls_phone))
+	f_printpos(Trim(ls_addr))
+//	ls_head = "ceo : Gi Hwan Jeong              NO."
+	
+	select seq_shopreceipt.nextval 
+	  INTO :ll_seq
+	  from dual;
+	  
+	ls_head = ls_head + String(ll_seq)
+	f_printpos(ls_head)
+	f_printpos("-----------------------------------------")
+	ldt_now = fdt_get_dbserver_now()
+	ls_head = "[POS 9301-01]         "
+	ls_head = ls_head + String( Date( ldt_now ), 'YYYY-MM-DD' ) + '  ' + String( Time( ldt_now ) )
+	f_printpos(ls_head)
+	f_printpos("=========================================")
+	f_printpos("NO.         Item            Qty    Amount")
+	f_printpos("=========================================")
+	
+	//영수증 출력 
+	CHOOSE CASE fs_type
+		case 'A' //일 정산용
+		case 'B' //환불
+		case 'C' //no Sale
+			f_printpos("No Sales ********************")
+			f_printpos("-----------------------------------------")
+			f_printpos("Member No   : ")
+//			f_printpos("Approval No :     1124578974")
+			f_printpos("Approval No : ")
+			ls_head = "Staff Name  :     " + fs_empnm
+			f_printpos(ls_head)
+			PRN_LF(1)
+//			f_printpos_center("www.i-mnet.net")
+			f_printpos_center("http://i-mnet.uplus.co.kr")			
+			f_printpos_center("Thank you for using LG Uplus service")
+		case 'D' // Customer
+		case else
+	end choose
+
+	PRN_LF(4)
+	PRN_CUT()
+else
+	PRN_ClosePort()
+	return -1
+END IF
+
+PRN_ClosePort()
+return  0
+
+end function
+

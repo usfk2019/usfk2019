@@ -1,0 +1,90 @@
+﻿$PBExportHeader$b0f_setmodifiedstatus.srf
+$PBExportComments$[ohj] window status change
+global type b0f_setmodifiedstatus from function_object
+end type
+
+forward prototypes
+global function boolean b0f_setmodifiedstatus (readonly datawindow adw_obj, long al_row, boolean ab_mode, string adw_type)
+end prototypes
+
+global function boolean b0f_setmodifiedstatus (readonly datawindow adw_obj, long al_row, boolean ab_mode, string adw_type);/****************************************************************************************
+	Function     : b0f_setModifiedStatus()
+	Purpose      : datawindow Properties modified
+	Parameters   : adw_obj    (datawindow/read)
+						al_row     (long/val)
+						ab_mode    (boolean/val)
+						adw_type   (string/val)     : M - Multi
+																S - Single
+	Returns      : true for modified data
+	Descript     : 입력 및 수정작업이 가능하도록 속성변경
+*****************************************************************************************
+                                    MODIFICATION LOG
+*****************************************************************************************
+
+        DATE          AUTHOR         CSR_NO                    DESCRIPTION
+    ------------    ----------    ------------    -----------------
+*****************************************************************************************/
+String  ls_col, ls_type, ls_tab, ls_modStr_protect, ls_modStr_bgColor, ls_Sql
+Long    ll_row
+Integer i, li_colCnt
+
+ll_row = adw_obj.getSelectedRow(0)
+
+adw_obj.setRedraw(false)
+adw_obj.selectRow(0,false)
+
+if ab_mode then
+	if al_row = 0 then
+		ls_modStr_protect = "0~t"
+		ls_modStr_bgColor = "1090519039~t"
+	else
+		ls_modStr_protect = "'0~tif(getRow() = " + string(al_row) + ",0,if(isRowNew(),0,1))'~t"
+		ls_modStr_bgColor = "'1090519039~tif(getRow() = " + string(al_row) + ",1090519039,if(isRowNew(),1090519039,79741120))'~t"
+	end if
+else
+	ls_modStr_protect = "1~t"
+	ls_modStr_bgColor = "79741120~t"
+end if
+
+li_colCnt = integer(adw_obj.describe("DataWindow.Column.Count"))
+
+for i = 1 to li_colCnt
+	ls_col = "#" + string(i)
+	ls_type = adw_obj.describe(ls_col + ".type")
+	ls_tab  = adw_obj.describe(ls_col + ".tabsequence")
+	if ls_type = "column" and ls_tab <> "0" and ls_tab <> "?" then
+		if adw_obj.describe(ls_col + ".name") = "select_flag" then
+			ls_Sql += ls_col + ".protect=" + "0~t" //+ ls_col + ".background.color=79741120"
+		else
+			ls_Sql += ls_col + ".protect=" + ls_modStr_protect// + ls_col + ".background.color=" + ls_modStr_bgColor
+		end if
+	end if
+next
+
+//adw_obj.uf_setMode(al_row, ab_mode)
+ 
+ls_Sql = adw_obj.modify(ls_Sql)
+
+if ab_mode = false then
+	if al_row = 0 then
+		for i = 1 to adw_obj.rowCount()
+			if adw_obj.getItemStatus(i, 0, primary!) = DataModified! then
+				adw_obj.setItemStatus(i, 0, primary!, NotModified!)
+			end if
+
+		next
+	else
+		adw_obj.setItemStatus(0, 0, primary!, NotModified!)
+	end if
+end if
+
+adw_obj.setRedraw(true)
+
+if ls_Sql = "" then
+	return true
+else
+	return false
+end if
+
+end function
+

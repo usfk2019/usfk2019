@@ -1,0 +1,39 @@
+﻿$PBExportHeader$b5dw_reg_det_cardmembermst_v20.srd
+$PBExportComments$[ssong]카드 결재 가맹점 등록 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=memberid dbname="cardmembermst.memberid" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=memberdesc dbname="cardmembermst.memberdesc" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=card_type dbname="cardmembermst.card_type" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=card_corpno dbname="cardmembermst.card_corpno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=remark_type dbname="cardmembermst.remark_type" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=inv_memberid dbname="cardmembermst.inv_memberid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=trform dbname="cardmembermst.trform" )
+ retrieve="SELECT MEMBERID
+     , MEMBERDESC
+     , CARD_TYPE
+     , CARD_CORPNO
+     , REMARK_TYPE
+     , INV_MEMBERID
+     , TRFORM
+  FROM CARDMEMBERMST" update="CARDMEMBERMST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="가맹점 ID" border="2" color="15793151" x="23" y="16" height="60" width="517"  name=memberid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가맹점 명" border="2" color="15793151" x="558" y="16" height="60" width="654"  name=memberdesc_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="카드사 구분" border="2" color="15793151" x="1230" y="16" height="60" width="709"  name=card_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="카드 사업자 번호" border="2" color="15793151" x="1957" y="16" height="60" width="622"  name=card_corpno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래형태" border="2" color="15793151" x="3803" y="16" height="60" width="681"  name=trform_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구용 가맹점번호" border="2" color="15793151" x="3177" y="16" height="60" width="608"  name=inv_memberid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가맹점 유형" border="2" color="15793151" x="2597" y="16" height="60" width="562"  name=remark_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1957" y="8" height="60" width="622" format="[general]"  name=card_corpno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="2" color="0" x="3803" y="8" height="60" width="681" format="[general]"  name=trform edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="2" color="0" x="3177" y="8" height="60" width="608" format="[general]"  name=inv_memberid edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="2" color="0" x="2597" y="8" height="60" width="562" format="[general]"  name=remark_type edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="23" y="8" height="60" width="517" format="[general]"  name=memberid edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="558" y="8" height="60" width="654" format="[general]"  name=memberdesc edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="1230" y="8" height="60" width="709" format="[general]"  name=card_type dddw.name=b5dc_dddw_cardprefix_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

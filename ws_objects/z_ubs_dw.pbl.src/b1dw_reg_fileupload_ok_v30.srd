@@ -1,0 +1,69 @@
+﻿$PBExportHeader$b1dw_reg_fileupload_ok_v30.srd
+$PBExportComments$[ohj] 서비스 가입예약 v20 - master
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=156 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes name=workno dbname="requpload_ok.workno" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=lineno dbname="requpload_ok.lineno" )
+ column=(type=datetime updatewhereclause=yes name=sale_month dbname="requpload_ok.sale_month" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="requpload_ok.customerid" )
+ column=(type=char(14) updatewhereclause=yes name=payid dbname="requpload_ok.payid" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="requpload_ok.validkey" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="requpload_ok.contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="requpload_ok.itemcod" )
+ column=(type=decimal(2) updatewhereclause=yes name=saleamt_kor dbname="requpload_ok.saleamt_kor" )
+ column=(type=decimal(2) updatewhereclause=yes name=saleamt dbname="requpload_ok.saleamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=salecnt dbname="requpload_ok.salecnt" )
+ column=(type=datetime updatewhereclause=yes name=invoice_month dbname="requpload_ok.invoice_month" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="requpload_ok.crt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="requpload_ok.crtdt" )
+ retrieve="  SELECT WORKNO,   
+         LINENO,   
+         SALE_MONTH,   
+         CUSTOMERID,   
+         PAYID,   
+         VALIDKEY,
+         CONTRACTSEQ,   
+         ITEMCOD,  
+			SALEAMT_KOR, 
+         SALEAMT,   
+         SALECNT,   
+         INVOICE_MONTH,   
+         CRT_USER,   
+         CRTDT
+    FROM REQUPLOAD_OK  
+ORDER BY WORKNO,LINENO
+" update="REQUPLOAD_OK" updatewhere=1 updatekeyinplace=no  sort="workno A lineno A " )
+text(band=background alignment="1" text="Order By" border="0" color="0" x="41" y="12" height="56" width="233"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=background alignment="0" text="" border="0" color="0" x="325" y="12" height="56" width="782"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1312" y="12" height="56" width="311"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=background alignment="0" text="" border="0" color="0" x="1669" y="12" height="56" width="558"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=background alignment="1" text="Total Rows" border="0" color="0" x="3145" y="12" height="56" width="311"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+compute(band=background alignment="0" expression="rowcount()"border="0" color="0" x="3502" y="12" height="56" width="443" format="###,0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="라인번호" border="2" color="16777215" x="9" y="84" height="64" width="297"  name=lineno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="매출일자" border="2" color="16777215" x="315" y="84" height="64" width="320"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객번호" border="2" color="16777215" x="645" y="84" height="64" width="489"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약번호" border="2" color="16777215" x="2245" y="84" height="64" width="453"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액" border="2" color="16777215" x="3867" y="84" height="64" width="421"  name=t_15  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="건수" border="2" color="16777215" x="4297" y="84" height="64" width="402"  name=t_16  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="세금계산서 월" border="2" color="16777215" x="4709" y="84" height="64" width="462"  name=t_17  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목" border="2" color="16777215" x="2706" y="84" height="64" width="750"  name=t_14  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액(원)" border="2" color="16777215" x="3465" y="84" height="64" width="393"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="9" y="4" height="68" width="297" format="###,0"  name=lineno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="315" y="4" height="68" width="320" format="[shortdate] [time]"  name=sale_month editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="645" y="4" height="68" width="489" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1143" y="4" height="68" width="512" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2245" y="4" height="68" width="453" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2706" y="4" height="68" width="750" format="[general]"  name=itemcod dddw.name=b1dc_dddw_itemcod_v30 dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="4297" y="4" height="68" width="402" format="###,0"  name=salecnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="0" color="0" x="4709" y="4" height="68" width="462" format="[shortdate] [time]"  name=invoice_month editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="3867" y="4" height="68" width="421" format="###,0.00"  name=saleamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="3465" y="4" height="68" width="393" format="#,##0"  name=saleamt_kor edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1664" y="4" height="68" width="571" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="납입자번호" border="2" color="16777215" x="1143" y="84" height="64" width="512"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="전화번호" border="2" color="16777215" x="1664" y="84" height="64" width="571"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

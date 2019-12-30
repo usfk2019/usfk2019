@@ -1,0 +1,80 @@
+﻿$PBExportHeader$ssrt_reg_aafes_report_data.srd
+$PBExportComments$[ohj] 후불서비스 신청(품목) - detail  v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=type dbname="aafes_report_data.type" )
+ column=(type=char(20) update=yes updatewhereclause=yes key=yes name=shopid dbname="aafes_report_data.shopid" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=shop_type dbname="aafes_report_data.shop_type" )
+ column=(type=char(30) update=yes updatewhereclause=yes key=yes name=key_id dbname="aafes_report_data.key_id" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=key_nm dbname="aafes_report_data.key_nm" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="aafes_report_data.fromdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=todt dbname="aafes_report_data.todt" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=acc_num dbname="aafes_report_data.acc_num" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=regcod dbname="aafes_report_data.regcod" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount dbname="aafes_report_data.amount" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=refund_amt dbname="aafes_report_data.refund_amt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="aafes_report_data.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="aafes_report_data.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="aafes_report_data.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="aafes_report_data.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pgm_id dbname="aafes_report_data.pgm_id" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=dctype dbname="aafes_report_data.dctype" initial="D" values="+	D/-	C/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sumreport_yn dbname="aafes_report_data.sumreport_yn" initial="Y" values="Yes	Y/No	N/" )
+ retrieve="SELECT TYPE
+     , SHOPID
+     , SHOP_TYPE
+     , KEY_ID
+     , KEY_NM
+     , FROMDT
+     , TODT
+     , ACC_NUM
+     , REGCOD
+     , AMOUNT
+     , REFUND_AMT
+     , CRT_USER
+     , CRTDT
+     , UPDT_USER
+     , UPDTDT
+     , PGM_ID
+     , DCTYPE
+     , SUMREPORT_YN
+  FROM AAFES_REPORT_DATA
+ ORDER BY TYPE, SHOPID, SHOP_TYPE, KEY_ID" update="AAFES_REPORT_DATA" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Shop" border="2" color="16777215" x="361" y="16" height="60" width="640"  name=shopid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Shop Type" border="2" color="16777215" x="1019" y="16" height="60" width="338"  name=shop_type_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Key ID" border="2" color="16777215" x="1376" y="16" height="60" width="777"  name=key_id_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Key Name" border="2" color="16777215" x="2171" y="16" height="60" width="777"  name=key_nm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="From Date" border="2" color="16777215" x="2967" y="16" height="60" width="352"  name=fromdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="To Date" border="2" color="16777215" x="3337" y="16" height="60" width="352"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Amount" border="2" color="16777215" x="3707" y="16" height="60" width="398"  name=amount_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Refund Amount" border="2" color="16777215" x="4123" y="16" height="60" width="398"  name=refund_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Account Number" border="2" color="16777215" x="4539" y="16" height="60" width="434"  name=acc_num_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="REGCOD" border="2" color="16777215" x="4992" y="16" height="60" width="293"  name=regcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="TYPE" border="2" color="16777215" x="23" y="16" height="60" width="320"  name=type_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="DC TYPE" border="2" color="16777215" x="5303" y="16" height="60" width="233"  name=dctype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="REPORT_YN" border="2" color="16777215" x="5554" y="16" height="60" width="379"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+line(band=detail x1="14" y1="80" x2="5938" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="3145" y="136" height="60" width="256" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3401" y="136" height="60" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="3593" y="136" height="60" width="256" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="3849" y="136" height="60" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="4041" y="136" height="60" width="320" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="2" color="0" x="2171" y="8" height="60" width="777" format="[general]"  name=key_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="2" tabsequence=70 border="2" color="0" x="3337" y="8" height="60" width="352" format="[shortdate] [time]"  name=todt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="1" tabsequence=80 border="2" color="0" x="3707" y="8" height="60" width="398" format="###,##0.00"  name=amount edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=90 border="2" color="0" x="4123" y="8" height="60" width="398" format="###,##0.00"  name=refund_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=100 border="2" color="0" x="4539" y="8" height="60" width="434" format="[general]"  name=acc_num edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="23" y="8" height="60" width="320" format="[general]"  name=type dddw.name=ssrt_dddw_section dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes dddw.showlist=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="361" y="8" height="60" width="640" format="[general]"  name=shopid dddw.name=ssrt_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="1019" y="8" height="60" width="338" format="[general]"  name=shop_type dddw.name=ssrt_dddw_shoptype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="16777215" x="1376" y="8" height="60" width="777" format="[general]"  name=key_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=9 alignment="0" tabsequence=110 border="2" color="0" x="4992" y="8" height="60" width="293" format="[general]"  name=regcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="2" tabsequence=60 border="2" color="16777215" x="2967" y="8" height="60" width="352" format="[shortdate] [time]"  name=fromdt editmask.mask="mm-dd-yyyy " editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=17 alignment="0" tabsequence=120 border="2" color="16777215" x="5303" y="8" height="60" width="233" format="[general]"  name=dctype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=18 alignment="0" tabsequence=130 border="2" color="16777215" x="5554" y="8" height="60" width="379" format="[general]"  name=sumreport_yn radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

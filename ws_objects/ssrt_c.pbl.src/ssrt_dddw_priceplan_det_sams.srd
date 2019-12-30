@@ -1,0 +1,21 @@
+﻿$PBExportHeader$ssrt_dddw_priceplan_det_sams.srd
+$PBExportComments$[1hera] PricePlanDET-ssrt
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplandet.priceplan" )
+ retrieve="SELECT   A.itemnm , A.itemcod,  B.priceplan 
+  FROM   itemmst A , priceplandet B
+ WHERE   A.itemcod = B.itemcod
+" )
+text(band=header alignment="0" text="Itemmst Itemcod" border="0" color="0" x="9" y="4" height="76" width="1591"  name=t_3  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Itemmst Itemnm" border="0" color="0" x="9" y="4" height="76" width="1591"  name=t_4  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Priceplandet Priceplan" border="0" color="0" x="1609" y="4" height="76" width="219"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="76" width="1591" format="[general]"  name=itemnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1609" y="0" height="76" width="219" format="[general]"  name=priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

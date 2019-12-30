@@ -1,0 +1,72 @@
+﻿$PBExportHeader$b1dw_cnd_reg_prepayment.srd
+$PBExportComments$[ohj] 기간제 선납상품수납 - dw_master
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customernm" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="status" )
+ column=(type=datetime updatewhereclause=yes name=activedt dbname="activedt" )
+ column=(type=datetime updatewhereclause=yes name=termdt dbname="termdt" )
+ column=(type=datetime updatewhereclause=yes name=bil_todt dbname="bil_todt" )
+ column=(type=char(1) updatewhereclause=yes name=oneoffcharge_yn dbname="oneoffcharge_yn" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemcod" )
+ column=(type=char(10) updatewhereclause=yes name=direct_paytype dbname="direct_paytype" )
+ column=(type=datetime updatewhereclause=yes name=enddt dbname="enddt" )
+ retrieve="SELECT A.CUSTOMERID
+     , B.CUSTOMERNM
+     , A.CONTRACTSEQ
+     , A.PRICEPLAN
+     , A.STATUS
+     , A.ACTIVEDT
+     , A.TERMDT
+     , A.BIL_TODT
+     , C.ONEOFFCHARGE_YN
+     , C.ITEMCOD
+     , A.DIRECT_PAYTYPE
+     , A.ENDDT
+  FROM CONTRACTMST A
+     , CUSTOMERM   B
+     , ( SELECT AA.CONTRACTSEQ
+              , BB.ONEOFFCHARGE_YN
+              , BB.ITEMCOD
+           FROM CONTRACTDET AA
+              , ITEMMST     BB
+          WHERE AA.ITEMCOD   = BB.ITEMCOD
+            AND BB.PREBIL_YN = 'Y'         
+                 ) C
+     , SVCMST      D
+ WHERE A.CUSTOMERID  = B.CUSTOMERID
+   AND A.CONTRACTSEQ = C.CONTRACTSEQ
+   AND A.SVCCOD      = D.SVCCOD" )
+text(band=background alignment="0" text="Order By" border="0" color="0" x="32" y="28" height="60" width="265"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="325" y="28" height="60" width="517"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="Total Rows" border="0" color="0" x="3685" y="28" height="60" width="297"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="ASC/DESC" border="0" color="0" x="1787" y="28" height="60" width="384"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="2185" y="28" height="60" width="288"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="ROWCOUNT()"border="0" color="8388608" x="4000" y="28" height="60" width="375" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="297" format="[general]"  name=customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="315" y="8" height="60" width="704" format="[general]"  name=customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1029" y="8" height="60" width="370" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1408" y="8" height="60" width="768" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2185" y="8" height="60" width="366" format="[general]"  name=status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="3063" y="8" height="60" width="448" format="[shortdate] [time]"  name=activedt editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="3520" y="8" height="60" width="471" format="[shortdate] [time]"  name=termdt editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="2560" y="8" height="60" width="489" format="[general]"  name=direct_paytype dddw.name=b1dc_dddw_direct_paytype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="0" color="0" x="4000" y="8" height="60" width="375" format="[shortdate] [time]"  name=enddt editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객번호" border="2" color="16777215" x="9" y="104" height="60" width="297"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약Seq" border="2" color="16777215" x="1029" y="104" height="60" width="370"  name=contractseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격정책" border="2" color="16777215" x="1408" y="104" height="60" width="768"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="16777215" x="2185" y="104" height="60" width="366"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개통일자" border="2" color="16777215" x="3058" y="104" height="60" width="453"  name=activedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="납부방식" border="2" color="16777215" x="2560" y="104" height="60" width="489"  name=direct_paytype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="해지일자" border="2" color="16777215" x="3520" y="104" height="60" width="471"  name=termdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기간만료일" border="2" color="16777215" x="4000" y="104" height="60" width="375"  name=enddt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객명" border="2" color="16777215" x="315" y="104" height="60" width="704"  name=customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

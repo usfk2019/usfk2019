@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b3dw_buffer_discountwhereitem.srd
+$PBExportComments$할인조건마스터Buffer 용 DW By 변유신
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=witem dbname="discount_whereitem.witem" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=tablenm dbname="discount_whereitem.tablenm" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=columnm dbname="discount_whereitem.columnm" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=columntype dbname="discount_whereitem.columntype" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"discount_whereitem~" ) COLUMN(NAME=~"discount_whereitem.witem~") COLUMN(NAME=~"discount_whereitem.tablenm~") COLUMN(NAME=~"discount_whereitem.columnm~") COLUMN(NAME=~"discount_whereitem.columntype~")WHERE(    EXP1 =~"~~~"DISCOUNT_WHEREITEM~~~".~~~"WITEM~~~"~"   OP =~"=~"    EXP2 =~":ae_witem~" ) ) ARG(NAME = ~"ae_witem~" TYPE = string) " update="DISCOUNT_WHEREITEM" updatewhere=1 updatekeyinplace=no arguments=(("ae_witem", string)) )
+text(band=header alignment="2" text="Witem" border="0" color="0" x="5" y="4" height="64" width="302"  name=witem_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tablenm" border="0" color="0" x="311" y="4" height="64" width="544"  name=tablenm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Columntype" border="0" color="0" x="859" y="4" height="64" width="576"  name=columntype_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Columnm" border="0" color="0" x="1440" y="4" height="64" width="544"  name=columnm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="5" y="4" height="76" width="302" format="[general]"  name=witem edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="311" y="4" height="76" width="544" format="[general]"  name=tablenm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="859" y="4" height="76" width="576" format="[general]"  name=columntype edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="1440" y="4" height="76" width="544" format="[general]"  name=columnm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

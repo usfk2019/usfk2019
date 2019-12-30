@@ -1,0 +1,64 @@
+﻿$PBExportHeader$b7dw_inq_reg_bankreq_ea13.srd
+$PBExportComments$[parkkh] CMS 출금이체신청(EA13)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=184 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) update=yes updatewhereclause=yes key=yes name=customerid dbname="billinginfo.customerid" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="billinginfo.customerid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bank dbname="billinginfo.bank" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=acctno dbname="billinginfo.acctno" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=acct_owner dbname="billinginfo.acct_owner" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=acct_ssno dbname="billinginfo.acct_ssno" )
+ column=(type=datetime update=yes updatewhereclause=yes name=drawingreqdt dbname="billinginfo.drawingreqdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=drawingtype dbname="billinginfo.drawingtype" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=drawingresult dbname="billinginfo.drawingresult" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=receiptcod dbname="billinginfo.receiptcod" )
+ column=(type=datetime update=yes updatewhereclause=yes name=receiptdt dbname="billinginfo.receiptdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=resultcod dbname="billinginfo.resultcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="billinginfo.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="billinginfo.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="billinginfo.pgm_id" )
+ retrieve="  SELECT ~"BILLINGINFO~".~"CUSTOMERID~", 
+		 ~"BILLINGINFO~".~"CUSTOMERID~",   
+         ~"BILLINGINFO~".~"BANK~",   
+         ~"BILLINGINFO~".~"ACCTNO~",   
+         ~"BILLINGINFO~".~"ACCT_OWNER~",   
+         ~"BILLINGINFO~".~"ACCT_SSNO~",   
+         ~"BILLINGINFO~".~"DRAWINGREQDT~",   
+         ~"BILLINGINFO~".~"DRAWINGTYPE~",   
+         ~"BILLINGINFO~".~"DRAWINGRESULT~",   
+         ~"BILLINGINFO~".~"RECEIPTCOD~",   
+         ~"BILLINGINFO~".~"RECEIPTDT~",   
+         ~"BILLINGINFO~".~"RESULTCOD~",   
+         ~"BILLINGINFO~".~"UPDT_USER~",   
+         ~"BILLINGINFO~".~"UPDTDT~",   
+         ~"BILLINGINFO~".~"PGM_ID~"  
+    FROM ~"BILLINGINFO~"   
+" update="BILLINGINFO" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="납부자번호" border="2" color="16777215" x="9" y="112" height="64" width="343"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="은  행" border="2" color="16777215" x="1477" y="112" height="64" width="366"  name=bank_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계좌번호" border="2" color="16777215" x="1851" y="112" height="64" width="562"  name=acctno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="예금주" border="2" color="16777215" x="2423" y="112" height="64" width="677"  name=acct_owner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="주민/사업자번호" border="2" color="16777215" x="3109" y="112" height="64" width="526"  name=acct_ssno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="신청일자" border="2" color="16777215" x="741" y="112" height="64" width="352"  name=drawingreqdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="신청유형" border="2" color="16777215" x="1102" y="112" height="64" width="366"  name=drawingtype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="납부자명" border="2" color="16777215" x="361" y="112" height="64" width="370"  name=customerid_1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="343" format="[general]"  name=customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1477" y="4" height="60" width="366" format="[general]"  name=bank dddw.name=b7dc_dddw_bank dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1851" y="4" height="60" width="562" format="[general]"  name=acctno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2423" y="4" height="60" width="677" format="[general]"  name=acct_owner edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="3109" y="4" height="60" width="526" format="[general]"  name=acct_ssno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="741" y="4" height="60" width="352" format="yyyy-mm-dd"  name=drawingreqdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1102" y="4" height="60" width="366" format="[general]"  name=drawingtype dddw.name=b7dc_dddw_drawingtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="361" y="4" height="60" width="370" format="[general]"  name=customerid_1 dddw.name=b7dc_dddw_customerid dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="2" text="ORDER BY" border="0" color="0" x="5" y="36" height="60" width="274"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="293" y="36" height="60" width="622"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="ASC/DESC" border="0" color="0" x="1417" y="36" height="60" width="302"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1737" y="36" height="60" width="91"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="TOTAL ROWS" border="0" color="0" x="2277" y="36" height="56" width="320"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=foreground alignment="0" expression="rowcount()"border="0" color="8388608" x="2619" y="32" height="60" width="471" format="#,##0"  name=compute_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

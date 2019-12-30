@@ -1,0 +1,39 @@
+﻿$PBExportHeader$b2dc_dddw_partner_priceplan.srd
+$PBExportComments$[ssong] partner priceplan (cntlimitflag like 'Y%' , ALL)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=partner dbname="partner" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplan" )
+ column=(type=char(50) updatewhereclause=yes name=priceplan_desc dbname="priceplan_desc" )
+ retrieve="select a.PARTNER
+     , a.PRICEPLAN
+     , b.PRICEPLAN_DESC
+      from (  select Distinct 'ALL' PARTNER
+                 , 'ALL' PRICEPLAN 
+                 , '2' sort
+              from PARTNER_PRICEPLAN
+            union all
+            select PARTNER
+                 , PRICEPLAN
+                 , '1' sort
+              from PARTNER_PRICEPLAN)  a
+           , 
+				 ( select Distinct 'ALL' priceplan
+					  ,  'ALL' priceplan_desc
+				  from priceplanmst
+				union all
+				select priceplan
+					  , priceplan_desc
+				  from priceplanmst) b
+where a.priceplan = b.priceplan
+ORDER BY a.sort ASC   
+" )
+line(band=detail x1="0" y1="72" x2="699" y2="72"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="4" height="60" width="677" format="[general]"  name=priceplan_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="736" y="4" height="60" width="320" format="[general]"  name=priceplan visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1061" y="4" height="60" width="320" format="[general]"  name=partner visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

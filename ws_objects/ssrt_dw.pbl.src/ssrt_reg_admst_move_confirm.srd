@@ -1,0 +1,69 @@
+﻿$PBExportHeader$ssrt_reg_admst_move_confirm.srd
+$PBExportComments$[1hera] 단품이동및확인 - Master DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=adseq dbname="admst.adseq" )
+ column=(type=char(20) updatewhereclause=yes name=contno dbname="admst.contno" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="admst.serialno" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="admst.modelno" )
+ column=(type=char(50) updatewhereclause=yes name=modelnm dbname="admodel.modelnm" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="admst.status" )
+ column=(type=datetime updatewhereclause=yes name=idate dbname="admst.idate" )
+ column=(type=datetime updatewhereclause=yes name=movedt dbname="admst.movedt" )
+ column=(type=char(10) updatewhereclause=yes name=mv_partner dbname="admst.mv_partner" )
+ column=(type=char(10) updatewhereclause=yes name=to_partner dbname="admst.to_partner" )
+ column=(type=char(15) updatewhereclause=yes name=pid dbname="admst.pid" )
+ column=(type=char(10) updatewhereclause=yes name=sn_partner dbname="admst.sn_partner" )
+ column=(type=char(10) updatewhereclause=yes name=adtype dbname="admst.adtype" )
+ column=(type=number updatewhereclause=yes name=chk dbname="admst.chk" values="	1/	0" )
+ column=(type=number updatewhereclause=yes name=c_all dbname="admst.c_all" values="	1/	0" )
+ retrieve="  SELECT A.ADSEQ,   
+         A.CONTNO,   
+         A.SERIALNO,   
+         A.MODELNO,   
+			B.MODELNM,
+         A.STATUS,    
+         A.IDATE,   
+         A.MOVEDT,   
+         A.MV_PARTNER,   
+			A.TO_PARTNER,
+         A.PID,   
+         A.SN_PARTNER , 
+         A.ADTYPE,
+         0  chk,
+         0 c_all
+    FROM ADMST A ,  ADMODEL B
+WHERE A.MODELNO = B.MODELNO
+ORDER BY B.MODELNM
+" )
+button(band=header text=" All"filename=""action="0" border="0" color="15793151" x="9" y="12" height="68" width="233" vtextalign="0" htextalign="0"  name=b_all  resizeable=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="25793388" )
+text(band=header alignment="2" text="Equip. No" border="2" color="15793151" x="251" y="16" height="60" width="357"  name=adseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Serial No." border="2" color="15793151" x="1312" y="16" height="60" width="480"  name=serialno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Control No" border="2" color="15793151" x="622" y="16" height="60" width="677"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="750" y="200" height="60" width="379" format="[general]"  name=status dddw.name=b8dc_dddw_admodelstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="IF( chk = 1, 1, 0) "border="0" color="0" x="169" y="152" height="76" width="256" format="[General]"  name=cp_su  font.face="Arial" font.height="-12" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="2" tabsequence=10 border="0" color="0" x="5" y="8" height="60" width="233" format="[general]"  name=chk checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="251" y="8" height="60" width="357" format="[general]"  name=adseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1312" y="8" height="60" width="480" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="622" y="8" height="60" width="677" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="Total Count" border="2" color="15793151" x="14" y="4" height="60" width="590"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=summary alignment="1" expression="sum(  cp_su  for all )"border="0" color="0" x="622" y="4" height="56" width="430" format="#,##0"  name=cp_tot  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Entering Date" border="2" color="15793151" x="2629" y="16" height="60" width="462"  name=idate_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Moving Date" border="2" color="15793151" x="3104" y="16" height="60" width="462"  name=movedt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="2629" y="8" height="60" width="462" format="[shortdate] [time]"  name=idate editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="2" color="0" x="3104" y="8" height="60" width="462" format="[shortdate] [time]"  name=movedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Model No" border="2" color="15793151" x="1806" y="16" height="60" width="809"  name=modelnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1806" y="8" height="60" width="809" format="[general]"  name=modelnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Owner Shop" border="2" color="15793151" x="3579" y="16" height="60" width="827"  name=mv_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="3579" y="8" height="60" width="827" format="[general]"  name=mv_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="To Shop" border="2" color="15793151" x="4421" y="16" height="60" width="827"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="4421" y="8" height="60" width="827" format="[general]"  name=to_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Pin #" border="2" color="15793151" x="5262" y="16" height="60" width="471"  name=pid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="5262" y="8" height="60" width="471" format="[general]"  name=pid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )
+ 

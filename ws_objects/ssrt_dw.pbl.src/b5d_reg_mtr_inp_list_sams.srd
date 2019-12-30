@@ -1,0 +1,96 @@
+﻿$PBExportHeader$b5d_reg_mtr_inp_list_sams.srd
+$PBExportComments$[ceusee] 수동입금거래등록
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=trdt dbname="trdt" )
+ column=(type=char(10) updatewhereclause=yes name=trcod dbname="reqdtl.trcod" )
+ column=(type=decimal(2) updatewhereclause=yes name=tramt dbname="reqdtl.tramt" )
+ column=(type=decimal(2) updatewhereclause=yes name=payidamt dbname="reqdtl.payidamt" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(10) updatewhereclause=yes name=regcod dbname="itemmst.regcod" )
+ column=(type=decimal(0) updatewhereclause=yes name=priority dbname="itemmst.priority" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="reqdtl.customerid" )
+ column=(type=char(1) updatewhereclause=yes name=complete_yn dbname="reqdtl.complete_yn" )
+ column=(type=char(1) updatewhereclause=yes name=chk dbname="chk" initial="0" )
+ column=(type=number updatewhereclause=yes name=income dbname="income" )
+ column=(type=number updatewhereclause=yes name=impack_card dbname="impack_card" )
+ column=(type=number updatewhereclause=yes name=impack_not dbname="impack_not" )
+ column=(type=char(1) updatewhereclause=yes name=impack_check dbname="impack_check" )
+ column=(type=number updatewhereclause=yes name=bil_amt dbname="bil_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=bil_amt2 dbname="reqdtl.bil_amt2" )
+ column=(type=number updatewhereclause=yes name=bil_taxamt dbname="bil_taxamt" )
+ column=(type=char(1) updatewhereclause=yes name=surtaxyn dbname="surtaxyn" )
+ retrieve=" SELECT TO_CHAR(A.TRDT, 'yyyymmdd') TRDT,   
+         A.TRCOD,   
+         A.TRAMT,   
+         A.PAYIDAMT,   
+         C.ITEMCOD,
+         C.ITEMNM,
+         C.REGCOD,
+         C.PRIORITY,
+         A.CUSTOMERID,
+         A.COMPLETE_YN,
+         ' '  chk,
+         0  income,
+         0 impack_card,
+         0 impack_not,
+         'N' impack_check,
+         (A.TRAMT + nvl(A.TAXAMT,0) - A.PAYIDAMT) AS BIL_AMT,
+         A.TRAMT                           AS BIL_AMT2,
+         NVL(A. TAXAMT,0)                  AS BIL_TAXAMT
+       , DECODE(c.surtaxyn,'N','*',' ')    AS surtaxyn
+    FROM REQDTL A, TRCODE B, ITEMMST C 
+   WHERE A.PAYID = :as_payid
+      AND A.TRCOD = B.TRCOD
+     AND B.TRCOD = C.TRCOD
+     AND (A.MARK <> 'D' or A.MARK IS NULL)
+ORDER BY A.TRDT DESC, C.PRIORITY ASC
+" arguments=(("as_payid", string))  sort="trdt A priority A " )
+group(level=1 header.height=0 trailer.height=12 by=("cp_grp" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Invoice Date" border="2" color="15793151" x="27" y="8" height="60" width="494" html.valueishtml="0"  name=compute_0001_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="I t e m" border="2" color="15793151" x="535" y="8" height="60" width="1010" html.valueishtml="0"  name=itemcod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Facnum" border="2" color="15793151" x="1559" y="8" height="60" width="635" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Request Amount" border="2" color="15793151" x="2208" y="8" height="60" width="448" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Balance" border="2" color="15793151" x="2903" y="8" height="60" width="457" html.valueishtml="0"  name=t_balance visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Priority" border="2" color="15793151" x="3374" y="8" height="60" width="251" html.valueishtml="0"  name=priority_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="VAT" border="2" color="15793151" x="2670" y="8" height="60" width="219" html.valueishtml="0"  name=t_vat visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="27" y="8" height="60" width="494" format="@@@@-@@-@@" html.valueishtml="0"  name=trdt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="535" y="8" height="60" width="201" format="[general]" html.valueishtml="0"  name=itemcod visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="174" y="168" height="60" width="197" format="[general]" html.valueishtml="0"  name=tramt visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1006" y="148" height="60" width="233" format="[general]" html.valueishtml="0"  name=trcod visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="869" y="168" height="60" width="96" format="[general]" html.valueishtml="0"  name=complete_yn visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="407" y="160" height="60" width="229" format="#,##0.00" html.valueishtml="0"  name=payidamt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="750" y="8" height="60" width="795" format="[general]" html.valueishtml="0"  name=itemnm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1559" y="8" height="60" width="635" format="[general]" html.valueishtml="0"  name=regcod visible="1" dddw.name=ssrt_dddw_regcod dddw.displaycolumn=cp_facnum dddw.datacolumn=regcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1504" y="148" height="60" width="325" format="[general]" html.valueishtml="0"  name=customerid visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1143" y="260" height="60" width="78" format="[general]" html.valueishtml="0"  name=chk visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="1234" y="256" height="60" width="187" format="[general]" html.valueishtml="0"  name=income visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="left( trdt , 6)"border="0" color="0" x="1440" y="256" height="60" width="256" format="[GENERAL]" html.valueishtml="0"  name=cp_grp visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="IF( cp_amt < 0, 'A', 'B')"border="0" color="0" x="1755" y="260" height="60" width="183" format="[GENERAL]" html.valueishtml="0"  name=cp_sort visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1938" y="256" height="60" width="352" format="#,##0.00" html.valueishtml="0"  name=impack_card visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="2304" y="256" height="60" width="315" format="#,##0.00" html.valueishtml="0"  name=impack_not visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="2629" y="256" height="60" width="379" format="[general]" html.valueishtml="0"  name=impack_check visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="2208" y="8" height="60" width="453" format="#,##0.00" html.valueishtml="0"  name=bil_amt2 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" tramt + bil_taxamt - payidamt "border="0" color="0" x="2907" y="8" height="60" width="453" format="#,##0.00" html.valueishtml="0"  name=cp_amt visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="2565" y="176" height="60" width="453" format="#,##0.00" html.valueishtml="0"  name=bil_amt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=10 border="0" color="0" x="3374" y="8" height="60" width="251" format="[general]" html.valueishtml="0"  name=priority visible="1~tIF( complete_yn ='N', 1, 0)" editmask.mask="####" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="0" x="2674" y="8" height="60" width="219" format="#,##0.00" html.valueishtml="0"  name=bil_taxamt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="23" y1="76" x2="3621" y2="76"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="23" y1="8" x2="3621" y2="8"  name=l_2 visible="1" pen.style="0" pen.width="9" pen.color="8421376"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="0" text="SUM" border="0" color="0" x="27" y="20" height="60" width="494" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

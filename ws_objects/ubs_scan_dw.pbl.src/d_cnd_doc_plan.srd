@@ -1,0 +1,28 @@
+﻿$PBExportHeader$d_cnd_doc_plan.srd
+$PBExportComments$가격정책별구비서류
+release 10;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=268 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=priceplan dbname="priceplan" initial="%" )
+ column=(type=char(10) updatewhereclause=no name=service dbname="service" initial="%" )
+ column=(type=char(10) updatewhereclause=no name=doc_type dbname="doc_type" initial="%" )
+ )
+text(band=detail alignment="1" text="서비스" border="0" color="0" x="27" y="20" height="60" width="375" html.valueishtml="0"  name=customerid_t visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="411" y="20" height="60" width="1019" format="[general]" html.valueishtml="0"  name=service visible="1" dddw.name=ubs_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes dddw.autoretrieve=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="가격정책" border="0" color="0" x="27" y="104" height="60" width="375" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="416" y="104" height="60" width="1019" format="[general]" html.valueishtml="0"  name=priceplan visible="1" dddw.name=ubs_dddw_priceplan_partner2 dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=100 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes dddw.autoretrieve=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="구비서류TYPE" border="0" color="0" x="27" y="188" height="60" width="375" html.valueishtml="0"  name=req_code_t visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="411" y="188" height="60" width="1019" format="[general]" html.valueishtml="0"  name=doc_type visible="1" dddw.name=ubs_dddw_doc_type dddw.displaycolumn=doc_type_desc dddw.datacolumn=doc_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.autoretrieve=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

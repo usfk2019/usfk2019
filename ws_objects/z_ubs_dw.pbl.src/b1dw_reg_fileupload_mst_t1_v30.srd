@@ -1,0 +1,45 @@
+﻿$PBExportHeader$b1dw_reg_fileupload_mst_t1_v30.srd
+$PBExportComments$[jwlee]파일 Upload마스트등록 -텝1
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=240 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=fileformcd dbname="reqfileformmst.fileformcd" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=fileformnm dbname="reqfileformmst.fileformnm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=rank dbname="reqfileformmst.rank" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=filefomrdesc dbname="reqfileformmst.filefomrdesc" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=svccod dbname="reqfileformmst.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="reqfileformmst.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="reqfileformmst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="reqfileformmst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updt dbname="reqfileformmst.updt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="reqfileformmst.pgm_id" )
+ retrieve="SELECT 	FILEFORMCD,
+             FILEFORMNM,
+             RANK,
+             FILEFOMRDESC,
+             SVCCOD,
+             CRT_USER,
+             UPDT_USER,
+             CRTDT,
+             UPDT,
+             PGM_ID
+ FROM	REQFILEFORMMST" update="REQFILEFORMMST" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="1038" y="40" height="196" width="411"  name=r_3 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="12639424"  background.mode="2" background.color="12639424" )
+rectangle(band=detail x="23" y="40" height="196" width="416"  name=r_2 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="12639424"  background.mode="2" background.color="12639424" )
+rectangle(band=detail x="23" y="40" height="196" width="2606"  name=r_1 brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="453" y="56" height="72" width="562" format="[general]"  name=fileformcd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="1467" y="56" height="72" width="1138" format="[general]"  name=fileformnm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="2" color="16777215" x="453" y="152" height="72" width="562" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=250 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="33554432" x="1467" y="152" height="72" width="1138" format="[general]"  name=filefomrdesc edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33554431" )
+line(band=detail x1="27" y1="136" x2="2629" y2="136"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="파일유형코드" border="0" color="0" x="46" y="64" height="60" width="370"  name=fileformcd_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="서비스" border="0" color="0" x="41" y="160" height="60" width="370"  name=svccod_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="파일유형명" border="0" color="0" x="1061" y="64" height="60" width="370"  name=fileformnm_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="설명" border="0" color="0" x="1061" y="160" height="60" width="370"  name=filefomrdesc_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1449" y1="40" x2="1449" y2="236"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1033" y1="40" x2="1033" y2="236"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="434" y1="40" x2="434" y2="236"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

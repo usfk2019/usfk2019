@@ -1,0 +1,39 @@
+﻿$PBExportHeader$f_pos_print_vat.srf
+global type f_pos_print_vat from function_object
+end type
+
+forward prototypes
+global subroutine f_pos_print_vat (string fs_buf, integer fi_sw)
+end prototypes
+
+global subroutine f_pos_print_vat (string fs_buf, integer fi_sw);String ls_buf
+Integer li_len, li_spc
+
+String  ls_linefeed = "~h0A"                                         // Print And Line Feed
+long    ll_print_line, ll_cur_print_line
+
+CHOOSE CASE fi_sw
+case 1
+	li_len = LenA(fs_buf)
+
+	ll_cur_print_line  = gs_str_receipt_print.ll_line_num
+	ll_print_line     += ll_cur_print_line + 1
+	
+	gs_str_receipt_print.ll_line_num           = ll_print_line
+	gs_str_receipt_print.ls_out[ll_print_line] = fs_buf + ls_linefeed
+case 2
+	ls_buf = fs_buf
+	li_len = LenA(ls_buf)
+	li_spc = truncate(( 42 -  li_len ) / 2, 0)
+	ls_buf = space(li_spc) + fs_buf
+	li_len = LenA(ls_buf)
+
+	ll_cur_print_line  = gs_str_receipt_print.ll_line_num
+	ll_print_line     += ll_cur_print_line + 1
+	gs_str_receipt_print.ll_line_num           = ll_print_line
+	gs_str_receipt_print.ls_out[ll_print_line] = space(li_spc) + fs_buf + ls_linefeed
+END CHOOSE
+	
+RETURN
+end subroutine
+

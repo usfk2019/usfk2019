@@ -1,0 +1,13 @@
+﻿$PBExportHeader$b0dw_cnd_reg_categoryc_sams.srd
+$PBExportComments$[parkkh] 품목 대분류 condition data window
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=132 color="536870912" )
+table(column=(type=char(50) updatewhereclause=no name=categorycnm dbname="categorycnm" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="475" y="40" height="60" width="997" format="[general]"  name=categorycnm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Category C Name" border="0" color="0" x="14" y="40" height="60" width="448"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

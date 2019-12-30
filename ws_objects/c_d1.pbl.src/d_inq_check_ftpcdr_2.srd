@@ -1,0 +1,45 @@
+﻿$PBExportHeader$d_inq_check_ftpcdr_2.srd
+$PBExportComments$[ssong]시스템 점검관리
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seqno dbname="fileupload_worklog.seqno" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=filename dbname="fileupload_worklog.filename" )
+ column=(type=datetime update=yes updatewhereclause=yes name=stime dbname="fileupload_worklog.stime" )
+ column=(type=datetime update=yes updatewhereclause=yes name=etime dbname="fileupload_worklog.etime" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="fileupload_worklog.file_status" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="fileupload_worklog.status" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=prccount dbname="fileupload_worklog.prccount" )
+ retrieve="SELECT SEQNO,
+       FILENAME,
+       STIME,
+       ETIME,
+       file_STATUS,
+		 status,
+       PRCCOUNT
+FROM   fileupload_worklog" update="fileupload_worklog" updatewhere=1 updatekeyinplace=no )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="105" y="12" height="56" width="288"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="402" y="12" height="56" width="549"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1262" y="12" height="56" width="320"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="2414" y="12" height="56" width="407"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="처리시작시간" border="2" color="15793151" x="1586" y="88" height="60" width="631"  name=stime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="파일Seq" border="2" color="15793151" x="9" y="88" height="60" width="384"  name=seqno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="파일명" border="2" color="15793151" x="402" y="88" height="60" width="1175"  name=filename_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리종료시간" border="2" color="15793151" x="2226" y="88" height="60" width="576"  name=etime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="파일상태" border="2" color="15793151" x="2811" y="88" height="60" width="453"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리건수" border="2" color="15793151" x="3273" y="88" height="60" width="338"  name=prccount_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="16777215" x="3621" y="88" height="60" width="261"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="60" width="384" format="[general]"  name=seqno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="402" y="8" height="60" width="1175" format="[general]"  name=filename edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="0" color="0" x="1586" y="8" height="60" width="631" format="[shortdate] [time]"  name=stime editmask.mask="yyyy-mm-dd hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=40 border="0" color="0" x="2226" y="8" height="60" width="576" format="[shortdate] [time]"  name=etime editmask.mask="yyyy-mm-dd hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=50 border="0" color="0" x="2811" y="8" height="60" width="453" format="[general]"  name=status dddw.name=b1dc_1_dddw_fileupload_status_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=60 border="0" color="0" x="3273" y="8" height="60" width="338" format="#,##0"  name=prccount edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="3621" y="8" height="60" width="261" format="[general]"  name=status_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1595" y="12" height="56" width="261"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=foreground alignment="0" expression="rowcount()"border="0" color="8388608" x="2880" y="12" height="56" width="379" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

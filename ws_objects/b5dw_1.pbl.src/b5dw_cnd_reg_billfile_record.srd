@@ -1,0 +1,40 @@
+﻿$PBExportHeader$b5dw_cnd_reg_billfile_record.srd
+$PBExportComments$[ohj] 청구file record 구성
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=invf_type dbname="invf_recordmst.invf_type" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seqno dbname="invf_recordmst.seqno" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=record dbname="invf_recordmst.record" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=record_desc dbname="invf_recordmst.record_desc" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=record_type dbname="invf_recordmst.record_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=item_delimit dbname="invf_recordmst.item_delimit" values="Semicolon	;/Comma	,/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=record_delimit dbname="invf_recordmst.record_delimit" values="Semicolon	;/Comma	,/Enter	\n/" )
+ retrieve="  SELECT INVF_TYPE
+       , SEQNO
+       , RECORD
+       , RECORD_DESC
+       , RECORD_TYPE
+       , ITEM_DELIMIT
+       , RECORD_DELIMIT
+    FROM INVF_RECORDMST
+ORDER BY INVF_TYPE
+       , SEQNO
+       , RECORD" update="INVF_RECORDMST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Record" border="2" color="15793151" x="311" y="20" height="60" width="297"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Description" border="2" color="15793151" x="626" y="20" height="60" width="1161"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Record Type" border="2" color="15793151" x="1806" y="20" height="60" width="599"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Delimit" border="2" color="15793151" x="2423" y="20" height="60" width="526"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Record Delimit" border="2" color="15793151" x="2967" y="20" height="60" width="526"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Seq" border="2" color="15793151" x="23" y="20" height="60" width="270"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="16777215" x="626" y="8" height="60" width="1161" format="[general]"  name=record_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="2" color="16777215" x="1806" y="8" height="60" width="599" format="[general]"  name=record_type dddw.name=b5dc_dddw_recordtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="2" color="16777215" x="2423" y="8" height="60" width="526" format="[general]"  name=item_delimit ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=50 border="2" color="16777215" x="2967" y="8" height="60" width="526" format="[general]"  name=record_delimit ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="16777215" x="311" y="8" height="60" width="297" format="[general]"  name=record edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+compute(band=detail alignment="0" expression="getrow()"border="2" color="0" x="23" y="8" height="60" width="270" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

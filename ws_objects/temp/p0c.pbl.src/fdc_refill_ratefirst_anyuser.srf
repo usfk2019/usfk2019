@@ -1,0 +1,81 @@
+﻿$PBExportHeader$fdc_refill_ratefirst_anyuser.srf
+$PBExportComments$[juede] 충전rate_first
+global type fdc_refill_ratefirst_anyuser from function_object
+end type
+
+forward prototypes
+global function integer fdc_refill_ratefirst_anyuser (string ls_partner, string ls_priceplan, string ls_opendt, double lc_amt, ref decimal lc_rate)
+end prototypes
+
+global function integer fdc_refill_ratefirst_anyuser (string ls_partner, string ls_priceplan, string ls_opendt, double lc_amt, ref decimal lc_rate);//Dec{2} lc_rate
+int li_cnt, li_return
+
+lc_rate = 0
+li_cnt = 0
+li_return = 0
+
+//충전정책 가져옴
+Select rate_first, count(*)
+Into  :lc_rate, :li_cnt
+From  refillpolicy
+where partner = :ls_partner  
+and   priceplan = :ls_priceplan 
+and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+	  	      			  			  	    from refillpolicy 
+				      					    where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+												 and   partner = :ls_partner  
+												 and   priceplan = :ls_priceplan)
+and  fromamt <= :lc_amt 
+and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+group by rate_first;
+
+If SQLCA.SQLCode < 0 Then
+	Return -1
+End If
+
+If li_cnt =0 Then
+	Select rate_first, count(*)
+	Into  :lc_rate, :li_cnt
+	From  refillpolicy
+	where partner = :ls_partner  
+	and   priceplan = 'ALL' 
+	and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+													 from refillpolicy 
+													 where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+													 and   partner = :ls_partner  
+													 and   priceplan = 'ALL')
+	and  fromamt <= :lc_amt 
+	and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+	group by rate_first;	
+	
+	If SQLCA.SQLCode < 0 Then
+		Return -1
+	End If
+End If
+
+If li_cnt =0  Then
+	Select rate_first, count(*)
+	Into  :lc_rate, :li_cnt
+	From  refillpolicy
+	where partner = 'ALL'
+	and   priceplan = 'ALL' 
+	and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+													 from refillpolicy 
+													 where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+													 and   partner = 'ALL' 
+													 and   priceplan = 'ALL')
+	and  fromamt <= :lc_amt 
+	and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+	group by rate_first;
+	
+	If SQLCA.SQLCode < 0 Then
+		Return -1
+	ElseIf SQLCA.SQLCode = 100 Then
+		Return -1
+	End If
+End If
+
+
+return li_return
+end function
+

@@ -1,0 +1,41 @@
+﻿$PBExportHeader$b1dw_reg_svc_actorder_ipn_5_1.srd
+$PBExportComments$[kem] 서비스신청(인증) - com&life
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=validkey dbname="validinfo.validkey" )
+ column=(type=char(30) updatewhereclause=yes name=vpassword dbname="validinfo.vpassword" initial="1111" )
+ column=(type=char(2) updatewhereclause=yes name=act_result dbname="act_result" initial="00" )
+ column=(type=char(20) updatewhereclause=yes name=auth_method dbname="validinfo.auth_method" )
+ column=(type=char(20) updatewhereclause=yes name=validitem2 dbname="validinfo.validitem2" )
+ column=(type=char(20) updatewhereclause=yes name=validitem3 dbname="validinfo.validitem3" )
+ column=(type=char(10) updatewhereclause=yes name=langtype dbname="validinfo.langtype" )
+ column=(type=char(1) updatewhereclause=yes name=gu dbname="gu" )
+ column=(type=char(50) updatewhereclause=yes name=validitem1 dbname="validinfo.validitem1" )
+ column=(type=char(10) updatewhereclause=yes name=validkey_loc dbname="validinfo.validkey_loc" )
+ retrieve="  SELECT VALIDKEY,   
+         VPASSWORD,
+	  	 '00' act_result,
+         auth_method,
+         validitem2,
+         validitem3,
+         langtype,
+         'X' gu,
+         validitem1,
+         validkey_loc
+    FROM VALIDINFO
+  
+" )
+text(band=header alignment="2" text="Route-No." border="2" color="16777215" x="27" y="12" height="60" width="635"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="System ID" border="2" color="16777215" x="686" y="12" height="60" width="635"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Route Type" border="2" color="16777215" x="1344" y="12" height="60" width="635"  name=vpassword_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="In/Out Type" border="2" color="16777215" x="2002" y="12" height="60" width="635"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="27" y="8" height="60" width="635" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="686" y="8" height="60" width="635" format="[general]"  name=validitem1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1344" y="8" height="60" width="635" format="[general]"  name=validitem2 dddw.name=b1dc_dddw_routetype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2002" y="8" height="60" width="635" format="[general]"  name=validitem3 dddw.name=b1dc_dddw_inouttype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,57 @@
+﻿$PBExportHeader$b1dw_prt_contract_partner.srd
+$PBExportComments$[kem] 대리점별 계약건수리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=492 color="536870912" )
+summary(height=104 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=contractmst_svccod dbname="svccod" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_priceplan dbname="priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=partner dbname="partner" )
+ column=(type=number updatewhereclause=yes name=cnt dbname="cnt" )
+ retrieve="SELECT a.svccod,
+       a.priceplan,
+       b.partner,
+       sum(a.cnt) cnt
+  FROM partnermst b
+     , (SELECT svccod,
+               priceplan,
+               reg_partner,
+               reg_prefixno,
+               status,
+               activedt,
+               count(*) cnt
+          FROM contractmst
+         GROUP BY svccod, priceplan, reg_partner, reg_prefixno, status, activedt ) A
+ WHERE b.prefixno Like substr(a.reg_prefixno,1,:al_leng)
+ GROUP BY a.svccod, a.priceplan, b.partner
+ ORDER BY b.partner" arguments=(("al_leng", number)) )
+group(level=1 header.height=0 trailer.height=76 by=("partner" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="23" y="76" height="88" width="3301"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2405" y="168" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2331" y="168" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="2638" y="236" height="60" width="667"  name=date_time  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2647" y="308" height="64" width="658" format="[GENERAL]"  name=page  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="18" y1="392" x2="3319" y2="392"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="18" y1="488" x2="3319" y2="488"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="계약건수" border="0" color="0" x="2674" y="412" height="60" width="567"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="서비스" border="0" color="0" x="974" y="412" height="60" width="709"  name=contractmst_svccod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="가격정책" border="0" color="0" x="1833" y="412" height="60" width="754"  name=contractmst_priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="개통일자 :" border="0" color="0" x="82" y="316" height="60" width="320"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="421" y="316" height="60" width="631"  name=t_date  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="대리점" border="0" color="0" x="78" y="412" height="56" width="745"  name=contractmst_reg_partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="933" y1="88" x2="3319" y2="88"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2674" y="16" height="60" width="567" format="#,##0"  name=cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1833" y="16" height="60" width="754" format="[general]"  name=contractmst_priceplan dddw.name=b1dc_dddw_priceplan_svc dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="974" y="16" height="60" width="709" format="[general]"  name=contractmst_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="78" y="16" height="60" width="745" format="[general]"  name=partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="18" y1="72" x2="3319" y2="72"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(cnt for group 1)"border="0" color="0" x="2674" y="4" height="60" width="567" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression=" lookupdisplay(  partner  ) + ' 계'"border="0" color="0" x="974" y="4" height="60" width="709" format="[GENERAL]"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=summary x1="18" y1="88" x2="3319" y2="88"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(cnt for all)"border="0" color="0" x="2674" y="8" height="64" width="567" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="총 계약건수" border="0" color="0" x="78" y="12" height="56" width="745"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+
+sparse(names="partner")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,70 @@
+﻿$PBExportHeader$mobile_svc_req_hot_det.srd
+$PBExportComments$[hcjung] 베이스 코드 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=268 color="536870912" )
+summary(height=68 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=fileformcd dbname="reqfileformdet.fileformcd" )
+ column=(type=number updatewhereclause=yes name=seq dbname="reqfileformdet.seq" )
+ column=(type=char(0) updatewhereclause=yes name=sale_month dbname="sale_month" )
+ column=(type=char(0) updatewhereclause=yes name=sale_month1 dbname="sale_month1" )
+ column=(type=char(0) updatewhereclause=yes name=customerid dbname="customerid" )
+ column=(type=char(0) updatewhereclause=yes name=contractseq dbname="contractseq" )
+ column=(type=char(0) updatewhereclause=yes name=validkey dbname="validkey" )
+ column=(type=char(0) updatewhereclause=yes name=priceplan dbname="priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="reqfileformdet.itemcod" )
+ column=(type=char(50) updatewhereclause=yes key=yes name=fileitem dbname="reqfileformdet.fileitem" )
+ column=(type=number updatewhereclause=yes name=amt_mon1 dbname="reqfileformdet.amt_mon1" )
+ column=(type=number updatewhereclause=yes name=amt_mon2 dbname="reqfileformdet.amt_mon2" )
+ column=(type=char(10) updatewhereclause=yes name=groupno dbname="reqfileformdet.groupno" )
+ retrieve="SELECT  		 FILEFORMCD,
+             SEQ,
+            ''		AS SALE_MONTH,
+            ''    AS SALE_MONTH1,
+            ''		AS CUSTOMERID,
+            ''	AS CONTRACTSEQ,
+            ''		AS VALIDKEY,
+            ''		AS PRICEPLAN,
+            ITEMCOD,
+            FILEITEM,
+            0 AS AMT_MON1,
+            0 AS AMT_MON2,
+				GROUPNO
+FROM REQFILEFORMDET 
+WHERE FILEFORMCD = :as_fileformcd
+  AND GROUPNO IN ('C001', 'C002')
+  AND  USE_YN = 'Y'
+ORDER BY SEQ
+" update="REQFILEFORMDET" updatewhere=1 updatekeyinplace=no arguments=(("as_fileformcd", string)) )
+text(band=header alignment="2" text="사용품목" border="2" color="15793151" x="41" y="208" height="60" width="800"  name=basecod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액" border="2" color="15793151" x="855" y="208" height="60" width="530"  name=basenm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+line(band=header x1="1408" y1="208" x2="1408" y2="308"  name=l_1 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="사용품목" border="2" color="16777215" x="1440" y="208" height="60" width="800"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액" border="2" color="15793151" x="2254" y="208" height="60" width="530"  name=description_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용 월" border="2" color="15793151" x="41" y="144" height="60" width="800"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+text(band=header alignment="2" text="사용 월" border="2" color="15793151" x="1440" y="144" height="60" width="800"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=header id=3 alignment="2" tabsequence=32766 border="2" color="0" x="859" y="144" height="60" width="526" format="[general]"  name=sale_month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=header id=4 alignment="2" tabsequence=32766 border="2" color="0" x="2254" y="148" height="56" width="530" format="[general]"  name=sale_month1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1545" y="288" height="60" width="663" format="[general]"  name=fileformcd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="809" y="292" height="60" width="663" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="236" height="60" width="663" format="[general]"  name=itemcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2382" y="284" height="60" width="23" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2391" y="284" height="60" width="23" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2432" y="284" height="60" width="23" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2469" y="284" height="60" width="23" format="[general]"  name=priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="41" y="0" height="60" width="800" format="[general]"  name=fileitem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="1440" y="0" height="60" width="800" format="[general]"  name=fileitem_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+line(band=detail x1="1408" y1="0" x2="1408" y2="100"  name=l_2 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=10 border="2" color="255" x="855" y="0" height="60" width="530" format="[general]"  name=amt_mon1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="25793388~tIF ( groupno = 'C001', RGB(108,147,137), RGB(255,251,240))" )
+column(band=detail id=12 alignment="1" tabsequence=20 border="2" color="255" x="2254" y="0" height="60" width="530" format="[general]"  name=amt_mon2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="25793388~tIF ( groupno = 'C001', RGB(108,147,137), RGB(255,251,240))" )
+text(band=summary alignment="2" text="소계" border="2" color="15793151" x="41" y="0" height="60" width="800"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=summary alignment="2" text="소계" border="2" color="15793151" x="1440" y="0" height="60" width="800"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+line(band=summary x1="1408" y1="0" x2="1408" y2="100"  name=l_3 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression=" mon1_tot  +  mon2_tot "border="2" color="255" x="2254" y="36" height="76" width="530" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="해지 총금액" border="2" color="0" x="1440" y="36" height="72" width="800"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=summary alignment="1" expression="sum(amt_mon1 for all)"border="2" color="128" x="855" y="0" height="60" width="530" format="[general]"  name=mon1_tot  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(amt_mon2 for all)"border="2" color="128" x="2254" y="0" height="60" width="530" format="[general]"  name=mon2_tot  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

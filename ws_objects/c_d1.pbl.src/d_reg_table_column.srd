@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_reg_table_column.srd
+$PBExportComments$[parkkh] 품목 소분류 등록 master data window
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(50) update=yes updatewhereclause=yes key=yes name=table_name dbname="entity_info.table_name" )
+ column=(type=char(50) update=yes updatewhereclause=yes key=yes name=column_name dbname="entity_info.column_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=comments dbname="entity_info.comments" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=kor_comment dbname="entity_info.kor_comment" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=eng_comment dbname="entity_info.eng_comment" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=note dbname="entity_info.note" )
+ retrieve=" SELECT table_name,
+		  column_name,
+        comments,
+		  kor_comment,
+	     eng_comment,
+        note
+FROM  entity_info
+" update="entity_info" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Column Name" border="2" color="15793151" x="928" y="16" height="60" width="1079"  name=categorya_categoryanm_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Comment" border="2" color="15793151" x="2025" y="16" height="60" width="1147"  name=categorya_categoryb_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Korean Comment" border="2" color="15793151" x="3191" y="16" height="60" width="1147"  name=t_3  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="English Comment" border="2" color="15793151" x="4357" y="16" height="60" width="1147"  name=t_2  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비  고" border="2" color="15793151" x="5522" y="16" height="60" width="1143"  name=t_1  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Table Name" border="2" color="15793151" x="23" y="16" height="60" width="887"  name=categorya_categorya_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="2" color="0" x="5522" y="8" height="60" width="1143" format="[general]"  name=note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="2" color="0" x="4357" y="8" height="60" width="1147" format="[general]"  name=eng_comment edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="3191" y="8" height="60" width="1147" format="[general]"  name=kor_comment edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="2025" y="8" height="60" width="1147" format="[general]"  name=comments edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="23" y="8" height="60" width="887" format="[general]"  name=table_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="928" y="8" height="60" width="1079" format="[general]"  name=column_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

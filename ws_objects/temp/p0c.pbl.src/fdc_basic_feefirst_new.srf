@@ -1,0 +1,81 @@
+﻿$PBExportHeader$fdc_basic_feefirst_new.srf
+$PBExportComments$[juede] 충전rate_first
+global type fdc_basic_feefirst_new from function_object
+end type
+
+forward prototypes
+global function integer fdc_basic_feefirst_new (string ls_partner, string ls_priceplan, string ls_opendt, double lc_amt, ref decimal lc_basic_fee_first)
+end prototypes
+
+global function integer fdc_basic_feefirst_new (string ls_partner, string ls_priceplan, string ls_opendt, double lc_amt, ref decimal lc_basic_fee_first);//Dec{2} lc_basic_fee_first
+int li_cnt, li_return
+
+lc_basic_fee_first =0
+li_cnt =0
+li_return=0
+
+//충전정책 가져옴
+Select basic_fee_first, count(*)
+Into  :lc_basic_fee_first, :li_cnt
+From  refillpolicy
+where partner = :ls_partner  
+and   priceplan = :ls_priceplan 
+and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+	  	      			  			  	    from refillpolicy 
+				      					    where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+												 and   partner = :ls_partner  
+												 and   priceplan = :ls_priceplan)
+and  fromamt <= :lc_amt 
+and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+group by basic_fee_first;
+
+If SQLCA.SQLCode < 0 Then
+	Return -1
+End If
+
+If li_cnt = 0 Then
+	Select basic_fee_first, count(*)
+	Into  :lc_basic_fee_first, :li_cnt
+	From  refillpolicy
+	where partner = :ls_partner  
+	and   priceplan = 'ALL' 
+	and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+													 from refillpolicy 
+													 where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+													 and   partner = :ls_partner  
+													 and   priceplan = 'ALL')
+	and  fromamt <= :lc_amt 
+	and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+	group by basic_fee_first;	
+	
+	If SQLCA.SQLCode < 0 Then
+		Return -1
+	End If
+End If
+
+If li_cnt = 0 Then
+	Select basic_fee_first, count(*)
+	Into  :lc_basic_fee_first, :li_cnt
+	From  refillpolicy
+	where partner = 'ALL'
+	and   priceplan = 'ALL' 
+	and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+													 from refillpolicy 
+													 where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+													 and   partner = 'ALL' 
+													 and   priceplan = 'ALL')
+	and  fromamt <= :lc_amt 
+	and  :lc_amt <= decode(toamt, null, :lc_amt, toamt)
+	group by basic_fee_first;
+	
+	If SQLCA.SQLCode < 0 Then
+		Return -1
+	ElseIf SQLCA.SQLCode = 100 Then
+		Return -1
+	End If
+End If
+
+
+return li_return
+end function
+

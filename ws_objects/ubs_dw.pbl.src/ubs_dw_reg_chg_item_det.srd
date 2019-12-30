@@ -1,0 +1,47 @@
+﻿$PBExportHeader$ubs_dw_reg_chg_item_det.srd
+$PBExportComments$[ceusee] 가격정책 변경에 품목 선택
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=select_check dbname="select_check" values="	Y/	N" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="priceplandet.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=datetime updatewhereclause=yes name=bil_fromdt dbname="contractdet.bil_fromdt" )
+ column=(type=datetime updatewhereclause=yes name=bil_todt dbname="contractdet.bil_todt" )
+ column=(type=datetime updatewhereclause=yes name=bil_curfromdt dbname="contractdet.bil_curfromdt" )
+ column=(type=datetime updatewhereclause=yes name=bil_curtodt dbname="contractdet.bil_curtodt" )
+ column=(type=decimal(0) updatewhereclause=yes name=groupno dbname="priceplandet.groupno" )
+ column=(type=decimal(0) updatewhereclause=yes name=grouptype dbname="priceplandet.grouptype" )
+ column=(type=char(1) updatewhereclause=yes name=chk dbname="chk" values="	Y/	N" )
+ retrieve="SELECT DECODE(A.ITEMCOD, B.ITEMCOD, 'Y', 'N') AS SELECT_CHECK,
+       A.ITEMCOD, C.ITEMNM, B.BIL_FROMDT, B.BIL_TODT, B.BIL_CURFROMDT,
+		 B.BIL_CURTODT, A.GROUPNO, A.GROUPTYPE,
+		 'N' AS CHK
+FROM   PRICEPLANDET A, CONTRACTDET B, ITEMMST C
+WHERE  A.PRICEPLAN = :arg_priceplan
+AND    A.ITEMCOD IN ( SELECT CODE FROM SYSCOD2T WHERE GRCODE = 'UBS21' )
+AND    A.ITEMCOD   = C.ITEMCOD
+AND    A.ITEMCOD   = B.ITEMCOD(+)
+AND    B.CONTRACTSEQ(+) = :arg_contractseq" arguments=(("arg_priceplan", string),("arg_contractseq", number)) )
+text(band=header alignment="2" text="Select" border="2" color="15793151" x="9" y="12" height="60" width="219"  name=chk_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Contract Item" border="2" color="15793151" x="247" y="12" height="60" width="370"  name=select_check_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Name" border="2" color="15793151" x="635" y="12" height="60" width="1399"  name=itemnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bill From Date" border="2" color="15793151" x="2053" y="12" height="60" width="389"  name=bil_fromdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bill To Date" border="2" color="15793151" x="2459" y="12" height="60" width="389"  name=bil_todt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Use To Date" border="2" color="15793151" x="3323" y="12" height="60" width="439"  name=bil_curtodt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Use From Date" border="2" color="15793151" x="2866" y="12" height="60" width="439"  name=bil_curfromdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1330" y="148" height="60" width="233" format="[general]"  name=itemcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1157" y="244" height="60" width="987" format="[general]"  name=groupno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="2" tabsequence=10 border="2" color="0" x="9" y="4" height="60" width="215" format="[general]"  name=chk checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="247" y="4" height="60" width="370" format="[general]"  name=select_check checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0~tif( mainitem_yn ='Y' , 10355177 , RGB(0,0,0)) " x="635" y="4" height="60" width="1399" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=20 border="2" color="16777215" x="2053" y="4" height="60" width="389" format="[shortdate] [time]"  name=bil_fromdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=5 alignment="2" tabsequence=30 border="2" color="0" x="2459" y="4" height="60" width="389" format="[shortdate] [time]" protect="0~tif ( chk = 'Y' and select_check ='Y', 0, 1)"  name=bil_todt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="2" color="0" x="2866" y="4" height="60" width="439" format="[shortdate] [time]"  name=bil_curfromdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="3323" y="4" height="60" width="439" format="[shortdate] [time]"  name=bil_curtodt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1166" y="348" height="60" width="992" format="[general]"  name=grouptype edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

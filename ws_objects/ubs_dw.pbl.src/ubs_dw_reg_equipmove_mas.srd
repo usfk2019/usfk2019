@@ -1,0 +1,77 @@
+﻿$PBExportHeader$ubs_dw_reg_equipmove_mas.srd
+$PBExportComments$[jhchoi] 인증장비 이동 (Master) - 2009.04.13
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=84 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=chk dbname="equipmst.chk" values="	1/	0" )
+ column=(type=decimal(0) updatewhereclause=yes name=equipseq dbname="equipmst.equipseq" )
+ column=(type=char(10) updatewhereclause=yes name=adtype dbname="equipmst.adtype" )
+ column=(type=char(30) updatewhereclause=yes name=adname dbname="equiptype.adname" )
+ column=(type=char(20) updatewhereclause=yes name=contno dbname="equipmst.contno" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="equipmst.serialno" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="equipmst.status" )
+ column=(type=char(30) updatewhereclause=yes name=mac_addr dbname="equipmst.mac_addr" )
+ column=(type=char(30) updatewhereclause=yes name=mac_addr2 dbname="equipmst.mac_addr2" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="equipmst.modelno" )
+ column=(type=char(20) updatewhereclause=yes name=dacom_mng_no dbname="equipmst.dacom_mng_no" )
+ column=(type=char(10) updatewhereclause=yes name=adstat dbname="equipmst.adstat" )
+ column=(type=char(1000) updatewhereclause=yes name=remark dbname="equipmst.remark" )
+ retrieve="SELECT  0 AS CHK
+		, EQUIPMST.EQUIPSEQ
+		, EQUIPMST.ADTYPE
+		, EQUIPTYPE.ADNAME
+		, EQUIPMST.CONTNO
+		, EQUIPMST.SERIALNO
+		, EQUIPMST.STATUS
+		, EQUIPMST.MAC_ADDR
+		, EQUIPMST.MAC_ADDR2
+		, EQUIPMST.MODELNO
+		, EQUIPMST.DACOM_MNG_NO
+		, EQUIPMST.ADSTAT
+		, EQUIPMST.REMARK
+FROM    EQUIPMST, EQUIPTYPE
+WHERE   EQUIPMST.ADTYPE = EQUIPTYPE.ADTYPE
+ORDER BY EQUIPTYPE.ADNAME
+" )
+text(band=header alignment="2" text="Equip No" border="2" color="15793151" x="256" y="16" height="60" width="357" html.valueishtml="0"  name=equipseq_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+button(band=header text=" All" filename="" enabled=yes action="0" border="0" color="15793151" x="5" y="8" height="72" width="238" vtextalign="0" htextalign="0"  name=b_all visible="1"  resizeable=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="25793388" )
+text(band=header alignment="2" text="Equip Model" border="2" color="15793151" x="631" y="16" height="60" width="567" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Control No" border="2" color="15793151" x="1376" y="116" height="60" width="425" html.valueishtml="0"  name=contno_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Equip Type" border="2" color="15793151" x="1216" y="16" height="60" width="667" html.valueishtml="0"  name=adname_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="IF( chk = 1, 1, 0) "border="0" color="0" x="96" y="212" height="76" width="256" format="[General]" html.valueishtml="0"  name=cp_su visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="841" y="220" height="60" width="233" format="[general]" html.valueishtml="0"  name=adtype visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="0" color="0" x="5" y="4" height="64" width="238" format="[general]" html.valueishtml="0"  name=chk visible="1" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="389" y="200" height="64" width="425" format="[general]" html.valueishtml="0"  name=contno visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1216" y="4" height="64" width="667" format="[general]" html.valueishtml="0"  name=adname visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="256" y="4" height="64" width="357" format="[general]" html.valueishtml="0"  name=equipseq visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="631" y="4" height="64" width="567" format="[general]" html.valueishtml="0"  name=modelno visible="1" dddw.name=ubs_dddw_equipmentmodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=summary alignment="2" text="Total Count" border="2" color="15793151" x="14" y="4" height="60" width="599" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=summary alignment="0" expression="sum(  cp_su  for all )"border="0" color="0" x="631" y="4" height="60" width="430" format="#,##0" html.valueishtml="0"  name=cp_tot visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="          Remark" border="2" color="15793151" x="4878" y="16" height="60" width="1687" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="2" color="0" x="4878" y="4" height="64" width="1687" format="[general]" html.valueishtml="0"  name=remark visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Mac Address" border="2" color="15793151" x="3314" y="16" height="60" width="457" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Mac Address2" border="2" color="15793151" x="3790" y="16" height="60" width="457" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Equip Status" border="2" color="15793151" x="4512" y="16" height="60" width="347" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="15793151" x="4265" y="16" height="60" width="229" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="3314" y="4" height="64" width="457" format="[general]" html.valueishtml="0"  name=mac_addr visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="3790" y="4" height="64" width="457" format="[general]" html.valueishtml="0"  name=mac_addr2 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="2" color="0" x="4512" y="4" height="64" width="347" format="[general]" html.valueishtml="0"  name=adstat visible="1" dddw.name=ubs_dddw_equipstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="4265" y="4" height="64" width="229" format="[general]" html.valueishtml="0"  name=status visible="1" dddw.name=ubs_dddw_equipmststatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="LGU Plus No." border="2" color="15793151" x="2679" y="16" height="60" width="617" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="2679" y="4" height="64" width="617" format="[general]" html.valueishtml="0"  name=dacom_mng_no visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Serial No" border="2" color="15793151" x="1902" y="16" height="60" width="759" html.valueishtml="0"  name=serialno_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="1902" y="4" height="64" width="759" format="[general]" html.valueishtml="0"  name=serialno visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

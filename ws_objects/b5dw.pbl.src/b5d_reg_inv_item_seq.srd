@@ -1,0 +1,46 @@
+﻿$PBExportHeader$b5d_reg_inv_item_seq.srd
+$PBExportComments$[kEnn-backgu] 청구서항목
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=inv_type dbname="invoice_item_seq.inv_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bilcod dbname="invoice_item_seq.bilcod" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=bilseq dbname="invoice_item_seq.bilseq" values="1	1/2	2/3	3/4	4/5	5/6	6/7	7/8	8/9	9/10	10/11	11/12	12/13	13/14	14/15	15/16	16/17	17/18	18/19	19/20	20/21	21/22	22/23	23/24	24/25	25/26	26/27	27/28	28/29	29/30	30/31	31/32	32/33	33/34	34/35	35/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="invoice_item_seq.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="invoice_item_seq.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="invoice_item_seq.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="invoice_item_seq.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="invoice_item_seq.pgm_id" )
+ retrieve="SELECT ~"INVOICE_ITEM_SEQ~".~"INV_TYPE~",
+			~"INVOICE_ITEM_SEQ~".~"BILCOD~",   
+         ~"INVOICE_ITEM_SEQ~".~"BILSEQ~",   
+         ~"INVOICE_ITEM_SEQ~".~"CRT_USER~",   
+         ~"INVOICE_ITEM_SEQ~".~"UPDT_USER~",   
+         ~"INVOICE_ITEM_SEQ~".~"CRTDT~",   
+         ~"INVOICE_ITEM_SEQ~".~"UPDTDT~",   
+         ~"INVOICE_ITEM_SEQ~".~"PGM_ID~"  
+    FROM ~"INVOICE_ITEM_SEQ~"
+ORDER BY ~"INVOICE_ITEM_SEQ~".~"INV_TYPE~" asc,
+			 ~"INVOICE_ITEM_SEQ~".~"BILSEQ~" ASC,   
+         ~"INVOICE_ITEM_SEQ~".~"BILCOD~" ASC " update="INVOICE_ITEM_SEQ" updatewhere=1 updatekeyinplace=no )
+column(band=header id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2331" y="144" height="76" width="485" format="[general]" html.valueishtml="0"  name=bilseq visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="청구서항목코드" border="2" color="16777215" x="773" y="16" height="60" width="1038" html.valueishtml="0"  name=bilcod_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구서 유형" border="2" color="16777215" x="142" y="16" height="60" width="613" html.valueishtml="0"  name=t_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구순번" border="2" color="16777215" x="1829" y="16" height="60" width="485" html.valueishtml="0"  name=bilseq_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="773" y="8" height="60" width="1038" format="[general]" html.valueishtml="0"  name=bilcod visible="1" dddw.name=b5dc_dddw_bilcod dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="142" y="8" height="60" width="613" format="[general]" html.valueishtml="0"  name=inv_type visible="1" dddw.name=b5dc_dddw_inv_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="16777215" x="1829" y="8" height="60" width="485" format="[general]" html.valueishtml="0"  name=bilseq_1 visible="1" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,108 @@
+﻿$PBExportHeader$ubs_dw_reg_hotbill_cont_det.srd
+$PBExportComments$[jhchoi] Hotbill detail 윈도우 - 2009.06.30
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=192 color="536870912" )
+summary(height=164 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=payid dbname="hotreqdtl.payid" )
+ column=(type=datetime updatewhereclause=yes name=trdt dbname="hotreqdtl.trdt" )
+ column=(type=char(8) updatewhereclause=yes name=reqnum dbname="hotreqdtl.reqnum" )
+ column=(type=decimal(0) updatewhereclause=yes name=seq dbname="hotreqdtl.seq" )
+ column=(type=char(10) updatewhereclause=yes name=trcod dbname="hotreqdtl.trcod" )
+ column=(type=char(50) updatewhereclause=yes name=trcodnm dbname="trcode.trcodnm" )
+ column=(type=decimal(2) updatewhereclause=yes name=tramt dbname="hotreqdtl.tramt" )
+ column=(type=decimal(2) updatewhereclause=yes name=adjamt dbname="hotreqdtl.adjamt" initial="0" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemmst.itemmst_itemcod" )
+ column=(type=char(1) updatewhereclause=yes name=dctype dbname="dctype" initial="D" )
+ column=(type=char(1) updatewhereclause=yes name=regcod dbname="regcod" )
+ column=(type=char(1) updatewhereclause=yes name=chk dbname="chk" initial="0" )
+ column=(type=char(1) updatewhereclause=yes name=itemcod dbname="itemcod" )
+ column=(type=char(1) updatewhereclause=yes name=itemnm dbname="itemnm" )
+ column=(type=number updatewhereclause=yes name=ss dbname="ss" initial="1" )
+ column=(type=decimal(0) updatewhereclause=yes name=priority dbname="itemmst.priority" )
+ column=(type=number updatewhereclause=yes name=impack_card dbname="impack_card" )
+ column=(type=number updatewhereclause=yes name=impack_not dbname="impack_not" )
+ column=(type=char(0) updatewhereclause=yes name=impack_check dbname="impack_check" )
+ column=(type=char(256) updatewhereclause=yes name=remark dbname="hotreqdtl.remark" )
+ column=(type=number updatewhereclause=yes name=taxamt dbname="taxamt" )
+ column=(type=char(1) updatewhereclause=yes name=surtaxyn dbname="surtaxyn" )
+ retrieve="select a.payid,
+       a.trdt,
+       a.reqnum, 
+       a.seq, 
+       a.trcod,
+       b.trcodnm, 
+       a.tramt,
+       a.adjamt,
+		 c.itemcod itemmst_itemcod,
+       ' ' dctype,
+       ' ' REGCOD,
+       ' ' chk,
+       ' ' itemcod,
+       ' ' itemnm,
+       0 ss,
+		 c.priority,
+		 0 impack_card,
+		 0 impack_not,
+		 '' impack_check,
+		 a.remark,
+          nvl(a.taxamt, 0) as taxamt,
+	decode(c.surtaxyn,'N','*',' ') as surtaxyn
+  from hotreqdtl a,      trcode b  , itemmst c    
+where  a.trcod = b.trcod 
+  AND  a.trcod = c.trcod
+  AND  a.trcod is not null
+  AND  a.payid = :as_payid
+order by a.seq" arguments=(("as_payid", string)) )
+text(band=header alignment="2" text="공급가액" border="2" color="15793151" x="1911" y="128" height="56" width="430" html.valueishtml="0"  name=tramt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래 유형" border="2" color="15793151" x="402" y="128" height="56" width="1490" html.valueishtml="0"  name=trcodnm_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구일" border="2" color="15793151" x="37" y="128" height="56" width="347" html.valueishtml="0"  name=t_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="1" text="처리일자 :" border="0" color="0" x="37" y="44" height="56" width="466" html.valueishtml="0"  name=t_5 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="521" y="44" height="56" width="393" html.valueishtml="0"  name=t_termdt visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="부가세액*" border="2" color="15793151" x="2354" y="128" height="56" width="302" html.valueishtml="0"  name=t_6 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="조정금액" border="2" color="15793151" x="2729" y="128" height="56" width="430" html.valueishtml="0"  name=preamt_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="impack_card" border="2" color="15793151" x="3173" y="128" height="56" width="357" html.valueishtml="0"  name=t_2 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="impack_not" border="2" color="15793151" x="3552" y="128" height="56" width="320" html.valueishtml="0"  name=t_3 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0~tIF ( dctype = 'C', RGB(255,0,0), RGB(0,0,0))" x="37" y="4" height="60" width="347" format="[shortdate] [time]" html.valueishtml="0"  name=trdt visible="1" editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0~tIF ( dctype = 'C', RGB(255,0,0), RGB(0,0,0))" x="1618" y="4" height="60" width="270" format="[general]" html.valueishtml="0"  name=trcod visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0~tIF ( dctype = 'C', RGB(255,0,0), RGB(0,0,0))" x="402" y="4" height="60" width="1202" format="[general]" html.valueishtml="0"  name=trcodnm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="517" y="168" height="56" width="215" format="[general]" html.valueishtml="0"  name=reqnum visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="tramt + adjamt"border="2" color="0" x="2743" y="4" height="60" width="119" format="[GENERAL]" html.valueishtml="0"  name=cp_amt visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="2" color="0~tIF ( dctype = 'C', RGB(255,0,0), RGB(0,0,0))" x="2354" y="4" height="60" width="270" format="#,##0.00" html.valueishtml="0"  name=taxamt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="2" color="0~tIF ( dctype = 'C', RGB(255,0,0), RGB(0,0,0))" x="2875" y="4" height="60" width="288" format="#,##0.00" html.valueishtml="0"  name=adjamt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="4878" y="12" height="56" width="215" format="[general]" html.valueishtml="0"  name=impack_check visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="5042" y="12" height="56" width="695" format="[general]" html.valueishtml="0"  name=remark visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="4142" y="4" height="52" width="78" format="[general]" html.valueishtml="0"  name=dctype visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4233" y="4" height="56" width="27" format="[general]" html.valueishtml="0"  name=regcod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4279" y="4" height="56" width="27" format="[general]" html.valueishtml="0"  name=chk visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="4325" y="4" height="56" width="27" format="[general]" html.valueishtml="0"  name=ss visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="3872" y="4" height="56" width="224" format="[general]" html.valueishtml="0"  name=priority visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="3182" y="4" height="56" width="357" format="#,##0.00" html.valueishtml="0"  name=impack_card visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="3552" y="4" height="56" width="311" format="#,##0.00" html.valueishtml="0"  name=impack_not visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4608" y="4" height="56" width="270" format="[general]" html.valueishtml="0"  name=itemcod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="4398" y="4" height="56" width="165" format="[general]" html.valueishtml="0"  name=itemnm visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="2638" y="4" height="56" width="27" format="[general]" html.valueishtml="0"  name=surtaxyn visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="2" color="0~tIF ( dctype = 'C', RGB(255,0,0), RGB(0,0,0))" x="1911" y="4" height="60" width="430" format="#,##0.00" html.valueishtml="0"  name=tramt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="366" y1="424" x2="786" y2="424"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="소      계 :" border="0" color="0" x="402" y="12" height="56" width="1490" html.valueishtml="0"  name=t_4 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="0" expression="sum(  cp_amt  for all )"border="0" color="0" x="2647" y="8" height="56" width="256" format="[GENERAL]" html.valueishtml="0"  name=totamt visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(taxamt for all)"border="0" color="0" x="2354" y="12" height="60" width="270" format="#,##0.00" html.valueishtml="0"  name=cp_vat visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=summary x1="2350" y1="72" x2="2629" y2="72"  name=l_3 visible="1" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="합      계 :" border="0" color="0" x="402" y="92" height="56" width="1490" html.valueishtml="0"  name=t_7 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression=" cp_total  +  cp_vat "border="0" color="0" x="1911" y="92" height="56" width="430" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(cp_amt )"border="0" color="0" x="1911" y="8" height="56" width="430" format="#,##0.00" html.valueishtml="0"  name=cp_total visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=summary x1="1911" y1="72" x2="2341" y2="72"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=summary x1="1911" y1="152" x2="2341" y2="152"  name=l_4 visible="1" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

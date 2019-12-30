@@ -1,0 +1,83 @@
+﻿$PBExportHeader$ubs_dw_reg_schedule_mas3.srd
+$PBExportComments$[jhchoi] Tech 스케쥴 관리 (Master) -  2009.03.16
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=worktime dbname="schedule_detail.worktime" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="schedule_detail.customerid" )
+ column=(type=char(10) updatewhereclause=yes name=worktype dbname="schedule_detail.worktype" )
+ column=(type=char(20) updatewhereclause=yes name=buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=roomno dbname="customerm.roomno" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="schedule_detail.priceplan" )
+ column=(type=char(13) updatewhereclause=yes name=status_cd dbname="status_cd" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="status" )
+ column=(type=char(10) updatewhereclause=yes name=order_type dbname="order_type" values="Reactive	50/Active	10/	70/	30/" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="schedule_detail.orderno" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="schedule_detail.svccod" )
+ column=(type=decimal(0) updatewhereclause=yes name=troubleno dbname="schedule_detail.troubleno" )
+ column=(type=decimal(0) updatewhereclause=yes name=scheduleseq dbname="schedule_detail.scheduleseq" )
+ column=(type=char(10) updatewhereclause=yes name=work_status dbname="schedule_detail.work_status" values="완료	Y/	N/" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_cellphone dbname="customerm.cellphone" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_homephone dbname="customerm.homephone" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_dutyphone dbname="customerm.dutyphone" )
+ column=(type=char(16) updatewhereclause=yes name=requestdt dbname="requestdt" )
+ retrieve="SELECT  SCHEDULE_DETAIL.WORKTIME
+		, SCHEDULE_DETAIL.CUSTOMERID
+		, SCHEDULE_DETAIL.WORKTYPE
+		, CUSTOMERM.BUILDINGNO
+		, CUSTOMERM.ROOMNO
+		, SCHEDULE_DETAIL.PRICEPLAN
+		, DECODE( SCHEDULE_DETAIL.WORKTYPE, '100', ( SELECT '100'||SVCORDER.STATUS FROM SVCORDER WHERE SVCORDER.ORDERNO = SCHEDULE_DETAIL.ORDERNO ),
+													   '200', ( SELECT '200'||CUSTOMER_TROUBLE.TROUBLE_STATUS FROM CUSTOMER_TROUBLE
+																   WHERE  CUSTOMER_TROUBLE.TROUBLENO = SCHEDULE_DETAIL.TROUBLENO ),
+														'400', ( SELECT '100'||SVCORDER.STATUS FROM SVCORDER WHERE SVCORDER.ORDERNO = SCHEDULE_DETAIL.ORDERNO ) ) AS STATUS_cd
+		, DECODE( SCHEDULE_DETAIL.WORKTYPE, '100', ( SELECT SVCORDER.STATUS FROM SVCORDER WHERE SVCORDER.ORDERNO = SCHEDULE_DETAIL.ORDERNO ),
+													   '200', ( SELECT CUSTOMER_TROUBLE.TROUBLE_STATUS FROM CUSTOMER_TROUBLE
+																   WHERE  CUSTOMER_TROUBLE.TROUBLENO = SCHEDULE_DETAIL.TROUBLENO ),
+														'400', ( SELECT SVCORDER.STATUS FROM SVCORDER WHERE SVCORDER.ORDERNO = SCHEDULE_DETAIL.ORDERNO ) ) AS STATUS
+		, DECODE( SCHEDULE_DETAIL.WORKTYPE, '100', ( SELECT SVCORDER.ORDER_TYPE FROM SVCORDER WHERE SVCORDER.ORDERNO = SCHEDULE_DETAIL.ORDERNO ),
+														'400', ( SELECT SVCORDER.ORDER_TYPE FROM SVCORDER WHERE SVCORDER.ORDERNO = SCHEDULE_DETAIL.ORDERNO ) ) AS ORDER_TYPE
+	   , SCHEDULE_DETAIL.ORDERNO
+	   , SCHEDULE_DETAIL.SVCCOD
+	   , SCHEDULE_DETAIL.TROUBLENO
+	   , SCHEDULE_DETAIL.SCHEDULESEQ
+	   , SCHEDULE_DETAIL.STATUS AS WORK_STATUS
+		, CUSTOMERM.CELLPHONE
+		, CUSTOMERM.HOMEPHONE
+		, CUSTOMERM.DUTYPHONE
+		, SUBSTR(SCHEDULE_DETAIL.YYYYMMDD, 5, 4)||SUBSTR(SCHEDULE_DETAIL.YYYYMMDD, 1, 4) AS REQUESTDT
+FROM    SCHEDULE_DETAIL, CUSTOMERM
+WHERE   SCHEDULE_DETAIL.CUSTOMERID = CUSTOMERM.CUSTOMERID"  sort="requestdt A worktime A customerid A " )
+text(band=header alignment="2" text="Work Type" border="2" color="16777215" x="905" y="8" height="60" width="334"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Room No" border="2" color="16777215" x="1586" y="8" height="60" width="261"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Customer ID" border="2" color="16777215" x="553" y="8" height="60" width="338"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Status" border="2" color="16777215" x="4457" y="8" height="60" width="512"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Cell Phone" border="2" color="16777215" x="1861" y="8" height="60" width="462"  name=t_10  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Home Phone" border="2" color="16777215" x="2336" y="8" height="60" width="462"  name=t_11  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Duty Phone" border="2" color="16777215" x="2811" y="8" height="60" width="462"  name=t_12  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Price Plan" border="2" color="16777215" x="3287" y="8" height="60" width="549"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Order No" border="2" color="16777215" x="3849" y="8" height="60" width="279"  name=t_14  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Trouble No" border="2" color="16777215" x="4142" y="8" height="60" width="302"  name=t_15  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Schedule Status" border="2" color="16777215" x="5303" y="8" height="60" width="434"  name=t_9  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Order Type" border="2" color="16777215" x="4983" y="8" height="60" width="306"  name=t_16  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="302" y="160" height="60" width="229" format="[general]"  name=svccod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="905" y="0" height="76" width="334" format="[general]"  name=worktype dddw.name=ssrt_dddw_worktype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="553" y="0" height="76" width="338" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="1568" y="204" height="76" width="357" format="[general]"  name=status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="416" y="240" height="60" width="384" format="[general]"  name=scheduleseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1586" y="0" height="76" width="261" format="[general]"  name=roomno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="2" color="0" x="1861" y="0" height="76" width="462" format="[general]"  name=customerm_cellphone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="2" color="0" x="2336" y="0" height="76" width="462" format="[general]"  name=customerm_homephone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="2" color="0" x="2811" y="0" height="76" width="462" format="[general]"  name=customerm_dutyphone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="3287" y="0" height="76" width="549" format="[general]"  name=priceplan dddw.name=b1dc_dddw_priceplan_v20 dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="2" color="0" x="3849" y="0" height="76" width="279" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="2" color="0" x="4142" y="0" height="76" width="302" format="[general]"  name=troubleno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="2" color="0" x="5303" y="0" height="76" width="434" format="[general]"  name=work_status ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="4457" y="0" height="76" width="512" format="[general]"  name=status_cd dddw.name=ubs_dddw_schedulestatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=400 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="2" color="0" x="4983" y="0" height="76" width="306" format="[general]"  name=order_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="15793151~tif ( worktime = '0000', rgb(210,210,210), rgb(255,251,240))" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )
+ 

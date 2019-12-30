@@ -1,0 +1,58 @@
+﻿$PBExportHeader$b5dw_reg_taxtr.srd
+$PBExportComments$[kwon-backgu]TAX대상거래유형정의 Detail Data Window
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=trcode_trcodnm dbname="trcode.trcodnm" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=taxtr_taxcod dbname="taxtr.taxcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=taxtr_trcod dbname="taxtr.trcod" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=taxtr_crt_user dbname="taxtr.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=taxtr_updt_user dbname="taxtr.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=taxtr_crtdt dbname="taxtr.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=taxtr_updtdt dbname="taxtr.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=taxtr_pgm_id dbname="taxtr.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=taxtr_itemcod dbname="taxtr.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ retrieve="  SELECT ~"TRCODE~".~"TRCODNM~",   
+         ~"TAXTR~".~"TAXCOD~",   
+         ~"TAXTR~".~"TRCOD~",   
+         ~"TAXTR~".~"CRT_USER~",   
+         ~"TAXTR~".~"UPDT_USER~",   
+         ~"TAXTR~".~"CRTDT~",   
+         ~"TAXTR~".~"UPDTDT~",   
+         ~"TAXTR~".~"PGM_ID~",   
+         ~"TAXTR~".~"ITEMCOD~",
+         ~"ITEMMST~".~"ITEMNM~"  
+    FROM ~"TRCODE~",   
+         ~"TAXTR~",
+         ~"ITEMMST~"
+   WHERE ( ~"TRCODE~".~"TRCOD~" = ~"TAXTR~".~"TRCOD~" )    
+      AND ( ~"ITEMMST~".~"TRCOD~" = ~"TRCODE~".~"TRCOD~")" update="TAXTR" updatewhere=0 updatekeyinplace=no  sort="taxtr_itemcod A " )
+text(band=header alignment="2" text="거래유형" border="2" color="15793151" x="2482" y="20" height="60" width="1029" html.valueishtml="0"  name=trcode_trcodnm_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목코드" border="2" color="15793151" x="18" y="20" height="60" width="530" html.valueishtml="0"  name=t_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래코드" border="2" color="15793151" x="1934" y="20" height="60" width="530" html.valueishtml="0"  name=taxtr_trcod_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="15793151" x="562" y="20" height="60" width="1353" html.valueishtml="0"  name=t_2 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="46" y="136" height="76" width="302" format="[general]" html.valueishtml="0"  name=taxtr_taxcod visible="1" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="375" y="136" height="76" width="247" format="[general]" html.valueishtml="0"  name=taxtr_updt_user visible="1" edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1522" y="136" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=taxtr_updtdt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2144" y="136" height="76" width="247" format="[general]" html.valueishtml="0"  name=taxtr_pgm_id visible="1" edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="905" y="136" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=taxtr_crtdt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="640" y="136" height="76" width="247" format="[general]" html.valueishtml="0"  name=taxtr_crt_user visible="1" edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="2487" y="4" height="64" width="1029" format="[general]" html.valueishtml="0"  name=trcode_trcodnm visible="1" dddw.name=b5dc_dddw_trcode dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="16777215" x="1934" y="4" height="64" width="530" format="[general]" html.valueishtml="0"  name=taxtr_trcod visible="1" dddw.name=b5dc_dddw_trcode_v21 dddw.displaycolumn=trcod dddw.datacolumn=trcod dddw.percentwidth=230 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=9 alignment="0" tabsequence=10 border="2" color="16777215" x="18" y="4" height="64" width="530" format="[general]" html.valueishtml="0"  name=taxtr_itemcod visible="1" height.autosize=yes dddw.name=b5dc_dddw_itemcod_tax dddw.displaycolumn=itemcod dddw.datacolumn=itemcod dddw.percentwidth=250 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=upper dddw.vscrollbar=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="562" y="4" height="64" width="1353" format="[general]" html.valueishtml="0"  name=itemmst_itemnm visible="1" dddw.name=b5dc_dddw_itemcod_tax dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

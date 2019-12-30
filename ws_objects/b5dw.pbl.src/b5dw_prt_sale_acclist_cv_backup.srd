@@ -1,0 +1,62 @@
+﻿$PBExportHeader$b5dw_prt_sale_acclist_cv_backup.srd
+$PBExportComments$[chooys] 매출정산보고서 Print DW
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=currency_type dbname="currency_type" )
+ column=(type=char(15) updatewhereclause=yes name=cr_dr dbname="cr_dr" )
+ column=(type=char(75) updatewhereclause=yes name=transaction dbname="compute_0003" )
+ column=(type=number updatewhereclause=yes name=reqdtl_trcnt dbname="reqdtl_trcnt" )
+ column=(type=number updatewhereclause=yes name=reqdtl_tramt dbname="reqdtl_tramt" )
+ column=(type=number updatewhereclause=yes name=indamt dbname="indamt" )
+ column=(type=number updatewhereclause=yes name=comamt dbname="comamt" )
+ column=(type=char(1) updatewhereclause=yes name=saladdyn dbname="saladdyn" )
+ column=(type=char(1) updatewhereclause=yes name=in_yn dbname="in_yn" )
+ retrieve="SELECT  bil.currency_type, NVL(TRCODE.credit,TRCODE.debit) CR_DR, (RPAD(TRCODE.TRCOD, 12) || TRCODE.TRCODNM), count(REQ.payid) reqdtl_trcnt ,
+                  SUM(REQ.TRAMT) reqdtl_tramt ,
+                  SUM(DECODE(REQ.CTYPE2, :as_chk, REQ.TRAMT, 0)) INDAMT,
+                  SUM(DECODE(REQ.CTYPE2, :as_chk, 0, REQ.TRAMT)) COMAMT,
+                  TRCODE.SALADDYN, TRCODE.IN_YN
+        FROM ( select r.trcod, r.tramt, r.payid, r.paydt, c.ctype2
+                from   reqdtl r, reqinfo c
+	        where  to_char(r.trdt,'yyyymmdd') = :as_trdt
+						  and to_char(c.trdt,'yyyymmdd') = :as_trdt
+                    and r.payid = c.payid
+						  and (r.mark is null or r.mark = '')
+ 	        union all
+	        select r.trcod, r.tramt, r.payid, r.paydt, c.ctype2
+                from   reqdtlh r, reqinfo c
+	        where  to_char(r.trdt,'yyyymmdd') = :as_trdt
+						  and to_char(c.trdt,'yyyymmdd') = :as_trdt
+                    and r.payid = c.payid
+						  and (r.mark is null or r.mark = '')
+               ) REQ,
+               TRCODE,
+               billinginfo bil         
+   WHERE ( REQ.TRCOD = TRCODE.TRCOD) and  bil.customerid = req.payid and
+            bil.currency_type = decode(:as_currency, '', bil.currency_type, :as_currency)
+		 and (TRCODE.CREDIT = 'CR' or TRCODE.CREDIT = 'CV')
+GROUP BY bil.currency_type, NVL(TRCODE.credit,TRCODE.debit), TRCODE.TRCOD, TRCODE.TRCODNM, TRCODE.SALADDYN, TRCODE.IN_YN" arguments=(("as_chk", string),("as_trdt", string),("as_currency", string)) )
+text(band=header alignment="2" text="Currency Type" border="0" color="0" x="5" y="4" height="64" width="384"  name=currency_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cr Dr" border="0" color="0" x="393" y="4" height="64" width="439"  name=cr_dr_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="(rpad(trcode.trcod,12)||trcode.trcodnm)" border="0" color="0" x="837" y="4" height="64" width="2085"  name=compute_0003_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reqdtl Trcnt" border="0" color="0" x="2930" y="4" height="64" width="325"  name=reqdtl_trcnt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reqdtl Tramt" border="0" color="0" x="3264" y="4" height="64" width="338"  name=reqdtl_tramt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Indamt" border="0" color="0" x="3607" y="4" height="64" width="329"  name=indamt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Comamt" border="0" color="0" x="3941" y="4" height="64" width="329"  name=comamt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Saladdyn" border="0" color="0" x="4274" y="4" height="64" width="247"  name=saladdyn_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="In Yn" border="0" color="0" x="4526" y="4" height="64" width="137"  name=in_yn_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="302" format="[general]"  name=currency_type edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="393" y="4" height="76" width="439" format="[general]"  name=cr_dr edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="837" y="4" height="76" width="2085" format="[general]"  name=transaction edit.limit=75 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2930" y="4" height="76" width="325" format="[general]"  name=reqdtl_trcnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="3264" y="4" height="76" width="329" format="[general]"  name=reqdtl_tramt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="3607" y="4" height="76" width="329" format="[general]"  name=indamt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="3941" y="4" height="76" width="329" format="[general]"  name=comamt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="4274" y="4" height="76" width="55" format="[general]"  name=saladdyn edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4526" y="4" height="76" width="55" format="[general]"  name=in_yn edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,89 @@
+﻿$PBExportHeader$c1dw_reg_carrier_mst_t1.srd
+$PBExportComments$[ssong]회선사업자 등록 detail - tab1
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1328 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=carrierid dbname="carrier_mst.carrierid" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=carriernm dbname="carrier_mst.carriernm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=carriertype dbname="carrier_mst.carriertype" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=ratetype dbname="carrier_mst.ratetype" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=phone dbname="carrier_mst.phone" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=fax dbname="carrier_mst.fax" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=zipcod dbname="carrier_mst.zipcod" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=addr1 dbname="carrier_mst.addr1" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=addr2 dbname="carrier_mst.addr2" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=email dbname="carrier_mst.email" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=url dbname="carrier_mst.url" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=cregno dbname="carrier_mst.cregno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=corpno dbname="carrier_mst.corpno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bank dbname="carrier_mst.bank" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=acct_no dbname="carrier_mst.acct_no" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=acct_owner dbname="carrier_mst.acct_owner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="carrier_mst.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="carrier_mst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="carrier_mst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="carrier_mst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="carrier_mst.pgm_id" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=gmt_yn dbname="carrier_mst.gmt_yn" initial="N" values="KOREA 기준	N/GMT 기준	Y/" )
+ retrieve="SELECT ~"CARRIER_MST~".~"CARRIERID~",   
+         ~"CARRIER_MST~".~"CARRIERNM~",   
+         ~"CARRIER_MST~".~"CARRIERTYPE~",   
+         ~"CARRIER_MST~".~"RATETYPE~",   
+         ~"CARRIER_MST~".~"PHONE~",   
+         ~"CARRIER_MST~".~"FAX~",   
+         ~"CARRIER_MST~".~"ZIPCOD~",   
+         ~"CARRIER_MST~".~"ADDR1~",   
+         ~"CARRIER_MST~".~"ADDR2~",   
+         ~"CARRIER_MST~".~"EMAIL~",   
+         ~"CARRIER_MST~".~"URL~",   
+         ~"CARRIER_MST~".~"CREGNO~",   
+         ~"CARRIER_MST~".~"CORPNO~",   
+         ~"CARRIER_MST~".~"BANK~",   
+         ~"CARRIER_MST~".~"ACCT_NO~",   
+         ~"CARRIER_MST~".~"ACCT_OWNER~",   
+         ~"CARRIER_MST~".~"CRT_USER~",   
+         ~"CARRIER_MST~".~"UPDT_USER~",   
+         ~"CARRIER_MST~".~"CRTDT~",   
+         ~"CARRIER_MST~".~"UPDTDT~",   
+         ~"CARRIER_MST~".~"PGM_ID~",   
+         ~"CARRIER_MST~".~"GMT_YN~"  
+    FROM ~"CARRIER_MST~"" update="CARRIER_MST" updatewhere=1 updatekeyinplace=no )
+rectangle(band=detail x="105" y="44" height="236" width="2839"  name=r_1 brush.hatch="7" brush.color="536870912" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="105" y="824" height="320" width="2839"  name=r_3 brush.hatch="7" brush.color="536870912" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+rectangle(band=detail x="105" y="312" height="480" width="2839"  name=r_2 brush.hatch="7" brush.color="536870912" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="457" y="76" height="60" width="439" format="[general]"  name=carrierid edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="사업자 ID" border="0" color="0" x="133" y="76" height="60" width="293"  name=carrierid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="사업자명" border="0" color="0" x="1303" y="76" height="60" width="302"  name=carriernm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="1632" y="76" height="60" width="1056" format="[general]"  name=carriernm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="사업자유형" border="0" color="0" x="133" y="168" height="60" width="293"  name=carriertype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="457" y="168" height="60" width="439" format="[general]"  name=carriertype dddw.name=c1dc_dddw_carriertype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=3 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="정산유형" border="0" color="0" x="1303" y="168" height="60" width="302"  name=ratetype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="16777215" x="1627" y="168" height="60" width="462" format="[general]"  name=ratetype dddw.name=c1dc_dddw_ratetype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=3 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="전화번호" border="0" color="0" x="128" y="336" height="60" width="302"  name=phone_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Fax번호" border="0" color="0" x="1303" y="336" height="60" width="302"  name=fax_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="우편번호" border="0" color="0" x="128" y="432" height="60" width="302"  name=zipcod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=50 border="2" color="0" x="2144" y="168" height="60" width="759" format="[general]"  name=gmt_yn radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="주소" border="0" color="0" x="128" y="528" height="60" width="302"  name=addr1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Email" border="0" color="0" x="128" y="704" height="60" width="302"  name=email_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Url" border="0" color="0" x="1303" y="704" height="60" width="302"  name=url_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="사업자등록번호" border="0" color="0" x="133" y="860" height="60" width="407"  name=cregno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="법인등록번호" border="0" color="0" x="1193" y="860" height="60" width="411"  name=corpno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="은행" border="0" color="0" x="238" y="948" height="60" width="302"  name=bank_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="계좌번호" border="0" color="0" x="1193" y="948" height="60" width="411"  name=acct_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="예금주명" border="0" color="0" x="128" y="1040" height="60" width="411"  name=acct_owner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=60 border="2" color="0" x="457" y="336" height="60" width="576" format="[general]"  name=phone edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="2" tabsequence=80 border="2" color="0" x="457" y="432" height="60" width="297" format="[general]"  name=zipcod editmask.mask="XXX-XXX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=90 border="2" color="0" x="457" y="528" height="60" width="1673" format="[general]"  name=addr1 edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=100 border="2" color="0" x="457" y="604" height="60" width="1673" format="[general]"  name=addr2 edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=110 border="2" color="0" x="457" y="704" height="60" width="818" format="[general]"  name=email edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=70 border="2" color="0" x="1632" y="336" height="60" width="576" format="[general]"  name=fax edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=120 border="2" color="0" x="1632" y="704" height="60" width="1134" format="[general]"  name=url edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=130 border="2" color="0" x="567" y="860" height="60" width="489" format="[general]"  name=cregno edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=150 border="2" color="0" x="567" y="948" height="60" width="302" format="[general]"  name=bank edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=170 border="2" color="0" x="567" y="1040" height="60" width="613" format="[general]"  name=acct_owner edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=140 border="2" color="0" x="1632" y="860" height="60" width="576" format="[general]"  name=corpno edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=160 border="2" color="0" x="1632" y="948" height="60" width="576" format="[general]"  name=acct_no edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

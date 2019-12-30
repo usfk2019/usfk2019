@@ -1,0 +1,39 @@
+﻿$PBExportHeader$d_pop_scan_change_order_del.srd
+$PBExportComments$문서마스터 조회 및 ORDER변경 및 취소요청(DEL POP)
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=chk dbname="chk" values="	1/	0" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=orderno dbname="svcorder.orderno" )
+ column=(type=datetime updatewhereclause=yes name=orderdt dbname="svcorder.orderdt" )
+ column=(type=char(10) updatewhereclause=yes name=order_type dbname="svcorder.order_type" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="svcorder.priceplan" )
+ retrieve="SELECT 0 AS CHK, ORDERNO, ORDERDT, ORDER_TYPE, PRICEPLAN
+FROM   SVCORDER 
+WHERE  ORDERNO  IN  (SELECT ORDERNO
+                     FROM   ORDER_DOCGROUP
+                     WHERE  U_REQNO = :as_u_reqno)" update="SVCORDER" updatewhere=0 updatekeyinplace=no arguments=(("as_u_reqno", number))  sort="orderno A " )
+text(band=header alignment="2" text="가격정책" border="2" color="16777215" x="498" y="4" height="56" width="626" html.valueishtml="0"  name=priceplan_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="신청Type" border="2" color="16777215" x="1563" y="4" height="56" width="640" html.valueishtml="0"  name=order_type_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Order일자" border="2" color="16777215" x="1134" y="4" height="56" width="421" html.valueishtml="0"  name=orderdt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Order번호" border="2" color="16777215" x="146" y="4" height="56" width="343" html.valueishtml="0"  name=orderno_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="선택" border="2" color="16777215" x="9" y="4" height="56" width="128" html.valueishtml="0"  name=chk_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="0" color="0" x="9" y="8" height="60" width="128" format="[general]" html.valueishtml="0"  name=chk visible="1" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="498" y="8" height="60" width="626" format="[general]" html.valueishtml="0"  name=priceplan visible="1" dddw.name=ubs_dddw_priceplan_partner dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1563" y="8" height="60" width="640" format="[general]" html.valueishtml="0"  name=order_type visible="1" dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.autoretrieve=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1134" y="8" height="60" width="421" format="[shortdate] [time]" html.valueishtml="0"  name=orderdt visible="1" editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="146" y="8" height="60" width="343" format="[general]" html.valueishtml="0"  name=orderno visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

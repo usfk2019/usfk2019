@@ -1,0 +1,1107 @@
+﻿$PBExportHeader$m_mdi_main.srm
+forward
+global type m_mdi_main from menu
+end type
+type m_start from menu within m_mdi_main
+end type
+type m_shbop from menu within m_mdi_main
+end type
+type m_0 from menu within m_mdi_main
+end type
+type m_1 from menu within m_mdi_main
+end type
+type m_2 from menu within m_mdi_main
+end type
+type m_3 from menu within m_mdi_main
+end type
+type m_4 from menu within m_mdi_main
+end type
+type m_5 from menu within m_mdi_main
+end type
+type m_6 from menu within m_mdi_main
+end type
+type m_zaction from menu within m_mdi_main
+end type
+type m_7 from menu within m_mdi_main
+end type
+type m_fileupload from menu within m_mdi_main
+end type
+type m_filedownload from menu within m_mdi_main
+end type
+type m_crypto from menu within m_mdi_main
+end type
+type m_window from menu within m_mdi_main
+end type
+type m_tile from menu within m_window
+end type
+type m_tilehorizontal from menu within m_window
+end type
+type m_layer from menu within m_window
+end type
+type m_cascade from menu within m_window
+end type
+type m_window from menu within m_mdi_main
+m_tile m_tile
+m_tilehorizontal m_tilehorizontal
+m_layer m_layer
+m_cascade m_cascade
+end type
+type m_exit from menu within m_mdi_main
+end type
+global type m_mdi_main from menu
+m_start m_start
+m_shbop m_shbop
+m_0 m_0
+m_1 m_1
+m_2 m_2
+m_3 m_3
+m_4 m_4
+m_5 m_5
+m_6 m_6
+m_zaction m_zaction
+m_7 m_7
+m_fileupload m_fileupload
+m_filedownload m_filedownload
+m_crypto m_crypto
+m_window m_window
+m_exit m_exit
+end type
+end forward
+
+global type m_mdi_main from menu
+m_start m_start
+m_shbop m_shbop
+m_0 m_0
+m_1 m_1
+m_2 m_2
+m_3 m_3
+m_4 m_4
+m_5 m_5
+m_6 m_6
+m_zaction m_zaction
+m_7 m_7
+m_fileupload m_fileupload
+m_filedownload m_filedownload
+m_crypto m_crypto
+m_window m_window
+m_exit m_exit
+end type
+global m_mdi_main m_mdi_main
+
+type variables
+Boolean ib_visible = False
+String is_pgm_id
+
+end variables
+
+forward prototypes
+public function integer mf_active_sheet (string as_window_name)
+public subroutine wf_fill_spc (string wfs_buf)
+public subroutine wf_print (string wfs_buf)
+end prototypes
+
+public function integer mf_active_sheet (string as_window_name);////////////////////////////////////////////////////////
+window 	activesheet[]
+window 	activesheet_temp
+Long 		ll_num = 1,		ll_count
+
+activesheet[ll_num] = w_base.GetActiveSheet()
+
+//현재 open 된 sheet 를 array 에 입력
+DO While(IsValid(activesheet[ll_num]))
+	activesheet_temp = w_base.GetNextSheet(activesheet[ll_num])
+	ll_num++
+	activesheet[ll_num]=activesheet_temp
+LOOP 
+
+
+//window array 를 argument 와 비교
+ll_count = UpperBound(activesheet)
+For ll_num =1 To ll_count - 1 
+	If activesheet[ll_num].ClassName() = as_window_name Then
+		activesheet[ll_num].BringToTop = TRUE
+		Return 1
+	End If
+Next
+
+return 0
+end function
+
+public subroutine wf_fill_spc (string wfs_buf);	String ls_buf
+	Integer li_len, li_spc
+	
+	ls_buf = wfs_buf
+	li_len = len(ls_buf)
+	li_spc = truncate(( 41 -  li_len ) / 2, 0)
+	ls_buf = space(li_spc) + wfs_buf
+	li_len = len(ls_buf)
+	PRN_PutBufN(ls_buf, li_len)
+	
+	return 
+end subroutine
+
+public subroutine wf_print (string wfs_buf);	Integer li_len
+	li_len = len(wfs_buf)
+	PRN_PutBufN(wfs_buf, li_len)
+	
+	return
+
+end subroutine
+
+on m_mdi_main.create
+m_mdi_main=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_start=create m_start
+this.m_shbop=create m_shbop
+this.m_0=create m_0
+this.m_1=create m_1
+this.m_2=create m_2
+this.m_3=create m_3
+this.m_4=create m_4
+this.m_5=create m_5
+this.m_6=create m_6
+this.m_zaction=create m_zaction
+this.m_7=create m_7
+this.m_fileupload=create m_fileupload
+this.m_filedownload=create m_filedownload
+this.m_crypto=create m_crypto
+this.m_window=create m_window
+this.m_exit=create m_exit
+this.Item[UpperBound(this.Item)+1]=this.m_start
+this.Item[UpperBound(this.Item)+1]=this.m_shbop
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_2
+this.Item[UpperBound(this.Item)+1]=this.m_3
+this.Item[UpperBound(this.Item)+1]=this.m_4
+this.Item[UpperBound(this.Item)+1]=this.m_5
+this.Item[UpperBound(this.Item)+1]=this.m_6
+this.Item[UpperBound(this.Item)+1]=this.m_zaction
+this.Item[UpperBound(this.Item)+1]=this.m_7
+this.Item[UpperBound(this.Item)+1]=this.m_fileupload
+this.Item[UpperBound(this.Item)+1]=this.m_filedownload
+this.Item[UpperBound(this.Item)+1]=this.m_crypto
+this.Item[UpperBound(this.Item)+1]=this.m_window
+this.Item[UpperBound(this.Item)+1]=this.m_exit
+end on
+
+on m_mdi_main.destroy
+call super::destroy
+destroy(this.m_start)
+destroy(this.m_shbop)
+destroy(this.m_0)
+destroy(this.m_1)
+destroy(this.m_2)
+destroy(this.m_3)
+destroy(this.m_4)
+destroy(this.m_5)
+destroy(this.m_6)
+destroy(this.m_zaction)
+destroy(this.m_7)
+destroy(this.m_fileupload)
+destroy(this.m_filedownload)
+destroy(this.m_crypto)
+destroy(this.m_window)
+destroy(this.m_exit)
+end on
+
+type m_start from menu within m_mdi_main
+end type
+
+on m_start.create
+call super::create
+this.text = "Start"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_start.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+Else
+	w_mdi_main.st_resize.Show()
+	w_mdi_main.tv_menu.Show()
+	ib_visible = True
+End If
+end event
+
+type m_shbop from menu within m_mdi_main
+end type
+
+on m_shbop.create
+call super::create
+this.text = "Customer"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_shbop.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+f_call_menu('b1w_reg_customer_d_v20_sams2')
+
+
+end event
+
+type m_0 from menu within m_mdi_main
+end type
+
+on m_0.create
+call super::create
+this.text = "Activation"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+//f_call_menu("b1w_1_reg_svc_actorder_v20_sams_test")
+f_call_menu("ubs_w_reg_activeorder")
+
+end event
+
+type m_1 from menu within m_mdi_main
+end type
+
+on m_1.create
+call super::create
+this.text = "Suspend"
+this.checked = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("b1w_reg_svc_suspendorder_b")
+
+end event
+
+type m_2 from menu within m_mdi_main
+end type
+
+on m_2.create
+call super::create
+this.text = "Reactivation"
+this.checked = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_2.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("b1w_reg_svc_reactorder_a")
+
+end event
+
+type m_3 from menu within m_mdi_main
+end type
+
+on m_3.create
+call super::create
+this.text = "Termination"
+this.checked = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_3.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("b1w_reg_svc_termorder_2_v20_sams")
+
+end event
+
+type m_4 from menu within m_mdi_main
+end type
+
+on m_4.create
+call super::create
+this.text = "Bill"
+this.checked = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_4.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu('b5w_reg_mtr_inp_sams')
+
+end event
+
+type m_5 from menu within m_mdi_main
+end type
+
+on m_5.create
+call super::create
+this.text = "Sales"
+this.checked = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_5.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("ssrt_reg_adsale_sams1")
+
+end event
+
+type m_6 from menu within m_mdi_main
+end type
+
+on m_6.create
+call super::create
+this.text = "Report"
+this.checked = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_6.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+//f_call_menu("ssrt_inq_report_sams")
+
+f_call_menu("ssrt_inq_report_sams_new")
+
+end event
+
+type m_zaction from menu within m_mdi_main
+end type
+
+on m_zaction.create
+call super::create
+this.text = "   ZAction~tF9"
+this.checked = true
+this.shortcut = 120
+this.toolbaritemvisible = false
+this.toolbaritembarindex = 2
+this.shifttoright = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_zaction.destroy
+call super::destroy
+end on
+
+event clicked;//-----------------------------------------------------------------
+Boolean 	rtn 
+String 	ls_port, 		ls_empnm, 	ls_seq
+String 	ls_ref_desc, 	ls_temp, 	ls_name[]
+String 	ls_partner, 	ls_type, 	ls_posno, 	ls_head
+
+date 		ldt_trdt, 		ldt_shop_closedt
+DEC		ldc_shopCount, ldec_rtn
+Integer  li_rtn
+Long		ll_shopcount
+//-----------------------------------------------------------------
+//영수증 타입
+ls_temp 			= fs_get_control("S1", "A100", ls_ref_desc)
+fi_cut_string(ls_temp, ";", ls_name[])
+ls_type 			= Trim(ls_name[3])
+
+ldt_trdt 			= date(fdt_get_dbserver_now())
+ldt_shop_closedt 	= f_find_shop_closedt(GS_SHOPID)
+
+//SHOP COUNT
+Select shopcount	    Into :ll_shopcount	  From partnermst
+ WHERE partner = :GS_SHOPID ;
+		
+IF IsNull(ll_shopcount) THEN ll_shopcount = 0
+IF sqlca.sqlcode < 0 THEN
+	MessageBox('확인', String(sqlca.sqlcode) + ' --> partnermst Search시 오류발생. 확인바랍니다.')
+	return 
+END IF
+ll_shopcount += 1
+
+ls_posno 		= ""
+ldt_trdt 		=  f_find_shop_closedt(GS_SHOPID)
+
+//SEQ 
+Select seq_app.nextval		  Into :ls_seq						  From dual;
+
+  INSERT INTO RECEIPTMST  
+         ( APPROVALNO,   			SHOPCOUNT,  	RECEIPTTYPE,   
+			  SHOPID,    				WORKDT,        TRDT,
+			  MEMBERID,   				OPERATOR,      
+			  TOTAL,     				CASH,         	CHANGE,
+			  seq_app,					prt_yn)  
+  VALUES ( seq_receipt.nextval,	:ll_shopcount, :ls_type,  		
+  			  :GS_SHOPID, 			:ldt_trdt, 		:ldt_shop_closedt,  
+           null,     				:gs_user_id,  	
+			  0,   						0,  				0,
+			  :ls_seq,		'Y'
+			  )  ;
+IF sqlca.sqlcode < 0 then
+	Rollback ;
+	MessageBox('확인', 'RECEIPTMST 테이블에  Insert시 오류발생. 확인바랍니다.')
+	return
+END IF
+// Update ShopCount
+update partnermst
+   set shopcount = :ll_shopcount
+ where partner 	= :GS_SHOPID ;
+ 
+IF sqlca.sqlcode < 0 then
+	Rollback ;
+	MessageBox('확인', 'partnermst 테이블에  Update시 오류발생. 확인바랍니다.')
+	return
+END IF
+//-----------------------------------------------------------------------------
+// 마지막으로 영수증 출력한다.
+//-----------------------------------------------------------------------------
+//String  ls_out[], ls_prnbuf, ls_send_msg
+//long   ll_ret, li_handle, li_buff, li_temp
+//
+//String  ls_init     = "~h1B" + "@"                                   // 프린터 초기화
+//String  ls_linefeed = "~h0A"                                         // Print And Line Feed
+//String  ls_double   = "~h1B" + "!" + "~h10"                          // Double Height Character 
+//String  ls_double2   = "~h1B" + "!" + "~h20"                          // Double Height Character 
+//String  ls_double3   = "~h1B" + "!" + "~h30"                         // 3 Double Height Character 
+//String  ls_double22  = "~h1D" + "!" + "~h22"                          // 2배 Double Height Character 
+//String  ls_normal   = "~h1B" + "!" + "~h08" + "~h1B" + "E" + "~h00"  // Normal Character
+//String  ls_Cut      = "~h1B" + "~h69"                           // Cut Paper
+//String  ls_Image    = "~h1D" + "/" + "0"                             // Print downloaded bit image
+//String  ls_Left     = "~h1B" + "a" + "0"                             // Select Left Justification
+//String  ls_Center   = "~h1B" + "a" + "1"                             // Select Center Justification
+//string  ls_size1    =  "~h1D" + "!" + "~h11"                         // 1배 글자크기
+//string  ls_size2    =  "~h1D" + "!" + "~h22"                         // 2배 글자크기
+//string  ls_size3    =  "~h1D" + "!" + "~h33"                         // 3배 글자크기
+//string  ls_size4    =  "~h1D" + "!" + "~h44"                         // 4배 글자크기
+//string  ls_size5    =  "~h1D" + "!" + "~h55"                         // 5배 글자크기
+//string  ls_size6    =  "~h1D" + "!" + "~h66"                         // 6배 글자크기
+//String  ls_smooth_true  = "~h1D" + "b" + "~h01"                     // 부드럽게 설정
+//String  ls_smooth_false = "~h1D" + "b" + "~h00"                     // 부드럽게 해제
+//string  ls_size12    =  "~h1D" + "!" + "~h12"                         // 가로 1배, 세로 2배 글자크기(07.11.08/scj)
+//
+//string  ls_bold    =  "~h1D" + "1" + "~h80"                         //진하게 글자크기
+//
+//string ls_open_cashdrawer = "~h1B" + "~h70"+ "48"  //esc p m t1 t2
+//string ls_open_cashdrawer_1 = "~h14" + "~h04"+ "0"  //0 :pin2, 1:pin5
+
+string ls_prnbuf
+long   ll_print_row
+long   ll_prt_ln, ll_temp
+string ls_normal = "~h1B" + "!" + "~h08" + "~h1B" + "E" + "~h00"  // Normal Character
+String ls_cut    = "~h1B" + "~h69"                                // Cut Paper
+int li_handle
+
+ls_temp 			= GS_PRN
+IF IsNull(ls_temp) OR ls_temp = ''  then
+	ls_temp = "COM1;6;8;2;0"
+END IF	
+fi_cut_string(ls_temp, ";", ls_name[])
+
+li_handle = FileOpen(ls_name[1], StreamMode!, Write!)
+		
+IF li_handle < 1  THEN
+	MessageBox('알 림', '프린터 오픈 에러입니다.')
+	FileClose(li_handle)
+	SetPointer(Arrow!)
+//	Return
+END IF
+
+
+// Structure 초기화 
+ll_print_row = gs_str_receipt_print.ll_line_num
+if ll_print_row > 0 then
+	for ll_print_row = 1 to gs_str_receipt_print.ll_line_num
+		gs_str_receipt_print.ls_out[ll_print_row] = ""
+	next
+	gs_str_receipt_print.ll_line_num = 0
+end if
+
+li_rtn = 1
+li_rtn = f_pos_header_vat(GS_SHOPID, 'C', ll_shopcount, 1)
+
+IF li_rtn < 0 then
+	MESSAGEBOX('확인', '영수증 출력기에 문제 발생. 확인 바랍니다.')
+//	PRN_ClosePort()
+//	return
+	FileClose(li_handle)
+END IF
+
+
+F_POS_PRINT_VAT(' ' + "No Sales ********************", 1)
+F_POS_PRINT_VAT(' ' + "------------------------------------------", 1)
+
+FS_POS_FOOTER3_VAT("","",ls_seq, gs_user_id, "")
+
+for ll_prt_ln = 1 to gs_str_receipt_print.ll_line_num
+	ls_prnbuf = ls_prnbuf + ls_normal + gs_str_receipt_print.ls_out[ll_prt_ln]
+next
+
+ls_prnbuf = ls_prnbuf + ls_cut
+
+ll_temp = fileWrite(li_handle, ls_prnbuf)
+
+if ll_temp = -1 then
+	FileClose(li_handle)
+//		return
+end if
+
+FileClose(li_handle)
+
+//2.ZAction_log 에  Insert 
+
+datetime ldt_crt
+ldt_crt = fdt_get_dbserver_now()
+ INSERT INTO ZACTION_LOG  
+			   ( PARTNER, 			OPERATOR, 				ACTIONDT )  
+	  VALUES ( :GS_SHOPID,    :gs_user_id,   			:ldt_crt )  ;
+IF sqlca.sqlcode < 0 then
+	Rollback ;
+	MessageBox('확인', sqlca.sqlerrtext + 'ZAction_log 테이블에  Insert시 오류발생. 확인바랍니다.')
+	return
+END IF
+	  
+commit ;
+
+end event
+
+type m_7 from menu within m_mdi_main
+end type
+
+on m_7.create
+call super::create
+this.text = "     DIS_SET~tF10"
+this.checked = true
+this.shortcut = 121
+this.toolbaritemvisible = false
+this.shifttoright = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_7.destroy
+call super::destroy
+end on
+
+event clicked;F_INIT_DSP(1, "","")
+end event
+
+type m_fileupload from menu within m_mdi_main
+end type
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+//f_call_menu('w_file_upload')
+open(w_file_upload)
+
+end event
+
+on m_fileupload.create
+call super::create
+this.text = "File Upload"
+this.shifttoright = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_fileupload.destroy
+call super::destroy
+end on
+
+type m_filedownload from menu within m_mdi_main
+end type
+
+event clicked;Open(w_file_download)
+end event
+
+on m_filedownload.create
+call super::create
+this.text = "File Download"
+this.shifttoright = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_filedownload.destroy
+call super::destroy
+end on
+
+type m_crypto from menu within m_mdi_main
+end type
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("w_datashield_crypto")
+
+end event
+
+on m_crypto.create
+call super::create
+this.text = "crypto"
+this.shifttoright = true
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_crypto.destroy
+call super::destroy
+end on
+
+type m_window from menu within m_mdi_main
+m_tile m_tile
+m_tilehorizontal m_tilehorizontal
+m_layer m_layer
+m_cascade m_cascade
+end type
+
+on m_window.create
+call super::create
+this.text = "Window"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_tile=create m_tile
+this.m_tilehorizontal=create m_tilehorizontal
+this.m_layer=create m_layer
+this.m_cascade=create m_cascade
+this.Item[UpperBound(this.Item)+1]=this.m_tile
+this.Item[UpperBound(this.Item)+1]=this.m_tilehorizontal
+this.Item[UpperBound(this.Item)+1]=this.m_layer
+this.Item[UpperBound(this.Item)+1]=this.m_cascade
+end on
+
+on m_window.destroy
+call super::destroy
+destroy(this.m_tile)
+destroy(this.m_tilehorizontal)
+destroy(this.m_layer)
+destroy(this.m_cascade)
+end on
+
+type m_tile from menu within m_window
+end type
+
+event clicked;w_mdi_main.ArrangeSheets(Tile!)
+end event
+
+on m_tile.create
+call super::create
+this.text = "Tile"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tile.destroy
+call super::destroy
+end on
+
+type m_tilehorizontal from menu within m_window
+end type
+
+event clicked;w_mdi_main.ArrangeSheets(TileHorizontal!)
+
+end event
+
+on m_tilehorizontal.create
+call super::create
+this.text = "TileHorizontal"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tilehorizontal.destroy
+call super::destroy
+end on
+
+type m_layer from menu within m_window
+end type
+
+event clicked;w_mdi_main.ArrangeSheets(Layer!)
+end event
+
+on m_layer.create
+call super::create
+this.text = "Layer"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_layer.destroy
+call super::destroy
+end on
+
+type m_cascade from menu within m_window
+end type
+
+event clicked;w_mdi_main.ArrangeSheets(Cascade!)
+end event
+
+on m_cascade.create
+call super::create
+this.text = "Cascade"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_cascade.destroy
+call super::destroy
+end on
+
+type m_exit from menu within m_mdi_main
+end type
+
+on m_exit.create
+call super::create
+this.text = "Exit"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+event clicked;Close(ParentWindow)
+end event
+

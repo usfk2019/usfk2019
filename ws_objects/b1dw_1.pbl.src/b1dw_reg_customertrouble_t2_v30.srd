@@ -1,0 +1,96 @@
+﻿$PBExportHeader$b1dw_reg_customertrouble_t2_v30.srd
+$PBExportComments$[jwlee] 고객민원접수 tab2
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=628 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=332 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=troubl_response_troubleno dbname="troubl_response.troubleno" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=troubl_response_seq dbname="troubl_response.seq" )
+ column=(type=datetime update=yes updatewhereclause=yes name=troubl_response_responsedt dbname="troubl_response.responsedt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubl_response_response_user dbname="troubl_response.response_user" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=troubl_response_response_note dbname="troubl_response.response_note" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=troubl_response_response_note2 dbname="troubl_response.response_note2" )
+ column=(type=datetime update=yes updatewhereclause=yes name=troubl_response_crtdt dbname="troubl_response.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=troubl_response_updtdt dbname="troubl_response.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=troubl_response_pgm_id dbname="troubl_response.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubl_response_crt_user dbname="troubl_response.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubl_response_updt_user dbname="troubl_response.updt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubl_response_partner dbname="troubl_response.partner" )
+ column=(type=char(1) updatewhereclause=yes name=close_yn dbname="customer_trouble.close_yn" values="Yes	Y/No	N/" )
+ column=(type=char(0) updatewhereclause=yes name=status dbname="status" )
+ column=(type=char(0) updatewhereclause=yes name=partner dbname="partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=troubl_response_trouble_status dbname="troubl_response.trouble_status" )
+ retrieve="  SELECT ~"TROUBL_RESPONSE~".~"TROUBLENO~",   
+         ~"TROUBL_RESPONSE~".~"SEQ~",   
+         ~"TROUBL_RESPONSE~".~"RESPONSEDT~",   
+         ~"TROUBL_RESPONSE~".~"RESPONSE_USER~",   
+         ~"TROUBL_RESPONSE~".~"RESPONSE_NOTE~",   
+         ~"TROUBL_RESPONSE~".~"RESPONSE_NOTE2~",   
+         ~"TROUBL_RESPONSE~".~"CRTDT~",   
+         ~"TROUBL_RESPONSE~".~"UPDTDT~",   
+         ~"TROUBL_RESPONSE~".~"PGM_ID~",   
+         ~"TROUBL_RESPONSE~".~"CRT_USER~",   
+         ~"TROUBL_RESPONSE~".~"UPDT_USER~",   
+         ~"TROUBL_RESPONSE~".~"PARTNER~",   
+         CUSTOMER_TROUBLE.CLOSEYN AS close_yn,  '' status, 
+         '' partner,   
+         ~"TROUBL_RESPONSE~".~"TROUBLE_STATUS~"  
+    FROM ~"CUSTOMER_TROUBLE~",   
+         ~"TROUBL_RESPONSE~"  
+   WHERE ( ~"CUSTOMER_TROUBLE~".~"TROUBLENO~" = ~"TROUBL_RESPONSE~".~"TROUBLENO~" )   
+ORDER BY ~"TROUBL_RESPONSE~".~"SEQ~" ASC   
+" update="TROUBL_RESPONSE" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="1" text="접수번호:" border="0" color="0" x="9" y="32" height="56" width="370"  name=troubl_response_troubleno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="1" text="접수내역:" border="0" color="0" x="9" y="124" height="56" width="370"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="처리내역 1" border="2" color="15793151" x="1865" y="492" height="60" width="2267"  name=troubl_response_response_note_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Seq" border="2" color="15793151" x="23" y="492" height="60" width="398"  name=troubl_response_seq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리일자" border="2" color="15793151" x="439" y="492" height="60" width="407"  name=troubl_response_responsedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리자" border="2" color="15793151" x="23" y="564" height="60" width="823"  name=troubl_response_response_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리내역 2" border="2" color="15793151" x="1865" y="564" height="60" width="2267"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리상태" border="2" color="15793151" x="864" y="564" height="60" width="983"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="장애처리처" border="2" color="15793151" x="864" y="492" height="60" width="983"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="" border="0" color="0" x="393" y="32" height="56" width="329"  name=troubleno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=header x1="384" y1="92" x2="731" y2="92"  name=l_4 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="고   객:" border="0" color="0" x="741" y="32" height="56" width="274"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="1" text="장애유형:" border="0" color="0" x="2126" y="32" height="56" width="279"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=header x1="1024" y1="92" x2="2112" y2="92"  name=l_1 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1321" y="32" height="56" width="791"  name=customernm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="1029" y="32" height="56" width="279"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=header x1="2418" y1="92" x2="4119" y2="92"  name=l_2 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="2418" y="32" height="56" width="1701"  name=troubletype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=header x1="384" y1="472" x2="4110" y2="472"  name=l_5 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="187" y="684" height="56" width="3726"  name=trouble_note_t_2 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="187" y="748" height="56" width="3726"  name=trouble_note_t_3 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="187" y="820" height="56" width="3726"  name=trouble_note_t_4 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="187" y="892" height="56" width="3726"  name=trouble_note_t_5 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=header x1="178" y1="736" x2="3904" y2="736"  name=l_7 visible="1~t0" pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+line(band=header x1="178" y1="808" x2="3904" y2="808"  name=l_6 visible="1~t0" pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+line(band=header x1="178" y1="880" x2="3904" y2="880"  name=l_8 visible="1~t0" pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="23" y="84" height="60" width="823" format="[general]"  name=troubl_response_response_user dddw.name=b1dc_dddw_userid_v20 dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="2" color="0" x="23" y="12" height="60" width="398" format="[general]"  name=troubl_response_seq edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="439" y="12" height="60" width="407" format="yyyy-mm-dd"  name=troubl_response_responsedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="2" color="0" x="864" y="84" height="56" width="983" format="[general]"  name=troubl_response_trouble_status dddw.name=b1dc_dddw_trouble_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="2" color="0" x="864" y="12" height="56" width="983" format="[general]"  name=partner dddw.name=b1dc_dddw_partner_act_yn dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="2" color="0" x="1865" y="16" height="148" width="2267" format="[general]" protect="0~tif ( troubl_response_trouble_status = 'A03', 1, 0)"  name=troubl_response_response_note edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=30 border="2" color="0" x="1865" y="168" height="148" width="2267" format="[general]" protect="0~tif ( troubl_response_trouble_status = 'A03', 1, 0)"  name=troubl_response_response_note2 edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=detail x1="14" y1="324" x2="4128" y2="324"  name=l_14 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="2546" y="376" height="56" width="366" format="[general]"  name=troubl_response_partner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2263" y="364" height="64" width="247" format="[general]"  name=troubl_response_pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1632" y="364" height="64" width="603" format="[shortdate] [time]"  name=troubl_response_updtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1353" y="364" height="56" width="270" format="[general]"  name=troubl_response_updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="809" y="364" height="64" width="517" format="[shortdate] [time]"  name=troubl_response_crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="535" y="364" height="56" width="270" format="[general]"  name=troubl_response_crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="64" y="364" height="64" width="466" format="[general]"  name=troubl_response_troubleno edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="200자(한글100자)까지 입력됩니다." border="0" color="0" x="3246" y="112" height="44" width="878"  name=t_5 visible="1~tif ( troubl_response_trouble_status = 'A03', 0, 1)"  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="200자(한글100자)까지 입력됩니다." border="0" color="0" x="3246" y="264" height="44" width="878"  name=t_8 visible="1~tif ( troubl_response_trouble_status = 'A03', 0, 1)"  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="393" y="128" height="336" width="3726"  name=trouble_note_t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=header x1="389" y1="172" x2="4114" y2="172"  name=l_9 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+line(band=header x1="384" y1="220" x2="4123" y2="220"  name=l_3 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+line(band=header x1="389" y1="268" x2="4114" y2="268"  name=l_10 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+line(band=header x1="384" y1="316" x2="4123" y2="316"  name=l_11 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+line(band=header x1="389" y1="368" x2="4114" y2="368"  name=l_12 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+line(band=header x1="384" y1="416" x2="4123" y2="416"  name=l_13 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

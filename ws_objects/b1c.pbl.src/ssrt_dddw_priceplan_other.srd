@@ -1,0 +1,29 @@
+﻿$PBExportHeader$ssrt_dddw_priceplan_other.srd
+$PBExportComments$[kem] partner에 해당하는 Price Plan Code
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(50) update=yes updatewhereclause=yes name=priceplan_desc dbname="priceplanmst.priceplan_desc" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="priceplanmst.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan dbname="priceplanmst.priceplan" )
+ column=(type=decimal(0) updatewhereclause=yes name=auth_level dbname="priceplanmst.auth_level" )
+ column=(type=char(10) updatewhereclause=yes name=currency_type dbname="priceplanmst.currency_type" )
+ column=(type=char(10) updatewhereclause=yes name=partner dbname="partner_priceplan.partner" )
+ retrieve="SELECT distinct a.priceplan_desc, a.svccod, a.priceplan, a.AUTH_LEVEL, a.currency_type, b.partner
+  FROM priceplanmst a
+     , partner_priceplan b
+Where a.priceplan = b.priceplan
+  AND a.use_yn ='Y'
+  AND A.svccod = 'SSRT'
+ORDER BY priceplan_desc" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="4" height="64" width="1102" format="[general]"  name=priceplan_desc edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="0" y1="80" x2="1298" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1358" y="8" height="64" width="302" format="[general]"  name=priceplan visible="1~t0" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1673" y="8" height="56" width="270" format="[general]"  name=svccod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1915" y="4" height="56" width="347" format="[general]"  name=auth_level visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2277" y="12" height="56" width="270" format="[general]"  name=currency_type visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2546" y="0" height="56" width="270" format="[general]"  name=partner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

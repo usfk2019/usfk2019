@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b1dw_inq_column3.srd
+$PBExportComments$[islim] column - Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=8 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=table_name dbname="user_col_comments.table_name" )
+ column=(type=char(30) updatewhereclause=yes name=column_name dbname="user_col_comments.column_name" )
+ column=(type=char(4000) updatewhereclause=yes name=comments dbname="user_col_comments.comments" )
+ retrieve=" SELECT table_name, column_name, comments
+        FROM USER_COL_COMMENTS
+        WHERE comments is not null
+		  and table_name = :table_name" arguments=(("table_name", string)) )
+text(band=header alignment="0" text="Table Name" border="0" color="0" x="9" y="4" height="76" width="951"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Column Name" border="0" color="0" x="969" y="4" height="76" width="951"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Comments" border="0" color="0" x="1929" y="4" height="76" width="4379"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="76" width="951" format="[general]"  name=table_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="969" y="0" height="76" width="951" format="[general]"  name=column_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1929" y="0" height="76" width="4379" format="[general]"  name=comments edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

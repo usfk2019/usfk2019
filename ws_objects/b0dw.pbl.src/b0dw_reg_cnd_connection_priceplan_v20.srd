@@ -1,0 +1,15 @@
+﻿$PBExportHeader$b0dw_reg_cnd_connection_priceplan_v20.srd
+$PBExportComments$[ssong]접속료 발생 가격정책 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=104 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=check dbname="check" values="가격정책별	Y/가격정책별	N" )
+ column=(type=char(10) updatewhereclause=no name=sacnum_kind dbname="sacnum_kind" )
+ )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="306" y="32" height="60" width="818" format="[general]"  name=sacnum_kind dddw.name=b0dc_dddw_sacnum_kind_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="접속료유형" border="0" color="0" x="9" y="32" height="60" width="279"  name=customer_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="0" color="0" x="1161" y="32" height="60" width="366" format="[general]"  name=check_1 checkbox.text="가격정책별" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

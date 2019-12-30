@@ -1,0 +1,111 @@
+﻿$PBExportHeader$b1dw_prt_postcdr_payidlist_1.srd
+$PBExportComments$[kem] 후불납입고객통화상세내역서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=344 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=post_bilcdr_payid dbname="post_bilcdr.payid" )
+ column=(type=char(14) updatewhereclause=yes name=post_bilcdr_customerid dbname="post_bilcdr.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=datetime updatewhereclause=yes name=post_bilcdr_stime dbname="post_bilcdr.stime" )
+ column=(type=datetime updatewhereclause=yes name=post_bilcdr_etime dbname="post_bilcdr.etime" )
+ column=(type=decimal(0) updatewhereclause=yes name=post_bilcdr_biltime dbname="post_bilcdr.biltime" )
+ column=(type=char(10) updatewhereclause=yes name=post_bilcdr_nodeno dbname="post_bilcdr.nodeno" )
+ column=(type=char(30) updatewhereclause=yes name=post_bilcdr_rtelnum dbname="post_bilcdr.rtelnum" )
+ column=(type=char(20) updatewhereclause=yes name=post_bilcdr_areacod dbname="post_bilcdr.areacod" )
+ column=(type=decimal(2) updatewhereclause=yes name=post_bilcdr_bilamt dbname="post_bilcdr.bilamt" )
+ column=(type=char(30) updatewhereclause=yes name=post_bilcdr_validkey dbname="post_bilcdr.validkey" )
+ column=(type=char(10) updatewhereclause=yes name=post_bilcdr_itemcod dbname="post_bilcdr.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ retrieve="SELECT P.PAYID,
+       p.customerid
+     , C.CUSTOMERNM,
+       c1.customernm
+     , P.STIME
+     , P.ETIME
+     , P.BILTIME
+     , P.NODENO
+     , P.RTELNUM
+     , P.AREACOD
+     , P.BILAMT
+     , P.VALIDKEY
+	  , p.itemcod
+	  , i.itemnm	
+  FROM POST_BILCDR P, CUSTOMERM C, customerm c1, itemmst i
+ WHERE P.PAYID = C.CUSTOMERID
+   and p.customerid = c1.customerid
+   and p.itemcod = i.itemcod
+ ORDER BY P.PAYID, P.customerid, P.STIME" )
+group(level=1 header.height=180 trailer.height=92 by=("post_bilcdr_payid" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="18" y="76" height="88" width="4471"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2167" y="196" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2240" y="196" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="3749" y="284" height="64" width="658" format="[GENERAL]"  name=page  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="3739" y="212" height="56" width="667"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="" border="0" color="0" x="2043" y="8" height="60" width="809"  name=date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="0" x="667" y="8" height="60" width="1033" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1285" y1="236" x2="1285" y2="320"  name=l_25 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="8" height="60" width="302" format="[general]"  name=post_bilcdr_payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="23" y1="80" x2="23" y2="180"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="1" text="납입고객 :" border="0" color="0" x="41" y="8" height="60" width="297"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="1" text="통화일자 :" border="0" color="0" x="1723" y="8" height="60" width="306"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="4000" y1="80" x2="4000" y2="180"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="3433" y1="80" x2="3433" y2="180"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="2912" y1="80" x2="2912" y2="180"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="사용고객" border="0" color="0" x="41" y="100" height="56" width="704"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="4407" y1="80" x2="4407" y2="180"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="754" y1="80" x2="754" y2="180"  name=l_16 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="시작시간" border="0" color="0" x="768" y="100" height="56" width="571"  name=stime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1349" y1="80" x2="1349" y2="180"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="종료시간" border="0" color="0" x="1362" y="100" height="56" width="571"  name=etime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1943" y1="80" x2="1943" y2="180"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="통화시간(초)" border="0" color="0" x="1957" y="100" height="56" width="370"  name=biltime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="2341" y1="84" x2="2341" y2="184"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="발신지역" border="0" color="0" x="2359" y="100" height="56" width="544"  name=nodeno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="2" text="착신전화번호" border="0" color="0" x="2926" y="100" height="56" width="503"  name=rtelnum_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="2" text="착신지역" border="0" color="0" x="3447" y="100" height="56" width="549"  name=areacod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="2" text="사용요금" border="0" color="0" x="4014" y="100" height="56" width="384"  name=bilamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="4896" y1="80" x2="4896" y2="180"  name=l_13 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="23" y1="80" x2="4896" y2="80"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="23" y1="172" x2="4896" y2="172"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="인증KEY" border="0" color="0" x="4425" y="100" height="56" width="457"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="23" y1="0" x2="23" y2="88"  name=l_14 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="4407" y1="0" x2="4407" y2="88"  name=l_22 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="4000" y1="0" x2="4000" y2="88"  name=l_20 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3433" y1="0" x2="3433" y2="84"  name=l_19 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2912" y1="0" x2="2912" y2="84"  name=l_18 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="82" y="12" height="60" width="233" format="[general]"  name=post_bilcdr_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="754" y1="0" x2="754" y2="84"  name=l_21 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="768" y="12" height="64" width="571" format="[shortdate] [time]"  name=post_bilcdr_stime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1362" y="12" height="64" width="571" format="[shortdate] [time]"  name=post_bilcdr_etime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="1349" y1="0" x2="1349" y2="84"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2359" y="12" height="64" width="544" format="[general]"  name=post_bilcdr_nodeno dddw.name=b1dc_dddw_nodenum dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2926" y="12" height="64" width="503" format="[general]"  name=post_bilcdr_rtelnum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3447" y="12" height="64" width="549" format="[general]"  name=post_bilcdr_areacod dddw.name=b1dc_dddw_arecod dddw.displaycolumn=areanm dddw.datacolumn=areacod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="4014" y="12" height="64" width="384" format="#,##0"  name=post_bilcdr_bilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="4896" y1="0" x2="4896" y2="88"  name=l_23 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="23" y1="84" x2="4896" y2="84"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4425" y="12" height="64" width="457" format="[general]"  name=post_bilcdr_validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="1943" y1="0" x2="1943" y2="88"  name=l_26 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1957" y="12" height="64" width="370" format="#,##0"  name=post_bilcdr_biltime edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="2341" y1="4" x2="2341" y2="92"  name=l_17 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="366" y="12" height="60" width="379" format="[general]"  name=customerm_customernm_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="[" border="0" color="0" x="46" y="12" height="60" width="27"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="]" border="0" color="0" x="325" y="12" height="60" width="27"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="23" y1="0" x2="23" y2="84"  name=l_24 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=trailer.1 alignment="2" text="합      계" border="0" color="0" x="576" y="8" height="60" width="1358"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="4407" y1="0" x2="4407" y2="84"  name=l_30 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(post_bilcdr_bilamt for group 1)"border="0" color="0" x="4014" y="8" height="64" width="384" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="4000" y1="0" x2="4000" y2="84"  name=l_29 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="4896" y1="0" x2="4896" y2="84"  name=l_31 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="23" y1="84" x2="4896" y2="84"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="1943" y1="0" x2="1943" y2="84"  name=l_27 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(post_bilcdr_biltime for group 1)"border="0" color="0" x="1957" y="8" height="64" width="370" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="2341" y1="0" x2="2341" y2="84"  name=l_28 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=0 border="0" color="0" x="4896" y="0" height="56" width="46"  name=post_bilcdr_itemcod visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=0 border="0" color="0" x="4942" y="0" height="56" width="50"  name=itemmst_itemnm visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

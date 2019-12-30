@@ -1,0 +1,75 @@
+﻿$PBExportHeader$b1dw_inq_customer_cv.srd
+$PBExportComments$[ceusee] 고객 마스터 정보
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(90) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_customerid dbname="customerm.customerid" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_socialsecurity dbname="customerm.socialsecurity" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_status dbname="customerm.status" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_location dbname="customerm.location" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_roomno dbname="customerm.roomno" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_ctype1 dbname="customerm.ctype1" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid dbname="customerm.payid" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_payid dbname="customerm.payid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_logid dbname="customerm.logid" )
+ column=(type=datetime updatewhereclause=yes name=customerm_enterdt dbname="customerm.enterdt" )
+ column=(type=char(1) updatewhereclause=yes name=customerm_ctype3 dbname="customerm.ctype3" )
+ retrieve="SELECT   cus.customernm, cus.customerid,cus.socialsecurity, cus.status, cus.location, cus.buildingno, cus.roomno, cus.ctype1,
+         cus.payid, cus.payid, cus.logid,cus.enterdt, cus.ctype3
+    FROM customerm cus, validinfo val, locmst loc , locategoryb b, locategoryc c, locategorya a
+   WHERE cus.LOCATION = loc.location(+) and 
+         cus.customerid = val.customerid(+) and
+         loc.locategorya = a.locategorya(+) and
+		 a.locategoryb = b.locategoryb(+) and
+		 b.locategoryc = c.locategoryc(+)
+GROUP BY cus.customernm,
+		 cus.customerid,
+		 cus.socialsecurity,
+       cus.status,
+		 cus.location,
+		 cus.buildingno,
+		 cus.roomno,
+       cus.ctype1,
+       cus.payid,
+       cus.payid,
+		 cus.logid,
+       cus.enterdt,
+		 cus.ctype3
+Order by cus.customernm, cus.customerid" )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="279" y="28" height="60" width="306"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="613" y="32" height="56" width="402"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1038" y="28" height="60" width="320"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="2551" y="24" height="60" width="370"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="고객명" border="2" color="15793151" x="9" y="100" height="60" width="590"  name=customerm_customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="15793151" x="1568" y="100" height="60" width="329"  name=customerm_status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="아파트" border="2" color="15793151" x="1906" y="100" height="60" width="535"  name=customerm_location_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="동" border="2" color="15793151" x="2450" y="100" height="60" width="306"  name=customerm_buildingno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="호" border="2" color="15793151" x="2766" y="100" height="60" width="306"  name=customerm_roomno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="납입고객" border="2" color="15793151" x="3479" y="100" height="60" width="325"  name=customerm_payid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="납입고객명" border="2" color="15793151" x="3813" y="100" height="60" width="389"  name=customerm_payid_1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="로그인아이디" border="2" color="15793151" x="4210" y="100" height="60" width="430"  name=customerm_logid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가입일" border="2" color="15793151" x="4649" y="100" height="60" width="361"  name=customerm_enterdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="" border="0" color="0" x="1906" y="28" height="60" width="535"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="3479" y="28" height="60" width="325" format="#,##0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객유형" border="2" color="15793151" x="3081" y="100" height="60" width="389"  name=customerm_ctype1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="590" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1568" y="8" height="60" width="329" format="[general]"  name=customerm_status dddw.name=b1dc_dddw_customerstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1906" y="8" height="60" width="535" format="[general]"  name=customerm_location dddw.name=b1dc_dddw_location dddw.displaycolumn=locationnm dddw.datacolumn=location dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2450" y="8" height="60" width="306" format="[general]"  name=customerm_buildingno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2766" y="8" height="60" width="306" format="[general]"  name=customerm_roomno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3081" y="8" height="60" width="389" format="[general]"  name=customerm_ctype1 dddw.name=b1dc_dddw_customertype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3479" y="8" height="60" width="325" format="[general]"  name=customerm_payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3813" y="8" height="60" width="389" format="[general]"  name=customerm_payid_1 dddw.name=b1dc_dddw_customerid dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4210" y="8" height="60" width="430" format="[general]"  name=customerm_logid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4649" y="8" height="60" width="361" format="[shortdate] [time]"  name=customerm_enterdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객번호" border="2" color="15793151" x="608" y="100" height="56" width="411"  name=customerm_customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Socialsecurity" border="2" color="15793151" x="1029" y="100" height="56" width="530"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="608" y="8" height="60" width="411" format="[general]"  name=customerm_customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1029" y="8" height="60" width="530" format="[general]"  name=customerm_socialsecurity edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

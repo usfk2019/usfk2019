@@ -1,0 +1,35 @@
+﻿$PBExportHeader$ubs_dw_reg_customer_t13.srd
+$PBExportComments$[jsha] 민원접수내역 dw
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=receiptdt dbname="customer_trouble.receiptdt" )
+ column=(type=char(10) updatewhereclause=yes name=troubletype dbname="customer_trouble.troubletype" )
+ column=(type=char(300) updatewhereclause=yes name=trouble_note dbname="customer_trouble.trouble_note" )
+ column=(type=char(10) updatewhereclause=yes name=trouble_status dbname="customer_trouble.trouble_status" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="customer_trouble.crt_user" )
+ column=(type=decimal(0) updatewhereclause=yes name=troubleno dbname="customer_trouble.troubleno" )
+ retrieve="	SELECT	receiptdt,
+				troubletype,
+				trouble_note,
+				trouble_status,
+				crt_user,
+				troubleno
+	 FROM		customer_trouble
+	 ORDER BY troubleno" )
+text(band=header alignment="2" text="Input Date" border="2" color="15793151" x="9" y="20" height="60" width="471"  name=receiptdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Trouble Type" border="2" color="15793151" x="489" y="20" height="60" width="571"  name=troubletype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Note" border="2" color="15793151" x="1070" y="20" height="60" width="1609"  name=trouble_note_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="15793151" x="2688" y="20" height="60" width="562"  name=trouble_status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Operator" border="2" color="15793151" x="3259" y="20" height="60" width="480"  name=crt_user_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="471" format="[shortdate] [time]"  name=receiptdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="489" y="8" height="60" width="571" format="[general]"  name=troubletype dddw.name=b1dc_dddw_troubletypemst dddw.displaycolumn=troubletypenm dddw.datacolumn=troubletype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1070" y="8" height="60" width="1609" format="[general]"  name=trouble_note edit.limit=300 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2688" y="8" height="60" width="562" format="[general]"  name=trouble_status dddw.name=b1dc_dddw_trouble_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="8" height="60" width="480" format="[general]"  name=crt_user dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="3749" y="0" height="56" width="9" format="[general]"  name=troubleno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

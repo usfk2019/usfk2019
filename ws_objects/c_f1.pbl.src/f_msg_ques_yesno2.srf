@@ -1,0 +1,94 @@
+﻿$PBExportHeader$f_msg_ques_yesno2.srf
+global type f_msg_ques_yesno2 from function_object
+end type
+
+forward prototypes
+global function integer f_msg_ques_yesno2 (long al_info_code, string as_title, string as_content, integer ai_default)
+end prototypes
+
+global function integer f_msg_ques_yesno2 (long al_info_code, string as_title, string as_content, integer ai_default);//*******************************************************************
+// Fuction ID : f_msg_ques_yesno   
+//
+// Purpose : Handle program run time message - Question(Yes/No)
+//
+// Scope : Public
+//
+// Parameter :
+//  1) al_info_code(Integer/Value) : Message Id
+//  2) as_title(String/Value) : Message title
+//  3) as_content(String/Value) : Message content
+//
+// Return Value : (Integer) 
+//                In occasion of not display MessageBox & returned message content,
+//                Set '*' on the right of as_title 
+//						
+// Log : (Date : Name : Version)
+//       10/04/97 : Yum, Hyun Sook : Original
+//
+//*******************************************************************
+string ls_info_title			//Message title
+string ls_info_content		//Message content
+long ll_length
+Integer li_return
+
+ls_info_title = as_title
+
+If as_content = "" Then
+	ls_info_content = ""
+Else
+	ls_info_content = " (" + as_content + ")"
+End If
+
+Choose Case al_info_code
+	Case 100		   // delete 확인
+		ls_info_content = "Do you want to delete the data?" + ls_info_content
+
+	Case 200
+		ls_info_content = "This is the '" + MidA(ls_info_content, 3, LenA(ls_info_content) - 3) + &
+		"' program.~r~nSure you want to continue?"
+		
+	Case 300
+		ls_info_content = "This is '" + MidA(ls_info_content, 3, LenA(ls_info_content) - 3) + &
+		 "' program." + &
+	 	 "~r~nSelected program's sequence has already been executed. " + &
+		 "~r~nIf you run this program, previous executions will be set '0'. " + &
+		 "This program will be reset." + &
+		 "~r~nSure you want to continue?"
+		 
+	Case 7010		//7000 : EDI 신용카드
+		ls_info_content = "신용카드 정보를 수정하시겠습니까?" + ls_info_content
+		 
+	Case 2010		   // 
+		ls_info_content = "청구절차메뉴가 변경 되었습니다. 재생성하시겠습니까?" + ls_info_content
+	Case 2020		   // 
+		ls_info_content = "청구 작업을 취소 하겠습니까?" + ls_info_content
+
+	Case 2030		   // GIRO 청구 Data 생성
+		ls_info_content = "GIRO 청구 Data를 생성합니다.~r~n계속하시겠습니까?" + ls_info_content
+	Case 2040		   // GIRO 입금 처리
+		ls_info_content = "GIRO 입금 처리작업을 합니다.~r~n계속하시겠습니까?" + ls_info_content
+	Case 2050
+		ls_info_content = "작업을 처리 하시겠습니까?" + ls_info_content
+	Case 2060
+		ls_info_content = "재 처리 하시겠습니까?" + ls_info_content
+	Case 2070
+		ls_info_content = "취소 처리 하시겠습니까?" + ls_info_content
+	Case 3000         //대역copy
+		ls_info_content = "기존에 Data가 존재합니다. Data를 추가하시겠습니까?" + ls_info_content
+	Case 6100		   //선불시스템
+		ls_info_content = "전체 자료를 가져옵니다.~r~n계속하시겠습니까?" + ls_info_content
+	Case 9000
+		//사용자가 작성한 Message Display
+
+	Case Else		// 처리 메세지 미지정시
+		ls_info_content = "Undefined user message(f_msg_ques_yesno2)"
+
+End Choose
+
+If Not (RightA(as_title, 1) = "*") Then &
+	li_return = MessageBox(ls_info_title, ls_info_content, Question!, YesNo!, ai_default)
+
+Return li_return
+
+end function
+

@@ -1,0 +1,26 @@
+﻿$PBExportHeader$p0dw_reg_cardctl.srd
+$PBExportComments$[y.k.min] 대리점별선불카드Control
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="partner_cardctl.partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pidprefix dbname="partner_cardctl.pidprefix" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=contnoprefix dbname="partner_cardctl.contnoprefix" )
+ retrieve="SELECT	PARTNER,
+			PIDPREFIX,
+			CONTNOPREFIX
+FROM		PARTNER_CARDCTL
+ORDER BY PARTNER,
+         PIDPREFIX,
+         CONTNOPREFIX ASC" update="PARTNER_CARDCTL" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="대리점" border="2" color="16777215" x="14" y="20" height="56" width="699"  name=partner_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pin # Prefix" border="2" color="16777215" x="731" y="20" height="56" width="489"  name=pidprefix_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="관리번호 Prefix" border="2" color="16777215" x="1239" y="20" height="56" width="498"  name=contnoprefix_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="14" y="4" height="60" width="699" format="[general]"  name=partner dddw.name=p2dc_dddw_control_par dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="731" y="4" height="60" width="489" format="[general]"  name=pidprefix edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="1239" y="4" height="60" width="498" format="[general]"  name=contnoprefix edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

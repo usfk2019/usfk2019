@@ -1,0 +1,94 @@
+﻿$PBExportHeader$ubs_dw_prt_payrate_report_2_old.srd
+$PBExportComments$[jhchoi] 수납률 보고서 (합계) - 2009.06.22
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=372 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=base dbname="base" )
+ column=(type=char(30) updatewhereclause=yes name=basenm dbname="basenm" )
+ column=(type=char(6) updatewhereclause=yes name=bill_month dbname="bill_month" )
+ column=(type=number updatewhereclause=yes name=total_bill dbname="total_bill" )
+ column=(type=number updatewhereclause=yes name=total_pay dbname="total_pay" )
+ column=(type=number updatewhereclause=yes name=balance dbname="balance" )
+ retrieve="SELECT  X.BASE,
+        Y.BASENM,
+		  X.BILL_MONTH,
+        SUM(X.TOTAL_BILL) AS TOTAL_BILL,
+        SUM(X.TOTAL_PAY)  AS TOTAL_PAY,
+        SUM(X.BALANCE)    AS BALANCE
+FROM (  SELECT  A.PAYID,
+                A.REQNUM,
+                ( SELECT C.BASECOD FROM CUSTOMERM C WHERE C.CUSTOMERID = A.PAYID ) AS BASE,
+                TO_CHAR(A.TRDT, 'YYYYMM') AS BILL_MONTH,
+                SUM(NVL(A.TRAMT, 0)) AS TOTAL_BILL,
+                SUM(NVL(A.PAYIDAMT, 0)) AS TOTAL_PAY,
+                SUM(NVL(A.TRAMT, 0)) -    SUM(NVL(A.PAYIDAMT, 0)) AS BALANCE
+        FROM    REQDTL A
+        WHERE   A.TRDT >= TO_DATE(:as_start_date, 'YYYYMMDD')
+		  AND     A.TRDT <= TO_DATE(:as_end_date, 'YYYYMMDD')
+        AND     A.TRCOD NOT IN ('B01', 'B02', '900', '910', '920', '930', '940', '950', 'RF0001')
+        AND     A.MARK IS NULL
+        GROUP BY A.PAYID, A.REQNUM, TO_CHAR(A.TRDT, 'YYYYMM') ) X, BASEMST Y
+WHERE   X.BASE NOT IN ('000SS', 'TESTS')   
+AND     X.BASE = Y.BASECOD (+)
+GROUP BY X.BASE, Y.BASENM, X.BILL_MONTH
+" arguments=(("as_start_date", string),("as_end_date", string))  sort="bill_month D basenm A " )
+text(band=header alignment="2" text="" border="0" color="0" x="14" y="232" height="136" width="2830"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32768" )
+line(band=header x1="14" y1="228" x2="2843" y2="228"  name=l_3 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="14" y1="368" x2="2843" y2="368"  name=l_18 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="411" y1="228" x2="411" y2="448"  name=l_4 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="846" y1="228" x2="846" y2="448"  name=l_5 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="1303" y1="228" x2="1303" y2="448"  name=l_6 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="1760" y1="228" x2="1760" y2="448"  name=l_7 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="2103" y1="228" x2="2103" y2="448"  name=l_8 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="2555" y1="228" x2="2555" y2="448"  name=l_9 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="2843" y1="228" x2="2843" y2="448"  name=l_10 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="" border="0" color="0" x="9" y="0" height="84" width="837"  name=t_18  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+line(band=detail x1="14" y1="84" x2="2843" y2="84"  name=l_35 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="5" y1="0" x2="5" y2="220"  name=l_19 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="434" y="4" height="68" width="398" format="[general]"  name=basenm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="4" height="68" width="370" format="[general]"  name=bill_month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="864" y="4" height="68" width="425" format="#,##0.00"  name=total_bill edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1321" y="4" height="68" width="425" format="#,##0.00"  name=total_pay edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="round((total_pay / total_bill) * 100, 1)"border="0" color="0" x="1778" y="4" height="68" width="311" format="0.0"  name=p_rate  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0~tif (balance < 0, rgb(255, 0, 0), rgb(0, 0, 0))" x="2121" y="4" height="68" width="425" format="#,##0.00"  name=balance edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="round( (balance / s_balance) * 100, 1)"border="0" color="0" x="2574" y="4" height="68" width="256" format="0.0"  name=n_rate  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="411" y1="0" x2="411" y2="220"  name=l_21 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="846" y1="0" x2="846" y2="220"  name=l_22 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1303" y1="0" x2="1303" y2="220"  name=l_23 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1760" y1="0" x2="1760" y2="220"  name=l_24 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2103" y1="0" x2="2103" y2="220"  name=l_25 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2555" y1="0" x2="2555" y2="220"  name=l_26 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2843" y1="0" x2="2843" y2="220"  name=l_27 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="2" text="" border="0" color="0" x="9" y="0" height="88" width="2834"  name=t_9  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+line(band=summary x1="9" y1="92" x2="2843" y2="92"  name=l_20 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="5" y1="0" x2="5" y2="92"  name=l_2 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="2" text="Total" border="0" color="0" x="434" y="8" height="72" width="398"  name=t_10  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="XXX" border="0" color="0" x="23" y="8" height="72" width="370"  name=t_12  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum ( total_bill for all )"border="0" color="0" x="864" y="8" height="72" width="425" format="#,##0.00"  name=s_bill  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum ( total_pay for all )"border="0" color="0" x="1321" y="8" height="72" width="425" format="#,##0.00"  name=s_pay  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="round((s_pay / s_bill) * 100, 1)"border="0" color="0" x="1778" y="8" height="72" width="311" format="0.0"  name=s_rate  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum ( balance for all )"border="0" color="0" x="2121" y="8" height="72" width="425" format="#,##0.00"  name=s_balance  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="round( (s_balance / s_balance) * 100, 1)"border="0" color="0" x="2574" y="8" height="72" width="256" format="0.0"  name=s_n_rate  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="411" y1="0" x2="411" y2="92"  name=l_11 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="846" y1="0" x2="846" y2="92"  name=l_12 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="1303" y1="0" x2="1303" y2="92"  name=l_13 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="1760" y1="0" x2="1760" y2="92"  name=l_14 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="2103" y1="0" x2="2103" y2="92"  name=l_17 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="2555" y1="0" x2="2555" y2="92"  name=l_16 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="2843" y1="0" x2="2843" y2="92"  name=l_15 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Camp 별 6개월 수납 상세 (" border="0" color="0" x="247" y="60" height="100" width="1147"  name=t_16  font.face="Arial" font.height="-15" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text=")" border="0" color="0" x="1938" y="60" height="100" width="41"  name=t_17  font.face="Arial" font.height="-15" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="2" expression="string (today(), 'yyyy-mm-dd')"border="0" color="0" x="1403" y="60" height="100" width="526" format="[GENERAL]"  name=c_t  font.face="Arial" font.height="-15" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="9" y1="228" x2="9" y2="448"  name=l_1 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="비율" border="0" color="16777215" x="2574" y="264" height="60" width="256"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="미납" border="0" color="16777215" x="2121" y="264" height="60" width="425"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수납률" border="0" color="16777215" x="1778" y="264" height="60" width="311"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수납" border="0" color="16777215" x="1321" y="264" height="60" width="425"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="청구" border="0" color="16777215" x="864" y="264" height="60" width="425"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Camp" border="0" color="16777215" x="434" y="264" height="60" width="398"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="청구월" border="0" color="16777215" x="23" y="264" height="60" width="370"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,58 @@
+﻿$PBExportHeader$f_pos_boody.srf
+$PBExportComments$[1hear] 영수증 - itemlist
+global type f_pos_boody from function_object
+end type
+
+forward prototypes
+global function integer f_pos_boody (datawindow fdw_data, decimal fdc_total)
+end prototypes
+
+global function integer f_pos_boody (datawindow fdw_data, decimal fdc_total);datawindow	ldw
+Long			i,					ll_row,			ll_keynum
+String 		ls_tmp, 			ls_itemcod, 	ls_itemnm,		ls_regcod,		ls_facnum
+Integer		li_qty
+DEC{2}		ldc_saleamt,	ldc_grand_total
+String 		ls_lin1, 		ls_lin2, 		ls_lin3, ls_val
+
+ls_lin1 = '------------------------------------------'
+ls_lin2 = '=========================================='
+ls_lin3 = '******************************************'
+
+ldw 			= fdw_data
+ldc_grand_total 	= fdc_total
+ll_row 		= ldw.RowCount()
+
+For i = 1 To ll_row
+			ls_tmp 			= String(i, '000') + ' ' //순번
+			ls_itemcod 		= trim(ldw.Object.itemcod[i])
+			ls_itemNM 		= trim(ldw.Object.itemNM[i])
+			li_qty 			= ldw.Object.qty[i]
+			ldc_saleamt 	= ldw.object.sale_amt[i]
+			ls_tmp 			+= LeftA(ls_itemnm + space(25), 24) + ' '  		//아이템
+			ls_tmp 			+= RightA(space(4) + String(li_qty), 4) + ' '     //수량
+			ls_val 			= fs_convert_amt(ldc_saleamt,  8)
+			ls_tmp 			+= ls_val //금액
+			F_POS_PRINT(ls_tmp, 1)	
+	
+			ls_regcod =  trim(ldw.Object.regcod[i])
+			//regcode master read
+			select keynum, 		trim(facnum)
+		  	  INTO :ll_keynum,	:ls_facnum
+		  	  FROM regcodmst
+		 	 where regcod = :ls_regcod ;
+	
+			IF IsNull(ll_keynum) 	then ll_keynum 	= 0
+			IF IsNull(ls_facnum) 	then ls_facnum 	= ""
+			ls_tmp =  Space(7) + "("+ ls_facnum + '-KEY#' + String(ll_keynum) + ")"
+			F_POS_PRINT(ls_tmp, 1)
+		NEXT
+		//2. Item List 출력 ----- end
+		F_POS_PRINT(ls_lin1, 1)
+		ls_val 	= fs_convert_sign(ldc_grand_total, 8)
+		ls_tmp 	= LeftA("Grand Total" + space(32), 32) + ls_val
+		F_POS_PRINT(ls_tmp, 1)
+		F_POS_PRINT(ls_lin1, 1)
+
+return 0
+end function
+

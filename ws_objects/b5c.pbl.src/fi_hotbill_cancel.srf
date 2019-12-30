@@ -1,0 +1,49 @@
+﻿$PBExportHeader$fi_hotbill_cancel.srf
+$PBExportComments$[cuesee] HotBilling Cancel
+global type fi_hotbill_cancel from function_object
+end type
+
+forward prototypes
+global function integer fi_hotbill_cancel (string as_payid, string as_title)
+end prototypes
+
+global function integer fi_hotbill_cancel (string as_payid, string as_title);//삭제 한다.
+
+delete hotsale where payid = :as_payid;
+If SQLCA.SQLCode < 0 Then	
+	f_msg_sql_err(as_title, " Delete Error(HOTSALE)" )
+	rollback;
+	Return -1
+End If
+
+delete hotreqdtl where payid = :as_payid;
+If SQLCA.SQLCode < 0 Then	
+	f_msg_sql_err(as_title, " Delete Error(HOTREQDTL)" )
+	rollback;
+	Return -1
+End If
+
+delete hot_customer 
+where customerid in 
+ (select customerid from customerm where payid = :as_payid);
+ 
+If SQLCA.SQLCode < 0 Then	
+	f_msg_sql_err(as_title, " Delete Error(HOT_CUSTOMER)" )
+	rollback;
+	Return -1
+End If
+
+Update customerm set hotbillflag = null
+where customerid = :as_payid;
+
+If SQLCA.SQLCode < 0 Then	
+	f_msg_sql_err(as_title, " Update Error(CUSTOMERM)" )
+	rollback;
+	Return -1
+End If
+
+commit;
+
+Return 0
+end function
+

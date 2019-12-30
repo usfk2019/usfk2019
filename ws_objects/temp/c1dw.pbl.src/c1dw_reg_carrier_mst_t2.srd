@@ -1,0 +1,30 @@
+﻿$PBExportHeader$c1dw_reg_carrier_mst_t2.srd
+$PBExportComments$[ssong]회선사업자 등록 naray old - tab2
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=96 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=pbxno dbname="carrier_keyinfo.pbxno" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=carrierkey dbname="carrier_keyinfo.carrierkey" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="carrier_keyinfo.fromdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=carrierid dbname="carrier_keyinfo.carrierid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=carriertype dbname="carrier_keyinfo.carriertype" )
+ retrieve="  SELECT ~"BILLING~".~"CARRIER_KEYINFO~".~"PBXNO~",   
+         ~"BILLING~".~"CARRIER_KEYINFO~".~"CARRIERKEY~",   
+         ~"BILLING~".~"CARRIER_KEYINFO~".~"FROMDT~",   
+         ~"BILLING~".~"CARRIER_KEYINFO~".~"CARRIERID~",   
+         ~"BILLING~".~"CARRIER_KEYINFO~".~"CARRIERTYPE~"  
+    FROM ~"BILLING~".~"CARRIER_KEYINFO~"  
+ORDER BY ~"BILLING~".~"CARRIER_KEYINFO~".~"PBXNO~" ASC,   
+         ~"BILLING~".~"CARRIER_KEYINFO~".~"CARRIERKEY~" ASC,   
+         ~"BILLING~".~"CARRIER_KEYINFO~".~"FROMDT~" ASC  " update="BILLING.CARRIER_KEYINFO" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="교환기" border="2" color="15793151" x="64" y="32" height="60" width="421"  name=pbxno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Route Key" border="2" color="15793151" x="507" y="32" height="60" width="457"  name=carrierkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용개시일" border="2" color="15793151" x="987" y="32" height="60" width="603"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="64" y="4" height="60" width="421" format="[general]"  name=pbxno dddw.name=c1dc_dddw_pbxno_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="507" y="4" height="60" width="457" format="[general]"  name=carrierkey edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="2" color="16777215" x="987" y="4" height="60" width="603" format="[shortdate] [time]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

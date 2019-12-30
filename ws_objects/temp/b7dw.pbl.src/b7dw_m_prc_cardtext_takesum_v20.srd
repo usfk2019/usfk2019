@@ -1,0 +1,42 @@
+﻿$PBExportHeader$b7dw_m_prc_cardtext_takesum_v20.srd
+$PBExportComments$[jsha]
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=file_name dbname="cardtextstatus.file_name" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=work_type dbname="cardtextstatus.work_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="cardtextstatus.status" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reqprcdt dbname="cardtextstatus.reqprcdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=resultprcdt dbname="cardtextstatus.resultprcdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="cardtextstatus.crtdt" )
+ retrieve="	SELECT	file_name,
+				work_type,
+				status,
+				reqprcdt,
+				resultprcdt,
+				crtdt
+	 FROM		cardtextstatus
+	 ORDER BY crtdt DESC" update="cardtextstatus" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="576" format="[general]"  name=file_name edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="594" y="8" height="60" width="498" format="[general]"  name=work_type dddw.name=b7dc_dddw_card_fileworktype_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1102" y="8" height="60" width="553" format="[general]"  name=status dddw.name=b7dc_dddw_card_filestatus_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1664" y="8" height="60" width="617" format="[shortdate] [time]"  name=reqprcdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2290" y="8" height="60" width="608" format="[shortdate] [time]"  name=resultprcdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2907" y="8" height="60" width="613" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="File Name" border="2" color="15793151" x="9" y="88" height="60" width="576"  name=file_name_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업유형" border="2" color="15793151" x="594" y="88" height="60" width="498"  name=work_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="15793151" x="1102" y="88" height="60" width="553"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청일시" border="2" color="15793151" x="1664" y="88" height="60" width="617"  name=reqprcdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수신일시" border="2" color="15793151" x="2290" y="88" height="60" width="608"  name=resultprcdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성일시" border="2" color="15793151" x="2907" y="88" height="60" width="613"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="14" y="12" height="60" width="283"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="315" y="16" height="60" width="549"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=background alignment="0" expression="rowcount()"border="0" color="8388608" x="2912" y="12" height="60" width="265" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="2501" y="12" height="60" width="393"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1330" y="12" height="60" width="320"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1664" y="12" height="60" width="261"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

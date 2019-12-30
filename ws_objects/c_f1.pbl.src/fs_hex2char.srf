@@ -1,0 +1,69 @@
+﻿$PBExportHeader$fs_hex2char.srf
+$PBExportComments$[kEnn] Hexa to Char
+global type fs_hex2char from function_object
+end type
+
+forward prototypes
+global function any fs_hex2char (string as_hex)
+end prototypes
+
+global function any fs_hex2char (string as_hex);//as_hex의 Format은 "X21X...."
+Integer	li_tlen, li_4len, li_idx
+String	ls_tok, ls_con, ls_char, ls_passwd
+Dec{0}	lc0_asc
+
+li_tlen = LenA(as_hex)
+li_4len = li_tlen / 4
+
+ls_passwd = ""
+Do While li_4len > 0
+	ls_tok = MidA(as_hex, li_tlen - (li_4len * 4) + 2, 2)
+	lc0_asc = 0
+	For li_idx = 1 To 2
+		ls_con = MidA(ls_tok, li_idx, 1)
+		Choose case ls_con
+			Case "0"
+				lc0_asc += 0 * 16^ABS(li_idx - 2)
+			Case "1"
+				lc0_asc += 1 * 16^ABS(li_idx - 2)
+			Case "2"
+				lc0_asc += 2 * 16^ABS(li_idx - 2)
+			Case "3"
+				lc0_asc += 3 * 16^ABS(li_idx - 2)
+			Case "4"
+				lc0_asc += 4 * 16^ABS(li_idx - 2)
+			Case "5"
+				lc0_asc += 5 * 16^ABS(li_idx - 2)
+			Case "6"
+				lc0_asc += 6 * 16^ABS(li_idx - 2)
+			Case "7"
+				lc0_asc += 7 * 16^ABS(li_idx - 2)
+			Case "8"
+				lc0_asc += 8 * 16^ABS(li_idx - 2)
+			Case "9"
+				lc0_asc += 9 * 16^ABS(li_idx - 2)
+			Case "A"
+				lc0_asc += 10 * 16^ABS(li_idx - 2)
+			Case "B"
+				lc0_asc += 11 * 16^ABS(li_idx - 2)
+			Case "C"
+				lc0_asc += 12 * 16^ABS(li_idx - 2)
+			Case "D"
+				lc0_asc += 13 * 16^ABS(li_idx - 2)
+			Case "E"
+				lc0_asc += 14 * 16^ABS(li_idx - 2)
+			Case "F"
+				lc0_asc += 15 * 16^ABS(li_idx - 2)
+		End Choose
+	Next
+
+	lc0_asc += 14
+	ls_char = CharA(lc0_asc)
+	ls_passwd += ls_char
+	li_4len -= 1
+Loop
+
+Return ls_passwd
+
+end function
+

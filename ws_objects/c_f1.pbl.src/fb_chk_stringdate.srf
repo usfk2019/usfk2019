@@ -1,0 +1,37 @@
+﻿$PBExportHeader$fb_chk_stringdate.srf
+$PBExportComments$[oH] check string type date value
+global type fb_chk_stringdate from function_object
+end type
+
+forward prototypes
+global function boolean fb_chk_stringdate (string as_date)
+end prototypes
+
+global function boolean fb_chk_stringdate (string as_date);//********************************************
+//	Check String type date value 
+// Argument e.g >> "200107" or "20010702" type
+//********************************************
+// 2001.07.02 T&C Technology
+// Oh Chung Hwan, homy@tnctec.co.kr
+//********************************************
+String ls_date
+Date ld_date
+Int li_len
+
+If Not IsNumber(as_date) Then Return False
+
+li_len = LenA(as_date)
+If li_len = 6 Then
+	ls_date = MidA(as_date, 1,4) + "-" + MidA(as_date, 5,2) + "-01" 
+ElseIf li_len = 8 Then
+	ls_date = MidA(as_date, 1,4) + "-" + MidA(as_date, 5,2) + "-" + MidA(as_date, 7,2)
+Else
+	Return False
+End If
+
+If Not IsDate(ls_date) Then Return False
+
+Return True
+
+end function
+

@@ -1,0 +1,17 @@
+﻿$PBExportHeader$ubs_dddw_equipmodel_item.srd
+$PBExportComments$[jhchoi] 인증장비 판매 아이템 세팅용 -  2011.02.16
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ retrieve="SELECT ITEMCOD, ITEMNM
+FROM   ITEMMST
+ORDER BY ITEMNM" update="ITEMMST" updatewhere=0 updatekeyinplace=no )
+line(band=detail x1="0" y1="72" x2="1371" y2="72"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="9" y="4" height="60" width="242"  name=itemcod  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="265" y="4" height="60" width="1102"  name=itemnm  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,97 @@
+﻿$PBExportHeader$e01d_prt_delay03_new.srd
+$PBExportComments$[ojy]연제자리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=444 color="536870912" )
+summary(height=92 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=payid dbname="dlymst_bysvc.payid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=datetime updatewhereclause=yes name=stdmonth dbname="dlymst_bysvc.stdmonth" )
+ column=(type=char(1) updatewhereclause=yes name=delay_type dbname="dlymst_bysvc.delay_type" values="BOTH	0/Internet	1/Mobile	2/" )
+ column=(type=number updatewhereclause=yes name=dly_month dbname="dly_month" )
+ column=(type=char(10) updatewhereclause=yes name=basecod dbname="customerm.basecod" )
+ column=(type=char(20) updatewhereclause=yes name=cellphone dbname="customerm.cellphone" )
+ column=(type=char(20) updatewhereclause=yes name=homephone dbname="customerm.homephone" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="customerm.status" )
+ column=(type=char(30) updatewhereclause=yes name=unit dbname="customerm.unit" )
+ column=(type=decimal(2) updatewhereclause=yes name=month_int_amt dbname="dlymst_bysvc.month_int_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=month_mob_amt dbname="dlymst_bysvc.month_mob_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=int_amt dbname="dlymst_bysvc.int_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=mob_amt dbname="dlymst_bysvc.mob_amt" )
+ column=(type=number updatewhereclause=yes name=recv_amt dbname="recv_amt" )
+ retrieve="SELECT A.PAYID,
+		 C.CUSTOMERNM,
+		 A.STDMONTH,
+		 A.DELAY_TYPE,
+		 CASE WHEN A.DLY_INT_MONTH >= A.DLY_MOB_MONTH THEN A.DLY_INT_MONTH
+				ELSE A.DLY_MOB_MONTH END AS DLY_MONTH,
+       C.BASECOD,
+		 C.CELLPHONE,
+		 C.HOMEPHONE,
+		 C.STATUS,
+		 C.UNIT,
+		 A.MONTH_INT_AMT AS MONTH_INT_AMT,
+		 A.MONTH_MOB_AMT AS MONTH_MOB_AMT,
+		 A.RETRY_INT_AMT AS INT_AMT,
+		 A.RETRY_MOB_AMT AS MOB_AMT,
+		 NVL(X.RECV_AMT, 0) AS RECV_AMT
+FROM   DLYMST_BYSVC A, BILLINGINFO B, CUSTOMERM C,
+		(SELECT PAYID, SUM(PAYAMT) AS RECV_AMT
+       FROM   REQPAY
+       WHERE  PAYDT = TRUNC(SYSDATE)
+		 GROUP BY PAYID ) X
+WHERE  A.PAYID = B.CUSTOMERID
+AND    A.PAYID = C.CUSTOMERID
+AND    A.PAYID = X.PAYID(+)
+"  sort="basecod A payid A " )
+text(band=header alignment="2" text="Overdue Customer Report" border="0" color="0" x="27" y="16" height="88" width="4818"  name=t_4  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="59" y="144" height="56" width="347"  name=t_final visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="599" y="16" height="88" width="2418"  name=title visible="1~t0"  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="562" y="144" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="818" y="136" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2062" y="236" height="60" width="718" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Standard Date :" border="0" color="0" x="471" y="236" height="56" width="480"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=3 alignment="2" tabsequence=32766 border="0" color="0" x="974" y="236" height="56" width="389" format="[shortdate] [time]"  name=stdmonth editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pay ID" border="0" color="0" x="32" y="324" height="56" width="242"  name=payid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Customer" border="0" color="0" x="288" y="324" height="56" width="507"  name=customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Base" border="0" color="0" x="809" y="324" height="56" width="361"  name=basecod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Status" border="0" color="0" x="1184" y="324" height="56" width="306"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Cell Phone" border="0" color="0" x="1504" y="324" height="56" width="347"  name=cellphone_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Home Phone" border="0" color="0" x="1870" y="324" height="56" width="366"  name=homephone_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="UNIT" border="0" color="0" x="2254" y="324" height="56" width="302"  name=unit_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Overdue Month" border="0" color="0" x="3387" y="324" height="100" width="242"  name=dly_month_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="5" y1="312" x2="4850" y2="312"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="5" y1="440" x2="4850" y2="440"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="4128" y="152" height="60" width="718"  name=date_time visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="today()"border="0" color="0" x="4128" y="236" height="60" width="718" format="[SHORTDATE] [TIME]"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Current Overdue(INT)" border="0" color="0" x="3648" y="324" height="100" width="384"  name=int_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Current Overdue(MOB)" border="0" color="0" x="4046" y="324" height="100" width="393"  name=mob_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="InitialOverdue(INT)" border="0" color="0" x="2574" y="324" height="100" width="393"  name=month_int_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="InitialOverdue(MOB)" border="0" color="0" x="2981" y="324" height="100" width="393"  name=month_mob_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="PAY AMT" border="0" color="0" x="4453" y="324" height="56" width="393"  name=recv_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="32" y="8" height="60" width="242" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="288" y="8" height="60" width="507" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="809" y="8" height="60" width="361" format="[general]"  name=basecod dddw.name=ssrt_dddw_basecod dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1184" y="8" height="60" width="306" format="[general]"  name=status dddw.name=b1dc_dddw_customerstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="1504" y="8" height="60" width="347" format="[general]"  name=cellphone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="3387" y="8" height="60" width="242" format="[general]"  name=dly_month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="2981" y="8" height="60" width="393" format="#,##0.00"  name=month_mob_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="1870" y="8" height="60" width="366" format="[general]"  name=homephone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2254" y="8" height="60" width="302" format="[general]"  name=unit edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2574" y="8" height="60" width="393" format="#,##0.00"  name=month_int_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="3648" y="8" height="60" width="384" format="#,##0.00"  name=int_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="4046" y="8" height="60" width="393" format="#,##0.00"  name=mob_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="4453" y="8" height="60" width="393" format="#,##0.00"  name=recv_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="5" y1="4" x2="4846" y2="4"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="5" y1="88" x2="4846" y2="88"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="Count:" border="0" color="0" x="1870" y="16" height="56" width="366"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="rowcount()"border="0" color="0" x="2254" y="16" height="56" width="302" format="#,##0"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum ( mob_amt for all )"border="0" color="0" x="4046" y="16" height="56" width="393" format="#,##0.00"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum ( int_amt for all )"border="0" color="0" x="3648" y="16" height="56" width="384" format="#,##0.00"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum ( month_mob_amt for all )"border="0" color="0" x="2971" y="16" height="56" width="393" format="#,##0.00"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum ( month_int_amt for all )"border="0" color="0" x="2574" y="16" height="56" width="384" format="#,##0.00"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum ( recv_amt for all )"border="0" color="0" x="4453" y="16" height="56" width="393" format="#,##0.00"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

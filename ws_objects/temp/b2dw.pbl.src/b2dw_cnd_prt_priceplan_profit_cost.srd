@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b2dw_cnd_prt_priceplan_profit_cost.srd
+$PBExportComments$[ohj] 가격정책별 수익율 증감현황 cnd dw
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=164 color="536870912" )
+table(column=(type=date updatewhereclause=no name=pre_from dbname="pre_from" )
+ column=(type=date updatewhereclause=no name=pre_to dbname="pre_to" )
+ column=(type=char(10) updatewhereclause=no name=priceplan dbname="priceplan" )
+ column=(type=char(10) updatewhereclause=no name=svccod dbname="svccod" )
+ )
+text(band=detail alignment="1" text="서비스" border="0" color="0" x="14" y="96" height="60" width="261"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="기간" border="0" color="0" x="14" y="16" height="56" width="261"  name=predtfrom_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="645" y="12" height="64" width="50"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="16777215" x="709" y="12" height="60" width="338" format="[general]"  name=pre_to edit.name="DD/MM/YY" editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="16777215" x="293" y="12" height="60" width="338" format="[general]"  name=pre_from edit.name="DD/MM/YY" editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="0" x="293" y="96" height="60" width="759" format="[general]"  name=svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="0" color="0" x="1339" y="96" height="60" width="978" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="가격정책" border="0" color="0" x="1083" y="96" height="60" width="233"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

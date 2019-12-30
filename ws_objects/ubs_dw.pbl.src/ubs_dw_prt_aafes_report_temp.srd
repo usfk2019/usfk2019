@@ -1,0 +1,30 @@
+﻿$PBExportHeader$ubs_dw_prt_aafes_report_temp.srd
+$PBExportComments$[ceusee] 상품별 일일 통계보고서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 2 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes name=camp dbname="aafes_data.camp" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=payid dbname="aafes_data.payid" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=itemcod dbname="aafes_data.itemcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=regcod dbname="aafes_data.regcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=key_no dbname="aafes_data.key_no" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount dbname="aafes_data.amount" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=exchno dbname="aafes_data.exchno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=vendor_code dbname="aafes_data.vendor_code" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=anx dbname="aafes_data.anx" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pay_gubun dbname="aafes_data.pay_gubun" )
+ retrieve="SELECT CAMP, PAYID, ITEMCOD, REGCOD, KEY_NO, 
+		 AMOUNT, EXCHNO, VENDOR_CODE, ANX, 
+		 PAY_GUBUN
+FROM   AAFES_DATA" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="0" y="0" height="76" width="640" format="[general]"  name=camp edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="640" y="0" height="76" width="640" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1280" y="0" height="76" width="640" format="[general]"  name=itemcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1920" y="0" height="76" width="320" format="[general]"  name=regcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2240" y="0" height="76" width="320" format="[general]"  name=key_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2565" y="0" height="76" width="805" format="[general]"  name=amount edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3374" y="0" height="76" width="320" format="[general]"  name=pay_gubun edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

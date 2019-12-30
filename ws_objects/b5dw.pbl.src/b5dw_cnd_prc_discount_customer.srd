@@ -1,0 +1,15 @@
+﻿$PBExportHeader$b5dw_cnd_prc_discount_customer.srd
+$PBExportComments$[backgu] 청구작업용 통합 Condition Data Window
+release 7;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=264 color="536870912" )
+table(column=(type=char(3) updatewhereclause=no name=chargedt dbname="chargedt" )
+ )
+text(band=detail alignment="0" text="청구 주기를 선택하세요." border="0" color="8388608" x="187" y="36" height="56" width="1056"  name=t_title  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="114" y1="128" x2="1280" y2="128"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="청구주기" border="0" color="0" x="187" y="172" height="60" width="325"  name=chargedt_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="16777215" x="535" y="172" height="60" width="695" format="[general]"  name=chargedt dddw.name=b3dc_dddw_cycle dddw.displaycolumn=description dddw.datacolumn=chargedt dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

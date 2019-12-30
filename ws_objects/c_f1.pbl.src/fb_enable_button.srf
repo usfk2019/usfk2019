@@ -1,0 +1,55 @@
+﻿$PBExportHeader$fb_enable_button.srf
+$PBExportComments$[ceusee] 버튼 사용여부 Check
+global type fb_enable_button from function_object
+end type
+
+forward prototypes
+global function boolean fb_enable_button (string as_button_name, integer as_gi_auth)
+end prototypes
+
+global function boolean fb_enable_button (string as_button_name, integer as_gi_auth);/*--------------------------------------------------------------------------
+	Name	: fb_enable_button
+	Desc.	: User 권한에 따라 버튼의 사용 여부 결정 
+	Arg.	: String as_button_name 
+			  String as_user_id
+	Retun	: TRUE 사용 할 수 있음
+			  FALSE 사용 할 수 없음 
+	Date	: 2003.04.14
+	Auth.	: C.BORA
+----------------------------------------------------------------------------*/
+String ls_tmp, ls_data[], ls_desc
+
+//버튼의 사용 권한
+Select ref_content
+Into :ls_tmp
+From sysctl1t
+Where module = 'G1' and ref_no = 'G100';
+
+//해당 권한 데이터가 없을 시
+If SQLCA.SQLCode = 100 Then RETURN FALSE
+If SQLCA.SQLCode < 0 Then
+	f_msg_sql_err("ERROR", "Select Error(SYSCTL1T)")
+	Return  FALSE
+End If		
+
+fi_cut_string(ls_tmp, ';', ls_data[])
+
+//버튼별 권한
+Choose Case as_button_name
+	Case "INSERT"
+		If as_gi_auth <= Integer(ls_data[1]) Then Return TRUE
+	Case "SAVE"
+		If as_gi_auth <= Integer(ls_data[2]) Then Return TRUE
+	CASE "DELETE"
+		If as_gi_auth <= Integer(ls_data[3]) Then Return TRUE
+	CASE "SAVEAS"
+		If as_gi_auth <= Integer(ls_data[4]) Then Return TRUE
+	Case "PRINT"
+		If as_gi_auth <= Integer(ls_data[5]) Then Return TRUE
+End Choose
+
+Return FALSE
+
+
+end function
+

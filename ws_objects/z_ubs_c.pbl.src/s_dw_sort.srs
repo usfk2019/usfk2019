@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_dw_sort.srs
+$PBExportComments$공통 - 데이타윈도우 정렬관련 structure
+global type s_dw_sort from structure
+	string		col_name[]
+	string		sort_type[]
+end type
+

@@ -1,0 +1,23 @@
+﻿$PBExportHeader$ssrt_cnd_reg_other_pop.srd
+$PBExportComments$[kem] 서비스 신청시 장비/할부 정보 조건 - com&life
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=416 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=svccod dbname="svccod" initial="SSRT" )
+ column=(type=char(10) updatewhereclause=no name=priceplan dbname="priceplan" )
+ column=(type=char(10) updatewhereclause=no name=itemcod dbname="itemcod" )
+ )
+button(band=detail text="판매상품상세"filename=""action="0" border="0" color="0" x="37" y="888" height="76" width="521" vtextalign="0" htextalign="0"  name=b_item  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="1" text="선수금" border="0" color="0" x="78" y="984" height="60" width="306"  name=beforamt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="미수금" border="0" color="0" x="1262" y="1000" height="60" width="306"  name=receamt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="할부개월수" border="0" color="0" x="82" y="1060" height="60" width="306"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="1152" y="96" height="56" width="526" format="[general]"  name=itemcod dddw.name=b1dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="2" text="Service" border="6" color="0" x="64" y="16" height="56" width="526"  name=svccod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Price Plan" border="6" color="0" x="608" y="16" height="56" width="526"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Item" border="6" color="0" x="1152" y="16" height="56" width="526"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="64" y="92" height="60" width="526" format="[general]"  name=svccod dddw.name=b1dc_dddw_svcmst_partner dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="608" y="92" height="56" width="526" format="[general]"  name=priceplan dddw.name=ssrt_dddw_priceplan_det dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

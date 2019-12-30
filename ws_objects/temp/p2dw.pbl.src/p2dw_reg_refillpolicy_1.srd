@@ -1,0 +1,86 @@
+﻿$PBExportHeader$p2dw_reg_refillpolicy_1.srd
+$PBExportComments$[ceusee] 충전 정책
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="refillpolicy.partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="refillpolicy.priceplan" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="refillpolicy.fromdt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes key=yes name=fromamt dbname="refillpolicy.fromamt" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=toamt dbname="refillpolicy.toamt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=rate dbname="refillpolicy.rate" initial="0" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="refillpolicy.crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="refillpolicy.crt_user" )
+ column=(type=datetime updatewhereclause=yes name=updtdt dbname="refillpolicy.updtdt" )
+ column=(type=char(10) updatewhereclause=yes name=updt_user dbname="refillpolicy.updt_user" )
+ column=(type=char(8) updatewhereclause=yes name=pgm_id dbname="refillpolicy.pgm_id" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=rate_first dbname="refillpolicy.rate_first" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=basic_fee dbname="refillpolicy.basic_fee" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=basic_rate dbname="refillpolicy.basic_rate" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=basic_fee_first dbname="refillpolicy.basic_fee_first" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=basic_rate_first dbname="refillpolicy.basic_rate_first" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=extdays dbname="refillpolicy.extdays" initial="0" )
+ retrieve="  SELECT ~"REFILLPOLICY~".~"PARTNER~",   
+         ~"REFILLPOLICY~".~"PRICEPLAN~",   
+         ~"REFILLPOLICY~".~"FROMDT~",   
+         ~"REFILLPOLICY~".~"FROMAMT~",   
+         ~"REFILLPOLICY~".~"TOAMT~",   
+         ~"REFILLPOLICY~".~"RATE~",   
+         ~"REFILLPOLICY~".~"CRTDT~",   
+         ~"REFILLPOLICY~".~"CRT_USER~",   
+         ~"REFILLPOLICY~".~"UPDTDT~",   
+         ~"REFILLPOLICY~".~"UPDT_USER~",   
+         ~"REFILLPOLICY~".~"PGM_ID~",   
+         ~"REFILLPOLICY~".~"RATE_FIRST~",
+         ~"REFILLPOLICY~".~"BASIC_FEE~",
+         ~"REFILLPOLICY~".~"BASIC_RATE~",
+			~"REFILLPOLICY~".~"BASIC_FEE_FIRST~",
+         ~"REFILLPOLICY~".~"BASIC_RATE_FIRST~",
+         ~"REFILLPOLICY~".~"EXTDAYS~"
+    FROM ~"REFILLPOLICY~"
+ORDER BY ~"REFILLPOLICY~".~"PARTNER~",   
+         ~"REFILLPOLICY~".~"PRICEPLAN~",   
+         ~"REFILLPOLICY~".~"FROMDT~",   
+         ~"REFILLPOLICY~".~"FROMAMT~",   
+         ~"REFILLPOLICY~".~"TOAMT~",   
+         ~"REFILLPOLICY~".~"RATE~" ASC   
+" update="REFILLPOLICY" updatewhere=1 updatekeyinplace=no  sort="partner A priceplan A fromdt D " )
+text(band=header alignment="2" text="" border="2" color="15793151" x="4750" y="20" height="136" width="283"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+rectangle(band=header x="14" y="16" height="144" width="571"  name=r_2 brush.hatch="6" brush.color="27306400" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+rectangle(band=header x="594" y="16" height="144" width="430"  name=r_3 brush.hatch="6" brush.color="27306400" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+rectangle(band=header x="1033" y="16" height="144" width="581"  name=r_4 brush.hatch="6" brush.color="27306400" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+rectangle(band=header x="1623" y="16" height="144" width="640"  name=r_5 brush.hatch="6" brush.color="27306400" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="2277" y="20" height="136" width="485"  name=rate_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격정책" border="0" color="15793151" x="23" y="64" height="56" width="553"  name=markid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="적용시작일" border="0" color="15793151" x="599" y="64" height="56" width="411"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="기준금액 From(>=)" border="0" color="15793151" x="1038" y="64" height="56" width="567"  name=fromamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="기준금액 To(<)" border="0" color="15793151" x="1623" y="64" height="56" width="631"  name=toamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="판매가Rate/
+액면가할증Rate" border="0" color="15793151" x="2286" y="40" height="112" width="471"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="2779" y="20" height="136" width="590"  name=rate_first_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="최초판매가Rate/
+최초액면가할증Rate" border="0" color="15793151" x="2789" y="36" height="112" width="576"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="연장일수" border="0" color="15793151" x="4759" y="60" height="56" width="261"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="최초판매 기본료" border="2" color="15793151" x="3387" y="20" height="64" width="663"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="충전 기본료" border="2" color="15793151" x="4069" y="20" height="64" width="663"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본료액" border="2" color="15793151" x="3387" y="96" height="60" width="325"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본료율(%)" border="2" color="15793151" x="3726" y="96" height="60" width="325"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본료액" border="2" color="15793151" x="4069" y="96" height="60" width="325"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본료율(%)" border="2" color="15793151" x="4407" y="96" height="60" width="325"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="2" color="16777215" x="448" y="120" height="60" width="654" format="[general]"  name=partner visible="1~t0" dddw.name=p2dc_dddw_control_par dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="2" color="0" x="1627" y="8" height="60" width="631" format="#,##0.00"  name=toamt edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="18" y="8" height="60" width="562" format="[general]"  name=priceplan dddw.name=p2dc_dddw_priceplan_1 dddw.displaycolumn=priceplanmst_priceplan_desc dddw.datacolumn=priceplanmst_priceplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="2" color="16777215" x="1038" y="8" height="60" width="571" format="#,##0.00"  name=fromamt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="2" color="16777215" x="599" y="8" height="60" width="421" format="[shortdate] [time]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=6 alignment="1" tabsequence=60 border="2" color="0" x="2277" y="8" height="60" width="485" format="0%"  name=rate editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="1" tabsequence=120 border="2" color="16777215" x="4750" y="8" height="60" width="283" format="#,##0"  name=extdays editmask.mask="###,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=12 alignment="1" tabsequence=70 border="2" color="0" x="2779" y="8" height="60" width="590" format="0%"  name=rate_first editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="1" tabsequence=80 border="2" color="0" x="3387" y="8" height="60" width="325" format="#,##0"  name=basic_fee_first editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="1" tabsequence=90 border="2" color="0" x="3726" y="8" height="60" width="325" format="0.00%"  name=basic_rate_first editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="1" tabsequence=100 border="2" color="0" x="4069" y="8" height="60" width="325" format="#,##0"  name=basic_fee editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="1" tabsequence=110 border="2" color="0" x="4407" y="8" height="60" width="325" format="0.00%"  name=basic_rate editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

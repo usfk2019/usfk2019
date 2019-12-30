@@ -1,0 +1,29 @@
+﻿$PBExportHeader$f_url_string.srf
+global type f_url_string from function_object
+end type
+
+forward prototypes
+global function string f_url_string (string as_exe)
+end prototypes
+
+global function string f_url_string (string as_exe);String ls_exe, ls_return , ls_char
+Integer i, li_start
+ls_exe = as_exe
+
+If MidA(ls_exe, 1, 1) = "~"" Then li_start = 2  Else li_start = 1
+
+For i = li_start To LenA(ls_exe)
+	ls_char = MidA(ls_exe, i, 1)
+	
+	Choose Case ls_char
+		Case "," ; Exit
+		Case "~"" ; Exit
+	End Choose
+	
+	ls_return = ls_return + ls_char
+Next
+
+Return ls_return
+
+end function
+

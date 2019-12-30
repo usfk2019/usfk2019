@@ -1,0 +1,39 @@
+﻿$PBExportHeader$fs_giro_band_right.srf
+$PBExportComments$[jybaek] 지로 OCR - Right
+global type fs_giro_band_right from function_object
+end type
+
+forward prototypes
+global function string fs_giro_band_right (decimal ac_sum_tramt)
+end prototypes
+
+global function string fs_giro_band_right (decimal ac_sum_tramt);Integer li_curval, li_lens, li_len, li_chkdigit, li_curloc
+String ls_chargesum, ls_chkdigit, ls_bandright
+Decimal{0} lc0_sum
+
+// Oh Chung Hwan 2000-12-14
+ls_chargesum  = String(ac_sum_tramt)
+	
+lc0_sum = 0
+li_curval = 0
+li_lens = LenA(ls_chargesum)
+	
+For li_len = 1 To li_lens
+	li_curloc = li_lens - li_len + 1
+	li_curval = Integer(MidA(ls_chargesum,li_curloc,1))
+	If Mod(li_len, 3) = 1 Then
+		lc0_sum += li_curval * 7
+	ElseIf Mod(li_len, 3) = 2 Then
+		lc0_sum += li_curval * 3
+	Else
+		lc0_sum += li_curval   	
+	End If	
+Next
+li_chkdigit = 10 - Mod(lc0_sum,10)
+ls_chkdigit = String(Mod(li_chkdigit,10))
+ls_bandright = "     +" + ls_chargesum + ls_chkdigit + &
+					"<" + " " + "<11<"
+	
+Return ls_bandright
+end function
+

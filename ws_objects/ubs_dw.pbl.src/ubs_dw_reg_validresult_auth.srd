@@ -1,0 +1,59 @@
+﻿$PBExportHeader$ubs_dw_reg_validresult_auth.srd
+$PBExportComments$[jhchoi] 장비인증 이력 조회(auth) - 2009.06.21
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(5) updatewhereclause=yes key=yes name=subsno dbname="bc_auth.subsno" )
+ column=(type=char(40) updatewhereclause=yes key=yes name=action dbname="bc_auth.action" )
+ column=(type=char(40) updatewhereclause=yes key=yes name=status dbname="bc_auth.status" )
+ column=(type=char(40) updatewhereclause=yes key=yes name=timestamp dbname="bc_auth.timestamp" )
+ column=(type=char(40) updatewhereclause=yes name=updatetime dbname="bc_auth.updatetime" )
+ column=(type=char(40) updatewhereclause=yes key=yes name=macaddress dbname="bc_auth.macaddress" )
+ column=(type=char(8) updatewhereclause=yes name=flag_str dbname="flag_str" )
+ column=(type=char(200) updatewhereclause=yes name=failcause dbname="failcause" )
+ column=(type=decimal(5) updatewhereclause=yes name=pccount dbname="bc_auth.pccount" )
+ column=(type=char(40) updatewhereclause=yes name=networktype dbname="bc_auth.networktype" )
+ column=(type=char(40) updatewhereclause=yes name=voip_hostname dbname="bc_auth.voip_hostname" )
+ column=(type=char(20) updatewhereclause=yes name=userno dbname="bc_auth.userno" )
+ column=(type=decimal(5) updatewhereclause=yes name=prod_cd dbname="bc_auth.prod_cd" )
+ retrieve="SELECT SUBSNO, ACTION, STATUS, TIMESTAMP, UPDATETIME, MACADDRESS,  
+       CASE WHEN FLAG = '0' THEN '등록전'  
+            WHEN FLAG = '1' THEN '등록성공'  
+            WHEN FLAG = '8' THEN '등록실패'   
+            END AS FLAG_STR,  
+       NVL(FAILCAUSE,'-') FAILCAUSE  ,
+       PCCOUNT, NETWORKTYPE, VOIP_HOSTNAME, USERNO, PROD_CD
+FROM   BC_AUTH
+WHERE  1 = 0
+" update="BC_AUTH" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="가입번호" border="2" color="32896" x="9" y="8" height="60" width="334"  name=subsno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="작업유형" border="2" color="32896" x="6569" y="8" height="60" width="398"  name=action_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="상태" border="2" color="32896" x="352" y="8" height="60" width="425"  name=status_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="등록시간" border="2" color="32896" x="786" y="8" height="60" width="681"  name=timestamp_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="변경시간" border="2" color="32896" x="1477" y="8" height="60" width="677"  name=updatetime_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="인터넷 MAC" border="2" color="32896" x="2162" y="8" height="60" width="622"  name=macaddress_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="인증결과" border="2" color="32896" x="2793" y="8" height="60" width="347"  name=flag_str_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="오류원인" border="2" color="32896" x="3150" y="8" height="60" width="1216"  name=failcause_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="유효 IP수" border="2" color="32896" x="4375" y="8" height="60" width="329"  name=pccount_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="네트워크망 구분" border="2" color="32896" x="4713" y="8" height="60" width="613"  name=networktype_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="단말종류" border="2" color="32896" x="5335" y="8" height="60" width="462"  name=voip_hostname_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="속도" border="2" color="32896" x="5806" y="8" height="60" width="306"  name=userno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+text(band=header alignment="2" text="상품코드" border="2" color="32896" x="6121" y="8" height="60" width="439"  name=prod_cd_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33219791" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="9" y="4" height="68" width="334" format="[general]"  name=subsno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="6569" y="4" height="68" width="398" format="[general]"  name=action edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="4" height="68" width="425" format="[general]"  name=status edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="786" y="4" height="68" width="681" format="[general]"  name=timestamp edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1477" y="4" height="68" width="677" format="[general]"  name=updatetime edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2162" y="4" height="68" width="622" format="[general]"  name=macaddress edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2793" y="4" height="68" width="347" format="[general]"  name=flag_str edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3150" y="4" height="68" width="1216" format="[general]"  name=failcause edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="4375" y="4" height="68" width="329" format="[general]"  name=pccount edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4713" y="4" height="68" width="613" format="[general]"  name=networktype edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="5335" y="4" height="68" width="462" format="[general]"  name=voip_hostname edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="5806" y="4" height="68" width="306" format="[general]"  name=userno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="6121" y="4" height="68" width="439" format="[general]"  name=prod_cd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

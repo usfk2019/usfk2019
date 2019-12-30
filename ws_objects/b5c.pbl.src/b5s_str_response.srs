@@ -1,0 +1,9 @@
+﻿$PBExportHeader$b5s_str_response.srs
+$PBExportComments$[backgu-2002-09-26] 고객별거래내역 조회시 이용
+global type b5s_str_response from structure
+	string		s_reqnum
+	string		s_marknm
+	string		s_trdt
+	string		s_payid
+end type
+

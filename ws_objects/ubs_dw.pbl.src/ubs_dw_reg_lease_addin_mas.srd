@@ -1,0 +1,94 @@
+﻿$PBExportHeader$ubs_dw_reg_lease_addin_mas.srd
+$PBExportComments$[jhchoi] 모바일 Lease 장비 등록(Master)- 2011.02.21
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=220 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="ad_mobile_rental.seq" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=serialno dbname="ad_mobile_rental.serialno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contno dbname="ad_mobile_rental.contno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=phone_type dbname="ad_mobile_rental.phone_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=makercd dbname="ad_mobile_rental.makercd" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=phone_model dbname="ad_mobile_rental.phone_model" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="ad_mobile_rental.status" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="ad_mobile_rental.use_yn" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=adstat dbname="ad_mobile_rental.adstat" )
+ column=(type=datetime update=yes updatewhereclause=yes name=iseq dbname="ad_mobile_rental.iseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=shopid dbname="ad_mobile_rental.shopid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=mv_shop dbname="ad_mobile_rental.mv_shop" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=fr_shop dbname="ad_mobile_rental.fr_shop" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="ad_mobile_rental.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="ad_mobile_rental.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="ad_mobile_rental.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="ad_mobile_rental.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="ad_mobile_rental.pgm_id" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=remark dbname="ad_mobile_rental.remark" )
+ column=(type=number updatewhereclause=yes name=num dbname="ad_mobile_rental.num" )
+ retrieve="SELECT	SEQ,
+			SERIALNO,
+			CONTNO,
+			PHONE_TYPE,
+			MAKERCD,
+			PHONE_MODEL,
+			STATUS,
+			USE_YN,
+			ADSTAT,
+			ISEQ,
+			SHOPID,
+			MV_SHOP,
+			FR_SHOP,
+         CRT_USER,   
+         UPDT_USER,   
+         CRTDT,   
+         UPDTDT,   
+         PGM_ID,   
+			REMARK,
+			0 NUM
+FROM		AD_MOBILE_RENTAL
+" update="AD_MOBILE_RENTAL" updatewhere=0 updatekeyinplace=no )
+rectangle(band=header x="46" y="124" height="92" width="1888"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=header x1="41" y1="128" x2="41" y2="232"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="302" y1="128" x2="302" y2="220"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="41" y1="124" x2="1929" y2="124"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="41" y1="216" x2="1929" y2="216"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="850" y1="128" x2="850" y2="240"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="1390" y1="124" x2="1390" y2="236"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="1929" y1="124" x2="1929" y2="236"  name=l_12 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+compute(band=header alignment="1" expression="rowcount()"border="0" color="0" x="1623" y="56" height="60" width="201" format="###,###,##0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="건" border="0" color="0" x="1833" y="56" height="60" width="82"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="총" border="0" color="0" x="1518" y="56" height="60" width="82"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="장비 일련번호 등록" border="0" color="0" x="46" y="56" height="60" width="466"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="No" border="0" color="0" x="55" y="140" height="60" width="238"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Serial No." border="0" color="0" x="329" y="140" height="60" width="498"  name=serialno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Control No." border="0" color="0" x="878" y="140" height="60" width="498"  name=contno_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Phone Type" border="0" color="0" x="1403" y="140" height="60" width="517"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="41" y1="0" x2="41" y2="88"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="302" y1="0" x2="302" y2="88"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="850" y1="0" x2="850" y2="88"  name=l_10 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="41" y1="88" x2="1934" y2="88"  name=l_9 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="1390" y1="0" x2="1390" y2="88"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1929" y1="0" x2="1929" y2="88"  name=l_13 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="133" y="184" height="76" width="197" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1326" y="184" height="76" width="192" format="[general]"  name=use_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1527" y="184" height="76" width="320" format="[general]"  name=adstat edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="133" y="268" height="76" width="192" format="[shortdate] [time]"  name=iseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="338" y="184" height="76" width="320" format="[general]"  name=makercd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="667" y="184" height="76" width="320" format="[general]"  name=phone_model edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="997" y="184" height="76" width="320" format="[general]"  name=status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="334" y="268" height="76" width="320" format="[general]"  name=shopid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="663" y="268" height="76" width="320" format="[general]"  name=mv_shop edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="992" y="268" height="76" width="320" format="[general]"  name=fr_shop edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="1321" y="268" height="76" width="320" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="133" y="352" height="76" width="320" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="462" y="352" height="76" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="663" y="352" height="76" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="864" y="352" height="76" width="256" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="1129" y="352" height="76" width="608" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="0" x="55" y="8" height="68" width="238" format="[general]"  name=num edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="329" y="8" height="68" width="498" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="16777215" x="878" y="8" height="68" width="494" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="2" color="16777215" x="1413" y="8" height="68" width="498" format="[general]"  name=phone_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

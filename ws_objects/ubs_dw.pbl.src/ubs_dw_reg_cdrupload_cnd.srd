@@ -1,0 +1,20 @@
+﻿$PBExportHeader$ubs_dw_reg_cdrupload_cnd.srd
+$PBExportComments$[chooys] 제조사 등록 - Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=124 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=trdt dbname="trdt" )
+ retrieve="SELECT ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYYMM')||'01', 'YYYYMMDD'), 1) AS TRDT
+FROM   DUAL" )
+text(band=detail alignment="2" text="판매구분" border="0" color="0" x="1947" y="796" height="60" width="453"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="1042" y="792" height="60" width="142"  name=t_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Control No." border="0" color="0" x="32" y="788" height="60" width="453"  name=t_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="14" y="12" height="100" width="750"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="18" y="16" height="92" width="302"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=detail x1="320" y1="16" x2="320" y2="112"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="청구월" border="0" color="0" x="27" y="28" height="60" width="274"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="16777215" x="338" y="32" height="60" width="402" format="[shortdate] [time]"  name=trdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

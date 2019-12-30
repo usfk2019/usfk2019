@@ -1,0 +1,88 @@
+﻿$PBExportHeader$b5dw_customerlist_prev_req_cv.srd
+$PBExportComments$[chooys]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=504 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=location dbname="location" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customernm" )
+ column=(type=char(30) updatewhereclause=yes name=buildingno dbname="buildingno" )
+ column=(type=char(30) updatewhereclause=yes name=roomno dbname="roomno" )
+ column=(type=number updatewhereclause=yes name=cur_balance dbname="cur_balance" )
+ column=(type=number updatewhereclause=yes name=pre_balance dbname="pre_balance" )
+ column=(type=number updatewhereclause=yes name=tot_balance dbname="tot_balance" )
+ retrieve=" SELECT cus.location, cus.customerid, cus.customernm, cus.buildingno, cus.roomno, amt.cur_balance, amt.pre_balance, (amt.cur_balance+amt.pre_balance) tot_balance 
+ FROM 
+(
+	 SELECT * 
+	 FROM reqinfo 
+	 WHERE to_char(trdt,'yyyymm') = :as_trdt 
+	 UNION
+	 SELECT * 
+	 FROM reqinfoh 
+	 WHERE to_char(trdt,'yyyymm') = :as_trdt 
+) req, 
+(
+	SELECT * 
+	FROM reqamtinfo 
+	WHERE to_char(trdt,'yyyymm') = :as_trdt 
+	UNION
+	SELECT * 
+	FROM reqamtinfoh 
+	WHERE to_char(trdt,'yyyymm') = :as_trdt 
+) amt, 
+customerm cus 
+ WHERE req.payid = cus.customerid 
+ AND req.payid = amt.payid 
+ AND (amt.cur_balance+amt.pre_balance) >= :an_minamt 
+" arguments=(("as_trdt", string),("an_minamt", number)) )
+group(level=1 header.height=0 trailer.height=8 by=("location" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="27" y="60" height="88" width="3310"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="1947" y="192" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1906" y="192" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="14" y1="408" x2="3351" y2="408"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="14" y1="500" x2="3351" y2="500"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2469" y="304" height="64" width="859" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="2469" y="232" height="56" width="859"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="고객번호" border="0" color="0" x="55" y="428" height="56" width="393"  name=tr_customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객명" border="0" color="0" x="526" y="428" height="56" width="599"  name=tr_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="18" y1="408" x2="18" y2="532"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="485" y1="408" x2="485" y2="532"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1161" y1="408" x2="1161" y2="532"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="3351" y1="408" x2="3351" y2="532"  name=l_9 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="동" border="0" color="0" x="1202" y="428" height="56" width="251"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="1490" y1="408" x2="1490" y2="532"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="호" border="0" color="0" x="1531" y="428" height="56" width="251"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="1819" y1="408" x2="1819" y2="532"  name=l_13 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="2331" y1="408" x2="2331" y2="532"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="2830" y1="408" x2="2830" y2="532"  name=l_17 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="당월청구액" border="0" color="0" x="1861" y="428" height="56" width="448"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="전월미납액" border="0" color="0" x="2359" y="428" height="56" width="448"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="총청구금액" border="0" color="0" x="2857" y="428" height="56" width="453"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="3351" y1="0" x2="3351" y2="124"  name=l_14 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1161" y1="0" x2="1161" y2="124"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="485" y1="0" x2="485" y2="124"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="18" y1="0" x2="18" y2="124"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1490" y1="0" x2="1490" y2="124"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="12" height="60" width="411" format="[general]"  name=customerid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="526" y="12" height="60" width="599" format="[general]"  name=customernm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1202" y="12" height="60" width="251" format="[general]"  name=buildingno edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1531" y="12" height="60" width="251" format="[general]"  name=roomno edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1819" y1="0" x2="1819" y2="124"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2331" y1="0" x2="2331" y2="124"  name=l_16 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2830" y1="0" x2="2830" y2="124"  name=l_18 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1861" y="12" height="60" width="448" format="#,##0"  name=cur_balance edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2359" y="12" height="60" width="448" format="#,##0"  name=pre_balance edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2857" y="12" height="60" width="453" format="#,##0"  name=tot_balance edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="14" y1="84" x2="3351" y2="84"  name=l_19 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="14" y1="4" x2="3351" y2="4"  name=l_20 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=header id=1 alignment="0" tabsequence=32766 border="0" color="0" x="361" y="332" height="60" width="800" format="[general]"  name=location dddw.name=b1dc_dddw_location dddw.displaycolumn=locationnm dddw.datacolumn=location dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="아파트:" border="0" color="0" x="119" y="332" height="56" width="233"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="총" border="0" color="0" x="1349" y="332" height="56" width="91"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="count(  customerid  for group 1 )"border="0" color="0" x="1458" y="332" height="60" width="215" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="명" border="0" color="0" x="1687" y="332" height="56" width="91"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

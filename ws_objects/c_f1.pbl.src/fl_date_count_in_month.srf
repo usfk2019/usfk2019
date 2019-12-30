@@ -1,0 +1,54 @@
+﻿$PBExportHeader$fl_date_count_in_month.srf
+$PBExportComments$입력된 년월을 가지고 그달의 일수를 구하는 함수
+global type fl_date_count_in_month from function_object
+end type
+
+forward prototypes
+global function long fl_date_count_in_month (long al_input_year, long al_input_month)
+end prototypes
+
+global function long fl_date_count_in_month (long al_input_year, long al_input_month);//입력된 년월(al_input_year, al_input_month)으로 해당되는 최대일수를 구함
+//===> Ex) 1994, 1 시는 31이 Return됨
+//===> Error 시 : -1이 Return됨
+
+Boolean short_year 					//윤년유무를 나타냄(True이면 윤년)
+
+//입력된 인자의 에러 Check
+If al_input_month < 1 OR al_input_month > 12 Then
+	MessageBox("알림(date_count_in_month)", &
+		String(al_input_month) + "은 존재하지 않는 달입니다.", StopSign!)
+	Return -1
+End If
+
+If al_input_year < 1 Then
+	MessageBox("알림(date_count_in_month)", &
+		String(al_input_month) + "은 존재하지 않는 년입니다.", StopSign!)
+	Return -1
+End If
+	
+Choose Case al_input_month
+	Case 1, 3, 5, 7, 8, 10, 12		//31일인 달 
+		Return 31
+	Case 4, 6, 9, 11					//30일인 달 
+		Return 30
+	Case 2								//윤년인 경우 28, 아닌 경우 29
+		//윤년을 구분
+		If Mod(al_input_year, 400) = 0 Then		//400으로 나누어지면 윤년임
+			short_year = TRUE	
+		ElseIf Mod(al_input_year, 100) = 0 Then//100으로 나누어지면 윤년이 아님
+			short_year = FALSE
+		ElseIf Mod(al_input_year, 4) = 0 Then	//4로 나누어지면 윤년임 
+			short_year = TRUE
+		Else
+			short_year = FALSE 
+		End If
+	
+		//윤년에 따른 날짜를 돌려줌
+		If short_year Then
+			Return 29
+		Else 
+			Return 28
+		End If
+End Choose
+end function
+

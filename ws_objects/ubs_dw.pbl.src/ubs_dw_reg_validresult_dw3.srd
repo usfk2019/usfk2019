@@ -1,0 +1,29 @@
+﻿$PBExportHeader$ubs_dw_reg_validresult_dw3.srd
+$PBExportComments$[jhchoi] 장비인증 결과 조회 팝업 (Dw1) - 2009.06.09
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(40) updatewhereclause=yes name=updatetime dbname="bc_config_voip.updatetime" )
+ column=(type=char(10) updatewhereclause=yes name=subsstatus dbname="bc_config_voip.subsstatus" )
+ column=(type=char(40) updatewhereclause=yes name=dn dbname="bc_config_voip.dn" )
+ column=(type=char(40) updatewhereclause=yes name=prov_flag dbname="bc_config_voip.prov_flag" )
+ column=(type=char(200) updatewhereclause=yes name=prov_failcause dbname="prov_failcause" )
+ retrieve="select updatetime, subsstatus, dn, prov_flag, prov_failcause
+/*from   buuser.bc_config_voip@boss_db*/
+from   bc_config_voip
+where  subsno = '0'" )
+text(band=header alignment="2" text="Updatetime" border="2" color="0" x="9" y="8" height="60" width="663"  name=updatetime_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Subsstatus" border="2" color="0" x="681" y="8" height="60" width="352"  name=subsstatus_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Dn" border="2" color="0" x="1042" y="8" height="60" width="681"  name=dn_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Prov Flag" border="2" color="0" x="1733" y="8" height="60" width="338"  name=prov_flag_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Prov Failcause" border="2" color="0" x="2080" y="8" height="60" width="2409"  name=prov_failcause_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="68" width="663" format="[general]"  name=updatetime edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="681" y="4" height="68" width="352" format="[general]"  name=subsstatus edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1042" y="4" height="68" width="681" format="[general]"  name=dn edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1733" y="4" height="68" width="338" format="[general]"  name=prov_flag edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2080" y="4" height="68" width="2409" format="[general]"  name=prov_failcause edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

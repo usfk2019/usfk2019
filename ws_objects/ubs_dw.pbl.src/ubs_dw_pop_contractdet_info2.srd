@@ -1,0 +1,50 @@
+﻿$PBExportHeader$ubs_dw_pop_contractdet_info2.srd
+$PBExportComments$[jhchoi] 서비스 일시정지 신청, 처리 ( Detail2) - 2009.04.14
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=contractdet_orderno dbname="contractdet.orderno" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractdet_contractseq dbname="contractdet.contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=contractdet_itemcod dbname="contractdet.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ column=(type=datetime updatewhereclause=yes name=contractdet_bil_fromdt dbname="contractdet.bil_fromdt" )
+ column=(type=datetime updatewhereclause=yes name=contractdet_bil_todt dbname="contractdet.bil_todt" )
+ column=(type=number updatewhereclause=yes name=unit_charge dbname="unit_charge" )
+ retrieve="SELECT  CONTRACTDET.ORDERNO
+		, CONTRACTDET.CONTRACTSEQ
+		, CONTRACTDET.ITEMCOD
+		, ITEMMST.ITEMNM
+		, CONTRACTDET.BIL_FROMDT
+		, CONTRACTDET.BIL_TODT
+		, NVL(( SELECT PR2.UNITCHARGE 
+			     FROM   PRICEPLAN_RATE2 PR2
+			     WHERE  PR2.PRICEPLAN = CONTRACTMST.PRICEPLAN
+			     AND    PR2.ITEMCOD   = CONTRACTDET.ITEMCOD
+              AND    TO_CHAR(PR2.FROMDT, 'YYYYMMDD') = (SELECT MAX(TO_CHAR(PR22.FROMDT, 'YYYYMMDD'))
+																        FROM   PRICEPLAN_RATE2 PR22
+																	     WHERE  PR22.PRICEPLAN = CONTRACTMST.PRICEPLAN
+																	     AND    PR22.ITEMCOD   = CONTRACTDET.ITEMCOD
+																	     AND    TO_CHAR(PR22.FROMDT, 'YYYYMMDD')
+                                                               <= TO_CHAR(CONTRACTDET.BIL_FROMDT, 'YYYYMMDD')) ), 0) AS UNIT_CHARGE
+FROM    CONTRACTDET, ITEMMST, CONTRACTMST 
+
+WHERE   CONTRACTDET.CONTRACTSEQ = :al_contractseq
+AND     CONTRACTDET.ITEMCOD = ITEMMST.ITEMCOD
+AND     CONTRACTDET.CONTRACTSEQ = CONTRACTMST.CONTRACTSEQ
+ORDER BY CONTRACTDET.ORDERNO, 2 ASC" arguments=(("al_contractseq", number)) )
+text(band=header alignment="2" text="Item" border="2" color="16777215" x="453" y="8" height="60" width="919"  name=itemmst_itemnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bill From Date" border="2" color="16777215" x="1381" y="8" height="60" width="434"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Code" border="2" color="16777215" x="23" y="8" height="60" width="421"  name=contractdet_itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bill To Date" border="2" color="16777215" x="1824" y="8" height="60" width="430"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Amount" border="2" color="16777215" x="2263" y="8" height="60" width="407"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="60" width="5" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="453" y="4" height="60" width="919" format="[general]"  name=itemmst_itemnm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1824" y="4" height="60" width="430" format="[shortdate] [time]"  name=contractdet_bil_todt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1381" y="4" height="60" width="434" format="[shortdate] [time]"  name=contractdet_bil_fromdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="4" height="60" width="421" format="[general]"  name=contractdet_itemcod edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2263" y="4" height="60" width="407" format="#,##0.00"  name=unit_charge edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

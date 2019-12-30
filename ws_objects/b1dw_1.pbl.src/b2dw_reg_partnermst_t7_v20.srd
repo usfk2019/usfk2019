@@ -1,0 +1,36 @@
+﻿$PBExportHeader$b2dw_reg_partnermst_t7_v20.srd
+$PBExportComments$[jsha] ID/PW관리 Tab
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=104 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=emp_id dbname="sysusr1t.emp_id" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=empnm dbname="sysusr1t.empnm" )
+ column=(type=char(32) update=yes updatewhereclause=yes name=password dbname="sysusr1t.password" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=emp_type dbname="sysusr1t.emp_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=emp_group dbname="sysusr1t.emp_group" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=emp_auth dbname="sysusr1t.emp_auth" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=user_group_id dbname="sysusr1t.user_group_id" )
+ retrieve="	SELECT	emp_id,
+				empnm,
+			 	password,
+				emp_type,
+				emp_group,
+				emp_auth,
+				user_group_id
+	 FROM		sysusr1t" update="sysusr1t" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Login ID" border="2" color="15793151" x="101" y="40" height="60" width="567"  name=emp_id_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Password" border="2" color="15793151" x="690" y="40" height="60" width="745"  name=password_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="User Name" border="2" color="15793151" x="1458" y="40" height="60" width="640"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="웹사용자그룹" border="2" color="15793151" x="2121" y="40" height="60" width="640"  name=user_group_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="133" y="396" height="56" width="270" format="[general]"  name=emp_group edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="434" y="392" height="56" width="265" format="[general]"  name=emp_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="411" y="300" height="56" width="334" format="[general]"  name=emp_auth edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="101" y="4" height="60" width="567" format="[general]"  name=emp_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="0" x="690" y="4" height="60" width="745" format="*********"  name=password edit.limit=32 edit.case=any edit.autoselect=yes edit.password=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="2" color="0" x="1458" y="4" height="60" width="640" format="[general]"  name=empnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=40 border="2" color="0" x="2121" y="4" height="60" width="640" format="[general]"  name=user_group_id dddw.name=b1dc_dddw_user_group dddw.displaycolumn=name dddw.datacolumn=user_group_id dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

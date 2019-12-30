@@ -1,0 +1,94 @@
+﻿$PBExportHeader$b1dw_reg_svcorder_validinfo_pop_v20_mh.srd
+$PBExportComments$[parkkh] 인증정보 수정(후불)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=716 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes key=yes name=validkey dbname="validinfo.validkey" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=vpassword dbname="validinfo.vpassword" )
+ column=(type=char(2) updatewhereclause=yes name=act_result dbname="act_result" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=auth_method dbname="validinfo.auth_method" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=validitem2 dbname="validinfo.validitem2" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=validitem3 dbname="validinfo.validitem3" )
+ column=(type=char(10) updatewhereclause=yes name=langtype dbname="validinfo.langtype" )
+ column=(type=char(1) updatewhereclause=yes name=gu dbname="gu" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=validitem1 dbname="validinfo.validitem1" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=validkey_loc dbname="validinfo.validkey_loc" )
+ column=(type=char(0) updatewhereclause=yes name=validkey_type dbname="validkey_type" )
+ column=(type=char(0) updatewhereclause=yes name=callforwardno dbname="callforwardno" )
+ column=(type=char(0) updatewhereclause=yes name=password dbname="password" )
+ column=(type=char(0) updatewhereclause=yes name=callingnum dbname="callingnum" )
+ column=(type=char(0) update=yes updatewhereclause=yes name=gkid dbname="gkid" )
+ column=(type=char(0) update=yes updatewhereclause=yes name=validitem dbname="validitem" )
+ column=(type=char(0) update=yes updatewhereclause=yes name=subseq dbname="subseq" )
+ retrieve="  SELECT VALIDKEY,   
+         VPASSWORD,
+	  	 '00' act_result,
+         auth_method,
+         validitem2,
+         validitem3,
+         langtype,
+         'X' gu,
+         validitem1,
+         validkey_loc,
+         '' validkey_type,
+         '' callforwardno,
+         '' password,
+         '' callingnum,
+         '' gkid,
+         '' validitem,
+         '' subseq
+    FROM VALIDINFO " update="VALIDINFO" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="64" y="28" height="540" width="517"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="1435" y="28" height="540" width="512"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="59" y="32" height="532" width="2894"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+line(band=detail x1="69" y1="208" x2="2958" y2="208"  name=l_25 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="69" y1="296" x2="2958" y2="296"  name=l_24 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="69" y1="384" x2="2958" y2="384"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="69" y1="472" x2="2958" y2="472"  name=l_23 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="571" y1="36" x2="571" y2="564"  name=l_18 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="인증KeyType" border="0" color="0" x="105" y="48" height="60" width="439"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="인증방법" border="0" color="0" x="105" y="224" height="60" width="439"  name=auth_method_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="69" y1="120" x2="2958" y2="120"  name=l_21 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="5" color="16777215" x="1970" y="48" height="60" width="713" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=40 border="5" color="0" x="1970" y="136" height="60" width="713" format="[general]"  name=langtype dddw.name=b1c_dddw_langtype_key_v20 dddw.displaycolumn=langtypenm dddw.datacolumn=langtype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="224" height="60" width="809" format="[general]"  name=auth_method dddw.name=b1dc_dddw_validkey_auth_method dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="5" color="0~tcase( left(auth_method,5) when ~"STCIP~" then rgb(255,255,255) else  rgb(0,0,0))" x="1970" y="228" height="60" width="713" format="[general]"  name=validitem2 edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tcase( left(auth_method,5) when ~"STCIP~" then rgb(108,147,137) when ~"DYNIP~" then rgb(255,255,255) else rgb(255,255,255))" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2871" y="228" height="56" width="27" format="[general]"  name=gu visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2761" y="228" height="56" width="55" format="[general]"  name=act_result visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="인증 Password" border="0" color="0" x="105" y="136" height="60" width="439"  name=vpassword_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="5" color="0~tcase( left(auth_method ,2) when ~"PA~" then rgb(255,255,255) else rgb(0,0,0))" x="599" y="136" height="60" width="809" format="**********"  name=vpassword edit.limit=0 edit.case=any edit.autoselect=yes edit.password=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="0" background.color="16777215~tcase( left( auth_method,2) when ~"PA~" then rgb(108,147,137) else rgb(255,255,255))" )
+column(band=detail id=11 alignment="0" tabsequence=10 border="5" color="16777215" x="599" y="48" height="60" width="809" format="[general]"  name=validkey_type dddw.name=b1dc_dddw_validkey_type_validkey_v20 dddw.displaycolumn=validkey_typenm dddw.datacolumn=validkey_type dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=9 alignment="0" tabsequence=70 border="5" color="0" x="1970" y="312" height="60" width="713" format="[general]"  name=validitem1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+rectangle(band=detail x="1431" y="588" height="104" width="517"  name=r_6 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="64" y="588" height="104" width="517"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="31844325" )
+line(band=detail x1="69" y1="680" x2="2958" y2="680"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="571" y1="592" x2="571" y2="680"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1943" y1="592" x2="1943" y2="680"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1435" y1="592" x2="1435" y2="680"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+rectangle(band=detail x="64" y="588" height="96" width="2894"  name=r_4 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="착신전환번호" border="0" color="0" x="105" y="608" height="56" width="439"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="5" color="0" x="599" y="608" height="56" width="809" format="[general]"  name=callforwardno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="착신전환Password" border="0" color="0" x="1454" y="608" height="56" width="475"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=130 border="5" color="0" x="1970" y="608" height="56" width="713" format="*********"  name=password edit.limit=0 edit.case=any edit.autoselect=yes edit.password=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=90 border="5" color="16777215" x="1970" y="404" height="56" width="713" format="[general]"  name=validkey_loc visible="1~t1" dddw.name=b1dc_dddw_validkey_location dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=17 alignment="0" tabsequence=110 border="5" color="0" x="1970" y="492" height="56" width="713" format="[general]"  name=subseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="5" color="0~tcase( mid( auth_method ,7,4) when ~"E164~" then rgb(0,0,0) when ~"BOTH~" then rgb(255,255,255) when ~"H323~" then rgb(255,255,255) else rgb(0,0,0))
+" x="599" y="312" height="60" width="809" format="[general]"  name=validitem3 edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tcase( mid( auth_method,7,4) when ~"E164~" then rgb(255,255,255) when ~"H323~" then rgb(108,147,137) when ~"BOTH~" then rgb(108,147,137) else rgb(255,255,255))
+" )
+column(band=detail id=15 alignment="0" tabsequence=80 border="5" color="0" x="599" y="400" height="60" width="809" format="[general]"  name=gkid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=100 border="5" color="0" x="599" y="488" height="60" width="809" format="[general]"  name=validitem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="1435" y1="36" x2="1435" y2="564"  name=l_22 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1943" y1="36" x2="1943" y2="564"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="H323id" border="0" color="0" x="105" y="312" height="60" width="439"  name=validitem3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="서버IP 1" border="0" color="0" x="105" y="400" height="60" width="439"  name=gkid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="서버IP 2" border="0" color="0" x="105" y="488" height="60" width="439"  name=validitem_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="인증 Key" border="0" color="0" x="1472" y="48" height="60" width="448"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="안내멘트" border="0" color="0" x="1472" y="136" height="60" width="448"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="IP Address" border="0" color="0" x="1472" y="224" height="60" width="448"  name=validitem2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="발신번호표시" border="0" color="0" x="1472" y="312" height="60" width="448"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="인증KeyLocation" border="0" color="0" x="1472" y="400" height="60" width="448"  name=validkey_loc_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Port No" border="0" color="0" x="1472" y="488" height="56" width="448"  name=subseq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

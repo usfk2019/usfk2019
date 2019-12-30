@@ -1,0 +1,43 @@
+﻿$PBExportHeader$mobile_mst_modelprice_upload.srd
+$PBExportComments$모바일 요금 업로드
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes key=yes name=fromdt dbname="model_price_uplog.fromdt" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=seq dbname="model_price_uplog.seq" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="model_price_uplog.svccod" )
+ column=(type=char(50) updatewhereclause=yes name=filenm dbname="model_price_uplog.filenm" )
+ column=(type=char(100) updatewhereclause=yes name=filenm_desc dbname="model_price_uplog.filenm_desc" )
+ column=(type=decimal(0) updatewhereclause=yes name=reqcnt dbname="model_price_uplog.reqcnt" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="model_price_uplog.crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="model_price_uplog.crt_user" )
+ retrieve="SELECT  		 FROMDT  as fromdt,
+             SEQ,
+				 SVCCOD,
+             FILENM,
+             FILENM_DESC,
+             REQCNT,
+             CRTDT,
+             CRT_USER
+ FROM MODEL_PRICE_UPLOG" update="MODEL_PRICE_UPLOG" updatewhere=0 updatekeyinplace=no  sort="fromdt A seq A " )
+text(band=header alignment="2" text="적용시작일" border="2" color="15793151" x="9" y="20" height="60" width="334"  name=tt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="파일명" border="2" color="15793151" x="1221" y="20" height="60" width="1056"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="파일설명" border="2" color="15793151" x="2286" y="20" height="60" width="1321"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="건수" border="2" color="15793151" x="3616" y="20" height="60" width="210"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성일" border="2" color="15793151" x="3835" y="20" height="60" width="617"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성자" border="2" color="15793151" x="4462" y="20" height="60" width="622"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="순번" border="2" color="15793151" x="352" y="20" height="60" width="137"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="서비스" border="2" color="15793151" x="498" y="20" height="60" width="713"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1221" y="0" height="60" width="1056" format="[general]"  name=filenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2286" y="0" height="60" width="1321" format="[general]"  name=filenm_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="0" height="60" width="334" format="[general]"  name=fromdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="352" y="0" height="60" width="137" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="3616" y="0" height="60" width="210" format="[general]"  name=reqcnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="3835" y="0" height="60" width="617" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="4462" y="0" height="60" width="622" format="[general]"  name=crt_user dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="498" y="0" height="60" width="713" format="[general]"  name=svccod dddw.name=mobile_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

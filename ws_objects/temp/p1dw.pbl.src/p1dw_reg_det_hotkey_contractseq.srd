@@ -1,0 +1,36 @@
+﻿$PBExportHeader$p1dw_reg_det_hotkey_contractseq.srd
+$PBExportComments$[ssong] insert hotkey by contractseq - detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=hotkey dbname="hotkey_contractseq.hotkey" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=rtelno dbname="hotkey_contractseq.rtelno" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=contractseq dbname="hotkey_contractseq.contractseq" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="hotkey_contractseq.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="hotkey_contractseq.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="hotkey_contractseq.pgm_id" )
+ retrieve="SELECT HOTKEY
+     , RTELNO
+     , CONTRACTSEQ
+     , CRTDT
+     , CRT_USER
+     , PGM_ID
+  FROM HOTKEY_CONTRACTSEQ
+ ORDER BY RTELNO, HOTKEY ASC" update="HOTKEY_CONTRACTSEQ" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="단축Key" border="2" color="16777215" x="9" y="24" height="60" width="507"  name=hotkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신지번호" border="2" color="16777215" x="535" y="24" height="60" width="635"  name=rtelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약Seq" border="2" color="16777215" x="1189" y="24" height="60" width="507"  name=contractseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성일" border="2" color="16777215" x="1714" y="24" height="60" width="608"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성User" border="2" color="16777215" x="2341" y="24" height="60" width="507"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pgm Id" border="2" color="16777215" x="2866" y="24" height="60" width="507"  name=pgm_id_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="9" y="8" height="60" width="507" format="[general]"  name=hotkey dddw.name=p1dc_dddw_hotkey dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="535" y="8" height="60" width="635" format="[general]"  name=rtelno edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1189" y="8" height="60" width="507" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0" x="1714" y="8" height="60" width="608" format="yyyy-mm-dd"  name=crtdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="2341" y="8" height="60" width="507" format="[general]"  name=crt_user edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2866" y="8" height="60" width="507" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

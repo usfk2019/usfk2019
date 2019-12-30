@@ -1,0 +1,81 @@
+﻿$PBExportHeader$b1dw_inq_add_service_prc_mobile.srd
+$PBExportComments$[ceusee] H/W 정보
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=100 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=svc_req_mst_reqno dbname="svc_req_mst.reqno" )
+ column=(type=char(10) updatewhereclause=yes name=svc_req_mst_req_code dbname="svc_req_mst.req_code" )
+ column=(type=char(14) updatewhereclause=yes name=svc_req_mst_customerid dbname="svc_req_mst.customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customernm" )
+ column=(type=decimal(0) updatewhereclause=yes name=svc_req_mst_contractseq dbname="svc_req_mst.contractseq" )
+ column=(type=char(30) updatewhereclause=yes name=validinfo_validkey dbname="validinfo.validkey" )
+ column=(type=datetime updatewhereclause=yes name=svc_req_mst_reqdt dbname="svc_req_mst.reqdt" )
+ column=(type=char(10) updatewhereclause=yes name=svc_req_mst_itemcod dbname="svc_req_mst.itemcod" )
+ column=(type=char(1) updatewhereclause=yes name=svc_req_mst_comeplete_yn dbname="svc_req_mst.comeplete_yn" )
+ column=(type=char(10) updatewhereclause=yes name=svc_req_mst_fr_shop dbname="svc_req_mst.fr_shop" )
+ column=(type=char(10) updatewhereclause=yes name=svc_req_mst_fr_oper dbname="svc_req_mst.fr_oper" )
+ column=(type=datetime updatewhereclause=yes name=svc_req_mst_fr_crtdt dbname="svc_req_mst.fr_crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=svc_req_mst_to_shop dbname="svc_req_mst.to_shop" )
+ column=(type=char(10) updatewhereclause=yes name=svc_req_mst_to_oper dbname="svc_req_mst.to_oper" )
+ column=(type=datetime updatewhereclause=yes name=svc_req_mst_to_crtdt dbname="svc_req_mst.to_crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=validinfo_priceplan dbname="validinfo.priceplan" )
+ retrieve="SELECT A.REQNO
+     , A.REQ_CODE
+     , A.CUSTOMERID
+     , (SELECT C.CUSTOMERNM FROM CUSTOMERM C WHERE C.CUSTOMERID = A.CUSTOMERID) AS CUSTOMERNM
+     , A.CONTRACTSEQ
+     , B.VALIDKEY
+     , A.REQDT
+     , A.ITEMCOD
+     , A.COMEPLETE_YN
+     , A.FR_SHOP
+     , A.FR_OPER
+     , A.FR_CRTDT
+     , A.TO_SHOP
+     , A.TO_OPER
+     , A.TO_CRTDT
+     , B.PRICEPLAN
+  FROM SVC_REQ_MST A, VALIDINFO B
+ WHERE 1=1
+   AND A.CONTRACTSEQ = B.CONTRACTSEQ
+   AND A.CUSTOMERID  = B.CUSTOMERID
+   AND B.FROMDT = (SELECT MAX(FROMDT) FROM validinfo
+                      WHERE   validkey  = B.validkey 
+                        AND FROMDT <= trunc(sysdate))" )
+text(band=header alignment="2" text="Process" border="2" color="15793151" x="23" y="32" height="60" width="293"  name=b_proc_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Req. Type" border="2" color="15793151" x="626" y="32" height="60" width="485"  name=svc_req_mst_req_code_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer ID" border="2" color="15793151" x="1125" y="32" height="60" width="393"  name=svc_req_mst_customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer Name" border="2" color="15793151" x="1531" y="32" height="60" width="763"  name=customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Contract Seq." border="2" color="15793151" x="2309" y="32" height="60" width="425"  name=svc_req_mst_contractseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Phone Number" border="2" color="15793151" x="2747" y="32" height="60" width="471"  name=validinfo_validkey_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Req. Date" border="2" color="15793151" x="3232" y="32" height="60" width="329"  name=svc_req_mst_reqdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Code" border="2" color="15793151" x="3575" y="32" height="60" width="951"  name=svc_req_mst_itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Act. Status" border="2" color="15793151" x="4539" y="32" height="60" width="329"  name=svc_req_mst_comeplete_yn_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Req. Shop" border="2" color="15793151" x="4882" y="32" height="60" width="1010"  name=svc_req_mst_fr_shop_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Req. Operator" border="2" color="15793151" x="5906" y="32" height="60" width="759"  name=svc_req_mst_fr_oper_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Req. Time" border="2" color="15793151" x="6679" y="32" height="60" width="567"  name=svc_req_mst_fr_crtdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Activation Shop" border="2" color="15793151" x="7259" y="32" height="60" width="1010"  name=svc_req_mst_to_shop_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Activation Operator" border="2" color="15793151" x="8283" y="32" height="60" width="759"  name=svc_req_mst_to_oper_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Activation Time" border="2" color="15793151" x="9056" y="32" height="60" width="567"  name=svc_req_mst_to_crtdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Req. Seq" border="2" color="15793151" x="329" y="32" height="60" width="283"  name=svc_req_mst_reqno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="2" color="0" x="329" y="8" height="60" width="283" format="[general]"  name=svc_req_mst_reqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="626" y="8" height="60" width="485" format="[general]"  name=svc_req_mst_req_code dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1125" y="8" height="60" width="393" format="[general]"  name=svc_req_mst_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1531" y="8" height="60" width="763" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="2309" y="8" height="60" width="425" format="[general]"  name=svc_req_mst_contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2747" y="8" height="60" width="471" format="[general]"  name=validinfo_validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="3232" y="8" height="60" width="329" format="[shortdate]"  name=svc_req_mst_reqdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="3575" y="8" height="60" width="951" format="[general]"  name=svc_req_mst_itemcod dddw.name=b1dc_dddw_itemmst dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="4539" y="8" height="60" width="329" format="[general]"  name=svc_req_mst_comeplete_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="4882" y="8" height="60" width="1010" format="[general]"  name=svc_req_mst_fr_shop dddw.name=ssrt_dddw_partner_sales dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="5906" y="8" height="60" width="759" format="[general]"  name=svc_req_mst_fr_oper dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="0" x="6679" y="8" height="60" width="567" format="[shortdate] [time]"  name=svc_req_mst_fr_crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="2" color="0" x="7259" y="8" height="60" width="1010" format="[general]"  name=svc_req_mst_to_shop dddw.name=ssrt_dddw_partner_sales dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="2" color="0" x="8283" y="8" height="60" width="759" format="[general]"  name=svc_req_mst_to_oper dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="2" color="0" x="9056" y="8" height="60" width="567" format="[shortdate] [time]"  name=svc_req_mst_to_crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+button(band=detail text="Process"filename=""action="0" border="0" color="0" x="23" y="4" height="68" width="293" vtextalign="0" htextalign="0"  name=b_proc visible="1~tif(svc_req_mst_comeplete_yn='N', if(string(svc_req_mst_reqdt,'yyyymmdd')=string(today(),'yyyymmdd'), 1, 0), 0)"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

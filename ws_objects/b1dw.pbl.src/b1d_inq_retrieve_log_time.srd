@@ -1,0 +1,45 @@
+﻿$PBExportHeader$b1d_inq_retrieve_log_time.srd
+$PBExportComments$[jybaek] 수정이력
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=emp_id dbname="customer_log.emp_id" )
+ column=(type=char(30) updatewhereclause=yes name=empnm dbname="empnm" )
+ column=(type=char(11) updatewhereclause=yes name=datentime dbname="datentime" )
+ column=(type=char(10) updatewhereclause=yes name=action dbname="customer_log.action" values="OK버튼	OK/행 클릭	CLICK/TAB1 클릭	TAB1/TAB2 클릭	TAB2/" )
+ column=(type=number updatewhereclause=yes name=count dbname="count" )
+ retrieve="select a.emp_id,  (select empnm from sysusr1t where emp_id = a.emp_id) as empnm,
+to_char(a.timestamp,'yyyymmdd hh24') datentime, action, count(*) count
+from CUSTOMER_LOG a
+where (to_char(a.timestamp,'yyyymmdd') between :as_fdate and :as_tdate)
+group by a.emp_id, to_char(a.timestamp,'yyyymmdd hh24'), action
+order by a.emp_id, to_char(a.timestamp,'yyyymmdd hh24'), a.action" arguments=(("as_fdate", string),("as_tdate", string)) )
+text(band=foreground alignment="1" text="ORDER BY" border="0" color="0" x="0" y="8" height="56" width="416" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0" x="2386" y="4" height="64" width="421" format="[general]" html.valueishtml="0"  name=action visible="1" ddlb.limit=3 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Emp Id" border="2" color="16777215" x="9" y="72" height="60" width="457" html.valueishtml="0"  name=emp_id_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Empnm" border="2" color="16777215" x="475" y="72" height="60" width="1253" html.valueishtml="0"  name=empnm_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Datentime" border="2" color="16777215" x="1737" y="72" height="60" width="640" html.valueishtml="0"  name=datentime_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Action" border="2" color="16777215" x="2386" y="72" height="60" width="421" html.valueishtml="0"  name=action_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Data count" border="2" color="16777215" x="2816" y="72" height="60" width="507" html.valueishtml="0"  name=count_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="9" y="4" height="64" width="457" format="[general]" html.valueishtml="0"  name=emp_id visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="475" y="4" height="64" width="1253" format="[general]" html.valueishtml="0"  name=empnm visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="1737" y="4" height="64" width="640" format="[general]" html.valueishtml="0"  name=datentime visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="2" color="0" x="2816" y="4" height="64" width="507" format="[general]" html.valueishtml="0"  name=count visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="text" border="2" color="16777215" x="5" y="200" height="60" width="462" html.valueishtml="0"  name=seq_t visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=foreground alignment="1" text="ASC/DESC" border="0" color="0" x="1595" y="0" height="60" width="302" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="text" border="0" color="0" x="1737" y="228" height="60" width="640" html.valueishtml="0"  name=order_name visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="text" border="0" color="0" x="2386" y="256" height="60" width="421" html.valueishtml="0"  name=a_d visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

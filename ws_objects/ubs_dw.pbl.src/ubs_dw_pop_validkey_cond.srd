@@ -1,0 +1,17 @@
+﻿$PBExportHeader$ubs_dw_pop_validkey_cond.srd
+$PBExportComments$[jhchoi] 인증키 검색팝업(서비스 신청용:Cond) - 2009.05.11
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=212 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=validkey_type dbname="validkey_type" )
+ column=(type=char(10) updatewhereclause=no name=partner dbname="partner" )
+ column=(type=char(30) updatewhereclause=no name=validkey dbname="validkey" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="498" y="24" height="60" width="631" format="[general]"  name=validkey_type dddw.name=b1dc_dddw_validkey_type_validkey_v20 dddw.displaycolumn=validkey_typenm dddw.datacolumn=validkey_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25989739" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="0" x="498" y="108" height="56" width="626" format="[general]"  name=validkey editmask.mask="###############" editmask.focusrectangle=no  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Number Type" border="0" color="0" x="18" y="24" height="56" width="466"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Number" border="0" color="0" x="146" y="108" height="56" width="338"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

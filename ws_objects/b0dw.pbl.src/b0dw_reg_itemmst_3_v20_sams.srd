@@ -1,0 +1,126 @@
+﻿$PBExportHeader$b0dw_reg_itemmst_3_v20_sams.srd
+$PBExportComments$[parkkh] 품목 마스타 등록 master data window
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=itemmst_itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_categorya dbname="itemmst.categorya" )
+ column=(type=char(10) updatewhereclause=yes name=categorya_categoryb dbname="categorya.categoryb" )
+ column=(type=char(10) updatewhereclause=yes name=categoryb_categoryc dbname="categoryb.categoryc" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_oneoffcharge_yn dbname="itemmst.oneoffcharge_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_mainitem_yn dbname="itemmst.mainitem_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_dailyprorata_yn dbname="itemmst.dailyprorata_yn" initial="Y" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_bilitem_yn dbname="itemmst.bilitem_yn" initial="Y" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_quota_yn dbname="itemmst.quota_yn" initial="N" values="No	N/Sold	Y/Leased	R/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_prebil_yn dbname="itemmst.prebil_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_package_yn dbname="itemmst.package_yn" initial="N" values="Yes	Y/Yes	N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_addition_code dbname="itemmst.addition_code" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_svccod dbname="itemmst.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_pricetable dbname="itemmst.pricetable" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_trcod dbname="itemmst.trcod" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=itemmst_crt_user dbname="itemmst.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=itemmst_updt_user dbname="itemmst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=itemmst_crtdt dbname="itemmst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=itemmst_updtdt dbname="itemmst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=itemmst_pgm_id dbname="itemmst.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_regcod dbname="itemmst.regcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemmst_linkcod dbname="itemmst.linkcod" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=itemmst_priority dbname="itemmst.priority" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=itemmst_surtaxyn dbname="itemmst.surtaxyn" initial="N" values="Y	Y/N	N/" )
+ column=(type=char(31) updatewhereclause=yes name=taxmst_taxname dbname="taxname" )
+ retrieve="SELECT  ~"ITEMMST~".~"ITEMCOD~" ,
+           ~"ITEMMST~".~"ITEMNM~" ,
+           ~"ITEMMST~".~"CATEGORYA~" ,
+           ~"CATEGORYA~".~"CATEGORYB~" ,
+           ~"CATEGORYB~".~"CATEGORYC~" ,
+           ~"ITEMMST~".~"ONEOFFCHARGE_YN~" ,
+           ~"ITEMMST~".~"MAINITEM_YN~" ,
+           ~"ITEMMST~".~"DAILYPRORATA_YN~" ,
+           ~"ITEMMST~".~"BILITEM_YN~" ,
+           itemmst.QUOTA_YN ,
+           itemmst.PREBIL_YN,
+           itemmst.PACKAGE_YN,
+			  itemmst.addition_code,
+           ~"ITEMMST~".~"SVCCOD~" ,
+           ~"ITEMMST~".~"PRICETABLE~" ,
+           ~"ITEMMST~".~"TRCOD~" ,
+           ~"ITEMMST~".~"CRT_USER~" ,
+           ~"ITEMMST~".~"UPDT_USER~" ,
+           ~"ITEMMST~".~"CRTDT~" ,
+           ~"ITEMMST~".~"UPDTDT~" ,
+           ~"ITEMMST~".~"PGM_ID~" ,
+           ~"ITEMMST~".~"REGCOD~" ,
+           ~"ITEMMST~".~"LINKCOD~",
+           ~"ITEMMST~".~"PRIORITY~",
+            ITEMMST.SURTAXYN,
+            T.TAXCOD || ' ' || M.TAXNAME TAXNAME
+        FROM ~"CATEGORYA~" ,
+           ~"CATEGORYB~" ,
+           ~"CATEGORYC~" ,
+           ~"ITEMMST~" ,
+           TAXTR T ,
+           TAXMST M
+        WHERE ( ~"CATEGORYA~".~"CATEGORYB~" = ~"CATEGORYB~".~"CATEGORYB~" ) 
+          and ( ~"CATEGORYB~".~"CATEGORYC~" = ~"CATEGORYC~".~"CATEGORYC~" ) 
+          and ( ~"ITEMMST~".~"CATEGORYA~" = ~"CATEGORYA~".~"CATEGORYA~" ) 
+          AND ITEMMST.ITEMCOD = T.ITEMCOD(+)
+          AND T.TAXCOD        = M.TAXCOD(+)
+        ORDER BY ~"ITEMMST~".~"ITEMCOD~"          ASC,
+                 ~"ITEMMST~".~"ITEMNM~"          ASC  " update="ITEMMST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Transaction" border="2" color="15793151" x="8247" y="8" height="60" width="800" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Mandatory" border="2" color="15793151" x="4407" y="8" height="60" width="347" html.valueishtml="0"  name=itemmst_mainitem_yn_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="One Off Charge" border="2" color="15793151" x="4763" y="8" height="60" width="462" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Billable" border="2" color="16777215" x="5234" y="8" height="60" width="288" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Proratable" border="2" color="15793151" x="5531" y="8" height="60" width="334" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Equipment Availability" border="2" color="15793151" x="6290" y="8" height="60" width="946" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Prepaid Item" border="2" color="16777215" x="5874" y="8" height="60" width="407" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pakage" border="2" color="15793151" x="7246" y="8" height="60" width="283" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Addition Service " border="2" color="15793151" x="7538" y="8" height="60" width="699" html.valueishtml="0"  name=t_10 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Applicable Rate Type" border="2" color="15793151" x="9056" y="8" height="60" width="864" html.valueishtml="0"  name=itemmst_pricetable_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Code" border="2" color="15793151" x="9" y="8" height="60" width="329" html.valueishtml="0"  name=itemmst_itemcod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Name" border="2" color="15793151" x="347" y="8" height="60" width="896" html.valueishtml="0"  name=itemmst_itemnm_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Service" border="2" color="15793151" x="1253" y="8" height="60" width="549" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Category A" border="2" color="15793151" x="1810" y="8" height="60" width="594" html.valueishtml="0"  name=itemmst_categorya_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Category B" border="2" color="15793151" x="2414" y="8" height="60" width="567" html.valueishtml="0"  name=categorya_categoryb_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Reg Code" border="2" color="15793151" x="9929" y="8" height="60" width="462" html.valueishtml="0"  name=itemmst_regcod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Link Code" border="2" color="15793151" x="10400" y="8" height="60" width="379" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Priority" border="2" color="15793151" x="10789" y="8" height="60" width="219" html.valueishtml="0"  name=itemmst_priority_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=13 alignment="0" tabsequence=130 border="0" color="0" x="7538" y="8" height="60" width="699" format="[general]" html.valueishtml="0"  name=itemmst_addition_code visible="1" dddw.name=b0dc_dddw_addtioncode_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="16777215" x="9" y="8" height="60" width="329" format="[general]" html.valueishtml="0"  name=itemmst_itemcod visible="1" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="16777215" x="347" y="8" height="60" width="896" format="[general]" html.valueishtml="0"  name=itemmst_itemnm visible="1" edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=14 alignment="0" tabsequence=30 border="0" color="16777215" x="1253" y="8" height="60" width="549" format="[general]" html.valueishtml="0"  name=itemmst_svccod visible="1" dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="0" color="16777215" x="1810" y="8" height="60" width="594" format="[general]" html.valueishtml="0"  name=itemmst_categorya visible="1" dddw.name=b0dc_dddw_categorya dddw.displaycolumn=categoryanm dddw.datacolumn=categorya dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2414" y="8" height="60" width="567" format="[general]" html.valueishtml="0"  name=categorya_categoryb visible="1" dddw.name=b0dc_dddw_categoryb dddw.displaycolumn=categorybnm dddw.datacolumn=categoryb dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=140 border="0" color="16777215" x="8247" y="8" height="60" width="800" format="[general]" html.valueishtml="0"  name=itemmst_trcod visible="1" dddw.name=b0dc_dddw_trcod dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=15 alignment="0" tabsequence=150 border="0" color="16777215" x="9056" y="8" height="60" width="864" format="[general]" html.valueishtml="0"  name=itemmst_pricetable visible="1" dddw.name=b0dc_dddw_pricetable dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="0" color="16777215" x="7246" y="8" height="60" width="283" format="[general]" html.valueishtml="0"  name=itemmst_package_yn visible="1" checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=10 alignment="0" tabsequence=110 border="0" color="16777215" x="6290" y="8" height="60" width="946" format="[general]" html.valueishtml="0"  name=itemmst_quota_yn visible="1" radiobuttons.columns=3 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="0" color="16777215" x="5874" y="8" height="60" width="407" format="[general]" html.valueishtml="0"  name=itemmst_prebil_yn visible="1" checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=8 alignment="0" tabsequence=90 border="0" color="16777215" x="5531" y="8" height="60" width="334" format="[general]" html.valueishtml="0"  name=itemmst_dailyprorata_yn visible="1" checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=9 alignment="0" tabsequence=80 border="0" color="16777215" x="5234" y="8" height="60" width="288" format="[general]" html.valueishtml="0"  name=itemmst_bilitem_yn visible="1" checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=6 alignment="0" tabsequence=70 border="0" color="16777215" x="4763" y="8" height="60" width="462" format="[general]" html.valueishtml="0"  name=itemmst_oneoffcharge_yn visible="1" checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="0" color="16777215" x="4407" y="8" height="60" width="347" format="[general]" html.valueishtml="0"  name=itemmst_mainitem_yn visible="1" checkbox.text="Yes" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=22 alignment="0" tabsequence=160 border="0" color="0" x="9929" y="8" height="60" width="462" format="[general]" html.valueishtml="0"  name=itemmst_regcod visible="1" dddw.name=b0dc_dddw_regcod_sams dddw.displaycolumn=regdesc dddw.datacolumn=regcod dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.autohscroll=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="0" tabsequence=170 border="0" color="0" x="10400" y="8" height="60" width="379" format="[general]" html.valueishtml="0"  name=itemmst_linkcod visible="1" dddw.name=ssrt_dddw_linkcod dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.autohscroll=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="0" tabsequence=180 border="0" color="0" x="10789" y="8" height="60" width="219" format="[general]" html.valueishtml="0"  name=itemmst_priority visible="1" editmask.mask="###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Category C" border="2" color="15793151" x="2990" y="8" height="60" width="539" html.valueishtml="0"  name=categoryb_categoryc_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=25 alignment="0" tabsequence=50 border="0" color="0" x="3538" y="8" height="60" width="320" format="[general]" html.valueishtml="0"  name=itemmst_surtaxyn visible="1" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2990" y="8" height="60" width="539" format="[general]" html.valueishtml="0"  name=categoryb_categoryc visible="1" dddw.name=b0dc_dddw_categoryc dddw.displaycolumn=categorycnm dddw.datacolumn=categoryc dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="3867" y="8" height="60" width="530" format="[general]" html.valueishtml="0"  name=taxmst_taxname visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="VAT Y/N" border="2" color="15793151" x="3538" y="8" height="60" width="320" html.valueishtml="0"  name=itemmst_surtaxyn_t visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Tax Code" border="2" color="15793151" x="3867" y="8" height="60" width="530" html.valueishtml="0"  name=taxmst_taxname_t visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

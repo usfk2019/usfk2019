@@ -1,0 +1,46 @@
+﻿$PBExportHeader$b3dw_inq_discount_plan.srd
+$PBExportComments$할인유형등록 조건별 조회현황 By 변유신
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=discountplan dbname="discount_plan.discountplan" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=discountplannm dbname="discount_plan.discountplannm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plevel dbname="discount_plan.plevel" values="필수적용	0/1순위	A/2순위	B/3순위	C/4순위	D/5순위	E/6순위	F/7순위	G/8순위	H/9순위	I/" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fromdt dbname="discount_plan.fromdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=todt dbname="discount_plan.todt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=discount_type dbname="discount_plan.discount_type" values="판매	S/청구	I/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=discount_type2 dbname="discount_plan.discount_type2" )
+ retrieve="  SELECT ~"DISCOUNT_PLAN~".~"DISCOUNTPLAN~",   
+         ~"DISCOUNT_PLAN~".~"DISCOUNTPLANNM~",   
+         ~"DISCOUNT_PLAN~".~"PLEVEL~",   
+         ~"DISCOUNT_PLAN~".~"FROMDT~",   
+         ~"DISCOUNT_PLAN~".~"TODT~",   
+         ~"DISCOUNT_PLAN~".~"DISCOUNT_TYPE~",   
+         ~"DISCOUNT_PLAN~".~"DISCOUNT_TYPE2~"  
+    FROM ~"DISCOUNT_PLAN~"   
+" update="DISCOUNT_PLAN" updatewhere=1 updatekeyinplace=no )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1417" y="32" height="60" width="306"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=background alignment="1" text="TOTAL ROWS:" border="0" color="0" x="2240" y="32" height="60" width="389"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="유형코드" border="2" color="15793151" x="9" y="104" height="56" width="325"  name=discountplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용순위" border="2" color="15793151" x="919" y="104" height="56" width="480"  name=plevel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="유형명" border="2" color="15793151" x="343" y="104" height="56" width="567"  name=discountplannm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="할인구분" border="2" color="15793151" x="2222" y="104" height="56" width="416"  name=discount_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="할인그룹" border="2" color="15793151" x="2647" y="104" height="56" width="539"  name=discount_type2_t  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용시작일" border="2" color="15793151" x="1408" y="104" height="56" width="416"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용종료일" border="2" color="15793151" x="1833" y="104" height="56" width="379"  name=todt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="64" width="325" format="[general]"  name=discountplan  hidesnaked=1 edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="343" y="8" height="64" width="567" format="[general]"  name=discountplannm  hidesnaked=1 edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="919" y="8" height="64" width="480" format="[general]"  name=plevel  hidesnaked=1 ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="돋움체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2222" y="8" height="64" width="416" format="[general]"  name=discount_type  hidesnaked=1 ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="돋움체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2647" y="8" height="64" width="539" format="[general]"  name=discount_type2  hidesnaked=1 dddw.name=b3dc_dddw_disgroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="돋움체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1408" y="8" height="64" width="416" format="YYYY.MM.DD"  name=fromdt  hidesnaked=1 editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="돋움체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1833" y="8" height="64" width="379" format="YYYY.MM.DD"  name=todt  hidesnaked=1 editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="돋움체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="ORDER BY" border="0" color="0" x="9" y="32" height="60" width="302"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=foreground alignment="0" expression="rowcount()"border="0" color="8388608" x="2647" y="36" height="56" width="494" format="[GENERAL]"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1742" y="36" height="56" width="416"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="325" y="36" height="60" width="608"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

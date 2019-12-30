@@ -1,0 +1,46 @@
+﻿$PBExportHeader$e01d_reg_status_change_master.srd
+$PBExportComments$[jybaek] 연체자 상태변화 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=156 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=payid dbname="dlymst.payid" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="dlymst.status" )
+ column=(type=decimal(2) updatewhereclause=yes name=amount dbname="dlymst.amount" )
+ column=(type=datetime updatewhereclause=yes name=dlymst_first_date dbname="dlymst.first_date" )
+ column=(type=datetime updatewhereclause=yes name=dlymst_amt_date dbname="dlymst.amt_date" )
+ column=(type=decimal(0) updatewhereclause=yes name=dlymst_delay_months dbname="dlymst.delay_months" )
+ retrieve="SELECT  DLYMST.PAYID,
+		  DLYMST.STATUS,
+		  DLYMST.AMOUNT,
+		  DLYMST.FIRST_DATE,
+		  DLYMST.AMT_DATE,
+		  DLYMST.DELAY_MONTHS
+  FROM  DLYMST , billinginfo bil   
+  WHERE bil.customerid = dlymst.payid
+   AND bil.overdue_MONTHS is not null   " )
+text(band=header alignment="2" text="현상태" border="2" color="15793151" x="905" y="92" height="60" width="384"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체금액" border="2" color="15793151" x="1298" y="92" height="60" width="366"  name=amount_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체월수" border="2" color="15793151" x="1673" y="92" height="60" width="315"  name=dlymst_delay_months_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체고객명" border="2" color="15793151" x="466" y="92" height="60" width="430"  name=payid_1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체고객번호" border="2" color="15793151" x="37" y="92" height="60" width="421"  name=payid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="최초연체일" border="2" color="15793151" x="1998" y="92" height="60" width="411"  name=dlymst_first_date_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="최종연체일" border="2" color="15793151" x="2418" y="92" height="60" width="462"  name=dlymst_amt_date_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="rowcount()"border="0" color="0" x="9" y="4" height="60" width="18" format="[GENERAL]"  name=compute_1 visible="1~t0"  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="37" y="4" height="60" width="421" format="[general]"  name=payid edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="905" y="4" height="60" width="384" format="[general]"  name=status dddw.name=e01dc_dddw_status_all dddw.displaycolumn=status_nm dddw.datacolumn=status_cd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1298" y="4" height="60" width="366" format="#,##0"  name=amount edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1998" y="4" height="60" width="411" format="yyyy-mm-dd"  name=dlymst_first_date edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2418" y="4" height="60" width="462" format="yyyy-mm-dd"  name=dlymst_amt_date edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1673" y="4" height="60" width="315" format="#,##0"  name=dlymst_delay_months edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="4" height="60" width="430" format="[general]"  name=payid_1 dddw.name=e01dc_dddw_customerid dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="0" expression="rowcount()"border="0" color="8388608" x="2423" y="16" height="56" width="361" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="Order By" border="0" color="0" x="46" y="16" height="56" width="251"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="Total Rows" border="0" color="0" x="2103" y="16" height="56" width="302"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="ASC/DESC" border="0" color="0" x="1362" y="16" height="56" width="302"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="311" y="16" height="56" width="622"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1678" y="16" height="56" width="59"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

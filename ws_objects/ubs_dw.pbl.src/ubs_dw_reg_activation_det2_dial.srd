@@ -1,0 +1,70 @@
+﻿$PBExportHeader$ubs_dw_reg_activation_det2_dial.srd
+$PBExportComments$[ohj] 서비스개통처리(후불) v20 - detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=212 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes key=yes name=customerid dbname="contractdet_add.customerid" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=orderno dbname="contractdet_add.orderno" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractdet_add.contractseq" )
+ column=(type=char(20) updatewhereclause=yes name=serial dbname="contractdet_add.serial" )
+ column=(type=char(10) updatewhereclause=yes name=portno dbname="contractdet_add.portno" )
+ column=(type=char(20) updatewhereclause=yes name=switch dbname="contractdet_add.switch" )
+ column=(type=char(20) updatewhereclause=yes name=uplus_mng_no dbname="contractdet_add.uplus_mng_no" )
+ column=(type=char(1) updatewhereclause=yes name=router_yn dbname="contractdet_add.router_yn" values="Yes	Y/No	N/" )
+ column=(type=char(50) updatewhereclause=yes name=model dbname="contractdet_add.model" )
+ column=(type=decimal(0) updatewhereclause=yes name=client_cnt dbname="contractdet_add.client_cnt" )
+ column=(type=char(5) updatewhereclause=yes name=up_speed dbname="contractdet_add.up_speed" values="1M	1/2M	2/5M	5/10M	10/50M	50/100M	100/" )
+ column=(type=char(5) updatewhereclause=yes name=down_speed dbname="contractdet_add.down_speed" values="1M	1/2M	2/5M	5/10M	10/50M	50/100M	100/" )
+ column=(type=decimal(0) updatewhereclause=yes name=dial_tone dbname="contractdet_add.dial_tone" )
+ column=(type=char(20) updatewhereclause=yes name=static_ip dbname="contractdet_add.static_ip" )
+ column=(type=char(100) updatewhereclause=yes name=remark dbname="contractdet_add.remark" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="contractdet_add.crt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="contractdet_add.crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=pgm_id dbname="contractdet_add.pgm_id" )
+ retrieve="SELECT	DET.CUSTOMERID,
+			DET.ORDERNO,
+			DET.CONTRACTSEQ,
+			DET.SERIAL,
+			DET.PORTNO,
+			DET.SWITCH,
+			DET.UPLUS_MNG_NO,
+			DET.ROUTER_YN,
+			DET.MODEL,
+			DET.CLIENT_CNT,
+			DET.UP_SPEED,
+			DET.DOWN_SPEED,
+			DET.DIAL_TONE,
+			DET.STATIC_IP,
+			DET.REMARK,
+			DET.CRT_USER,
+			DET.CRTDT,
+			DET.PGM_ID
+FROM     CONTRACTDET_ADD DET" update="CONTRACTDET_ADD" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="32" y="4" height="192" width="2880"  name=r_1 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="37" y="8" height="184" width="503"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+line(band=detail x1="535" y1="4" x2="535" y2="196"  name=l_18 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="96" x2="2912" y2="96"  name=l_21 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="Real No." border="0" color="0" x="46" y="20" height="60" width="475"  name=serial_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Remark" border="0" color="0" x="46" y="116" height="60" width="475"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="8388608" x="165" y="496" height="60" width="549" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="8388608" x="201" y="404" height="60" width="462" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="8388608" x="192" y="624" height="60" width="503" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="8388608" x="791" y="408" height="60" width="462" format="[general]"  name=static_ip edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="8388608" x="763" y="492" height="60" width="233" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="8388608" x="777" y="604" height="60" width="137" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="8388608" x="1056" y="508" height="60" width="229" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="8388608" x="1682" y="688" height="60" width="1015" format="[general]"  name=switch edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="8388608" x="1682" y="784" height="60" width="1015" format="[general]"  name=uplus_mng_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="8388608" x="1682" y="884" height="60" width="1015" format="[general]"  name=model edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="8388608" x="1682" y="984" height="60" width="1015" format="[general]"  name=up_speed ddlb.limit=6 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="8388608" x="905" y="688" height="60" width="777" format="[general]"  name=portno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="8388608" x="891" y="792" height="60" width="777" format="[general]"  name=router_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="8388608" x="891" y="892" height="60" width="777" format="[general]"  name=client_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="8388608" x="891" y="996" height="60" width="777" format="[general]"  name=down_speed ddlb.limit=6 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="8388608" x="1646" y="472" height="60" width="777" format="[general]"  name=serial edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=10 border="2" color="8388608" x="553" y="20" height="60" width="777" format="[general]"  name=dial_tone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=20 border="2" color="8388608" x="553" y="116" height="60" width="2336" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

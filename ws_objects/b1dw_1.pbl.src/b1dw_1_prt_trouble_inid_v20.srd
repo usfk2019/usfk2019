@@ -1,0 +1,45 @@
+﻿$PBExportHeader$b1dw_1_prt_trouble_inid_v20.srd
+$PBExportComments$[jsha]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=520 color="536870912" )
+summary(height=68 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=customer_trouble_inid dbname="customer_trouble.inid" )
+ column=(type=char(10) updatewhereclause=yes name=customer_trouble_restype dbname="customer_trouble.restype" )
+ column=(type=number updatewhereclause=yes name=count dbname="count" )
+ retrieve="select a.inid,
+	    a.restype,
+		count(a.troubleno) count
+ from   customer_trouble a
+			, troubletypemst b
+			, troubletypea c
+			, troubletypeb d
+			, svcmst e
+ where	a.troubletype = b.troubletype(+)
+ and b.TROUBLETYPEA = c.troubletypea(+)
+ and c.troubletypeb = d.troubletypeb(+)
+ and a.svccod = e.svccod(+)
+ GROUP BY a.inid, a.restype
+ ORDER BY a.inid, a.restype" )
+group(level=1 header.height=0 trailer.height=12 by=("customer_trouble_inid" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1559" y="176" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1632" y="176" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="297" y="36" height="88" width="2441"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="2071" y="144" height="56" width="667"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2080" y="216" height="64" width="658" format="[GENERAL]"  name=page  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="IN Route" border="0" color="0" x="562" y="440" height="56" width="430"  name=customer_trouble_inid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="562" y="4" height="60" width="517" format="[general]"  name=customer_trouble_inid edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="합계" border="0" color="0" x="608" y="4" height="56" width="329"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="조치유형" border="0" color="0" x="1225" y="440" height="56" width="485"  name=customer_trouble_restype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="장애건수" border="0" color="0" x="2085" y="440" height="56" width="421"  name=compute_0003_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="2085" y="8" height="56" width="421" format="#,##0"  name=count edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1225" y="4" height="60" width="809" format="[general]"  name=customer_trouble_restype dddw.name=b1dc_1_dddw_trouble_restype_v20 dddw.displaycolumn=restypenm dddw.datacolumn=restype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(count for all)"border="0" color="0" x="2085" y="4" height="56" width="421" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="521" y1="420" x2="2555" y2="420"  name=l_10 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="521" y1="512" x2="2555" y2="512"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="521" y1="4" x2="2555" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+
+sparse(names="customer_trouble_inid")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

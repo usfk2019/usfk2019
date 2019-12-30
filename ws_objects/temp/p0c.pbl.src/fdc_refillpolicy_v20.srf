@@ -1,0 +1,93 @@
+﻿$PBExportHeader$fdc_refillpolicy_v20.srf
+$PBExportComments$[ohj] 충전정책 v20
+global type fdc_refillpolicy_v20 from function_object
+end type
+
+forward prototypes
+global function integer fdc_refillpolicy_v20 (string ls_partner, string ls_partner_bon, string ls_priceplan, string ls_opendt, double lc_amt, ref decimal lc_rate_first, ref decimal lc_basic_fee_first, ref decimal lc_basic_rate_first, ref long ll_extdays)
+end prototypes
+
+global function integer fdc_refillpolicy_v20 (string ls_partner, string ls_partner_bon, string ls_priceplan, string ls_opendt, double lc_amt, ref decimal lc_rate_first, ref decimal lc_basic_fee_first, ref decimal lc_basic_rate_first, ref long ll_extdays);//Dec{2} lc_rate
+int li_cnt, li_return
+
+li_cnt   = 0
+li_return= 0
+
+//소속 대리점으로 찾고 없으면 관리대상대리점으로 찾고 없으면 관리대상, all로 찾고 그도 아니면 all, all
+//충전정책 가져옴
+Select nvl(rate, 0), nvl(basic_fee, 0), nvl(basic_rate, 0), nvl(extdays, 0)
+  Into :lc_rate_first    , :lc_basic_fee_first , :lc_basic_rate_first , :ll_extdays
+  From refillpolicy
+ where partner   = :ls_partner  
+   and priceplan = :ls_priceplan 
+   and to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+	  	       			  			  	       from refillpolicy 
+				      					      where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+												     and partner   = :ls_partner  
+												     and priceplan = :ls_priceplan)
+   and fromamt <= :lc_amt 
+   and :lc_amt <=  decode(toamt, NULL, :lc_amt, toamt);
+
+If SQLCA.SQLCode < 0 Then
+	Return -1
+ElseIf SQLCA.SQLCode = 100 Then
+	
+	Select nvl(rate, 0), nvl(basic_fee, 0), nvl(basic_rate, 0), nvl(extdays, 0)
+	  Into :lc_rate_first, :lc_basic_fee_first , :lc_basic_rate_first , :ll_extdays
+	  From refillpolicy
+	 where partner   = :ls_partner_bon  
+		and priceplan = :ls_priceplan 
+		and to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+														 from refillpolicy 
+														where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+														  and partner   = :ls_partner_bon  
+														  and priceplan = :ls_priceplan)
+		and fromamt <= :lc_amt 
+		and :lc_amt <=  decode(toamt, NULL, :lc_amt, toamt);
+	
+	If SQLCA.SQLCode < 0 Then
+		Return -1
+	ElseIf SQLCA.SQLCode = 100 Then
+		
+		Select nvl(rate, 0), nvl(basic_fee, 0), nvl(basic_rate, 0), nvl(extdays, 0)
+		  Into :lc_rate_first, :lc_basic_fee_first , :lc_basic_rate_first , :ll_extdays
+		  From refillpolicy
+		 where partner   = :ls_partner_bon
+			and priceplan =  'ALL' 
+			and to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+															 from refillpolicy 
+															where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+															  and partner   = :ls_partner_bon  
+															  and priceplan =  'ALL' )
+			and fromamt <= :lc_amt 
+			and :lc_amt <=  decode(toamt, NULL, :lc_amt, toamt);
+		
+		If SQLCA.SQLCode < 0 Then
+			Return -1
+		ElseIf SQLCA.SQLCode = 100 Then
+
+			Select nvl(rate, 0), nvl(basic_fee, 0), nvl(basic_rate, 0), nvl(extdays, 0)
+			  Into :lc_rate_first, :lc_basic_fee_first , :lc_basic_rate_first , :ll_extdays
+			  From refillpolicy
+			 where partner   = 'ALL'
+				and priceplan =  'ALL' 
+				and to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+																 from refillpolicy 
+																where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+																  and partner   = 'ALL'
+																  and priceplan =  'ALL' )
+				and fromamt <= :lc_amt
+				and :lc_amt <=  decode(toamt, NULL, :lc_amt, toamt);
+			
+			If SQLCA.SQLCode < 0 Then
+				Return -1	
+			ElseIf SQLCA.SQLCode = 100 Then
+				Return -1
+			End If
+		End If
+	End If
+End If
+
+return li_return
+end function
+

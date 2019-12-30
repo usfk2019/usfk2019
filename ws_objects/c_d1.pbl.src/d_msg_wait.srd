@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_msg_wait.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=300 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=prg_name dbname="prg_name" )
+ )
+text(band=detail alignment="0" text="Process is running.
+
+Please wait a minute.
+" border="0" color="0" x="187" y="68" height="224" width="864"  name=msg_txt  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

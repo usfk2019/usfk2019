@@ -1,0 +1,33 @@
+﻿$PBExportHeader$b5dw_inq_billfile_record_detail_popup.srd
+$PBExportComments$[ohj] 청구file record 상세구성 -popup
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=itemkey dbname="invf_baseitemkey.itemkey" )
+ column=(type=char(30) updatewhereclause=yes name=itemkey_desc dbname="invf_baseitemkey.itemkey_desc" )
+ column=(type=char(10) updatewhereclause=yes name=itemtype dbname="invf_baseitemkey.itemtype" values="PGM	P/" )
+ column=(type=char(10) updatewhereclause=yes name=pgmcode dbname="invf_baseitemkey.pgmcode" )
+ retrieve="SELECT ITEMKEY
+     , ITEMKEY_DESC
+     , ITEMTYPE
+     , PGMCODE
+  FROM INVF_BASEITEMKEY"  sort="itemkey A " )
+text(band=background alignment="1" text="Order By" border="0" color="0" x="14" y="16" height="60" width="238"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="Total Rows" border="0" color="0" x="1408" y="16" height="60" width="366"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="265" y="16" height="60" width="507"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="791" y="16" height="60" width="334"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Pgmcode" border="2" color="16777215" x="1783" y="92" height="60" width="425"  name=pgmcode_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Itemkey" border="2" color="16777215" x="9" y="92" height="60" width="370"  name=itemkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Itemkey Desc" border="2" color="16777215" x="389" y="92" height="60" width="951"  name=itemkey_desc_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Itemtype" border="2" color="16777215" x="1349" y="92" height="60" width="425"  name=itemtype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="1783" y="16" height="60" width="425" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="370" format="[general]"  name=itemkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1783" y="8" height="60" width="425" format="[general]"  name=pgmcode edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="389" y="8" height="60" width="951" format="[general]"  name=itemkey_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1349" y="8" height="60" width="425" format="[general]"  name=itemtype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1138" y="16" height="60" width="197"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

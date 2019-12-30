@@ -1,0 +1,14 @@
+﻿$PBExportHeader$b1dw_cnd_reg_trouble_categoryb.srd
+$PBExportComments$[chooys] 민원유형 중분류 condition data window
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=124 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=categoryb dbname="categoryb" )
+ column=(type=char(10) updatewhereclause=no name=categoryc dbname="categoryc" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="270" y="40" height="60" width="855" format="[general]"  name=categoryb dddw.name=b1dc_dddw_troubletypeb_v30 dddw.displaycolumn=troubletypeb_troubletypebnm dddw.datacolumn=troubletypeb_troubletypeb dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="장애종류" border="0" color="0" x="27" y="40" height="60" width="224"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

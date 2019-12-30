@@ -1,0 +1,30 @@
+﻿$PBExportHeader$f_dddw_list2.srf
+$PBExportComments$공통으로 사용하는 DDDW List관련 함수 - 2015-03-03. lys
+global type f_dddw_list2 from function_object
+end type
+
+forward prototypes
+global subroutine f_dddw_list2 (datawindow wfs_dw, string wfs_column, string wfs_grcode)
+end prototypes
+
+global subroutine f_dddw_list2 (datawindow wfs_dw, string wfs_column, string wfs_grcode);//----------------------------------------------
+// 함수명 : F_DDDW_LIST
+// 공통으로 사용하는 DDDW List관련 함수
+//
+// Return Value : None
+// Input Argu.
+// 1: DwObject 명 
+// 2: Column 명
+// 3: GRCODE 
+//----------------------------------------------
+
+DataWindowChild ldw_ddlb
+
+wfs_dw.GetChild(wfs_column, ldw_ddlb)
+ldw_ddlb.SetTransObject(SQLCA)
+ldw_ddlb.Retrieve(wfs_grcode)
+
+return
+
+end subroutine
+

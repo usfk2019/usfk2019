@@ -1,0 +1,63 @@
+﻿$PBExportHeader$b1dw_req_credit_moohan.srd
+$PBExportComments$[kem] 신용정보조회
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="req_creditstat.seq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=partner dbname="req_creditstat.partner" )
+ column=(type=datetime update=yes updatewhereclause=yes name=inqreqdt dbname="req_creditstat.inqreqdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inqstat dbname="req_creditstat.inqstat" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=reqname dbname="req_creditstat.reqname" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=reqssno dbname="req_creditstat.reqssno" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=order_yn dbname="req_creditstat.order_yn" values="Yes	Y/No	N/" )
+ column=(type=datetime update=yes updatewhereclause=yes name=inqdt dbname="req_creditstat.inqdt" )
+ column=(type=char(10) updatewhereclause=yes name=use_user dbname="use_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="req_creditstat.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="req_creditstat.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="req_creditstat.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="req_creditstat.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="req_creditstat.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=cust_type dbname="req_creditstat.cust_type" )
+ retrieve="SELECT seq,
+		 partner,
+		 inqreqdt,
+		 inqstat,
+		 reqname,
+		 reqssno,
+		 order_yn,
+		 inqdt,
+		 rpad(:as_user,10,' ') use_user,
+       crt_user,
+       crtdt,
+		 updt_user,
+		 updtdt,
+		 pgm_id,
+       cust_type
+  FROM req_creditstat
+ ORDER BY inqreqdt desc, partner" update="req_creditstat" updatewhere=0 updatekeyinplace=no arguments=(("as_user", string)) )
+text(band=header alignment="2" text="요청대리점" border="2" color="15793151" x="18" y="20" height="60" width="544"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="조회요청일" border="2" color="15793151" x="576" y="20" height="60" width="389"  name=inqreqdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="조회완료일" border="2" color="15793151" x="3643" y="20" height="60" width="389"  name=inqdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업자" border="2" color="15793151" x="4046" y="20" height="60" width="453"  name=updtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객구분" border="2" color="15793151" x="978" y="20" height="60" width="402"  name=cust_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개통신청가능여부" border="2" color="15793151" x="3104" y="20" height="60" width="526"  name=order_yn_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="신용조회상태" border="2" color="15793151" x="2519" y="20" height="60" width="571"  name=inqstat_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="주민등록번호" border="2" color="15793151" x="1929" y="20" height="60" width="576"  name=reqssno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객명" border="2" color="15793151" x="1399" y="20" height="60" width="521"  name=reqname_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="18" y="8" height="64" width="544" format="[general]"  name=partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1353" y="184" height="56" width="283" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1915" y="184" height="56" width="165" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1669" y="184" height="56" width="219" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="2" color="0" x="3643" y="8" height="64" width="389" format="[shortdate] [time]"  name=inqdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="4046" y="8" height="64" width="453" format="[general]"  name=use_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="2" color="16777215" x="576" y="8" height="64" width="389" format="[general]"  name=inqreqdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=15 alignment="0" tabsequence=20 border="2" color="16777215" x="978" y="8" height="64" width="402" format="[general]"  name=cust_type dddw.name=b1dc_dddw_customertype2 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="2" color="16777215" x="3104" y="8" height="64" width="526" format="[general]"  name=order_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=50 border="2" color="16777215" x="2519" y="8" height="64" width="571" format="[general]"  name=inqstat dddw.name=b1dc_dddw_creditstat dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="2" tabsequence=40 border="2" color="16777215" x="1929" y="8" height="64" width="576" format="[general]"  name=reqssno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="2" color="16777215" x="1394" y="8" height="64" width="521" format="[general]"  name=reqname edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

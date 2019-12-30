@@ -1,0 +1,134 @@
+﻿$PBExportHeader$p1dw_reg_partnermst_t1.srd
+$PBExportComments$[ceusee] 대리점정보등록 t1
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1316 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="partnermst.partner" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=partnernm dbname="partnermst.partnernm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=levelcod dbname="partnermst.levelcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=hpartner dbname="partnermst.hpartner" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=logid dbname="partnermst.logid" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=logpwd dbname="partnermst.logpwd" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=emp_id dbname="partnermst.emp_id" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=prefixno dbname="partnermst.prefixno" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=reg_yn dbname="partnermst.reg_yn" initial="Y" values="Yes	Y/No	N/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=act_yn dbname="partnermst.act_yn" initial="N" values="Yes	Y/No	N/" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=representative dbname="partnermst.representative" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=phone dbname="partnermst.phone" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=fax dbname="partnermst.fax" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=zipcod dbname="partnermst.zipcod" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=addr1 dbname="partnermst.addr1" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=addr2 dbname="partnermst.addr2" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=email dbname="partnermst.email" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=url dbname="partnermst.url" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=cregno dbname="partnermst.cregno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=corpno dbname="partnermst.corpno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bank dbname="partnermst.bank" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=acct_no dbname="partnermst.acct_no" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=acct_owner dbname="partnermst.acct_owner" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tot_credit dbname="partnermst.tot_credit" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tot_samt dbname="partnermst.tot_samt" initial="0" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="partnermst.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="partnermst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="partnermst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="partnermst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="partnermst.pgm_id" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=partner_type dbname="partnermst.partner_type" initial="0" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=credit_yn dbname="partnermst.credit_yn" initial="N" values="Yes	Y/No	N/" )
+ retrieve="SELECT PARTNER,  
+       PARTNERNM,
+		 LEVELCOD, 
+       HPARTNER,
+		 LOGID,	  
+       LOGPWD,
+		 EMP_ID,   
+       PREFIXNO,		 
+		 REG_YN,   
+       ACT_YN,
+		 REPRESENTATIVE,
+		 PHONE, 	  
+       FAX,
+		 ZIPCOD,   
+       ADDR1,
+		 ADDR2,    
+       EMAIL,
+		 URL, 	  
+       CREGNO,
+		 CORPNO, 
+       BANK,
+		 ACCT_NO,
+       ACCT_OWNER,
+		 TOT_CREDIT,
+		 TOT_SAMT, 
+       CRT_USER,
+		 UPDT_USER,
+       CRTDT,
+		 UPDTDT,	 
+       PGM_ID, 
+       PARTNER_TYPE,
+       CREDIT_YN
+  FROM PARTNERMST
+ WHERE PARTNER_TYPE = '0'
+ ORDER BY PARTNER, PARTNERNM" update="PARTNERMST" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="2" color="0" x="1682" y="1444" height="64" width="247" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="2" color="0" x="622" y="1440" height="64" width="603" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="2" color="0" x="1321" y="1448" height="64" width="302" format="[general]"  name=updt_user edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="대리점코드" border="0" color="0" x="27" y="24" height="60" width="544"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="대리점명" border="0" color="0" x="1362" y="24" height="60" width="526"  name=partnernm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="1906" y="24" height="60" width="1097" format="[general]"  name=partnernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="L e v e l" border="0" color="0" x="27" y="108" height="60" width="544"  name=levelcod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Web Login ID" border="0" color="0" x="27" y="192" height="60" width="544"  name=logid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="System User ID" border="0" color="0" x="27" y="276" height="60" width="544"  name=emp_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="하위대리점등록권한" border="0" color="0" x="27" y="360" height="60" width="544"  name=reg_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="관 리 코 드" border="0" color="0" x="1362" y="276" height="60" width="526"  name=prefixno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Password" border="0" color="0" x="1362" y="192" height="60" width="526"  name=logpwd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="상위대리점" border="0" color="0" x="1362" y="108" height="60" width="526"  name=hpartner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="대표자성명" border="0" color="0" x="27" y="456" height="60" width="544"  name=representative_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="사업자등록번호" border="0" color="0" x="1362" y="456" height="60" width="526"  name=cregno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="등 록 일 자" border="0" color="0" x="27" y="1236" height="60" width="544"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Fax   번 호" border="0" color="0" x="27" y="628" height="60" width="544"  name=fax_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="우 편 번 호" border="0" color="0" x="27" y="808" height="60" width="544"  name=zipcod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="은    행" border="0" color="0" x="27" y="984" height="60" width="544"  name=bank_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="계 좌 번 호" border="0" color="0" x="27" y="1068" height="60" width="544"  name=acct_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="예 금 주 명" border="0" color="0" x="27" y="1152" height="60" width="544"  name=acct_owner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="등 록 자" border="0" color="0" x="1362" y="1236" height="60" width="526"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="총여신금액" border="0" color="0" x="1362" y="1152" height="60" width="526"  name=tot_samt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="여신한도금액" border="0" color="0" x="1362" y="1072" height="60" width="526"  name=tot_credit_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="여신한도관리여부" border="0" color="0" x="1358" y="988" height="60" width="530"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="주     소" border="0" color="0" x="1362" y="792" height="60" width="526"  name=addr1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="U r l" border="0" color="0" x="1362" y="708" height="60" width="526"  name=url_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="E m a i l" border="0" color="0" x="1362" y="624" height="60" width="526"  name=email_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="법인등록번호" border="0" color="0" x="1362" y="540" height="60" width="526"  name=corpno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="전 화 번 호" border="0" color="0" x="27" y="540" height="60" width="544"  name=phone_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="0" x="590" y="108" height="60" width="731" format="[general]"  name=levelcod dddw.name=p1dc_dddw_partnerlevel dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=10 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.autohscroll=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="2" color="0" x="1906" y="108" height="60" width="1097" format="[general]"  name=hpartner dddw.name=p1dc_dddw_control_par dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.autohscroll=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="0" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="2" color="0" x="590" y="456" height="60" width="731" format="[general]"  name=representative edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="2" color="0" x="590" y="540" height="60" width="731" format="[general]"  name=phone edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=140 border="2" color="0" x="590" y="624" height="60" width="731" format="[general]"  name=fax edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=110 border="2" color="0" x="1906" y="456" height="60" width="585" format="@@@-@@-@@@@@"  name=cregno edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=130 border="2" color="0" x="1906" y="540" height="60" width="585" format="[general]"  name=corpno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=150 border="2" color="0" x="1906" y="624" height="60" width="1335" format="[general]"  name=email edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="2" color="0" x="590" y="808" height="60" width="302" format="@@@-@@@"  name=zipcod edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=160 border="2" color="0" x="1906" y="708" height="60" width="1335" format="[general]"  name=url edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=170 border="2" color="0" x="1906" y="792" height="60" width="1577" format="[general]"  name=addr1 edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=180 border="2" color="0" x="1906" y="876" height="60" width="1577" format="[general]"  name=addr2 edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=190 border="2" color="0" x="590" y="984" height="60" width="576" format="[general]"  name=bank dddw.name=b2dc_dddw_bank dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=10 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=210 border="2" color="0" x="590" y="1068" height="60" width="576" format="[general]"  name=acct_no edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="0" tabsequence=220 border="2" color="0" x="590" y="1152" height="60" width="576" format="[general]"  name=acct_owner edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=32 alignment="0" tabsequence=200 border="2" color="16777215" x="1906" y="992" height="60" width="585" format="[general]"  name=credit_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=9 alignment="0" tabsequence=70 border="2" color="16777215" x="590" y="360" height="60" width="576" format="[general]"  name=reg_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="2" color="16777215" x="590" y="276" height="60" width="576" format="[general]"  name=emp_id dddw.name=b2dc_dddw_emp_id dddw.displaycolumn=emp_id dddw.datacolumn=emp_id dddw.percentwidth=120 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="2" color="16777215" x="590" y="192" height="60" width="731" format="[general]"  name=logid edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="2" color="16777215" x="1906" y="192" height="60" width="585" format="*********"  name=logpwd edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.password=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=24 alignment="1" tabsequence=32766 border="2" color="0" x="1906" y="1072" height="60" width="576" format="#,##0"  name=tot_credit edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="1" tabsequence=32766 border="2" color="0" x="1906" y="1152" height="60" width="576" format="#,##0"  name=tot_samt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="2" color="0" x="1906" y="1236" height="60" width="302" format="[general]"  name=crt_user edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="1906" y="276" height="60" width="1097" format="[general]"  name=prefixno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="590" y="24" height="60" width="475" format="[general]"  name=partner edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=28 alignment="2" tabsequence=32766 border="2" color="0" x="590" y="1236" height="60" width="416" format="yyyy-mm-dd"  name=crtdt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="개통/해지처리권한" border="0" color="0" x="1358" y="360" height="60" width="530"  name=act_yn_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=80 border="2" color="16777215" x="1906" y="360" height="60" width="585" format="[general]"  name=act_yn visible="1~t0" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

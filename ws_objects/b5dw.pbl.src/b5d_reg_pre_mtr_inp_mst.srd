@@ -1,0 +1,56 @@
+﻿$PBExportHeader$b5d_reg_pre_mtr_inp_mst.srd
+$PBExportComments$[ceusee] 수동입금거래등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seqno dbname="reqpay.seqno" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=payid dbname="reqpay.payid" )
+ column=(type=datetime update=yes updatewhereclause=yes name=paydt dbname="reqpay.paydt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=payamt dbname="reqpay.payamt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=trcod dbname="reqpay.trcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=paytype dbname="reqpay.paytype" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=prc_yn dbname="reqpay.prc_yn" values="처리완료	Y/처리전	N/Error	E/" )
+ column=(type=datetime update=yes updatewhereclause=yes name=trdt dbname="reqpay.trdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="reqpay.crtdt" )
+ column=(type=char(256) update=yes updatewhereclause=yes name=remark dbname="reqpay.remark" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="reqpay.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="reqpay.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="reqpay.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="reqpay.pgm_id" )
+ retrieve=" SELECT SEQNO,   
+         PAYID,
+			~"PAYDT~",   
+			~"PAYAMT~",   
+         ~"TRCOD~",   
+			~"PAYTYPE~",   
+         ~"PRC_YN~",            
+         ~"TRDT~",   
+         ~"CRTDT~",   
+         ~"REMARK~",   
+         ~"CRT_USER~",   
+         ~"UPDT_USER~",   
+         ~"UPDTDT~",   
+         ~"PGM_ID~"
+ FROM REQPAY
+ ORDER BY paydt desc" update="REQPAY" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="입금일자" border="2" color="15793151" x="9" y="8" height="60" width="439"  name=paydt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입금액" border="2" color="15793151" x="457" y="8" height="60" width="498"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래유형" border="2" color="15793151" x="965" y="8" height="60" width="535"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입금유형" border="2" color="15793151" x="1509" y="8" height="60" width="494"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입금적용" border="2" color="15793151" x="2011" y="8" height="60" width="302"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용청구기준일" border="2" color="15793151" x="2322" y="8" height="60" width="434"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성일" border="2" color="15793151" x="2766" y="8" height="60" width="448"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비  고" border="2" color="15793151" x="3223" y="8" height="60" width="1431"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="439" format="[shortdate] [time]"  name=paydt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="457" y="4" height="60" width="498" format="#,##0"  name=payamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="965" y="4" height="60" width="535" format="[general]"  name=trcod dddw.name=b5dc_dddw_trcode dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1509" y="4" height="60" width="494" format="[general]"  name=paytype dddw.name=b5dc_dddw_paytype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2011" y="4" height="60" width="302" format="[general]"  name=prc_yn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="2322" y="4" height="60" width="434" format="[shortdate] [time]"  name=trdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="2766" y="4" height="60" width="448" format="[shortdate] [time]"  name=crtdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3223" y="4" height="60" width="1431" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

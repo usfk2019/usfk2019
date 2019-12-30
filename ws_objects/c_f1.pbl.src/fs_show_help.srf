@@ -1,0 +1,46 @@
+﻿$PBExportHeader$fs_show_help.srf
+$PBExportComments$[ceusee] 도움말 파일 호출
+global type fs_show_help from function_object
+end type
+
+forward prototypes
+global subroutine fs_show_help (string as_pgm_id)
+end prototypes
+
+global subroutine fs_show_help (string as_pgm_id);u_registry  lu_Regi
+String ls_html_file, ls_default, ls_help_file, ls_ref_content, ls_tmp
+
+//Get exe
+lu_Regi = Create u_registry
+
+ls_html_file = lu_Regi.get("HKEY_CLASSES_ROOT\.html", "")
+If Trim(ls_html_file) = "" Then Return
+
+ls_default = lu_Regi.get("HKEY_CLASSES_ROOT\" + ls_html_file + "\shell\open\command" , "")
+If Trim(ls_default) = "" Then Return 
+
+Destroy lu_Regi
+
+ls_default = f_url_string(ls_default)
+
+
+Select call_nm1
+Into :ls_help_file
+From syspgm1t
+Where pgm_id = : as_pgm_id;
+
+If IsNull(ls_help_file) Then ls_help_file = ""
+
+//sysctl1t에서 값 가져오기
+ls_tmp = fs_get_control("00", "H100", ls_ref_content)
+
+If ls_help_file = "" Then
+   ls_help_file = ls_tmp
+Else
+	ls_help_file = ls_tmp + "?id=" + ls_help_file
+End If
+
+Run(ls_default + " " + ls_help_file) 
+Return 
+end subroutine
+

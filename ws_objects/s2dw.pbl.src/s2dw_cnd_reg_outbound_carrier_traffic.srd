@@ -1,0 +1,16 @@
+﻿$PBExportHeader$s2dw_cnd_reg_outbound_carrier_traffic.srd
+$PBExportComments$[kjm]outbound 사업자별 트래픽 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=104 color="536870912" )
+table(column=(type=date updatewhereclause=yes name=ymd_fr dbname="ymd_fr" )
+ column=(type=date updatewhereclause=yes name=ymd_to dbname="ymd_to" )
+ )
+text(band=detail alignment="1" text="작업일자" border="0" color="0" x="14" y="24" height="60" width="283"  name=use_fr_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="~~" border="0" color="0" x="731" y="24" height="60" width="55"  name=ymd_fr_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="16777215" x="315" y="24" height="64" width="393" format="[general]"  name=ymd_fr editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="16777215" x="809" y="24" height="64" width="393" format="[general]"  name=ymd_to editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,61 @@
+﻿$PBExportHeader$ubs_dw_reg_activation_det2_voip.srd
+$PBExportComments$[jhchoi] 인증장비관리 (tab3 - validation history) - 2009.05.04
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(40) updatewhereclause=yes name=timestamp dbname="bc_reg_ssw.timestamp" )
+ column=(type=char(40) updatewhereclause=yes name=action dbname="bc_reg_ssw.action" )
+ column=(type=char(40) updatewhereclause=yes name=status dbname="bc_reg_ssw.status" )
+ column=(type=char(20) updatewhereclause=yes name=type dbname="bc_reg_ssw.type" )
+ column=(type=char(40) updatewhereclause=yes name=flag dbname="bc_reg_ssw.flag" values="성공	1/실패	8/처리중	10/" )
+ column=(type=char(200) updatewhereclause=yes name=failcause dbname="bc_reg_ssw.failcause" )
+ column=(type=decimal(5) updatewhereclause=yes name=subsno dbname="bc_reg_ssw.subsno" )
+ column=(type=char(40) updatewhereclause=yes name=dn dbname="bc_reg_ssw.dn" )
+ column=(type=char(400) updatewhereclause=yes name=addservicelist dbname="bc_reg_ssw.addservicelist" )
+ column=(type=char(40) updatewhereclause=yes name=callrestrict dbname="bc_reg_ssw.callrestrict" )
+ column=(type=char(40) updatewhereclause=yes name=updatetime dbname="bc_reg_ssw.updatetime" )
+ column=(type=decimal(5) updatewhereclause=yes name=equip_cnt dbname="bc_reg_ssw.equip_cnt" )
+ retrieve="SELECT  TIMESTAMP
+		, ACTION
+		, STATUS
+		, TYPE
+		, FLAG
+		, FAILCAUSE
+		, SUBSNO
+		, DN
+		, ADDSERVICELIST
+		, CALLRESTRICT
+		, UPDATETIME
+		, EQUIP_CNT
+FROM   BC_REG_SSW
+WHERE  SUBSNO = :arg_siid
+ORDER BY TIMESTAMP DESC" arguments=(("arg_siid", string))  sort="timestamp D " )
+text(band=header alignment="2" text="Date" border="2" color="15793151" x="14" y="16" height="60" width="535"  name=timestamp_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Action" border="2" color="15793151" x="571" y="16" height="60" width="375"  name=action_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="15793151" x="969" y="16" height="60" width="375"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Flag" border="2" color="15793151" x="1710" y="16" height="60" width="370"  name=flag_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Fail Cause" border="2" color="15793151" x="2103" y="16" height="60" width="1298"  name=failcause_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가입자번호" border="2" color="15793151" x="3419" y="16" height="60" width="343"  name=subsno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="전화번호" border="2" color="15793151" x="3781" y="16" height="60" width="411"  name=dn_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="부가서비스 설정" border="2" color="15793151" x="4210" y="16" height="60" width="590"  name=addservicelist_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="NCOS" border="2" color="15793151" x="4818" y="16" height="60" width="338"  name=callrestrict_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Type" border="2" color="15793151" x="1362" y="16" height="60" width="329"  name=type_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Update Time" border="2" color="15793151" x="5175" y="16" height="60" width="466"  name=updatetime_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Equip. Count" border="2" color="15793151" x="5659" y="16" height="60" width="361"  name=equip_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="14" y="0" height="68" width="535" format="[general]"  name=timestamp edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="571" y="0" height="68" width="375" format="[general]"  name=action edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1710" y="0" height="68" width="370" format="[general]"  name=flag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2103" y="0" height="68" width="1298" format="[general]"  name=failcause edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="969" y="0" height="68" width="375" format="[general]"  name=status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1362" y="0" height="68" width="329" format="[general]"  name=type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="3419" y="0" height="68" width="343" format="[general]"  name=subsno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="3781" y="0" height="68" width="411" format="[general]"  name=dn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="4210" y="0" height="68" width="590" format="[general]"  name=addservicelist edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="2" color="0" x="4818" y="0" height="68" width="338" format="[general]"  name=callrestrict edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="5175" y="0" height="68" width="466" format="[general]"  name=updatetime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="2" color="0" x="5659" y="0" height="68" width="361" format="[general]"  name=equip_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

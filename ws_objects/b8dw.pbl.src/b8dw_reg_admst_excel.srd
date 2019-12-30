@@ -1,0 +1,27 @@
+﻿$PBExportHeader$b8dw_reg_admst_excel.srd
+$PBExportComments$[chooys] 제조사 등록 - Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=8 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(30) update=yes updatewhereclause=yes name=serialno dbname="admst.serialno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contno dbname="admst.contno" )
+ column=(type=char(15) update=yes updatewhereclause=yes key=yes name=pid dbname="admst.pid" )
+ retrieve="  SELECT SERIALNO, 
+         CONTNO,
+			PID
+    FROM ADMST          
+" update="ADMST" updatewhere=0 updatekeyinplace=no )
+line(band=header x1="41" y1="128" x2="41" y2="232"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="302" y1="128" x2="302" y2="220"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="41" y1="124" x2="1929" y2="124"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="41" y1="216" x2="1929" y2="216"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="850" y1="128" x2="850" y2="240"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="1390" y1="124" x2="1390" y2="236"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="1929" y1="124" x2="1929" y2="236"  name=l_12 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="16777215" x="1193" y="8" height="60" width="498" format="[general]"  name=pid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="16777215" x="9" y="4" height="60" width="498" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="16777215" x="521" y="8" height="60" width="658" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

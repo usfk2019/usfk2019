@@ -1,0 +1,56 @@
+﻿$PBExportHeader$b0dw_reg_blacklist_s.srd
+$PBExportComments$[kem] 개별 제한번호 등록 - 대리점
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=parttype dbname="area_blacklist.parttype" )
+ column=(type=char(15) update=yes updatewhereclause=yes key=yes name=partcod dbname="area_blacklist.partcod" )
+ column=(type=char(50) updatewhereclause=yes name=partnernm dbname="partnermst.partnernm" )
+ column=(type=char(30) update=yes updatewhereclause=yes key=yes name=areanum dbname="area_blacklist.areanum" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=opendt dbname="area_blacklist.opendt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=enddt dbname="area_blacklist.enddt" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="area_blacklist.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="area_blacklist.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="area_blacklist.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="area_blacklist.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="area_blacklist.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="area_blacklist.pgm_id" )
+ retrieve="SELECT A.PARTTYPE
+     , A.PARTCOD
+     , B.PARTNERNM
+     , A.AREANUM
+     , A.OPENDT
+     , A.ENDDT
+     , A.REMARK
+     , A.CRT_USER
+     , A.UPDT_USER
+     , A.CRTDT
+     , A.UPDTDT
+     , A.PGM_ID
+  FROM AREA_BLACKLIST A
+     , PARTNERMST B
+ WHERE A.PARTCOD = B.PARTNER
+   AND A.PARTTYPE = 'S'" update="AREA_BLACKLIST" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="대리점" border="2" color="16777215" x="23" y="16" height="60" width="329"  name=arezoncod_areacod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대리점명" border="2" color="16777215" x="370" y="16" height="60" width="649"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="제한번호" border="2" color="16777215" x="1038" y="16" height="60" width="608"  name=areamst_areagroup_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용개시일" border="2" color="16777215" x="1664" y="16" height="60" width="425"  name=areamst_countrycod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비        고" border="2" color="16777215" x="2551" y="16" height="60" width="992"  name=arezoncod_zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용종료일" border="2" color="16777215" x="2107" y="16" height="60" width="425"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="219" y="132" height="60" width="288" format="[general]"  name=parttype edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="562" y="132" height="60" width="320" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1289" y="132" height="60" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1527" y="132" height="60" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="1760" y="132" height="60" width="256" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="23" y="8" height="60" width="329" format="[general]"  name=partcod edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="370" y="8" height="60" width="649" format="[general]"  name=partnernm dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="16777215" x="1038" y="8" height="60" width="608" format="[general]"  name=areanum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="2" tabsequence=30 border="2" color="16777215" x="1664" y="8" height="60" width="425" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=50 border="2" color="0" x="2551" y="8" height="60" width="992" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="2" tabsequence=40 border="2" color="0" x="2107" y="8" height="60" width="425" format="[shortdate] [time]"  name=enddt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="933" y="132" height="56" width="270" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

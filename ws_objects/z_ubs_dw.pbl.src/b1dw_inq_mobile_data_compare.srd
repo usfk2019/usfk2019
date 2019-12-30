@@ -1,0 +1,153 @@
+﻿$PBExportHeader$b1dw_inq_mobile_data_compare.srd
+$PBExportComments$[모바일개통처비료 레포트] 업로드데이터 - 2015.03.25. lys
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=128 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=agent_cd dbname="mobile_data_compare.agent_cd" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=reqdt dbname="mobile_data_compare.reqdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="mobile_data_compare.seq" )
+ column=(type=char(50) update=yes updatewhereclause=yes key=yes name=svc_type dbname="mobile_data_compare.svc_type" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=shop dbname="mobile_data_compare.shop" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=operator dbname="mobile_data_compare.operator" )
+ column=(type=char(30) update=yes updatewhereclause=yes key=yes name=validkey dbname="mobile_data_compare.validkey" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=priceplan dbname="mobile_data_compare.priceplan" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=sms_yn dbname="mobile_data_compare.sms_yn" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=modelno dbname="mobile_data_compare.modelno" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=serialno dbname="mobile_data_compare.serialno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contno dbname="mobile_data_compare.contno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=usimno dbname="mobile_data_compare.usimno" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=term_amt dbname="mobile_data_compare.term_amt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=validkey_check dbname="mobile_data_compare.validkey_check" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=sus_type dbname="mobile_data_compare.sus_type" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=validkey_new dbname="mobile_data_compare.validkey_new" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=svc_add_type dbname="mobile_data_compare.svc_add_type" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=priceplan_new dbname="mobile_data_compare.priceplan_new" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=modelno_new dbname="mobile_data_compare.modelno_new" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=serialno_new dbname="mobile_data_compare.serialno_new" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=usimno_new dbname="mobile_data_compare.usimno_new" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contno_new dbname="mobile_data_compare.contno_new" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=reason dbname="mobile_data_compare.reason" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=remark dbname="mobile_data_compare.remark" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="mobile_data_compare.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updt dbname="mobile_data_compare.updt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="mobile_data_compare.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="mobile_data_compare.updt_user" )
+ retrieve="SELECT AGENT_CD
+     , REQDT
+     , SEQ
+     , SVC_TYPE
+     , SHOP
+     , OPERATOR
+     , VALIDKEY
+     , PRICEPLAN
+     , SMS_YN
+     , MODELNO
+     , SERIALNO
+     , CONTNO
+     , USIMNO
+     , TERM_AMT
+     , VALIDKEY_CHECK
+     , SUS_TYPE
+     , VALIDKEY_NEW
+     , SVC_ADD_TYPE
+     , PRICEPLAN_NEW
+     , MODELNO_NEW
+     , SERIALNO_NEW
+     , USIMNO_NEW
+     , CONTNO_NEW
+     , REASON
+     , REMARK
+     , CRTDT
+     , UPDT
+     , CRT_USER
+     , UPDT_USER
+  FROM MOBILE_DATA_COMPARE
+
+
+" update="MOBILE_DATA_COMPARE" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="
+작업자" border="2" color="1090519039" x="14601" y="12" height="112" width="553"  name=updt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+순번" border="2" color="1090519039" x="274" y="12" height="112" width="210"  name=compute_1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+구분" border="2" color="1090519039" x="494" y="12" height="112" width="480"  name=svc_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+캠프명" border="2" color="1090519039" x="1312" y="12" height="112" width="658"  name=shop_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+성명" border="2" color="1090519039" x="1979" y="12" height="112" width="539"  name=operator_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+서비스번호" border="2" color="1090519039" x="2528" y="12" height="112" width="512"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+요금제" border="2" color="1090519039" x="3049" y="12" height="112" width="553"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+SMS 요금제" border="2" color="1090519039" x="3611" y="12" height="112" width="384"  name=sms_yn_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+단말기 모델" border="2" color="1090519039" x="4005" y="12" height="112" width="526"  name=modelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+단말기 일련번호" border="2" color="1090519039" x="4539" y="12" height="112" width="603"  name=serialno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+단말기 ContNo" border="2" color="1090519039" x="5152" y="12" height="112" width="521"  name=contno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+유심번호" border="2" color="1090519039" x="5682" y="12" height="112" width="631"  name=usimno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+해지정산금액(원)" border="2" color="1090519039" x="6322" y="12" height="112" width="590"  name=term_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="번 호 관 리
+(3개월이전해지)" border="2" color="1090519039" x="6921" y="12" height="112" width="686"  name=validkey_check_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="정  지  타  입
+(일시정지/분실정지)" border="2" color="1090519039" x="7616" y="12" height="112" width="622"  name=sus_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+변경 전화번호" border="2" color="1090519039" x="8247" y="12" height="112" width="951"  name=validkey_new_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+부가서비스 종류" border="2" color="1090519039" x="9207" y="12" height="112" width="512"  name=svc_add_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+변경 요금제" border="2" color="1090519039" x="9728" y="12" height="112" width="498"  name=priceplan_new_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+변경단말기 모델" border="2" color="1090519039" x="10235" y="12" height="112" width="507"  name=modelno_new_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경단말기
+일련번호" border="2" color="1090519039" x="10752" y="12" height="112" width="498"  name=serialno_new_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+변경 유심전호" border="2" color="1090519039" x="11259" y="12" height="112" width="631"  name=usimno_new_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+작업번호" border="2" color="1090519039" x="9" y="12" height="112" width="256"  name=seq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+날짜" border="2" color="1090519039" x="983" y="12" height="112" width="320"  name=reqdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="변경단말기
+ContNo" border="2" color="1090519039" x="11899" y="12" height="112" width="448"  name=contno_new_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+사유" border="2" color="1090519039" x="12357" y="12" height="112" width="379"  name=reason_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+비고" border="2" color="1090519039" x="12745" y="12" height="112" width="1243"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="
+작업일시" border="2" color="1090519039" x="13998" y="12" height="112" width="594"  name=updt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="0" x="14601" y="0" height="72" width="553" format="[general]"  name=updt_user dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="983" y="0" height="72" width="320" format="[shortdate]"  name=reqdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="9" y="0" height="72" width="256" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="494" y="0" height="72" width="480" format="[general]"  name=svc_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1312" y="0" height="72" width="658" format="[general]"  name=shop edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1979" y="0" height="72" width="539" format="[general]"  name=operator edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2528" y="0" height="72" width="512" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3049" y="0" height="72" width="553" format="[general]"  name=priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3611" y="0" height="72" width="384" format="[general]"  name=sms_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4005" y="0" height="72" width="526" format="[general]"  name=modelno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4539" y="0" height="72" width="603" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="5152" y="0" height="72" width="521" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="5682" y="0" height="72" width="631" format="[general]"  name=usimno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="6322" y="0" height="72" width="590" format="[general]"  name=term_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="6921" y="0" height="72" width="686" format="[general]"  name=validkey_check edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="7616" y="0" height="72" width="622" format="[general]"  name=sus_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="8247" y="0" height="72" width="951" format="[general]"  name=validkey_new edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="9207" y="0" height="72" width="512" format="[general]"  name=svc_add_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="9728" y="0" height="72" width="498" format="[general]"  name=priceplan_new edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="10235" y="0" height="72" width="507" format="[general]"  name=modelno_new edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="10752" y="0" height="72" width="498" format="[general]"  name=serialno_new edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="11259" y="0" height="72" width="631" format="[general]"  name=usimno_new edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="11899" y="0" height="72" width="448" format="[general]"  name=contno_new edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="2" tabsequence=32766 border="0" color="0" x="12357" y="0" height="72" width="379" format="[general]"  name=reason edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="12745" y="0" height="72" width="1243" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="13998" y="0" height="72" width="594" format="[shortdate] [time]"  name=updt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="getrow()"border="0" color="0" x="274" y="0" height="72" width="210" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

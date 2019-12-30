@@ -1,0 +1,89 @@
+﻿$PBExportHeader$b8dw_reg_admodel_t1_sams.srd
+$PBExportComments$[kem] 장비모델관리 - Tab1 마스터정보 Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=724 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=modelno dbname="admodel.modelno" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=modelnm dbname="admodel.modelnm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=makercd dbname="admodel.makercd" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=adtype dbname="admodel.adtype" )
+ column=(type=datetime update=yes updatewhereclause=yes name=regdt dbname="admodel.regdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=stockqty dbname="admodel.stockqty" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=sale_amt dbname="admodel.sale_amt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="admodel.use_yn" initial="Y" values="Yes	Y/No	N/" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=remark dbname="admodel.remark" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="admodel.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="admodel.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="admodel.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="admodel.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="admodel.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=prdcod dbname="admodel.prdcod" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=partner_amt dbname="admodel.partner_amt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=groupid_1 dbname="admodel.groupid_1" values="Single Item	S/Group Item	G/Lease Item	L/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=groupid_2 dbname="admodel.groupid_2" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=groupid_3 dbname="admodel.groupid_3" )
+ column=(type=char(12) update=yes updatewhereclause=yes name=sale_modelcd dbname="admodel.sale_modelcd" )
+ retrieve="  SELECT ~"ADMODEL~".~"MODELNO~",   
+         ~"ADMODEL~".~"MODELNM~",   
+         ~"ADMODEL~".~"MAKERCD~",   
+         ~"ADMODEL~".~"ADTYPE~",   
+         ~"ADMODEL~".~"REGDT~",   
+         ~"ADMODEL~".~"STOCKQTY~",   
+         ~"ADMODEL~".~"SALE_AMT~",   
+         ~"ADMODEL~".~"USE_YN~",   
+         ~"ADMODEL~".~"REMARK~",   
+         ~"ADMODEL~".~"CRT_USER~",   
+         ~"ADMODEL~".~"UPDT_USER~",   
+         ~"ADMODEL~".~"CRTDT~",   
+         ~"ADMODEL~".~"UPDTDT~",   
+         ~"ADMODEL~".~"PGM_ID~",   
+         ~"ADMODEL~".~"PRDCOD~",   
+         ~"ADMODEL~".~"PARTNER_AMT~",
+         ~"ADMODEL~".~"GROUPID_1~",
+         ~"ADMODEL~".~"GROUPID_2~",
+         ~"ADMODEL~".~"GROUPID_3~",
+  			~"ADMODEL~".~"SALE_MODELCD~"
+    FROM ~"ADMODEL~"   
+" update="ADMODEL" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="14" y="12" height="712" width="2784"  name=r_3 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="18" y="16" height="704" width="471"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="31516640" )
+rectangle(band=detail x="14" y="12" height="616" width="2784"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="1413" y="16" height="500" width="466"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=detail x1="489" y1="16" x2="489" y2="724"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="18" y1="412" x2="2793" y2="412"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="18" y1="308" x2="2793" y2="308"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="18" y1="208" x2="2793" y2="208"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="18" y1="108" x2="2793" y2="108"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="5" color="16777215" x="521" y="128" height="60" width="850" format="[general]"  name=adtype dddw.name=b8dc_dddw_adtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="16777215" x="1911" y="32" height="60" width="850" format="[general]"  name=modelnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="16777215" x="1911" y="128" height="60" width="850" format="[general]"  name=makercd dddw.name=b8dc_dddw_admaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="517" y="816" height="64" width="302" format="[general]"  name=stockqty visible="1~t0" editmask.mask="###,##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="재고수량" border="0" color="0" x="23" y="820" height="60" width="453"  name=t_8 visible="1~t0"  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="18" y1="516" x2="2793" y2="516"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+column(band=detail id=9 alignment="0" tabsequence=100 border="5" color="0" x="521" y="540" height="60" width="2240" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Model Number" border="0" color="0" x="27" y="32" height="60" width="443"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Equipment Type" border="0" color="0" x="27" y="132" height="60" width="443"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Registration Date" border="0" color="0" x="27" y="232" height="60" width="443"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="이동기준가" border="0" color="0" x="27" y="332" height="60" width="443"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Remark" border="0" color="0" x="27" y="540" height="60" width="443"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Model Name" border="0" color="0" x="1426" y="32" height="60" width="434"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Maker Code" border="0" color="0" x="1426" y="128" height="60" width="434"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Usable" border="0" color="0" x="1426" y="232" height="60" width="434"  name=t_9  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="1408" y1="12" x2="1408" y2="516"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1879" y1="12" x2="1879" y2="516"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="1" text="사용처" border="0" color="0" x="1426" y="332" height="60" width="434"  name=t_10  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="세부내역" border="0" color="0" x="1426" y="436" height="60" width="434"  name=t_11  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="구분" border="0" color="0" x="27" y="436" height="60" width="443"  name=t_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="521" y="32" height="60" width="402" format="[general]"  name=modelno edit.limit=10 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=40 border="5" color="0" x="521" y="232" height="60" width="402" format="[shortdate] [time]"  name=regdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=60 border="5" color="0" x="521" y="332" height="60" width="402" format="[general]"  name=sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=80 border="5" color="0" x="521" y="436" height="56" width="402" format="[general]"  name=groupid_2 dddw.name=b8dc_dddw_admodel_gubun dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=150 dddw.lines=5 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=50 border="5" color="0" x="1906" y="232" height="60" width="475" format="[general]"  name=use_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=70 border="5" color="0" x="1906" y="332" height="56" width="475" format="[general]"  name=groupid_1 ddlb.limit=3 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=90 border="5" color="0" x="1906" y="440" height="56" width="475" format="[general]"  name=groupid_3 dddw.name=b8dc_dddw_admodel_gubun_det dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=150 dddw.lines=5 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=110 border="0" color="16777215" x="517" y="644" height="60" width="914" format="[general]"  name=sale_modelcd dddw.name=b8dc_dddw_admodelcd dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="판매모델명" border="0" color="0" x="27" y="644" height="60" width="443"  name=t_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

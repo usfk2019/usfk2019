@@ -1,0 +1,35 @@
+﻿$PBExportHeader$ssrt_dw_popup_schedule_list.srd
+$PBExportComments$[1hera]스케쥴관리 리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=worktime dbname="schedule_detail.worktime" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=roomno dbname="customerm.roomno" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="schedule_detail.orderno" )
+ retrieve="SELECT A.worktime, 
+       B.customernm, 
+       B.BUILDINGNO, 
+       B.ROOMNO, 
+       A.orderno 
+  from schedule_detail A, 
+       customerm B
+where A.yyyymmdd = :dt
+  and A.customerid =  B.customerid
+order by A.WORKTIME desc" arguments=(("dt", string)) )
+text(band=header alignment="2" text="Time" border="2" color="0" x="46" y="12" height="56" width="302"  name=schedule_detail_worktime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Customer Name" border="2" color="0" x="361" y="12" height="56" width="608"  name=customerm_customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Order No" border="2" color="0" x="983" y="12" height="56" width="434"  name=schedule_detail_orderno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="46" y="4" height="56" width="302" format="[general]"  name=worktime editmask.mask="##:##" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="361" y="4" height="56" width="608" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="983" y="4" height="56" width="434" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1431" y="4" height="56" width="571" format="[general]"  name=buildingno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Building No" border="2" color="0" x="1431" y="12" height="56" width="571"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Room No" border="2" color="0" x="2016" y="12" height="56" width="571"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="2016" y="4" height="56" width="571" format="[general]"  name=roomno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

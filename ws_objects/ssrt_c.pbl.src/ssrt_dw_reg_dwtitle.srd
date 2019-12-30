@@ -1,0 +1,37 @@
+﻿$PBExportHeader$ssrt_dw_reg_dwtitle.srd
+$PBExportComments$[hcjung] 베이스 코드 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(80) update=yes updatewhereclause=yes key=yes name=dwobject dbname="dw_info.dwobject" )
+ column=(type=char(50) update=yes updatewhereclause=yes key=yes name=col_header dbname="dw_info.col_header" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=tbl_column dbname="dw_info.tbl_column" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=tableid dbname="dw_info.tableid" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=header_title dbname="dw_info.header_title" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=note dbname="dw_info.note" )
+ retrieve="  SELECT dwobject,
+col_header,
+tbl_column,
+tableid,
+header_title,
+note
+         
+    FROM dw_info  a 
+" update="dw_info" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="tbl_column" border="2" color="15793151" x="1257" y="8" height="64" width="521"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="tableid" border="2" color="15793151" x="2327" y="8" height="64" width="521"  name=tableid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="note" border="2" color="15793151" x="2862" y="8" height="64" width="521"  name=note_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="header_title" border="2" color="15793151" x="1792" y="8" height="64" width="521"  name=header_title_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="16777215" x="0" y="0" height="56" width="709" format="[general]"  name=dwobject edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="16777215" x="722" y="0" height="56" width="521" format="[general]"  name=col_header edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="16777215" x="1257" y="0" height="56" width="521" format="[general]"  name=tbl_column edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="0" color="16777215" x="1792" y="0" height="56" width="521" format="[general]"  name=header_title edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="0" tabsequence=50 border="0" color="0" x="2327" y="0" height="56" width="521" format="[general]"  name=tableid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="0" x="2862" y="0" height="56" width="521" format="[general]"  name=note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="col_header" border="2" color="15793151" x="722" y="8" height="64" width="521"  name=col_header_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="데이터오브젝트명" border="2" color="15793151" x="0" y="8" height="64" width="713"  name=dwobject_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

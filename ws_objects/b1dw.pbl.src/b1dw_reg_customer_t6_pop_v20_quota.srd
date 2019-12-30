@@ -1,0 +1,83 @@
+﻿$PBExportHeader$b1dw_reg_customer_t6_pop_v20_quota.srd
+$PBExportComments$[ohj] 고객에 따른 후불개통 품목popup - detail v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="cont_quotasalemst.orderno" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="cont_quotasalemst.contractseq" )
+ column=(type=datetime updatewhereclause=yes name=sale_month dbname="cont_quotasalemst.sale_month" )
+ column=(type=char(10) updatewhereclause=yes name=sale_type dbname="cont_quotasalemst.sale_type" values="일시불	S/할    부	M/" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="cont_quotasalemst.itemcod" )
+ column=(type=number updatewhereclause=yes name=amt dbname="amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_amt dbname="cont_quotasalemst.sale_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=quota_amt dbname="cont_quotasalemst.quota_amt" )
+ column=(type=decimal(0) updatewhereclause=yes name=quota_month_cnt dbname="cont_quotasalemst.quota_month_cnt" )
+ column=(type=decimal(0) updatewhereclause=yes name=payment_month_cnt dbname="cont_quotasalemst.payment_month_cnt" )
+ column=(type=number updatewhereclause=yes name=remain_amt dbname="remain_amt" )
+ column=(type=char(1) updatewhereclause=yes name=cancel_yn dbname="cont_quotasalemst.cancel_yn" )
+ column=(type=datetime updatewhereclause=yes name=canceldt dbname="cont_quotasalemst.canceldt" )
+ column=(type=char(16) updatewhereclause=yes name=cancel_user dbname="cont_quotasalemst.cancel_user" )
+ column=(type=decimal(0) updatewhereclause=yes name=seqno dbname="cont_quotasalemst.seqno" )
+ column=(type=char(12) updatewhereclause=yes name=sale_modelcd dbname="sale_modelcd" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="svcorder.priceplan" )
+ column=(type=char(200) updatewhereclause=yes name=remark dbname="cont_quotasalemst.remark" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="cont_quotasalemst.modelno" )
+ retrieve="select      a.orderno,  
+            a.contractseq, 
+            sale_month, 
+            sale_type, 
+            itemcod, 
+            decode(sale_type, 'S', sale_amt, 'M', quota_amt, 0) as amt,
+            sale_amt, 
+            quota_amt, 
+            quota_month_cnt, 
+            payment_month_cnt, 
+            decode(a.cancel_yn, 'Y', 0,(select sum(quota_month_amt)  from cont_quotasaledet
+            where seqno_quotasalemst = a.seqno and invc_yn = 'N')) as remain_amt,
+            cancel_yn, 
+            canceldt, 
+            cancel_user,
+            a.seqno,
+                (select sale_modelcd from admodel where modelno = a.modelno) as sale_modelcd,
+            b.priceplan,
+				a.remark,
+				a.modelno
+ from cont_quotasalemst a, svcorder b
+where a.orderno = b.orderno
+ and nvl(to_char(a.contractseq),'%') like :as_contractseq||'%'
+  and nvl(to_char(b.orderno),'%') like  :as_orderno||'%'" arguments=(("as_contractseq", string),("as_orderno", string))  sort="sale_month D " )
+text(band=header alignment="2" text="신청번호" border="2" color="15793151" x="4507" y="12" height="56" width="302"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="구분" border="2" color="15793151" x="869" y="12" height="56" width="256"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="15793151" x="2711" y="12" height="56" width="814"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개월수" border="2" color="15793151" x="1134" y="12" height="56" width="311"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구개월수" border="2" color="15793151" x="1454" y="12" height="56" width="311"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="취소여부" border="2" color="15793151" x="3534" y="12" height="56" width="261"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="취소일자" border="2" color="15793151" x="3803" y="12" height="56" width="329"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="취소자" border="2" color="15793151" x="4142" y="12" height="56" width="357"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="잔여개월수" border="2" color="15793151" x="1774" y="12" height="56" width="302"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="할부금액" border="2" color="15793151" x="2085" y="12" height="56" width="320"  name=t_14  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="잔여금액" border="2" color="15793151" x="2414" y="12" height="56" width="288"  name=t_15  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="과금시작일" border="2" color="15793151" x="9" y="12" height="56" width="338"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매모델명" border="2" color="15793151" x="357" y="12" height="56" width="503"  name=obj_459459453  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약번호" border="2" color="15793151" x="4818" y="12" height="56" width="293"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="     비고" border="2" color="15793151" x="5120" y="12" height="60" width="1842"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="4507" y="0" height="56" width="302" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="4818" y="0" height="56" width="293" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="0" height="56" width="338" format="[shortdate] [time]"  name=sale_month editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="869" y="0" height="56" width="256" format="[general]"  name=sale_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2711" y="0" height="56" width="814" format="[general]"  name=itemcod dddw.name=b1dc_dddw_itemmst dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="357" y="0" height="56" width="503" format="[general]"  name=sale_modelcd dddw.name=b8dc_dddw_admodelcd dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="5120" y="0" height="56" width="1842" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="2" tabsequence=32766 border="0" color="0~tif ( cancel_yn = 'Y', RGB(255,0,0),RGB(0,0,0))" x="3534" y="0" height="56" width="261" format="[general]"  name=cancel_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0~tif ( cancel_yn = 'Y', RGB(255,0,0),RGB(0,0,0))" x="3803" y="0" height="56" width="329" format="[shortdate] [time]"  name=canceldt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0~tif ( cancel_yn = 'Y', RGB(255,0,0),RGB(0,0,0))" x="4142" y="0" height="56" width="357" format="[general]"  name=cancel_user dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="1134" y="0" height="56" width="311" format="[general]"  name=quota_month_cnt visible="1~tif ( sale_type = 'S', 0,1)" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="1454" y="0" height="56" width="311" format="[general]"  name=payment_month_cnt visible="1~tif ( sale_type = 'S', 0,1)" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression=" quota_month_cnt  -  payment_month_cnt "border="0" color="0" x="1774" y="0" height="56" width="302" format="[GENERAL]"  name=compute_1 visible="1~tif ( sale_type = 'S', 0,1)"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2085" y="0" height="56" width="320" format="#,##0.00"  name=amt visible="1~tif ( sale_type = 'S', 0,1)" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2414" y="0" height="56" width="288" format="#,##0.00"  name=remain_amt visible="1~tif ( sale_type = 'S', 0,1)" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

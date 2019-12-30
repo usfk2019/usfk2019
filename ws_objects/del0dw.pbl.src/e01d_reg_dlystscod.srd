@@ -1,0 +1,32 @@
+﻿$PBExportHeader$e01d_reg_dlystscod.srd
+$PBExportComments$[jybaek] 연체상태코드등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=status_cd dbname="dlystscod.status_cd" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=status_nm dbname="dlystscod.status_nm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=status_flag dbname="dlystscod.status_flag" values="일반코드	1/조치코드	2/" )
+ column=(type=char(10) updatewhereclause=yes name=orderstatus dbname="dlystscod.orderstatus" )
+ column=(type=char(1) updatewhereclause=yes name=crt_user dbname="crt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="dlystscod.crtdt" )
+ retrieve="  SELECT ~"DLYSTSCOD~".~"STATUS_CD~",   
+         ~"DLYSTSCOD~".~"STATUS_NM~",   
+         ~"DLYSTSCOD~".~"STATUS_FLAG~",   
+         ~"DLYSTSCOD~".~"ORDERSTATUS~" ,
+         'A' crt_user,
+			sysdate crtdt 
+    FROM ~"DLYSTSCOD~"   
+" update="DLYSTSCOD" updatewhere=1 updatekeyinplace=no  sort="status_cd A status_nm A " )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="33554432" x="82" y="8" height="64" width="334" format="[general]"  name=status_cd edit.limit=5 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="33554432" x="1234" y="8" height="64" width="338" format="[general]"  name=status_flag ddlb.limit=1 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="상태Flag" border="2" color="15793151" x="1230" y="20" height="60" width="343"  name=status_flag_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태코드" border="2" color="15793151" x="73" y="20" height="60" width="352"  name=status_cd_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="코드명" border="2" color="15793151" x="439" y="20" height="60" width="773"  name=status_nm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="33554432" x="439" y="8" height="64" width="773" format="[general]"  name=status_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="33554432" x="1573" y="0" height="60" width="23"  name=crt_user visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="0" color="33554432" x="1691" y="12" height="60" width="142"  name=crtdt visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

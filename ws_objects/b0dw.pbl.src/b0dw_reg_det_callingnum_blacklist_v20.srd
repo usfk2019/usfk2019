@@ -1,0 +1,45 @@
+﻿$PBExportHeader$b0dw_reg_det_callingnum_blacklist_v20.srd
+$PBExportComments$[ssong]발신제한 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=148 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=svccod dbname="callingnum_blacklist.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="callingnum_blacklist.priceplan" )
+ column=(type=char(30) update=yes updatewhereclause=yes key=yes name=callingnum dbname="callingnum_blacklist.callingnum" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="callingnum_blacklist.fromdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=todt dbname="callingnum_blacklist.todt" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="callingnum_blacklist.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="callingnum_blacklist.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="callingnum_blacklist.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="callingnum_blacklist.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="callingnum_blacklist.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="callingnum_blacklist.pgm_id" )
+ retrieve="SELECT SVCCOD
+     , PRICEPLAN
+     , CALLINGNUM
+     , FROMDT
+     , TODT
+     , REMARK
+     , CRT_USER
+     , UPDT_USER
+     , CRTDT
+     , UPDTDT
+     , PGM_ID
+  FROM CALLINGNUM_BLACKLIST" update="CALLINGNUM_BLACKLIST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="" border="2" color="15793151" x="1650" y="12" height="128" width="1001"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="1170" y="12" height="128" width="462"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="690" y="12" height="128" width="462"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="14" y="12" height="128" width="658"  name=t_20  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발신제한번호" border="0" color="15793151" x="18" y="48" height="56" width="649"  name=callingnum_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="적용개시일" border="0" color="15793151" x="695" y="48" height="56" width="453"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="적용종료일" border="0" color="15793151" x="1175" y="48" height="56" width="453"  name=todt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="비        고" border="0" color="15793151" x="1655" y="48" height="56" width="992"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="16777215" x="14" y="8" height="56" width="658" format="[general]"  name=callingnum edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="2" tabsequence=20 border="2" color="16777215" x="690" y="8" height="56" width="462" format="yyyy-mm-dd"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="2" tabsequence=30 border="2" color="0" x="1170" y="8" height="56" width="462" format="yyyy-mm-dd"  name=todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="2" color="0" x="1650" y="8" height="56" width="1001" format="[general]"  name=remark edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

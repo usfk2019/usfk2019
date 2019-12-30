@@ -1,0 +1,165 @@
+﻿$PBExportHeader$p1dw_reg_master_t7.srd
+$PBExportComments$[kem] 선불카드 대역별 요율 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=148 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=zoncod dbname="particular_zoncst.zoncod" )
+ column=(type=datetime update=yes updatewhereclause=yes name=opendt dbname="particular_zoncst.opendt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=tmcod dbname="particular_zoncst.tmcod" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=frpoint dbname="particular_zoncst.frpoint" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=areanum dbname="particular_zoncst.areanum" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=roundflag dbname="particular_zoncst.roundflag" values="Up	U/Down	D/Nearest	O/" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unbilsec dbname="particular_zoncst.unbilsec" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=confee dbname="particular_zoncst.confee" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="particular_zoncst.itemcod" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec dbname="particular_zoncst.unitsec" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee dbname="particular_zoncst.unitfee" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange1 dbname="particular_zoncst.tmrange1" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec1 dbname="particular_zoncst.unitsec1" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee1 dbname="particular_zoncst.unitfee1" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange2 dbname="particular_zoncst.tmrange2" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec2 dbname="particular_zoncst.unitsec2" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee2 dbname="particular_zoncst.unitfee2" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange3 dbname="particular_zoncst.tmrange3" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec3 dbname="particular_zoncst.unitsec3" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee3 dbname="particular_zoncst.unitfee3" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange4 dbname="particular_zoncst.tmrange4" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec4 dbname="particular_zoncst.unitsec4" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee4 dbname="particular_zoncst.unitfee4" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange5 dbname="particular_zoncst.tmrange5" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec5 dbname="particular_zoncst.unitsec5" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee5 dbname="particular_zoncst.unitfee5" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=parttype dbname="particular_zoncst.parttype" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=partcod dbname="particular_zoncst.partcod" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="particular_zoncst.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="particular_zoncst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="particular_zoncst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="particular_zoncst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="particular_zoncst.pgm_id" )
+ retrieve="SELECT ZONCOD
+     , OPENDT
+     , TMCOD
+     , FRPOINT
+     , AREANUM
+     , ROUNDFLAG
+     , UNBILSEC
+     , CONFEE
+     , ITEMCOD
+     , UNITSEC
+     , UNITFEE
+     , TMRANGE1
+     , UNITSEC1
+     , UNITFEE1
+     , TMRANGE2
+     , UNITSEC2
+     , UNITFEE2
+     , TMRANGE3
+     , UNITSEC3
+     , UNITFEE3
+     , TMRANGE4
+     , UNITSEC4
+     , UNITFEE4
+     , TMRANGE5
+     , UNITSEC5
+     , UNITFEE5
+     , PARTTYPE
+     , PARTCOD
+     , CRT_USER
+     , UPDT_USER
+     , CRTDT
+     , UPDTDT
+     , PGM_ID
+  FROM PARTICULAR_ZONCST
+ WHERE PARTTYPE = 'P'
+ ORDER BY ZONCOD, OPENDT, TMCOD,FRPOINT,AREANUM,ROUNDFLAG ASC" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="27" y="12" height="132" width="722"  name=t_20  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="759" y="12" height="132" width="494"  name=t_22  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="1262" y="12" height="132" width="430"  name=t_30  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="1701" y="12" height="132" width="562"  name=t_21  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="" border="2" color="15793151" x="2272" y="12" height="132" width="338"  name=t_42  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="2619" y="12" height="132" width="256"  name=t_24  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="2885" y="12" height="132" width="352"  name=t_25  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="4914" y="12" height="132" width="443"  name=t_29  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="4347" y="12" height="132" width="558"  name=t_28  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="3246" y="12" height="132" width="462"  name=t_26  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="3717" y="12" height="132" width="622"  name=t_27  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Rate Period3" border="2" color="15793151" x="8549" y="12" height="60" width="416"  name=t_17  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Dest. Prefix" border="0" color="15793151" x="1262" y="48" height="60" width="430"  name=areanum_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=foreground alignment="2" text="Effective-From" border="0" color="15793151" x="763" y="48" height="60" width="489"  name=opendt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Unit Duration" border="2" color="15793151" x="5824" y="84" height="60" width="430"  name=addamt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Charge per Unit" border="2" color="15793151" x="6263" y="84" height="60" width="457"  name=stdsec_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Duration Range" border="2" color="15793151" x="6729" y="84" height="60" width="439"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Unit Duration" border="2" color="15793151" x="7177" y="84" height="60" width="448"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Charge per Unit" border="2" color="15793151" x="7634" y="84" height="60" width="453"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Duration Range" border="2" color="15793151" x="8096" y="84" height="60" width="443"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Unit Duration" border="2" color="15793151" x="8549" y="84" height="60" width="416"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Charge per Unit" border="2" color="15793151" x="8974" y="84" height="60" width="421"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Charge per Unit" border="2" color="15793151" x="10272" y="84" height="60" width="434"  name=t_10  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Charge per Unit" border="2" color="15793151" x="11607" y="84" height="60" width="421"  name=t_14  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Free Sec." border="0" color="15793151" x="2885" y="48" height="60" width="352"  name=unbilsec_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Connectino Fee" border="0" color="15793151" x="3246" y="48" height="60" width="462"  name=connectfee_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Item" border="0" color="15793151" x="3717" y="48" height="60" width="622"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Initial Increment" border="0" color="15793151" x="4347" y="48" height="60" width="558"  name=bassec_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Round" border="0" color="15793151" x="2619" y="48" height="60" width="256"  name=roundflag_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="5367" y="12" height="60" width="448"  name=t_32  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="6263" y="12" height="60" width="457"  name=t_33  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="6729" y="12" height="60" width="439"  name=t_34  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="7634" y="12" height="60" width="453"  name=t_35  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="8096" y="12" height="60" width="443"  name=t_36  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="8974" y="12" height="60" width="421"  name=t_37  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Duration Range" border="2" color="15793151" x="9403" y="84" height="60" width="425"  name=t_38  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Unit Duration" border="2" color="15793151" x="9838" y="84" height="60" width="425"  name=t_9  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Rate Period4" border="2" color="15793151" x="9838" y="12" height="60" width="425"  name=t_11  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="9403" y="12" height="60" width="425"  name=t_18  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="10272" y="12" height="60" width="434"  name=t_39  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Duration Range" border="2" color="15793151" x="10715" y="84" height="60" width="425"  name=t_40  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Unit Duration" border="2" color="15793151" x="11150" y="84" height="60" width="448"  name=t_12  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Rate Period5" border="2" color="15793151" x="11150" y="12" height="60" width="448"  name=t_13  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="10715" y="12" height="60" width="425"  name=t_19  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="11607" y="12" height="60" width="421"  name=t_41  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Usage Tier" border="0" color="15793151" x="2272" y="48" height="60" width="338"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Rate Period1" border="2" color="15793151" x="5824" y="12" height="60" width="430"  name=t_15  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Rate Period2" border="2" color="15793151" x="7177" y="12" height="60" width="448"  name=t_16  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Rate Period" border="0" color="15793151" x="1701" y="48" height="60" width="562"  name=tmcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="2" text="Zone" border="0" color="15793151" x="32" y="48" height="60" width="718"  name=t_31  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Initial Rate" border="0" color="15793151" x="4914" y="48" height="60" width="443"  name=basamt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Duration Range" border="2" color="15793151" x="5367" y="84" height="60" width="448"  name=addsec_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="lookupdisplay(  zoncod  )"border="0" color="0" x="9" y="96" height="72" width="9" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="27" y="8" height="64" width="722" format="[general]"  name=zoncod dddw.name=b0dc_dddw_zone2 dddw.displaycolumn=zonnm dddw.datacolumn=zoncod dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="2" color="16777215" x="1262" y="8" height="64" width="430" format="[general]"  name=areanum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="16777215" x="759" y="8" height="64" width="494" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=12 alignment="1" tabsequence=120 border="2" color="0" x="5367" y="8" height="64" width="448" format="[general]"  name=tmrange1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="1" tabsequence=130 border="2" color="0" x="5824" y="8" height="64" width="430" format="[general]"  name=unitsec1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="1" tabsequence=140 border="2" color="0" x="6263" y="8" height="64" width="457" format="[general]"  name=unitfee1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=70 border="2" color="0" x="2885" y="8" height="64" width="352" format="[general]"  name=unbilsec edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=80 border="2" color="0" x="3246" y="8" height="64" width="462" format="#,##0.0000"  name=confee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="2" color="16777215" x="3717" y="8" height="64" width="622" format="[general]"  name=itemcod dddw.name=p1dc_dddw_itemcod dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=10 alignment="1" tabsequence=100 border="2" color="16777215" x="4347" y="8" height="64" width="558" format="[general]"  name=unitsec edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=11 alignment="1" tabsequence=110 border="2" color="16777215" x="4914" y="8" height="64" width="443" format="[general]"  name=unitfee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=15 alignment="1" tabsequence=150 border="2" color="0" x="6729" y="8" height="64" width="439" format="[general]"  name=tmrange2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="1" tabsequence=160 border="2" color="0" x="7177" y="8" height="64" width="448" format="[general]"  name=unitsec2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="1" tabsequence=170 border="2" color="0" x="7634" y="8" height="64" width="453" format="[general]"  name=unitfee2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="1" tabsequence=180 border="2" color="0" x="8096" y="8" height="64" width="443" format="[general]"  name=tmrange3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="1" tabsequence=190 border="2" color="0" x="8549" y="8" height="64" width="416" format="[general]"  name=unitsec3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="1" tabsequence=200 border="2" color="0" x="8974" y="8" height="64" width="421" format="[general]"  name=unitfee3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="1" tabsequence=210 border="2" color="0" x="9403" y="8" height="64" width="425" format="[general]"  name=tmrange4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="1" tabsequence=220 border="2" color="0" x="9838" y="8" height="64" width="425" format="[general]"  name=unitsec4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="1" tabsequence=230 border="2" color="0" x="10272" y="8" height="64" width="434" format="[general]"  name=unitfee4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="1" tabsequence=240 border="2" color="0" x="10715" y="8" height="64" width="425" format="[general]"  name=tmrange5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=25 alignment="1" tabsequence=250 border="2" color="0" x="11150" y="8" height="64" width="448" format="[general]"  name=unitsec5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=26 alignment="1" tabsequence=260 border="2" color="0" x="11607" y="8" height="64" width="421" format="[general]"  name=unitfee5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="2" color="0" x="2619" y="8" height="64" width="256" format="[general]"  name=roundflag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="2" color="16777215" x="1701" y="8" height="64" width="562" format="[general]"  name=tmcod dddw.name=b0dc_dddw_tmcod dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=150 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="1" tabsequence=50 border="2" color="16777215" x="2272" y="8" height="64" width="338" format="#,##0.000000"  name=frpoint edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="12146" y="132" height="56" width="37" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=32 alignment="0" tabsequence=32766 border="0" color="0" x="12238" y="132" height="56" width="37" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=33 alignment="0" tabsequence=32766 border="0" color="0" x="12283" y="132" height="56" width="37" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="12069" y="132" height="56" width="32" format="[general]"  name=partcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="0" x="12110" y="132" height="56" width="27" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="12192" y="132" height="56" width="37" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="12037" y="132" height="56" width="23" format="[general]"  name=parttype edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

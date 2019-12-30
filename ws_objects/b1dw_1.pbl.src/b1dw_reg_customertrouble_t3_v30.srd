@@ -1,0 +1,146 @@
+﻿$PBExportHeader$b1dw_reg_customertrouble_t3_v30.srd
+$PBExportComments$[hcjung] 고객민원처리 및 마감 tab3
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=688 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=customer_trouble_troubleno dbname="customer_trouble.troubleno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_troubletype dbname="customer_trouble.troubletype" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=customer_trouble_customerid dbname="customer_trouble.customerid" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_receiptdt dbname="customer_trouble.receiptdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_receipt_user dbname="customer_trouble.receipt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_partner dbname="customer_trouble.partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_svccod dbname="customer_trouble.svccod" )
+ column=(type=char(300) update=yes updatewhereclause=yes name=customer_trouble_trouble_note dbname="customer_trouble.trouble_note" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=customer_trouble_closeyn dbname="customer_trouble.closeyn" initial="Y" values="Yes	Y/No	N/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_close_user dbname="customer_trouble.close_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=close_partner dbname="customer_trouble.close_partner" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=close_note dbname="customer_trouble.close_note" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_closedt dbname="customer_trouble.closedt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_crtdt dbname="customer_trouble.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=customer_trouble_updtdt dbname="customer_trouble.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=customer_trouble_pgm_id dbname="customer_trouble.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_crt_user dbname="customer_trouble.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_updt_user dbname="customer_trouble.updt_user" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=customer_trouble_customernm dbname="customer_trouble.customernm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_trouble_status dbname="customer_trouble.trouble_status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_modelno dbname="customer_trouble.modelno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=customer_trouble_ssno dbname="customer_trouble.ssno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_cregno dbname="customer_trouble.cregno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_country dbname="customer_trouble.country" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_sacnum dbname="customer_trouble.sacnum" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=customer_trouble_callforwardno dbname="customer_trouble.callforwardno" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=customer_trouble_sendno dbname="customer_trouble.sendno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=customer_trouble_pid dbname="customer_trouble.pid" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=customer_trouble_validkey dbname="customer_trouble.validkey" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=customer_trouble_phone dbname="customer_trouble.phone" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_inid dbname="customer_trouble.inid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_outid dbname="customer_trouble.outid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_inid_after dbname="customer_trouble.inid_after" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_outid_after dbname="customer_trouble.outid_after" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_restype dbname="customer_trouble.restype" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_trouble_close_troubletype dbname="customer_trouble.close_troubletype" )
+ column=(type=char(10) updatewhereclause=yes name=troubletypemst_troubletypea dbname="troubletypemst.troubletypea" )
+ column=(type=char(10) updatewhereclause=yes name=troubletypea_troubletypeb dbname="troubletypea.troubletypeb" )
+ column=(type=char(10) updatewhereclause=yes name=troubletypeb_troubletypec dbname="troubletypeb.troubletypec" )
+ retrieve="  SELECT ~"CUSTOMER_TROUBLE~".~"TROUBLENO~",   
+         ~"CUSTOMER_TROUBLE~".~"TROUBLETYPE~",   
+         ~"CUSTOMER_TROUBLE~".~"CUSTOMERID~",   
+         ~"CUSTOMER_TROUBLE~".~"RECEIPTDT~",   
+         ~"CUSTOMER_TROUBLE~".~"RECEIPT_USER~",   
+         ~"CUSTOMER_TROUBLE~".~"PARTNER~",   
+         ~"CUSTOMER_TROUBLE~".~"SVCCOD~",   
+         ~"CUSTOMER_TROUBLE~".~"TROUBLE_NOTE~",   
+         ~"CUSTOMER_TROUBLE~".~"CLOSEYN~",   
+         ~"CUSTOMER_TROUBLE~".~"CLOSE_USER~",  
+         ~"CUSTOMER_TROUBLE~".~"CLOSE_PARTNER~",    
+         ~"CUSTOMER_TROUBLE~".~"CLOSE_NOTE~",   
+         ~"CUSTOMER_TROUBLE~".~"CLOSEDT~",   
+         ~"CUSTOMER_TROUBLE~".~"CRTDT~",   
+         ~"CUSTOMER_TROUBLE~".~"UPDTDT~",   
+         ~"CUSTOMER_TROUBLE~".~"PGM_ID~",   
+         ~"CUSTOMER_TROUBLE~".~"CRT_USER~",   
+         ~"CUSTOMER_TROUBLE~".~"UPDT_USER~",   
+			~"CUSTOMER_TROUBLE~".~"CUSTOMERNM~",
+         ~"CUSTOMER_TROUBLE~".~"TROUBLE_STATUS~",   
+         ~"CUSTOMER_TROUBLE~".~"MODELNO~",
+			~"CUSTOMER_TROUBLE~".~"SSNO~",
+			~"CUSTOMER_TROUBLE~".~"CREGNO~",
+			~"CUSTOMER_TROUBLE~".~"COUNTRY~",
+			~"CUSTOMER_TROUBLE~".~"SACNUM~",
+			~"CUSTOMER_TROUBLE~".~"CALLFORWARDNO~",
+			~"CUSTOMER_TROUBLE~".~"SENDNO~",
+			~"CUSTOMER_TROUBLE~".~"PID~",
+			~"CUSTOMER_TROUBLE~".~"VALIDKEY~",
+			~"CUSTOMER_TROUBLE~".~"PHONE~",
+			~"CUSTOMER_TROUBLE~".~"INID~",
+			~"CUSTOMER_TROUBLE~".~"OUTID~",
+			~"CUSTOMER_TROUBLE~".~"INID_AFTER~",
+			~"CUSTOMER_TROUBLE~".~"OUTID_AFTER~",
+			~"CUSTOMER_TROUBLE~".~"RESTYPE~",
+         ~"CUSTOMER_TROUBLE~".~"CLOSE_TROUBLETYPE~",
+         ~"TROUBLETYPEMST~".~"TROUBLETYPEA~",   
+         ~"TROUBLETYPEA~".~"TROUBLETYPEB~",   
+         ~"TROUBLETYPEB~".~"TROUBLETYPEC~"
+    FROM ~"CUSTOMER_TROUBLE~",   
+         ~"TROUBLETYPEA~",   
+         ~"TROUBLETYPEB~",   
+         ~"TROUBLETYPEMST~"  
+   WHERE ( troubletypea.troubletypeb = troubletypeb.troubletypeb (+)) and  
+         ( troubletypemst.troubletypea = troubletypea.troubletypea (+)) and  
+         ( customer_trouble.troubletype = troubletypemst.troubletype (+))" update="CUSTOMER_TROUBLE" updatewhere=0 updatekeyinplace=yes )
+rectangle(band=detail x="1559" y="96" height="184" width="471"  name=r_3 visible="1" brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="33554431" )
+rectangle(band=detail x="37" y="96" height="580" width="462"  name=r_2 visible="1" brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="33554431"  background.mode="2" background.color="33554431" )
+rectangle(band=detail x="37" y="96" height="580" width="3177"  name=r_1 visible="1" brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=40 border="5" color="16777215" x="517" y="292" height="368" width="2674" format="[general]" html.valueishtml="0"  name=close_note visible="1" edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="3346" y="188" height="56" width="562" format="[general]" html.valueishtml="0"  name=customer_trouble_phone visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=33 alignment="0" tabsequence=32766 border="0" color="0" x="4864" y="312" height="56" width="1134" format="[general]" html.valueishtml="0"  name=customer_trouble_inid_after visible="1~t0" dddw.name=b1dc_dddw_inid dddw.displaycolumn=validkey dddw.datacolumn=validkey dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=34 alignment="0" tabsequence=32766 border="0" color="0" x="4864" y="412" height="56" width="1134" format="[general]" html.valueishtml="0"  name=customer_trouble_outid_after visible="1~t0" dddw.name=b1dc_dddw_outid dddw.displaycolumn=validkey dddw.datacolumn=validkey dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="[변경후]" border="0" color="0" x="4955" y="220" height="60" width="338" html.valueishtml="0"  name=t_16 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="[변경전]" border="0" color="0" x="4119" y="216" height="60" width="338" html.valueishtml="0"  name=t_15 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="4009" y="312" height="56" width="672" format="[general]" html.valueishtml="0"  name=customer_trouble_inid visible="1~t0" dddw.name=b1dc_dddw_inid dddw.displaycolumn=validkey dddw.datacolumn=validkey dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="-->" border="0" color="0" x="4699" y="312" height="60" width="146" html.valueishtml="0"  name=t_19 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="-->" border="0" color="0" x="4699" y="412" height="60" width="146" html.valueishtml="0"  name=t_21 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="0" tabsequence=32766 border="0" color="0" x="4009" y="412" height="56" width="672" format="[general]" html.valueishtml="0"  name=customer_trouble_outid visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+line(band=detail x1="3977" y1="500" x2="3977" y2="696"  name=l_28 visible="1~t0" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="494" y1="96" x2="494" y2="672"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="조치내역" border="0" color="0" x="73" y="296" height="60" width="389" html.valueishtml="0"  name=t_20 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="3291" y1="464" x2="6455" y2="464"  name=l_30 visible="1~t0" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="OUT Route" border="0" color="0" x="3301" y="492" height="60" width="608" html.valueishtml="0"  name=t_17 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="IN Route" border="0" color="0" x="3301" y="392" height="60" width="608" html.valueishtml="0"  name=t_18 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="3287" y1="580" x2="6034" y2="580"  name=l_27 visible="1~t0" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="3287" y1="680" x2="6034" y2="680"  name=l_9 visible="1~t0" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="1" text="완료 Shop =>" border="0" color="0" x="41" y="24" height="60" width="393" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="완료처리자 =>" border="0" color="0" x="1714" y="24" height="60" width="411" html.valueishtml="0"  name=customer_trouble_close_user_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2149" y="24" height="60" width="864" format="[general]" html.valueishtml="0"  name=customer_trouble_close_user visible="1" dddw.name=b1dc_dddw_userid_v20 dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=38 alignment="0" tabsequence=32766 border="0" color="0" x="3648" y="100" height="60" width="229" format="[general]" html.valueishtml="0"  name=troubletypea_troubletypeb visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=37 alignment="0" tabsequence=32766 border="0" color="0" x="3342" y="124" height="60" width="229" format="[general]" html.valueishtml="0"  name=troubletypemst_troubletypea visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="조치유형" border="0" color="0" x="3963" y="112" height="60" width="389" html.valueishtml="0"  name=t_22 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=35 alignment="0" tabsequence=32766 border="5" color="16777215" x="4379" y="108" height="64" width="617" format="[general]" html.valueishtml="0"  name=customer_trouble_restype visible="1~t0" dddw.name=b1dc_1_dddw_restype_v20 dddw.displaycolumn=restypenm dddw.datacolumn=restype dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="457" y="24" height="60" width="1033" format="[general]" html.valueishtml="0"  name=close_partner visible="1" dddw.name=b1dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="2025" y1="96" x2="2025" y2="272"  name=l_4 visible="1" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1559" y1="96" x2="1559" y2="276"  name=l_5 visible="1" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="2025" y1="96" x2="2025" y2="276"  name=l_6 visible="1" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="41" y1="272" x2="3209" y2="272"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="처리완료일" border="0" color="0" x="69" y="116" height="60" width="411" html.valueishtml="0"  name=customer_trouble_closedt_t visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=10 border="5" color="16777215" x="517" y="112" height="64" width="590" format="mm-dd-yyyy" html.valueishtml="0"  name=customer_trouble_closedt visible="1" editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="2" text="처리완료" border="0" color="0" x="1605" y="116" height="60" width="384" html.valueishtml="0"  name=customer_trouble_closeyn_t visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="접수시 장애유형" border="0" color="0" x="59" y="204" height="60" width="416" html.valueishtml="0"  name=t_12 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="517" y="200" height="64" width="1029" format="[general]" html.valueishtml="0"  name=customer_trouble_troubletype visible="1" dddw.name=b1dc_dddw_troubletypemst dddw.displaycolumn=troubletypenm dddw.datacolumn=troubletype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="41" y1="184" x2="3209" y2="184"  name=l_29 visible="1" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=9 alignment="0" tabsequence=20 border="5" color="16777215" x="2053" y="112" height="64" width="873" format="[general]" html.valueishtml="0"  name=customer_trouble_closeyn visible="1" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="2" text="완료시 장애유형" border="0" color="0" x="1586" y="204" height="60" width="430" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=36 alignment="0" tabsequence=30 border="5" color="16777215" x="2053" y="204" height="60" width="1088" format="[general]" html.valueishtml="0"  name=customer_trouble_close_troubletype visible="1" dddw.name=b1dc_dddw_close_troubletypemst dddw.displaycolumn=troubletypenm dddw.datacolumn=troubletype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3342" y="308" height="60" width="229" format="[general]" html.valueishtml="0"  name=customer_trouble_svccod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

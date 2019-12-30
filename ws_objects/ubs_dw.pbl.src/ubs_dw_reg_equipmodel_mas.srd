@@ -1,0 +1,53 @@
+﻿$PBExportHeader$ubs_dw_reg_equipmodel_mas.srd
+$PBExportComments$[jhchoi] 모바일 기기 변경 (Master) -  2009.03.16
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=144 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=makercd dbname="equipmodelmst.makercd" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=modelno dbname="equipmodelmst.modelno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="equipmodelmst.itemcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=use_yn dbname="equipmodelmst.use_yn" values="Y	Y/N	N/" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=sale_amt dbname="equipmodelmst.sale_amt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="equipmodelmst.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="equipmodelmst.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="equipmodelmst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="equipmodelmst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="equipmodelmst.pgm_id" )
+ retrieve="SELECT  MAKERCD,
+		  MODELNO,
+		  ITEMCOD,
+		  USE_YN,
+		  SALE_AMT,
+		  CRT_USER,
+		  CRTDT,
+		  UPDT_USER,
+		  UPDTDT,
+		  PGM_ID
+FROM    EQUIPMODELMST
+" update="EQUIPMODELMST" updatewhere=1 updatekeyinplace=no  sort="makercd A modelno A " )
+text(band=header alignment="1" text="Rows" border="0" color="0" x="3835" y="8" height="60" width="443"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Update User" border="2" color="1090519039" x="3835" y="80" height="60" width="443"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Creative Date" border="2" color="1090519039" x="3310" y="80" height="60" width="517"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Creative User" border="2" color="1090519039" x="2862" y="80" height="60" width="439"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Use Y/N" border="2" color="1090519039" x="2615" y="80" height="60" width="238"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Item" border="2" color="1090519039" x="1554" y="80" height="60" width="677"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Model" border="2" color="1090519039" x="699" y="80" height="60" width="846"  name=t_9  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Maker" border="2" color="1090519039" x="9" y="80" height="60" width="681"  name=t_10  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="0" x="4288" y="8" height="60" width="494" format="#,##0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Update Date" border="2" color="1090519039" x="4288" y="80" height="60" width="494"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Sale Amt" border="2" color="1090519039" x="2240" y="80" height="60" width="366"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2862" y="4" height="64" width="439" format="[general]"  name=crt_user dddw.name=b1c_dddw_sysusr1t dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3310" y="4" height="64" width="517" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3835" y="4" height="64" width="443" format="[general]"  name=updt_user dddw.name=b1c_dddw_sysusr1t dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4288" y="4" height="64" width="494" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=50 border="0" color="16777215" x="2615" y="4" height="64" width="238" format="[general]"  name=use_yn  tag="Use Y/N" ddlb.limit=2 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="16777215" x="1554" y="4" height="64" width="677" format="[general]"  name=itemcod  tag="Item" dddw.name=ubs_dddw_equipmodel_item dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=150 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="16777215" x="699" y="4" height="64" width="846" format="[general]"  name=modelno  tag="Model" dddw.name=ubs_dddw_equipmentmodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=150 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="16777215" x="9" y="4" height="64" width="681" format="[general]"  name=makercd  tag="Maker" dddw.name=ubs_dddw_equipmaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=150 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=5 alignment="1" tabsequence=40 border="0" color="0" x="2240" y="4" height="64" width="366" format="#,##0.00"  name=sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4791" y="0" height="60" width="9" format="[general]"  name=pgm_id visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

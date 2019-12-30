@@ -1,0 +1,64 @@
+﻿$PBExportHeader$b8dw_prt_admodel_list.srd
+$PBExportComments$[ceusee] 장비 모델 내역 리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=464 color="536870912" )
+summary(height=20 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=admodel_modelno dbname="admodel.modelno" )
+ column=(type=char(50) updatewhereclause=yes name=admodel_modelnm dbname="admodel.modelnm" )
+ column=(type=char(10) updatewhereclause=yes name=admodel_makercd dbname="admodel.makercd" )
+ column=(type=char(10) updatewhereclause=yes name=admodel_adtype dbname="admodel.adtype" )
+ column=(type=number updatewhereclause=yes name=allcnt dbname="allcnt" )
+ column=(type=number updatewhereclause=yes name=sale dbname="sale" )
+ column=(type=number updatewhereclause=yes name=cnt dbname="cnt" )
+ column=(type=number updatewhereclause=yes name=back dbname="back" )
+ column=(type=number updatewhereclause=yes name=useable dbname="useable" )
+ retrieve="SELECT MOD.MODELNO, MOD.MODELNM, MOD.MAKERCD,MOD.ADTYPE,
+       (COUNT(MOD.MODELNO) - SUM(DECODE(ADM.SALE_FLAG, '9', 1, 0))) ALLCNT,
+       SUM(DECODE(ADM.SALE_FLAG, '1' ,1, 0)) SALE,
+       SUM(DECODE(ADM.SALE_FLAG, '1' ,0, 1)) CNT,
+       SUM(DECODE(ADM.SALE_FLAG, '9', 1, 0)) BACK,
+       SUM(DECODE(ADM.SALE_FLAG || ADM.USE_YN, '0Y',1,'9Y', 1, 0)) USEABLE 
+FROM ADMST ADM, ADMODEL MOD
+WHERE ADM.MODELNO = MOD.MODELNO
+GROUP BY MOD.ADTYPE, MOD.MODELNO, MOD.MODELNM, MOD.MAKERCD
+--ORDER BY MOD.MODELNO, MOD.MAKERCD, MOD.ADTYPE
+" )
+group(level=1 header.height=0 trailer.height=92 by=("admodel_adtype" , "admodel_modelno" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2656" y="88" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2583" y="88" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="23" y="76" height="88" width="3365"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="23" y1="376" x2="3387" y2="376"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="23" y1="456" x2="3387" y2="460"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="2720" y="216" height="60" width="667"  name=date_time  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2720" y="284" height="64" width="667" format="[GENERAL]"  name=page  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="장비구분" border="0" color="0" x="41" y="388" height="56" width="306"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="모델번호" border="0" color="0" x="366" y="388" height="56" width="306"  name=admodel_modelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="모  델" border="0" color="0" x="690" y="388" height="56" width="603"  name=admodel_modelnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="사용가능재고" border="0" color="0" x="3022" y="388" height="56" width="357"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="총재고" border="0" color="0" x="2693" y="388" height="56" width="311"  name=cnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="입고" border="0" color="0" x="1705" y="388" height="56" width="311"  name=allcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="출고" border="0" color="0" x="2034" y="388" height="56" width="311"  name=sale_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="제조사" border="0" color="0" x="1312" y="388" height="56" width="375"  name=admodel_makercd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="반품" border="0" color="0" x="2363" y="388" height="56" width="311"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="23" y1="80" x2="3387" y2="80"  name=l_4 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="41" y="8" height="60" width="306" format="[general]"  name=admodel_adtype dddw.name=b8dc_dddw_adtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="366" y="8" height="60" width="306" format="[general]"  name=admodel_modelno edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="690" y="8" height="60" width="603" format="[general]"  name=admodel_modelnm dddw.name=b8dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="3022" y="8" height="60" width="357" format="[general]"  name=useable editmask.mask="###,###,##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2693" y="8" height="60" width="311" format="#,##0"  name=cnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2363" y="8" height="60" width="311" format="#,##0"  name=back edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1705" y="8" height="60" width="311" format="#,##0"  name=allcnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2034" y="8" height="60" width="311" format="#,##0"  name=sale edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1312" y="8" height="60" width="375" format="[general]"  name=admodel_makercd dddw.name=b8dc_dddw_admaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="23" y1="0" x2="3387" y2="0"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(  useable  for group 1 )"border="0" color="0" x="3022" y="20" height="64" width="357" format="[GENERAL]"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  cnt  for group 1 )"border="0" color="0" x="2693" y="20" height="64" width="311" format="[GENERAL]"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  allcnt  for group 1 )"border="0" color="0" x="1705" y="20" height="64" width="311" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  sale  for group 1 )"border="0" color="0" x="2034" y="20" height="64" width="311" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(back for group 1)"border="0" color="0" x="2363" y="20" height="64" width="311" format="#,##0"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="23" y1="4" x2="3387" y2="8"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

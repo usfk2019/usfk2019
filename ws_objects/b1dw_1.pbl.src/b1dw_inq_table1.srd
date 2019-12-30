@@ -1,0 +1,32 @@
+﻿$PBExportHeader$b1dw_inq_table1.srd
+$PBExportComments$[islim] table - Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=104 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=table_name dbname="user_tab_comments.table_name" )
+ column=(type=char(4000) updatewhereclause=yes name=comments dbname="user_tab_comments.comments" )
+ retrieve="SELECT table_name,comments
+        FROM USER_TAB_COMMENTS
+        WHERE comments is not null
+
+" )
+rectangle(band=header x="18" y="8" height="92" width="1641"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=header x1="14" y1="8" x2="1659" y2="8"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="14" y1="12" x2="14" y2="116"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="14" y1="100" x2="1664" y2="100"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="1659" y1="8" x2="1659" y2="120"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="846" y1="12" x2="846" y2="104"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=header alignment="2" text="COMMENTS" border="0" color="0" x="37" y="24" height="60" width="795"  name=comments_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="TABLE" border="0" color="0" x="864" y="24" height="60" width="786"  name=table_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Seq." border="0" color="0" x="27" y="140" height="56" width="453"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="14" y1="88" x2="1659" y2="88"  name=l_9 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="14" y1="0" x2="14" y2="88"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1659" y1="0" x2="1659" y2="88"  name=l_10 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="846" y1="0" x2="846" y2="88"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="37" y="12" height="60" width="795" format="[general]"  name=comments edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="864" y="8" height="60" width="786" format="[general]"  name=table_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

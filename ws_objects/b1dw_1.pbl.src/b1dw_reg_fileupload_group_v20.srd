@@ -1,0 +1,24 @@
+﻿$PBExportHeader$b1dw_reg_fileupload_group_v20.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=file_code dbname="fileupload_group.file_code" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=group_code dbname="fileupload_group.group_code" )
+ column=(type=char(6) updatewhereclause=yes name=crt_user dbname="crt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="fileupload_group.crtdt" )
+ retrieve="SELECT	file_code
+			, group_code
+			, 'SYSTEM' crt_user
+			, sysdate	crtdt
+ FROM		fileupload_group" update="fileupload_group" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="유형코드" border="2" color="15793151" x="87" y="24" height="56" width="576"  name=file_code_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="그룹코드" border="2" color="15793151" x="686" y="24" height="56" width="576"  name=group_code_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="137" y="380" height="76" width="192" format="[general]"  name=crt_user edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="361" y="380" height="76" width="603" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="87" y="4" height="60" width="576" format="[general]"  name=file_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="686" y="4" height="60" width="576" format="[general]"  name=group_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

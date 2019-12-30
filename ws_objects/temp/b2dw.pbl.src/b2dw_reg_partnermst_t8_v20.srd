@@ -1,0 +1,48 @@
+﻿$PBExportHeader$b2dw_reg_partnermst_t8_v20.srd
+$PBExportComments$[ssong]한도조회(대리점,가격정책별)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="partnerused_limit.partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="partnerused_limit.priceplan" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=partner_prefixno dbname="partnerused_limit.partner_prefixno" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=limitbal_qty dbname="partnerused_limit.limitbal_qty" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=quota_qty dbname="partnerused_limit.quota_qty" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=used_qty dbname="partnerused_limit.used_qty" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=move_qty dbname="partnerused_limit.move_qty" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=limit_flag dbname="partnerused_limit.limit_flag" values="한도건수	C/금액건수	A/" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="partnerused_limit.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="partnerused_limit.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="partnerused_limit.updt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="partnerused_limit.crt_user" )
+ retrieve="SELECT PARTNER
+     , PRICEPLAN
+     , PARTNER_PREFIXNO
+     , LIMITBAL_QTY
+     , QUOTA_QTY
+     , USED_QTY
+     , MOVE_QTY
+     , LIMIT_FLAG
+     , CRTDT
+     , UPDTDT
+     , UPDT_USER
+     , CRT_USER
+  FROM PARTNERUSED_LIMIT
+ ORDER BY PRICEPLAN" update="PARTNERUSED_LIMIT" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="가격정책" border="2" color="15793151" x="9" y="24" height="60" width="768"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용한도" border="2" color="15793151" x="795" y="24" height="60" width="635"  name=limitbal_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="총 할당" border="2" color="15793151" x="1449" y="24" height="60" width="635"  name=quota_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="총 사용" border="2" color="15793151" x="2103" y="24" height="60" width="635"  name=used_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="이동" border="2" color="15793151" x="2757" y="24" height="60" width="635"  name=move_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="유형" border="2" color="15793151" x="3410" y="24" height="60" width="654"  name=limit_flag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="9" y="8" height="60" width="768" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0" x="795" y="8" height="60" width="635" format="#,##0.00"  name=limitbal_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="2" color="0" x="1449" y="8" height="60" width="635" format="#,##0.00"  name=quota_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="0" x="2103" y="8" height="60" width="635" format="#,##0.00"  name=used_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="2" color="0" x="2757" y="8" height="60" width="635" format="#,##0.00"  name=move_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="3410" y="8" height="60" width="654" format="[general]"  name=limit_flag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

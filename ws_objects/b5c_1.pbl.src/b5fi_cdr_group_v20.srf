@@ -1,0 +1,67 @@
+﻿$PBExportHeader$b5fi_cdr_group_v20.srf
+$PBExportComments$[ceusee] Time Code Check
+global type b5fi_cdr_group_v20 from function_object
+end type
+
+forward prototypes
+global function integer b5fi_cdr_group_v20 ()
+end prototypes
+
+global function integer b5fi_cdr_group_v20 ();  
+  DELETE FROM REQ_CDRSUM_TEMP ;
+  
+  INSERT INTO REQ_CDRSUM_TEMP
+			SELECT PAYID
+				  , TRDT
+				  , CHARGEDT
+				  , COUNTRYNM
+				  , BILTIME
+				  , BILCOST
+			  FROM 
+				  ( SELECT '1' SORT
+							, A.PAYID
+							, A.TRDT
+							, A.CHARGEDT
+							, A.AREAGROUP
+							, A.COUNTRYCOD
+							, NVL(B.COUNTRYNM, '기타') COUNTRYNM
+							, SUM(A.BILTIME) BILTIME
+							, SUM(A.BILCOST) BILCOST
+						FROM REQ_CDRSUM A
+							, COUNTRY    B
+					  WHERE A.COUNTRYCOD = B.COUNTRYCOD(+)
+				  GROUP BY A.PAYID, A.TRDT, A.CHARGEDT, A.AREAGROUP, A.COUNTRYCOD, B.COUNTRYNM
+					  UNION
+					 SELECT '2' SORT
+							, A.PAYID
+							, A.TRDT
+							, A.CHARGEDT
+							, A.AREAGROUP
+							, '' COUNTRYCOD
+							, DECODE(A.AREAGROUP, 'I', '(국제 소계)'  , 'L', '(국내 소계)'
+													  , 'M', '(Mobile 소계)',      '(기타 소계)') COUNTRYNM
+							, SUM(A.BILTIME) BILTIME
+							, SUM(A.BILCOST) BILCOST 
+						FROM REQ_CDRSUM A 
+				  GROUP BY A.PAYID, A.TRDT, A.CHARGEDT, A.AREAGROUP
+					  UNION
+					 SELECT '3' SORT
+							, A.PAYID
+							, A.TRDT
+							, A.CHARGEDT
+							, '' AREAGROUP
+							, '' COUNTRYCOD
+							, '(총  계)' COUNTRYNM
+							, SUM(A.BILTIME) BILTIME
+							, SUM(A.BILCOST) BILCOST
+						FROM REQ_CDRSUM A 
+					GROUP BY A.PAYID, A.TRDT, A.CHARGEDT           ) 
+		 ORDER BY PAYID, TRDT, CHARGEDT, AREAGROUP, SORT			 ;
+		 
+If SQLCA.SQLCode < 0 Then
+	MESSAGEBOX('', SQLCA.SQLERRTEXT)
+	return 1
+End If		
+return 0
+end function
+

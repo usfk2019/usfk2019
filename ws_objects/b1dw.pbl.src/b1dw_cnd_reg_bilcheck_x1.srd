@@ -1,0 +1,19 @@
+﻿$PBExportHeader$b1dw_cnd_reg_bilcheck_x1.srd
+$PBExportComments$[jsha] 요금계산과금정보등록
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=228 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=calltype1 dbname="calltype1" )
+ column=(type=char(2) updatewhereclause=yes name=calltype2 dbname="calltype2" )
+ column=(type=char(2) updatewhereclause=yes name=flag dbname="flag" values="비과금	0/과금	1/" )
+ )
+text(band=detail alignment="1" text="Charging Class" border="0" color="0" x="1024" y="32" height="60" width="402"  name=calltype2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="CDR Type" border="0" color="0" x="41" y="32" height="60" width="274"  name=calltype1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="과금Flag" border="0" color="0" x="41" y="136" height="60" width="274"  name=flag_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="334" y="32" height="60" width="507" format="[general]"  name=calltype1 dddw.name=b1dc_dddw_cdrtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=120 dddw.lines=5 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="334" y="136" height="60" width="507" format="[general]"  name=flag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="1445" y="32" height="60" width="480" format="[general]"  name=calltype2 dddw.name=b1dc_dddw_chargingclass dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=120 dddw.lines=5 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

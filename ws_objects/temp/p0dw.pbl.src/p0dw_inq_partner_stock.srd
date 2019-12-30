@@ -1,0 +1,52 @@
+﻿$PBExportHeader$p0dw_inq_partner_stock.srd
+$PBExportComments$[jojo] 대리점별카드재고현황
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(60) updatewhereclause=yes name=partner_prefix dbname="p_cardmst.partner_prefix" )
+ column=(type=char(10) updatewhereclause=yes name=pricemodel dbname="p_cardmst.pricemodel" )
+ column=(type=number updatewhereclause=yes name=cnt dbname="cnt" )
+ column=(type=number updatewhereclause=yes name=a dbname="a" )
+ column=(type=number updatewhereclause=yes name=b dbname="b" )
+ column=(type=number updatewhereclause=yes name=c dbname="c" )
+ column=(type=number updatewhereclause=yes name=d dbname="d" )
+ retrieve="SELECT partner_prefix, pricemodel,
+	count(*) cnt,
+	sum(decode(sale_flag, :a1,1,0)) a,
+	sum(decode(sale_flag, :a2,1,0)) b,
+	sum(decode(sale_flag, :a3,1,0)) c,
+	sum(decode(sale_flag, :a4,1,0)) d
+FROM p_cardmst
+GROUP BY partner_prefix, pricemodel" arguments=(("a1", string),("a2", string),("a3", string),("a4", string)) )
+group(level=1 header.height=0 trailer.height=88 by=("partner_prefix" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="대리점" border="2" color="15793151" x="9" y="12" height="56" width="686"  name=partner_prefix_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Model" border="2" color="15793151" x="704" y="12" height="56" width="535"  name=pricemodel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="총수량" border="2" color="15793151" x="1248" y="12" height="56" width="521"  name=cnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="미입고" border="2" color="15793151" x="1778" y="12" height="56" width="512"  name=a_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고" border="2" color="15793151" x="2299" y="12" height="56" width="512"  name=b_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매출고" border="2" color="15793151" x="2821" y="12" height="56" width="585"  name=c_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="반품" border="2" color="15793151" x="3415" y="12" height="56" width="581"  name=d_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="686" format="[general]"  name=partner_prefix dddw.name=p0dc_dddw_partner_0 dddw.displaycolumn=partnernm dddw.datacolumn=prefixno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1248" y="8" height="60" width="521" format="#,##0"  name=cnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1778" y="8" height="60" width="512" format="#,##0"  name=a edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2299" y="8" height="60" width="512" format="#,##0"  name=b edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2821" y="8" height="60" width="585" format="#,##0"  name=c edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="3415" y="8" height="60" width="581" format="#,##0"  name=d edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="704" y="8" height="60" width="535" format="[general]"  name=pricemodel dddw.name=p0dc_dddw_model dddw.displaycolumn=pricemodelnm dddw.datacolumn=pricemodel dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  cnt  for group 1 )"border="0" color="0" x="1248" y="20" height="60" width="521" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  a  for group 1 )"border="0" color="0" x="1778" y="20" height="60" width="512" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  b  for group 1 )"border="0" color="0" x="2299" y="20" height="60" width="512" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  c  for group 1 )"border="0" color="0" x="2821" y="20" height="60" width="585" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  d  for group 1 )"border="0" color="0" x="3415" y="20" height="60" width="581" format="#,##0"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="lookupdisplay(  partner_prefix  ) + ~" 합계~""border="0" color="0" x="704" y="16" height="60" width="535" format="[GENERAL]"  name=compute_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(  cnt  for all )"border="0" color="0" x="1248" y="16" height="60" width="521" format="#,##0"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  a  for all )"border="0" color="0" x="1778" y="16" height="60" width="512" format="#,##0"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  b  for all )"border="0" color="0" x="2299" y="16" height="60" width="512" format="#,##0"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  c  for all )"border="0" color="0" x="2821" y="16" height="60" width="585" format="#,##0"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  d  for all )"border="0" color="0" x="3415" y="16" height="60" width="581" format="#,##0"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="총합계" border="0" color="0" x="704" y="20" height="60" width="535"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

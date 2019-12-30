@@ -1,0 +1,21 @@
+﻿$PBExportHeader$b1dc_dddw_adserialno_cl.srd
+$PBExportComments$[kem] 장비 모델에 따른 시리얼 번호(재고인것 사용할수 있는것) - 장비status  추가
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=serialno dbname="admst.serialno" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="admst.modelno" )
+ column=(type=char(10) updatewhereclause=yes name=mv_partner dbname="admst.mv_partner" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="admst.status" )
+ column=(type=char(10) updatewhereclause=yes name=sn_partner dbname="admst.sn_partner" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"admst~" ) COLUMN(NAME=~"admst.serialno~") COLUMN(NAME=~"admst.modelno~") COLUMN(NAME=~"admst.mv_partner~") COLUMN(NAME=~"admst.status~") COLUMN(NAME=~"admst.sn_partner~")WHERE(    EXP1 =~"( sale_flag~"   OP =~"=~"    EXP2 =~"'0' )~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"( use_yn~"   OP =~"=~"    EXP2 =~"'Y' )~" ) ) ORDER(NAME=~"admst.serialno~" ASC=yes ) " )
+line(band=detail x1="5" y1="80" x2="1408" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="1376" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1454" y="12" height="56" width="270" format="[general]"  name=modelno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1742" y="8" height="56" width="270" format="[general]"  name=mv_partner visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2030" y="8" height="56" width="270" format="[general]"  name=status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="0" x="2313" y="4" height="56" width="270"  name=sn_partner visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

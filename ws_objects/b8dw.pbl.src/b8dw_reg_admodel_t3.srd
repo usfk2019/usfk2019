@@ -1,0 +1,34 @@
+﻿$PBExportHeader$b8dw_reg_admodel_t3.srd
+$PBExportComments$[kem] 장비모델관리 - Tab2 품목정보 Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=itemcod dbname="admodel_item.itemcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=modelno dbname="admodel_item.modelno" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="admodel_item.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="admodel_item.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="admodel_item.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="admodel_item.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="admodel_item.pgm_id" )
+ retrieve="select itemcod
+     , modelno
+     , crt_user
+     , updt_user
+     , crtdt
+     , updtdt
+     , pgm_id
+  from admodel_item
+" update="admodel_item" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="품목" border="2" color="15793151" x="27" y="20" height="60" width="800"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="27" y="4" height="60" width="800" format="[general]"  name=itemcod dddw.name=b8dc_dddw_admodel_item dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="92" height="76" width="73" format="[general]"  name=modelno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="133" y="92" height="76" width="91" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="247" y="92" height="76" width="82" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="357" y="96" height="76" width="96" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="96" height="76" width="105" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="594" y="96" height="76" width="105" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

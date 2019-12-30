@@ -1,0 +1,22 @@
+﻿$PBExportHeader$ssrt_cnd_prt_prepaydet_list.srd
+$PBExportComments$[jybaek] 연체자 리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=200 color="536870912" )
+table(column=(type=char(20) updatewhereclause=no name=base dbname="base" )
+ column=(type=date updatewhereclause=no name=workdt_fr dbname="workdt_fr" )
+ column=(type=date updatewhereclause=no name=workdt_to dbname="workdt_to" )
+ column=(type=char(1) updatewhereclause=no name=item_yn dbname="item_yn" initial="1" values="Y	1/N	2/" )
+ )
+text(band=detail alignment="1" text="Date" border="0" color="0" x="32" y="40" height="56" width="210"  name=workdt_fr_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Base" border="0" color="0" x="27" y="112" height="56" width="210"  name=base_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=30 border="2" color="0" x="251" y="112" height="56" width="741" format="[general]"  name=base dddw.name=ssrt_dddw_basecod dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Payment Item" border="0" color="0" x="1033" y="112" height="56" width="357"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=40 border="2" color="0" x="1403" y="112" height="56" width="407" format="[general]"  name=item_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="539" y="40" height="56" width="41"  name=workdt_to_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="0" x="256" y="40" height="56" width="270" format="[general]"  name=workdt_fr editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="0" x="599" y="40" height="56" width="270" format="[general]"  name=workdt_to editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

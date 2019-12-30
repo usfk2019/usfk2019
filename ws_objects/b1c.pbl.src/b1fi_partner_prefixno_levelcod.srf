@@ -1,0 +1,59 @@
+﻿$PBExportHeader$b1fi_partner_prefixno_levelcod.srf
+$PBExportComments$[parkkh] Funtion - 해당대리점의 관리대상 대리점 가져오기
+global type b1fi_partner_prefixno_levelcod from function_object
+end type
+
+forward prototypes
+global function integer b1fi_partner_prefixno_levelcod (string as_title, string as_partner, ref string as_return_partner, ref string as_return_prefixno)
+end prototypes
+
+global function integer b1fi_partner_prefixno_levelcod (string as_title, string as_partner, ref string as_return_partner, ref string as_return_prefixno);//********************************************************************************
+// Fuction ID : b1fi_partner_prefixno_levelcod
+// Purpose    : argument 해당 대리점(as_partner)으로 partnermst(대리점MST) Table
+//	            에서 자기 관리대상대리점(sysctl1t.module='A1' and ref_no='C100')
+//              의 partner, prefixno를 넘긴다.
+// Scope      : Public
+// Argument   :
+//              1) as_title(String/Value) : Massage content
+//              2) as_partner(String/Value) : Select PK 
+//              3) as_return_partner(String/Reference) : return data
+//              4) as_return_prefixno(String/Reference) : return data
+// Return Value : integer
+//					  -1 : error
+//					   1 : ok
+// Log : (Date : Name : Version)
+// 	      2004/06/03 : Park Kyung Hae : Original 1.0
+//********************************************************************************
+String ls_title, ls_prefixno
+
+ls_title = "b1fi_partner_prefixno_levelcod"
+
+//1.partner 존재여부 확인 (select prefixno)
+Select prefixno
+  into :ls_prefixno
+ from partnermst
+where partner = :as_partner;
+
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + " Select Error1(partnermst)")
+	Return -1
+End If
+
+//2.해당 관리대상대리점의 partner, prefixno select
+select partner, prefixno
+  into :as_return_partner, :as_return_prefixno
+ from partnermst
+where levelcod = ( select ref_content 
+                     from sysctl1t
+                    where module = 'A1'
+                      and ref_no ='C100' )
+ and :ls_prefixno like prefixno || '%%';
+
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + " Select Error2(partnermst)")
+	Return -1
+End If 
+
+Return 1
+end function
+

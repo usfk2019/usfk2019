@@ -1,0 +1,16 @@
+﻿$PBExportHeader$b1dw_cnd_inq_inv_detail3.srd
+$PBExportComments$[parkkh] 고객별 사용량 조회(tab 조회조건)
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=164 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=customerid dbname="customerid" )
+ column=(type=char(6) updatewhereclause=no name=yyyymm dbname="yyyymm" )
+ )
+text(band=detail alignment="1" text="고객번호" border="0" color="0" x="110" y="284" height="60" width="270"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="16711680" x="402" y="284" height="60" width="347" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="2" color="0" x="430" y="44" height="60" width="347" format="[general]"  name=yyyymm editmask.autoskip=yes editmask.mask="XXXX.XX"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="판매년월" border="0" color="0" x="78" y="44" height="60" width="329"  name=trdt_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

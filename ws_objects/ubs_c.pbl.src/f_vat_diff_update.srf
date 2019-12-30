@@ -1,0 +1,356 @@
+﻿$PBExportHeader$f_vat_diff_update.srf
+$PBExportComments$부가세 수납 보정
+global type f_vat_diff_update from function_object
+end type
+
+forward prototypes
+global function any f_vat_diff_update (string as_caller, string as_payid, string as_seq_div, string as_seq)
+end prototypes
+
+global function any f_vat_diff_update (string as_caller, string as_payid, string as_seq_div, string as_seq);//*******************************************************************
+// Fuction ID : f_vat_diff_update
+// Purpose : 청구매출 vat 와  수납 vat 의 단수차이를 보정한다.
+// Scope : Public
+// Parameter :
+//  1) as_caller(String/Value) :  수납호출 PGM
+//  2) as_payid (string/value) :  수납고객ID
+//  3) as_approvalno(String/Value) : receiptmsst.approvalno
+// Return Value : integer 성공:0, 실패: -1					
+// Log : (Date : Name : Version)  :   2019/04/25 by HMK
+//*******************************************************************
+integer li_return, li_diff_cnt
+string ls_approvalno, ls_payseq, ls_itemcod, ls_seq_app
+DEC{2} ldc_dtl_tramt, ldc_dtl_taxamt, ldc_day_tramt, ldc_day_taxamt, ldc_diff_amt, ldc_diff_item_tax
+
+li_return = 0
+li_diff_cnt = 0
+ldc_diff_item_tax = 0
+
+
+Choose Case as_caller
+	Case "HOTBILL"
+		
+		if as_seq_div = 'SEQAPP' then
+			// seq_app로 approvalno로 구하기
+			select approvalno into :ls_approvalno
+			from receiptmst
+			where seq_app = :as_seq;
+			ls_seq_app = as_seq
+		elseif as_seq_div = 'APPROV' then
+			// approvalno로 seq_app 구하기
+			select seq_app into :ls_seq_app
+			from receiptmst
+			where approvalno = :as_seq;
+			ls_approvalno = as_seq
+		end if
+		
+
+		
+		//품목별 보정
+		//품목별로 부가세 차이나는 건 조회
+		declare  cur_vat_diff_item_hot cursor for
+			 select a.itemcod, nvl(a.taxamt,0) - nvl(b.taxamt,0)
+			 from
+			(select itemcod, sum(tramt) tramt, sum(taxamt)  taxamt     
+						from hotreqdtl a, itemmst b
+					  where a.trcod = b.trcod
+					  and payid = :as_payid
+					  and seq_app =:ls_seq_app
+					  and taxamt <> 0
+					  group by itemcod) a,
+					  (select itemcod, sum(payamt) tramt, sum(taxamt) taxamt
+					  from dailypayment
+					  where payid =  :as_payid
+					  and approvalno = :ls_approvalno
+					  and taxamt <> 0
+					  group by itemcod) b
+			where a.itemcod = b.itemcod
+			and a.taxamt <> b.taxamt;
+			
+		open cur_vat_diff_item_hot;
+				
+		fetch cur_vat_diff_item_hot into :ls_itemcod, :ldc_diff_item_tax;
+		do while sqlca.sqlcode = 0 
+			
+			IF SQLCA.SQLCODE <> 0 THEN EXIT 
+	
+			//dailypayment에서 보정할 대상 품목 찾기
+			//1. 공급가액과 부가세 비율이 안맞는 품목 찾는다.
+			select    max(a.payseq)
+			into :ls_payseq
+			from dailypayment a, itemmst b
+			where a.payid =  :as_payid
+			and a.approvalno = :ls_approvalno
+			and a.itemcod = :ls_itemcod
+			and a.taxamt <> 0
+			and (TRUNC ((a.payamt) * 0.1, 2) - (TAXAMT)) <> 0
+			and a.itemcod = b.itemcod
+			ORDER BY  (TRUNC ((a.payamt) * 0.1, 2) - (a.TAXAMT)), b.priority;
+			
+			//2.공급가액과 부가세 비율이 안맞는 품목 없을경우 판단위해
+			select    count(*)
+			into :li_diff_cnt
+			from dailypayment a, itemmst b
+			where a.payid =  :as_payid
+			and a.approvalno = :ls_approvalno
+			and a.itemcod = :ls_itemcod
+			and a.taxamt <> 0
+			and (TRUNC ((a.payamt) * 0.1, 2) - (TAXAMT)) <> 0
+			and a.itemcod = b.itemcod
+			ORDER BY  (TRUNC ((a.payamt) * 0.1, 2) - (a.TAXAMT)), b.priority;
+		
+			//위에서 보정할 품목을 못찾으면 아이템 우선순위 젤 높은거 priority가 작을수록 높다.
+			if li_diff_cnt = 0 then
+				select    a.payseq
+				into :ls_payseq
+				from dailypayment a, itemmst b
+				where a.payid = :as_payid
+				and a.approvalno =:ls_approvalno
+				and a.taxamt <> 0
+				and a.itemcod = b.itemcod
+				and a.itemcod =  :ls_itemcod
+				and rownum = 1
+				ORDER BY  b.priority;
+			end if
+			
+			//보정할 금액 결정
+			if ldc_diff_item_tax = 0 then
+				//차이가 없으므로 보정안한다.
+				return li_return
+			elseif ldc_diff_item_tax > 0 then  
+				ldc_diff_item_tax = ldc_diff_item_tax * -1   
+			else   
+				//음수니까 그대로 계산  ex. 2.08 - 2.09 = -0.01
+			end if
+			
+			//차이금액 만큼 update 하기
+			update dailypayment set
+				payamt = payamt - :ldc_diff_item_tax,
+				taxamt  = taxamt + :ldc_diff_item_tax,
+				pgm_id = 'HOTBILLV'
+					where payseq = :ls_payseq
+				and payid = :as_payid
+				and approvalno = :ls_approvalno;
+			
+			fetch cur_vat_diff_item_hot into :ls_itemcod, :ldc_diff_item_tax;
+			
+		loop;
+		
+		close cur_vat_diff_item_hot;
+
+	Case "BILL"
+		
+		if as_seq_div = 'SEQAPP' then
+			// seq_app로 approvalno로 구하기
+			select approvalno into :ls_approvalno
+			from receiptmst
+			where seq_app = :as_seq;
+			ls_seq_app = as_seq
+		elseif as_seq_div = 'APPROV' then
+			// approvalno로 seq_app 구하기
+			select seq_app into :ls_seq_app
+			from receiptmst
+			where approvalno = :as_seq;
+			ls_approvalno = as_seq
+		end if
+		
+		//품목별 보정
+		//품목별로 부가세 차이나는 건 조회
+		declare  cur_vat_diff_item cursor for
+			 select a.itemcod, nvl(a.taxamt,0) - nvl(b.taxamt,0)
+			 from
+				(select itemcod, sum(tramt) tramt, sum(taxamt)  taxamt     
+					from reqdtl a, itemmst b
+				 where a.trcod = b.trcod
+				 and payid = :as_payid
+				 and reqnum in (select y.reqnum from reqpay x, reqdtl y where x.payid = y.payid and x.seqno = y.rseqno and x.payid =  :as_payid and x.approvalno = :ls_approvalno)
+				 and taxamt <> 0
+				 and a.trcod in (select trcod from trcode where in_yn = 'N')
+				 group by itemcod) a,
+				  (select itemcod, sum(payamt) tramt, sum(taxamt) taxamt
+				  from dailypayment
+				  where payid =  :as_payid
+				  and approvalno = :ls_approvalno
+				  and taxamt <> 0
+				  group by itemcod) b
+			where a.itemcod = b.itemcod
+			and (a.tramt + a.taxamt) = (b.tramt + b.taxamt)   //부분수납때문에
+			and a.taxamt <> b.taxamt;
+			
+		open cur_vat_diff_item;
+				
+		fetch cur_vat_diff_item into :ls_itemcod, :ldc_diff_item_tax;
+		do while sqlca.sqlcode = 0 
+			
+			IF SQLCA.SQLCODE <> 0 THEN EXIT 
+			
+			//dailypayment에서 보정할 대상 품목 찾기
+			//1. 공급가액과 부가세 비율이 안맞는 품목 찾는다.
+			select    max(a.payseq)
+			into :ls_payseq
+			from dailypayment a, itemmst b
+			where a.payid =  :as_payid
+			and a.approvalno = :ls_approvalno
+			and a.itemcod = :ls_itemcod
+			and a.taxamt <> 0
+			and (TRUNC ((a.payamt) * 0.1, 2) - (TAXAMT)) <> 0
+			and a.itemcod = b.itemcod
+			ORDER BY  (TRUNC ((a.payamt) * 0.1, 2) - (a.TAXAMT)), b.priority;
+			
+			//2.공급가액과 부가세 비율이 안맞는 품목 없을경우 판단위해
+			select    count(*)
+			into :li_diff_cnt
+			from dailypayment a, itemmst b
+			where a.payid =  :as_payid
+			and a.approvalno = :ls_approvalno
+			and a.itemcod = :ls_itemcod
+			and a.taxamt <> 0
+			and (TRUNC ((a.payamt) * 0.1, 2) - (TAXAMT)) <> 0
+			and a.itemcod = b.itemcod
+			ORDER BY  (TRUNC ((a.payamt) * 0.1, 2) - (a.TAXAMT)), b.priority;
+		
+			//위에서 보정할 품목을 못찾으면 아이템 우선순위 젤 높은거 priority가 작을수록 높다.
+			if li_diff_cnt = 0 then
+				select    a.payseq
+				into :ls_payseq
+				from dailypayment a, itemmst b
+				where a.payid = :as_payid
+				and a.approvalno =:ls_approvalno
+				and a.taxamt <> 0
+				and a.itemcod = b.itemcod
+				and a.itemcod =  :ls_itemcod
+				and rownum = 1
+				ORDER BY  b.priority;
+			end if
+			
+			//보정할 금액 결정
+			if ldc_diff_item_tax = 0 then
+				//차이가 없으므로 보정안한다.
+				return li_return
+			elseif ldc_diff_item_tax > 0 then  
+				//ldc_diff_item_tax = ldc_diff_item_tax * -1   
+			else   
+				//ldc_diff_item_tax = ldc_diff_item_tax * -1   
+			end if	
+			
+			//차이금액 만큼 update 하기 .. payamt 기준에 맞춘다.
+			update dailypayment set
+				payamt = payamt - :ldc_diff_item_tax,
+				taxamt  = taxamt + :ldc_diff_item_tax,
+				pgm_id = 'BILLV'
+					where payseq = :ls_payseq
+				and payid = :as_payid
+				and approvalno = :ls_approvalno;
+			
+			fetch cur_vat_diff_item into :ls_itemcod, :ldc_diff_item_tax;
+			
+		loop;
+		close cur_vat_diff_item;
+
+// 2019.04.29 sales, refund  보정처리 추가 Modified by Han
+	case 'SALES', 'REFUND'
+		DECLARE CUR_DIFF_SALES CURSOR FOR
+			SELECT A.ITEMCOD, NVL(A.TAXAMT,0) - NVL(B.TAXAMT,0)
+			  FROM (SELECT ITEMCOD
+			             , SUM(SALEAMT) TRAMT
+							 , SUM(TAXAMT)  TAXAMT
+						 FROM DAILYSALE
+						WHERE PAYID = :as_payid
+						  AND APPNO = :as_seq
+						  AND TAXAMT    <> 0
+					  GROUP BY ITEMCOD
+			       ) A
+				  , (SELECT ITEMCOD
+				          , SUM(PAYAMT) TRAMT
+							 , SUM(TAXAMT) TAXAMT
+					    FROM DAILYPAYMENT
+						WHERE PAYID      = :as_payid
+						  AND APPROVALNO = :as_seq
+						  AND TAXAMT    <> 0
+					  GROUP BY ITEMCOD
+				    ) B
+ 		    WHERE A.ITEMCOD = B.ITEMCOD
+			   AND A.TAXAMT <> B.TAXAMT;
+
+		OPEN CUR_DIFF_SALES;
+		
+		FETCH CUR_DIFF_SALES INTO :ls_itemcod, :ldc_diff_item_tax;
+		DO WHILE SQLCA.SQLCODE = 0
+			
+			IF SQLCA.SQLCODE <> 0 THEN EXIT
+			
+			//1. 공급가액과 부가세 비율이 안맞는 품목 찾는다.
+			SELECT MAX(A.PAYSEQ)
+			  INTO :ls_payseq
+			  FROM DAILYPAYMENT A
+			     , ITEMMST      B
+			 WHERE A.APPROVALNO = :as_seq
+			   AND A.ITEMCOD    = :ls_itemcod
+				AND A.TAXAMT    <> 0
+				AND TRUNC(A.PAYAMT * 0.1,2) - A.TAXAMT <> 0
+				AND A.ITEMCOD    = B.ITEMCOD
+		   ORDER BY TRUNC(A.PAYAMT * 0.1,2) - A.TAXAMT, B.PRIORITY;
+			
+			//2.공급가액과 부가세 비율이 안맞는 품목 없을경우 판단위해
+			SELECT COUNT(*)
+			  INTO :li_diff_cnt
+			  FROM DAILYPAYMENT A
+			     , ITEMMST      B
+			 WHERE A.PAYID      = :as_payid
+			   AND A.APPROVALNO = :as_seq
+				AND A.ITEMCOD    = B.ITEMCOD
+				AND A.TAXAMT    <> 0
+				AND TRUNC(A.PAYAMT * 0.1,2) - A.TAXAMT <> 0
+				AND A.ITEMCOD    = B.ITEMCOD
+			ORDER BY TRUNC(A.PAYAMT * 0.1,2) - A.TAXAMT, B.PRIORITY;
+			
+			//위에서 보정할 품목을 못찾으면 아이템 우선순위 젤 높은거 priority가 작을수록 높다.
+			IF li_diff_cnt = 0 THEN
+				SELECT A.PAYSEQ
+				  INTO :ls_payseq
+				  FROM DAILYPAYMENT A
+				     , ITEMMST      B
+				 WHERE A.PAYID      = :as_payid
+				   AND A.APPROVALNO = :as_seq
+					AND A.TAXAMT    <> 0
+					AND A.ITEMCOD    = B.ITEMCOD
+					AND A.ITEMCOD    = :ls_itemcod
+					AND ROWNUM       = 1
+				ORDER BY B.PRIORITY;
+			END IF
+			
+			//보정할 금액 결정
+			IF ldc_diff_item_tax = 0 THEN
+				RETURN li_return
+//			ELSEIF ldc_diff_item_tax > 0 THEN
+//				ldc_diff_item_tax = ldc_diff_item_tax * -1
+//			ELSE
+//				ldc_diff_item_tax = ldc_diff_item_tax * -1
+			END IF
+			
+			//차이금액 만큼 update 하기 .. payamt 기준에 맞춘다.
+			UPDATE DAILYPAYMENT
+			   SET PAYAMT = PAYAMT - :ldc_diff_item_tax
+				  , TAXAMT = TAXAMT + :ldc_diff_item_tax
+				  , PGM_ID = DECODE(:as_caller, 'SALES','SALESV', 'REFUND','REFUNDV','')
+			 WHERE PAYSEQ     = :ls_payseq
+			   AND PAYID      = :as_payid
+				AND APPROVALNO = :as_seq;
+				
+			FETCH CUR_DIFF_SALES INTO :ls_itemcod, :ldc_diff_item_tax;
+			
+		LOOP;
+		
+		CLOSE CUR_DIFF_SALES;
+			
+	Case Else
+
+End Choose
+
+If Sqlca.Sqlcode <> 0 Then
+	li_return = -1
+End if
+
+Return li_return
+end function
+

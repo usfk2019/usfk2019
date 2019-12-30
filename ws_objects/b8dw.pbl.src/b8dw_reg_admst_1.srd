@@ -1,0 +1,88 @@
+﻿$PBExportHeader$b8dw_reg_admst_1.srd
+$PBExportComments$[chooys] 제조사 등록 - Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=220 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=96 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=adseq dbname="admst.adseq" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=serialno dbname="admst.serialno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=adtype dbname="admst.adtype" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=dan_yn dbname="admst.dan_yn" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=makercd dbname="admst.makercd" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=modelno dbname="admst.modelno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="admst.status" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="admst.use_yn" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=adstat dbname="admst.adstat" )
+ column=(type=datetime update=yes updatewhereclause=yes name=idate dbname="admst.idate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=iseqno dbname="admst.iseqno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=mv_partner dbname="admst.mv_partner" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=idamt dbname="admst.idamt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="admst.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="admst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="admst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="admst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="admst.pgm_id" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sale_flag dbname="admst.sale_flag" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=entstore dbname="admst.entstore" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="admst.remark" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=spec_item1 dbname="admst.spec_item1" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=contno dbname="admst.contno" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=pid dbname="admst.pid" )
+ column=(type=number updatewhereclause=yes name=num dbname="admst.num" )
+ retrieve="  SELECT ~"ADMST~".~"ADSEQ~",   
+         ~"ADMST~".~"SERIALNO~",   
+         ~"ADMST~".~"ADTYPE~",   
+         ~"ADMST~".~"DAN_YN~",   
+         ~"ADMST~".~"MAKERCD~",   
+         ~"ADMST~".~"MODELNO~",   
+         ~"ADMST~".~"STATUS~",   
+         ~"ADMST~".~"USE_YN~",   
+         ~"ADMST~".~"ADSTAT~",   
+         ~"ADMST~".~"IDATE~",   
+         ~"ADMST~".~"ISEQNO~",   
+         ~"ADMST~".~"MV_PARTNER~",   
+         ~"ADMST~".~"IDAMT~",   
+         ~"ADMST~".~"CRT_USER~",   
+         ~"ADMST~".~"UPDT_USER~",   
+         ~"ADMST~".~"CRTDT~",   
+         ~"ADMST~".~"UPDTDT~",   
+         ~"ADMST~".~"PGM_ID~",   
+         ~"ADMST~".~"SALE_FLAG~", 
+			~"ADMST~".~"ENTSTORE~",  
+         ~"ADMST~".~"REMARK~",
+         ~"ADMST~".~"SPEC_ITEM1~",
+         ~"ADMST~".~"CONTNO~",
+         ~"ADMST~".~"PID~",
+			0 NUM
+    FROM ~"ADMST~"   
+" update="ADMST" updatewhere=0 updatekeyinplace=no )
+rectangle(band=header x="18" y="124" height="92" width="2089"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=header x1="14" y1="128" x2="14" y2="232"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=header alignment="1" text="장비 일련번호 등록" border="0" color="0" x="14" y="52" height="56" width="672"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="총" border="0" color="0" x="1266" y="48" height="56" width="82"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="rowcount()"border="0" color="0" x="1367" y="48" height="60" width="297" format="###,###,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="건" border="0" color="0" x="1673" y="48" height="56" width="82"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Mo" border="0" color="0" x="32" y="140" height="56" width="311"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="352" y1="128" x2="352" y2="220"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=header x1="1106" y1="128" x2="1106" y2="220"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=header alignment="2" text="Serial No." border="0" color="0" x="375" y="140" height="60" width="713"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Control No." border="0" color="0" x="1129" y="140" height="60" width="512"  name=spec_item1_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="1659" y1="128" x2="1659" y2="240"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=header alignment="2" text="Pin #" border="0" color="0" x="1678" y="144" height="60" width="421"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="14" y1="124" x2="2107" y2="124"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="14" y1="216" x2="2107" y2="216"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=header x1="2107" y1="124" x2="2107" y2="236"  name=l_12 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="14" y1="0" x2="14" y2="88"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=25 alignment="1" tabsequence=32766 border="0" color="0" x="32" y="12" height="60" width="311" format="[general]"  name=num editmask.mask="###,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="352" y1="0" x2="352" y2="88"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1106" y1="0" x2="1106" y2="88"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="16777215" x="375" y="16" height="60" width="713" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=23 alignment="0" tabsequence=20 border="5" color="0" x="1129" y="16" height="56" width="512" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="1659" y1="0" x2="1659" y2="88"  name=l_10 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=24 alignment="0" tabsequence=30 border="5" color="0" x="1678" y="20" height="56" width="421" format="[general]"  name=pid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="14" y1="88" x2="2112" y2="88"  name=l_9 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="2107" y1="0" x2="2107" y2="88"  name=l_13 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

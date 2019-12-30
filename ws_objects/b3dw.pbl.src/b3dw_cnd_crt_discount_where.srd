@@ -1,0 +1,17 @@
+﻿$PBExportHeader$b3dw_cnd_crt_discount_where.srd
+$PBExportComments$할인유형등록 조건 dw By 변유신
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=124 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=cdtype dbname="cdtype" initial=" " )
+ column=(type=date updatewhereclause=no name=dtfrom dbname="dtfrom" initial=" " )
+ )
+text(band=detail alignment="1" text="할인유형" border="0" color="0" x="37" y="28" height="60" width="261"  name=nmtype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="적용개시일" border="0" color="0" x="896" y="28" height="60" width="338"  name=fgdiscount_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="이후" border="0" color="0" x="1605" y="28" height="60" width="128"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="315" y="28" height="60" width="553" format="[general]"  name=cdtype dddw.name=b3dc_dddw_nmtype_auto dddw.displaycolumn=discountplannm dddw.datacolumn=discountplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="0" x="1253" y="28" height="60" width="325" format="[general]"  name=dtfrom editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

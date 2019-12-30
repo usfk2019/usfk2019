@@ -1,0 +1,36 @@
+﻿$PBExportHeader$b1dw_reg_contractupload_func_v20.srd
+$PBExportComments$[ohj] 계약자동처리시 필요기능구성 v20 - detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=file_code dbname="contractupload_func.file_code" )
+ column=(type=char(30) update=yes updatewhereclause=yes key=yes name=itemkey dbname="contractupload_func.itemkey" )
+ column=(type=char(30) updatewhereclause=yes name=itemkeydesc dbname="contractupload_bfunc.itemkeydesc" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=check_type dbname="contractupload_func.check_type" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=outputdata dbname="contractupload_func.outputdata" )
+ column=(type=char(100) updatewhereclause=yes name=remark dbname="contractupload_bfunc.remark" )
+ retrieve="SELECT A.FILE_CODE
+     , A.ITEMKEY
+     , B.ITEMKEYDESC
+     , A.CHECK_TYPE
+     , A.OUTPUTDATA
+     , B.REMARK
+  FROM CONTRACTUPLOAD_FUNC  A
+     , CONTRACTUPLOAD_BFUNC B
+ WHERE A.ITEMKEY = B.ITEMKEY
+" update="CONTRACTUPLOAD_FUNC" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="기능key" border="2" color="16777215" x="23" y="16" height="60" width="681"  name=validkey_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="내용" border="2" color="16777215" x="722" y="16" height="60" width="1051"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상세설명" border="2" color="16777215" x="2857" y="16" height="60" width="1102"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="OutPut Data" border="2" color="16777215" x="2299" y="16" height="60" width="539"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Check유형" border="2" color="16777215" x="1792" y="16" height="60" width="489"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="15793151" x="23" y="8" height="60" width="681" format="[general]"  name=itemkey dddw.name=b1dc_dddw_contractupload_bfunc_v20 dddw.displaycolumn=itemkey dddw.datacolumn=itemkey dddw.percentwidth=250 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="722" y="8" height="60" width="1051" format="[general]"  name=itemkeydesc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2857" y="8" height="60" width="1102" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="2" color="0" x="2299" y="8" height="60" width="539" format="[general]"  name=outputdata edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="0" x="1792" y="8" height="60" width="489" format="[general]"  name=check_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

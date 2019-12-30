@@ -1,0 +1,66 @@
+﻿$PBExportHeader$ubs_dw_reg_activation_det2_self.srd
+$PBExportComments$[chooys] 장비미스터정보관리 - Tab1 장비마스터
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=8 color="536870912" )
+detail(height=464 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=hwseq dbname="customer_hw.hwseq" )
+ column=(type=char(10) updatewhereclause=yes name=adtype dbname="customer_hw.adtype" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="customer_hw.serialno" )
+ column=(type=char(50) updatewhereclause=yes name=modelnm dbname="customer_hw.modelnm" )
+ column=(type=char(200) updatewhereclause=yes name=remark dbname="customer_hw.remark" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="customer_hw.orderno" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="customer_hw.contractseq" )
+ retrieve="SELECT 		HWSEQ,
+            ADTYPE,
+            SERIALNO,
+            MODELNM,
+            REMARK,
+            ORDERNO,
+            CONTRACTSEQ
+ FROM CUSTOMER_HW
+WHERE 1=1
+  AND NVL(CONTRACTSEQ, ORDERNO) = :as_orderno
+  AND CUSTOMERID = :as_customerid
+" arguments=(("as_orderno", string),("as_customerid", string)) )
+rectangle(band=detail x="517" y="4" height="80" width="2103"  name=r_17 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="517" y="80" height="80" width="2103"  name=r_16 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="517" y="232" height="80" width="2103"  name=r_19 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="517" y="156" height="80" width="2103"  name=r_18 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="27" y="384" height="80" width="494"  name=r_10 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="27" y="308" height="80" width="494"  name=r_15 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="27" y="232" height="80" width="494"  name=r_12 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="27" y="156" height="80" width="494"  name=r_11 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="27" y="80" height="80" width="494"  name=r_9 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="27" y="4" height="80" width="494"  name=r_4 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="3104" y="384" height="80" width="690"  name=r_40 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="3104" y="308" height="80" width="690"  name=r_41 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="3104" y="232" height="80" width="690"  name=r_42 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="3104" y="156" height="80" width="690"  name=r_43 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="3104" y="80" height="80" width="690"  name=r_44 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="3104" y="4" height="80" width="690"  name=r_45 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="2615" y="384" height="80" width="494"  name=r_39 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="2615" y="308" height="80" width="494"  name=r_37 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="2615" y="232" height="80" width="494"  name=r_38 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="2615" y="156" height="80" width="494"  name=r_36 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="2615" y="80" height="80" width="494"  name=r_35 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="2615" y="4" height="80" width="494"  name=r_34 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15780518" )
+rectangle(band=detail x="1801" y="384" height="80" width="818"  name=r_33 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="1801" y="308" height="80" width="818"  name=r_32 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1993" y="528" height="56" width="640" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1719" y="608" height="56" width="640" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="517" y="308" height="80" width="2103"  name=r_20 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+rectangle(band=detail x="517" y="384" height="80" width="2103"  name=r_21 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="15793151" )
+text(band=detail alignment="1" text="Remark" border="0" color="0" x="55" y="320" height="60" width="361"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="590" y="320" height="56" width="1979" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Model." border="0" color="0" x="55" y="244" height="56" width="361"  name=t_21  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="594" y="244" height="56" width="640" format="[general]"  name=modelnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Serial No." border="0" color="0" x="55" y="168" height="56" width="361"  name=t_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="594" y="168" height="56" width="640" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Equip. No." border="0" color="0" x="55" y="16" height="60" width="361"  name=t_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Equip. Type" border="0" color="0" x="55" y="92" height="60" width="361"  name=t_20  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="594" y="16" height="56" width="640" format="[general]"  name=hwseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="594" y="92" height="56" width="640" format="[general]"  name=adtype dddw.name=b8dc_dddw_adtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

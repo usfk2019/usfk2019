@@ -1,0 +1,62 @@
+﻿$PBExportHeader$f_get_msginfo.srf
+$PBExportComments$msginfo 에서 TEXT 가져오기
+global type f_get_msginfo from function_object
+end type
+
+forward prototypes
+global function any f_get_msginfo (long al_info_code)
+end prototypes
+
+global function any f_get_msginfo (long al_info_code);//*******************************************************************
+// Fuction ID : f_get_msginfo
+//
+// Purpose : Handle program run time message -Information
+//
+// Scope : Public
+//
+// Parameter :
+//  1) al_info_code(Integer/Value) : Message No
+//
+//
+//
+// Return Value : (String)
+//                In occasion of not display MessageBox & returned message content,
+//                Set '*' on the right of as_title 
+//						
+// Log : (Date : Name : Version)
+//       03/28/07 : Ispark : Original
+//
+//*******************************************************************
+string ls_info_content		//Message content
+long ll_length
+
+Choose Case gs_lang
+	Case "K"
+		Select msg_k
+ 		   Into :ls_info_content
+		 From msginfo
+		Where msgno = :al_info_code;
+	Case "J"
+		Select msg_j
+ 		   Into :ls_info_content
+		 From msginfo
+		Where msgno = :al_info_code;
+	Case "E"
+		Select msg_e
+ 		   Into :ls_info_content
+		 From msginfo
+		Where msgno = :al_info_code;
+	Case Else		// MSG언어 미지정시 한국어 default
+		Select msg_k
+ 		   Into :ls_info_content
+		 From msginfo
+		Where msgno = :al_info_code;
+End Choose
+
+If Sqlca.Sqlcode <> 0 Then
+	ls_info_content = ''
+End if
+
+Return ls_info_content
+end function
+

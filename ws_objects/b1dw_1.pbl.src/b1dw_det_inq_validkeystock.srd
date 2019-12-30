@@ -1,0 +1,40 @@
+﻿$PBExportHeader$b1dw_det_inq_validkeystock.srd
+$PBExportComments$[ssong] 대리점 인증key 재고현황 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=partner dbname="validkeymst.partner" )
+ column=(type=char(60) updatewhereclause=yes name=partner_prefix dbname="validkeymst.partner_prefix" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=validkey_type dbname="validkeymst.validkey_type" )
+ column=(type=char(50) updatewhereclause=yes name=partnermst_partnernm dbname="partnermst.partnernm" )
+ column=(type=number updatewhereclause=yes name=flag dbname="flag" )
+ column=(type=number updatewhereclause=yes name=stock dbname="stock" )
+ retrieve="  SELECT A.PARTNER
+       , A.PARTNER_PREFIX
+       , NVL(A.PRICEPLAN,'ALL') 					PRICEPLAN
+       , A.VALIDKEY_TYPE
+       , B.PARTNERNM
+       , SUM(DECODE(A.SALE_FLAG,'1',1,0)) 	FLAG
+       , SUM(DECODE(A.SALE_FLAG,'0',1,0))    STOCK
+    FROM VALIDKEYMST A
+       , PARTNERMST  B
+   WHERE A.PARTNER = B.PARTNER
+GROUP BY A.PARTNER_PREFIX
+       , A.PARTNER
+       , NVL(A.PRICEPLAN,'ALL') 
+       , A.VALIDKEY_TYPE
+       , B.PARTNERNM" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="69" y="136" height="56" width="617" format="[general]"  name=partner_prefix visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="713" y="136" height="60" width="594" format="[general]"  name=partnermst_partnernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="case(  len(partner_prefix)  when 3 then partnermst_partnernm when 6 then ~"   ~" +  partnermst_partnernm  when 9 then ~"      ~" +  partnermst_partnernm else ~"         ~" +  partnermst_partnernm  )"border="2" color="0" x="64" y="4" height="60" width="1253" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="2" color="0" x="1335" y="4" height="60" width="475" format="#,##0"  name=stock edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="0" x="1829" y="4" height="60" width="475" format="#,##0"  name=flag edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="판매출고수량" border="2" color="16777215" x="1829" y="12" height="60" width="475"  name=compute_0003_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매출고대리점" border="2" color="16777215" x="64" y="12" height="60" width="1253"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고수량" border="2" color="16777215" x="1335" y="12" height="60" width="475"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

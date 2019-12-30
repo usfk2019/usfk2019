@@ -1,0 +1,161 @@
+﻿$PBExportHeader$b8dw_prt_partner_stock_report.srd
+$PBExportComments$[parkkh] 대리점재고현황조회 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=3808 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=basecod dbname="basecod" )
+ column=(type=decimal(2) updatewhereclause=yes name=cash_hand dbname="cash_hand" )
+ column=(type=number updatewhereclause=yes name=a1_b1 dbname="a1_b1" )
+ column=(type=number updatewhereclause=yes name=a1_b2 dbname="a1_b2" )
+ column=(type=number updatewhereclause=yes name=a1_b3 dbname="a1_b3" )
+ column=(type=number updatewhereclause=yes name=a2_b4 dbname="a2_b4" )
+ column=(type=number updatewhereclause=yes name=a2_b5 dbname="a2_b5" )
+ column=(type=number updatewhereclause=yes name=a2_b6 dbname="a2_b6" )
+ column=(type=number updatewhereclause=yes name=a2_b7 dbname="a2_b7" )
+ column=(type=number updatewhereclause=yes name=a3_b2 dbname="a3_b2" )
+ column=(type=number updatewhereclause=yes name=a4_b2 dbname="a4_b2" )
+ column=(type=number updatewhereclause=yes name=a4_b1 dbname="a4_b1" )
+ column=(type=number updatewhereclause=yes name=a5_b8 dbname="a5_b8" )
+ column=(type=number updatewhereclause=yes name=a5_b9 dbname="a5_b9" )
+ column=(type=number updatewhereclause=yes name=a5_b10 dbname="a5_b10" )
+ column=(type=number updatewhereclause=yes name=total dbname="total" )
+ retrieve="SELECT  B.BASECOD,
+		  B.CASH_HAND,
+        SUM(DECODE(C.GROUPID_2, 'A001', DECODE(C.GROUPID_3, 'B001', A.QTY, 0), 0)) AS A1_B1,
+        SUM(DECODE(C.GROUPID_2, 'A001', DECODE(C.GROUPID_3, 'B002', A.QTY, 0), 0)) AS A1_B2,
+        SUM(DECODE(C.GROUPID_2, 'A001', DECODE(C.GROUPID_3, 'B003', A.QTY, 0), 0)) AS A1_B3,
+        SUM(DECODE(C.GROUPID_2, 'A002', DECODE(C.GROUPID_3, 'B004', A.QTY, 0), 0)) AS A2_B4,
+        SUM(DECODE(C.GROUPID_2, 'A002', DECODE(C.GROUPID_3, 'B005', A.QTY, 0), 0)) AS A2_B5,
+        SUM(DECODE(C.GROUPID_2, 'A002', DECODE(C.GROUPID_3, 'B006', A.QTY, 0), 0)) AS A2_B6,                     
+        SUM(DECODE(C.GROUPID_2, 'A002', DECODE(C.GROUPID_3, 'B007', A.QTY, 0), 0)) AS A2_B7,
+        SUM(DECODE(C.GROUPID_2, 'A003', DECODE(C.GROUPID_3, 'B002', A.QTY, 0), 0)) AS A3_B2,
+        SUM(DECODE(C.GROUPID_2, 'A004', DECODE(C.GROUPID_3, 'B002', A.QTY, 0), 0)) AS A4_B2,              
+        SUM(DECODE(C.GROUPID_2, 'A004', DECODE(C.GROUPID_3, 'B001', A.QTY, 0), 0)) AS A4_B1,
+        SUM(DECODE(C.GROUPID_2, 'A005', DECODE(C.GROUPID_3, 'B008', A.QTY, 0), 0)) AS A5_B8,
+        SUM(DECODE(C.GROUPID_2, 'A005', DECODE(C.GROUPID_3, 'B009', A.QTY, 0), 0)) AS A5_B9,              
+        SUM(DECODE(C.GROUPID_2, 'A005', DECODE(C.GROUPID_3, 'B010', A.QTY, 0), 0)) AS A5_B10,
+        SUM(DECODE(C.GROUPID_2, 'A001', DECODE(C.GROUPID_3, 'B001', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A001', DECODE(C.GROUPID_3, 'B002', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A001', DECODE(C.GROUPID_3, 'B003', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A002', DECODE(C.GROUPID_3, 'B004', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A002', DECODE(C.GROUPID_3, 'B005', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A002', DECODE(C.GROUPID_3, 'B006', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A002', DECODE(C.GROUPID_3, 'B007', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A003', DECODE(C.GROUPID_3, 'B002', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A004', DECODE(C.GROUPID_3, 'B002', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A004', DECODE(C.GROUPID_3, 'B001', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A005', DECODE(C.GROUPID_3, 'B008', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A005', DECODE(C.GROUPID_3, 'B009', A.QTY, 0), 0)) +
+        SUM(DECODE(C.GROUPID_2, 'A005', DECODE(C.GROUPID_3, 'B010', A.QTY, 0), 0)) AS TOTAL
+FROM (  SELECT '1' AS ITEM_GUBUN, MV_PARTNER, 1 AS QTY, MODELNO
+        FROM   ADMST
+        WHERE  MV_PARTNER = :arg_partner
+        AND    STATUS IN ('SN100', 'RT100')
+        AND    USE_YN = 'Y'
+        UNION ALL
+        SELECT '2' AS ITEM_GUBUN, SHOPID, 1 AS QTY, PHONE_MODEL
+        FROM   AD_MOBILE_RENTAL
+        WHERE  SHOPID = :arg_partner
+        AND    STATUS IN ('SN100', 'RT100')
+        AND    USE_YN = 'Y' ) A, PARTNERMST B, ADMODEL C
+WHERE   A.MV_PARTNER = B.PARTNER
+AND     B.LEVELCOD = :arg_levelcod
+AND     A.MODELNO = C.MODELNO
+GROUP BY B.BASECOD, B.CASH_HAND" arguments=(("arg_partner", string),("arg_levelcod", string))  sort="basecod A " )
+group(level=1 header.height=244 trailer.height=100 by=("basecod" ) newpage=yes header.color="536870912" trailer.color="16777215" )
+line(band=header x1="0" y1="0" x2="0" y2="0"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="" border="0" color="0" x="1623" y="64" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1696" y="64" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="2565" y="68" height="60" width="667"  name=date_time visible="1~t0"  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1111" y="200" height="76" width="110"  name=title  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header.1 id=1 alignment="2" tabsequence=32766 border="0" color="0" x="1317" y="72" height="100" width="768" format="[general]"  name=basecod dddw.name=b1dc_dddw_bascod_sams dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-16" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="◈ 주한미군캠프 (" border="0" color="0" x="475" y="72" height="100" width="832"  name=t_1  font.face="Arial" font.height="-16" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="0" text="  ) 보유 재고 현황" border="0" color="0" x="2094" y="72" height="100" width="832"  name=t_3  font.face="Arial" font.height="-16" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="8" x2="3282" y2="8"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="296" x2="3282" y2="296"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1111" y1="156" x2="2194" y2="156"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="Shop" border="0" color="0" x="1518" y="176" height="100" width="297"  name=t_8  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="차이" border="0" color="0" x="1879" y="176" height="100" width="297"  name=t_9  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="2664" x2="3282" y2="2664"  name=l_27 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="507" y1="2664" x2="507" y2="2840"  name=l_29 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1115" y1="3152" x2="3232" y2="3152"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="1115" y1="3336" x2="3232" y2="3336"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="1115" y1="3684" x2="3232" y2="3684"  name=l_30 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="실사담당자" border="0" color="0" x="1134" y="3168" height="152" width="393"  name=t_2  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="ShopManager" border="0" color="0" x="1559" y="3168" height="152" width="398"  name=t_33  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="1115" y1="3148" x2="1115" y2="3684"  name=l_31 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="3241" y1="3148" x2="3241" y2="3684"  name=l_32 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="1541" y1="3148" x2="1541" y2="3684"  name=l_34 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="1975" y1="3148" x2="1975" y2="3684"  name=l_35 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="2816" y1="3148" x2="2816" y2="3684"  name=l_36 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="2395" y1="3148" x2="2395" y2="3684"  name=l_37 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="팀 장" border="0" color="0" x="1989" y="3204" height="80" width="393"  name=t_34  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="실 장" border="0" color="0" x="2409" y="3204" height="80" width="393"  name=t_35  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="센 터 장" border="0" color="0" x="2830" y="3204" height="80" width="393"  name=t_36  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="4" x2="14" y2="2836"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3287" y1="4" x2="3287" y2="2840"  name=l_7 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1111" y1="4" x2="1111" y2="2836"  name=l_8 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2194" y1="4" x2="2194" y2="2836"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1477" y1="156" x2="1477" y2="2836"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1851" y1="160" x2="1851" y2="2836"  name=l_13 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="507" y1="4" x2="507" y2="2488"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="2840" x2="3282" y2="2840"  name=l_28 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="◎ 재고 실사 진행일 :" border="0" color="0" x="14" y="2892" height="76" width="686"  name=t_32  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="2488" x2="3282" y2="2488"  name=l_26 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="507" y1="2316" x2="3287" y2="2316"  name=l_25 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="507" y1="2152" x2="3287" y2="2152"  name=l_24 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="1980" x2="3282" y2="1980"  name=l_23 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="507" y1="1808" x2="3287" y2="1808"  name=l_22 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="1640" x2="3282" y2="1640"  name=l_21 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="1460" x2="3282" y2="1460"  name=l_20 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="512" y1="1284" x2="3291" y2="1284"  name=l_19 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="507" y1="1116" x2="3287" y2="1116"  name=l_18 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="507" y1="948" x2="3287" y2="948"  name=l_17 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="784" x2="3282" y2="784"  name=l_16 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="507" y1="608" x2="3287" y2="608"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="18" y1="448" x2="3287" y2="448"  name=l_14 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="820" height="92" width="320" format="#,##0"  name=a2_b4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="988" height="92" width="320" format="#,##0"  name=a2_b5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="1156" height="92" width="320" format="#,##0"  name=a2_b6 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="1328" height="92" width="320" format="#,##0"  name=a2_b7 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="1504" height="92" width="320" format="#,##0"  name=a3_b2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="1680" height="92" width="320" format="#,##0"  name=a4_b2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="1848" height="92" width="320" format="#,##0"  name=a4_b1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="2024" height="92" width="320" format="#,##0"  name=a5_b8 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="2188" height="92" width="320" format="#,##0"  name=a5_b9 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="2356" height="92" width="320" format="#,##0"  name=a5_b10 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="KTF" border="0" color="0" x="526" y="652" height="92" width="571"  name=t_14  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="글로벌카드" border="0" color="0" x="526" y="988" height="92" width="571"  name=t_18  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="아시아카드" border="0" color="0" x="526" y="1156" height="92" width="571"  name=t_17  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="ICP 충전카드" border="0" color="0" x="526" y="1328" height="92" width="571"  name=t_19  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="LG Uplus" border="0" color="0" x="526" y="1848" height="92" width="571"  name=t_24  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="Gift Card" border="0" color="0" x="526" y="2356" height="92" width="571"  name=t_28  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="모바일 ACC." border="0" color="0" x="526" y="2188" height="92" width="571"  name=t_27  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="SKT" border="0" color="0" x="526" y="1504" height="92" width="571"  name=t_21  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="거스름돈($)" border="0" color="0" x="526" y="2708" height="92" width="571"  name=t_31  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="324" height="92" width="320" format="#,##0"  name=a1_b1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="선불 단말기" border="0" color="0" x="27" y="1504" height="92" width="466"  name=t_20  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="USB" border="0" color="0" x="526" y="2024" height="92" width="571"  name=t_26  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="SKT" border="0" color="0" x="526" y="1680" height="92" width="571"  name=t_23  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="빅토리카드" border="0" color="0" x="526" y="820" height="92" width="571"  name=t_16  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="SKT" border="0" color="0" x="526" y="484" height="92" width="571"  name=t_13  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="재고현황" border="0" color="0" x="1454" y="36" height="100" width="434"  name=t_6  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="UBS" border="0" color="0" x="1125" y="176" height="100" width="320"  name=t_7  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="LG Uplus" border="0" color="0" x="526" y="324" height="92" width="571"  name=t_12  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="484" height="92" width="320" format="#,##0"  name=a1_b2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1125" y="652" height="92" width="320" format="#,##0"  name=a1_b3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="세부내역" border="0" color="0" x="526" y="100" height="100" width="571"  name=t_5  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="비     고" border="0" color="0" x="2213" y="100" height="100" width="1056"  name=t_10  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="Accessory" border="0" color="0" x="27" y="2024" height="92" width="466"  name=t_25  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="TOTAL" border="0" color="0" x="27" y="2532" height="92" width="466"  name=t_29  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="1120" y="2532" height="92" width="320" format="#,##0"  name=total edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1120" y="2708" height="76" width="343" format="#,##0.00"  name=cash_hand edit.limit=0 edit.case=any edit.format="" edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="후불 단말기" border="0" color="0" x="27" y="1680" height="92" width="466"  name=t_22  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="현금시재($)" border="0" color="0" x="27" y="2708" height="92" width="466"  name=t_30  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="구분" border="0" color="0" x="27" y="100" height="100" width="466"  name=t_4  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="WONCard" border="0" color="0" x="27" y="440" height="184" width="466"  name=t_11  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="PrepaidCard" border="0" color="0" x="27" y="1024" height="184" width="466"  name=t_15  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

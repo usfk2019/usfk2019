@@ -1,0 +1,30 @@
+﻿$PBExportHeader$b5dc_dddw_taxissueseq.srd
+$PBExportComments$[jwlee]세금계산서발행번호
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=taxissueseq dbname="taxsheet_info.taxissueseq" )
+ column=(type=datetime updatewhereclause=yes name=compute_0002 dbname="compute_0002" )
+ column=(type=datetime updatewhereclause=yes name=compute_0003 dbname="compute_0003" )
+ retrieve=" SELECT DISTINCT
+        TAXISSUESEQ,
+        TRUNC(TAXISSUEDT,'DD'),
+        TRUNC(CRTDT,'DD')
+   FROM TAXSHEET_INFO
+  WHERE CRTDT > SYSDATE - 30
+    AND TYPE = 'P01'
+ORDER BY TRUNC(CRTDT,'DD'), TRUNC(TAXISSUEDT,'DD')DESC
+" )
+text(band=header alignment="2" text="발행번호" border="0" color="0" x="32" y="16" height="56" width="334"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="발행일자" border="0" color="0" x="389" y="16" height="56" width="279"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="생성일" border="0" color="0" x="699" y="16" height="56" width="297"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header x1="50" y1="76" x2="1010" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="32" y="8" height="52" width="334" format="[general]"  name=taxissueseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="389" y="8" height="52" width="279" format="[shortdate] [time]"  name=compute_0002 editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="699" y="8" height="52" width="297" format="[shortdate] [time]"  name=compute_0003 editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="50" y1="68" x2="1010" y2="68"  name=l_2 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

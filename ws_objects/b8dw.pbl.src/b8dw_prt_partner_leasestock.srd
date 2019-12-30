@@ -1,0 +1,114 @@
+﻿$PBExportHeader$b8dw_prt_partner_leasestock.srd
+$PBExportComments$[parkkh] 대리점재고현황조회 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=500 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=basecod dbname="basecod" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="modelno" )
+ column=(type=char(10) updatewhereclause=yes name=groupid_2 dbname="groupid_2" )
+ column=(type=char(10) updatewhereclause=yes name=groupid_3 dbname="groupid_3" )
+ column=(type=number updatewhereclause=yes name=enter_cnt dbname="enter_cnt" )
+ column=(type=number updatewhereclause=yes name=sell_cnt dbname="sell_cnt" )
+ column=(type=number updatewhereclause=yes name=movefrom_cnt dbname="movefrom_cnt" )
+ column=(type=number updatewhereclause=yes name=moveto_cnt dbname="moveto_cnt" )
+ column=(type=number updatewhereclause=yes name=return_cnt dbname="return_cnt" )
+ column=(type=number updatewhereclause=yes name=rental_cnt dbname="rental_cnt" )
+ column=(type=number updatewhereclause=yes name=sell_yes_cnt dbname="sell_yes_cnt" )
+ column=(type=number updatewhereclause=yes name=sell_no_cnt dbname="sell_no_cnt" )
+ column=(type=number updatewhereclause=yes name=total_in_cnt dbname="total_in_cnt" )
+ column=(type=number updatewhereclause=yes name=total_out_cnt dbname="total_out_cnt" )
+ retrieve="SELECT B.BASECOD,
+       A.MODELNO,
+		 C.GROUPID_2,
+		 C.GROUPID_3,
+       SUM(DECODE(A.STATUS, 'SN100', 1, 0)) AS ENTER_CNT,
+       SUM(DECODE(A.STATUS, 'SG100', 1, 0)) AS SELL_CNT, 
+       SUM(DECODE(A.GUBUN, '2', 1, 0)) AS MOVEFROM_CNT,
+       SUM(DECODE(A.GUBUN, '3', 1, 0)) AS MOVETO_CNT,
+       SUM(DECODE(A.STATUS, 'RT100', 1, 0)) AS RETURN_CNT,
+       SUM(DECODE(A.STATUS, 'RP100', 1, 0)) AS RENTAL_CNT,
+       SUM(DECODE(A.USE_YN, 'Y', DECODE(A.STATUS, 'SN100', 1, 'RT100', 1, 0), 0)) AS SELL_YES_CNT,
+       SUM(DECODE(A.USE_YN, 'N', DECODE(A.STATUS, 'SN100', 1, 'RT100', 1, 0), 0)) AS SELL_NO_CNT,
+       SUM(DECODE(A.STATUS, 'SN100', 1, 0)) + SUM(DECODE(A.STATUS, 'RT100', 1, 0)) + SUM(DECODE(A.GUBUN, '2', 1, 0)) AS TOTAL_IN_CNT,               
+       SUM(DECODE(A.STATUS, 'SN100', 1, 0)) + SUM(DECODE(A.STATUS, 'RT100', 1, 0)) AS TOTAL_OUT_CNT
+FROM ( SELECT '1' AS GUBUN, SHOPID, PHONE_MODEL AS MODELNO, STATUS, NVL(USE_YN, 'Y') AS USE_YN
+       FROM   AD_MOBILE_RENTAL
+       WHERE  SHOPID = :arg_partner
+       AND    STATUS <> 'MG100'
+       UNION ALL
+       SELECT '2', FR_SHOP, PHONE_MODEL, STATUS, NVL(USE_YN, 'Y')
+       FROM   AD_MOBILE_RENTAL
+       WHERE  FR_SHOP = :arg_partner
+       AND    STATUS = 'MG100'
+       UNION ALL
+       SELECT '3', MV_SHOP, PHONE_MODEL, STATUS, NVL(USE_YN, 'Y')
+       FROM   AD_MOBILE_RENTAL
+       WHERE  MV_SHOP = :arg_partner
+       AND    STATUS = 'MG100') A, PARTNERMST B, ADMODEL C
+WHERE  A.SHOPID = B.PARTNER
+AND    B.LEVELCOD = :arg_levelcod
+AND    A.MODELNO = C.MODELNO
+GROUP BY B.BASECOD, A.MODELNO, C.GROUPID_2, C.GROUPID_3" arguments=(("arg_partner", string),("arg_levelcod", string))  sort="basecod A modelno A " )
+group(level=1 header.height=0 trailer.height=100 by=("basecod" ) header.color="536870912" trailer.color="16777215" )
+rectangle(band=header x="0" y="352" height="148" width="4846"  name=r_1 brush.hatch="6" brush.color="31844325" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+text(band=header alignment="2" text="" border="0" color="0" x="2432" y="196" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2505" y="196" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Stock Status Report (Lease)" border="0" color="0" x="18" y="76" height="88" width="4805"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="0" y1="0" x2="0" y2="0"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="0" y1="352" x2="4837" y2="352"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="0" y1="496" x2="4837" y2="496"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="단위: EA" border="0" color="0" x="3767" y="276" height="64" width="274"  name=t_1  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4155" y="276" height="64" width="667" format="[GENERAL]"  name=page  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="3374" y="200" height="60" width="667"  name=date_time visible="1~t0"  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="today()"border="0" color="0" x="4155" y="200" height="60" width="667" format="[SHORTDATE] [TIME]"  name=compute_10  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Shop" border="0" color="0" x="14" y="396" height="60" width="357"  name=shop_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Model" border="0" color="0" x="389" y="396" height="60" width="462"  name=modelno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Entering" border="0" color="0" x="869" y="396" height="60" width="279"  name=enter_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Selling" border="0" color="0" x="1166" y="396" height="60" width="279"  name=sell_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Moving(From)" border="0" color="0" x="1463" y="364" height="120" width="256"  name=moveto_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Moving(To)" border="0" color="0" x="1737" y="364" height="120" width="242"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Returning" border="0" color="0" x="1998" y="396" height="60" width="274"  name=return_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Available forsale in stock" border="0" color="0" x="2597" y="364" height="120" width="357"  name=sell_yes_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Not available forsale in stock" border="0" color="0" x="2971" y="364" height="120" width="439"  name=sell_no_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="TOTAL STOCK(IN MOVING)" border="0" color="0" x="3429" y="364" height="120" width="398"  name=total_in_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="TOTAL STOCK(OUT MOVING)" border="0" color="0" x="3845" y="364" height="120" width="398"  name=total_out_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Rental" border="0" color="0" x="2290" y="396" height="60" width="288"  name=rental_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Real Stock" border="0" color="0" x="4261" y="396" height="60" width="279"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+text(band=header alignment="2" text="Remark" border="0" color="0" x="4558" y="396" height="60" width="270"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="60" width="357" format="[general]"  name=basecod dddw.name=b1dc_dddw_bascod_sams dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="389" y="4" height="60" width="462" format="[general]"  name=modelno dddw.name=b8dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="869" y="4" height="60" width="279" format="#,##0"  name=enter_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1166" y="4" height="60" width="279" format="#,##0"  name=sell_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1463" y="4" height="60" width="256" format="#,##0"  name=movefrom_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1737" y="4" height="60" width="242" format="#,##0"  name=moveto_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1998" y="4" height="60" width="274" format="#,##0"  name=return_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2290" y="4" height="60" width="288" format="#,##0"  name=rental_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2597" y="4" height="60" width="357" format="#,##0"  name=sell_yes_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="2971" y="4" height="60" width="439" format="#,##0"  name=sell_no_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="3429" y="4" height="60" width="398" format="#,##0"  name=total_in_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="3845" y="4" height="60" width="398" format="#,##0"  name=total_out_cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="" border="0" color="0" x="4261" y="4" height="60" width="279"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="" border="0" color="0" x="4558" y="4" height="60" width="270"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="0" y1="96" x2="4832" y2="96"  name=l_6 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+line(band=trailer.1 x1="0" y1="0" x2="4832" y2="0"  name=l_5 visible="1~t0" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+rectangle(band=trailer.1 x="0" y="0" height="100" width="4841"  name=r_2 brush.hatch="6" brush.color="31844325" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+text(band=trailer.1 alignment="1" text="합   계" border="0" color="0" x="389" y="28" height="64" width="462"  name=t_2  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="31844325" )
+compute(band=trailer.1 alignment="1" expression="sum(  enter_cnt  for group 1 )"border="0" color="0" x="869" y="20" height="60" width="279" format="#,##0"  name=compute_8  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  sell_cnt  for group 1 )"border="0" color="0" x="1166" y="20" height="60" width="279" format="#,##0"  name=compute_11  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( movefrom_cnt for group 1 )"border="0" color="0" x="1463" y="20" height="60" width="256" format="#,##0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( moveto_cnt for group 1 )"border="0" color="0" x="1737" y="20" height="60" width="242" format="#,##0"  name=compute_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( return_cnt for group 1 )"border="0" color="0" x="1998" y="20" height="60" width="274" format="#,##0"  name=compute_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( rental_cnt for group 1 )"border="0" color="0" x="2290" y="20" height="60" width="288" format="#,##0"  name=compute_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( sell_yes_cnt for group 1 )"border="0" color="0" x="2597" y="20" height="60" width="357" format="#,##0"  name=compute_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( sell_no_cnt for group 1 )"border="0" color="0" x="2971" y="20" height="60" width="439" format="#,##0"  name=compute_9  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  total_in_cnt  for group 1 )"border="0" color="0" x="3429" y="20" height="60" width="398" format="[General]"  name=compute_12  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  total_out_cnt  for group 1 )"border="0" color="0" x="3845" y="20" height="60" width="398" format="[General]"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="" border="0" color="0" x="4256" y="20" height="60" width="279"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=trailer.1 alignment="2" text="" border="0" color="0" x="4553" y="20" height="60" width="270"  name=t_9  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="4846" y="0" height="60" width="233"  name=groupid_2 visible="1~t0" dddw.name=b8dc_dddw_admodel_gubun dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="5079" y="0" height="60" width="233"  name=groupid_3 visible="1~t0" dddw.name=b8dc_dddw_admodel_gubun_det dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,25 @@
+﻿$PBExportHeader$ubs_dddw_cdrreport_contractseq.srd
+$PBExportComments$[jhchoi] 계약 리스트 - Dynamic Query 로 실행되도록 변경해야함
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractmst.contractseq" )
+ column=(type=char(50) updatewhereclause=yes name=priceplan_desc dbname="priceplanmst.priceplan_desc" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="validinfo.validkey" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="validinfo.status" )
+ retrieve="SELECT A.CONTRACTSEQ, C.PRICEPLAN_DESC,
+       B.VALIDKEY,    B.STATUS 
+FROM   CONTRACTMST A, VALIDINFO B, PRICEPLANMST C
+WHERE  A.CONTRACTSEQ = B.CONTRACTSEQ
+AND    A.PRICEPLAN = C.PRICEPLAN
+AND    1 = 0
+ORDER BY A.CONTRACTSEQ, B.STATUS" )
+line(band=detail x1="0" y1="76" x2="1993" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="329" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="352" y="4" height="64" width="960"  name=priceplan_desc  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="1326" y="4" height="64" width="407"  name=validkey  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="1746" y="4" height="64" width="233"  name=status  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

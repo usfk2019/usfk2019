@@ -1,0 +1,42 @@
+﻿$PBExportHeader$b1dw_reg_customer_t3_sc.srd
+$PBExportComments$[islim] 고객별 결제내역
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=176 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=pay_seq dbname="pay_det.pay_seq" )
+ column=(type=datetime update=yes updatewhereclause=yes name=paydt dbname="pay_det.paydt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pay_method dbname="pay_det.pay_method" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=payamt dbname="pay_det.payamt" )
+ column=(type=char(13) update=yes updatewhereclause=yes name=customerid dbname="pay_det.customerid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=trcod dbname="pay_det.trcod" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=note dbname="pay_det.note" )
+ retrieve="select pay_seq,
+	    paydt,
+		 pay_method,
+		 payamt,
+       customerid,
+		 trcod,
+		 note
+from pay_det
+order by paydt desc, pay_method asc" update="pay_det" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="" border="0" color="0" x="384" y="36" height="56" width="846"  name=t_payid  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="today()"border="0" color="0" x="1531" y="36" height="60" width="567" format="[SHORTDATE] [TIME]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="회원번호 :" border="0" color="0" x="55" y="36" height="56" width="329"  name=t_19  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="결제번호" border="2" color="15793151" x="55" y="108" height="60" width="393"  name=paydt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="결제일자" border="2" color="15793151" x="471" y="108" height="60" width="384"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="결제금액" border="2" color="15793151" x="2011" y="108" height="60" width="489"  name=payamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="결제방식" border="2" color="15793151" x="878" y="108" height="60" width="544"  name=paytype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비   고" border="2" color="15793151" x="2523" y="108" height="60" width="1285"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래유형" border="2" color="15793151" x="1445" y="108" height="60" width="544"  name=trcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="8" height="60" width="393" format="[general]"  name=pay_seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="8" height="60" width="384" format="[shortdate] [time]"  name=paydt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="878" y="8" height="60" width="544" format="[general]"  name=pay_method edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1445" y="8" height="60" width="544" format="[general]"  name=trcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2011" y="8" height="60" width="489" format="[general]"  name=payamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2523" y="8" height="60" width="1285" format="[general]"  name=note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="192" y="128" height="60" width="393" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

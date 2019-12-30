@@ -1,0 +1,45 @@
+﻿$PBExportHeader$b0dw_cnd_reg_particular_zoncst1_v20.srd
+$PBExportComments$[kem] 개별 요율 등록 - 대리점
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=particular_zoncst_partcod dbname="particular_zoncst.partcod" )
+ column=(type=char(50) updatewhereclause=yes name=partnernm dbname="partnermst.partnernm" )
+ column=(type=char(10) updatewhereclause=yes name=levelcod dbname="partnermst.levelcod" )
+ column=(type=char(20) updatewhereclause=yes name=logid dbname="partnermst.logid" )
+ column=(type=char(20) updatewhereclause=yes name=phone dbname="partnermst.phone" )
+ column=(type=char(60) updatewhereclause=yes name=prefixno dbname="partnermst.prefixno" )
+ column=(type=char(1) updatewhereclause=yes name=credit_yn dbname="credit_yn" )
+ column=(type=char(10) updatewhereclause=yes name=partner dbname="partnermst.partner" )
+ retrieve="SELECT DISTINCT A.PARTCOD
+     , B.PARTNERNM
+     , B.LEVELCOD
+     , B.LOGID
+     , B.PHONE
+     , B.PREFIXNO
+     , NVL(B.CREDIT_YN, 'N') CREDIT_YN
+     , B.PARTNER
+  FROM PARTNERMST B
+     , PARTICULAR_ZONCST A
+ WHERE B.PARTNER = A.PARTCOD(+)
+   AND B.PARTNER_TYPE = '0'
+ ORDER BY A.PARTCOD, B.PARTNERNM" )
+text(band=header alignment="2" text="대리점" border="2" color="16777215" x="9" y="20" height="56" width="398"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대리점명" border="2" color="16777215" x="416" y="20" height="56" width="896"  name=partnernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Level" border="2" color="16777215" x="1321" y="20" height="56" width="389"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Web Login ID" border="2" color="16777215" x="1719" y="20" height="56" width="494"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="전화번호" border="2" color="16777215" x="2222" y="20" height="56" width="475"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="관리코드" border="2" color="16777215" x="2706" y="20" height="56" width="649"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="여신관리" border="2" color="16777215" x="3365" y="20" height="56" width="334"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="398" format="[general]"  name=particular_zoncst_partcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="416" y="4" height="60" width="896" format="[general]"  name=partnernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1321" y="4" height="60" width="389" format="[general]"  name=levelcod dddw.name=b2dc_dddw_partnerlevel dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1719" y="4" height="60" width="494" format="[general]"  name=logid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2222" y="4" height="60" width="475" format="[general]"  name=phone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2706" y="4" height="60" width="649" format="[general]"  name=prefixno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="3365" y="4" height="60" width="334" format="[general]"  name=credit_yn edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

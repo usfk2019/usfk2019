@@ -1,0 +1,36 @@
+﻿$PBExportHeader$b5d_reg_mtr_inp_sams_back.srd
+$PBExportComments$[ceusee] 수동입금거래등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=180 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=trdt dbname="trdt" )
+ column=(type=number updatewhereclause=yes name=tramt_c dbname="tramt_c" )
+ column=(type=number updatewhereclause=yes name=tramt_i dbname="tramt_i" )
+ retrieve="    SELECT TO_CHAR(A.TRDT, 'yyyymmdd') TRDT,   
+         SUM(DECODE(B.IN_YN, 'N', A.TRAMT, 0)) TRAMT_C,
+         SUM(DECODE(B.IN_YN, 'Y', A.TRAMT, 0)) TRAMT_I
+    FROM REQDTL A, TRCODE B 
+   WHERE ( A.TRCOD = B.TRCOD )
+GROUP BY A.TRDT
+"  sort="trdt D " )
+line(band=header x1="23" y1="172" x2="2080" y2="172"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Invoice Date" border="2" color="15793151" x="27" y="96" height="60" width="494"  name=compute_0001_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Request Amount" border="2" color="15793151" x="539" y="96" height="60" width="526"  name=tramt_c_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Payment Amount" border="2" color="15793151" x="1083" y="96" height="60" width="521"  name=tramt_i_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Balance" border="2" color="15793151" x="1623" y="96" height="60" width="453"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="1" text="Write Off :  $" border="0" color="0" x="27" y="16" height="60" width="352"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="402" y="16" height="60" width="315"  name=write  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="27" y="16" height="60" width="494" format="@@@@-@@-@@"  name=trdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="539" y="16" height="60" width="526" format="#,##0.00"  name=tramt_c editmask.mask="###,##0.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1083" y="16" height="60" width="521" format="[general]"  name=tramt_i editmask.mask="###,##0.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" tramt_c  +  tramt_i "border="0" color="0" x="1623" y="16" height="60" width="453" format="#,##0.00"  name=compute_sum  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="23" y1="4" x2="2080" y2="4"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="0" text="SUM" border="0" color="0" x="27" y="20" height="60" width="494"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  tramt_c  for all )"border="0" color="0" x="539" y="20" height="60" width="526" format="#,##0.00"  name=c_sum  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  tramt_i  for all )"border="0" color="0" x="1083" y="20" height="60" width="521" format="#,##0.00"  name=i_sum  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  compute_sum  for all )"border="0" color="0" x="1623" y="20" height="60" width="453" format="#,##0.00"  name=all_sum  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

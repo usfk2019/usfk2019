@@ -1,0 +1,55 @@
+﻿$PBExportHeader$b8dw_inq_partner_adstock_detail.srd
+$PBExportComments$[parkkh] 대리점재고현황조회 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=adtype dbname="admst.adtype" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="admst.modelno" )
+ column=(type=char(10) updatewhereclause=yes name=makercd dbname="admst.makercd" )
+ column=(type=number updatewhereclause=yes name=iqty dbname="iqty" )
+ column=(type=number updatewhereclause=yes name=oqty dbname="oqty" )
+ column=(type=number updatewhereclause=yes name=sqty dbname="sqty" )
+ column=(type=number updatewhereclause=yes name=bqty dbname="bqty" )
+ column=(type=number updatewhereclause=yes name=use_qty dbname="use_qty" )
+ retrieve="SELECT adtype,
+		 modelno,
+		 makercd,
+		 (count(*) - sum(decode(sale_flag,'9',1,0))) iqty,
+		 sum(decode(sale_flag,'1',1,0)) oqty,
+		 sum(decode(sale_flag,'1',0,1)) sqty,
+       sum(decode(sale_flag,'9',1,0)) bqty,
+       sum(decode(sale_flag||use_yn,'0Y',1,'9Y',1,0)) use_qty
+ FROM admst
+GROUP BY adtype, modelno, makercd
+ORDER BY adtype, modelno, makercd" )
+group(level=1 header.height=0 trailer.height=84 by=("adtype" ) header.color="536870912" trailer.color="31844325" )
+compute(band=trailer.1 alignment="1" expression="sum(  iqty  for group 1 )"border="0" color="0" x="1989" y="4" height="64" width="462" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="0" y1="76" x2="4366" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="8421504" )
+text(band=header alignment="0" text="단위 : EA" border="0" color="0" x="4069" y="16" height="56" width="283"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="567" format="[general]"  name=adtype dddw.name=b8dc_dddw_adtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="590" y="4" height="60" width="695" format="[general]"  name=modelno dddw.name=b8dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1989" y="4" height="60" width="462" format="#,##0"  name=iqty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1298" y="4" height="60" width="677" format="[general]"  name=makercd dddw.name=b8dc_dddw_admaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2464" y="4" height="60" width="462" format="#,##0"  name=oqty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2939" y="4" height="60" width="462" format="#,##0"  name=bqty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="3415" y="4" height="60" width="462" format="#,##0"  name=sqty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3890" y="4" height="60" width="462" format="#,##0"  name=use_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="~"[ ~" + Lookupdisplay(  adtype  ) + ~" ]계~""border="0" color="0" x="571" y="8" height="64" width="695" format="[GENERAL]"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  oqty  for group 1 )"border="0" color="0" x="2464" y="4" height="64" width="462" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  sqty  for group 1 )"border="0" color="0" x="3415" y="4" height="64" width="462" format="#,##0"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(bqty for group 1)"border="0" color="0" x="2939" y="4" height="64" width="462" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(use_qty for group 1)"border="0" color="0" x="3890" y="4" height="64" width="462" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="장비구분" border="2" color="15793151" x="9" y="88" height="60" width="567"  name=adtype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="모   델" border="2" color="15793151" x="590" y="88" height="60" width="695"  name=modelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입고" border="2" color="15793151" x="1989" y="88" height="60" width="462"  name=iqty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="제 조 사" border="2" color="15793151" x="1298" y="88" height="60" width="677"  name=makercd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="출고" border="2" color="15793151" x="2464" y="88" height="60" width="462"  name=oqty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="반품" border="2" color="15793151" x="2939" y="88" height="60" width="462"  name=bqty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고" border="2" color="15793151" x="3415" y="88" height="60" width="462"  name=sqty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용가능재고" border="2" color="15793151" x="3890" y="88" height="60" width="462"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+
+sparse(names="adtype")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

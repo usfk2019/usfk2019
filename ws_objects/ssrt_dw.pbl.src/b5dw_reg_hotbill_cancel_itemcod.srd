@@ -1,0 +1,61 @@
+﻿$PBExportHeader$b5dw_reg_hotbill_cancel_itemcod.srd
+$PBExportComments$[ceusee] Hotbill 취소
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=shopid dbname="dailypayment.shopid" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="dailypayment.customerid" )
+ column=(type=char(14) updatewhereclause=yes name=payid dbname="dailypayment.payid" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="dailypayment.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(10) updatewhereclause=yes name=regcod dbname="dailypayment.regcod" )
+ column=(type=decimal(0) updatewhereclause=yes name=keynum dbname="regcodmst.keynum" )
+ column=(type=char(10) updatewhereclause=yes name=facnum dbname="regcodmst.facnum" )
+ column=(type=decimal(2) updatewhereclause=yes name=payamt dbname="dailypayment.payamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=paycnt dbname="dailypayment.paycnt" )
+ column=(type=char(1) updatewhereclause=yes name=dctype dbname="dailypayment.dctype" )
+ column=(type=decimal(2) updatewhereclause=yes name=taxamt dbname="dailypayment.taxamt" )
+ column=(type=char(1) updatewhereclause=yes name=surtaxyn dbname="surtaxyn" )
+ retrieve="SELECT   A.SHOPID,   
+         A.CUSTOMERID,   
+         A.PAYID,   
+         A.ITEMCOD,   
+         c.ITEMnm,   
+         A.REGCOD,  
+			b.keynum, 		
+         b.facnum, 
+         A.PAYAMT payamt,   
+         A.PAYCNT paycnt,
+         A.DCTYPE dctype,
+         A.TAXAMT,
+         decode(c.surtaxyn,'N','*',' ') as surtaxyn
+    FROM DAILYPAYMENT A, regcodmst b, itemmst c
+   WHERE a.regcod 		= b.regcod (+)
+     and a.itemcod 		= c.itemcod (+)
+  	  and A.APPROVALNO 	= :as_arg
+" arguments=(("as_arg", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="8" height="56" width="270" format="[general]" html.valueishtml="0"  name=shopid visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="311" y="12" height="56" width="379" format="[general]" html.valueishtml="0"  name=customerid visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="690" y="12" height="56" width="270" format="[general]" html.valueishtml="0"  name=itemcod visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="983" y="12" height="56" width="270" format="[general]" html.valueishtml="0"  name=regcod visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1253" y="12" height="56" width="1161" format="[general]" html.valueishtml="0"  name=payamt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2683" y="12" height="56" width="1161" format="[general]" html.valueishtml="0"  name=paycnt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3845" y="0" height="56" width="1161" format="[general]" html.valueishtml="0"  name=keynum visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="5006" y="0" height="56" width="270" format="[general]" html.valueishtml="0"  name=facnum visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="5275" y="0" height="56" width="1353" format="[general]" html.valueishtml="0"  name=itemnm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="6629" y="0" height="56" width="480" format="[general]" html.valueishtml="0"  name=dctype visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="7113" y="0" height="56" width="480" format="[general]" html.valueishtml="0"  name=taxamt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="7593" y="0" height="56" width="27" format="[general]" html.valueishtml="0"  name=surtaxyn visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

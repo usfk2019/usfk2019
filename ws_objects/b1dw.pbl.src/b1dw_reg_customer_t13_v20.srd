@@ -1,0 +1,62 @@
+﻿$PBExportHeader$b1dw_reg_customer_t13_v20.srd
+$PBExportComments$[jsha] 민원접수내역 dw
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no row.resize=1 grid.lines=0 grid.columnmove=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=receiptdt dbname="customer_trouble.receiptdt" )
+ column=(type=char(10) updatewhereclause=yes name=troubletype dbname="customer_trouble.troubletype" )
+ column=(type=char(300) updatewhereclause=yes name=trouble_note dbname="customer_trouble.trouble_note" )
+ column=(type=char(10) updatewhereclause=yes name=trouble_status dbname="customer_trouble.trouble_status" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="customer_trouble.crt_user" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=troubleno dbname="customer_trouble.troubleno" )
+ column=(type=char(10) updatewhereclause=yes name=receipt_partner dbname="customer_trouble.receipt_partner" )
+ column=(type=char(10) updatewhereclause=yes name=receipt_user dbname="customer_trouble.receipt_user" )
+ column=(type=char(10) updatewhereclause=yes name=close_partner dbname="customer_trouble.close_partner" )
+ column=(type=char(10) updatewhereclause=yes name=close_user dbname="customer_trouble.close_user" )
+ column=(type=datetime updatewhereclause=yes name=closedt dbname="customer_trouble.closedt" )
+ column=(type=char(10) updatewhereclause=yes name=close_troubletype dbname="customer_trouble.close_troubletype" )
+ column=(type=char(200) updatewhereclause=yes name=close_note dbname="customer_trouble.close_note" )
+ retrieve="    SELECT     a.receiptdt              as receiptdt ,
+               a.troubletype           as troubletype,
+               a.trouble_note         as trouble_note,
+               a.trouble_status       as trouble_status,
+               a.crt_user                as crt_user,
+               a.troubleno              as troubleno,
+               a.receipt_partner,
+               a.receipt_user,
+               a.close_partner,
+               a.close_user,
+               a.closedt,
+               a.close_troubletype,
+               a.close_note
+     FROM        customer_trouble a
+     ORDER BY a.troubleno" update="customer_trouble" updatewhere=0 updatekeyinplace=no  sort="troubleno D " )
+text(band=header alignment="2" text="Trouble No." border="2" color="15793151" x="9" y="20" height="60" width="302"  name=troubleno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="15793151" x="320" y="20" height="60" width="242"  name=trouble_status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Receipt Partner" border="2" color="15793151" x="571" y="20" height="60" width="722"  name=receipt_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Receipt User" border="2" color="15793151" x="1303" y="20" height="60" width="503"  name=receipt_user_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Receipt Date" border="2" color="15793151" x="1815" y="20" height="60" width="562"  name=receiptdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Receipt Trouble Type" border="2" color="15793151" x="2386" y="20" height="60" width="928"  name=troubletype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Receipt Trouble Note" border="2" color="15793151" x="3323" y="20" height="60" width="2235"  name=trouble_note_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Close date" border="2" color="15793151" x="6898" y="20" height="60" width="576"  name=closedt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Close Trouble Type" border="2" color="15793151" x="7483" y="20" height="60" width="969"  name=close_troubletype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Close Note" border="2" color="15793151" x="8462" y="20" height="60" width="2830"  name=close_note_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="302" format="[general]"  name=troubleno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1815" y="8" height="60" width="562" format="[shortdate] [time]"  name=receiptdt editmask.mask="mm-dd-yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="320" y="8" height="60" width="242" format="[general]"  name=trouble_status dddw.name=b1dc_dddw_trouble_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="571" y="8" height="60" width="722" format="[general]"  name=receipt_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1303" y="8" height="60" width="503" format="[general]"  name=receipt_user dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="5568" y="8" height="60" width="791" format="[general]"  name=close_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="6898" y="8" height="60" width="576" format="[shortdate] [time]"  name=closedt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="2386" y="8" height="60" width="928" format="[general]"  name=troubletype dddw.name=b1dc_dddw_troubletypemst dddw.displaycolumn=troubletypenm dddw.datacolumn=troubletype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="3323" y="8" height="60" width="2235" format="[general]"  name=trouble_note edit.limit=300 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="7483" y="8" height="60" width="969" format="[general]"  name=close_troubletype dddw.name=b1dc_dddw_close_troubletypemst dddw.displaycolumn=troubletypenm dddw.datacolumn=troubletype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="8462" y="8" height="60" width="2830" format="[general]"  name=close_note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="6373" y="8" height="60" width="517"  name=close_user dddw.name=ssrt_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_no dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Close Partner" border="2" color="15793151" x="5568" y="20" height="60" width="791"  name=close_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Close User" border="2" color="15793151" x="6368" y="20" height="60" width="521"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

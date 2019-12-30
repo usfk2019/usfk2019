@@ -1,0 +1,32 @@
+﻿$PBExportHeader$d_inq_code_detail1.srd
+$PBExportComments$(jsj) Register code detail 1
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=grcode dbname="syscod2t.grcode" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=code dbname="syscod2t.code" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=codenm dbname="syscod2t.codenm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="syscod2t.use_yn" initial="Y" values="Yes	Y/No	N/" )
+ retrieve="  SELECT C.GRCODE,   
+         C.CODE,   
+         C.CODENM,   
+         C.USE_YN  
+    FROM SYSCOD2T C
+" update="SYSCOD2T" updatewhere=1 updatekeyinplace=no  sort="code A " )
+text(band=header alignment="2" text="Code" border="2" color="15793151" x="23" y="96" height="60" width="411"  name=code_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Description" border="2" color="15793151" x="462" y="96" height="60" width="1641"  name=code_nm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Use" border="2" color="15793151" x="2130" y="96" height="60" width="402"  name=use_yn_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="1" text="ORDER BY" border="0" color="0" x="27" y="20" height="60" width="311"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="352" y="20" height="60" width="384"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="1230" y="20" height="60" width="302"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="1" text="Total Row" border="0" color="0" x="1755" y="20" height="60" width="283"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="1" text="ASC/DESC " border="0" color="0" x="901" y="20" height="60" width="315"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2053" y="20" height="60" width="256" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="2130" y="8" height="64" width="402" format="[general]"  name=use_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="462" y="8" height="64" width="1641" format="[general]"  name=codenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="23" y="8" height="64" width="411" format="[general]"  name=code edit.limit=10 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

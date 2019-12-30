@@ -1,0 +1,16 @@
+﻿$PBExportHeader$ubs_dw_reg_lease_move_shop.srd
+$PBExportComments$[kem] 서비스신청조건 - com&life
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=4 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=status dbname="status" )
+ column=(type=char(10) updatewhereclause=no name=contno_to dbname="contno_to" )
+ column=(type=char(10) updatewhereclause=no name=contno_fr dbname="contno_fr" )
+ column=(type=char(10) updatewhereclause=no name=shop dbname="shop" )
+ )
+column(band=detail id=4 alignment="0" tabsequence=10 border="2" color="16777215" x="14" y="4" height="60" width="617" format="[general]"  name=shop dddw.name=ssrt_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

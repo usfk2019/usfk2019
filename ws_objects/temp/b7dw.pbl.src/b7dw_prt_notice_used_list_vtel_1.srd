@@ -1,0 +1,29 @@
+﻿$PBExportHeader$b7dw_prt_notice_used_list_vtel_1.srd
+$PBExportComments$[jybaek] 자동이체/신용카드 청구서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 2 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=2712 color="536870912"  height.autosize=yes)
+table(column=(type=char(14) updatewhereclause=yes name=reqinfo_payid dbname="reqinfo.payid" )
+ retrieve="SELECT info.payid
+			FROM reqinfo info
+		  WHERE  to_char(info.trdt, 'yyyymmdd') =:as_trdt
+			 AND info.chargedt =:as_chargedt
+			 AND info.inv_yn = 'Y'
+			 AND info.pay_method =:as_paymethod
+UNION ALL
+SELECT info.payid
+			FROM reqinfoh info
+		  WHERE  to_char(info.trdt, 'yyyymmdd') =:as_trdt
+			 AND info.chargedt =:as_chargedt
+			 AND info.inv_yn = 'Y'
+			 AND info.pay_method =:as_paymethod
+ ORDER BY 1
+" arguments=(("as_paymethod", string),("as_chargedt", string),("as_trdt", string)) )
+group(level=1 header.height=4 trailer.height=4 by=("reqinfo_payid" ) header.color="536870912" trailer.color="536870912" )
+column(band=header id=1 alignment="0" tabsequence=32766 border="0" color="0" x="608" y="32" height="60" width="544" format="[general]"  name=reqinfo_payid visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+report(band=detail dataobject="b7dw_prt_notice_used_list_2_vtel" x="32" y="1036" height="1624" width="3205" border="0"  height.autosize=yes criteria="" nest_arguments=((" reqinfo_payid "),(" as_trdt ")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+report(band=detail dataobject="b7dw_prt_notice_used_list_1_vtel_1" x="32" y="32" height="964" width="3195" border="0"  height.autosize=yes criteria="" nest_arguments=((" reqinfo_payid "),(" as_trdt ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

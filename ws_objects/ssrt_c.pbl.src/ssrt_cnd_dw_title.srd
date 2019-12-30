@@ -1,0 +1,22 @@
+﻿$PBExportHeader$ssrt_cnd_dw_title.srd
+$PBExportComments$[jwlee] CDR보고서 조회조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=172 color="536870912" )
+table(column=(type=char(60) updatewhereclause=no name=dwonm dbname="dwonm" )
+ column=(type=char(60) updatewhereclause=no name=col_header dbname="col_header" )
+ column=(type=char(60) updatewhereclause=no name=tbl_column dbname="tbl_column" )
+ column=(type=char(60) updatewhereclause=no name=header_title dbname="header_title" )
+ )
+text(band=detail alignment="1" text="오브젝트명" border="0" color="0" x="14" y="20" height="56" width="375"  name=workdt_to_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="tbl_column" border="0" color="0" x="14" y="104" height="56" width="375"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="402" y="104" height="56" width="695" format="[general]"  name=tbl_column edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="402" y="20" height="56" width="695" format="[general]"  name=dwonm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="col_header" border="0" color="0" x="1115" y="20" height="56" width="375"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Header_title" border="0" color="0" x="1115" y="104" height="56" width="375"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1504" y="104" height="56" width="695" format="[general]"  name=header_title edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="1504" y="20" height="56" width="695" format="[general]"  name=col_header edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

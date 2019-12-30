@@ -1,0 +1,32 @@
+﻿$PBExportHeader$b1dw_det_inq_validkeyquota.srd
+$PBExportComments$[ssong] 대리점 인증키 할당 내역조회 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=validkey dbname="validkeymst.validkey" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="validkeymst.status" )
+ column=(type=char(1) updatewhereclause=yes name=sale_flag dbname="validkeymst.sale_flag" values="재고	0/출고(판매)	1/" )
+ column=(type=datetime updatewhereclause=yes name=idate dbname="validkeymst.idate" )
+ column=(type=datetime updatewhereclause=yes name=activedt dbname="validkeymst.activedt" )
+ column=(type=char(10) updatewhereclause=yes name=partner dbname="validkeymst.partner" )
+ column=(type=decimal(0) updatewhereclause=yes name=moveno dbname="validkeymst.moveno" )
+ retrieve="SELECT VALIDKEY, STATUS, SALE_FLAG, IDATE, ACTIVEDT, PARTNER, MOVENO     
+FROM   VALIDKEYMST   
+WHERE  MOVENO IS NOT NULL" )
+text(band=header alignment="2" text="인증key" border="2" color="16777215" x="9" y="8" height="60" width="713"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="16777215" x="741" y="8" height="60" width="411"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개통일자" border="2" color="16777215" x="2203" y="8" height="60" width="585"  name=activedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성일자" border="2" color="16777215" x="1600" y="8" height="60" width="585"  name=idate_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고상태" border="2" color="16777215" x="1170" y="8" height="60" width="411"  name=sale_flag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="9" y="4" height="60" width="713" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="741" y="4" height="60" width="411" format="[general]"  name=status dddw.name=b1dc_dddw_validkeymst_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="2" color="0" x="2203" y="4" height="60" width="585" format="[shortdate] [time]"  name=activedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0" x="1600" y="4" height="60" width="585" format="[shortdate] [time]"  name=idate editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1170" y="4" height="60" width="411" format="[general]"  name=sale_flag ddlb.limit=2 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2807" y="4" height="60" width="672" format="[general]"  name=partner dddw.name=b2dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="할당받은 대리점" border="2" color="16777215" x="2807" y="8" height="60" width="672"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

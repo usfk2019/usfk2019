@@ -1,0 +1,172 @@
+﻿$PBExportHeader$ssrt_reg_ktf_payment.srd
+$PBExportComments$[ceusee]자동이체(EDI) 신청 응답
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=108 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(30) update=yes updatewhereclause=yes key=yes name=validkey dbname="ktf_reqinfo.validkey" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=trdt dbname="ktf_reqinfo.trdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=ktf_customerid dbname="ktf_reqinfo.ktf_customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=payid dbname="ktf_reqinfo.payid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=payment_yn dbname="ktf_reqinfo.payment_yn" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt01 dbname="ktf_reqinfo.tramt01" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt02 dbname="ktf_reqinfo.tramt02" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt03 dbname="ktf_reqinfo.tramt03" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt04 dbname="ktf_reqinfo.tramt04" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt05 dbname="ktf_reqinfo.tramt05" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt06 dbname="ktf_reqinfo.tramt06" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt07 dbname="ktf_reqinfo.tramt07" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt08 dbname="ktf_reqinfo.tramt08" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt09 dbname="ktf_reqinfo.tramt09" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt10 dbname="ktf_reqinfo.tramt10" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt11 dbname="ktf_reqinfo.tramt11" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt12 dbname="ktf_reqinfo.tramt12" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt13 dbname="ktf_reqinfo.tramt13" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt14 dbname="ktf_reqinfo.tramt14" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt15 dbname="ktf_reqinfo.tramt15" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt16 dbname="ktf_reqinfo.tramt16" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt17 dbname="ktf_reqinfo.tramt17" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt18 dbname="ktf_reqinfo.tramt18" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt19 dbname="ktf_reqinfo.tramt19" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt20 dbname="ktf_reqinfo.tramt20" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt21 dbname="ktf_reqinfo.tramt21" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt22 dbname="ktf_reqinfo.tramt22" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt23 dbname="ktf_reqinfo.tramt23" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt24 dbname="ktf_reqinfo.tramt24" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt25 dbname="ktf_reqinfo.tramt25" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt26 dbname="ktf_reqinfo.tramt26" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt27 dbname="ktf_reqinfo.tramt27" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt28 dbname="ktf_reqinfo.tramt28" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt29 dbname="ktf_reqinfo.tramt29" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=tramt30 dbname="ktf_reqinfo.tramt30" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc01 dbname="ktf_reqinfo.trdesc01" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc02 dbname="ktf_reqinfo.trdesc02" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc03 dbname="ktf_reqinfo.trdesc03" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc04 dbname="ktf_reqinfo.trdesc04" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc05 dbname="ktf_reqinfo.trdesc05" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc06 dbname="ktf_reqinfo.trdesc06" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc07 dbname="ktf_reqinfo.trdesc07" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc08 dbname="ktf_reqinfo.trdesc08" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc09 dbname="ktf_reqinfo.trdesc09" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc10 dbname="ktf_reqinfo.trdesc10" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc11 dbname="ktf_reqinfo.trdesc11" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc12 dbname="ktf_reqinfo.trdesc12" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc13 dbname="ktf_reqinfo.trdesc13" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc14 dbname="ktf_reqinfo.trdesc14" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc15 dbname="ktf_reqinfo.trdesc15" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc16 dbname="ktf_reqinfo.trdesc16" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc17 dbname="ktf_reqinfo.trdesc17" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc18 dbname="ktf_reqinfo.trdesc18" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc19 dbname="ktf_reqinfo.trdesc19" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc20 dbname="ktf_reqinfo.trdesc20" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc21 dbname="ktf_reqinfo.trdesc21" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc22 dbname="ktf_reqinfo.trdesc22" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc23 dbname="ktf_reqinfo.trdesc23" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc24 dbname="ktf_reqinfo.trdesc24" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc25 dbname="ktf_reqinfo.trdesc25" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc26 dbname="ktf_reqinfo.trdesc26" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc27 dbname="ktf_reqinfo.trdesc27" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc28 dbname="ktf_reqinfo.trdesc28" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc29 dbname="ktf_reqinfo.trdesc29" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=trdesc30 dbname="ktf_reqinfo.trdesc30" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="ktf_reqinfo.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="ktf_reqinfo.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="ktf_reqinfo.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="ktf_reqinfo.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pgm_id dbname="ktf_reqinfo.pgm_id" )
+ retrieve="SELECT A.VALIDKEY,
+A.TRDT,
+A.KTF_CUSTOMERID,
+B.CUSTOMERNM,
+A.PAYID,
+A.PAYMENT_YN,
+A.TRAMT01,
+A.TRAMT02,
+A.TRAMT03,
+A.TRAMT04,
+A.TRAMT05,
+A.TRAMT06,
+A.TRAMT07,
+A.TRAMT08,
+A.TRAMT09,
+A.TRAMT10,
+A.TRAMT11,
+A.TRAMT12,
+A.TRAMT13,
+A.TRAMT14,
+A.TRAMT15,
+A.TRAMT16,
+A.TRAMT17,
+A.TRAMT18,
+A.TRAMT19,
+A.TRAMT20,
+A.TRAMT21,
+A.TRAMT22,
+A.TRAMT23,
+A.TRAMT24,
+A.TRAMT25,
+A.TRAMT26,
+A.TRAMT27,
+A.TRAMT28,
+A.TRAMT29,
+A.TRAMT30,
+A.TRDESC01,
+A.TRDESC02,
+A.TRDESC03,
+A.TRDESC04,
+A.TRDESC05,
+A.TRDESC06,
+A.TRDESC07,
+A.TRDESC08,
+A.TRDESC09,
+A.TRDESC10,
+A.TRDESC11,
+A.TRDESC12,
+A.TRDESC13,
+A.TRDESC14,
+A.TRDESC15,
+A.TRDESC16,
+A.TRDESC17,
+A.TRDESC18,
+A.TRDESC19,
+A.TRDESC20,
+A.TRDESC21,
+A.TRDESC22,
+A.TRDESC23,
+A.TRDESC24,
+A.TRDESC25,
+A.TRDESC26,
+A.TRDESC27,
+A.TRDESC28,
+A.TRDESC29,
+A.TRDESC30,
+A.CRT_USER,
+A.CRTDT,
+A.UPDT_USER,
+A.UPDTDT,
+A.PGM_ID
+FROM KTF_REQINFO A,
+     CUSTOMERM B
+WHERE A.payid  =  b.Customerid (+) " update="KTF_REQINFO" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Validkey" border="2" color="15793151" x="571" y="88" height="60" width="475"  name=validkey_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Charge" border="2" color="15793151" x="2683" y="88" height="60" width="489"  name=cp_total_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="KTF_CID" border="2" color="15793151" x="1061" y="88" height="60" width="539"  name=ktf_customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="PayerID" border="2" color="15793151" x="1614" y="88" height="60" width="1056"  name=payid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=header alignment="1" expression="rowcount()"border="0" color="0" x="2935" y="12" height="56" width="215" format="#,###"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="TOTAL ROWS : " border="0" color="0" x="2546" y="12" height="60" width="393"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Transaction Date" border="2" color="15793151" x="46" y="88" height="60" width="512"  name=trdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="571" y="8" height="56" width="475" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1061" y="8" height="56" width="539" format="[general]"  name=ktf_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1618" y="8" height="56" width="247" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1883" y="8" height="56" width="782" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression=" tramt01 + tramt02 + tramt03 + tramt04 + tramt05 + tramt06 + tramt07 + tramt08 + tramt09 + tramt10 + tramt11 + tramt12 + tramt13 + tramt14 + tramt15 + tramt16 + tramt17 + tramt18 + tramt19 + tramt20 + tramt21 + tramt22 + tramt23 + tramt24 + tramt25 + tramt26 +  tramt27 + tramt28 + tramt29 + tramt30 "border="0" color="0" x="2683" y="8" height="56" width="489" format="#,##0"  name=cp_total  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="46" y="8" height="56" width="512" format="[shortdate] [time]"  name=trdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="46" y1="8" x2="3182" y2="8"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="50" y1="104" x2="3186" y2="104"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="Summary  :  " border="0" color="0" x="2341" y="28" height="60" width="320"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(  cp_total  for all )"border="0" color="0" x="2683" y="28" height="60" width="489" format="#,##0"  name=cp_summary  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

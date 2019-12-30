@@ -1,0 +1,70 @@
+﻿$PBExportHeader$d_reg_aspmst.srd
+$PBExportComments$[chooys] 제조사 등록 - Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=836 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=asp_id dbname="aspmst.asp_id" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=asp_name dbname="aspmst.asp_name" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=db_userid dbname="aspmst.db_userid" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=available_type dbname="aspmst.available_type" values="잔액	0/시간	1/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=asp_intro_yn dbname="aspmst.asp_intro_yn" values="Yes	1/No	0/" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=warning_time dbname="aspmst.warning_time" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=cs_forwarding dbname="aspmst.cs_forwarding" values="Yes	1/No	0/" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=cs_e164 dbname="aspmst.cs_e164" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="aspmst.crtdt" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=crt_user dbname="aspmst.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="aspmst.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="aspmst.updt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="aspmst.pgm_id" )
+ retrieve="  SELECT ASP_ID,
+         ASP_NAME,
+         DB_USERID,
+         AVAILABLE_TYPE,
+         ASP_INTRO_YN,
+         WARNING_TIME,
+         CS_FORWARDING,
+         CS_E164,
+         CRTDT,
+         CRT_USER,
+         UPDTDT,
+         UPDT_USER,
+         PGM_ID
+    FROM ASPMST" update="ASPMST" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="18" y="12" height="816" width="1925"  name=t_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=60 border="5" color="0" x="613" y="540" height="60" width="567" format="[general]"  name=warning_time edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+rectangle(band=detail x="23" y="16" height="808" width="558"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="27306400"  background.mode="2" background.color="31516640" )
+text(band=detail alignment="2" text="Warning Tone시간" border="0" color="0" x="37" y="540" height="56" width="530"  name=warning_time_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Warning Tone시간" border="0" color="0" x="37" y="540" height="56" width="530"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="Warning Tone시간" border="0" color="0" x="37" y="540" height="56" width="530"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="581" y1="16" x2="581" y2="824"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="274" y="996" height="60" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="996" height="60" width="640" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1111" y="996" height="60" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="1303" y="996" height="60" width="320" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1623" y="996" height="60" width="256" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="16777215" x="613" y="228" height="60" width="567" format="[general]"  name=db_userid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="5" color="0" x="613" y="748" height="60" width="640" format="[general]"  name=cs_e164 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="사업자코드" border="0" color="0" x="37" y="36" height="56" width="530"  name=asp_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="사업자명" border="0" color="0" x="37" y="132" height="56" width="530"  name=asp_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="DB UserID" border="0" color="0" x="37" y="232" height="56" width="530"  name=db_userid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="안내방송유형" border="0" color="0" x="37" y="332" height="56" width="530"  name=available_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="사업자소개 안내방송" border="0" color="0" x="37" y="440" height="56" width="530"  name=asp_intro_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="고객센터연결여부" border="0" color="0" x="37" y="648" height="56" width="530"  name=cs_forwarding_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="고객센터 E164" border="0" color="0" x="37" y="748" height="56" width="530"  name=cs_e164_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="23" y1="108" x2="1938" y2="108"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="23" y1="208" x2="1938" y2="208"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="23" y1="308" x2="1938" y2="308"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="23" y1="412" x2="1938" y2="412"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="23" y1="516" x2="1938" y2="516"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="23" y1="620" x2="1938" y2="620"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="23" y1="724" x2="1938" y2="724"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+text(band=detail alignment="0" text="초" border="0" color="0" x="1202" y="544" height="56" width="82"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="613" y="332" height="60" width="567" format="[general]"  name=available_type radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="5" color="0" x="613" y="440" height="60" width="567" format="[general]"  name=asp_intro_yn radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="5" color="0" x="613" y="648" height="60" width="567" format="[general]"  name=cs_forwarding radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="16777215" x="613" y="32" height="60" width="462" format="[general]"  name=asp_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="16777215" x="613" y="132" height="60" width="1298" format="[general]"  name=asp_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

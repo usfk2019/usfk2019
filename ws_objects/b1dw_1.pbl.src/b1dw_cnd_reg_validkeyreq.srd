@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b1dw_cnd_reg_validkeyreq.srd
+$PBExportComments$[islim] 인증키요청처리
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=196 color="536870912" )
+table(column=(type=date updatewhereclause=yes name=reqdt dbname="reqdt" )
+ column=(type=char(10) updatewhereclause=yes name=reqtype dbname="reqtype" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="status" )
+ column=(type=char(10) updatewhereclause=yes name=req_partner dbname="req_partner" )
+ )
+text(band=detail alignment="0" text="까지" border="0" color="0" x="731" y="20" height="56" width="178"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="379" y="20" height="60" width="338" format="[general]"  name=reqdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="요청일자" border="0" color="0" x="18" y="20" height="56" width="334"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="요청Type" border="0" color="0" x="1024" y="20" height="56" width="334"  name=reqtype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="1376" y="20" height="60" width="370" format="[general]"  name=reqtype dddw.name=b1dc_dddw_validkey_reqtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="요청처리상태" border="0" color="0" x="18" y="108" height="56" width="334"  name=status_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="379" y="108" height="60" width="389" format="[general]"  name=status dddw.name=b1dc_dddw_validkey_reqstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="요청대리점" border="0" color="0" x="1024" y="108" height="56" width="334"  name=req_partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1376" y="108" height="60" width="695" format="[general]"  name=req_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

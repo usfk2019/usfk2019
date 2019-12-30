@@ -1,0 +1,50 @@
+﻿$PBExportHeader$ubs_dw_reg_groupadin_mas.srd
+$PBExportComments$[jhchoi] 인증장비 이동 (Master) - 2009.04.13
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=modelno dbname="ad_groupdet.modelno" )
+ column=(type=decimal(0) updatewhereclause=yes name=amount dbname="ad_groupdet.amount" )
+ column=(type=decimal(0) updatewhereclause=yes name=current_amt dbname="ad_groupmst.current_amt" )
+ column=(type=char(1000) updatewhereclause=yes name=remark dbname="ad_groupdet.remark" )
+ column=(type=char(10) updatewhereclause=yes name=makercd dbname="ad_groupdet.makercd" )
+ column=(type=char(10) updatewhereclause=yes name=entstore dbname="ad_groupdet.entstore" )
+ column=(type=decimal(0) updatewhereclause=yes name=seqno dbname="ad_groupdet.seqno" )
+ column=(type=char(1) updatewhereclause=yes name=data_check dbname="data_check" )
+ column=(type=char(50) updatewhereclause=yes name=modelnm dbname="admodel.modelnm" )
+ retrieve="SELECT  DET.MODELNO 
+		, DET.AMOUNT 
+		, MST.AMOUNT AS CURRENT_AMT 
+		, DET.REMARK 
+		, DET.MAKERCD 
+		, DET.ENTSTORE 
+		, DET.SEQNO 
+		, 'R' AS DATA_CHECK 
+		, AD.MODELNM 
+FROM    AD_GROUPDET DET, AD_GROUPMST MST, ADMODEL AD 
+WHERE   DET.MODELNO = MST.MODELNO(+) 
+AND     DET.MV_PARTNER = MST.PARTNER(+) 
+AND     DET.MODELNO = AD.MODELNO 
+
+" )
+text(band=header alignment="2" text="Model No." border="2" color="15793151" x="5" y="8" height="60" width="507"  name=modelno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Model Name" border="2" color="15793151" x="526" y="8" height="60" width="768"  name=modelnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Qty" border="2" color="15793151" x="1307" y="8" height="60" width="283"  name=amount_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Current" border="2" color="15793151" x="1605" y="8" height="60" width="288"  name=current_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark" border="2" color="15793151" x="1906" y="8" height="60" width="1463"  name=remark_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Maker" border="2" color="15793151" x="3383" y="8" height="60" width="507"  name=makercd_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Entstore" border="2" color="15793151" x="3904" y="8" height="60" width="507"  name=entstore_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1312" y="152" height="64" width="494" format="[general]"  name=seqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1815" y="152" height="64" width="133" format="[general]"  name=data_check edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="9" y="4" height="64" width="503" format="[general]"  name=modelno dddw.name=ubs_dddw_groupmodel dddw.displaycolumn=modelno dddw.datacolumn=modelno dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=2 alignment="1" tabsequence=20 border="2" color="1090519039" x="1307" y="4" height="64" width="283" format="[general]"  name=amount  tag="Amount" editmask.mask="###,###" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="2" color="0" x="1605" y="4" height="64" width="288" format="[general]"  name=current_amt  tag="Current" editmask.mask="###,###" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="2" color="0" x="1906" y="4" height="64" width="1463" format="[general]"  name=remark  tag="Remark" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="2" color="1090519039" x="3383" y="4" height="64" width="507" format="[general]"  name=makercd  tag="Maker" dddw.name=b8dc_dddw_admaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=120 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="2" color="1090519039" x="3904" y="4" height="64" width="507" format="[general]"  name=entstore  tag="Entstore" dddw.name=b8dc_dddw_entstore dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=120 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="526" y="4" height="64" width="768" format="[general]"  name=modelnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

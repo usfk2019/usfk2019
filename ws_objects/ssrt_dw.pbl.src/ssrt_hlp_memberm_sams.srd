@@ -1,0 +1,56 @@
+﻿$PBExportHeader$ssrt_hlp_memberm_sams.srd
+$PBExportComments$[hcjung] Help for Customer Search
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(14) update=yes updatewhereclause=yes key=yes name=customerid dbname="customerm.customerid" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=ssno dbname="customerm.ssno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="customerm.status" )
+ column=(type=char(60) updatewhereclause=yes name=addr dbname="addr" )
+ column=(type=char(20) updatewhereclause=yes name=homephone dbname="customerm.homephone" )
+ column=(type=char(50) updatewhereclause=yes name=email1 dbname="customerm.email1" )
+ column=(type=char(10) updatewhereclause=yes name=ctype1 dbname="customerm.ctype1" )
+ column=(type=char(50) updatewhereclause=yes name=logid dbname="customerm.logid" )
+ column=(type=char(10) updatewhereclause=yes name=memberid dbname="customerm.memberid" )
+ retrieve="SELECT ~"CUSTOMERM~".~"CUSTOMERID~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         ~"CUSTOMERM~".~"SOCIALSECURITY~" ssno,   
+         ~"CUSTOMERM~".~"STATUS~",   
+          nvl( ~"CUSTOMERM~".~"ADDR2~",   ' ') addr,
+         ~"CUSTOMERM~".~"HOMEPHONE~", 
+         ~"CUSTOMERM~".~"EMAIL1~", 
+         ~"CUSTOMERM~".~"CTYPE1~", 
+         ~"CUSTOMERM~".~"LOGID~",
+         ~"CUSTOMERM~".~"MEMBERID~"
+    FROM ~"CUSTOMERM~"  
+    ORDER BY ~"CUSTOMERM~".~"CUSTOMERID~" ASC,   
+         ~"CUSTOMERM~".~"CUSTOMERNM~" ASC  " update="CUSTOMERM" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="CustomerID" border="2" color="15793151" x="439" y="92" height="60" width="411"  name=customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Customer Name" border="2" color="15793151" x="859" y="92" height="60" width="768"  name=customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Status" border="2" color="15793151" x="1637" y="92" height="60" width="407"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Type" border="2" color="15793151" x="2053" y="92" height="60" width="407"  name=ctype1_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="SOCIALSECURITY" border="2" color="15793151" x="2469" y="92" height="60" width="530"  name=ssno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Address" border="2" color="15793151" x="3008" y="92" height="60" width="1152"  name=addr_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="LogID" border="2" color="15793151" x="4169" y="92" height="60" width="471"  name=logid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Email" border="2" color="15793151" x="4649" y="92" height="60" width="443"  name=email1_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Memberid" border="2" color="15793151" x="9" y="92" height="60" width="421"  name=memberid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="439" y="8" height="60" width="411" format="[general]"  name=customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="859" y="8" height="60" width="768" format="[general]"  name=customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1637" y="8" height="60" width="407" format="[general]"  name=status dddw.name=b1dc_dddw_customerstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2053" y="8" height="60" width="407" format="[general]"  name=ctype1 dddw.name=b1dc_dddw_customertype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="2469" y="8" height="60" width="530" format="~tif( len( ssno ) = 13 , ~"@@@@@@-@@@@@@@~", ~"@@@-@@-@@@@@~")"  name=ssno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="3008" y="8" height="60" width="1152" format="[general]"  name=addr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4169" y="8" height="60" width="471" format="[general]"  name=logid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="4649" y="8" height="60" width="443" format="[general]"  name=email1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="421" format="[general]"  name=memberid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="TOTALROWS" border="0" color="0" x="2199" y="16" height="60" width="357"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="" border="0" color="8388608" x="1522" y="16" height="60" width="69"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="ASC/DESC" border="0" color="0" x="1207" y="16" height="60" width="297"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="343" y="16" height="60" width="585"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="ORDER BY" border="0" color="0" x="9" y="16" height="60" width="315"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

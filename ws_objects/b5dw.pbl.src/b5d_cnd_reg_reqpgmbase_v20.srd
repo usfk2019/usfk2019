@@ -1,0 +1,16 @@
+﻿$PBExportHeader$b5d_cnd_reg_reqpgmbase_v20.srd
+$PBExportComments$[parkkh] 청구주기별 청구절차메뉴코드정의 Control Data Window
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=200 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=chargedt dbname="chargedt" )
+ column=(type=char(10) updatewhereclause=no name=pgm_id dbname="pgm_id" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="407" y="24" height="60" width="896" format="[general]"  name=chargedt dddw.name=b5dc_dddw_chargedt dddw.displaycolumn=description dddw.datacolumn=chargedt dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="33554432" x="411" y="108" height="56" width="887" format="[general]"  name=pgm_id dddw.name=b5dc_dddw_reqprocmenu_pgmid_v20 dddw.displaycolumn=pgm_nm dddw.datacolumn=pgm_id dddw.percentwidth=120 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="청구주기" border="0" color="0" x="41" y="24" height="60" width="347"  name=trcodnm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="청구절차코드" border="0" color="0" x="41" y="104" height="56" width="347"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

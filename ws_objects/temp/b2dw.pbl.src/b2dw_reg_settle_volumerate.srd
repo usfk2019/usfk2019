@@ -1,0 +1,43 @@
+﻿$PBExportHeader$b2dw_reg_settle_volumerate.srd
+$PBExportComments$[y.k.min] Volumn 조회 및 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=volumefr dbname="settle_volume.volumefr" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="settle_volume.fromdt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=com_amt dbname="settle_volume.com_amt" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="settle_volume.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="settle_volume.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="settle_volume.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="settle_volume.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="settle_volume.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="settle_volume.pgm_id" )
+ retrieve="  SELECT ~"SETTLE_VOLUME~".~"VOLUMEFR~",   
+         ~"SETTLE_VOLUME~".~"FROMDT~",   
+         ~"SETTLE_VOLUME~".~"COM_AMT~",   
+         ~"SETTLE_VOLUME~".~"REMARK~",   
+         ~"SETTLE_VOLUME~".~"CRT_USER~",   
+         ~"SETTLE_VOLUME~".~"UPDT_USER~",   
+         ~"SETTLE_VOLUME~".~"CRTDT~",   
+         ~"SETTLE_VOLUME~".~"UPDTDT~",   
+         ~"SETTLE_VOLUME~".~"PGM_ID~"  
+    FROM ~"SETTLE_VOLUME~"   
+" update="SETTLE_VOLUME" updatewhere=1 updatekeyinplace=no  sort="fromdt D volumefr A " )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="197" y="188" height="76" width="320" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="184" height="76" width="320" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="987" y="196" height="76" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1271" y="188" height="76" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1522" y="188" height="76" width="256" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="적용개시일" border="2" color="16777215" x="18" y="16" height="56" width="530"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Volume 수량(>=)" border="2" color="16777215" x="567" y="16" height="56" width="613"  name=volumefr_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="건별수수료" border="2" color="16777215" x="1198" y="16" height="56" width="526"  name=com_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비고" border="2" color="16777215" x="1742" y="16" height="56" width="1230"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1742" y="4" height="64" width="1230" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="2" color="16777215" x="18" y="4" height="64" width="530" format="[shortdate] [time]"  name=fromdt edit.name="DD/MM/YYYY HH:MM:SS" editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="1" tabsequence=20 border="2" color="16777215" x="567" y="4" height="64" width="613" format="[general]"  name=volumefr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="2" color="16777215" x="1198" y="4" height="64" width="526" format="#,##0"  name=com_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

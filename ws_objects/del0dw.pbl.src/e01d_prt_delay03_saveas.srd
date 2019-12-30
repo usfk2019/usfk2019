@@ -1,0 +1,113 @@
+﻿$PBExportHeader$e01d_prt_delay03_saveas.srd
+$PBExportComments$[ojy]연제자리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=404 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=dlymst_payid dbname="dlymst.payid" )
+ column=(type=char(60) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=decimal(2) updatewhereclause=yes name=dlymst_amount dbname="dlymst.amount" )
+ column=(type=decimal(0) updatewhereclause=yes name=billinginfo_overdue_months dbname="billinginfo.overdue_months" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_basecod dbname="customerm.basecod" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_status dbname="customerm.status" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_cellphone dbname="customerm.cellphone" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_homephone dbname="customerm.homephone" )
+ column=(type=char(30) updatewhereclause=yes name=customerm_unit dbname="customerm.unit" )
+ column=(type=char(30) updatewhereclause=yes name=customerm_rank dbname="customerm.rank" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_roomno dbname="customerm.roomno" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_hotbillflag dbname="customerm.hotbillflag" )
+ column=(type=char(10) updatewhereclause=yes name=customerm_partner dbname="customerm.partner" )
+ column=(type=number updatewhereclause=yes name=balance dbname="dlymst.balance" )
+ column=(type=char(50) updatewhereclause=yes name=billinginfo_bil_email dbname="billinginfo.bil_email" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_dutyphone dbname="customerm.dutyphone" )
+ column=(type=char(1) updatewhereclause=yes name=modemno dbname="modemno" )
+ column=(type=char(1) updatewhereclause=yes name=cableno dbname="cableno" )
+ column=(type=char(1) updatewhereclause=yes name=macaddr_cm dbname="macaddr_cm" )
+ column=(type=char(1) updatewhereclause=yes name=macaddr_vocm dbname="macaddr_vocm" )
+ column=(type=char(1) updatewhereclause=yes name=portno dbname="portno" )
+ retrieve="SELECT  DISTINCT DLYMST.PAYID ,
+        cus.customernm ,
+        DLYMST.AMOUNT ,
+        bil.overdue_MONTHS,
+        cus.basecod,
+        cus.status,
+        cus.cellphone,
+        cus.homephone,
+        cus.unit,
+        cus.rank,
+        cus.buildingno,
+        cus.roomno,
+        cus.hotbillflag,
+cus.partner,
+0 balance,
+bil.bil_email,
+cus.dutyphone,
+' ' modemno,
+' ' cableno,
+' ' macaddr_cm,
+' ' macaddr_vocm,
+' ' portno
+  FROM DLYMST,
+       billinginfo bil,
+       customerm cus
+  WHERE  ( DLYMST.PAYID = bil.customerid )
+    and  ( bil.customerid = cus.customerid )
+
+
+
+"  sort="dlymst_payid A " )
+text(band=header alignment="0" text="" border="0" color="0" x="1403" y="128" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1445" y="128" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="64" y="228" height="56" width="1125"  name=t_final  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="연체고객명" border="0" color="0" x="507" y="324" height="56" width="558"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2757" y="232" height="60" width="741" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="2757" y="168" height="60" width="741"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="미납액" border="0" color="0" x="1152" y="324" height="56" width="384"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="연체개월수" border="0" color="0" x="1559" y="324" height="56" width="485"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Base" border="0" color="0" x="2135" y="324" height="56" width="347"  name=customerm_basecod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Status" border="0" color="0" x="2555" y="324" height="56" width="343"  name=customerm_status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Mobile" border="0" color="0" x="2944" y="324" height="56" width="347"  name=customerm_cellphone_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Home Phone" border="0" color="0" x="3346" y="324" height="56" width="366"  name=customerm_homephone_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="55" y1="396" x2="3753" y2="396"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="55" y="36" height="88" width="3698"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="55" y1="312" x2="3753" y2="312"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Shop" border="0" color="0" x="3771" y="328" height="56" width="270"  name=customerm_partner_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Balance" border="0" color="0" x="4059" y="328" height="56" width="270"  name=balance_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Bill Email" border="0" color="0" x="4352" y="328" height="56" width="270"  name=billinginfo_bil_email_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Duty Phone" border="0" color="0" x="4631" y="328" height="56" width="320"  name=customerm_dutyphone_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Modem No" border="0" color="0" x="4969" y="328" height="56" width="265"  name=modemno_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Cable No" border="0" color="0" x="5266" y="328" height="56" width="265"  name=cableno_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Mac Addr (CM)" border="0" color="0" x="5550" y="328" height="56" width="357"  name=macaddr_cm_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Mac Addr (VoCM)" border="0" color="0" x="5925" y="328" height="56" width="411"  name=macaddr_vocm_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Port No" border="0" color="0" x="6350" y="328" height="56" width="270"  name=portno_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="연체고객번호" border="0" color="0" x="73" y="324" height="56" width="411"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="55" y1="80" x2="3753" y2="80"  name=l_5 visible="1~tif(getrow()=long(describe(~"datawindow.lastrowonpage~")), 0, 1)" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="507" y="8" height="64" width="553" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1152" y="8" height="64" width="384" format="#,##0"  name=dlymst_amount edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1595" y="8" height="64" width="448" format="[general]"  name=billinginfo_overdue_months edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2135" y="8" height="64" width="347" format="[general]"  name=customerm_basecod dddw.name=ssrt_dddw_basecod dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2555" y="8" height="64" width="343" format="[general]"  name=customerm_status dddw.name=b1dc_dddw_customerstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2944" y="8" height="64" width="347" format="[general]"  name=customerm_cellphone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3346" y="8" height="64" width="366" format="[general]"  name=customerm_homephone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="3771" y="12" height="56" width="270" format="[general]"  name=customerm_partner visible="1~t0" dddw.name=ssrt_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="4059" y="12" height="56" width="270" format="[general]"  name=balance visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="4352" y="12" height="56" width="270" format="[general]"  name=billinginfo_bil_email visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="4631" y="12" height="56" width="320" format="[general]"  name=customerm_dutyphone visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="4969" y="12" height="56" width="265" format="[general]"  name=modemno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="5266" y="12" height="56" width="270" format="[general]"  name=cableno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="5550" y="12" height="56" width="270" format="[general]"  name=macaddr_cm visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="5938" y="12" height="56" width="270" format="[general]"  name=macaddr_vocm visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="6350" y="12" height="56" width="270" format="[general]"  name=portno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="73" y="8" height="64" width="411" format="[general]"  name=dlymst_payid edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="고객수:" border="0" color="0" x="87" y="16" height="56" width="384"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="count(  dlymst_payid  for all ) + ~"  명~""border="0" color="0" x="489" y="16" height="64" width="421" format="[General]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(dlymst_amount for all)"border="0" color="0" x="1445" y="16" height="64" width="411" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="금액합계:" border="0" color="0" x="1033" y="16" height="56" width="398"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="55" y1="4" x2="3753" y2="4"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="55" y1="88" x2="3753" y2="88"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+
+sparse(names="dlymst_payid")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

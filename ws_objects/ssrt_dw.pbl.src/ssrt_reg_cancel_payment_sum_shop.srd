@@ -1,0 +1,68 @@
+﻿$PBExportHeader$ssrt_reg_cancel_payment_sum_shop.srd
+$PBExportComments$[ceusee] 수동입금거래등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=204 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=approvalno dbname="receiptmst.approvalno" )
+ column=(type=decimal(0) updatewhereclause=yes name=shopcount dbname="receiptmst.shopcount" )
+ column=(type=char(60) updatewhereclause=yes name=syscod2t_receipttype dbname="syscod2t.receipttype" )
+ column=(type=char(10) updatewhereclause=yes name=shopid dbname="receiptmst.shopid" )
+ column=(type=char(10) updatewhereclause=yes name=posno dbname="receiptmst.posno" )
+ column=(type=datetime updatewhereclause=yes name=workdt dbname="receiptmst.workdt" )
+ column=(type=datetime updatewhereclause=yes name=trdt dbname="receiptmst.trdt" )
+ column=(type=char(10) updatewhereclause=yes name=memberid dbname="receiptmst.memberid" )
+ column=(type=char(30) updatewhereclause=yes name=sysusr1t_operator dbname="sysusr1t.operator" )
+ column=(type=decimal(2) updatewhereclause=yes name=total dbname="receiptmst.total" )
+ column=(type=decimal(2) updatewhereclause=yes name=cash dbname="receiptmst.cash" )
+ column=(type=decimal(2) updatewhereclause=yes name=change dbname="receiptmst.change" )
+ column=(type=char(10) updatewhereclause=yes name=seq_app dbname="receiptmst.seq_app" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="receiptmst.customerid" )
+ column=(type=char(1) updatewhereclause=yes name=prt_yn dbname="receiptmst.prt_yn" )
+ column=(type=char(1) updatewhereclause=yes name=cancel_yn dbname="cancel_yn" values="Yes	Y/No	N/" )
+ retrieve="SELECT APPROVALNO,
+SHOPCOUNT,
+C.CODENM RECEIPTTYPE,
+SHOPID,
+POSNO,
+WORKDT,
+TRDT,
+MEMBERID,
+B.EMPNM OPERATOR,
+TOTAL,
+CASH,
+CHANGE,
+SEQ_APP,
+CUSTOMERID,
+PRT_YN,
+' ' CANCEL_YN
+FROM RECEIPTMST A, SYSUSR1T B, SYSCOD2T C
+WHERE A.OPERATOR = B.EMP_ID
+  AND C.GRCODE = 'Z100'
+  AND A.RECEIPTTYPE = C.CODE
+ ORDER BY WORKDT DESC 
+"  sort="trdt D customerid A " )
+line(band=header x1="27" y1="196" x2="2930" y2="196"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Receipt No" border="2" color="15793151" x="27" y="124" height="60" width="562"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Total Amount" border="2" color="15793151" x="1042" y="124" height="60" width="430"  name=t_total  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Received Amt" border="2" color="15793151" x="1490" y="124" height="60" width="430"  name=t_cash  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Received Amt" border="2" color="15793151" x="1938" y="124" height="60" width="430"  name=t_change  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Operator" border="2" color="15793151" x="2386" y="124" height="60" width="535"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="8" height="60" width="562" format="[general]"  name=seq_app edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="27" y1="76" x2="2930" y2="76"  name=l_2 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2405" y="8" height="60" width="517" format="[general]"  name=sysusr1t_operator edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=summary id=8 alignment="0" tabsequence=32766 border="0" color="0" x="521" y="20" height="60" width="233" format="[general]"  name=memberid visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=summary id=5 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="20" height="60" width="233" format="[general]"  name=posno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=summary id=15 alignment="0" tabsequence=32766 border="0" color="0" x="1262" y="20" height="60" width="233" format="[general]"  name=prt_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=summary id=2 alignment="0" tabsequence=32766 border="0" color="0" x="311" y="28" height="60" width="233" format="[general]"  name=shopcount visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=summary id=4 alignment="0" tabsequence=32766 border="0" color="0" x="946" y="16" height="60" width="233" format="[general]"  name=shopid visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=summary id=1 alignment="2" tabsequence=32766 border="0" color="0" x="1531" y="28" height="60" width="562" format="[general]"  name=approvalno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="1042" y="8" height="60" width="416" format="#,##0.00"  name=total edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="1490" y="8" height="60" width="416" format="#,##0.00"  name=cash edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="1938" y="8" height="60" width="416" format="#,##0.00"  name=change edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Receipt Type" border="2" color="15793151" x="608" y="124" height="60" width="416"  name=tramt_i_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="2" tabsequence=0 border="0" color="0" x="608" y="8" height="60" width="416"  name=syscod2t_receipttype  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,83 @@
+﻿$PBExportHeader$rpt0dw_detail_reg_level_declare.srd
+$PBExportComments$[parkkh] Drive Level Declare  디테일DW2(dw_detail)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=164 color="536870912" )
+table(column=(type=char(15) updatewhereclause=yes name=from_rptname dbname="level_dec.from_rptname" )
+ column=(type=char(15) updatewhereclause=yes name=to_rptname dbname="level_dec.to_rptname" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=levelno dbname="level_dec.levelno" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="level_dec.seq" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=wkcod dbname="level_dec.wkcod" values="Accumulate GLM(ADD)	A/Accumulate GLM(Subtract)	S/Calculate Level	C/" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=description dbname="level_dec.description" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=from_rptcod dbname="level_dec.from_rptcod" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=to_rptcod dbname="level_dec.to_rptcod" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=levelno1 dbname="level_dec.levelno1" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=levelno2 dbname="level_dec.levelno2" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=factor dbname="level_dec.factor" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=opcod dbname="level_dec.opcod" values=" + 	+/ - 	-/ * 	*/ // 	///" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="level_dec.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="level_dec.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="level_dec.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="level_dec.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="level_dec.pgm_id" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=remark dbname="level_dec.remark" )
+ column=(type=decimal(0) updatewhereclause=yes name=levelno1_name dbname="level_dec.levelno1_name" )
+ column=(type=decimal(0) updatewhereclause=yes name=levelno2_name dbname="level_dec.levelno2_name" )
+ retrieve="  SELECT FROM_RPTCOD from_rptname,   
+         TO_RPTCOD to_rptname,   
+         ~"LEVEL_DEC~".~"LEVELNO~",   
+         ~"LEVEL_DEC~".~"SEQ~",   
+         ~"LEVEL_DEC~".~"WKCOD~",   
+         ~"LEVEL_DEC~".~"DESCRIPTION~",   
+         ~"LEVEL_DEC~".~"FROM_RPTCOD~",   
+         ~"LEVEL_DEC~".~"TO_RPTCOD~",   
+         ~"LEVEL_DEC~".~"LEVELNO1~",   
+         ~"LEVEL_DEC~".~"LEVELNO2~",   
+         ~"LEVEL_DEC~".~"FACTOR~",   
+         ~"LEVEL_DEC~".~"OPCOD~",   
+         ~"LEVEL_DEC~".~"CRT_USER~",   
+         ~"LEVEL_DEC~".~"UPDT_USER~",
+         ~"LEVEL_DEC~".~"CRTDT~",   
+         ~"LEVEL_DEC~".~"UPDTDT~",
+         ~"LEVEL_DEC~".~"PGM_ID~",   
+		 remark,
+         LEVELNO1 levelno1_name,
+         LEVELNO2 levelno2_name
+    FROM ~"LEVEL_DEC~"  
+ORDER BY ~"LEVEL_DEC~".~"LEVELNO~" ASC,   
+         ~"LEVEL_DEC~".~"SEQ~" ASC   
+" update="LEVEL_DEC" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Seq" border="2" color="16777215" x="101" y="20" height="60" width="137"  name=seq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="구분" border="2" color="16777215" x="256" y="20" height="60" width="667"  name=wkcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="From 계정" border="2" color="16777215" x="946" y="20" height="60" width="1376"  name=from_glcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Level 2" border="2" color="16777215" x="2341" y="100" height="60" width="1376"  name=levelno2_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Level 1" border="2" color="16777215" x="946" y="100" height="60" width="1376"  name=levelno1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="OP" border="2" color="16777215" x="3735" y="100" height="60" width="251"  name=opcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Factor" border="2" color="16777215" x="4009" y="100" height="60" width="370"  name=factor_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="To 계정" border="2" color="16777215" x="2341" y="20" height="60" width="1376"  name=to_glcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비  고" border="2" color="16777215" x="3739" y="20" height="60" width="640"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0" x="101" y="12" height="60" width="137" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="215" y="180" height="60" width="293" format="[general]"  name=levelno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="2" tabsequence=70 border="2" color="16777215" x="3735" y="92" height="60" width="251" format="[general]" protect="0~tif(  wkcod = ~"C~", 0, 1 )"  name=opcod ddlb.limit=4 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="25793388~tif(  wkcod = ~"C~", rgb(108,147,137), rgb(255,251,240) )" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="535" y="180" height="64" width="974" format="[general]"  name=description visible="1~t0" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1536" y="184" height="56" width="270" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="1806" y="184" height="56" width="270" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="2075" y="184" height="56" width="165" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="2240" y="184" height="56" width="165" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="2405" y="184" height="56" width="219" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=80 border="2" color="0" x="4009" y="92" height="60" width="370" format="[general]" protect="0~tif(  wkcod = ~"C~", 0, 1 )"  name=factor edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(  wkcod = ~"C~", rgb(255,255,255), rgb(255,251,240) )" )
+column(band=detail id=18 alignment="0" tabsequence=40 border="2" color="0" x="3739" y="12" height="60" width="640" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="2" color="16777215" x="256" y="12" height="60" width="667" format="[general]"  name=wkcod ddlb.limit=3 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=20 border="2" color="16777215" x="946" y="12" height="60" width="448" format="[general]"  name=from_rptcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="25793388~tif(  wkcod <> ~"C~", rgb(108,147,137), rgb(255,251,240) )" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="1413" y="12" height="60" width="910" format="[general]"  name=from_rptname dddw.name=rpt0dc_dddw_rptcode_1 dddw.displaycolumn=rptcodenm dddw.datacolumn=rptcode dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=30 border="2" color="0" x="2341" y="12" height="60" width="448" format="[general]"  name=to_rptcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(  wkcod <> ~"C~", rgb(255,255,255), rgb(255,251,240) )" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="2807" y="12" height="60" width="910" format="[general]"  name=to_rptname dddw.name=rpt0dc_dddw_rptcode_1 dddw.displaycolumn=rptcodenm dddw.datacolumn=rptcode dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="2" color="0" x="2633" y="92" height="60" width="1083" format="######" protect="0~tif(  wkcod = ~"C~", 0, 1 )"  name=levelno2_name dddw.name=rpt0dc_dddw_level_dec dddw.displaycolumn=description dddw.datacolumn=levelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="2" color="0" x="1239" y="92" height="60" width="1083" format="[general]" protect="0~tif(  wkcod = ~"C~", 0, 1 )"  name=levelno1_name dddw.name=rpt0dc_dddw_level_dec dddw.displaycolumn=description dddw.datacolumn=levelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="1" tabsequence=60 border="2" color="0" x="2341" y="92" height="60" width="274" format="[general]" protect="0~tif(  wkcod = ~"C~", 0, 1 )"  name=levelno2 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(  wkcod = ~"C~", rgb(255,255,255), rgb(255,251,240) )" )
+column(band=detail id=9 alignment="1" tabsequence=50 border="2" color="16777215" x="946" y="92" height="60" width="274" format="######" protect="0~tif(  wkcod = ~"C~", 0, 1 )"  name=levelno1 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="25793388~tif(  wkcod = ~"C~", rgb(108,147,137), rgb(255,251,240) )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

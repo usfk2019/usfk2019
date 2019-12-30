@@ -1,0 +1,42 @@
+﻿$PBExportHeader$b1f_update_pre_svcstatus.srf
+$PBExportComments$[parkkh]정상적인 종료가 되지 않았을때 전상태로 돌린다.
+global type b1f_update_pre_svcstatus from function_object
+end type
+
+forward prototypes
+global function integer b1f_update_pre_svcstatus (string as_svcorderno, string as_status)
+end prototypes
+
+global function integer b1f_update_pre_svcstatus (string as_svcorderno, string as_status);//*******************************************************************
+// Fuction ID : b1f_update_pre_svcstatus
+//
+// Purpose : 정상적인 종료가 아닐 때 서비스 상태를 전상태로 돌린다.
+//
+// Scope : Public
+//
+// Parameter :
+//  1) as_svcorderno(String/Value) : update PK 
+//  2) as_status(String/Value) : update content
+//
+// Return Value : integer
+//					  -1 : error
+//					   1 : ok
+//						
+// Log : (Date : Name : Version)
+// 		2002/11/28 : Park Kyung Hae : Original
+//*******************************************************************
+
+UPDATE svcorder
+SET status = :as_status
+WHERE to_char(orderno) = :as_svcorderno;
+
+IF SQLCA.SqlCode < 0 THEN
+	RollBack;
+	return -1
+Else
+	Commit;
+END IF
+
+Return 1
+end function
+

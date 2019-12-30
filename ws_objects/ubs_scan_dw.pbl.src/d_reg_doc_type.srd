@@ -1,0 +1,56 @@
+﻿$PBExportHeader$d_reg_doc_type.srd
+$PBExportComments$구비서류 TYPE등록(detail)
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=doc_type dbname="doc_type_m.doc_type" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=doc_type_desc dbname="doc_type_m.doc_type_desc" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=doc_type_qty dbname="doc_type_m.doc_type_qty" initial="0" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=remark dbname="doc_type_m.remark" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=crt_user dbname="doc_type_m.crt_user" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=updt_user dbname="doc_type_m.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="doc_type_m.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="doc_type_m.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="doc_type_m.pgm_id" )
+ retrieve="SELECT  DOC_TYPE, 
+        DOC_TYPE_DESC,
+        DOC_TYPE_QTY,
+        REMARK,
+        CRT_USER,
+        UPDT_USER,
+        CRTDT,
+        UPDTDT,
+        PGM_ID
+FROM    DOC_TYPE_M" update="DOC_TYPE_M" updatewhere=0 updatekeyinplace=no  sort="doc_type A doc_type_desc A " )
+text(band=header alignment="2" text="총장수" border="2" color="16777215" x="1367" y="16" height="60" width="297" html.valueishtml="0"  name=doc_type_qty_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark" border="2" color="16777215" x="1682" y="16" height="60" width="1408" html.valueishtml="0"  name=remark_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Crt User" border="0" color="0" x="3109" y="16" height="60" width="242" html.valueishtml="0"  name=crt_user_t visible="0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Updt User" border="0" color="0" x="3323" y="16" height="60" width="183" html.valueishtml="0"  name=updt_user_t visible="0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Crtdt" border="0" color="0" x="3479" y="16" height="60" width="183" html.valueishtml="0"  name=crtdt_t visible="0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Updtdt" border="0" color="0" x="3634" y="16" height="60" width="183" html.valueishtml="0"  name=updtdt_t visible="0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Pgm Id" border="0" color="0" x="3790" y="16" height="60" width="247" html.valueishtml="0"  name=pgm_id_t visible="0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="구비서류TYPE" border="2" color="16777215" x="18" y="16" height="60" width="453" html.valueishtml="0"  name=doc_type_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="구비TYPE명" border="2" color="16777215" x="489" y="16" height="60" width="859" html.valueishtml="0"  name=doc_type_desc_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="16777215" x="18" y="4" height="60" width="453" format="[general]" html.valueishtml="0"  name=doc_type visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1682" y="4" height="60" width="1408" format="[general]" html.valueishtml="0"  name=remark visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="3122" y="4" height="60" width="242" format="[general]" html.valueishtml="0"  name=crt_user visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="3374" y="4" height="60" width="183" format="[general]" html.valueishtml="0"  name=updt_user visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="3566" y="4" height="60" width="183" format="[shortdate] [time]" html.valueishtml="0"  name=crtdt visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="3758" y="4" height="60" width="183" format="[shortdate] [time]" html.valueishtml="0"  name=updtdt visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="3950" y="4" height="60" width="247" format="[general]" html.valueishtml="0"  name=pgm_id visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="489" y="4" height="60" width="859" format="[general]" html.valueishtml="0"  name=doc_type_desc visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="2" color="16777215" x="1367" y="4" height="60" width="297" format="#,##0" html.valueishtml="0"  name=doc_type_qty visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

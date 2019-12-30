@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b1dc_dddw_itemcod_v20.srd
+$PBExportComments$[ceusee] 음성이 아닌 Iteim code
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=itemcod dbname="priceplandet.itemcod" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=decimal(0) updatewhereclause=yes name=grouptype dbname="priceplandet.grouptype" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplandet.priceplan" )
+ retrieve="select a.itemcod, b.itemnm, a.grouptype, a.priceplan
+from priceplandet a
+   , itemmst b
+where a.itemcod = b.itemcod
+order by a.itemcod, b.itemnm" )
+line(band=detail x1="0" y1="76" x2="1143" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="4" height="64" width="1102" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="1230" y="16" height="56" width="270"  name=itemcod visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="1563" y="12" height="56" width="270"  name=grouptype visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="1929" y="12" height="56" width="270"  name=priceplan visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

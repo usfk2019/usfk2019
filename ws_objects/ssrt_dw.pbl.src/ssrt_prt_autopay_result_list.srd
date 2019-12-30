@@ -1,0 +1,44 @@
+﻿$PBExportHeader$ssrt_prt_autopay_result_list.srd
+$PBExportComments$[ojy]연제자리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=404 color="536870912" )
+summary(height=112 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=groupid dbname="kcpbatch.groupid" )
+ column=(type=char(30) updatewhereclause=yes name=basenm dbname="basemst.basenm" )
+ column=(type=char(14) updatewhereclause=yes name=payid dbname="kcpbatch.payid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=decimal(2) updatewhereclause=yes name=reqamt dbname="kcpbatch.reqamt" )
+ retrieve="SELECT A.GROUPID, 
+       C.BASENM,
+		 A.PAYID,
+       B.CUSTOMERNM,
+       A.REQAMT
+ FROM KCPBATCH A, CUSTOMERM B,  BASEMST C
+ WHERE (A.PAYID   = B.CUSTOMERID) 
+   AND (A.GROUPID = C.BASECOD)
+"  sort="groupid A " )
+text(band=header alignment="0" text="" border="0" color="0" x="1403" y="128" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1445" y="128" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="64" y="236" height="56" width="1829"  name=t_final  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Base" border="0" color="0" x="69" y="324" height="56" width="489"  name=basenm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Customer Name" border="0" color="0" x="846" y="324" height="56" width="901"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="613" y="208" height="60" width="325" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="69" y="12" height="56" width="489" format="[general]"  name=basenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="846" y="12" height="56" width="901" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="rowcount()"border="0" color="0" x="1605" y="28" height="56" width="256" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=summary alignment="0" text="Total : " border="0" color="0" x="1317" y="28" height="56" width="256"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Amount" border="0" color="0" x="1911" y="328" height="56" width="713"  name=reqamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1911" y="12" height="56" width="713" format="[general]"  name=reqamt editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(  reqamt  for all )"border="0" color="0" x="1911" y="28" height="56" width="713" format="#,##0.00"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header x1="55" y1="396" x2="2661" y2="396"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="55" y1="8" x2="2661" y2="8"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="55" y1="104" x2="2661" y2="104"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="1920" y="232" height="60" width="741" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="1920" y="168" height="60" width="741"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="55" y1="312" x2="2661" y2="312"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="55" y="36" height="88" width="2606"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

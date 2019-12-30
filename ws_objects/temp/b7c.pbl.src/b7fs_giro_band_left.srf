@@ -1,0 +1,44 @@
+﻿$PBExportHeader$b7fs_giro_band_left.srf
+$PBExportComments$[jybaek] 지로 OCR - Left
+global type b7fs_giro_band_left from function_object
+end type
+
+forward prototypes
+global function string b7fs_giro_band_left (string as_trdt, string as_payid)
+end prototypes
+
+global function string b7fs_giro_band_left (string as_trdt, string as_payid);// Oh Chung Hwan 2000-08-04
+// 지로 통지서 Read Band 의 고객 조회 번호 부분
+Integer li_cnt, li_data, li_checkdgt
+Long  ll_rows, ll_row
+String  ls_readband, ls_trdt, ls_payid, ls_checkdgt
+String  ls_data, ls_bandleft
+
+ls_trdt  = as_trdt
+ls_payid = as_payid  
+	
+//ls_readband = "00000"
+//ls_readband += fs_fill_zeroes(ls_payid, 6) 
+//ls_readband += fs_fill_zeroes(ls_reqnum, 7)     
+//ls_readband += "0"
+ls_readband = fs_fill_pad(ls_payid, 10, '1', '0')+fs_fill_pad(ls_trdt, 8, '1', '0')+'0' //고객조회번호
+
+// check digit   
+li_checkdgt = 0
+For li_cnt = 19 To 1 Step -1
+	li_data = Integer(MidA(ls_readband ,li_cnt,1))
+	If Mod(li_cnt, 2) = 1 Then
+		li_checkdgt = li_checkdgt + Int(li_data * 2 / 10) + Mod(li_data * 2, 10)
+	Else
+		li_checkdgt = li_checkdgt + li_data
+	End If		
+Next
+li_checkdgt = Mod(li_checkdgt, 10)
+If li_checkdgt = 0 Then li_checkdgt = 10
+ls_checkdgt = String(10 - li_checkdgt)
+ls_bandleft = "<" + "6122487" + "+" + " " + "+" + ls_readband + ls_checkdgt + "+"					
+
+Return ls_bandleft
+
+end function
+

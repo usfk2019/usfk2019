@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_inq_group_code1.srd
+$PBExportComments$(jsj)group code inquriy
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=grcode dbname="syscod1t.grcode" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=grcodenm dbname="syscod1t.grcodenm" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"syscod1t~" ) COLUMN(NAME=~"syscod1t.grcode~") COLUMN(NAME=~"syscod1t.grcodenm~")) " update="SYSCOD1T" updatewhere=1 updatekeyinplace=no  sort="grcode A " )
+text(band=header alignment="0" text="ORDER BY" border="0" color="0" x="114" y="8" height="60" width="302"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="ASC/DESC" border="0" color="0" x="1015" y="8" height="60" width="302"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="8388608" x="1335" y="8" height="60" width="110"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="8388608" x="448" y="8" height="60" width="535"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Code" border="2" color="15793151" x="114" y="84" height="60" width="320"  name=grcode_t pointer="click.cur"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Description" border="2" color="15793151" x="466" y="84" height="60" width="1632"  name=grcode_nm_t pointer="click.cur"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="114" y="4" height="68" width="320" format="[general]"  name=grcode edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="466" y="8" height="64" width="1632" format="[general]"  name=grcodenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

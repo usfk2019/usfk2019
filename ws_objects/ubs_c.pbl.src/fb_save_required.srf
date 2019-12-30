@@ -1,0 +1,83 @@
+﻿$PBExportHeader$fb_save_required.srf
+$PBExportComments$[jhchoi] 필수값 체크 함수 : RGB(107.146.140) - 2009.03.16
+global type fb_save_required from function_object
+end type
+
+forward prototypes
+global function boolean fb_save_required (datawindow dw, integer currow)
+end prototypes
+
+global function boolean fb_save_required (datawindow dw, integer currow);//=========================================================//
+// Desciption : 필수입력 항목 체크                         //
+// Function   : fb_save_required()                         //
+// contents   : 저장시 필수입력을 확인한다.                //
+// argument   : dw     : Datawindow                        // 
+//              currow : Integer									  //
+// 작성일자   : 2009.03.16                                 //
+// 작 성 자   : 최재혁 대리                                //
+// 수정일자   :                                            //
+// 수 정 자   :                                            //
+// 사용방법   : 저장시에 필수 입력여부를 확인한다.         //
+// ex) fb_save_required(datawindow, currrow)               //
+//=========================================================//
+
+dw.AcceptText()
+
+STRING 	ls_ColColor[],		ls_Col,		ls_ColName[],		ls_Tag[],		ls_Type[]
+INTEGER	i 
+LONG    	ll_Rowcnt,			ll_Colcnt
+
+IF currow = 0 THEN RETURN TRUE
+ll_Rowcnt = LONG(dw.RowCount())
+
+// 현재의 넘겨받은 로우가 실제 로우보다 크면 빠져나간다!
+IF currow > ll_Rowcnt THEN RETURN TRUE
+
+ll_Colcnt = LONG(dw.Object.DataWindow.Column.Count)
+	
+FOR i = 1 TO ll_Colcnt
+	ls_ColColor[i] = dw.DESCRIBE("#" + String(i) + ".Background.Color")
+	ls_Tag[i] 		= dw.DESCRIBE("#" + String(i) + ".tag")	//메세지 뿌리기 위해 칼럼명이 아닌 TAG 에 기록된 값을 가져와서 메세지 처리함!!!
+	ls_ColName[i]	= dw.DESCRIBE("#" + String(i) + ".Name")
+	ls_Type[i]		= dw.DESCRIBE("#" + String(i) + ".coltype")	
+	
+	IF ls_ColColor[i] = "25989739" THEN				//필수값 RGB(107, 146, 140)
+		IF ISNUll(STRING(dw.object.Data[currow, i])) OR LenA(TRIM(String(dw.object.Data[currow, i]))) = 0 THEN
+			// 필수입력이 비었습니다.
+			MessageBox("CHECK", "Mandatory Field ( " + ls_Tag[i] + " )")
+			// 해당 columne에 위치시킨다.
+			dw.SetColumn(ls_ColName[i])
+			dw.SetFocus()
+			RETURN FALSE
+		END IF
+	END IF
+	
+	//숫자 제대로 걸리는지 확인
+	CHOOSE CASE UPPER(LeftA(ls_type[i], 3))
+		CASE 'NUM', 'DEC'
+			IF IsNumber(STRING(dw.object.Data[currow, i])) = FALSE THEN
+				//숫자만 입력할 수 있도록!!!
+				MessageBox("CHECK", "Number Field ( " + ls_Tag[i] + " )")
+				// 해당 columne에 위치시킨다.				
+				dw.SetColumn(ls_ColName[i])
+				dw.SetFocus()
+				RETURN FALSE				
+			END IF			
+	END CHOOSE			
+
+//	IF RIGHT(ls_ColColor[i], 17) = 'RGB(107,146,140)"' OR RIGHT(ls_ColColor[i], 17) = 'RGB(108,147,137)"' THEN
+//		IF ISNUll(STRING(dw.object.Data[currow, i])) OR LEN(TRIM(String(dw.object.Data[currow, i]))) = 0 THEN
+//			// 필수입력이 비었습니다.
+//			MessageBox("확인", ls_Tag[i] + "항목을 입력하세요!")
+//			// 해당 columne에 위치시킨다.
+//			dw.SetColumn(ls_ColName[i])
+//			dw.SetFocus()
+//			RETURN FALSE
+//		END IF
+//	END IF
+NEXT
+
+RETURN TRUE
+
+end function
+

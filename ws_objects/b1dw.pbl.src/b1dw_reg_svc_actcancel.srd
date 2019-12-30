@@ -1,0 +1,144 @@
+﻿$PBExportHeader$b1dw_reg_svc_actcancel.srd
+$PBExportComments$[kem] 서비스계약철회tab1
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1228 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=contractmst_customerid dbname="contractmst.customerid" )
+ column=(type=char(15) updatewhereclause=yes name=admst_pid dbname="admst.pid" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_activedt dbname="contractmst.activedt" )
+ column=(type=char(20) updatewhereclause=yes name=contractmst_contractno dbname="contractmst.contractno" )
+ column=(type=datetime updatewhereclause=yes name=contractmst_bil_fromdt dbname="contractmst.bil_fromdt" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractmst_contractseq dbname="contractmst.contractseq" )
+ column=(type=char(1) updatewhereclause=yes name=contractmst_acttype dbname="contractmst.acttype" values="가개통	0/실개통	1/" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_svccod dbname="contractmst.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_priceplan dbname="contractmst.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_prmtype dbname="contractmst.prmtype" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_vpricecod dbname="contractmst.vpricecod" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_partner dbname="contractmst.partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_reg_partner dbname="contractmst.reg_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_sale_partner dbname="contractmst.sale_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_settle_partner dbname="contractmst.settle_partner" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_maintain_partner dbname="contractmst.maintain_partner" )
+ column=(type=char(10) updatewhereclause=yes name=admst_modelno dbname="admst.modelno" )
+ column=(type=char(30) updatewhereclause=yes name=admst_serialno dbname="admst.serialno" )
+ column=(type=char(1) updatewhereclause=yes name=contractmst_recvcheck dbname="contractmst.recvcheck" values="Yes	Y/No	N/" )
+ column=(type=char(10) updatewhereclause=yes name=admst_dlvstat dbname="admst.dlvstat" )
+ column=(type=datetime updatewhereclause=yes name=svcorder_requestdt dbname="svcorder.requestdt" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_termtype dbname="svcorder.termtype" )
+ column=(type=char(60) updatewhereclause=yes name=svcorder_remark dbname="svcorder.remark" )
+ column=(type=datetime updatewhereclause=yes name=termdt dbname="contractmst.termdt" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_status dbname="svcorder.status" )
+ column=(type=decimal(0) updatewhereclause=yes name=svcorder_orderno dbname="svcorder.orderno" )
+ column=(type=char(60) updatewhereclause=yes name=svcorder_reg_prefixno dbname="svcorder.reg_prefixno" )
+ retrieve="SELECT con.customerid,
+		 admst.pid,
+	    con.activedt,
+		 con.contractno,
+		 con.bil_fromdt,
+		 con.contractseq,
+		 con.acttype,
+		 con.svccod,
+		 con.priceplan,
+		 con.prmtype,
+		 con.vpricecod,
+		 con.partner,
+		 con.reg_partner,
+	    con.sale_partner,
+		 con.settle_partner,
+       con.maintain_partner,
+		 admst.modelno,
+		 admst.serialno,
+	    con.recvcheck,
+	    admst.dlvstat,
+		 svc.requestdt,
+		 svc.termtype,
+		 svc.remark,
+		 sysdate termdt,
+		 svc.status,
+		 svc.orderno,
+	    svc.reg_prefixno
+FROM  contractmst con, 
+      admst,
+      svcorder svc
+WHERE svc.ref_contractseq = con.contractseq
+  AND con.contractseq = admst.contractseq(+)" )
+rectangle(band=detail x="2674" y="516" height="204" width="334"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+text(band=detail alignment="2" text="관리처" border="0" color="0" x="2683" y="536" height="56" width="315"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="매 출 처" border="0" color="0" x="2683" y="636" height="56" width="315"  name=contractmst_sale_partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="50" y="16" height="1200" width="530"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+text(band=detail alignment="2" text="계약철회일" border="0" color="0" x="64" y="1136" height="56" width="503"  name=termdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="1431" y="120" height="1096" width="507"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+text(band=detail alignment="2" text="비고" border="0" color="0" x="1445" y="1136" height="56" width="480"  name=svcorder_remark_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="46" y="12" height="1208" width="3616"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+line(band=detail x1="46" y1="116" x2="3657" y2="116"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="46" y1="216" x2="3657" y2="216"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="46" y1="416" x2="3657" y2="416"  name=l_25 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="46" y1="516" x2="3657" y2="516"  name=l_24 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="46" y1="616" x2="3657" y2="616"  name=l_23 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="46" y1="716" x2="3657" y2="716"  name=l_19 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="46" y1="816" x2="3657" y2="816"  name=l_26 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="46" y1="916" x2="3657" y2="916"  name=l_27 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="46" y1="1016" x2="3657" y2="1016"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="581" y1="16" x2="581" y2="1216"  name=l_18 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="236" height="64" width="576" format="[general]"  name=contractmst_contractno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="336" height="64" width="521" format="[general]"  name=contractmst_acttype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="3022" y="636" height="64" width="626" format="[general]"  name=contractmst_sale_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="736" height="64" width="837" format="[general]"  name=admst_serialno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="836" height="64" width="517" format="[general]"  name=contractmst_recvcheck ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="940" height="64" width="402" format="[general]"  name=svcorder_orderno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="1426" y1="116" x2="1426" y2="1216"  name=l_22 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1938" y1="116" x2="1938" y2="1216"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2670" y1="616" x2="2670" y2="716"  name=l_29 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="3008" y1="620" x2="3008" y2="720"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="536" height="64" width="704" format="[general]"  name=contractmst_vpricecod dddw.name=b1dc_dddw_vprice_partner dddw.displaycolumn=vpricenm dddw.datacolumn=vpricecod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="436" height="64" width="704" format="[general]"  name=contractmst_priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="626" y="32" height="64" width="411" format="[general]"  name=contractmst_customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1093" y="32" height="64" width="603" format="[general]"  name=contractmst_customerid_1 dddw.name=b1dc_dddw_customerid dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="636" height="64" width="704" format="[general]"  name=contractmst_reg_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="1036" height="64" width="704" format="[general]"  name=svcorder_termtype dddw.name=b1dc_dddw_termtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="836" height="64" width="704" format="[general]"  name=admst_dlvstat dddw.name=b1dc_dddw_dlvstat dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="46" y1="316" x2="3657" y2="316"  name=l_21 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="136" height="64" width="439" format="[general]"  name=admst_pid edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="336" height="64" width="439" format="[general]"  name=contractmst_contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="436" height="64" width="818" format="[general]"  name=contractmst_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="536" height="64" width="818" format="[general]"  name=contractmst_prmtype dddw.name=b1dc_dddw_svcpromise_svc dddw.displaycolumn=prmnm dddw.datacolumn=prmtype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="940" height="64" width="818" format="[general]"  name=svcorder_status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="46" y1="1116" x2="3657" y2="1116"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="136" height="64" width="375" format="yyyy-mm-dd"  name=contractmst_activedt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="236" height="64" width="375" format="yyyy-mm-dd"  name=contractmst_bil_fromdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="1036" height="64" width="375" format="yyyy-mm-dd"  name=svcorder_requestdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="2" tabsequence=10 border="5" color="16777215" x="599" y="1140" height="60" width="361" format="yyyy-mm-dd"  name=termdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="0" text="]" border="0" color="0" x="1051" y="32" height="64" width="18"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=detail alignment="0" text="[" border="0" color="0" x="594" y="32" height="64" width="18"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+button(band=detail text="상세품목조회"filename=""action="0" border="0" color="0" x="2624" y="24" height="84" width="494" vtextalign="0" htextalign="0"  name=b_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="736" height="64" width="818" format="[general]"  name=admst_modelno dddw.name=b1dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="636" height="64" width="818" format="[general]"  name=contractmst_settle_partner dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="0" tabsequence=20 border="5" color="0" x="1957" y="1136" height="64" width="1687" format="[general]"  name=svcorder_remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="3008" y1="520" x2="3008" y2="620"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2670" y1="516" x2="2670" y2="616"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="3022" y="536" height="64" width="626" format="[general]"  name=contractmst_maintain_partner edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Serial No" border="0" color="0" x="1445" y="736" height="56" width="480"  name=admst_serialno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="유 치 처" border="0" color="0" x="1445" y="636" height="56" width="480"  name=contractmst_reg_partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="툥화요금상품" border="0" color="0" x="1435" y="536" height="56" width="494"  name=contractmst_vpricecod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="가격정책" border="0" color="0" x="1445" y="436" height="56" width="480"  name=contractmst_priceplan_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="가개통구분" border="0" color="0" x="1435" y="336" height="56" width="494"  name=contractmst_acttype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="과금시작일" border="0" color="0" x="1445" y="236" height="56" width="480"  name=contractmst_bil_fromdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="개 통 일" border="0" color="0" x="1445" y="136" height="56" width="480"  name=contractmst_activedt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="배송상태" border="0" color="0" x="1445" y="836" height="56" width="480"  name=admst_dlvstat_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="신청번호" border="0" color="0" x="1445" y="940" height="56" width="480"  name=svcorder_orderno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="해지사유" border="0" color="0" x="1445" y="1036" height="56" width="480"  name=svcorder_termtype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="계약철회요청일" border="0" color="0" x="55" y="1036" height="56" width="521"  name=svcorder_requestdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="계약철회상태" border="0" color="0" x="64" y="940" height="56" width="503"  name=svcorder_status_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="계약서접수" border="0" color="0" x="64" y="836" height="56" width="503"  name=contractmst_recvcheck_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="모 델 명" border="0" color="0" x="64" y="736" height="56" width="503"  name=admst_modelno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="사 업 자" border="0" color="0" x="64" y="636" height="56" width="503"  name=contractmst_partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="약정유형" border="0" color="0" x="64" y="536" height="56" width="503"  name=contractmst_prmtype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="서 비 스" border="0" color="0" x="64" y="436" height="56" width="503"  name=contractmst_svccod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="계약Seq" border="0" color="0" x="64" y="336" height="56" width="503"  name=contractmst_contractseq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="계약번호" border="0" color="0" x="64" y="236" height="56" width="503"  name=contractmst_contractno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="개통번호" border="0" color="0" x="64" y="136" height="56" width="503"  name=admst_pid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="계약고객" border="0" color="0" x="64" y="32" height="56" width="503"  name=contractmst_customerid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

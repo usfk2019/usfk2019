@@ -1,0 +1,36 @@
+﻿$PBExportHeader$f_mon_last_date.srf
+$PBExportComments$[parkkh]월의 말일 생성
+global type f_mon_last_date from function_object
+end type
+
+forward prototypes
+global function date f_mon_last_date (date ad_date)
+end prototypes
+
+global function date f_mon_last_date (date ad_date);/*
+	[KHPARK]
+	
+    string_return = f_mon_last_date(ad_date)
+
+    ad_date : 일자
+
+*/
+integer li_year, li_month, li_day 
+Date    ld_date
+li_year = Year(ad_date)
+li_month = Month(ad_date)
+li_day = Day(ad_date)
+
+li_month ++
+if  li_month > 12 then
+    li_year ++
+    li_month = 1
+end if
+
+ld_date = Date(li_year, li_month, 1)
+
+Return RelativeDate(ld_date, -1)
+
+
+end function
+

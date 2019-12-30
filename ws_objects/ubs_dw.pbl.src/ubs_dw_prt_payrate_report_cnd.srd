@@ -1,0 +1,19 @@
+﻿$PBExportHeader$ubs_dw_prt_payrate_report_cnd.srd
+$PBExportComments$[ssong]일자별 cdr 조회 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=180 color="536870912" )
+table(column=(type=date updatewhereclause=no name=current_date dbname="current_date" )
+ column=(type=date updatewhereclause=no name=start_date dbname="start_date" )
+ column=(type=char(1) updatewhereclause=no name=gubun dbname="gubun" values="Camp 별 수납 상세	1/Camp 별 최근 6개월 수납 상세	2/Camp 별 최근 6개월 수납상세(%)	3/" )
+ )
+text(band=detail alignment="1" text="구분" border="0" color="0" x="270" y="16" height="60" width="215"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="16777215" x="498" y="16" height="60" width="1120" format="[general]"  name=gubun ddlb.limit=3 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+text(band=detail alignment="1" text="시작월" border="0" color="0" x="270" y="100" height="60" width="215"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="당월" border="0" color="0" x="1047" y="100" height="60" width="215"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="16777215" x="498" y="100" height="60" width="343" format="[general]"  name=start_date editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=1 alignment="2" tabsequence=30 border="2" color="16777215" x="1275" y="100" height="60" width="343" format="[general]"  name=current_date editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

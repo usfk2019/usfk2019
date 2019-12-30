@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b1dw_reg_customer_t6_pop.srd
+$PBExportComments$[ceusee] 계약정보 상세 품목
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=itemmst_itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ retrieve="SELECT   itm.itemcod, itm.itemnm
+    FROM itemmst itm, contractmst cot, contractdet con
+   WHERE cot.contractseq = con.contractseq
+     AND con.itemcod = itm.itemcod
+     AND TO_CHAR (cot.contractseq) = :as_contractseq
+ORDER BY itm.itemcod, itm.itemnm " arguments=(("as_contractseq", string)) )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="0" height="76" width="27" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="품목코드" border="2" color="16777215" x="46" y="16" height="60" width="421"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="16777215" x="475" y="16" height="60" width="1193"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="46" y="4" height="60" width="421" format="[general]"  name=itemmst_itemcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="4" height="60" width="1193" format="[general]"  name=itemmst_itemnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

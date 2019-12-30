@@ -1,0 +1,30 @@
+﻿$PBExportHeader$fb_reqdt_check.srf
+global type fb_reqdt_check from function_object
+end type
+
+forward prototypes
+global function boolean fb_reqdt_check (string as_title, string as_customerid, string as_date, string as_colume_title)
+end prototypes
+
+global function boolean fb_reqdt_check (string as_title, string as_customerid, string as_date, string as_colume_title);String ls_chargedt, ls_reqdt, ls_payid
+
+//1.payid구한다.
+Select payid into :ls_payid from customerm where customerid = :as_customerid;
+
+//2.청구주기 구한다.
+select bilcycle into :ls_chargedt from billinginfo where customerid = :ls_payid;
+
+//3.청구 마감일 구하기
+select to_char(reqdt,'yyyymmdd') into :ls_reqdt from reqconf where chargedt =:ls_chargedt;
+
+//4.날짜 비교
+If ls_reqdt > as_date Then
+	f_msg_usr_err(214, as_title + "today:" +  MidA(ls_reqdt, 1,4) + "-" + &
+															MidA(ls_reqdt,5,2) + "-" + &
+															MidA(ls_reqdt,7,2), as_colume_title)
+   Return False 
+End If
+
+Return True
+end function
+

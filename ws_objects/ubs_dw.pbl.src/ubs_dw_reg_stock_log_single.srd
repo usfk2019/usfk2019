@@ -1,0 +1,111 @@
+﻿$PBExportHeader$ubs_dw_reg_stock_log_single.srd
+$PBExportComments$[jhchoi] 수납률 보고서 (합계) - 2009.06.22
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=160 color="536870912" )
+summary(height=104 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=adseq dbname="admstlog_new.adseq" )
+ column=(type=char(10) updatewhereclause=yes name=action dbname="admstlog_new.action" )
+ column=(type=datetime updatewhereclause=yes name=actdt dbname="admstlog_new.actdt" )
+ column=(type=char(10) updatewhereclause=yes name=fr_partner dbname="admstlog_new.fr_partner" )
+ column=(type=char(10) updatewhereclause=yes name=to_partner dbname="admstlog_new.to_partner" )
+ column=(type=char(20) updatewhereclause=yes name=contno dbname="admstlog_new.contno" )
+ column=(type=datetime updatewhereclause=yes name=saledt dbname="admstlog_new.saledt" )
+ column=(type=char(10) updatewhereclause=yes name=shopid dbname="admstlog_new.shopid" )
+ column=(type=decimal(0) updatewhereclause=yes name=saleqty dbname="admstlog_new.saleqty" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_amt dbname="admstlog_new.sale_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_sum dbname="admstlog_new.sale_sum" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="admstlog_new.modelno" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="admstlog_new.customerid" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="admstlog_new.contractseq" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="admstlog_new.orderno" )
+ column=(type=datetime updatewhereclause=yes name=returndt dbname="admstlog_new.returndt" )
+ column=(type=char(10) updatewhereclause=yes name=refund_type dbname="admstlog_new.refund_type" )
+ column=(type=char(80) updatewhereclause=yes name=remark dbname="admstlog_new.remark" )
+ column=(type=char(8) updatewhereclause=yes name=crt_user dbname="admstlog_new.crt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="admstlog_new.crtdt" )
+ column=(type=char(8) updatewhereclause=yes name=pgm_id dbname="admstlog_new.pgm_id" )
+ retrieve="SELECT	ADSEQ,
+			ACTION,
+			ACTDT,
+			FR_PARTNER,
+			TO_PARTNER,
+			CONTNO,
+			SALEDT,
+			SHOPID,
+			SALEQTY,
+			SALE_AMT,
+			SALE_SUM,
+			MODELNO,
+			CUSTOMERID,
+			CONTRACTSEQ,
+			ORDERNO,
+			RETURNDT,
+			REFUND_TYPE,
+			REMARK,
+			CRT_USER,
+			CRTDT,
+			PGM_ID
+FROM		ADMSTLOG_NEW"  sort="adseq A " )
+text(band=header alignment="2" text="Equip. Seq" border="2" color="16777215" x="9" y="92" height="64" width="297" html.valueishtml="0"  name=adseq_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Action" border="2" color="16777215" x="325" y="92" height="64" width="361" html.valueishtml="0"  name=action_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Work Date" border="2" color="16777215" x="704" y="92" height="64" width="544" html.valueishtml="0"  name=actdt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Model" border="2" color="16777215" x="1266" y="92" height="64" width="677" html.valueishtml="0"  name=modelno_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Total Rows" border="0" color="0" x="3232" y="12" height="60" width="283" html.valueishtml="0"  name=t_22 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="0" x="3529" y="12" height="60" width="270" format="#,##0" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="Single Item" border="0" color="0" x="9" y="4" height="80" width="384" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Order By" border="0" color="0" x="855" y="16" height="60" width="229" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="1097" y="16" height="60" width="443" html.valueishtml="0"  name=order_name visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="ASC/DESC" border="0" color="0" x="1847" y="16" height="60" width="283" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="8388608" x="2144" y="16" height="60" width="224" html.valueishtml="0"  name=a_d visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Qty" border="2" color="16777215" x="2683" y="92" height="64" width="270" html.valueishtml="0"  name=saleqty_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Sale Date" border="2" color="16777215" x="2971" y="92" height="64" width="544" html.valueishtml="0"  name=saledt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Sale Price" border="2" color="16777215" x="3534" y="92" height="64" width="343" html.valueishtml="0"  name=sale_amt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Sale Sum" border="2" color="16777215" x="3895" y="92" height="64" width="343" html.valueishtml="0"  name=sale_sum_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Output Partner" border="2" color="16777215" x="4256" y="92" height="64" width="571" html.valueishtml="0"  name=fr_partner_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Input Partner" border="2" color="16777215" x="4846" y="92" height="64" width="571" html.valueishtml="0"  name=to_partner_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Work Partner" border="2" color="16777215" x="5435" y="92" height="64" width="571" html.valueishtml="0"  name=shopid_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Customer ID" border="2" color="16777215" x="6025" y="92" height="64" width="357" html.valueishtml="0"  name=customerid_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Contract Seq." border="2" color="16777215" x="6400" y="92" height="64" width="361" html.valueishtml="0"  name=contractseq_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Order No." border="2" color="16777215" x="6779" y="92" height="64" width="361" html.valueishtml="0"  name=orderno_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Return Date" border="2" color="16777215" x="7159" y="92" height="64" width="512" html.valueishtml="0"  name=returndt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Refund Type" border="2" color="16777215" x="7689" y="92" height="64" width="512" html.valueishtml="0"  name=refund_type_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Remark" border="2" color="16777215" x="8219" y="92" height="64" width="1445" html.valueishtml="0"  name=remark_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Creative User" border="2" color="16777215" x="9682" y="92" height="64" width="507" html.valueishtml="0"  name=crt_user_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Creative Date" border="2" color="16777215" x="10208" y="92" height="64" width="507" html.valueishtml="0"  name=crtdt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Program ID" border="2" color="16777215" x="10734" y="92" height="64" width="375" html.valueishtml="0"  name=pgm_id_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Control No." border="2" color="16777215" x="1961" y="92" height="64" width="709" html.valueishtml="0"  name=contno_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="9" y="4" height="68" width="297" format="[general]" html.valueishtml="0"  name=adseq visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="325" y="4" height="68" width="361" format="[general]" html.valueishtml="0"  name=action visible="1" dddw.name=ubs_dddw_log_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="704" y="4" height="68" width="544" format="[shortdate] [time]" html.valueishtml="0"  name=actdt visible="1" editmask.mask="mm-dd-yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="0" x="1266" y="4" height="68" width="677" format="[general]" html.valueishtml="0"  name=modelno visible="1" dddw.name=ubs_dddw_admodel_all dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="2" color="0" x="2683" y="4" height="68" width="270" format="#,##0" html.valueishtml="0"  name=saleqty visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="2971" y="4" height="68" width="544" format="[shortdate] [time]" html.valueishtml="0"  name=saledt visible="1" editmask.mask="mm-dd-yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="2" color="0" x="3534" y="4" height="68" width="343" format="#,##0" html.valueishtml="0"  name=sale_amt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="3895" y="4" height="68" width="343" format="#,##0" html.valueishtml="0"  name=sale_sum visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="4256" y="4" height="68" width="571" format="[general]" html.valueishtml="0"  name=fr_partner visible="1" dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="4846" y="4" height="68" width="571" format="[general]" html.valueishtml="0"  name=to_partner visible="1" dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="5435" y="4" height="68" width="571" format="[general]" html.valueishtml="0"  name=shopid visible="1" dddw.name=b1dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="2" color="0" x="6025" y="4" height="68" width="357" format="[general]" html.valueishtml="0"  name=customerid visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="2" color="0" x="6400" y="4" height="68" width="361" format="[general]" html.valueishtml="0"  name=contractseq visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="2" color="0" x="6779" y="4" height="68" width="361" format="[general]" html.valueishtml="0"  name=orderno visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="2" color="0" x="7159" y="4" height="68" width="512" format="[shortdate] [time]" html.valueishtml="0"  name=returndt visible="1" editmask.mask="mm-dd-yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="2" color="0" x="7689" y="4" height="68" width="512" format="[general]" html.valueishtml="0"  name=refund_type visible="1" dddw.name=ssrt_dddw_refundtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="2" color="0" x="8219" y="4" height="68" width="1445" format="[general]" html.valueishtml="0"  name=remark visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="2" color="0" x="9682" y="4" height="68" width="507" format="[general]" html.valueishtml="0"  name=crt_user visible="1" dddw.name=b1c_dddw_sysusr1t dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="2" color="0" x="10208" y="4" height="68" width="507" format="[shortdate] [time]" html.valueishtml="0"  name=crtdt visible="1" editmask.mask="mm-dd-yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=21 alignment="2" tabsequence=32766 border="2" color="0" x="10734" y="4" height="68" width="375" format="[general]" html.valueishtml="0"  name=pgm_id visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="1961" y="4" height="68" width="709" format="[general]" html.valueishtml="0"  name=contno visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

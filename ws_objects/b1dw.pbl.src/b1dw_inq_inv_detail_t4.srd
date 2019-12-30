@@ -1,0 +1,93 @@
+﻿$PBExportHeader$b1dw_inq_inv_detail_t4.srd
+$PBExportComments$[parkkh] 판매내역
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="itemsale.seq" )
+ column=(type=datetime update=yes updatewhereclause=yes name=sale_month dbname="itemsale.sale_month" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=customerid dbname="itemsale.customerid" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=payid dbname="itemsale.payid" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=contractseq dbname="itemsale.contractseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="itemsale.itemcod" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=saleamt dbname="itemsale.saleamt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=salecnt dbname="itemsale.salecnt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=dcamt dbname="itemsale.dcamt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=dcrate dbname="itemsale.dcrate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=usageperiod dbname="itemsale.usageperiod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=trcod dbname="itemsale.trcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=svccod dbname="itemsale.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan dbname="itemsale.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=location dbname="itemsale.location" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=sale_partner dbname="itemsale.sale_partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=maintain_partner dbname="itemsale.maintain_partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=partner dbname="itemsale.partner" )
+ column=(type=char(22) update=yes updatewhereclause=yes name=reqnum dbname="itemsale.reqnum" )
+ column=(type=datetime update=yes updatewhereclause=yes name=invoice_month dbname="itemsale.invoice_month" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="itemsale.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="itemsale.crtdt" )
+ column=(type=number updatewhereclause=yes name=taxamt dbname="taxamt" )
+ column=(type=number updatewhereclause=yes name=totamt dbname="totamt" )
+ retrieve="  SELECT ~"ITEMSALE~".~"SEQ~",   
+         ~"ITEMSALE~".~"SALE_MONTH~",   
+         ~"ITEMSALE~".~"CUSTOMERID~",   
+         ~"ITEMSALE~".~"PAYID~",   
+         ~"ITEMSALE~".~"CONTRACTSEQ~",   
+         ~"ITEMSALE~".~"ITEMCOD~",   
+         ~"ITEMSALE~".~"SALEAMT~",   
+         ~"ITEMSALE~".~"SALECNT~",   
+         ~"ITEMSALE~".~"DCAMT~",   
+         ~"ITEMSALE~".~"DCRATE~",   
+         ~"ITEMSALE~".~"USAGEPERIOD~",   
+         ~"ITEMSALE~".~"TRCOD~",   
+         ~"ITEMSALE~".~"SVCCOD~",   
+         ~"ITEMSALE~".~"PRICEPLAN~",   
+         ~"ITEMSALE~".~"LOCATION~",   
+         ~"ITEMSALE~".~"SALE_PARTNER~",   
+         ~"ITEMSALE~".~"MAINTAIN_PARTNER~",   
+         ~"ITEMSALE~".~"PARTNER~",   
+         ~"ITEMSALE~".~"REQNUM~",   
+         ~"ITEMSALE~".~"INVOICE_MONTH~",   
+         ~"ITEMSALE~".~"CRT_USER~",   
+         ~"ITEMSALE~".~"CRTDT~", 
+          nvl(TAXAMT,0) as taxamt,
+          saleamt - nvl(dcamt,0) + nvl(taxamt,0) as totamt
+    FROM ITEMSALE 
+order by sale_month desc, itemcod
+" update="ITEMSALE" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Payer :" border="0" color="0" x="46" y="32" height="60" width="315" html.valueishtml="0"  name=t_19 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="375" y="32" height="60" width="846" html.valueishtml="0"  name=t_payid visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="today()"border="0" color="0" x="1563" y="32" height="60" width="567" format="[SHORTDATE] [TIME]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale Date" border="2" color="15793151" x="14" y="104" height="60" width="370" html.valueishtml="0"  name=sale_month_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item" border="2" color="15793151" x="402" y="104" height="60" width="891" html.valueishtml="0"  name=itemcod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Amount" border="2" color="15793151" x="1312" y="104" height="60" width="494" html.valueishtml="0"  name=saleamt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="14" y="4" height="60" width="370" format="[shortdate] [time]" html.valueishtml="0"  name=sale_month visible="1" editmask.mask="yyyy-mm" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="402" y="4" height="60" width="891" format="[general]" html.valueishtml="0"  name=itemcod visible="1" dddw.name=b1dc_dddw_itemmst dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1312" y="4" height="60" width="494" format="#,##0.00" html.valueishtml="0"  name=saleamt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="DC Amount" border="2" color="15793151" x="1824" y="104" height="60" width="389" html.valueishtml="0"  name=dcamt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="VAT Amount" border="2" color="15793151" x="2231" y="104" height="60" width="389" html.valueishtml="0"  name=taxamt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1824" y="4" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=dcamt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=23 alignment="1" tabsequence=32766 border="0" color="0" x="2231" y="4" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=taxamt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=24 alignment="1" tabsequence=0 border="0" color="0" x="2638" y="4" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=totamt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Total Amount" border="2" color="15793151" x="2638" y="104" height="60" width="389" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Count" border="2" color="15793151" x="3045" y="104" height="60" width="421" html.valueishtml="0"  name=salecnt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3045" y="4" height="60" width="421" format="[general]" html.valueishtml="0"  name=salecnt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Usage Priod" border="2" color="15793151" x="3483" y="104" height="60" width="361" html.valueishtml="0"  name=usageperiod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Service Type" border="2" color="15793151" x="3863" y="104" height="60" width="933" html.valueishtml="0"  name=svccod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Price Plan" border="2" color="15793151" x="4814" y="104" height="60" width="832" html.valueishtml="0"  name=priceplan_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3863" y="4" height="60" width="933" format="[general]" html.valueishtml="0"  name=svccod visible="1" dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="4814" y="4" height="60" width="832" format="[general]" html.valueishtml="0"  name=priceplan visible="1" dddw.name=b1dc_dddw_priceplan_svc dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="3483" y="4" height="60" width="361" format="[general]" html.valueishtml="0"  name=usageperiod visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

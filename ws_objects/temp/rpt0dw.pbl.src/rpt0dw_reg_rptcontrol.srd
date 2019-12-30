@@ -1,0 +1,52 @@
+﻿$PBExportHeader$rpt0dw_reg_rptcontrol.srd
+$PBExportComments$[parkkh] 계정Control Inquery DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=rptcont dbname="rpt_control.rptcont" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=rptcontnm dbname="rpt_control.rptcontnm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=rptgroup dbname="rpt_control.rptgroup" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=rptcontgroup dbname="rpt_control.rptcontgroup" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=rptcode dbname="rpt_control.rptcode" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=remark dbname="rpt_control.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="rpt_control.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="rpt_control.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="rpt_control.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="rpt_control.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="rpt_control.pgm_id" )
+ retrieve="  SELECT ~"RPT_CONTROL~".~"RPTCONT~",   
+         ~"RPT_CONTROL~".~"RPTCONTNM~",   
+         ~"RPT_CONTROL~".~"RPTGROUP~",   
+         ~"RPT_CONTROL~".~"RPTCONTGROUP~",   
+         ~"RPT_CONTROL~".~"RPTCODE~",   
+         ~"RPT_CONTROL~".~"REMARK~",   
+         ~"RPT_CONTROL~".~"CRT_USER~",   
+         ~"RPT_CONTROL~".~"UPDT_USER~",   
+         ~"RPT_CONTROL~".~"CRTDT~",   
+         ~"RPT_CONTROL~".~"UPDTDT~",   
+         ~"RPT_CONTROL~".~"PGM_ID~"
+    FROM ~"RPT_CONTROL~"   
+ Where rptcontgroup = :as_rptcontgroup
+" update="RPT_CONTROL" updatewhere=1 updatekeyinplace=no arguments=(("as_rptcontgroup", string)) )
+text(band=header alignment="2" text="계정Control명" border="2" color="16777215" x="1115" y="16" height="60" width="814"  name=rptcontnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계정코드" border="2" color="16777215" x="1947" y="16" height="60" width="576"  name=rptcode_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비   고" border="2" color="16777215" x="2542" y="16" height="60" width="850"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계정Control그룹" border="2" color="16777215" x="3410" y="16" height="60" width="576"  name=rptgroup_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="119" y="116" height="60" width="302" format="[general]"  name=crt_user edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="425" y="116" height="60" width="302" format="[general]"  name=updt_user edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="731" y="116" height="60" width="603" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1339" y="116" height="60" width="603" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1947" y="116" height="60" width="247" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="521" y="8" height="60" width="576" format="[general]"  name=rptcont edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="1115" y="8" height="60" width="814" format="[general]"  name=rptcontnm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1947" y="8" height="60" width="576" format="[general]"  name=rptcode edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="3410" y="8" height="60" width="576" format="[general]"  name=rptcontgroup dddw.name=rpt0dc_dddw_rptcontgroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2542" y="8" height="60" width="850" format="[general]"  name=remark edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="18" y="8" height="60" width="485" format="[general]"  name=rptgroup dddw.name=rpt0dc_dddw_rptgroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="계정Control" border="2" color="16777215" x="521" y="16" height="60" width="576"  name=rptcont_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계정ControlType" border="2" color="16777215" x="18" y="16" height="60" width="485"  name=rptcontgroup_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

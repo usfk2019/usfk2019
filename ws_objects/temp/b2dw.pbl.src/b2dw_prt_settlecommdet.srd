@@ -1,0 +1,84 @@
+﻿$PBExportHeader$b2dw_prt_settlecommdet.srd
+$PBExportComments$[ceusee] 대리점 커미션 발생 내역 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=500 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=settle_commdet_partner dbname="settle_commdet.partner" )
+ column=(type=char(6) updatewhereclause=yes name=commdt dbname="commdt" )
+ column=(type=char(10) updatewhereclause=yes name=settle_commdet_commtr dbname="settle_commdet.commtr" )
+ column=(type=char(50) updatewhereclause=yes name=partnermst_partnernm dbname="partnermst.partnernm" )
+ column=(type=number updatewhereclause=yes name=trcnt dbname="trcnt" )
+ column=(type=number updatewhereclause=yes name=tramt dbname="tramt" )
+ column=(type=number updatewhereclause=yes name=commamt dbname="commamt" )
+ column=(type=decimal(2) updatewhereclause=yes name=settle_commdet_com_amt dbname="settle_commdet.com_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=settle_commdet_com_rate dbname="settle_commdet.com_rate" )
+ retrieve="SELECT 	settle.partner,
+		to_char(settle.commdt,'yyyymm') commdt,
+		settle.commtr,
+		ptm.partnernm,
+		sum(nvl(settle.trcnt,0)) trcnt,
+		sum(nvl(settle.tramt,0)) tramt,
+		sum(nvl(settle.commamt, 0)) commamt,
+		settle.com_amt,
+		settle.com_rate 
+FROM   	settle_commdet settle, partnermst ptm
+WHERE  	settle.partner = ptm.partner
+GROUP BY settle.partner,to_char(settle.commdt,'yyyymm'),settle.commtr,ptm.partnernm,settle.com_amt,settle.com_rate" )
+group(level=1 header.height=0 trailer.height=76 by=("settle_commdet_partner" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+rectangle(band=header x="375" y="408" height="92" width="3735"  name=r_1 brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="2" text="Settle Commdet
+Partner" border="0" color="0" x="398" y="816" height="128" width="430"  name=settle_commdet_partner_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Commdt" border="0" color="0" x="224" y="704" height="64" width="224"  name=commdt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Partnermst
+Partnernm" border="0" color="0" x="983" y="756" height="128" width="1399"  name=partnermst_partnernm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2821" y="60" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2894" y="60" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="393" y="48" height="88" width="3707"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="1371" y1="412" x2="1371" y2="496"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="2025" y1="412" x2="2025" y2="496"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="2441" y1="412" x2="2441" y2="496"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="3003" y1="412" x2="3003" y2="496"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="3511" y1="412" x2="3511" y2="496"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="3433" y="240" height="60" width="667"  name=date_time  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="3433" y="316" height="64" width="667" format="[GENERAL]"  name=page  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="발생년월 :" border="0" color="0" x="375" y="336" height="56" width="274"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="0000-00" border="0" color="0" x="672" y="336" height="56" width="293"  name=t_date  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="[" border="0" color="0" x="992" y="336" height="56" width="46"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1042" y="336" height="60" width="320" format="[general]"  name=partnermst_partnernm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="]" border="0" color="0" x="1376" y="336" height="56" width="46"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="거래유형" border="0" color="0" x="393" y="428" height="56" width="969"  name=settle_commdet_commtr_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수수료" border="0" color="0" x="1385" y="428" height="56" width="631"  name=commamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="대상건수" border="0" color="0" x="2039" y="428" height="56" width="393"  name=trcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="대상매출액" border="0" color="0" x="2455" y="428" height="56" width="539"  name=tramt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="건별정액" border="0" color="0" x="3017" y="428" height="56" width="485"  name=settle_commdet_com_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="건별정율(%)" border="0" color="0" x="3525" y="428" height="56" width="562"  name=settle_commdet_com_rate_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="384" y="212" height="76" width="302" format="[general]"  name=settle_commdet_partner edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="823" y="220" height="76" width="192" format="[general]"  name=commdt edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="3237" y1="392" x2="3237" y2="468"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="393" y="4" height="56" width="969" format="[general]"  name=settle_commdet_commtr dddw.name=b2dc_dddw_settleplan dddw.displaycolumn=settleplan_desc dddw.datacolumn=settleplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="1371" y1="0" x2="1371" y2="76"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2025" y1="0" x2="2025" y2="76"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2441" y1="0" x2="2441" y2="76"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3003" y1="0" x2="3003" y2="76"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3511" y1="0" x2="3511" y2="76"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="379" y1="64" x2="4105" y2="64"  name=l_22 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2039" y="4" height="56" width="393" format="#,##0"  name=trcnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2455" y="4" height="56" width="539" format="#,##0"  name=tramt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3017" y="4" height="56" width="485" format="#,##0"  name=settle_commdet_com_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="3525" y="4" height="56" width="562" format="#,##0.0"  name=settle_commdet_com_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1385" y="4" height="56" width="631" format="#,##0"  name=commamt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="375" y1="0" x2="375" y2="76"  name=l_14 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="4101" y1="0" x2="4101" y2="76"  name=l_16 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+rectangle(band=trailer.1 x="375" y="0" height="72" width="3730"  name=r_2 brush.hatch="6" brush.color="12639424" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="0" )
+text(band=trailer.1 alignment="1" text="합 계 : " border="0" color="0" x="393" y="4" height="56" width="969"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="1371" y1="0" x2="1371" y2="76"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="379" y1="68" x2="4101" y2="72"  name=l_13 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="2025" y1="0" x2="2025" y2="76"  name=l_17 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(  commamt  for group 1 )"border="0" color="0" x="1385" y="4" height="56" width="631" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="375" y1="0" x2="375" y2="76"  name=l_25 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="4101" y1="0" x2="4101" y2="76"  name=l_15 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

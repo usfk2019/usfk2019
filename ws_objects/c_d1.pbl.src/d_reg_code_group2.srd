@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_reg_code_group2.srd
+$PBExportComments$Group Code Register
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(50) update=yes updatewhereclause=yes name=tbl_nm dbname="systbl1t.tbl_nm" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=call_nm dbname="systbl1t.call_nm" )
+ column=(type=char(30) update=yes updatewhereclause=yes key=yes name=tbl dbname="systbl1t.tbl" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"systbl1t~" ) COLUMN(NAME=~"systbl1t.tbl_nm~") COLUMN(NAME=~"systbl1t.call_nm~") COLUMN(NAME=~"systbl1t.tbl~")) " update="SYSTBL1T" updatewhere=1 updatekeyinplace=no  sort="tbl_nm A " )
+text(band=header alignment="2" text="Table Description" border="2" color="15793151" x="832" y="20" height="60" width="850"  name=tbl_nm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="2" color="0" x="832" y="8" height="60" width="850" format="[general]"  name=tbl_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="2" color="0" x="1710" y="8" height="60" width="850" format="[general]"  name=call_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Call Name" border="2" color="15793151" x="1710" y="20" height="60" width="850"  name=call_nm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Table" border="2" color="15793151" x="201" y="20" height="60" width="608"  name=tbl_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="0" x="201" y="8" height="60" width="608"  name=tbl  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

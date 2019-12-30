@@ -1,0 +1,95 @@
+﻿$PBExportHeader$ubs_dw_reg_lease_addin_cnd.srd
+$PBExportComments$[jhchoi] 모바일 Lease 장비 등록(Cond)- 2011.02.21
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=520 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=iseqno dbname="adindtl.iseqno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=makercd dbname="adindtl.makercd" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=modelno dbname="adindtl.modelno" )
+ column=(type=datetime update=yes updatewhereclause=yes name=idate dbname="adindtl.idate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=iqty dbname="adindtl.iqty" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=idamt dbname="adindtl.idamt" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=orseqno dbname="adindtl.orseqno" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=inamt dbname="adindtl.inamt" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=invat dbname="adindtl.invat" initial="0" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=iman dbname="adindtl.iman" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="adindtl.remark" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="adindtl.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="adindtl.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="adindtl.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="adindtl.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="adindtl.pgm_id" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=ret_yn dbname="adindtl.ret_yn" initial="N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=entstore dbname="adindtl.entstore" )
+ column=(type=char(0) updatewhereclause=yes name=serial_fr dbname="serial_fr" )
+ column=(type=char(0) updatewhereclause=yes name=serial_to dbname="serial_to" )
+ column=(type=char(0) updatewhereclause=yes name=contno_fr dbname="contno_fr" )
+ column=(type=char(0) updatewhereclause=yes name=contno_to dbname="contno_to" )
+ retrieve="  SELECT ISEQNO,   
+         MAKERCD,   
+         MODELNO,   
+         IDATE,   
+         IQTY,   
+         IDAMT,   
+         ORSEQNO,   
+         INAMT,   
+         INVAT,   
+         IMAN,   
+         REMARK,   
+         CRT_USER,   
+         UPDT_USER,   
+         CRTDT,   
+         UPDTDT,   
+         PGM_ID,   
+         RET_YN,   
+         ENTSTORE,
+         '' serial_fr,
+         '' serial_to,
+         '' contno_fr,
+         '' contno_to
+    FROM ADINDTL   
+" update="ADINDTL" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="14" y="4" height="516" width="2871"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+line(band=detail x1="338" y1="816" x2="626" y2="816"  name=l_7 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="12639424" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="320" y="752" height="60" width="306" format="[general]"  name=iseqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="입고번호" border="0" color="0" x="69" y="756" height="60" width="229"  name=t_10  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="1445" y="8" height="252" width="475"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+text(band=detail alignment="2" text="부 가 세" border="0" color="0" x="1961" y="820" height="60" width="457"  name=t_9  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+rectangle(band=detail x="18" y="8" height="508" width="480"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=detail x1="489" y1="8" x2="489" y2="516"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="18" y1="260" x2="2885" y2="260"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="18" y1="92" x2="2885" y2="92"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="18" y1="428" x2="2885" y2="428"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+text(band=detail alignment="2" text="모 델 명" border="0" color="0" x="1458" y="20" height="60" width="453"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="입 고 처" border="0" color="0" x="1458" y="108" height="60" width="453"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="18" y1="176" x2="2885" y2="176"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="18" y1="344" x2="2885" y2="344"  name=l_9 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+text(band=detail alignment="2" text="제 조 사" border="0" color="0" x="27" y="20" height="60" width="453"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="16777215" x="1952" y="20" height="60" width="901" format="[general]"  name=modelno dddw.name=b8dc_dddw_admodel_bymakercd dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=18 alignment="0" tabsequence=40 border="5" color="16777215" x="1952" y="108" height="60" width="901" format="[general]"  name=entstore dddw.name=b8dc_dddw_entstore dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="2" tabsequence=30 border="5" color="16777215" x="521" y="108" height="60" width="398" format="[shortdate] [time]"  name=idate editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="16777215" x="521" y="20" height="60" width="901" format="[general]"  name=makercd dddw.name=b8dc_dddw_admaker dddw.displaycolumn=makernm dddw.datacolumn=makercd dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+text(band=detail alignment="2" text="입고단가" border="0" color="0" x="41" y="836" height="60" width="453"  name=t_8  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="5" color="16777215" x="544" y="828" height="60" width="398" format="[general]"  name=idamt editmask.mask="###,###,###,###" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="5" color="16777215" x="521" y="192" height="60" width="398" format="[general]"  name=iqty editmask.mask="###,###,###" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+text(band=detail alignment="2" text="입고일자" border="0" color="0" x="27" y="108" height="60" width="453"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="입고수량" border="0" color="0" x="27" y="192" height="60" width="453"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="공급가액" border="0" color="0" x="1033" y="824" height="60" width="453"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="5" color="16777215" x="1527" y="828" height="60" width="398" format="[general]"  name=inamt editmask.mask="###,###,###,###" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="16777215" x="2437" y="820" height="60" width="402" format="[general]"  name=invat editmask.mask="###,###,###,###" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="25793388" )
+line(band=detail x1="1445" y1="4" x2="1445" y2="260"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1920" y1="4" x2="1920" y2="260"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="Serial No." border="0" color="0" x="27" y="272" height="60" width="453"  name=t_11  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="0" tabsequence=60 border="5" color="0" x="521" y="276" height="60" width="498" format="[general]"  name=serial_fr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="1038" y="276" height="60" width="142"  name=t_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=20 alignment="0" tabsequence=70 border="5" color="0" x="1202" y="276" height="60" width="498" format="[general]"  name=serial_to edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="비    고" border="0" color="0" x="27" y="444" height="60" width="453"  name=t_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="5" color="0" x="521" y="444" height="60" width="2331" format="[general]"  name=remark edit.limit=60 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="Control No." border="0" color="0" x="27" y="356" height="60" width="453"  name=t_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=21 alignment="0" tabsequence=80 border="5" color="0" x="521" y="360" height="60" width="498" format="[general]"  name=contno_fr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="1038" y="360" height="60" width="142"  name=t_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=22 alignment="0" tabsequence=90 border="5" color="0" x="1202" y="360" height="60" width="498" format="[general]"  name=contno_to edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,68 @@
+﻿$PBExportHeader$ubs_dw_reg_lease_move_mas.srd
+$PBExportComments$[1hera] 단품이동및확인 - Master DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=seq dbname="ad_mobile_rental.seq" )
+ column=(type=char(20) updatewhereclause=yes name=contno dbname="ad_mobile_rental.contno" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="ad_mobile_rental.serialno" )
+ column=(type=char(10) updatewhereclause=yes name=phone_model dbname="ad_mobile_rental.phone_model" )
+ column=(type=char(50) updatewhereclause=yes name=modelnm dbname="admodel.modelnm" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="ad_mobile_rental.status" )
+ column=(type=datetime updatewhereclause=yes name=iseq dbname="ad_mobile_rental.iseq" )
+ column=(type=datetime updatewhereclause=yes name=movedt dbname="ad_mobile_rental.movedt" )
+ column=(type=char(10) updatewhereclause=yes name=fr_shop dbname="ad_mobile_rental.fr_shop" )
+ column=(type=char(10) updatewhereclause=yes name=mv_shop dbname="ad_mobile_rental.mv_shop" )
+ column=(type=char(10) updatewhereclause=yes name=phone_type dbname="ad_mobile_rental.phone_type" )
+ column=(type=char(10) updatewhereclause=yes name=shopid dbname="ad_mobile_rental.shopid" )
+ column=(type=number updatewhereclause=yes name=chk dbname="ad_mobile_rental.chk" values="	1/	0" )
+ column=(type=number updatewhereclause=yes name=c_all dbname="ad_mobile_rental.c_all" )
+ retrieve="SELECT	A.SEQ,
+			A.CONTNO,
+			A.SERIALNO,
+			A.PHONE_MODEL,
+			B.MODELNM,
+			A.STATUS,
+			A.ISEQ,
+			A.MOVEDT,
+			A.FR_SHOP,
+			A.MV_SHOP,
+			A.PHONE_TYPE,
+			A.SHOPID,
+			0 CHK,
+			0 C_ALL
+FROM		AD_MOBILE_RENTAL A, ADMODEL B
+WHERE		A.PHONE_MODEL = B.MODELNO
+ORDER BY B.MODELNM" )
+text(band=header alignment="2" text="Model No" border="2" color="15793151" x="1554" y="16" height="60" width="613"  name=modelnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+button(band=header text=" All"filename=""action="0" border="0" color="15793151" x="9" y="12" height="68" width="233" vtextalign="0" htextalign="0"  name=b_all  resizeable=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="25793388" )
+text(band=header alignment="2" text="Equip. No" border="2" color="15793151" x="251" y="16" height="60" width="357"  name=seq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Control No" border="2" color="15793151" x="622" y="16" height="60" width="425"  name=contno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Serial No." border="2" color="15793151" x="1061" y="16" height="60" width="480"  name=serialno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Entering Date" border="2" color="15793151" x="2181" y="16" height="60" width="462"  name=iseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Moving Date" border="2" color="15793151" x="2656" y="16" height="60" width="462"  name=movedt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Owner Shop" border="2" color="15793151" x="3131" y="16" height="60" width="750"  name=mv_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="To Shop" border="2" color="15793151" x="3895" y="16" height="60" width="750"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Phone Type" border="2" color="15793151" x="4658" y="16" height="60" width="471"  name=pid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="IF( chk = 1, 1, 0) "border="0" color="0" x="160" y="144" height="76" width="256" format="[General]"  name=cp_su  font.face="Arial" font.height="-12" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="617" y="180" height="60" width="183" format="[general]"  name=c_all edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="846" y="184" height="60" width="233" format="[general]"  name=phone_model edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1079" y="184" height="60" width="229" format="[general]"  name=status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="2" tabsequence=10 border="0" color="0" x="9" y="4" height="60" width="233" format="[general]"  name=chk checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="1317" y="184" height="60" width="750" format="[general]"  name=shopid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1554" y="4" height="60" width="613" format="[general]"  name=modelnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="251" y="4" height="60" width="357" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="622" y="4" height="60" width="425" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1061" y="4" height="60" width="480" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="2181" y="4" height="60" width="462" format="[shortdate] [time]"  name=iseq editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="2656" y="4" height="60" width="462" format="[shortdate] [time]"  name=movedt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="3131" y="4" height="60" width="750" format="[general]"  name=fr_shop dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="3895" y="4" height="60" width="750" format="[general]"  name=mv_shop dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="2" color="0" x="4658" y="4" height="60" width="471" format="[general]"  name=phone_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=summary alignment="2" text="Total Count" border="2" color="15793151" x="14" y="4" height="60" width="590"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=summary alignment="1" expression="sum(  cp_su  for all )"border="0" color="0" x="622" y="4" height="56" width="430" format="#,##0"  name=cp_tot  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

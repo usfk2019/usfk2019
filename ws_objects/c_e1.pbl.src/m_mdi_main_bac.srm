@@ -1,0 +1,636 @@
+﻿$PBExportHeader$m_mdi_main_bac.srm
+forward
+global type m_mdi_main_bac from menu
+end type
+type m_start from menu within m_mdi_main_bac
+end type
+type m_shbop from menu within m_mdi_main_bac
+end type
+type m_0 from menu within m_mdi_main_bac
+end type
+type m_1 from menu within m_mdi_main_bac
+end type
+type m_2 from menu within m_mdi_main_bac
+end type
+type m_3 from menu within m_mdi_main_bac
+end type
+type m_4 from menu within m_mdi_main_bac
+end type
+type m_5 from menu within m_mdi_main_bac
+end type
+type m_6 from menu within m_mdi_main_bac
+end type
+type m_zaction from menu within m_mdi_main_bac
+end type
+type m_7 from menu within m_mdi_main_bac
+end type
+type m_window from menu within m_mdi_main_bac
+end type
+type m_tile from menu within m_window
+end type
+type m_tilehorizontal from menu within m_window
+end type
+type m_layer from menu within m_window
+end type
+type m_cascade from menu within m_window
+end type
+type m_window from menu within m_mdi_main_bac
+m_tile m_tile
+m_tilehorizontal m_tilehorizontal
+m_layer m_layer
+m_cascade m_cascade
+end type
+type m_exit from menu within m_mdi_main_bac
+end type
+global type m_mdi_main_bac from menu
+m_start m_start
+m_shbop m_shbop
+m_0 m_0
+m_1 m_1
+m_2 m_2
+m_3 m_3
+m_4 m_4
+m_5 m_5
+m_6 m_6
+m_zaction m_zaction
+m_7 m_7
+m_window m_window
+m_exit m_exit
+end type
+end forward
+
+global type m_mdi_main_bac from menu
+m_start m_start
+m_shbop m_shbop
+m_0 m_0
+m_1 m_1
+m_2 m_2
+m_3 m_3
+m_4 m_4
+m_5 m_5
+m_6 m_6
+m_zaction m_zaction
+m_7 m_7
+m_window m_window
+m_exit m_exit
+end type
+global m_mdi_main_bac m_mdi_main_bac
+
+type variables
+Boolean ib_visible = False
+String is_pgm_id
+
+end variables
+
+forward prototypes
+public function integer mf_active_sheet (string as_window_name)
+public subroutine wf_fill_spc (string wfs_buf)
+public subroutine wf_print (string wfs_buf)
+end prototypes
+
+public function integer mf_active_sheet (string as_window_name);////////////////////////////////////////////////////////
+window 	activesheet[]
+window 	activesheet_temp
+Long 		ll_num = 1,		ll_count
+
+activesheet[ll_num] = w_base.GetActiveSheet()
+
+//현재 open 된 sheet 를 array 에 입력
+DO While(IsValid(activesheet[ll_num]))
+	activesheet_temp = w_base.GetNextSheet(activesheet[ll_num])
+	ll_num++
+	activesheet[ll_num]=activesheet_temp
+LOOP 
+
+
+//window array 를 argument 와 비교
+ll_count = UpperBound(activesheet)
+For ll_num =1 To ll_count - 1 
+	If activesheet[ll_num].ClassName() = as_window_name Then
+		activesheet[ll_num].BringToTop = TRUE
+		Return 1
+	End If
+Next
+
+return 0
+end function
+
+public subroutine wf_fill_spc (string wfs_buf);	String ls_buf
+	Integer li_len, li_spc
+	
+	ls_buf = wfs_buf
+	li_len = LenA(ls_buf)
+	li_spc = truncate(( 41 -  li_len ) / 2, 0)
+	ls_buf = space(li_spc) + wfs_buf
+	li_len = LenA(ls_buf)
+	PRN_PutBufN(ls_buf, li_len)
+	
+	return 
+end subroutine
+
+public subroutine wf_print (string wfs_buf);	Integer li_len
+	li_len = LenA(wfs_buf)
+	PRN_PutBufN(wfs_buf, li_len)
+	
+	return
+
+end subroutine
+
+on m_mdi_main_bac.create
+m_mdi_main_bac=this
+call super::create
+this.m_start=create m_start
+this.m_shbop=create m_shbop
+this.m_0=create m_0
+this.m_1=create m_1
+this.m_2=create m_2
+this.m_3=create m_3
+this.m_4=create m_4
+this.m_5=create m_5
+this.m_6=create m_6
+this.m_zaction=create m_zaction
+this.m_7=create m_7
+this.m_window=create m_window
+this.m_exit=create m_exit
+this.Item[UpperBound(this.Item)+1]=this.m_start
+this.Item[UpperBound(this.Item)+1]=this.m_shbop
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_2
+this.Item[UpperBound(this.Item)+1]=this.m_3
+this.Item[UpperBound(this.Item)+1]=this.m_4
+this.Item[UpperBound(this.Item)+1]=this.m_5
+this.Item[UpperBound(this.Item)+1]=this.m_6
+this.Item[UpperBound(this.Item)+1]=this.m_zaction
+this.Item[UpperBound(this.Item)+1]=this.m_7
+this.Item[UpperBound(this.Item)+1]=this.m_window
+this.Item[UpperBound(this.Item)+1]=this.m_exit
+end on
+
+on m_mdi_main_bac.destroy
+call super::destroy
+destroy(this.m_start)
+destroy(this.m_shbop)
+destroy(this.m_0)
+destroy(this.m_1)
+destroy(this.m_2)
+destroy(this.m_3)
+destroy(this.m_4)
+destroy(this.m_5)
+destroy(this.m_6)
+destroy(this.m_zaction)
+destroy(this.m_7)
+destroy(this.m_window)
+destroy(this.m_exit)
+end on
+
+type m_start from menu within m_mdi_main_bac
+end type
+
+on m_start.create
+call super::create
+this.text = "Start"
+end on
+
+on m_start.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+Else
+	w_mdi_main.st_resize.Show()
+	w_mdi_main.tv_menu.Show()
+	ib_visible = True
+End If
+end event
+
+type m_shbop from menu within m_mdi_main_bac
+end type
+
+on m_shbop.create
+call super::create
+this.visible = false
+this.text = "Customer"
+end on
+
+on m_shbop.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+f_call_menu('b1w_reg_customer_d_v20_sams2')
+
+
+end event
+
+type m_0 from menu within m_mdi_main_bac
+end type
+
+on m_0.create
+call super::create
+this.visible = false
+this.text = "Activation"
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+//f_call_menu("b1w_1_reg_svc_actorder_v20_sams_test")
+f_call_menu("ubs_w_reg_activeorder")
+
+end event
+
+type m_1 from menu within m_mdi_main_bac
+end type
+
+on m_1.create
+call super::create
+this.visible = false
+this.text = "Suspend"
+this.checked = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("b1w_reg_svc_suspendorder_b")
+
+end event
+
+type m_2 from menu within m_mdi_main_bac
+end type
+
+on m_2.create
+call super::create
+this.visible = false
+this.text = "Reactivation"
+this.checked = true
+end on
+
+on m_2.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("b1w_reg_svc_reactorder_a")
+
+end event
+
+type m_3 from menu within m_mdi_main_bac
+end type
+
+on m_3.create
+call super::create
+this.visible = false
+this.text = "Termination"
+this.checked = true
+end on
+
+on m_3.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("b1w_reg_svc_termorder_2_v20_sams")
+
+end event
+
+type m_4 from menu within m_mdi_main_bac
+end type
+
+on m_4.create
+call super::create
+this.visible = false
+this.text = "Bill"
+this.checked = true
+end on
+
+on m_4.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu('b5w_reg_mtr_inp_sams')
+
+end event
+
+type m_5 from menu within m_mdi_main_bac
+end type
+
+on m_5.create
+call super::create
+this.visible = false
+this.text = "Sales"
+this.checked = true
+end on
+
+on m_5.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+f_call_menu("ssrt_reg_adsale_sams1")
+
+end event
+
+type m_6 from menu within m_mdi_main_bac
+end type
+
+on m_6.create
+call super::create
+this.visible = false
+this.text = "Report"
+this.checked = true
+end on
+
+on m_6.destroy
+call super::destroy
+end on
+
+event clicked;If ib_visible Then
+	w_mdi_main.st_resize.Hide()
+	w_mdi_main.tv_menu.Hide()
+	ib_visible = False
+End If
+
+//f_call_menu("ssrt_inq_report_sams")
+
+f_call_menu("ssrt_inq_report_sams_new")
+
+end event
+
+type m_zaction from menu within m_mdi_main_bac
+end type
+
+on m_zaction.create
+call super::create
+this.text = "   ZAction~tF9"
+this.checked = true
+this.shortcut = 120
+this.toolbaritemvisible = false
+this.toolbaritembarindex = 2
+this.shifttoright = true
+end on
+
+on m_zaction.destroy
+call super::destroy
+end on
+
+event clicked;//-----------------------------------------------------------------
+Boolean 	rtn 
+String 	ls_port, 		ls_empnm, 	ls_seq
+String 	ls_ref_desc, 	ls_temp, 	ls_name[]
+String 	ls_partner, 	ls_type, 	ls_posno, 	ls_head
+
+date 		ldt_trdt, 		ldt_shop_closedt
+DEC		ldc_shopCount, ldec_rtn
+Integer  li_rtn
+Long		ll_shopcount
+//-----------------------------------------------------------------
+//영수증 타입
+ls_temp 			= fs_get_control("S1", "A100", ls_ref_desc)
+fi_cut_string(ls_temp, ";", ls_name[])
+ls_type 			= Trim(ls_name[3])
+
+ldt_trdt 			= date(fdt_get_dbserver_now())
+ldt_shop_closedt 	= f_find_shop_closedt(GS_SHOPID)
+
+//SHOP COUNT
+Select shopcount	    Into :ll_shopcount	  From partnermst
+ WHERE partner = :GS_SHOPID ;
+		
+IF IsNull(ll_shopcount) THEN ll_shopcount = 0
+IF sqlca.sqlcode < 0 THEN
+	MessageBox('확인', String(sqlca.sqlcode) + ' --> partnermst Search시 오류발생. 확인바랍니다.')
+	return 
+END IF
+ll_shopcount += 1
+
+ls_posno 		= ""
+ldt_trdt 		=  f_find_shop_closedt(GS_SHOPID)
+
+//SEQ 
+Select seq_app.nextval		  Into :ls_seq						  From dual;
+
+  INSERT INTO RECEIPTMST  
+         ( APPROVALNO,   			SHOPCOUNT,  	RECEIPTTYPE,   
+			  SHOPID,    				WORKDT,        TRDT,
+			  MEMBERID,   				OPERATOR,      
+			  TOTAL,     				CASH,         	CHANGE,
+			  seq_app,					prt_yn)  
+  VALUES ( seq_receipt.nextval,	:ll_shopcount, :ls_type,  		
+  			  :GS_SHOPID, 			:ldt_trdt, 		:ldt_shop_closedt,  
+           null,     				:gs_user_id,  	
+			  0,   						0,  				0,
+			  :ls_seq,		'Y'
+			  )  ;
+IF sqlca.sqlcode < 0 then
+	Rollback ;
+	MessageBox('확인', 'RECEIPTMST 테이블에  Insert시 오류발생. 확인바랍니다.')
+	return
+END IF
+// Update ShopCount
+update partnermst
+   set shopcount = :ll_shopcount
+ where partner 	= :GS_SHOPID ;
+ 
+IF sqlca.sqlcode < 0 then
+	Rollback ;
+	MessageBox('확인', 'partnermst 테이블에  Update시 오류발생. 확인바랍니다.')
+	return
+END IF
+//-----------------------------------------------------------------------------
+// 마지막으로 영수증 출력한다.
+//-----------------------------------------------------------------------------
+li_rtn = f_pos_header(GS_SHOPID, 'C', ll_shopcount, 1)
+IF li_rtn < 0 then
+	Rollback ;
+	PRN_ClosePort()
+	return
+END IF
+
+F_POS_PRINT("No Sales ********************", 1)
+F_POS_PRINT("------------------------------------------", 1)
+
+F_POS_FOOTER("", ls_seq,	gs_user_id)
+PRN_ClosePort()
+//------------ 출력 완료
+//2.ZAction_log 에  Insert 
+datetime ldt_crt
+ldt_crt = fdt_get_dbserver_now()
+ INSERT INTO ZACTION_LOG  
+			   ( PARTNER, 			OPERATOR, 				ACTIONDT )  
+	  VALUES ( :GS_SHOPID,    :gs_user_id,   			:ldt_crt )  ;
+IF sqlca.sqlcode < 0 then
+	Rollback ;
+	MessageBox('확인', sqlca.sqlerrtext + 'ZAction_log 테이블에  Insert시 오류발생. 확인바랍니다.')
+	return
+END IF
+	  
+commit ;
+
+end event
+
+type m_7 from menu within m_mdi_main_bac
+end type
+
+on m_7.create
+call super::create
+this.text = "     DIS_SET~tF10"
+this.checked = true
+this.shortcut = 121
+this.toolbaritemvisible = false
+this.shifttoright = true
+end on
+
+on m_7.destroy
+call super::destroy
+end on
+
+event clicked;F_INIT_DSP(1, "","")
+end event
+
+type m_window from menu within m_mdi_main_bac
+m_tile m_tile
+m_tilehorizontal m_tilehorizontal
+m_layer m_layer
+m_cascade m_cascade
+end type
+
+on m_window.create
+call super::create
+this.text = "Window"
+this.m_tile=create m_tile
+this.m_tilehorizontal=create m_tilehorizontal
+this.m_layer=create m_layer
+this.m_cascade=create m_cascade
+this.Item[UpperBound(this.Item)+1]=this.m_tile
+this.Item[UpperBound(this.Item)+1]=this.m_tilehorizontal
+this.Item[UpperBound(this.Item)+1]=this.m_layer
+this.Item[UpperBound(this.Item)+1]=this.m_cascade
+end on
+
+on m_window.destroy
+call super::destroy
+destroy(this.m_tile)
+destroy(this.m_tilehorizontal)
+destroy(this.m_layer)
+destroy(this.m_cascade)
+end on
+
+type m_tile from menu within m_window
+end type
+
+event clicked;w_mdi_main.ArrangeSheets(Tile!)
+end event
+
+on m_tile.create
+call super::create
+this.text = "Tile"
+end on
+
+on m_tile.destroy
+call super::destroy
+end on
+
+type m_tilehorizontal from menu within m_window
+end type
+
+event clicked;w_mdi_main.ArrangeSheets(TileHorizontal!)
+
+end event
+
+on m_tilehorizontal.create
+call super::create
+this.text = "TileHorizontal"
+end on
+
+on m_tilehorizontal.destroy
+call super::destroy
+end on
+
+type m_layer from menu within m_window
+end type
+
+event clicked;w_mdi_main.ArrangeSheets(Layer!)
+end event
+
+on m_layer.create
+call super::create
+this.text = "Layer"
+end on
+
+on m_layer.destroy
+call super::destroy
+end on
+
+type m_cascade from menu within m_window
+end type
+
+event clicked;w_mdi_main.ArrangeSheets(Cascade!)
+end event
+
+on m_cascade.create
+call super::create
+this.text = "Cascade"
+end on
+
+on m_cascade.destroy
+call super::destroy
+end on
+
+type m_exit from menu within m_mdi_main_bac
+end type
+
+on m_exit.create
+call super::create
+this.text = "Exit"
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+event clicked;Close(ParentWindow)
+end event
+

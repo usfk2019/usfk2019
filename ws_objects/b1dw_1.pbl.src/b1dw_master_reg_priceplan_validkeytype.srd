@@ -1,0 +1,42 @@
+﻿$PBExportHeader$b1dw_master_reg_priceplan_validkeytype.srd
+$PBExportComments$[ssong]가격정책별 인증 key type master
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan_validkey_type_priceplan dbname="priceplan_validkey_type.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=priceplanmst_svccod dbname="priceplanmst.svccod" )
+ column=(type=datetime update=yes updatewhereclause=yes name=priceplan_validkey_type_crtdt dbname="priceplan_validkey_type.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan_validkey_type_crt_user dbname="priceplan_validkey_type.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=priceplan_validkey_type_pgm_id dbname="priceplan_validkey_type.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan_validkey_type_validkey_type dbname="priceplan_validkey_type.validkey_type" )
+ column=(type=datetime update=yes updatewhereclause=yes name=priceplan_validkey_type_updtdt dbname="priceplan_validkey_type.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan_validkey_type_updt_user dbname="priceplan_validkey_type.updt_user" )
+ retrieve="SELECT A.PRICEPLAN,
+       B.SVCCOD,
+       A.CRTDT,
+       A.CRT_USER,
+       A.PGM_ID ,
+       A.VALIDKEY_TYPE,
+       A.UPDTDT,
+       A.UPDT_USER
+FROM   PRICEPLAN_VALIDKEY_TYPE A,
+       PRICEPLANMST B
+WHERE  A.PRICEPLAN = B.PRICEPLAN" update="PRICEPLAN_VALIDKEY_TYPE" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="가격정책" border="2" color="15793151" x="23" y="16" height="60" width="667"  name=priceplan_validkey_type_priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="서 비 스" border="2" color="15793151" x="709" y="16" height="60" width="553"  name=priceplanmst_svccod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="인증 key type" border="2" color="15793151" x="1280" y="16" height="60" width="498"  name=priceplan_validkey_type_validkey_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일자" border="2" color="15793151" x="1797" y="16" height="60" width="475"  name=priceplan_validkey_type_updtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작 업 자" border="2" color="15793151" x="2290" y="16" height="60" width="430"  name=priceplan_validkey_type_updt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="23" y="8" height="60" width="667" format="[general]"  name=priceplan_validkey_type_priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="709" y="8" height="60" width="553" format="[general]"  name=priceplanmst_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=20 border="2" color="16777215" x="1280" y="8" height="60" width="498" format="[general]"  name=priceplan_validkey_type_validkey_type dddw.name=b1dc_dddw_validkey_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="1797" y="8" height="60" width="475" format="[shortdate] [time]"  name=priceplan_validkey_type_updtdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="2290" y="8" height="60" width="430" format="[general]"  name=priceplan_validkey_type_updt_user edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=footer id=3 alignment="0" tabsequence=32766 border="0" color="16777215" x="2103" y="0" height="56" width="165" format="[shortdate] [time]"  name=priceplan_validkey_type_crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=footer id=4 alignment="0" tabsequence=32766 border="0" color="16777215" x="2857" y="0" height="56" width="270" format="[general]"  name=priceplan_validkey_type_crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=footer id=5 alignment="0" tabsequence=32766 border="0" color="16777215" x="3442" y="0" height="56" width="215" format="[general]"  name=priceplan_validkey_type_pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,81 @@
+﻿$PBExportHeader$f_modify_dw_title.srf
+$PBExportComments$[1hear]dw 오브젝트 타이블 변경 함수
+global type f_modify_dw_title from function_object
+end type
+
+forward prototypes
+global function integer f_modify_dw_title (datawindow f_dw)
+end prototypes
+
+global function integer f_modify_dw_title (datawindow f_dw);// Data object 의 Title변경 함수
+
+//String ls_Name, ls_Title, ls_dwobj, ls_colnm, ls_modify
+//Long ll_Count, ll_i
+//
+//ls_dwobj = f_dw.dataobject
+//
+//Select Count(*) INTO :ll_count FROM dw_info
+// WHERE  dwobject = :ls_dwobj ;
+// 
+//If IsNull(ll_count) then ll_count  = 0
+//IF ll_count = 0 OR sqlca.sqlcode <> 0 THEN
+//	Return 0
+//END IF
+//
+//ll_Count = Long(f_dw.Object.DataWindow.Column.Count) //칼럼의 총 갯수
+//
+//For ll_i = 1 to ll_Count
+//	ls_Name = f_dw.Describe("#" + String(ll_i) + ".Name")  //해당 id를 가지는 칼럼의 이름
+//	//	해당 칼럼의 Header부( = 칼럼명 + '_t')의 Text를 알아낸다
+//	//	ls_Title = f_dw.Describe(ls_Name + '_t.Text')
+//	ls_title = ls_name + "_t"
+//	
+//	// Table Search
+//	select header_title, col_header into :ls_colnm, :ls_title FROM dw_info
+//	WHERE dwobject 	= :ls_dwobj
+//	  AND TBL_COLUMN 	= :ls_name ;
+//
+//	IF IsNull(ls_colnm) OR sqlca.sqlcode <> 0 then ls_colnm  = ''
+//	IF ls_colnm <> '' THEN
+//		ls_modify =  ls_title + '.Text' + " = '" + ls_colnm  + "'"
+//		f_dw.Modify(ls_modify) 
+//	END IF	
+//Next
+//
+//return 0
+//
+
+string ls_all_obj,obj_list[], ls_temp, ls_type, ls_temp3, ls_temp2,&
+			ls_name,		ls_colnm,	ls_title,		ls_dwobj,		ls_modify
+int i
+
+ls_dwobj = f_dw.dataobject
+ls_all_obj = F_DW.Describe("DataWindow.Objects") 
+
+fi_cut_string(ls_all_obj, "	", obj_list[])
+
+for i = 1 To Upperbound(obj_list)
+	ls_type = f_dw.describe(obj_list[i] + '.Type')
+
+	If upper(ls_type) = "TEXT" Then
+		ls_temp2 = obj_list[i] + ".text" 
+		ls_temp3 = F_dw.describe(obj_list[i] + '.TEXT')
+		ls_name 	= obj_list[i]
+		// Table Search
+		select header_title, col_header into :ls_colnm, :ls_title FROM dw_info
+		WHERE dwobject 	= :ls_dwobj
+		  AND col_header 	= :ls_name ;
+		
+		IF IsNull(ls_colnm) OR sqlca.sqlcode <> 0 then ls_colnm  = ''
+		IF ls_colnm <> '' THEN
+			ls_modify =  ls_name + '.Text' + " = '" + ls_colnm  + "'"
+			f_dw.Modify(ls_modify) 
+		END IF	
+	End if
+Next
+
+Return 0
+
+ 
+end function
+

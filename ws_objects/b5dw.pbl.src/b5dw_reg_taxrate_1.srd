@@ -1,0 +1,51 @@
+﻿$PBExportHeader$b5dw_reg_taxrate_1.srd
+$PBExportComments$[kwon-backgu] TAX요율관리
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=taxcod dbname="taxrate.taxcod" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="taxrate.fromdt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes key=yes name=fromamt dbname="taxrate.fromamt" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=taxrate dbname="taxrate.taxrate" initial="0" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="taxrate.updt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="taxrate.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="taxrate.updtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="taxrate.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="taxrate.pgm_id" )
+ retrieve="SELECT TAXCOD
+     , FROMDT
+     , FROMAMT
+     , TAXRATE
+     , UPDT_USER
+     , CRT_USER
+     , UPDTDT
+     , CRTDT
+     , PGM_ID
+  FROM TAXRATE
+ORDER BY TAXCOD
+" update="TAXRATE" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="TAX " border="2" color="15793151" x="46" y="20" height="60" width="974" html.valueishtml="0"  name=taxrate_taxcod_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용개시일" border="2" color="15793151" x="1038" y="20" height="60" width="878" html.valueishtml="0"  name=taxrate_fromdt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="세율(%)" border="2" color="15793151" x="1934" y="20" height="60" width="768" html.valueishtml="0"  name=taxrate_taxrate_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="16711680" x="174" y="96" height="56" width="343" format="[shortdate] [time]" html.valueishtml="0"  name=crtdt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="16711680" x="549" y="96" height="56" width="219" format="[general]" html.valueishtml="0"  name=updt_user visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="16711680" x="814" y="96" height="56" width="215" format="[general]" html.valueishtml="0"  name=crt_user visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="16711680" x="1047" y="96" height="56" width="384" format="[shortdate] [time]" html.valueishtml="0"  name=updtdt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="16711680" x="1467" y="96" height="56" width="306" format="[general]" html.valueishtml="0"  name=pgm_id visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="46" y="4" height="60" width="974" format="[general]" html.valueishtml="0"  name=taxcod visible="1" dddw.name=b5dc_dddw_taxcode dddw.displaycolumn=taxname dddw.datacolumn=taxcod dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="16777215" x="1038" y="4" height="60" width="878" format="yyyy-mm-dd" html.valueishtml="0"  name=fromdt visible="1" editmask.autoskip=yes editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="1" tabsequence=30 border="2" color="33554432" x="1934" y="4" height="60" width="768" format="##0.00" html.valueishtml="0"  name=taxrate visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

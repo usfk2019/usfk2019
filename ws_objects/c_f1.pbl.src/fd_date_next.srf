@@ -1,0 +1,54 @@
+﻿$PBExportHeader$fd_date_next.srf
+$PBExportComments$(jsj, csh) 특정 일수 이후의 날짜를 return한다
+global type fd_date_next from function_object
+end type
+
+forward prototypes
+global function date fd_date_next (date ad_input_date, integer ai_chg_days)
+end prototypes
+
+global function date fd_date_next (date ad_input_date, integer ai_chg_days);Date ld_ret_date
+Long ll_temp_year, ll_temp_month, ll_temp_day, ll_days_num
+Long ll_ret_year, ll_ret_month, ll_ret_day
+
+If ai_chg_days < 0 Then
+	MessageBox("ERROR(fd_date_next)", "The second parameter must be positive." &
+		,StopSign!)
+	Return Date("0000/00/00")
+End If
+
+ll_temp_year = Year(ad_input_date)
+ll_temp_month = Month(ad_input_date)
+ll_temp_day = Day(ad_input_date)
+
+//해당되는 년, 달의 일수를 계산
+ll_days_num = fl_date_count_in_month(ll_temp_year, ll_temp_month)
+
+//임시로 저장한 변수를 Return할 변수로 입력
+ll_ret_day = ll_temp_day + ai_chg_days
+ll_ret_month = ll_temp_month
+ll_ret_year = ll_temp_year
+
+Do While (ll_ret_day > ll_days_num) 
+	ll_ret_day = ll_ret_day - ll_days_num
+	ll_ret_month = ll_ret_month + 1
+	If ll_ret_month > 12 Then
+		ll_ret_month = 1
+		ll_ret_year = ll_ret_year + 1
+	End If
+
+	//해당되는 년, 달의 일수를 계산
+	ll_days_num = fl_date_count_in_month(ll_ret_year, ll_ret_month)
+	If ll_days_num = -1 Then Return Date("0000/00/00")
+Loop
+
+ld_ret_date = Date(ll_ret_year, ll_ret_month, ll_ret_day)
+If ld_ret_date = Date("0000/00/00") Then
+	MessageBox("ERROR(fd_date_next)","Date has not been obtained." &
+		,StopSign!)
+	Return Date("0000/00/00")
+End If
+
+Return (ld_ret_date)
+end function
+

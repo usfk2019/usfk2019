@@ -1,0 +1,108 @@
+﻿$PBExportHeader$c1dw_prt_reg_carrier_amount2_1.srd
+$PBExportComments$[cuesee] 합산 정산 선후불 구분
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=428 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=areacod dbname="areacod" )
+ column=(type=char(50) updatewhereclause=yes name=areagroup dbname="areagroup" )
+ column=(type=char(10) updatewhereclause=yes name=cdr_type dbname="cdr_type" values="후불	F/선불	P/" )
+ column=(type=char(50) updatewhereclause=yes name=codenm dbname="codenm" )
+ column=(type=datetime updatewhereclause=yes name=opendt dbname="opendt" )
+ column=(type=decimal(6) updatewhereclause=yes name=addamt dbname="addamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=addsec dbname="addsec" )
+ column=(type=number updatewhereclause=yes name=bilcnt dbname="bilcnt" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="biltime" )
+ column=(type=number updatewhereclause=yes name=biltime_min dbname="biltime_min" )
+ column=(type=number updatewhereclause=yes name=bilamt dbname="bilamt" )
+ retrieve="SELECT 	amount.areacod areacod,
+        area.codenm areagroup,
+        amount.cdr_type,
+        zon.codenm,
+        amount.opendt opendt,
+        rate2.addamt addamt,
+		rate2.addsec addsec,
+		sum(nvl(amount.bilcnt,0)) bilcnt,
+		sum(nvl(amount.biltime,0)) biltime,
+		decode(:as_flag,'D',trunc(sum(nvl(amount.biltime,0))/60,0),'O',round(sum(nvl(amount.biltime,0))/60,0),ceil(sum(nvl(amount.biltime,0))/60)) biltime_min,
+		nvl(rate2.addamt*round(sum(nvl(amount.biltime,0))/rate2.addsec,0),0) bilamt
+  FROM carrier_rate2 rate2,
+  ( select carr.carrierid carrierid,
+      carr.cdr_type,
+      carr.areacod areacod,
+      carr.areagroup areagroup,
+      carr.zoncod zoncod,
+      carr.workdt workdt,
+      max(rate.opendt) opendt,
+      carr.bilcnt bilcnt,
+      carr.biltime biltime
+   from carrier_amount carr, carrier_rate2 rate
+where carr.carrierid = rate.carrierid
+   and carr.areacod = rate.areacod
+   and rate.opendt <= carr.workdt
+  group by carr.carrierid,  carr.areagroup, carr.cdr_type,carr.areacod,carr.zoncod, carr.workdt, 
+	   carr.bilcnt, carr.biltime ) amount,
+  (select code, codenm from syscod2t where grcode = 'C130' and use_yn = 'Y') zon,
+  (select code, codenm from syscod2t where grcode = 'C140' and use_yn = 'Y') area
+  WHERE amount.carrierid = rate2.carrierid
+ and amount.areacod = rate2.areacod
+ and amount.opendt = rate2.opendt
+ and amount.zoncod = rate2.zoncod
+ and amount.zoncod = zon.code(+)
+ and amount.areagroup = area.code(+)
+ GROUP BY area.codenm,amount.cdr_type,amount.areacod, zon.codenm, amount.opendt, rate2.addamt, rate2.addsec" arguments=(("as_flag", string)) sort="areagroup A cdr_type A areacod A codenm A opendt A " )
+group(level=1 header.height=176 trailer.height=164 by=("areagroup" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=84 by=("cdr_type" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="9" y="44" height="88" width="4745"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1678" y="144" height="56" width="27"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1719" y="144" height="56" width="27"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="3355" y="296" height="56" width="741"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="617" y="292" height="56" width="672"  name=t_saup  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="회선사업자 :" border="0" color="0" x="169" y="292" height="56" width="425"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="3419" y="372" height="60" width="672" format="[general]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="" border="0" color="0" x="617" y="360" height="56" width="325"  name=t_dtfrom  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="~~" border="0" color="0" x="955" y="364" height="56" width="50"  name=t_3  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="" border="0" color="0" x="1019" y="364" height="56" width="325"  name=t_dtto  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="기     간 :" border="0" color="0" x="169" y="360" height="56" width="425"  name=t_2  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="631" y="8" height="60" width="672" format="[general]"  name=areagroup edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="지역상위그룹 :" border="0" color="0" x="183" y="8" height="56" width="425"  name=t_9  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header.1 x1="160" y1="84" x2="4315" y2="84"  name=l_1  hidesnaked=1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="160" y1="168" x2="4315" y2="168"  name=l_7  hidesnaked=1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="0" text="선/후불" border="0" color="0" x="174" y="100" height="56" width="210"  name=t_12  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="지역Prefix" border="0" color="0" x="402" y="100" height="52" width="338"  name=zoncod_t  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="대역" border="0" color="0" x="759" y="100" height="56" width="704"  name=t_4  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="2" text="적용기준일" border="0" color="0" x="1477" y="100" height="56" width="315"  name=t_5  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="단위당금액" border="0" color="0" x="1810" y="100" height="56" width="352"  name=t_8  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="적용단위(초)" border="0" color="0" x="2185" y="100" height="56" width="393"  name=t_6  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="사용건수" border="0" color="0" x="2597" y="100" height="56" width="338"  name=bilcnt_t  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="사용시간(초)" border="0" color="0" x="2958" y="100" height="56" width="407"  name=biltime_t  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="   요금액" border="0" color="0" x="3822" y="100" height="56" width="475"  name=bilamt_t  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="사용시간(분)" border="0" color="0" x="3387" y="100" height="56" width="411"  name=t_7  hidesnaked=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="155" y1="80" x2="4311" y2="80"  name=l_2  hidesnaked=1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="174" y="12" height="56" width="210" format="[general]"  name=cdr_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="402" y="12" height="56" width="338" format="[general]"  name=areacod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="759" y="12" height="56" width="704" format="[general]"  name=codenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1477" y="12" height="56" width="315" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1810" y="12" height="56" width="352" format="#,##0.00"  name=addamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2185" y="12" height="56" width="393" format="#,##0"  name=addsec edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2597" y="12" height="56" width="338" format="#,##0"  name=bilcnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2958" y="12" height="56" width="407" format="#,##0"  name=biltime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="3387" y="12" height="56" width="411" format="#,##0"  name=biltime_min edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="3822" y="12" height="56" width="475" format="#,##0.00"  name=bilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="lookupdisplay(  cdr_type  ) + ~" 합계~""border="0" color="0" x="183" y="16" height="56" width="855" format="[GENERAL]"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.2 x1="160" y1="4" x2="4315" y2="4"  name=l_4  hidesnaked=1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression="sum(  biltime  for group 2 )"border="0" color="0" x="2958" y="16" height="56" width="407" format="#,##0"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum(  biltime_min  for group 2)"border="0" color="0" x="3387" y="16" height="56" width="411" format="#,##0"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum(  bilamt  for group 2 )"border="0" color="0" x="3822" y="16" height="56" width="475" format="#,##0.00"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum(  bilcnt  for group 2 )"border="0" color="0" x="2597" y="16" height="56" width="338" format="#,##0"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="160" y1="44" x2="4315" y2="44"  name=l_3  hidesnaked=1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(  bilcnt  for group 1)"border="0" color="0" x="2597" y="56" height="56" width="338" format="#,##0"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  biltime  for group 1 )"border="0" color="0" x="2958" y="56" height="56" width="407" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  biltime_min  for group 1 )"border="0" color="0" x="3387" y="56" height="56" width="411" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  bilamt  for group 1)"border="0" color="0" x="3822" y="56" height="56" width="475" format="#,##0.00"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="합계" border="0" color="0" x="183" y="56" height="56" width="855"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+
+sparse(names="cdr_type")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

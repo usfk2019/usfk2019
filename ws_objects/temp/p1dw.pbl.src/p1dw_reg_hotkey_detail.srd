@@ -1,0 +1,33 @@
+﻿$PBExportHeader$p1dw_reg_hotkey_detail.srd
+$PBExportComments$[ssong]단축번호 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=pid dbname="rtel_hotkey.pid" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=hotkey dbname="rtel_hotkey.hotkey" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=rtelno dbname="rtel_hotkey.rtelno" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="rtel_hotkey.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="rtel_hotkey.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="rtel_hotkey.pgm_id" )
+ retrieve="  SELECT ~"RTEL_HOTKEY~".~"PID~",   
+         ~"RTEL_HOTKEY~".~"HOTKEY~",   
+         ~"RTEL_HOTKEY~".~"RTELNO~",   
+         ~"RTEL_HOTKEY~".~"CRTDT~",   
+         ~"RTEL_HOTKEY~".~"CRT_USER~",   
+         ~"RTEL_HOTKEY~".~"PGM_ID~"  
+    FROM ~"RTEL_HOTKEY~"  
+ORDER BY ~"RTEL_HOTKEY~".~"PID~",   
+         ~"RTEL_HOTKEY~".~"HOTKEY~",   
+         ~"RTEL_HOTKEY~".~"RTELNO~" ASC 
+" update="RTEL_HOTKEY" updatewhere=1 updatekeyinplace=yes )
+text(band=header alignment="2" text="Pin #" border="2" color="16777215" x="9" y="24" height="60" width="850"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="단축번호" border="2" color="16777215" x="882" y="24" height="60" width="571"  name=hotkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신지 번호" border="2" color="16777215" x="1477" y="24" height="60" width="622"  name=rtelno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="9" y="8" height="60" width="850" format="[General]"  name=pid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="1" tabsequence=10 border="2" color="16777215" x="882" y="8" height="60" width="571" format="[general]"  name=hotkey dddw.name=p1dc_dddw_hotkey dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="16777215" x="1477" y="8" height="60" width="622" format="[general]"  name=rtelno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

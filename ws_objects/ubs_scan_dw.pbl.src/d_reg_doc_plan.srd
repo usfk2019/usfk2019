@@ -1,0 +1,69 @@
+﻿$PBExportHeader$d_reg_doc_plan.srd
+$PBExportComments$가격정책별구비서류
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="priceplan_doc_type.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=order_type dbname="priceplan_doc_type.order_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=doc_type dbname="priceplan_doc_type.doc_type" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="priceplan_doc_type.fromdt" )
+ column=(type=char(50) updatewhereclause=yes name=doc_type_desc dbname="doc_type_m.doc_type_desc" )
+ column=(type=decimal(0) updatewhereclause=yes name=doc_type_qty dbname="doc_type_m.doc_type_qty" initial="0" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=crt_user dbname="priceplan_doc_type.crt_user" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=updt_user dbname="priceplan_doc_type.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="priceplan_doc_type.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="priceplan_doc_type.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="priceplan_doc_type.pgm_id" )
+ retrieve="SELECT  A.PRICEPLAN,
+        A.ORDER_TYPE,
+        A.DOC_TYPE, 
+        A.FROMDT,
+        B.DOC_TYPE_DESC,
+        B.DOC_TYPE_QTY,
+        A.CRT_USER,
+        A.UPDT_USER,
+        A.CRTDT,
+        A.UPDTDT,
+        A.PGM_ID
+FROM    PRICEPLAN_DOC_TYPE A,
+        DOC_TYPE_M   B,
+        PRICEPLANMST C
+WHERE   A.DOC_TYPE  = B.DOC_TYPE 
+AND     A.PRICEPLAN = C.PRICEPLAN       
+AND     A.PRICEPLAN LIKE :as_priceplan 
+AND     C.SVCCOD    LIKE :as_service 
+AND     A.DOC_TYPE  LIKE :as_doc_type 
+" update="PRICEPLAN_DOC_TYPE" updatewhere=0 updatekeyinplace=no arguments=(("as_priceplan", string),("as_service", string),("as_doc_type", string))  sort="priceplan A fromdt D " )
+text(band=header alignment="2" text="가격정책" border="2" color="16777215" x="18" y="12" height="60" width="1120" html.valueishtml="0"  name=priceplan_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="16777215" x="1161" y="12" height="56" width="690" html.valueishtml="0"  name=t_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="구비서류 Type" border="2" color="16777215" x="1874" y="12" height="60" width="658" html.valueishtml="0"  name=doc_type_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="총장수" border="2" color="16777215" x="2555" y="12" height="60" width="297" html.valueishtml="0"  name=doc_type_qty_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용시작일" border="2" color="16777215" x="2875" y="12" height="60" width="526" html.valueishtml="0"  name=fromdt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="등록자" border="2" color="16777215" x="3424" y="12" height="60" width="434" html.valueishtml="0"  name=t_2 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수정자" border="2" color="16777215" x="3881" y="12" height="60" width="434" html.valueishtml="0"  name=t_3 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="등록일" border="2" color="16777215" x="4338" y="12" height="60" width="658" html.valueishtml="0"  name=t_4 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수정일" border="2" color="16777215" x="5019" y="12" height="60" width="658" html.valueishtml="0"  name=t_5 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="18" y="8" height="60" width="1120" format="[general]" html.valueishtml="0"  name=priceplan visible="1" dddw.name=ubs_dddw_priceplan_partner dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=100 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="0" x="1874" y="8" height="60" width="658" format="[general]" html.valueishtml="0"  name=doc_type visible="1" dddw.name=ubs_dddw_doc_type dddw.displaycolumn=doc_type_desc dddw.datacolumn=doc_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=40 border="0" color="0" x="201" y="356" height="60" width="658" format="[general]" html.valueishtml="0"  name=pgm_id visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=50 border="2" color="0" x="1161" y="8" height="60" width="690" format="[general]" html.valueishtml="0"  name=order_type visible="1" dddw.name=d_dddw_list dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.autoretrieve=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="0" x="2551" y="8" height="60" width="297" format="#,##0" html.valueishtml="0"  name=doc_type_qty visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=30 border="2" color="0" x="2875" y="8" height="60" width="526" format="[shortdate] " html.valueishtml="0"  name=fromdt visible="1" editmask.autoskip=yes editmask.spin=yes editmask.mask="YYYY-MM-DD" editmask.spinrange="1900-01-01 00:00:00.000000~~9999-12-31 00:00:00.000000" editmask.spinincr=0 editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="3424" y="8" height="60" width="434" format="[general]" html.valueishtml="0"  name=crt_user visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="3881" y="8" height="60" width="434" format="[general]" html.valueishtml="0"  name=updt_user visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="4338" y="8" height="60" width="658" format="[shortdate] [time]" html.valueishtml="0"  name=crtdt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="5019" y="8" height="60" width="658" format="[shortdate] [time]" html.valueishtml="0"  name=updtdt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

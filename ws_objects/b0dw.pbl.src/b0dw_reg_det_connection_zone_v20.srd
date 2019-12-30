@@ -1,0 +1,37 @@
+﻿$PBExportHeader$b0dw_reg_det_connection_zone_v20.srd
+$PBExportComments$[ssong]접속료 대역구성 detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=svccod dbname="connection_zone.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=callingkey dbname="connection_zone.callingkey" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=sacnum_kind dbname="connection_zone.sacnum_kind" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=zoncod dbname="connection_zone.zoncod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="connection_zone.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="connection_zone.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="connection_zone.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="connection_zone.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="connection_zone.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=customer_type dbname="connection_zone.customer_type" )
+ retrieve="SELECT SVCCOD
+     , CALLINGKEY
+     , SACNUM_KIND
+     , ZONCOD
+     , CRT_USER
+     , UPDT_USER
+     , CRTDT
+     , UPDTDT
+     , PGM_ID
+     , CUSTOMER_TYPE
+  FROM CONNECTION_ZONE" update="CONNECTION_ZONE" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="발신번호prefix" border="2" color="15793151" x="23" y="16" height="60" width="498"  name=callingkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="접속료 유형" border="2" color="15793151" x="539" y="16" height="60" width="923"  name=sacnum_kind_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대 역" border="2" color="15793151" x="1481" y="16" height="60" width="544"  name=zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="23" y="8" height="60" width="498" format="[general]"  name=callingkey edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="16777215" x="539" y="8" height="60" width="923" format="[general]"  name=sacnum_kind dddw.name=b0dc_dddw_sacnum_kind_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="2" color="16777215" x="1481" y="8" height="60" width="544" format="[general]"  name=zoncod dddw.name=b0dc_dddw_connection_zone_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

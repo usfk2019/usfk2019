@@ -1,0 +1,45 @@
+﻿$PBExportHeader$b1dw_reg_filewrite.srd
+$PBExportComments$[kem] 고객정보파일수신
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="reqtelworklog.seq" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=file_name dbname="reqtelworklog.file_name" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=workmm dbname="reqtelworklog.workmm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="reqtelworklog.status" )
+ column=(type=datetime update=yes updatewhereclause=yes name=prcdt dbname="reqtelworklog.prcdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=prccnt dbname="reqtelworklog.prccnt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=from_prcdt dbname="reqtelworklog.from_prcdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=to_prcdt dbname="reqtelworklog.to_prcdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=comcd dbname="reqtelworklog.comcd" )
+ column=(type=decimal(0) updatewhereclause=yes name=seq dbname="reqtelworklog.seq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="reqtelworklog.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="reqtelworklog.pgm_id" )
+ retrieve="SELECT SEQ,   
+       FILE_NAME,   
+       WORKMM,   
+       STATUS,   
+       PRCDT,   
+       PRCCNT,   
+       FROM_PRCDT,   
+       TO_PRCDT,   
+       COMCD,   
+       seq,
+       CRT_USER,   
+       PGM_ID  
+  FROM REQTELWORKLOG
+" update="REQTELWORKLOG" updatewhere=1 updatekeyinplace=no  sort="seq D " )
+text(band=header alignment="2" text="작업일자" border="2" color="16777215" x="59" y="16" height="56" width="421"  name=prcdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업상태" border="2" color="16777215" x="498" y="16" height="56" width="338"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청/수신건수" border="2" color="16777215" x="850" y="16" height="56" width="398"  name=prccnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업파일명" border="2" color="16777215" x="1262" y="16" height="56" width="480"  name=comcd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+line(band=detail x1="37" y1="72" x2="1751" y2="72"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="59" y="8" height="60" width="421" format="[shortdate] [time]"  name=prcdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="498" y="8" height="60" width="338" format="[general]"  name=status dddw.name=b1dc_dddw_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="850" y="8" height="60" width="398" format="#,##0"  name=prccnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1262" y="8" height="60" width="480" format="[general]"  name=file_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,129 @@
+﻿$PBExportHeader$b5dw_prt_insummary.srd
+$PBExportComments$[parkkh] 월별수금집계표
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=380 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=currency_type dbname="currency_type" )
+ column=(type=char(8) updatewhereclause=yes name=transdt dbname="transdt" )
+ column=(type=char(8) updatewhereclause=yes name=paydt dbname="paydt" )
+ column=(type=number updatewhereclause=yes name=tramt_sum dbname="tramt_sum" )
+ column=(type=number updatewhereclause=yes name=tramt_3 dbname="tramt_3" )
+ column=(type=number updatewhereclause=yes name=tramt_2 dbname="tramt_2" )
+ column=(type=number updatewhereclause=yes name=tramt_4 dbname="tramt_4" )
+ column=(type=number updatewhereclause=yes name=tramt_1 dbname="tramt_1" )
+ column=(type=number updatewhereclause=yes name=tramt_5 dbname="tramt_5" )
+ column=(type=number updatewhereclause=yes name=tramt_etc dbname="tramt_etc" )
+ retrieve="  SELECT bil.currency_type,
+         to_char(REQ.TRANSDT,'yyyymmdd') transdt,   
+         to_char(REQ.PAYDT,'yyyymmdd') paydt,   
+         (sum(REQ.TRAMT) * -1) tramt_sum,   
+         (sum(decode(REQ.TRCOD, :as_gu_3, REQ.TRAMT, 0)) * -1) tramt_3,   
+         (sum(decode(REQ.TRCOD, :as_gu_2, REQ.TRAMT, 0)) * -1) tramt_2,   
+         (sum(decode(REQ.TRCOD, :as_gu_4, REQ.TRAMT, 0)) * -1) tramt_4,   
+         (sum(decode(REQ.TRCOD, :as_gu_1, REQ.TRAMT, 0)) * -1) tramt_1,   
+         (sum(decode(REQ.TRCOD, :as_gu_5, REQ.TRAMT, 0)) * -1) tramt_5, 
+         (sum(decode(REQ.TRCOD, :as_gu_1, 0, :as_gu_2, 0, :as_gu_3, 0, :as_gu_4, 0, :as_gu_5,0, REQ.TRAMT)) * -1) tramt_etc  
+    FROM ( select trcod,
+                tramt,
+                payid,
+					 paydt,
+				    transdt
+           from reqdtl
+			 where to_char(paydt,'yyyymmdd') >= :as_paydtfr
+            and to_char(paydt,'yyyymmdd') <= :as_paydtto
+ 			union all
+			select trcod, 
+                tramt,
+                payid,
+		 			 paydt,
+					 transdt
+           from reqdtlh
+			 where to_char(paydt,'yyyymmdd') >= :as_paydtfr
+            and to_char(paydt,'yyyymmdd') <= :as_paydtto ) REQ,   
+         TRCODE, 
+          billinginfo bil   
+   WHERE ( REQ.TRCOD = TRCODE.TRCOD ) and  
+         ( (TRCODE.IN_YN = 'Y' ) )   and
+          bil.customerid = req.payid and
+       bil.currency_type = decode(:as_currency, '', bil.currency_type, :as_currency)
+GROUP BY bil.currency_type,
+         to_char(REQ.TRANSDT,'yyyymmdd'),   
+         to_char(REQ.PAYDT,'yyyymmdd')
+ORDER BY 1 ASC, 2 ASC , 3 ASC
+" arguments=(("as_paydtfr", string),("as_paydtto", string),("as_gu_1", string),("as_gu_2", string),("as_gu_3", string),("as_gu_4", string),("as_gu_5", string),("as_currency", string)) )
+group(level=1 header.height=192 trailer.height=120 by=("currency_type" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="23" y="40" height="88" width="3369"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="1902" y="192" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1943" y="192" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="2528" y="232" height="56" width="859"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2528" y="304" height="64" width="859" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="지급기간 :" border="0" color="0" x="41" y="312" height="56" width="329"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="" border="0" color="0" x="393" y="312" height="56" width="1010"  name=paydt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+rectangle(band=header.1 x="23" y="88" height="12" width="3369"  name=r_1 brush.hatch="6" brush.color="0" pen.style="5" pen.width="27" pen.color="553648127"  background.mode="1" background.color="553648127" )
+rectangle(band=header.1 x="23" y="180" height="12" width="3369"  name=r_3 brush.hatch="6" brush.color="0" pen.style="5" pen.width="27" pen.color="553648127"  background.mode="1" background.color="553648127" )
+line(band=header.1 x1="27" y1="88" x2="27" y2="264"  name=l_31 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=header.1 x1="27" y1="88" x2="27" y2="264"  name=l_17 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=header.1 x1="2939" y1="92" x2="2939" y2="268"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=header.1 x1="3387" y1="88" x2="3387" y2="264"  name=l_21 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="이체일자별합계" border="0" color="0" x="2953" y="108" height="56" width="421"  name=tramt_sum_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="통화구분 : " border="0" color="0" x="41" y="16" height="56" width="329"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="393" y="8" height="56" width="1010" format="[general]"  name=currency_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="343" y1="92" x2="343" y2="268"  name=l_24 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="이체일자" border="0" color="0" x="41" y="108" height="56" width="288"  name=reqdtl_trcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="2" text="지급일자" border="0" color="0" x="370" y="108" height="56" width="288"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="672" y1="92" x2="672" y2="268"  name=l_18 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="" border="0" color="0" x="695" y="108" height="56" width="338"  name=tramt_1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1051" y1="92" x2="1051" y2="268"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="" border="0" color="0" x="1074" y="108" height="56" width="338"  name=tramt_2_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1426" y1="92" x2="1426" y2="268"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="" border="0" color="0" x="1445" y="108" height="56" width="338"  name=tramt_3_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1797" y1="92" x2="1797" y2="268"  name=l_30 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="" border="0" color="0" x="1815" y="108" height="56" width="338"  name=tramt_4_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="2" text="" border="0" color="0" x="2587" y="108" height="56" width="338"  name=tramt_etc_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="2569" y1="92" x2="2569" y2="268"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=header.1 x1="2176" y1="88" x2="2176" y2="264"  name=l_26 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="" border="0" color="0" x="2194" y="108" height="56" width="361"  name=tramt_5_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="2939" y1="0" x2="2939" y2="176"  name=l_8 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+line(band=detail x1="23" y1="84" x2="3392" y2="84"  name=l_9 visible="1~tif(getrow()=long(describe(~"datawindow.lastrowonpage~")), 0, 1)" pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+line(band=detail x1="27" y1="0" x2="27" y2="176"  name=l_19 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=detail x1="3387" y1="0" x2="3387" y2="176"  name=l_23 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2953" y="8" height="64" width="421" format="[general]"  name=tramt_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="41" y="12" height="60" width="288" format="@@@@-@@-@@"  name=transdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="343" y1="0" x2="343" y2="176"  name=l_25 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="370" y="12" height="60" width="288" format="@@@@-@@-@@"  name=paydt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="672" y1="0" x2="672" y2="176"  name=l_2 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="695" y="12" height="60" width="338" format="[general]"  name=tramt_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1051" y1="0" x2="1051" y2="176"  name=l_5 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1074" y="12" height="60" width="338" format="[general]"  name=tramt_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1426" y1="0" x2="1426" y2="176"  name=l_7 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1440" y="12" height="60" width="338" format="[general]"  name=tramt_3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2583" y="12" height="60" width="338" format="[general]"  name=tramt_etc edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="2569" y1="0" x2="2569" y2="176"  name=l_6 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+line(band=detail x1="1797" y1="0" x2="1797" y2="176"  name=l_29 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+line(band=detail x1="2176" y1="0" x2="2176" y2="176"  name=l_28 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1810" y="12" height="60" width="338" format="[general]"  name=tramt_4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2194" y="12" height="60" width="361" format="[general]"  name=tramt_5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="23" y1="0" x2="3387" y2="0"  name=l_10 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+rectangle(band=trailer.1 x="23" y="100" height="12" width="3369"  name=r_2 brush.hatch="6" brush.color="0" pen.style="5" pen.width="5" pen.color="553648127"  background.mode="1" background.color="553648127" )
+text(band=trailer.1 alignment="2" text="전 체 합 계" border="0" color="0" x="46" y="24" height="56" width="608"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  tramt_sum  for all )"border="0" color="0" x="2953" y="24" height="64" width="416" format="#,##0"  name=sum_tot  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="2939" y1="4" x2="2939" y2="104"  name=l_16 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=trailer.1 x1="27" y1="4" x2="27" y2="100"  name=l_20 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=trailer.1 x1="3387" y1="4" x2="3387" y2="100"  name=l_22 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=trailer.1 x1="672" y1="4" x2="672" y2="104"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum(  tramt_1  for all ) "border="0" color="0" x="695" y="24" height="64" width="338" format="#,##0"  name=sum_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="1051" y1="4" x2="1051" y2="104"  name=l_13 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum(  tramt_2  for all ) "border="0" color="0" x="1074" y="24" height="64" width="338" format="#,##0"  name=sum_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="1426" y1="4" x2="1426" y2="104"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum(  tramt_3  for all ) "border="0" color="0" x="1440" y="24" height="64" width="338" format="#,##0"  name=sum_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="1797" y1="4" x2="1797" y2="104"  name=l_27 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=trailer.1 x1="2569" y1="4" x2="2569" y2="104"  name=l_14 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=trailer.1 x1="2176" y1="0" x2="2176" y2="100"  name=l_32 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum(  tramt_4  for all )"border="0" color="0" x="1819" y="24" height="64" width="338" format="#,##0"  name=sum_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  tramt_etc  for all )"border="0" color="0" x="2587" y="24" height="64" width="338" format="#,##0"  name=sum_etc  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  tramt_5  for group 1 )"border="0" color="0" x="2194" y="24" height="64" width="361" format="#,##0"  name=sum_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

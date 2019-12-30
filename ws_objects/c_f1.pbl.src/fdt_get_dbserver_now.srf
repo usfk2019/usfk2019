@@ -1,0 +1,34 @@
+﻿$PBExportHeader$fdt_get_dbserver_now.srf
+$PBExportComments$DB상에서 Server의 날짜(today) 구하기
+global type fdt_get_dbserver_now from function_object
+end type
+
+forward prototypes
+global function datetime fdt_get_dbserver_now ()
+end prototypes
+
+global function datetime fdt_get_dbserver_now ();//에러시 "00/00/00 00:00:00"을 리턴한다. 
+Boolean lb_dbconnected = False //DB 접속 여부
+Boolean lb_exit = False        //Window종료여부
+u_cust_db_app lu_cust_db_app   //db조작처리
+DateTime ldt_return
+
+lu_cust_db_app = Create u_cust_db_app
+
+lu_cust_db_app.is_caller = 'NOW'
+lu_cust_db_app.is_title = '함수(fdt_get_dbserver_now())'
+
+lu_cust_db_app.uf_prc_db()
+
+If lu_cust_db_app.ii_rc = -1 Then
+	ldt_return = DateTime(date('00/00/00'), Time('00:00:00'))
+Else
+	ldt_return = lu_cust_db_app.idt_data[1]
+End If
+
+Destroy lu_cust_db_app
+
+Return ldt_return
+
+end function
+

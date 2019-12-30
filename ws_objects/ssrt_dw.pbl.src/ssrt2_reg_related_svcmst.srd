@@ -1,0 +1,38 @@
+﻿$PBExportHeader$ssrt2_reg_related_svcmst.srd
+$PBExportComments$[chooys] 서비스마스터 등록 - master datawindow
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="svc_relation.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=pre_priceplan dbname="svc_relation.pre_priceplan" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=relationdesc dbname="svc_relation.relationdesc" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="svc_relation.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="svc_relation.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="svc_relation.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="svc_relation.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="svc_relation.pgm_id" )
+ retrieve="SELECT  ~"SVC_RELATION~".~"PRICEPLAN~" ,
+        ~"SVC_RELATION~".~"PRE_PRICEPLAN~" ,
+        ~"SVC_RELATION~".~"RELATIONDESC~" ,
+        ~"SVC_RELATION~".~"CRT_USER~" ,
+        ~"SVC_RELATION~".~"UPDT_USER~" ,
+        ~"SVC_RELATION~".~"CRTDT~" ,
+        ~"SVC_RELATION~".~"UPDTDT~" ,
+        ~"SVC_RELATION~".~"PGM_ID~"     
+   FROM ~"SVC_RELATION~"    " update="SVC_RELATION" updatewhere=0 updatekeyinplace=no )
+column(band=header id=4 alignment="0" tabsequence=32766 border="0" color="0" x="3278" y="136" height="60" width="219" format="[general]"  name=crt_user visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Relation Desc" border="2" color="15793151" x="14" y="12" height="60" width="1088"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pre - Price Plan Name" border="2" color="15793151" x="1120" y="12" height="60" width="1618"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Price Plan Name" border="2" color="15793151" x="2757" y="12" height="60" width="1641"  name=priceplan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="4439" y="4" height="60" width="215" format="[general]"  name=updt_user visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="4654" y="4" height="60" width="165" format="[shortdate] [time]"  name=crtdt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="4818" y="4" height="60" width="165" format="[shortdate] [time]"  name=updtdt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="4983" y="4" height="60" width="219" format="[general]"  name=pgm_id visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=50 border="2" color="16777215" x="14" y="8" height="60" width="1088" format="[general]"  name=relationdesc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=40 border="2" color="16777215" x="1120" y="8" height="60" width="1618" format="[general]"  name=pre_priceplan dddw.name=ssrt2_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="2" color="16777215" x="2757" y="8" height="60" width="1641" format="[general]"  name=priceplan dddw.name=ssrt2_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

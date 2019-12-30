@@ -1,0 +1,50 @@
+﻿$PBExportHeader$b1fi_validkey_loc_chk_yn_v20.srf
+$PBExportComments$[parkkh] Funtion - 해당서비스별 발신지유형 search
+global type b1fi_validkey_loc_chk_yn_v20 from function_object
+end type
+
+forward prototypes
+global function integer b1fi_validkey_loc_chk_yn_v20 (string as_title, string as_svccod, ref integer ai_cnt)
+end prototypes
+
+global function integer b1fi_validkey_loc_chk_yn_v20 (string as_title, string as_svccod, ref integer ai_cnt);
+//********************************************************************************
+// Fuction ID : b1fi_validkey_loc_chk_yn_v20
+// Purpose    : argument 서비스코드(as_svccod)으로 sacmst(접속번호)에 
+//	            Origintype 'Location'자료가 존재하는지 count 해서 ai_cnt로 넘긴다.
+// Scope      : Public
+// Argument   :
+//              1) as_title(String/Value) : Massage content
+//              2) as_svccod(String/Value) : Select PK 
+//              3) ai_cnt(String/Reference) : return data
+// Return Value : integer
+//					  -1 : error
+//					   1 : ok
+// Log : (Date : Name : Version)
+// 	      2005/07/14 : Park Kyung Hae : Original 1.0
+//********************************************************************************
+String ls_title, ls_ref_desc, ls_temp,ls_origin_code[]
+
+ls_title 	= "b1fi_validkey_loc_chk_yn_v20"
+ai_cnt 		= 0
+
+//발신지Origin 유형: (접속번호;발신지Prefix;인증Key Location)  S;T;L
+ls_ref_desc = ""
+ls_temp 		= fs_get_control("00", "Z410", ls_ref_desc)
+If ls_temp 	= "" Then Return 1
+fi_cut_string(ls_temp, ";" , ls_origin_code[]) 
+
+//1.sacmst Table count 
+//해당 svccod 에 인증Key Location type이 있는지 check 한다.
+Select count(sacnum)	 into :ai_cnt from sacmst                                                                                                                                                                                
+where svccod 		= :as_svccod
+  and origintype 	= :ls_origin_code[3];
+
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + "Select Error(sacmst)")
+	Return -1
+End If
+
+Return 1
+end function
+

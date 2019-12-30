@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_reg_user_group.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=112 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=user_group_id dbname="user_group.user_group_id" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=name dbname="user_group.name" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"user_group~" ) COLUMN(NAME=~"user_group.user_group_id~") COLUMN(NAME=~"user_group.name~")) " update="USER_GROUP" updatewhere=0 updatekeyinplace=no )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="0" x="626" y="4" height="60" width="754" format="[general]"  name=name edit.limit=40 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="96" y="4" height="60" width="498" format="[general]"  name=user_group_id edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Name" border="2" color="15793151" x="626" y="48" height="56" width="754"  name=name_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="User Group Id" border="2" color="15793151" x="96" y="48" height="56" width="498"  name=user_group_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

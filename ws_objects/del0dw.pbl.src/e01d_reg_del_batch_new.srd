@@ -1,0 +1,88 @@
+﻿$PBExportHeader$e01d_reg_del_batch_new.srd
+$PBExportComments$[jybaek]연체자처리방안일괄등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=payid dbname="dlymst_bysvc.payid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(1) updatewhereclause=yes name=work_gb dbname="work_gb" values="YES	Y/NO	N/" )
+ column=(type=number updatewhereclause=yes name=month_int_amt dbname="month_int_amt" )
+ column=(type=number updatewhereclause=yes name=month_mob_amt dbname="month_mob_amt" )
+ column=(type=number updatewhereclause=yes name=retry_int_amt dbname="retry_int_amt" )
+ column=(type=number updatewhereclause=yes name=retry_mob_amt dbname="retry_mob_amt" )
+ column=(type=number updatewhereclause=yes name=dly_int_month dbname="dly_int_month" )
+ column=(type=number updatewhereclause=yes name=dly_mob_month dbname="dly_mob_month" )
+ column=(type=number updatewhereclause=yes name=recv_int_amt dbname="recv_int_amt" )
+ column=(type=number updatewhereclause=yes name=recv_mob_amt dbname="recv_mob_amt" )
+ column=(type=datetime updatewhereclause=yes name=recv_int_dt dbname="dlymst_bysvc.recv_int_dt" )
+ column=(type=datetime updatewhereclause=yes name=recv_mob_dt dbname="dlymst_bysvc.recv_mob_dt" )
+ column=(type=char(100) updatewhereclause=yes name=remark dbname="dlymst_bysvc.remark" )
+ column=(type=datetime updatewhereclause=yes name=modify_date dbname="dlymst_bysvc.modify_date" )
+ column=(type=datetime updatewhereclause=yes name=stdmonth dbname="dlymst_bysvc.stdmonth" )
+ column=(type=char(1) updatewhereclause=yes name=delay_type dbname="dlymst_bysvc.delay_type" values="둘다	0/인터넷	1/모바일	2/" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="dlymst_bysvc.status" )
+ retrieve="SELECT  A.PAYID,
+        C.CUSTOMERNM,
+        'Y' AS WORK_GB,
+        NVL(A.MONTH_INT_AMT, 0) AS MONTH_INT_AMT,
+        NVL(A.MONTH_MOB_AMT, 0) AS MONTH_MOB_AMT,
+        NVL(A.RETRY_INT_AMT, 0) AS RETRY_INT_AMT,
+        NVL(A.RETRY_MOB_AMT, 0) AS RETRY_MOB_AMT,
+        NVL(A.DLY_INT_MONTH, 0) AS DLY_INT_MONTH,
+        NVL(A.DLY_MOB_MONTH, 0) AS DLY_MOB_MONTH,
+        NVL(A.RECV_INT_AMT,  0) AS RECV_INT_AMT,
+        NVL(A.RECV_MOB_AMT,  0) AS RECV_MOB_AMT,
+        A.RECV_INT_DT,
+        A.RECV_MOB_DT,
+        A.REMARK,
+        A.MODIFY_DATE,
+        A.STDMONTH,
+        A.DELAY_TYPE,
+        A.STATUS       
+FROM    DLYMST_BYSVC A,
+        BILLINGINFO B,
+        CUSTOMERM C
+WHERE   A.PAYID = B.CUSTOMERID
+AND     A.PAYID = C.CUSTOMERID
+AND     B.OVERDUE_MONTHS IS NOT NULL"  sort="payid A " )
+text(band=header alignment="2" text="TOTAL ROWS :" border="0" color="0" x="1874" y="12" height="60" width="398"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2281" y="12" height="56" width="443" format="#,##0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="연체고객" border="2" color="15793151" x="14" y="88" height="60" width="306"  name=payid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체고객명" border="2" color="15793151" x="334" y="88" height="60" width="677"  name=customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="YES/NO" border="2" color="15793151" x="1024" y="88" height="60" width="219"  name=work_gb_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기준일자" border="2" color="15793151" x="1257" y="88" height="60" width="379"  name=stdmonth_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체구분" border="2" color="15793151" x="1650" y="88" height="60" width="315"  name=delay_type_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액(INT)-최초" border="2" color="15793151" x="1979" y="88" height="60" width="389"  name=month_int_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액(MOB)-최초" border="2" color="15793151" x="2382" y="88" height="60" width="421"  name=month_mob_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액(INT)-수정" border="2" color="15793151" x="2816" y="88" height="60" width="389"  name=retry_int_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액(MOB)-수정" border="2" color="15793151" x="3218" y="88" height="60" width="425"  name=retry_mob_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수납금액(INT)" border="2" color="15793151" x="3657" y="88" height="60" width="366"  name=recv_int_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수납금액(MOB)" border="2" color="15793151" x="4037" y="88" height="60" width="407"  name=recv_mob_amt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개월수(INT)" border="2" color="15793151" x="4457" y="88" height="60" width="329"  name=dly_int_month_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="개월수(MOB)" border="2" color="15793151" x="4800" y="88" height="60" width="343"  name=dly_mob_month_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="생성일자" border="2" color="15793151" x="5157" y="88" height="60" width="361"  name=modify_date_t  resizeable=1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark" border="2" color="15793151" x="6226" y="88" height="60" width="1815"  name=remark_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="현재상태" border="2" color="15793151" x="5531" y="88" height="60" width="681"  name=status_t  resizeable=1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="14" y="4" height="60" width="306" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="2" color="16777215" x="1029" y="4" height="60" width="215" format=""  name=work_gb ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.required=yes ddlb.nilisnull=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=16 alignment="2" tabsequence=32766 border="2" color="0" x="1257" y="4" height="60" width="379" format="[shortdate] [time]"  name=stdmonth editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="334" y="4" height="60" width="677" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="2" tabsequence=32766 border="2" color="0" x="1650" y="4" height="60" width="315" format="[general]"  name=delay_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0" x="1979" y="4" height="60" width="389" format="#,##0.00"  name=month_int_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="2" color="0" x="2382" y="4" height="60" width="421" format="#,##0.00"  name=month_mob_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="0" x="2816" y="4" height="60" width="389" format="#,##0.00"  name=retry_int_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="2" color="0" x="3218" y="4" height="60" width="425" format="#,##0.00"  name=retry_mob_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="2" color="0" x="3657" y="4" height="60" width="366" format="#,##0.00"  name=recv_int_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="2" color="0" x="4037" y="4" height="60" width="407" format="#,##0.00"  name=recv_mob_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="2" color="0" x="4457" y="4" height="60" width="329" format="[general]"  name=dly_int_month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="2" color="0" x="4800" y="4" height="60" width="343" format="[general]"  name=dly_mob_month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="0" tabsequence=20 border="2" color="0" x="6226" y="4" height="60" width="1815" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes edit.autovscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="2" color="0" x="5157" y="4" height="60" width="361" format="[shortdate] [time]"  name=modify_date editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="2" color="0" x="5531" y="4" height="60" width="681" format="[general]"  name=status dddw.name=e01dc_dddw_status_1 dddw.displaycolumn=status_nm dddw.datacolumn=status_cd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="0" x="3593" y="212" height="56" width="165" format="[shortdate] [time]"  name=recv_int_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="2" color="0" x="3758" y="212" height="56" width="165" format="[shortdate] [time]"  name=recv_mob_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

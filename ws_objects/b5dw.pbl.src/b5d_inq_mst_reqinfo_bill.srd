@@ -1,0 +1,59 @@
+﻿$PBExportHeader$b5d_inq_mst_reqinfo_bill.srd
+$PBExportComments$[kwon] 입금상세내역조회
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=88 color="536870912" )
+summary(height=88 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=trdt dbname="reqamtinfo.trdt" )
+ column=(type=number updatewhereclause=yes name=pre_balance dbname="reqamtinfo.pre_balance" )
+ column=(type=number updatewhereclause=yes name=cur_balance dbname="reqamtinfo.cur_balance" )
+ column=(type=number updatewhereclause=yes name=balance dbname="balance" )
+ column=(type=number updatewhereclause=yes name=supplyamt dbname="reqamtinfo.supplyamt" )
+ column=(type=number updatewhereclause=yes name=surtax dbname="reqamtinfo.surtax" )
+ retrieve="SELECT trdt,
+       pre_balance,
+       cur_balance,
+       pre_balance+cur_balance  balance,
+		 supplyamt,
+       surtax
+FROM   REQAMTINFO
+UNION ALL
+SELECT trdt,
+       pre_balance,
+       cur_balance,
+       pre_balance+cur_balance  balance,
+	   supplyamt,
+       surtax
+FROM   REQAMTINFOH
+ORDER BY trdt DESC" )
+text(band=header alignment="2" text="청구기준일" border="2" color="15793151" x="91" y="20" height="60" width="430" html.valueishtml="0"  name=trdt_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="미납액" border="2" color="15793151" x="535" y="20" height="60" width="439" html.valueishtml="0"  name=pre_balance_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="91" y="4" height="60" width="430" format="yyyy-mm-dd" html.valueishtml="0"  name=trdt visible="1" editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="합  계   :" border="0" color="0" x="73" y="12" height="60" width="430" html.valueishtml="0"  name=t_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151"  height.autosize=yes)
+text(band=header alignment="2" text="청구총액" border="2" color="15793151" x="2345" y="20" height="60" width="439" html.valueishtml="0"  name=balance_t visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="당월청구액" border="2" color="15793151" x="1893" y="20" height="60" width="439" html.valueishtml="0"  name=t_2 visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="공급가액" border="2" color="15793151" x="987" y="20" height="56" width="439" html.valueishtml="0"  name=cur_balance_tt visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="부가세" border="2" color="15793151" x="1440" y="20" height="56" width="439" html.valueishtml="0"  name=balance_tt visible="1"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="535" y="4" height="60" width="439" format="#,##0.00" html.valueishtml="0"  name=pre_balance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2350" y="4" height="60" width="439" format="#,##0.00" html.valueishtml="0"  name=balance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="69" y1="68" x2="2802" y2="68"  name=l_3 visible="1" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=summary x1="69" y1="0" x2="2802" y2="0"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1897" y="4" height="60" width="439" format="#,##0.00" html.valueishtml="0"  name=cur_balance visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="987" y="4" height="60" width="439" format="#,##0.00" html.valueishtml="0"  name=supplyamt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1440" y="4" height="60" width="439" format="#,##0.00" html.valueishtml="0"  name=surtax visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  cur_balance  for all )"border="0" color="0" x="1897" y="12" height="60" width="439" format="#,##0" html.valueishtml="0"  name=sum_cur_balance visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(surtax for all)"border="0" color="0" x="1440" y="12" height="60" width="439" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(supplyamt for all)"border="0" color="0" x="987" y="12" height="60" width="439" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,122 @@
+﻿$PBExportHeader$ssrt_reg_adsale_other_sams.srd
+$PBExportComments$[unknown] 연체자 조치사항 등록
+release 10;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=168 color="536870912" )
+summary(height=76 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=modelno dbname="admst.modelno" )
+ column=(type=char(50) updatewhereclause=yes name=modelnm dbname="admodel.modelnm" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="admst.status" )
+ column=(type=datetime updatewhereclause=yes name=saledt dbname="admst.saledt" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="admst.customerid" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="admst.orderno" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_amt dbname="admst.sale_amt" )
+ column=(type=number updatewhereclause=yes name=taxrate dbname="taxrate" )
+ column=(type=char(1) updatewhereclause=yes name=sale_flag dbname="admst.sale_flag" )
+ column=(type=char(60) updatewhereclause=yes name=remark dbname="admst.remark" )
+ column=(type=char(0) updatewhereclause=yes name=remark2 dbname="remark2" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="admst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(10) updatewhereclause=yes name=regcod dbname="itemmst.regcod" )
+ column=(type=char(20) updatewhereclause=yes name=contno dbname="admst.contno" )
+ column=(type=number updatewhereclause=yes name=unitamt dbname="unitamt" )
+ column=(type=number updatewhereclause=yes name=qty dbname="qty" initial="1" )
+ column=(type=char(0) updatewhereclause=yes name=svccod dbname="svccod" )
+ column=(type=char(0) updatewhereclause=yes name=priceplan dbname="priceplan" )
+ column=(type=char(0) updatewhereclause=yes name=manual_yn dbname="manual_yn" initial="Y" )
+ column=(type=decimal(0) updatewhereclause=yes name=priority dbname="itemmst.priority" )
+ column=(type=number updatewhereclause=yes name=impack_card dbname="impack_card" )
+ column=(type=number updatewhereclause=yes name=impack_not dbname="impack_not" )
+ column=(type=char(0) updatewhereclause=yes name=impack_check dbname="impack_check" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="admst.contractseq" )
+ column=(type=char(0) updatewhereclause=yes name=remark3 dbname="remark3" )
+ column=(type=char(0) updatewhereclause=yes name=surtaxyn dbname="surtaxyn" )
+ retrieve="    SELECT a.MODELNO, 
+         B.MODELNM,  
+         a.STATUS,   
+         a.SALEDT,   
+         a.CUSTOMERID,   
+         a.ORDERNO,   
+         a.SALE_AMT,   
+         0 TAXRATE,
+         a.SALE_FLAG,   
+         a.REMARK,   
+         '' REMARK2,   
+         a.ITEMCOD,
+         c.itemnm,
+         c.regcod,
+         A.CONTNO,
+         0 unitamt,
+         0 qty,
+         '' svccod,
+         '' priceplan,
+         '' manual_yn,
+			c.priority,
+			0 IMPACK_CARD,
+			0 IMPACK_NOT,
+			'' IMPACK_CHECK,
+			a.contractseq,
+			'' REMARK3,
+         '' SURTAXYN
+    FROM ADMST  A ,
+         ADMODEL B,
+         itemmst c
+   WHERE A.MODELNO = B.MODELNO 
+     AND a.itemcod = c.itemcod
+ " )
+button(band=header text="Exchange Rate" filename="" enabled=yes action="0" border="0" color="0" x="9" y="16" height="76" width="530" vtextalign="0" htextalign="0"  name=b_rate visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+button(band=header text="Uplus Card" filename="" enabled=yes action="0" border="0" color="0" x="544" y="16" height="76" width="411" vtextalign="0" htextalign="0"  name=b_dacom visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="0" text="Please check if it is LG Uplus rechargeable card before recharging." border="0" color="255" x="978" y="24" height="64" width="2578" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Service" border="2" color="15793151" x="9" y="100" height="60" width="672" html.valueishtml="0"  name=svccod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Price Plan" border="2" color="15793151" x="695" y="100" height="60" width="773" html.valueishtml="0"  name=priceplan_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+button(band=header text="none" filename="" enabled=yes action="0" border="0" color="0" x="3479" y="12" height="120" width="320" vtextalign="0" htextalign="0"  name=b_ani visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Quantity" border="2" color="15793151" x="3104" y="100" height="60" width="229" html.valueishtml="0"  name=qty_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Unit Amount" border="2" color="15793151" x="2761" y="100" height="60" width="329" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Item" border="2" color="15793151" x="1481" y="100" height="60" width="1266" html.valueishtml="0"  name=itemcod_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Sale Amount" border="2" color="15793151" x="3346" y="100" height="60" width="338" html.valueishtml="0"  name=sale_amt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Note " border="2" color="15793151" x="4050" y="100" height="60" width="585" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Remark" border="2" color="15793151" x="4649" y="100" height="60" width="978" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Contract Seq" border="2" color="15793151" x="5646" y="100" height="60" width="407" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Cause" border="2" color="15793151" x="6487" y="100" height="60" width="978" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Order No." border="2" color="15793151" x="6066" y="100" height="60" width="407" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="VAT" border="2" color="15793151" x="3698" y="100" height="60" width="338" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+column(band=detail id=12 alignment="0" tabsequence=30 border="2" color="0" x="1481" y="4" height="60" width="283" format="[general]" html.valueishtml="0" protect="0~tif ( isNull(itemnm) , 0, 1)"  name=itemcod visible="1" dddw.name=ssrt_dddw_priceplan_det dddw.displaycolumn=itemcod dddw.datacolumn=itemcod dddw.percentwidth=450 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="50" y="324" height="60" width="270" format="[general]" html.valueishtml="0"  name=modelno visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="325" y="324" height="60" width="270" format="[general]" html.valueishtml="0"  name=modelnm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="603" y="324" height="60" width="270" format="[general]" html.valueishtml="0"  name=status visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1152" y="324" height="60" width="119" format="[general]" html.valueishtml="0"  name=sale_flag visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="1861" y="324" height="60" width="270" format="[general]" html.valueishtml="0"  name=contno visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="2" color="0" x="2181" y="336" height="44" width="91" format="[general]" html.valueishtml="0"  name=manual_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="2272" y="320" height="60" width="366" format="[general]" html.valueishtml="0"  name=impack_card visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="2661" y="332" height="60" width="325" format="[general]" html.valueishtml="0"  name=impack_not visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="2985" y="328" height="60" width="187" format="[general]" html.valueishtml="0"  name=impack_check visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=10 border="2" color="0" x="9" y="4" height="60" width="672" format="[general]" html.valueishtml="0"  name=svccod visible="1" dddw.name=b1dc_dddw_post_svcmst_partner dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=160 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=20 border="2" color="0" x="695" y="4" height="60" width="773" format="[general]" html.valueishtml="0"  name=priceplan visible="1" dddw.name=b1dc_dddw_priceplan_partner dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=160 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="1" tabsequence=40 border="2" color="0" x="3104" y="4" height="60" width="229" format="[general]" html.valueishtml="0"  name=qty visible="1" editmask.mask="###" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="2" color="0" x="2761" y="4" height="60" width="329" format="[general]" html.valueishtml="0"  name=unitamt visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="2" color="0" x="1769" y="4" height="60" width="978" format="[general]" html.valueishtml="0"  name=itemnm visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=60 border="2" color="0" x="4050" y="4" height="60" width="585" format="[general]" html.valueishtml="0"  name=remark visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=70 border="2" color="0" x="4654" y="4" height="60" width="978" format="[general]" html.valueishtml="0"  name=remark2 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=25 alignment="0" tabsequence=80 border="2" color="0" x="5646" y="4" height="60" width="407" format="[general]" html.valueishtml="0"  name=contractseq visible="1" dddw.name=ubs_dddw_contractseq dddw.displaycolumn=contractseq dddw.datacolumn=contractseq dddw.percentwidth=200 dddw.lines=5 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=90 border="0" color="0" x="6066" y="4" height="60" width="407" format="[general]" html.valueishtml="0"  name=orderno visible="1" dddw.name=ubs_dddw_orderno_etc dddw.displaycolumn=orderno dddw.datacolumn=orderno dddw.percentwidth=200 dddw.lines=5 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=26 alignment="0" tabsequence=100 border="2" color="0" x="6487" y="4" height="60" width="978" format="[general]" html.valueishtml="0"  name=remark3 visible="1" dddw.name=ubs_dddw_others_remark dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=5 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=50 border="2" color="0" x="3346" y="4" height="60" width="338" format="$#,##0.00;[RED]($#,##0.00)" html.valueishtml="0"  name=sale_amt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="truncate(sale_amt * (taxrate / 100),2)"border="2" color="0" x="3698" y="4" height="60" width="338" format="$#,##0.00;[RED]($#,##0.00)" html.valueishtml="0"  name=taxamt visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  qty  for all )"border="6" color="0" x="3104" y="8" height="60" width="229" format="#,##0" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="TOTAL" border="6" color="0" x="14" y="8" height="60" width="3072" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  sale_amt  for all )"border="6" color="0" x="3346" y="8" height="60" width="338" format="#,##0.00" html.valueishtml="0"  name=cp_total visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(taxamt for all)"border="6" color="0" x="3698" y="8" height="60" width="338" format="#,##0.00" html.valueishtml="0"  name=tax_tot visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=110 border="0" color="0" x="7465" y="0" height="60" width="183" html.valueishtml="0"  name=surtaxyn visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

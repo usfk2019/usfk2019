@@ -1,0 +1,58 @@
+﻿$PBExportHeader$b1dw_inq_admstlog_new_mobile_t5_pop_v20.srd
+$PBExportComments$[ohj] 고객에 따른 신청 품목popup - detail v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=action dbname="admstlog_new.action" )
+ column=(type=char(4000) updatewhereclause=yes name=actionnm dbname="actionnm" )
+ column=(type=datetime updatewhereclause=yes name=actdt dbname="admstlog_new.actdt" )
+ column=(type=char(14) updatewhereclause=yes name=contno dbname="admstlog_new.contno" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="serialno" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="admstlog_new.status" )
+ column=(type=char(4000) updatewhereclause=yes name=statusnm dbname="statusnm" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="admstlog_new.customerid" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="admstlog_new.contractseq" )
+ column=(type=datetime updatewhereclause=yes name=returndt dbname="admstlog_new.returndt" )
+ column=(type=char(10) updatewhereclause=yes name=refund_type dbname="admstlog_new.refund_type" )
+ column=(type=char(4000) updatewhereclause=yes name=refund_typenm dbname="refund_typenm" )
+ column=(type=char(80) updatewhereclause=yes name=remark dbname="admstlog_new.remark" )
+ retrieve="SELECT  ACTION,
+        FNC_GET_GRCODE_CODENM('UBS202', ACTION) AS ACTIONNM,
+         ACTDT,
+        CONTNO, 
+        (select sa.serialno from admst sa where sa.adseq = ADM.adseq) as SERIALNO,
+        STATUS,
+        FNC_GET_GRCODE_CODENM('B813', STATUS) AS STATUSNM,
+        CUSTOMERID,
+        CONTRACTSEQ,
+        RETURNDT, 
+        REFUND_TYPE,
+        FNC_GET_GRCODE_CODENM('ZM500', REFUND_TYPE) AS REFUND_TYPENM,
+        REMARK
+FROM ADMSTLOG_NEW ADM
+WHERE 1=1
+  AND ORDERNO = :as_orderno
+  AND ACTION = '805'" arguments=(("as_orderno", string)) )
+text(band=header alignment="2" text="작업구분" border="2" color="16777215" x="9" y="16" height="60" width="494"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="컨트롤번호" border="2" color="16777215" x="983" y="16" height="60" width="398"  name=contno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시리얼번호" border="2" color="16777215" x="1390" y="16" height="60" width="800"  name=serialno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약번호" border="2" color="16777215" x="2779" y="16" height="60" width="480"  name=contractseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="반품일자" border="2" color="16777215" x="3269" y="16" height="60" width="453"  name=returndt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비고" border="2" color="16777215" x="4311" y="16" height="60" width="969"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고상태" border="2" color="16777215" x="2203" y="16" height="60" width="567"  name=statusnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="반품유형" border="2" color="16777215" x="3735" y="16" height="60" width="567"  name=refund_typenm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일자" border="2" color="16777215" x="512" y="16" height="60" width="462"  name=actdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="8" height="60" width="462" format="[shortdate] [time]"  name=actdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="983" y="8" height="60" width="398" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1390" y="8" height="60" width="800" format="[general]"  name=serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2779" y="8" height="60" width="480" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3269" y="8" height="60" width="453" format="[shortdate] [time]"  name=returndt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="4311" y="8" height="60" width="969" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="494" format="[general]"  name=actionnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2203" y="8" height="60" width="567" format="[general]"  name=statusnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="3735" y="8" height="60" width="567" format="[general]"  name=refund_typenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

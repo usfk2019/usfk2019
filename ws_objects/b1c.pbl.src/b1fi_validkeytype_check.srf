@@ -1,0 +1,44 @@
+﻿$PBExportHeader$b1fi_validkeytype_check.srf
+$PBExportComments$[parkkh] Funtion - priceplan_validkey_type count
+global type b1fi_validkeytype_check from function_object
+end type
+
+forward prototypes
+global function integer b1fi_validkeytype_check (string as_title, string as_priceplan, ref integer ai_cnt)
+end prototypes
+
+global function integer b1fi_validkeytype_check (string as_title, string as_priceplan, ref integer ai_cnt);
+//********************************************************************************
+// Fuction ID : b1fi_validkeytype_check
+// Purpose    : argument 가격정책(as_priceplan)으로 priceplan_validkey_type Table
+//	            에 자료가 존재하는지 count 해서 ai_cnt로 넘긴다.
+// Scope      : Public
+// Argument   :
+//              1) as_title(String/Value) : Massage content
+//              2) as_priceplan(String/Value) : Select PK 
+//              3) ai_cnt(String/Reference) : return data
+// Return Value : integer
+//					  -1 : error
+//					   1 : ok
+// Log : (Date : Name : Version)
+// 	      2004/06/02 : Park Kyung Hae : Original 1.0
+//********************************************************************************
+String ls_title
+
+ls_title = "b1fi_validkeytype_check"
+ai_cnt = 0
+
+//1.priceplan_validkey_type Table count
+Select count(priceplan)
+  into :ai_cnt
+ from priceplan_validkey_type
+where priceplan = :as_priceplan;
+
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + " Select Error(priceplan_validkeytype_check)")
+	Return -1
+End If
+
+Return 1
+end function
+

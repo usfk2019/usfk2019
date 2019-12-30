@@ -1,0 +1,45 @@
+﻿$PBExportHeader$f_pos_footer.srf
+$PBExportComments$[1hear]영수증출력- footer
+global type f_pos_footer from function_object
+end type
+
+forward prototypes
+global function integer f_pos_footer (string fs_memberid, string fs_app, string fs_userid)
+end prototypes
+
+global function integer f_pos_footer (string fs_memberid, string fs_app, string fs_userid);//영수증 출력 - FOOTER  Function
+//fs_MEMBERID 	: 멤버ID ( or CID )
+//fS_APP 		: 영수증번호 ( SEQ_APP )
+//fs_USERID		: 스테프명 (로그인한 ID )
+// Porgram by k.b.CHO [1hera]
+
+String ls_empnm,	ls_tmp
+
+// Staff Name
+select trim(EMPNM)   into :ls_empnm  from sysusr1t 
+ where emp_id =  :fs_userid ;
+IF IsNull(ls_empnm) or sqlca.sqlcode <> 0  then ls_empnm = ''
+
+
+ls_tmp  = "Member ID   :     " + fs_memberid
+//DPayer ID    :     " + fs_payid + " (CID:" + fs_customerid + ")"	 // memberid 대신 payid 출력하도록 2007-08-13 hcjung
+F_POS_PRINT(ls_tmp, 1)
+ls_tmp  = "Approval No :     " + fs_app
+F_POS_PRINT(ls_tmp, 1)
+ls_tmp  = "Staff Name  :     " + ls_empnm
+F_POS_PRINT(ls_tmp, 1)
+//--------------------------------------------
+PRN_LF(1)
+F_POS_PRINT("CS : 0505-122-1891", 1)
+F_POS_PRINT("Toll Free: 080-850-1891", 1)
+F_POS_PRINT("Email : lgservicerep@chol.com", 1)
+PRN_LF(1)
+//F_POS_PRINT("www.i-mnet.net", 2)
+F_POS_PRINT("http://i-mnet.uplus.co.kr", 2)
+F_POS_PRINT("Thank you for using LG Uplus service", 2)
+PRN_LF(4)
+PRN_CUT()
+return  0
+
+end function
+

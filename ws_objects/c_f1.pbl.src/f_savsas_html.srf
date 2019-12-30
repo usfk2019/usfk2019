@@ -1,0 +1,59 @@
+﻿$PBExportHeader$f_savsas_html.srf
+global type f_savsas_html from function_object
+end type
+
+forward prototypes
+global function integer f_savsas_html (datawindow adw_excel, string as_filenm)
+end prototypes
+
+global function integer f_savsas_html (datawindow adw_excel, string as_filenm);OLEObject lo_excel
+String    ls_RegistryPath , ls_Excelpath
+String    ls_xlsname      , ls_FileName
+Integer   li_Re, li_fp
+
+ls_xlsname = as_filenm
+
+IF adw_excel.Rowcount() < 1 THEN
+	MessageBox("작업오류", '파일로 전환할 내용이 없습니다.', Information!)
+	RETURN -1
+END IF
+
+IF GetFileSaveName("Select File", ls_xlsname, ls_FileName, "HTM", "Excel Files (*.htm),*.htm") <> 1 THEN
+	Messagebox("작업취소", "작업을 취소했습니다!", Exclamation!)
+	RETURN -1
+END IF
+
+IF FileExists(ls_xlsname) THEN
+	IF MessageBox("Select File", ls_xlsname + " File이 존재합니다.~n" + &
+									"덮어 쓰시겠습니까?", Question!, yesno!, 2) = 2 THEN
+		RETURN -1
+	END IF
+END IF
+
+IF adw_excel.SaveAs(ls_xlsname, HTMLTable!, FALSE) <> 1 THEN
+	li_fp = Fileopen(ls_xlsname, StreamMode!, Write!, LockWrite!, Replace!)
+	IF li_fp < 1 THEN
+		Messagebox('파일로 저장','오류 : File 지정이 잘못되었습니다.')
+		RETURN -1
+	END IF
+END IF
+
+lo_excel = CREATE OLEobject
+
+IF lo_excel.ConnectToNewObject("excel.application") <> 0 THEN
+	MessageBox('확인' , '엑셀 실행화일을 찾을 수 없습니다.')
+	DESTROY lo_excel
+	Return -1
+ELSE
+	lo_excel.windowstate = 1
+	lo_excel.application.Visible = True
+	lo_excel.windowstate = 3
+	
+	lo_excel.application.workbooks.opentext(ls_xlsname)
+	lo_excel.DisConnectObject()
+	DESTROY lo_excel
+END IF
+
+RETURN 0
+end function
+

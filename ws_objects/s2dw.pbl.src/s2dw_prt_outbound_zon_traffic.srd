@@ -1,0 +1,65 @@
+﻿$PBExportHeader$s2dw_prt_outbound_zon_traffic.srd
+$PBExportComments$[kjm]outbound 사업자별 트래픽 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=512 color="536870912" )
+summary(height=84 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=96 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=areagroup dbname="wholesale_traffic.areagroup" )
+ column=(type=char(10) updatewhereclause=yes name=zoncod dbname="wholesale_traffic.zoncod" )
+ column=(type=char(14) updatewhereclause=yes name=carrier dbname="wholesale_traffic.carrier" )
+ column=(type=number updatewhereclause=yes name=try_cnt dbname="try_cnt" )
+ column=(type=number updatewhereclause=yes name=comp_cnt dbname="comp_cnt" )
+ column=(type=number updatewhereclause=yes name=comp_time dbname="comp_time" )
+ retrieve="SELECT AREAGROUP,
+		 ZONCOD,
+		 CARRIER, 
+       SUM(NVL(TRY_CNT,0))	TRY_CNT, 
+		 SUM(NVL(COMP_CNT,0)) COMP_CNT,
+		 ROUND(SUM(NVL(COMP_TIME,0))/60, 2) COMP_TIME
+  FROM WHOLESALE_TRAFFIC
+ WHERE INOUT_CHK = 'O'
+   AND (YYYYMMDD >= :as_ymd_fr AND YYYYMMDD <= :as_ymd_to)
+GROUP BY AREAGROUP,		 ZONCOD,		 CARRIER
+" arguments=(("as_ymd_fr", string),("as_ymd_to", string)) )
+text(band=header alignment="0" text="출중계사업자" border="0" color="0" x="1079" y="440" height="56" width="443"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="9" y="100" height="88" width="3433"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2121" y="224" height="52" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2194" y="224" height="52" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="시도호수" border="0" color="0" x="1586" y="440" height="56" width="370"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="완료율(%)" border="0" color="0" x="2555" y="440" height="56" width="370"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="완료호수" border="0" color="0" x="2071" y="440" height="56" width="370"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="완료분수" border="0" color="0" x="3040" y="440" height="56" width="370"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2752" y="356" height="56" width="658" format="[GENERAL]"  name=page  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="0" y1="508" x2="3429" y2="508"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="0" y1="428" x2="3429" y2="428"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="지역상위그룹" border="0" color="0" x="23" y="440" height="56" width="466"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="2743" y="284" height="52" width="667"  name=date_time  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="작업일자 :" border="0" color="0" x="23" y="284" height="56" width="320"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="2" expression="left(as_ymd_fr,4)+'-'+mid(as_ymd_fr,5,2)+'-'+right(as_ymd_fr,2)"border="0" color="0" x="357" y="284" height="56" width="315" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="~~" border="0" color="0" x="690" y="284" height="56" width="41"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="2" expression="left(as_ymd_to,4)+'-'+mid(as_ymd_to,5,2)+'-'+right(as_ymd_to,2)"border="0" color="0" x="745" y="284" height="56" width="315" format="[GENERAL]"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="대          역" border="0" color="0" x="558" y="440" height="56" width="448"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="출중계사업자 : " border="0" color="0" x="23" y="356" height="56" width="421"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="453" y="356" height="56" width="663"  name=carrier_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1586" y="16" height="60" width="370" format="#,###"  name=try_cnt editmask.mask="#,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="3040" y="16" height="60" width="370" format="#,###"  name=comp_time editmask.mask="#,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="if(comp_cnt < 1,0,
+if(try_cnt <1,0, 
+(comp_cnt / try_cnt) * 100))"border="0" color="0" x="2555" y="16" height="60" width="370" format="#,##0.00"  name=comp_rate  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2071" y="16" height="60" width="370" format="#,###"  name=comp_cnt editmask.mask="#,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="0" y1="88" x2="3429" y2="88"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="16" height="56" width="466" format="[general]"  name=areagroup dddw.name=s2dc_dddw_areagroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="16" height="56" width="448" format="[general]"  name=zoncod dddw.name=s2dc_dddw_zoncod dddw.displaycolumn=zonnm dddw.datacolumn=zoncod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1079" y="16" height="60" width="443" format="[general]"  name=carrier dddw.name=s2dc_dddw_carrier dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=summary alignment="0" text="총    계" border="0" color="0" x="1079" y="8" height="56" width="443"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(  try_cnt  for all )"border="0" color="0" x="1586" y="8" height="56" width="370" format="#,###"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum( comp_time  for all )"border="0" color="0" x="3040" y="8" height="56" width="370" format="#,###"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum( comp_rate  for all )"border="0" color="0" x="2555" y="8" height="56" width="370" format="#,##0.00"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum( comp_cnt  for all )"border="0" color="0" x="2071" y="8" height="56" width="370" format="#,###"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=summary x1="0" y1="76" x2="3429" y2="76"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="지역상위그룹 : " border="0" color="0" x="1138" y="356" height="56" width="430"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1577" y="356" height="56" width="841"  name=areagroup_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

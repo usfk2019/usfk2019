@@ -1,0 +1,66 @@
+﻿$PBExportHeader$b1dw_reg_svc_actorder_v20_sams.srd
+$PBExportComments$[ohj] 후불서비스 신청(품목) - detail  v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(1) updatewhereclause=yes name=quota_yn dbname="itemmst.quota_yn" values="Yes	Y/No	N/" )
+ column=(type=char(5) updatewhereclause=yes name=chk dbname="chk" initial="Y" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=mainitem_yn dbname="itemmst.mainitem_yn" )
+ column=(type=decimal(0) updatewhereclause=yes name=groupno dbname="priceplandet.groupno" )
+ column=(type=decimal(0) updatewhereclause=yes name=grouptype dbname="priceplandet.grouptype" values="동일그룹중1개만선택가능	0/동일그룹중1개이상선택가능 	1/" )
+ column=(type=char(10) updatewhereclause=yes name=itemmst_addition_code dbname="itemmst.addition_code" )
+ column=(type=decimal(0) updatewhereclause=yes name=itemmst_priority dbname="itemmst.priority" )
+ column=(type=char(10) updatewhereclause=yes name=itemmst_pricetable dbname="itemmst.pricetable" )
+ column=(type=char(1) updatewhereclause=yes name=bilitem_yn dbname="itemmst.bilitem_yn" )
+ column=(type=char(1) updatewhereclause=yes name=oneoffcharge_yn dbname="itemmst.oneoffcharge_yn" )
+ retrieve="SELECT   item.itemcod, 
+         item.itemnm, 
+       	item.quota_yn, 
+			('check') chk , 
+			item.mainitem_yn, 
+			det.groupno,
+         det.grouptype, 
+			item.addition_code,
+		   item.priority, 
+			item.pricetable,
+			ITEM.BILITEM_YN,
+			ITEM.ONEOFFCHARGE_YN     
+  FROM   itemmst item , priceplandet det
+ WHERE   item.itemcod = det.itemcod
+GROUP BY item.itemcod, 
+			item.itemnm, 
+			item.quota_yn, 
+		  	item.mainitem_yn, 
+			det.groupno, 
+			det.grouptype, 
+			item.addition_code,  
+			item.priority, 
+			item.pricetable,
+			ITEM.BILITEM_YN,
+			ITEM.ONEOFFCHARGE_YN     
+ORDER BY item.itemcod, 
+			item.mainitem_yn DESC, 
+			item.quota_yn DESC"  sort="groupno A mainitem_yn D quota_yn D itemcod A " )
+text(band=header alignment="2" text="Item Code" border="2" color="16777215" x="105" y="16" height="60" width="475"  name=itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item" border="2" color="16777215" x="599" y="16" height="60" width="1413"  name=itemnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Group" border="2" color="16777215" x="2030" y="16" height="60" width="178"  name=groupno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Order" border="2" color="16777215" x="2930" y="16" height="60" width="288"  name=quota_yn_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Additional Svc Type" border="2" color="16777215" x="3237" y="16" height="60" width="1125"  name=itemmst_addition_code_t visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Group Type" border="2" color="16777215" x="2226" y="16" height="60" width="686"  name=grouptype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0~tif( mainitem_yn ='Y' , If(quota_yn = 'Y', RGB(0,0,128),10355177) , RGB(0,0,0)) " x="105" y="4" height="60" width="475" format="[general]"  name=itemcod edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0~tif( mainitem_yn ='Y' , if( quota_yn='Y',  RGB(0,0,128) ,10355177) , RGB(0,0,0)) " x="599" y="4" height="60" width="1413" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="3858" y="88" height="60" width="114" format="[general]"  name=bilitem_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4009" y="84" height="60" width="146" format="[general]"  name=oneoffcharge_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="2" color="0" x="2030" y="4" height="60" width="178" format="[general]"  name=groupno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=10 border="0" color="0~tif( mainitem_yn ='Y' , 10355177 , RGB(0,0,0)) " x="3035" y="4" height="60" width="78" format="[general]" protect="0~tif( mainitem_yn = 'Y' , 1, 0 )"  name=chk checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2930" y="4" height="60" width="96" format="[general]"  name=quota_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="3122" y="4" height="60" width="96" format="[general]"  name=mainitem_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="3237" y="4" height="60" width="1125" format="[general]"  name=itemmst_addition_code visible="1~t0" dddw.name=b0dc_dddw_addtioncode_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="2226" y="4" height="60" width="686" format="[general]"  name=grouptype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

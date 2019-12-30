@@ -1,0 +1,56 @@
+﻿$PBExportHeader$ubs_dw_reg_equipment_tab2.srd
+$PBExportComments$[jhchoi] 인증장비관리 (tab2 - history) - 2009.05.04
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=192 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=8 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=admstlog_actdt dbname="admstlog.actdt" )
+ column=(type=char(10) updatewhereclause=yes name=admstlog_action dbname="admstlog.action" )
+ column=(type=char(10) updatewhereclause=yes name=admstlog_status dbname="admstlog.status" )
+ column=(type=char(10) updatewhereclause=yes name=admstlog_fr_partner dbname="admstlog.fr_partner" )
+ column=(type=char(10) updatewhereclause=yes name=admstlog_to_partner dbname="admstlog.to_partner" )
+ column=(type=char(14) updatewhereclause=yes name=admstlog_customerid dbname="admstlog.customerid" )
+ column=(type=char(8) updatewhereclause=yes name=admstlog_crt_user dbname="admstlog.crt_user" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(60) updatewhereclause=yes name=admstlog_remark dbname="admstlog.remark" )
+ retrieve="  SELECT ~"ADMSTLOG~".~"ACTDT~",   
+         ~"ADMSTLOG~".~"ACTION~",   
+         ~"ADMSTLOG~".~"STATUS~",   
+         ~"ADMSTLOG~".~"FR_PARTNER~",   
+         ~"ADMSTLOG~".~"TO_PARTNER~",   
+         ~"ADMSTLOG~".~"CUSTOMERID~",   
+         ~"ADMSTLOG~".~"CRT_USER~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         ~"ADMSTLOG~".~"REMARK~"
+    FROM ~"ADMSTLOG~",   
+         ~"CUSTOMERM~"  
+   WHERE ( admstlog.customerid = customerm.customerid (+))    
+	ORDER BY ~"ADMSTLOG~".~"SEQ~"
+" )
+text(band=header alignment="0" text="" border="0" color="0" x="379" y="44" height="60" width="512"  name=t_ad_seq  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="1367" y="44" height="60" width="654"  name=t_modelno  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="모 델 :" border="0" color="0" x="1125" y="44" height="60" width="224"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="장비 Seq :" border="0" color="0" x="37" y="44" height="60" width="320"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="Serial No. :" border="0" color="0" x="2254" y="44" height="60" width="315"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="2592" y="44" height="60" width="590"  name=t_serialno  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="이력구분" border="2" color="15793151" x="590" y="128" height="60" width="654"  name=iqty_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="출고고객" border="2" color="15793151" x="2976" y="128" height="60" width="1042"  name=oqty_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비  고" border="2" color="15793151" x="4032" y="128" height="60" width="800"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고상태" border="2" color="15793151" x="1257" y="128" height="60" width="411"  name=sale_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="이동Shop(From→To)" border="2" color="15793151" x="1682" y="128" height="60" width="1280"  name=rent_cnt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일시" border="2" color="15793151" x="27" y="128" height="60" width="549"  name=mv_partner_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업자" border="2" color="15793151" x="4846" y="128" height="60" width="498"  name=sqty_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="590" y="8" height="60" width="654" format="[general]"  name=admstlog_action dddw.name=b8dc_dddw_admstlog_action dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="3401" y="8" height="60" width="617" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2981" y="8" height="60" width="407" format="[general]"  name=admstlog_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1257" y="8" height="60" width="411" format="[general]"  name=admstlog_status dddw.name=b8dc_dddw_admodelstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="4032" y="8" height="60" width="800" format="[general]"  name=admstlog_remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1682" y="8" height="60" width="599" format="[general]"  name=admstlog_fr_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="→" border="0" color="0" x="2295" y="8" height="60" width="64"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="2368" y="8" height="60" width="599" format="[general]"  name=admstlog_to_partner dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="27" y="8" height="60" width="549" format="[shortdate] [time]"  name=admstlog_actdt editmask.mask="yyyy-mm-dd hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="4846" y="8" height="60" width="498" format="[general]"  name=admstlog_crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

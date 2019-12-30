@@ -1,0 +1,46 @@
+﻿$PBExportHeader$b1dw_inq_reactivationfee.srd
+$PBExportComments$[jhchoi] 서비스 일시정지 신청, 처리 ( Detail3) - 2009.04.14
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(0) updatewhereclause=yes name=fee_check dbname="fee_check" initial="N" values="	Y/	N" )
+ column=(type=char(10) updatewhereclause=yes name=code dbname="syscod2t.code" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(60) updatewhereclause=yes name=codenm dbname="syscod2t.codenm" )
+ column=(type=char(1) updatewhereclause=yes name=surtaxyn dbname="surtaxyn" )
+ column=(type=number updatewhereclause=yes name=vat_amt dbname="vat_amt" )
+ retrieve="SELECT  '' FEE_CHECK
+		, COD.CODE
+		, ITEM.ITEMNM
+		, COD.CODENM
+      , DECODE(ITEM.SURTAXYN, 'N', '*', ' ') SURTAXYN
+      , 0.00                                 VAT_AMT
+FROM    SYSCOD2T COD, ITEMMST ITEM
+WHERE   COD.GRCODE = 'UBS04'
+AND     COD.USE_YN = 'Y'
+AND     COD.CODE   = ITEM.ITEMCOD"  sort="itemnm A " )
+text(band=header alignment="2" text="Check" border="2" color="16777215" x="23" y="4" height="60" width="165" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Code" border="2" color="16777215" x="197" y="4" height="60" width="306" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item" border="2" color="16777215" x="512" y="4" height="60" width="727" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Amount" border="2" color="16777215" x="1248" y="4" height="60" width="302" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Vat Amt" border="2" color="16777215" x="1559" y="4" height="60" width="311" html.valueishtml="0"  name=vat_amt_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="60" width="5" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="0" color="0" x="23" y="0" height="64" width="165" format="[general]" html.valueishtml="0"  name=fee_check visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="197" y="0" height="64" width="306" format="[general]" html.valueishtml="0"  name=code visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="512" y="0" height="64" width="727" format="[general]" html.valueishtml="0"  name=itemnm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1248" y="0" height="64" width="302" format="[general]" html.valueishtml="0"  name=codenm visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=20 border="0" color="0" x="1563" y="0" height="60" width="306" format="#,##0.00" html.valueishtml="0"  name=vat_amt visible="1" editmask.mask="###,##0.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

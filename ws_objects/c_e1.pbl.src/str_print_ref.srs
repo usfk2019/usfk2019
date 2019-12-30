@@ -1,0 +1,9 @@
+﻿$PBExportHeader$str_print_ref.srs
+global type str_print_ref from structure
+	string		s_page_cnt
+	integer		i_copies_n
+	string		s_page_range
+	integer		i_ret
+	integer		i_orientation
+end type
+

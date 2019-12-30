@@ -1,0 +1,109 @@
+﻿$PBExportHeader$f_excel.srf
+$PBExportComments$Excel Down
+global type f_excel from function_object
+end type
+
+forward prototypes
+global function boolean f_excel (ref datawindow ar_dwo)
+end prototypes
+
+global function boolean f_excel (ref datawindow ar_dwo);
+/******************************************************************
+ Excel Down Function
+ ******************************************************************/
+Int          li_idx, li_dddw_cnt, li_i, li_pos
+string       ls_path_name, ls_file_name, ls_col_name, ls_col_text, ls_col_type
+String       ls_data, ls_dddw_col[]
+DataStore    ldw
+
+setPointer(hourGlass!)
+
+ar_dwo.AcceptText()
+
+if  ar_dwo.rowcount() <= 0 then
+	Messagebox("확인","Excel로 저장할 자료가 없습니다.")
+	return false
+end if
+
+ldw = Create dataStore
+ldw.dataObject = ar_dwo.DataObject
+ar_dwo.RowsCopy(1, ar_dwo.RowCount(), Primary!, ldw, 1, Primary!)
+
+First_Step:
+
+li_idx = GetfileSaveName ("화일로 저장", ls_path_name, ls_file_name, "xls", &
+                          "엑셀 화일 (*.xls),*.xls")
+
+if  fileExists (ls_path_name) then
+    li_idx = Messagebox ("화일로 저장", ls_path_name + "?" + "~r~n" + &
+                         "화일이 이미 존재합니다."         + "~r~n" + &
+                         "기존 화일을 바꾸시겠습니까?", question!, OkCancel!, 2)
+    if  li_idx = 2 then
+        return false
+    end if
+    fileDelete(ls_path_name)
+end if
+
+setPointer(hourGlass!)
+if  not(isNull(ls_path_name) or ls_path_name = "") then
+    if  not(lower(RightA(ls_path_name, 3)) = "xls") then
+        return false
+    end if
+end if
+
+li_dddw_cnt = 0
+for li_idx = 1 to long(ldw.Describe("DataWindow.Column.Count"))
+	ls_col_name = ldw.Describe("#" + String(li_idx) + ".Name")
+	ls_col_text = ldw.Describe(ls_col_name          + "_t.text")
+
+	//DropDown Datawindow Check
+	ls_data     = ldw.Describe(ls_col_name + ".dddw.Required")
+	if ls_data <> "?" then
+		li_dddw_cnt++
+		ls_dddw_col[li_dddw_cnt] = ls_col_name
+	end if
+	if ls_col_text <> "!" then
+		if PosA(ls_col_text,"~n") > 0 then
+			li_pos      = PosA(ls_col_text,"~n")
+			ls_col_text = MidA(ls_col_text,1,li_pos - 1) + MidA(ls_col_text,li_pos+1)
+		end if
+		if PosA(ls_col_text,"~r") > 0 then
+			li_pos      = PosA(ls_col_text,"~r")
+			ls_col_text = MidA(ls_col_text,1,li_pos - 1) + MidA(ls_col_text,li_pos+1)
+		end if
+		DO WHILE PosA(ls_col_text,'"') > 0
+			li_pos      = PosA(ls_col_text,'"')
+			ls_col_text = MidA(ls_col_text,1,li_pos - 1) + MidA(ls_col_text,li_pos+1)
+		LOOP
+		ldw.Modify(ls_col_name + ".dbname = '" + ls_col_text + "'")
+	end if
+next
+
+//DropDown Datawindow가 있을경우처리
+if li_dddw_cnt > 0 then
+	For li_idx = 1 to ldw.rowcount()
+		For li_i = 1 to li_dddw_cnt
+			ls_data = ar_dwo.Describe( "Evaluate('LookUpDisplay("+ ls_dddw_col[li_i] +") ', " + String(li_idx) + ")")
+			ldw.SetItem(li_idx,ls_dddw_col[li_i],ls_data)
+		Next
+	Next
+end if
+
+//li_idx = ldw.saveAs(ls_path_name, Excel!, true)
+
+li_idx = ldw.saveAsAscii(ls_path_name, "~t", "")
+
+if  isNull(li_idx) or li_idx < 1 then
+    li_idx = Messagebox ("확인", "엑셀파일 생성을 실패 하였습니다!~r~n" + &
+                         "다른 화일명으로 저장하시겠습니까?", question!, OkCancel!, 2)
+    if  li_idx = 1 then
+        goto First_Step
+    end if
+    return false
+end if
+
+MessageBox("확인",ls_path_name + "에 엑셀파일이 생성 되었습니다.")
+return true
+
+end function
+

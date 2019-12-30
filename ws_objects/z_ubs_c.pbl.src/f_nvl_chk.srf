@@ -1,0 +1,44 @@
+﻿$PBExportHeader$f_nvl_chk.srf
+$PBExportComments$데이터가 널일때 메시지 출력 - 2015.03.03. lys
+global type f_nvl_chk from function_object
+end type
+
+forward prototypes
+global function boolean f_nvl_chk (datawindow ad_dw, string as_col, long al_row, any as_data, string as_msg)
+end prototypes
+
+global function boolean f_nvl_chk (datawindow ad_dw, string as_col, long al_row, any as_data, string as_msg);/********************************************************************************************
+	Function     : f_nvl_chk
+	Parameters   : ad_window - datawindow
+						as_col    - column
+						al_row	 - row
+						as_data   - data	
+						as_msg    - massage
+	Returns      : boolean
+	Description  : 데이타가 널일때 메시지 출력, dw Set등을 설정.
+*/
+String ls_msg
+Window lw_win
+
+//Null 체크
+IF IsNull(as_data) THEN as_data = ""
+
+IF as_data = "" THEN
+	//윈도우 타이틀 추출.
+	lw_win = ad_dw.GetParent()
+	
+	//컬럼의 헤더명 추출.
+	ls_msg = ad_dw.Describe(as_col + "_t.text")
+	
+	F_GET_MSG(259, lw_win.title, ls_msg)
+	ad_dw.setColumn(as_col)
+	ad_dw.setRow(al_row)
+	ad_dw.scrollToRow(al_row)
+	ad_dw.setFocus()
+
+	Return False
+END IF
+
+Return True
+end function
+

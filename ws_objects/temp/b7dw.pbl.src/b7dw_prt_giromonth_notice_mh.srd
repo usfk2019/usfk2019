@@ -1,0 +1,331 @@
+﻿$PBExportHeader$b7dw_prt_giromonth_notice_mh.srd
+$PBExportComments$[jybaek] 자동이체/신용카드 청구서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=yes )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=3920 color="536870912"  height.autosize=yes)
+table(column=(type=char(14) updatewhereclause=yes name=reqinfo_payid dbname="reqinfo.payid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="reqinfo.customernm" )
+ column=(type=char(60) updatewhereclause=yes name=bil_addr1 dbname="reqinfo.bil_addr1" )
+ column=(type=char(60) updatewhereclause=yes name=bil_addr2 dbname="reqinfo.bil_addr2" )
+ column=(type=char(13) updatewhereclause=yes name=cregno dbname="cregno" )
+ column=(type=char(19) updatewhereclause=yes name=zipcode dbname="zipcode" )
+ column=(type=char(20) updatewhereclause=yes name=phone1 dbname="customerm.phone1" )
+ column=(type=char(50) updatewhereclause=yes name=bil_email dbname="reqinfo.bil_email" )
+ column=(type=char(10) updatewhereclause=yes name=adding_type dbname="reqinfo.adding_type" )
+ column=(type=char(30) updatewhereclause=yes name=adding_key dbname="reqinfo.adding_key" )
+ column=(type=char(30) updatewhereclause=yes name=holder dbname="reqinfo.holder" )
+ column=(type=char(10) updatewhereclause=yes name=inputclosedtcur dbname="inputclosedtcur" )
+ column=(type=char(4) updatewhereclause=yes name=inputclosedtcur_year dbname="inputclosedtcur_year" )
+ column=(type=char(2) updatewhereclause=yes name=inputclosedtcur_month dbname="inputclosedtcur_month" )
+ column=(type=char(2) updatewhereclause=yes name=inputclosedtcur_day dbname="inputclosedtcur_day" )
+ column=(type=char(0) updatewhereclause=yes name=useddt_fr dbname="useddt_fr" )
+ column=(type=char(0) updatewhereclause=yes name=useddt_to dbname="useddt_to" )
+ column=(type=number updatewhereclause=yes name=supplyamt dbname="supplyamt" )
+ column=(type=number updatewhereclause=yes name=surtax dbname="surtax" )
+ column=(type=number updatewhereclause=yes name=pre_balance dbname="pre_balance" )
+ column=(type=number updatewhereclause=yes name=cur_balance dbname="cur_balance" )
+ column=(type=char(8) updatewhereclause=yes name=compute_0022 dbname="compute_0022" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="year" )
+ column=(type=char(2) updatewhereclause=yes name=month dbname="month" )
+ column=(type=char(0) updatewhereclause=yes name=msg1 dbname="msg1" )
+ column=(type=char(0) updatewhereclause=yes name=msg2 dbname="msg2" )
+ column=(type=char(0) updatewhereclause=yes name=msg3 dbname="msg3" )
+ column=(type=char(0) updatewhereclause=yes name=msg4 dbname="msg4" )
+ column=(type=char(0) updatewhereclause=yes name=msg5 dbname="msg5" )
+ column=(type=char(0) updatewhereclause=yes name=seqno dbname="seqno" )
+ column=(type=char(0) updatewhereclause=yes name=admin_tel dbname="admin_tel" )
+ column=(type=char(0) updatewhereclause=yes name=issuedt dbname="issuedt" )
+ column=(type=char(0) updatewhereclause=yes name=validkey dbname="validkey" )
+ column=(type=char(0) updatewhereclause=yes name=gironum_left dbname="gironum_left" )
+ column=(type=char(0) updatewhereclause=yes name=gironum_right dbname="gironum_right" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc01 dbname="reqamtinfo.btrdesc01" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc02 dbname="reqamtinfo.btrdesc02" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc03 dbname="reqamtinfo.btrdesc03" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc04 dbname="reqamtinfo.btrdesc04" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc05 dbname="reqamtinfo.btrdesc05" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc06 dbname="reqamtinfo.btrdesc06" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc07 dbname="reqamtinfo.btrdesc07" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc08 dbname="reqamtinfo.btrdesc08" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc09 dbname="reqamtinfo.btrdesc09" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc10 dbname="reqamtinfo.btrdesc10" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc11 dbname="reqamtinfo.btrdesc11" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc12 dbname="reqamtinfo.btrdesc12" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc13 dbname="reqamtinfo.btrdesc13" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc14 dbname="reqamtinfo.btrdesc14" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc15 dbname="reqamtinfo.btrdesc15" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc16 dbname="reqamtinfo.btrdesc16" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc17 dbname="reqamtinfo.btrdesc17" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc18 dbname="reqamtinfo.btrdesc18" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc19 dbname="reqamtinfo.btrdesc19" )
+ column=(type=char(50) updatewhereclause=yes name=btrdesc20 dbname="reqamtinfo.btrdesc20" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt01 dbname="reqamtinfo.btramt01" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt02 dbname="reqamtinfo.btramt02" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt03 dbname="reqamtinfo.btramt03" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt04 dbname="reqamtinfo.btramt04" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt05 dbname="reqamtinfo.btramt05" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt06 dbname="reqamtinfo.btramt06" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt07 dbname="reqamtinfo.btramt07" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt08 dbname="reqamtinfo.btramt08" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt09 dbname="reqamtinfo.btramt09" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt10 dbname="reqamtinfo.btramt10" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt11 dbname="reqamtinfo.btramt11" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt12 dbname="reqamtinfo.btramt12" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt13 dbname="reqamtinfo.btramt13" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt14 dbname="reqamtinfo.btramt14" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt15 dbname="reqamtinfo.btramt15" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt16 dbname="reqamtinfo.btramt16" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt17 dbname="reqamtinfo.btramt17" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt18 dbname="reqamtinfo.btramt18" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt19 dbname="reqamtinfo.btramt19" )
+ column=(type=decimal(2) updatewhereclause=yes name=btramt20 dbname="reqamtinfo.btramt20" )
+ column=(type=char(0) updatewhereclause=yes name=desc1 dbname="desc1" )
+ column=(type=char(0) updatewhereclause=yes name=desc2 dbname="desc2" )
+ column=(type=char(0) updatewhereclause=yes name=desc3 dbname="desc3" )
+ column=(type=char(0) updatewhereclause=yes name=desc4 dbname="desc4" )
+ column=(type=char(0) updatewhereclause=yes name=desc5 dbname="desc5" )
+ column=(type=char(0) updatewhereclause=yes name=desc6 dbname="desc6" )
+ column=(type=char(0) updatewhereclause=yes name=desc7 dbname="desc7" )
+ column=(type=char(0) updatewhereclause=yes name=desc8 dbname="desc8" )
+ column=(type=char(0) updatewhereclause=yes name=desc9 dbname="desc9" )
+ column=(type=char(0) updatewhereclause=yes name=desc10 dbname="desc10" )
+ column=(type=char(0) updatewhereclause=yes name=desc11 dbname="desc11" )
+ column=(type=char(0) updatewhereclause=yes name=desc12 dbname="desc12" )
+ column=(type=char(0) updatewhereclause=yes name=desc13 dbname="desc13" )
+ column=(type=char(0) updatewhereclause=yes name=desc14 dbname="desc14" )
+ column=(type=char(0) updatewhereclause=yes name=desc15 dbname="desc15" )
+ column=(type=char(0) updatewhereclause=yes name=desc16 dbname="desc16" )
+ column=(type=char(0) updatewhereclause=yes name=desc17 dbname="desc17" )
+ column=(type=char(0) updatewhereclause=yes name=desc18 dbname="desc18" )
+ column=(type=char(0) updatewhereclause=yes name=desc19 dbname="desc19" )
+ column=(type=char(0) updatewhereclause=yes name=desc20 dbname="desc20" )
+ column=(type=char(0) updatewhereclause=yes name=amt1 dbname="amt1" )
+ column=(type=char(0) updatewhereclause=yes name=amt2 dbname="amt2" )
+ column=(type=char(0) updatewhereclause=yes name=amt3 dbname="amt3" )
+ column=(type=char(0) updatewhereclause=yes name=amt4 dbname="amt4" )
+ column=(type=char(0) updatewhereclause=yes name=amt5 dbname="amt5" )
+ column=(type=char(0) updatewhereclause=yes name=amt6 dbname="amt6" )
+ column=(type=char(0) updatewhereclause=yes name=amt7 dbname="amt7" )
+ column=(type=char(0) updatewhereclause=yes name=amt8 dbname="amt8" )
+ column=(type=char(0) updatewhereclause=yes name=amt9 dbname="amt9" )
+ column=(type=char(0) updatewhereclause=yes name=amt10 dbname="amt10" )
+ column=(type=char(0) updatewhereclause=yes name=amt11 dbname="amt11" )
+ column=(type=char(0) updatewhereclause=yes name=amt12 dbname="amt12" )
+ column=(type=char(0) updatewhereclause=yes name=amt13 dbname="amt13" )
+ column=(type=char(0) updatewhereclause=yes name=amt14 dbname="amt14" )
+ column=(type=char(0) updatewhereclause=yes name=amt15 dbname="amt15" )
+ column=(type=char(0) updatewhereclause=yes name=amt16 dbname="amt16" )
+ column=(type=char(0) updatewhereclause=yes name=amt17 dbname="amt17" )
+ column=(type=char(0) updatewhereclause=yes name=amt18 dbname="amt18" )
+ column=(type=char(0) updatewhereclause=yes name=amt19 dbname="amt19" )
+ column=(type=char(0) updatewhereclause=yes name=amt20 dbname="amt20" )
+ retrieve=" SELECT info.payid,
+        info.customernm,  							 
+		 info.bil_addr1, info.bil_addr2  ,							 			 
+	 	 decode(info.ctype2,'01','*************',info.cregno) cregno,      							 
+		 substr(info.bil_zipcod,1,3)||'-'|| substr(info.bil_zipcod,4,6)  zipcode,	
+		 cus.phone1,
+	 	 info.bil_email,
+ 		 info.adding_type,
+		 info.adding_key,
+		 info.HOLDER,
+		 to_char(info.inputclosedtcur,'yyyy-mm-dd') inputclosedtcur,
+		 to_char(info.inputclosedtcur,'yyyy') inputclosedtcur_year,
+		 to_char(info.inputclosedtcur,'mm') inputclosedtcur_month,
+		 to_char(info.inputclosedtcur,'dd') inputclosedtcur_day,
+       '' useddt_fr,
+       '' useddt_to,
+		 nvl(amt.supplyamt,0) supplyamt,               
+		 nvl(amt.surtax,0) surtax,         
+		 nvl(amt.pre_balance,0) pre_balance,             
+		 nvl(amt.cur_balance,0) cur_balance,             
+		 to_char(info.trdt, 'yyyymmdd'), 
+       to_char(add_months(info.trdt,-1), 'yyyy') year,
+       to_char(add_months(info.trdt,-1), 'mm') month,   
+		 '' msg1,
+		 '' msg2,
+		 '' msg3,
+		 '' msg4,
+		 '' msg5,
+	    '' seqno, 
+         '' admin_tel,
+			'' issuedt,
+			'' validkey,
+         '' gironum_left,
+			'' gironum_right,
+			amt.btrdesc01 btrdesc01,
+			amt.btrdesc02 btrdesc02,
+			amt.btrdesc03 btrdesc03,
+			amt.btrdesc04 btrdesc04,
+			amt.btrdesc05 btrdesc05,
+			amt.btrdesc06 btrdesc06,
+			amt.btrdesc07 btrdesc07,
+			amt.btrdesc08 btrdesc08,
+			amt.btrdesc09 btrdesc09,
+			amt.btrdesc10 btrdesc10,
+			amt.btrdesc11 btrdesc11,
+			amt.btrdesc12 btrdesc12,
+			amt.btrdesc13 btrdesc13,
+			amt.btrdesc14 btrdesc14,
+			amt.btrdesc15 btrdesc15,
+			amt.btrdesc16 btrdesc16,
+			amt.btrdesc17 btrdesc17,
+			amt.btrdesc18 btrdesc18,
+			amt.btrdesc19 btrdesc19,
+			amt.btrdesc20 btrdesc20,
+ 			amt.btramt01 btramt01,
+			amt.btramt02 btramt02,
+			amt.btramt03 btramt03,
+			amt.btramt04 btramt04,
+			amt.btramt05 btramt05,
+			amt.btramt06 btramt06,
+			amt.btramt07 btramt07,
+			amt.btramt08 btramt08,
+			amt.btramt09 btramt09,
+			amt.btramt10 btramt10,
+			amt.btramt11 btramt11,
+			amt.btramt12 btramt12,
+			amt.btramt13 btramt13,
+			amt.btramt14 btramt14,
+			amt.btramt15 btramt15,
+			amt.btramt16 btramt16,
+			amt.btramt17 btramt17,
+			amt.btramt18 btramt18,
+			amt.btramt19 btramt19,
+			amt.btramt20 btramt20,
+         '' DESC1,
+          '' DESC2,
+          '' DESC3,
+          '' DESC4,
+          '' DESC5,
+          '' DESC6,
+          '' DESC7,
+          '' DESC8,
+          '' DESC9,
+          '' DESC10,
+          '' DESC11,
+          '' DESC12,
+          '' DESC13,
+          '' DESC14,
+          '' DESC15,
+          '' DESC16,
+          '' DESC17,
+          '' DESC18,
+          '' DESC19,
+          '' DESC20,
+          '' AMT1, '' AMT2, '' AMT3, '' AMT4,
+          '' AMT5, '' AMT6, '' AMT7, '' AMT8,
+          '' AMT9, '' AMT10, '' AMT11, '' AMT12,
+          '' AMT13, '' AMT14, '' AMT15, '' AMT16,
+          '' AMT17, '' AMT18, '' AMT19, '' AMT20              
+  FROM REQINFO info, reqamtinfo amt, customerm cus
+  WHERE  to_char(info.trdt,'yyyymmdd') =:as_trdt
+    AND  info.pay_method= :as_pay_method
+    AND  info.chargedt =:as_chargedt
+	 AND  info.chargedt = amt.chargedt
+	 AND  info.trdt = amt.trdt
+    AND  info.payid = amt.payid
+	 AND  info.payid = cus.customerid
+    AND  nvl(amt.pre_balance,0)+ nvl(amt.cur_balance,0)<>0
+   " arguments=(("as_pay_method", string),("as_chargedt", string),("as_trdt", string)) )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="169" y="1976" height="104" width="1838" format="[general]"  name=msg1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="169" y="2084" height="104" width="1838" format="[general]"  name=msg2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="169" y="2192" height="104" width="1838" format="[general]"  name=msg3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="169" y="2300" height="104" width="1838" format="[general]"  name=msg4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="0" x="169" y="2408" height="104" width="1838" format="[general]"  name=msg5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=93 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2376" height="48" width="357" format="[general]"  name=desc18 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=94 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2428" height="48" width="357" format="[general]"  name=desc19 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=77 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1544" height="48" width="357" format="[general]"  name=desc2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=76 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1492" height="48" width="357" format="[general]"  name=desc1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=78 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1596" height="48" width="357" format="[general]"  name=desc3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=79 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1648" height="48" width="357" format="[general]"  name=desc4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=80 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1700" height="48" width="357" format="[general]"  name=desc5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=81 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1752" height="48" width="357" format="[general]"  name=desc6 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=82 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1804" height="48" width="357" format="[general]"  name=desc7 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=83 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1856" height="48" width="357" format="[general]"  name=desc8 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=95 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2480" height="48" width="357" format="[general]"  name=desc20 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=92 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2324" height="48" width="357" format="[general]"  name=desc17 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=84 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1908" height="48" width="357" format="[general]"  name=desc9 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=85 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1960" height="48" width="357" format="[general]"  name=desc10 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=86 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2012" height="48" width="357" format="[general]"  name=desc11 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=87 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2064" height="48" width="357" format="[general]"  name=desc12 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=88 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2116" height="48" width="357" format="[general]"  name=desc13 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=89 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2168" height="48" width="357" format="[general]"  name=desc14 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=90 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2220" height="48" width="357" format="[general]"  name=desc15 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=91 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="2272" height="48" width="357" format="[general]"  name=desc16 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="당월청구총액" border="0" color="0" x="3259" y="2532" height="48" width="357"  name=t_1  font.face="굴림체" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=97 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1544" height="48" width="453" format="[general]"  name=amt2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=96 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1492" height="48" width="453" format="[general]"  name=amt1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=98 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1596" height="48" width="453" format="[general]"  name=amt3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=99 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1648" height="48" width="453" format="[general]"  name=amt4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=100 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1700" height="48" width="453" format="[general]"  name=amt5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=101 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1752" height="48" width="453" format="[general]"  name=amt6 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=102 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1804" height="48" width="453" format="[general]"  name=amt7 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=103 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1856" height="48" width="453" format="[general]"  name=amt8 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=104 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1908" height="48" width="453" format="[general]"  name=amt9 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=105 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="1960" height="48" width="453" format="[general]"  name=amt10 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=106 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="2012" height="48" width="453" format="[general]"  name=amt11 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=107 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="2064" height="48" width="453" format="[general]"  name=amt12 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=108 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="2116" height="48" width="453" format="[general]"  name=amt13 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=109 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="2168" height="48" width="453" format="[general]"  name=amt14 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=110 alignment="1" tabsequence=32766 border="0" color="0" x="3625" y="2220" height="48" width="453" format="[general]"  name=amt15 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=111 alignment="0" tabsequence=32766 border="0" color="0" x="3625" y="2272" height="48" width="453" format="[general]"  name=amt16 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=112 alignment="0" tabsequence=32766 border="0" color="0" x="3625" y="2324" height="48" width="453" format="[general]"  name=amt17 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=113 alignment="0" tabsequence=32766 border="0" color="0" x="3625" y="2376" height="48" width="453" format="[general]"  name=amt18 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=114 alignment="0" tabsequence=32766 border="0" color="0" x="3625" y="2428" height="48" width="453" format="[general]"  name=amt19 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=115 alignment="0" tabsequence=32766 border="0" color="0" x="3625" y="2480" height="48" width="453" format="[general]"  name=amt20 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" pre_balance  +  cur_balance "border="0" color="0" x="3625" y="2532" height="48" width="453" format="#,##0"  name=total_amt  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="3680" y="1436" height="52" width="398" format="[general]"  name=useddt_to_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="3259" y="1436" height="52" width="398" format="[general]"  name=useddt_fr_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="(1566-3119)" border="0" color="0" x="5230" y="376" height="52" width="352"  name=t_2  font.face="굴림체" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5477" y="92" height="76" width="617" format="[general]"  name=reqinfo_payid_3 edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-12" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="5481" y="200" height="56" width="617" format="[general]"  name=phone1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="customernm + ~"  귀하(귀중)~" "border="0" color="0" x="4759" y="804" height="68" width="1358" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="5362" y="964" height="104" width="754" format="[general]"  name=zipcode edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="4517" y="580" height="60" width="1595" format="[general]"  name=bil_addr1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="4517" y="656" height="60" width="1600" format="[general]"  name=bil_addr2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" pre_balance  +  cur_balance "border="0" color="0" x="5093" y="2876" height="80" width="471" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="3456" y="3368" height="52" width="1024" format="[general]"  name=reqinfo_payid_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="3456" y="3424" height="52" width="1024" format="[general]"  name=customernm_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3456" y="3312" height="52" width="640" format="[general]"  name=phone1_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1920" y="3504" height="52" width="1152" format="[general]"  name=customernm_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1920" y="3404" height="52" width="933" format="[general]"  name=reqinfo_payid_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1984" y="3676" height="52" width="681" format="[general]"  name=cregno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" pre_balance  +  cur_balance "border="0" color="0" x="366" y="3076" height="60" width="498" format="#,##0"  name=total_amt2  font.face="굴림체" font.height="-11" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression=" pre_balance  +  cur_balance "border="0" color="0" x="1888" y="3068" height="72" width="475" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-11" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1920" y="3308" height="52" width="640" format="[general]"  name=phone1_3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=23 alignment="2" tabsequence=32766 border="0" color="0" x="1042" y="3076" height="60" width="165" format="[general]"  name=year_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="2" tabsequence=32766 border="0" color="0" x="1303" y="3076" height="60" width="96" format="[general]"  name=month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="2" tabsequence=32766 border="0" color="0" x="2551" y="3068" height="60" width="183" format="[general]"  name=year_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="2" tabsequence=32766 border="0" color="0" x="2811" y="3068" height="60" width="101" format="[general]"  name=month_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="421" y="3364" height="48" width="1010" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="3212" height="52" width="165" format="[general]"  name=inputclosedtcur_year_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="421" y="3312" height="48" width="617" format="[general]"  name=reqinfo_payid edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="421" y="3260" height="48" width="1010" format="[general]"  name=phone1_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="0" x="987" y="3612" height="48" width="443" format="#,##0"  name=supplyamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="0" x="421" y="3508" height="48" width="645" format="[general]"  name=pre_balance edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="434" y="3204" height="52" width="443" format="[general]"  name=useddt_fr edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="955" y="3204" height="52" width="443" format="[general]"  name=useddt_to edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="2277" y="3212" height="52" width="110" format="[general]"  name=inputclosedtcur_month_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="2496" y="3212" height="52" width="128" format="[general]"  name=inputclosedtcur_day_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="0" color="0" x="421" y="3456" height="48" width="416" format="[general]"  name=cur_balance edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="0" x="1120" y="3456" height="48" width="311" format="#,##0"  name=surtax_1 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="If( cregno='************', '************', left(cregno,3)+'-'+ mid(cregno, 4, 2 ) +'-'+right(cregno,5)) "border="0" color="0" x="421" y="3560" height="48" width="562" format="[GENERAL]"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="0" x="1120" y="3560" height="48" width="311" format="#,##0"  name=surtax edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="621-81-37996" border="0" color="0" x="466" y="3716" height="48" width="439"  name=t_3  font.face="돋움체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=32 alignment="0" tabsequence=32766 border="0" color="0" x="421" y="3664" height="48" width="1010" format="[general]"  name=issuedt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="869" y="3768" height="52" width="201" format="[general]"  name=inputclosedtcur_year edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="0" color="0" x="1170" y="3768" height="52" width="137" format="[general]"  name=inputclosedtcur_month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="0" color="0" x="1399" y="3768" height="52" width="119" format="[general]"  name=inputclosedtcur_day edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="0" color="0" x="5275" y="3444" height="68" width="146" format="[general]"  name=inputclosedtcur_month_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="4960" y="3444" height="68" width="201" format="[general]"  name=inputclosedtcur_year_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="0" color="0" x="5513" y="3444" height="68" width="128" format="[general]"  name=inputclosedtcur_day_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="돋움체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="2" tabsequence=32766 border="0" color="0" x="5134" y="3328" height="72" width="183" format="[general]"  name=year edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=24 alignment="2" tabsequence=32766 border="0" color="0" x="5440" y="3328" height="72" width="155" format="[general]"  name=month_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="2" border="0" color="0" x="937" y="3876" height="40" width="128"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="2" border="0" color="0" x="2619" y="3876" height="40" width="128"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=34 alignment="3" tabsequence=32766 border="0" color="0" x="3401" y="3128" height="68" width="1458" format="[general]"  name=gironum_left edit.limit=0 edit.case=any edit.autoselect=yes  font.face="OCR-B-10 BT" font.height="-12" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=35 alignment="1" tabsequence=32766 border="0" color="0" x="4869" y="3128" height="68" width="718" format="[general]"  name=gironum_right edit.limit=0 edit.case=any edit.autoselect=yes  font.face="OCR-B-10 BT" font.height="-12" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

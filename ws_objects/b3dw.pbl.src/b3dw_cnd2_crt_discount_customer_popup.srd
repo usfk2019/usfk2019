@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b3dw_cnd2_crt_discount_customer_popup.srd
+$PBExportComments$비정기할인대상등록/생성 Pop-Up 조건입력2
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=groupc dbname="groupc" values="1그룹	1/2그룹	2/3그룹	3/4그룹	4/5그룹	5/6그룹	6/7그룹	7/8그룹	8/9그룹	9/" )
+ column=(type=char(10) updatewhereclause=yes name=itemc dbname="itemc" )
+ column=(type=char(20) updatewhereclause=yes name=op dbname="op" )
+ column=(type=char(10) updatewhereclause=yes name=pop dbname="pop" )
+ )
+text(band=header alignment="2" text="VALUE" border="0" color="16777215" x="1454" y="20" height="56" width="549"  name=op_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="OPERRATION" border="0" color="16777215" x="914" y="20" height="56" width="512"  name=pop_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="조건항목" border="0" color="16777215" x="375" y="20" height="56" width="512"  name=itemc_t  tag=""  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="조건그룹" border="0" color="16777215" x="23" y="20" height="56" width="325"  name=groupc_t  tag="And 로 구성될 Column 의 그룹을 지정합니다."  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1454" y="4" height="60" width="549" format="[general]"  name=pop edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="28883878" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="914" y="4" height="60" width="512" format="[general]"  name=op edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="28883878" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="375" y="4" height="60" width="512" format="[general]"  name=itemc edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="28883878" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="23" y="4" height="60" width="325" format="[general]"  name=groupc ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.nilisnull=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="28883878" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

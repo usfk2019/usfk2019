@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_clock.srd
+$PBExportComments$Clock  using datawindow refresh timer
+release 7;
+datawindow(units=0 timer_interval=1000 color=8388608 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 1 print.margin.right = 1 print.margin.top = 1 print.margin.bottom = 1 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=date updatewhereclause=yes name=x dbname="x" )
+ )
+compute(band=header alignment="1" expression="date(today())"border="0" color="16777215" x="69" y="12" height="52" width="443" format="yy.mm.dd DDD"  name=cp_day  font.face="돋움체" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8388608" )
+compute(band=header alignment="0" expression="now()"border="0" color="16777215" x="526" y="12" height="52" width="425" format="h:mm:ss AM/PM"  name=cp_now  font.face="돋움체" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8388608" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

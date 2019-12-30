@@ -1,0 +1,24 @@
+﻿$PBExportHeader$mobile_dddw_contractseq.srd
+$PBExportComments$[kem] partner에 해당하는 Price Plan Code
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractmst.contractseq" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=priceplan_desc dbname="priceplanmst.priceplan_desc" )
+ column=(type=datetime updatewhereclause=yes name=bil_fromdt dbname="contractmst.bil_fromdt" )
+ retrieve="select a.contractseq, b.priceplan_desc, a.bil_fromdt
+ from contractmst a, priceplanmst b
+where a.priceplan = b.priceplan
+AND    1 = 0"  sort="priceplan_desc A " )
+text(band=header alignment="2" text="과금시작일" border="2" color="16777215" x="1335" y="8" height="60" width="343"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Priceplan" border="2" color="16777215" x="389" y="8" height="60" width="942"  name=t_1  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Contractseq" border="2" color="16777215" x="9" y="8" height="60" width="375"  name=selection_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+line(band=detail x1="0" y1="68" x2="1696" y2="68"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="375" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="389" y="4" height="56" width="942" format="[general]"  name=priceplan_desc edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1335" y="4" height="56" width="343" format="[shortdate]"  name=bil_fromdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

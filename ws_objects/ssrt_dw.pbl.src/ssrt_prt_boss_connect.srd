@@ -1,0 +1,64 @@
+﻿$PBExportHeader$ssrt_prt_boss_connect.srd
+$PBExportComments$[jojo] 카드발행보고서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=1 )
+header(height=224 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(4) updatewhereclause=yes key=yes name=dacom_svctype dbname="siid.dacom_svctype" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="siid.customerid" )
+ column=(type=char(14) updatewhereclause=yes name=contractseq dbname="siid.contractseq" )
+ column=(type=char(14) updatewhereclause=yes key=yes name=ex_siid dbname="siid.ex_siid" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="siid.orderno" )
+ column=(type=char(50) updatewhereclause=yes name=status dbname="siid.status" )
+ column=(type=char(11) updatewhereclause=yes key=yes name=siid dbname="siid.siid" )
+ column=(type=char(11) updatewhereclause=yes name=siid_oiid dbname="siid.oiid" )
+ column=(type=datetime updatewhereclause=yes name=siid_crtdt dbname="siid.crtdt" )
+ column=(type=char(200) updatewhereclause=yes name=siid_emsg dbname="siid.emsg" )
+ column=(type=datetime updatewhereclause=yes name=siid_updtdt dbname="siid.updtdt" )
+ retrieve="SELECT A.DACOM_SVCTYPE,
+       A.CUSTOMERID,
+       A.CONTRACTSEQ,
+       A.EX_SIID,
+       A.ORDERNO,
+       A.STATUS,
+       A.SIID,
+       A.OIID,
+       A.CRTDT,
+       A.EMSG,
+       A.UPDTDT
+  FROM SIID A
+ORDER BY A.CRTDT DESC" update="SIID" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="0" text="Svcorder Svccod" border="0" color="0" x="9" y="4" height="60" width="576"  name=t_4 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="951" y="8" height="56" width="544" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1504" y="8" height="56" width="741" format="[general]"  name=ex_siid height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2254" y="8" height="56" width="494" format="[general]"  name=orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2757" y="8" height="56" width="640" format="[general]"  name=status dddw.name=ssrt_dddw_boss_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="3406" y="8" height="56" width="677" format="[general]"  name=siid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="4091" y="8" height="56" width="539" format="[general]"  name=siid_oiid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4640" y="0" height="60" width="1056" format="[general]"  name=siid_emsg edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="0" color="0" x="5705" y="0" height="60" width="750" format="[shortdate] [time]"  name=siid_updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=foreground alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2528" y="80" height="60" width="658" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="1" text="" border="0" color="0" x="2519" y="16" height="60" width="658"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="0" text="" border="0" color="0" x="1824" y="152" height="64" width="82"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="0" text="" border="0" color="0" x="1943" y="152" height="64" width="82"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=foreground alignment="1" text="Order Name : " border="0" color="0" x="14" y="80" height="60" width="398"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="ASC/DESC : " border="0" color="0" x="1285" y="84" height="60" width="274"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="0" x="1582" y="84" height="60" width="91"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="0" x="457" y="80" height="60" width="695"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="2" text="Title" border="0" color="0" x="110" y="16" height="92" width="3735"  name=title visible="1~t0"  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Boss_ServiceName" border="2" color="33554432" x="9" y="152" height="64" width="576"  name=dacom_svctype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Customerid" border="2" color="33554432" x="594" y="152" height="64" width="347"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Sams_Contract No." border="2" color="33554432" x="951" y="152" height="64" width="544"  name=contractseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Boss_SamsContract No." border="2" color="33554432" x="1504" y="152" height="64" width="741"  name=ex_siid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Sams_Order No." border="2" color="33554432" x="2254" y="152" height="64" width="494"  name=orderno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Boss_Status" border="2" color="33554432" x="2757" y="152" height="64" width="640"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Boss_Contract No." border="2" color="33554432" x="3406" y="152" height="64" width="677"  name=siid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Boss_Order No." border="2" color="33554432" x="4091" y="152" height="64" width="539"  name=siid_oiid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Siid Emsg" border="2" color="33554432" x="4640" y="152" height="64" width="1056"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Update Date" border="2" color="33554432" x="5705" y="152" height="60" width="750"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="56" width="576" format="[general]"  name=dacom_svctype dddw.name=ssrt_dddw_boss_svctype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="594" y="8" height="56" width="347" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

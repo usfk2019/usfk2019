@@ -1,0 +1,31 @@
+﻿$PBExportHeader$ubs_dw_reg_mobileterm_det4.srd
+$PBExportComments$[jhchoi] 모바일 해지 신청 ( Detail4 ) - 2009.04.22
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=itemcod dbname="dailypayment.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=decimal(2) updatewhereclause=yes name=payamt dbname="dailypayment.payamt" )
+ column=(type=datetime updatewhereclause=yes name=paydt dbname="dailypayment.paydt" )
+ retrieve="SELECT  DAP.ITEMCOD
+		, ITEM.ITEMNM
+		, DAP.PAYAMT
+		, DAP.PAYDT
+FROM    DAILYPAYMENT DAP, ITEMMST ITEM
+WHERE   DAP.CUSTOMERID = :as_customerid
+AND	  DAP.ITEMCOD IN ( SELECT IN_ITEM FROM DEPOSIT_REFUND )
+AND     DAP.ITEMCOD = ITEM.ITEMCOD" arguments=(("as_customerid", string)) )
+text(band=header alignment="2" text="Item Code" border="2" color="16777215" x="27" y="8" height="60" width="315"  name=dailypayment_itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Name" border="2" color="16777215" x="352" y="8" height="60" width="686"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Deposit Amt" border="2" color="16777215" x="1047" y="8" height="60" width="443"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pay Date" border="2" color="16777215" x="1499" y="8" height="60" width="361"  name=t_12  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="60" width="9" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="0" height="60" width="315" format="[general]"  name=itemcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="0" height="60" width="686" format="[general]"  name=itemnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1047" y="0" height="60" width="443" format="#,##0.00"  name=payamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1499" y="0" height="60" width="361" format="[shortdate] [time]"  name=paydt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

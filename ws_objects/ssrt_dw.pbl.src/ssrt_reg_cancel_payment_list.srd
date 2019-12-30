@@ -1,0 +1,51 @@
+﻿$PBExportHeader$ssrt_reg_cancel_payment_list.srd
+$PBExportComments$[ceusee] 수동입금거래등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=trdt dbname="reqdtl.trdt" )
+ column=(type=char(10) updatewhereclause=yes name=trcod dbname="reqdtl.trcod" )
+ column=(type=decimal(2) updatewhereclause=yes name=tramt dbname="reqdtl.tramt" )
+ column=(type=number updatewhereclause=yes name=payidamt dbname="payidamt" )
+ column=(type=number updatewhereclause=yes name=repayment dbname="reqdtl.repayment" )
+ column=(type=char(3) updatewhereclause=yes name=cancel_type dbname="cancel_type" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(10) updatewhereclause=yes name=regcod dbname="itemmst.regcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ retrieve=" SELECT  A.TRDT,  
+         A.TRCOD,   
+         A.TRAMT,   
+         nvl(A.PAYIDAMT, 0) payidamt,   
+         0 REPAYMENT,
+			'   ' Cancel_Type,
+			C.ITEMCOD,
+         C.REGCOD,
+         C.ITEMNM
+    FROM REQDTL A, trcode b, itemmst C
+   WHERE A.trcod  = b.trcod
+     AND A.TRCOD 	= C.TRCOD
+     AND b.in_yn = 'N'
+ORDER BY A.TRDT
+"  sort="trdt A " )
+text(band=header alignment="2" text="Invoice Date" border="2" color="15793151" x="14" y="8" height="60" width="357"  name=compute_0001_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Transaction" border="2" color="15793151" x="384" y="8" height="60" width="933"  name=itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Request Amount" border="2" color="15793151" x="1330" y="8" height="60" width="448"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Cancel Amount" border="2" color="15793151" x="2254" y="8" height="60" width="448"  name=priority_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Payment Amount" border="2" color="15793151" x="1792" y="8" height="60" width="448"  name=tramt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Cancel Type" border="2" color="15793151" x="2715" y="8" height="60" width="558"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="14" y="8" height="60" width="357" format="[shortdate] [time]"  name=trdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="9" y1="80" x2="3278" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="384" y="8" height="60" width="933" format="[general]"  name=trcod dddw.name=b0dc_dddw_trcod dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1330" y="8" height="60" width="448" format="#,##0.00"  name=tramt editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1792" y="8" height="60" width="448" format="#,##0.00"  name=payidamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=10 border="5" color="0" x="2254" y="8" height="60" width="448" format="[general]"  name=repayment editmask.mask="#,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=20 border="5" color="0" x="2715" y="8" height="60" width="558" format="[general]"  name=cancel_type dddw.name=ssrt_dddw_canceltype dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3301" y="4" height="60" width="50" format="[general]"  name=itemcod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="SUM" border="0" color="0" x="27" y="20" height="60" width="494"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3365" y="4" height="60" width="50" format="[general]"  name=regcod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="0" x="3429" y="4" height="60" width="50"  name=itemnm visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

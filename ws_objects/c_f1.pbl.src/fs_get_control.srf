@@ -1,0 +1,49 @@
+﻿$PBExportHeader$fs_get_control.srf
+$PBExportComments$Get parameter from control file
+global type fs_get_control from function_object
+end type
+
+forward prototypes
+global function string fs_get_control (string as_module, string as_ref_no, ref string as_ref_desc)
+end prototypes
+
+global function string fs_get_control (string as_module, string as_ref_no, ref string as_ref_desc);//목적 : Get parameter from control file
+//인자 : as_module - 해당 모듈, as_ref_no - 참조 번호, as_ref_desc - reference description
+//Return Value : Success - parameter related with ls_module & ls_ref_No
+//               Fail - ""
+
+u_cust_db_app lu_cust_db_app
+String ls_return
+
+lu_cust_db_app = Create u_cust_db_app
+
+lu_cust_db_app.is_caller = "fs_get_control()"
+lu_cust_db_app.is_title = "fs_get_control()"
+lu_cust_db_app.is_data[1] = as_module
+lu_cust_db_app.is_data[2] = as_ref_no
+
+lu_cust_db_app.uf_prc_db()
+
+as_ref_desc = Trim(lu_cust_db_app.is_data[3])
+
+If lu_cust_db_app.ii_rc = -1 Then
+	ls_return = ""
+ElseIf lu_cust_db_app.ii_rc = 100 Then
+	ls_return = ""
+	f_msg_usr_err(3210, lu_cust_db_app.is_title, "Module No. = " + as_module + &
+	 "  Reference No. = " + as_ref_no)
+Else
+	ls_return = Trim(lu_cust_db_app.is_data[4])
+	If IsNull(ls_return) Then ls_return = ""
+
+	If ls_return = ""  And as_ref_desc <> "" Then
+			f_msg_usr_err(3200, as_ref_desc, as_ref_desc)
+	End If
+End If
+
+destroy u_cust_db_app
+
+Return ls_return
+
+end function
+

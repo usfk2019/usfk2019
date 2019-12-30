@@ -1,0 +1,18 @@
+﻿$PBExportHeader$b0dc_dddw_svcmst_naray_hp.srd
+$PBExportComments$[ssong]svcmst의 서비스명(서비스코드) DDDW code & codenm
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=svccod dbname="svcmst.svccod" )
+ column=(type=char(63) update=yes updatewhereclause=yes name=svcdesc dbname="svcdesc" )
+ retrieve="  SELECT SVCCOD,   
+         SVCCOD || ' - ' ||SVCDESC  AS SVCDESC
+    FROM SVCMST  
+ORDER BY SVCCOD ASC   
+" update="SVCMST" updatewhere=1 updatekeyinplace=no )
+line(band=detail x1="0" y1="80" x2="1330" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="4" height="64" width="1102" format="[general]"  name=svcdesc edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

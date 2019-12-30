@@ -1,0 +1,92 @@
+﻿$PBExportHeader$b1dw_reg_validinfoserver_mod.srd
+$PBExportComments$[ceusee] valid info 이력 조회
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes name=seqno dbname="validinfoserverh.seqno" )
+ column=(type=char(10) updatewhereclause=yes name=worktype dbname="validinfoserverh.worktype" values="생성	A/삭제	D/일시정지	B/일시정지해제	U/변경	C/" )
+ column=(type=char(1) updatewhereclause=yes name=svctype dbname="validinfoserverh.svctype" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="validinfoserverh.status" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="validinfoserverh.validkey" )
+ column=(type=char(30) updatewhereclause=yes name=vpassword dbname="validinfoserverh.vpassword" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="validinfoserverh.customerid" )
+ column=(type=datetime updatewhereclause=yes name=cworkdt dbname="validinfoserverh.cworkdt" )
+ column=(type=datetime updatewhereclause=yes name=prcdt dbname="validinfoserverh.prcdt" )
+ column=(type=char(10) updatewhereclause=yes name=result dbname="validinfoserverh.result" )
+ column=(type=datetime updatewhereclause=yes name=sworkdt dbname="validinfoserverh.sworkdt" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="validinfoserverh.crt_user" )
+ column=(type=char(50) updatewhereclause=yes name=customerm dbname="validinfoserverh.customerm" )
+ column=(type=char(20) updatewhereclause=yes name=ip_address dbname="validinfoserverh.ip_address" )
+ column=(type=char(20) updatewhereclause=yes name=h323id dbname="validinfoserverh.h323id" )
+ column=(type=char(20) updatewhereclause=yes name=auth_method dbname="validinfoserverh.auth_method" )
+ column=(type=char(20) updatewhereclause=yes name=gkid dbname="validinfoserverh.gkid" )
+ column=(type=char(30) updatewhereclause=yes name=chg_number dbname="validinfoserverh.chg_number" )
+ column=(type=char(10) updatewhereclause=yes name=block_type dbname="validinfoserverh.block_type" )
+ column=(type=char(10) updatewhereclause=yes name=ogn dbname="validinfoserverh.ogn" )
+ column=(type=char(1) updatewhereclause=yes name=coid dbname="validinfoserverh.coid" )
+ column=(type=char(1) updatewhereclause=yes name=flag dbname="validinfoserverh.flag" values="	1/	0" )
+ column=(type=char(10) updatewhereclause=yes name=err_code dbname="validinfoserverh.err_code" )
+ column=(type=char(80) updatewhereclause=yes name=err_msg dbname="validinfoserverh.err_msg" )
+ column=(type=char(0) updatewhereclause=yes name=check_yn dbname="check_yn" values="	1/	0" )
+ retrieve="SELECT  SEQNO ,
+    WORKTYPE,
+    SVCTYPE,
+    STATUS,
+    VALIDKEY,
+    VPASSWORD,
+    CUSTOMERID,
+    CWORKDT,
+    PRCDT,
+    RESULT,
+    SWORKDT,
+    CRT_USER,
+    CUSTOMERM,
+    IP_ADDRESS,
+    H323ID,
+    AUTH_METHOD,
+    GKID,
+    CHG_NUMBER,
+    BLOCK_TYPE,
+    OGN,
+    COID,
+    FLAG,
+    ERR_CODE,
+    ERR_MSG,
+    '' check_yn
+ FROM VALIDINFOSERVERH
+ORDER BY SEQNO" update="VALIDINFOSERVERH" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="859" y="4" height="60" width="535" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1403" y="4" height="60" width="329" format="*********"  name=vpassword edit.limit=0 edit.case=any edit.autoselect=yes edit.password=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3218" y="4" height="60" width="357" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="3584" y="4" height="60" width="357" format="yyyy-mm-dd"  name=cworkdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="3950" y="4" height="60" width="325" format="yyyy-mm-dd"  name=prcdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=14 alignment="0" tabsequence=30 border="0" color="0~tif( left(auth_method,1)= 'S',rgb(255,255,255), rgb(0,0,0))" x="2231" y="4" height="60" width="503" format="[general]"  name=ip_address edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif( left(auth_method , 1)= 'S',rgb(108,147,137),rgb(255,255,255))" )
+column(band=detail id=15 alignment="0" tabsequence=40 border="0" color="0~tif (  Mid( auth_method , 7 , 1)  <> 'E' , rgb(255,255,255), rgb(0,0,0))" x="2743" y="4" height="60" width="466" format="[general]"  name=h323id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif (  Mid( auth_method , 7 , 1)  <> 'E' , rgb(108,147,137),rgb(255,255,255))" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="210" y="4" height="60" width="315" format="[general]"  name=seqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="535" y="4" height="60" width="315" format="[general]"  name=worktype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="5294" y="4" height="60" width="1221" format="[general]"  name=err_msg edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="4978" y="4" height="60" width="306" format="[general]"  name=err_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="0" color="0" x="4622" y="4" height="60" width="347" format="yyyy-mm-dd"  name=sworkdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4283" y="4" height="60" width="329" format="[general]"  name=result dddw.name=b1dc_dddw_result dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=16 alignment="0" tabsequence=20 border="0" color="16777215" x="1742" y="4" height="60" width="480" format="[general]"  name=auth_method dddw.name=b1dc_dddw_validkey_auth_method dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=25 alignment="2" tabsequence=10 border="0" color="0" x="9" y="4" height="60" width="192" format="[general]"  name=check_yn checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="재처리" border="2" color="15793151" x="9" y="16" height="60" width="192"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Seqno" border="2" color="15793151" x="210" y="16" height="60" width="315"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Worktype" border="2" color="15793151" x="535" y="16" height="60" width="315"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Validkey" border="2" color="15793151" x="859" y="16" height="60" width="535"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Password" border="2" color="15793151" x="1403" y="16" height="60" width="329"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객ID" border="2" color="15793151" x="3218" y="16" height="60" width="357"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Ip Address" border="2" color="15793151" x="2231" y="16" height="60" width="503"  name=t_17  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="H323id" border="2" color="15793151" x="2743" y="16" height="60" width="466"  name=t_18  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="인증방법" border="2" color="15793151" x="1742" y="16" height="60" width="480"  name=t_19  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업요청일" border="2" color="15793151" x="3584" y="16" height="60" width="357"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리요청일" border="2" color="15793151" x="3950" y="16" height="60" width="325"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업결과" border="2" color="15793151" x="4283" y="16" height="60" width="329"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리일자" border="2" color="15793151" x="4622" y="16" height="60" width="347"  name=t_14  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="ErrorCode" border="2" color="15793151" x="4978" y="16" height="60" width="306"  name=t_26  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Error메세지" border="2" color="15793151" x="5294" y="16" height="60" width="1221"  name=t_27  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

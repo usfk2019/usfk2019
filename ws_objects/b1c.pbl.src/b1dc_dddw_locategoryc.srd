@@ -1,0 +1,21 @@
+﻿$PBExportHeader$b1dc_dddw_locategoryc.srd
+$PBExportComments$[chooys] 지역대분류
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=locategoryc dbname="locategoryc.locategoryc" )
+ column=(type=char(60) updatewhereclause=yes name=locategorycnm dbname="locategoryc.locategorycnm" )
+ retrieve="  SELECT ~"LOCATEGORYC~".~"LOCATEGORYC~",   
+         ~"LOCATEGORYC~".~"LOCATEGORYCNM~"  
+    FROM ~"LOCATEGORYC~"  
+ORDER BY ~"LOCATEGORYC~".~"LOCATEGORYC~" ASC,   
+         ~"LOCATEGORYC~".~"LOCATEGORYCNM~" ASC   
+" update="LOCATEGORYC" updatewhere=1 updatekeyinplace=no )
+line(band=detail x1="0" y1="80" x2="1298" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1330" y="12" height="60" width="320" format="[general]"  name=locategoryc visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="12" height="60" width="1266" format="[general]"  name=locategorycnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=summary x1="315" y1="0" x2="315" y2="8"  name=l_2 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

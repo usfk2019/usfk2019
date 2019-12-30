@@ -1,0 +1,52 @@
+﻿$PBExportHeader$b5d_reg_reqconf.srd
+$PBExportComments$[kwon] 청구주기 Control
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=-4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=datetime update=yes updatewhereclause=yes name=reqdt dbname="reqconf.reqdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=inputclosedt dbname="reqconf.inputclosedt" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=chargedt dbname="reqconf.chargedt" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=description dbname="reqconf.description" )
+ column=(type=char(10) updatewhereclause=yes name=salesdt dbname="salesdt" )
+ column=(type=char(10) updatewhereclause=yes name=opendt dbname="opendt" )
+ column=(type=char(10) updatewhereclause=yes name=enddt dbname="enddt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="reqconf.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="reqconf.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="reqconf.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="reqconf.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="reqconf.pgm_id" )
+ retrieve="  SELECT ~"REQCONF~".~"REQDT~",   
+         ~"REQCONF~".~"INPUTCLOSEDT~",   
+         ~"REQCONF~".~"CHARGEDT~",   
+         ~"REQCONF~".~"DESCRIPTION~",
+         '          ' salesdt,
+         '          ' opendt,
+         '          ' enddt ,
+		   crt_user,
+			updt_user,
+		   crtdt,
+			updtdt,
+			pgm_id
+    FROM ~"REQCONF~"   
+" update="REQCONF" updatewhere=1 updatekeyinplace=yes  sort="chargedt A " )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="16777215" x="745" y="128" height="60" width="366" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="16777215" x="1120" y="128" height="60" width="366" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="16777215" x="1504" y="128" height="60" width="526" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="16777215" x="2011" y="128" height="60" width="690" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="16777215" x="2715" y="128" height="60" width="489" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="16777215" x="37" y="4" height="60" width="91" format="[general]"  name=chargedt_1 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="16777215" x="146" y="4" height="60" width="741" format="[general]"  name=description edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autovscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="2" tabsequence=30 border="2" color="16777215" x="901" y="4" height="60" width="480" format="yyyy-mm-dd"  name=inputclosedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="2" tabsequence=40 border="2" color="16777215" x="1394" y="4" height="60" width="494" format="yyyy-mm-dd"  name=reqdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="2" color="0" x="1902" y="4" height="60" width="407" format="[general]"  name=opendt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="~~" border="2" color="0" x="2327" y="4" height="60" width="50"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="2395" y="4" height="60" width="407" format="[general]"  name=enddt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="청구주기(납기일)" border="2" color="15793151" x="37" y="8" height="60" width="850"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="전월입금마감일" border="2" color="15793151" x="901" y="8" height="60" width="480"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구기준일" border="2" color="15793151" x="1394" y="8" height="60" width="494"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사 용 기 간" border="2" color="15793151" x="1902" y="8" height="60" width="901"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

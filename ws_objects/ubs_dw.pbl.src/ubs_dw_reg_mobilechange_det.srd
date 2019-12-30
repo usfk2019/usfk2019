@@ -1,0 +1,70 @@
+﻿$PBExportHeader$ubs_dw_reg_mobilechange_det.srd
+$PBExportComments$[jhchoi] 모바일 기기 변경 (Detail) - 2009.03.19
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=628 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=phone_type dbname="ad_mobile_rental.phone_type" )
+ column=(type=char(10) updatewhereclause=yes name=phone_model dbname="ad_mobile_rental.phone_model" )
+ column=(type=char(20) updatewhereclause=yes name=contno dbname="ad_mobile_rental.contno" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="ad_mobile_rental.serialno" )
+ column=(type=decimal(0) updatewhereclause=yes name=seq dbname="ad_mobile_rental.seq" )
+ column=(type=char(10) updatewhereclause=yes name=new_phone_type dbname="new_phone_type" )
+ column=(type=char(10) updatewhereclause=yes name=new_phone_model dbname="new_phone_model" )
+ column=(type=char(20) updatewhereclause=yes name=new_contno dbname="new_contno" )
+ column=(type=char(30) updatewhereclause=yes name=new_serialno dbname="new_serialno" )
+ column=(type=number updatewhereclause=yes name=new_payment dbname="ad_mobile_rental.new_payment" )
+ column=(type=number updatewhereclause=yes name=new_seq dbname="ad_mobile_rental.new_seq" )
+ column=(type=number updatewhereclause=yes name=new_amt dbname="ad_mobile_rental.new_amt" )
+ column=(type=number updatewhereclause=yes name=old_amt dbname="ad_mobile_rental.old_amt" )
+ column=(type=char(10) updatewhereclause=yes name=new_item dbname="new_item" )
+ column=(type=char(10) updatewhereclause=yes name=old_item dbname="old_item" )
+ retrieve="SELECT  AD_MOBILE_RENTAL.PHONE_TYPE
+		, AD_MOBILE_RENTAL.PHONE_MODEL
+		, AD_MOBILE_RENTAL.CONTNO
+		, AD_MOBILE_RENTAL.SERIALNO
+		, AD_MOBILE_RENTAL.SEQ
+		, '          ' AS NEW_PHONE_TYPE
+		, '          ' AS NEW_PHONE_MODEL
+		, '                    ' AS NEW_CONTNO
+		, '                              ' AS NEW_SERIALNO
+		, 0 AS NEW_PAYMENT
+		, 0 AS NEW_SEQ
+		, 0 AS NEW_AMT
+		, 0 AS OLD_AMT
+		, '          ' AS NEW_ITEM
+		, '          ' AS OLD_ITEM
+FROM    AD_MOBILE_RENTAL
+WHERE   AD_MOBILE_RENTAL.CONTRACTSEQ = :as_contractseq
+" arguments=(("as_contractseq", number)) )
+text(band=detail alignment="0" text="" border="2" color="0" x="0" y="0" height="624" width="1413"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="Current" border="2" color="16777215" x="0" y="4" height="64" width="475"  name=t_4  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=detail alignment="1" text="Phone Control No" border="0" color="0" x="27" y="112" height="72" width="535"  name=contno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Leasing Phone Type" border="0" color="0" x="27" y="212" height="72" width="535"  name=phone_type_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Phone Serial  No" border="0" color="0" x="27" y="312" height="72" width="535"  name=serialno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Phone Model" border="0" color="0" x="27" y="412" height="72" width="535"  name=phone_model_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="" border="2" color="0" x="1417" y="0" height="624" width="1417"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="New" border="2" color="16777215" x="1417" y="4" height="64" width="475"  name=t_3  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8388608" )
+text(band=detail alignment="1" text="Phone Control No" border="0" color="0" x="1440" y="112" height="72" width="535"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Leasing Phone Type" border="0" color="0" x="1440" y="212" height="72" width="535"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Phone Serial  No" border="0" color="0" x="1440" y="312" height="72" width="535"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Payment $" border="0" color="0" x="1440" y="512" height="72" width="535"  name=t_9  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Phone Model" border="0" color="0" x="1440" y="412" height="72" width="535"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="16711680" x="1989" y="512" height="72" width="800" format="#,##0"  name=new_payment edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=10 border="2" color="1090519039" x="1989" y="112" height="72" width="800" format="[general]"  name=new_contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="421" y="756" height="60" width="416" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1938" y="744" height="60" width="398" format="[general]"  name=new_seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="576" y="112" height="72" width="805" format="[general]"  name=contno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="576" y="212" height="72" width="805" format="[general]"  name=phone_type dddw.name=ubs_dddw_phonetype dddw.displaycolumn=type_desc dddw.datacolumn=phone_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="576" y="312" height="72" width="805" format="[general]"  name=serialno edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="576" y="412" height="72" width="805" format="[general]"  name=phone_model dddw.name=ubs_dddw_phonemodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1989" y="212" height="72" width="800" format="[general]"  name=new_phone_type dddw.name=ubs_dddw_phonetype dddw.displaycolumn=type_desc dddw.datacolumn=phone_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1989" y="312" height="72" width="800" format="[general]"  name=new_serialno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1989" y="412" height="72" width="800" format="[general]"  name=new_phone_model dddw.name=ubs_dddw_phonemodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=0 border="0" color="16711680" x="1193" y="656" height="60" width="434"  name=new_amt  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=summary id=13 alignment="0" tabsequence=0 border="0" color="16711680" x="1198" y="52" height="60" width="434"  name=old_amt  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=14 alignment="0" tabsequence=0 border="0" color="16711680" x="1664" y="664" height="60" width="270"  name=new_item  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=summary id=15 alignment="0" tabsequence=0 border="0" color="16711680" x="1664" y="56" height="60" width="270"  name=old_item  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

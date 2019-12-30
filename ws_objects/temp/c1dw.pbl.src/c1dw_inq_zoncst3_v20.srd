@@ -1,0 +1,108 @@
+﻿$PBExportHeader$c1dw_inq_zoncst3_v20.srd
+$PBExportComments$[ohj]홀세일매출마감 v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=156 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=svccod dbname="zoncst2.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="zoncst2.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=zoncod dbname="zoncst2.zoncod" )
+ column=(type=datetime updatewhereclause=yes name=opendt dbname="zoncst2.opendt" )
+ column=(type=datetime updatewhereclause=yes name=enddt dbname="zoncst2.enddt" )
+ column=(type=char(10) updatewhereclause=yes name=tmcod dbname="zoncst2.tmcod" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="zoncst2.itemcod" )
+ column=(type=decimal(0) updatewhereclause=yes name=unitsec dbname="zoncst2.unitsec" )
+ column=(type=decimal(6) updatewhereclause=yes name=unitfee dbname="zoncst2.unitfee" )
+ column=(type=decimal(0) updatewhereclause=yes name=munitsec dbname="zoncst2.munitsec" )
+ column=(type=decimal(6) updatewhereclause=yes name=munitfee dbname="zoncst2.munitfee" )
+ column=(type=decimal(2) updatewhereclause=yes name=frpoint dbname="zoncst2.frpoint" )
+ column=(type=decimal(2) updatewhereclause=yes name=surrate dbname="zoncst2.surrate" )
+ column=(type=char(1) updatewhereclause=yes name=ref_yn dbname="zoncst2.ref_yn" )
+ column=(type=char(1) updatewhereclause=yes name=roundflag dbname="zoncst2.roundflag" values="Up	U/Down	D/Nearest	O/" )
+ column=(type=decimal(0) updatewhereclause=yes name=unbilsec dbname="zoncst2.unbilsec" )
+ column=(type=decimal(0) updatewhereclause=yes name=limitsec dbname="zoncst2.limitsec" )
+ column=(type=decimal(6) updatewhereclause=yes name=confee dbname="zoncst2.confee" )
+ column=(type=decimal(0) updatewhereclause=yes name=tmrange1 dbname="zoncst2.tmrange1" )
+ column=(type=decimal(0) updatewhereclause=yes name=unitsec1 dbname="zoncst2.unitsec1" )
+ column=(type=decimal(6) updatewhereclause=yes name=unitfee1 dbname="zoncst2.unitfee1" )
+ column=(type=decimal(0) updatewhereclause=yes name=tmrange2 dbname="zoncst2.tmrange2" )
+ column=(type=decimal(0) updatewhereclause=yes name=unitsec2 dbname="zoncst2.unitsec2" )
+ column=(type=decimal(6) updatewhereclause=yes name=unitfee2 dbname="zoncst2.unitfee2" )
+ column=(type=decimal(0) updatewhereclause=yes name=tmrange3 dbname="zoncst2.tmrange3" )
+ column=(type=decimal(0) updatewhereclause=yes name=unitsec3 dbname="zoncst2.unitsec3" )
+ column=(type=decimal(6) updatewhereclause=yes name=unitfee3 dbname="zoncst2.unitfee3" )
+ column=(type=decimal(0) updatewhereclause=yes name=tmrange4 dbname="zoncst2.tmrange4" )
+ column=(type=decimal(0) updatewhereclause=yes name=unitsec4 dbname="zoncst2.unitsec4" )
+ column=(type=decimal(6) updatewhereclause=yes name=unitfee4 dbname="zoncst2.unitfee4" )
+ column=(type=decimal(0) updatewhereclause=yes name=tmrange5 dbname="zoncst2.tmrange5" )
+ column=(type=decimal(0) updatewhereclause=yes name=unitsec5 dbname="zoncst2.unitsec5" )
+ column=(type=decimal(6) updatewhereclause=yes name=unitfee5 dbname="zoncst2.unitfee5" )
+ column=(type=decimal(0) updatewhereclause=yes name=mtmrange1 dbname="zoncst2.mtmrange1" )
+ column=(type=decimal(0) updatewhereclause=yes name=munitsec1 dbname="zoncst2.munitsec1" )
+ column=(type=decimal(6) updatewhereclause=yes name=munitfee1 dbname="zoncst2.munitfee1" )
+ column=(type=decimal(0) updatewhereclause=yes name=mtmrange2 dbname="zoncst2.mtmrange2" )
+ column=(type=decimal(0) updatewhereclause=yes name=munitsec2 dbname="zoncst2.munitsec2" )
+ column=(type=decimal(6) updatewhereclause=yes name=munitfee2 dbname="zoncst2.munitfee2" )
+ column=(type=decimal(0) updatewhereclause=yes name=mtmrange3 dbname="zoncst2.mtmrange3" )
+ column=(type=decimal(0) updatewhereclause=yes name=munitsec3 dbname="zoncst2.munitsec3" )
+ column=(type=decimal(6) updatewhereclause=yes name=munitfee3 dbname="zoncst2.munitfee3" )
+ column=(type=decimal(0) updatewhereclause=yes name=mtmrange4 dbname="zoncst2.mtmrange4" )
+ column=(type=decimal(0) updatewhereclause=yes name=munitsec4 dbname="zoncst2.munitsec4" )
+ column=(type=decimal(6) updatewhereclause=yes name=munitfee4 dbname="zoncst2.munitfee4" )
+ column=(type=decimal(0) updatewhereclause=yes name=mtmrange5 dbname="zoncst2.mtmrange5" )
+ column=(type=decimal(0) updatewhereclause=yes name=munitsec5 dbname="zoncst2.munitsec5" )
+ column=(type=decimal(6) updatewhereclause=yes name=munitfee5 dbname="zoncst2.munitfee5" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="zoncst2.crt_user" )
+ column=(type=char(10) updatewhereclause=yes name=updt_user dbname="zoncst2.updt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="zoncst2.crtdt" )
+ column=(type=datetime updatewhereclause=yes name=updtdt dbname="zoncst2.updtdt" )
+ column=(type=char(8) updatewhereclause=yes name=pgm_id dbname="zoncst2.pgm_id" )
+ retrieve="SELECT distinct  a.svccod  , a.priceplan, a.zoncod  , a.opendt   , a.enddt
+     , a.tmcod   , a.itemcod  , a.unitsec , a.unitfee  , a.munitsec
+     , a.munitfee
+     , a.frpoint , a.surrate  , a.ref_yn  , a.roundflag, a.unbilsec
+     , a.LIMITSEC, a.confee   
+     , a.tmrange1, a.unitsec1 , a.unitfee1, a.tmrange2 , a.unitsec2, a.unitfee2
+     , a.tmrange3, a.unitsec3 , a.unitfee3, a.tmrange4 , a.unitsec4, a.unitfee4
+     , a.tmrange5, a.unitsec5 , a.unitfee5
+     , a.mtmrange1, a.munitsec1, a.munitfee1
+     , a.mtmrange2, a.munitsec2, a.munitfee2
+     , a.mtmrange3, a.munitsec3, a.munitfee3
+     , a.mtmrange4, a.munitsec4, a.munitfee4
+     , a.mtmrange5, a.munitsec5, a.munitfee5
+     , a.crt_user , a.updt_user, a.crtdt, a.updtdt, a.pgm_id
+  FROM zoncst2 a
+     , arezoncod2 b
+where a.svccod    = b.svccod
+  and a.priceplan = b.priceplan
+  and a.zoncod    = b.zoncod " )
+text(band=header alignment="2" text="대역" border="2" color="16777215" x="9" y="92" height="60" width="750"  name=zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용개시일" border="2" color="16777215" x="768" y="92" height="60" width="375"  name=opendt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용종료일" border="2" color="16777215" x="1152" y="92" height="60" width="375"  name=enddt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시간대" border="2" color="16777215" x="1536" y="92" height="60" width="613"  name=tmcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목" border="2" color="16777215" x="2496" y="92" height="60" width="645"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본시간" border="2" color="16777215" x="3150" y="92" height="60" width="407"  name=unitsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본료" border="2" color="16777215" x="3566" y="92" height="60" width="402"  name=unitfee_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본시간(맨트)" border="2" color="16777215" x="3977" y="92" height="60" width="421"  name=munitsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본료(맨트)" border="2" color="16777215" x="4407" y="92" height="60" width="421"  name=munitfee_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Round" border="2" color="16777215" x="2158" y="92" height="60" width="329"  name=roundflag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3150" y="4" height="64" width="407" format="[general]"  name=unitsec edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="3566" y="4" height="64" width="402" format="[general]"  name=unitfee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="3977" y="4" height="64" width="421" format="[general]"  name=munitsec edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="4407" y="4" height="64" width="421" format="[general]"  name=munitfee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="750" format="[general]"  name=zoncod dddw.name=c1dc_dddw_zoncod_priceplan_v20 dddw.displaycolumn=zonnm dddw.datacolumn=zoncod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1536" y="4" height="64" width="613" format="[general]"  name=tmcod dddw.name=c1dc_dddw_tmcod_priceplan dddw.displaycolumn=codenm dddw.datacolumn=tmcod_tmcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2496" y="4" height="64" width="645" format="[general]"  name=itemcod dddw.name=c1dc_dddw_itemcod_voice_v20 dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="2158" y="4" height="64" width="329" format="[general]"  name=roundflag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="768" y="4" height="64" width="375" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1152" y="4" height="64" width="375" format="[shortdate] [time]"  name=enddt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=background alignment="1" text="ORDER BY" border="0" color="0" x="14" y="20" height="60" width="393"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="425" y="20" height="60" width="549"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="Total Row" border="0" color="0" x="3177" y="20" height="60" width="375"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC" border="0" color="0" x="1541" y="20" height="60" width="315"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="3566" y="20" height="60" width="402" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1883" y="20" height="60" width="238"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

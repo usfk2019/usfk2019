@@ -1,0 +1,86 @@
+﻿$PBExportHeader$b1dw_inq_inv_detail_t6_n.srd
+$PBExportComments$[parkkh] 전화사용내역상세 History
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=176 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=stime dbname="post_bilcdrh.stime" )
+ column=(type=datetime updatewhereclause=yes name=etime dbname="post_bilcdrh.etime" )
+ column=(type=decimal(0) updatewhereclause=yes name=biltime dbname="post_bilcdrh.biltime" )
+ column=(type=char(10) updatewhereclause=yes name=nodeno dbname="post_bilcdrh.nodeno" )
+ column=(type=char(30) updatewhereclause=yes name=rtelnum dbname="post_bilcdrh.rtelnum" )
+ column=(type=decimal(2) updatewhereclause=yes name=bilamt dbname="post_bilcdrh.bilamt" )
+ column=(type=decimal(2) updatewhereclause=yes name=dcbilamt dbname="post_bilcdrh.dcbilamt" )
+ column=(type=char(10) updatewhereclause=yes name=areacod dbname="post_bilcdrh.areacod" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="post_bilcdrh.validkey" )
+ column=(type=datetime updatewhereclause=yes name=sale_month dbname="post_bilcdrh.sale_month" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="post_bilcdrh.priceplan" )
+ column=(type=char(50) updatewhereclause=yes name=priceplan_desc dbname="priceplanmst.priceplan_desc" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="post_bilcdrh.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=decimal(2) updatewhereclause=yes name=bilamt0 dbname="post_bilcdrh.bilamt0" )
+ retrieve="SELECT A.STIME,   
+       A.ETIME,   
+       A.BILTIME,   
+       A.NODENO,   
+       A.RTELNUM,   
+       A.BILAMT, 
+       A.DCBILAMT,  
+       A.AREACOD,   
+       A.VALIDKEY,   
+       A.SALE_MONTH,
+       A.PRICEPLAN,
+       B.PRICEPLAN_DESC,
+		 A.ITEMCOD,
+       C.ITEMNM,
+       A.BILAMT0
+FROM   POST_BILCDRH A, PRICEPLANMST B, ITEMMST C
+WHERE  A.PRICEPLAN = B.PRICEPLAN(+)
+AND    A.ITEMCOD = C.ITEMCOD(+)
+ORDER BY STIME
+" )
+text(band=header alignment="2" text="납입고객 :" border="0" color="0" x="0" y="36" height="60" width="457"  name=t_19  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="375" y="36" height="60" width="846"  name=t_payid  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="today()"border="0" color="0" x="1586" y="32" height="60" width="782" format="[SHORTDATE] [TIME]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Count :" border="0" color="0" x="2533" y="32" height="60" width="251"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="count(stime for all)"border="0" color="0" x="2807" y="32" height="60" width="539" format="#,##0"  name=compute_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="통화시작시간" border="2" color="15793151" x="14" y="108" height="60" width="539"  name=stime_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화종료시간" border="2" color="15793151" x="567" y="108" height="60" width="539"  name=etime_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화시간(초)" border="2" color="15793151" x="1120" y="108" height="60" width="398"  name=biltime_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용요금" border="2" color="15793151" x="2720" y="108" height="60" width="466"  name=areacod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="IPN Number" border="2" color="15793151" x="1531" y="108" height="60" width="581"  name=validkey_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신전화번호" border="2" color="15793151" x="2126" y="108" height="60" width="581"  name=rtelnum_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발신지역" border="2" color="15793151" x="3479" y="28" height="60" width="567"  name=nodeno_t visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신지역" border="2" color="15793151" x="4837" y="4" height="60" width="498"  name=bilamt_t visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비교요금" border="2" color="15793151" x="4361" y="28" height="60" width="466"  name=bilamt0_t visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=header id=4 alignment="0" tabsequence=32766 border="0" color="0" x="4128" y="24" height="76" width="320" format="[general]"  name=nodeno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header id=8 alignment="0" tabsequence=32766 border="0" color="0" x="5499" y="0" height="76" width="320" format="[general]"  name=areacod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header id=15 alignment="0" tabsequence=32766 border="0" color="0" x="5349" y="8" height="76" width="389" format="[general]"  name=bilamt0 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="할인요금" border="2" color="15793151" x="3200" y="108" height="60" width="466"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매년월" border="2" color="15793151" x="3680" y="108" height="60" width="453"  name=sale_month_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격 정책" border="2" color="15793151" x="2272" y="348" height="60" width="1056"  name=priceplan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="매출 아이템" border="2" color="15793151" x="3342" y="348" height="60" width="805"  name=itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격 정책" border="2" color="15793151" x="4146" y="108" height="60" width="1056"  name=priceplan_desc_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="매출 아이템" border="2" color="15793151" x="5216" y="108" height="60" width="805"  name=itemnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1545" y="4" height="60" width="581" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="567" y="4" height="60" width="539" format="yy-mm-dd hh:mm:ss"  name=etime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="14" y="4" height="60" width="539" format="yy-mm-dd hh:mm:ss"  name=stime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2149" y="4" height="60" width="581" format="[general]"  name=rtelnum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1138" y="4" height="60" width="379" format="[general]"  name=biltime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="3680" y="4" height="60" width="453" format="yyyy-mm"  name=sale_month edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2752" y="4" height="60" width="398" format="[general]"  name=bilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="3237" y="4" height="60" width="398" format="[general]"  name=dcbilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="2281" y="200" height="60" width="1047" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3351" y="200" height="60" width="795" format="[general]"  name=itemcod dddw.name=b0dc_dddw_item_by_svc dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4146" y="4" height="60" width="1056" format="[general]"  name=priceplan_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="5216" y="4" height="60" width="805" format="[general]"  name=itemnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="0" y1="8" x2="6021" y2="4"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+compute(band=summary alignment="1" expression="sum(bilamt0 for all)"border="0" color="0" x="3913" y="24" height="60" width="466" format="#,##0"  name=compute_2 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=summary alignment="2" text="합  계" border="2" color="16777215" x="722" y="28" height="60" width="315"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=summary alignment="1" expression="sum(  biltime  for all )"border="0" color="0" x="1051" y="28" height="60" width="466" format="#,##0"  name=compute_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(  bilamt  for all )"border="0" color="0" x="2683" y="28" height="60" width="466" format="#,##0.00"  name=compute_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(dcbilamt for all)"border="0" color="0" x="3237" y="28" height="60" width="398" format="#,##0.00"  name=compute_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,38 @@
+﻿$PBExportHeader$b1dw_inq_column_where_3.srd
+$PBExportComments$[islim] query 조건3 - Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=table_name dbname="user_col_comments.table_name" )
+ column=(type=char(30) updatewhereclause=yes name=column_name dbname="user_col_comments.column_name" )
+ column=(type=char(4000) updatewhereclause=yes name=comments dbname="user_col_comments.comments" )
+ column=(type=char(8) updatewhereclause=yes name=w_1 dbname="w_1" )
+ column=(type=char(50) updatewhereclause=yes name=w_2 dbname="w_2" )
+ column=(type=char(9) updatewhereclause=yes name=w_a_o dbname="w_a_o" values="And	and/Or	or/" )
+ column=(type=char(9) updatewhereclause=yes name=w_group dbname="w_group" values="1그룹	1/2그룹	2/3그룹	3/" )
+ column=(type=char(3) updatewhereclause=yes name=w_check dbname="w_check" values="	1/	0" )
+ retrieve="SELECT table_name, column_name, comments, '        ' w_1,
+		 '                                                  'w_2
+       ,'         ' w_a_o,'         ' w_group,'   ' w_check
+        FROM USER_COL_COMMENTS		  " )
+text(band=header alignment="2" text="테이블명" border="2" color="16777215" x="9" y="8" height="60" width="302"  name=table_name_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="컬럼명" border="2" color="16777215" x="320" y="8" height="60" width="361"  name=column_name_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="그룹" border="2" color="16777215" x="2432" y="8" height="60" width="192"  name=t_6  font.face="굴림" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Y/N" border="2" color="16777215" x="2633" y="8" height="60" width="160"  name=t_7  font.face="굴림" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="And/Or" border="2" color="16777215" x="2190" y="8" height="60" width="233"  name=t_5  font.face="굴림" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Comments" border="2" color="16777215" x="690" y="8" height="60" width="462"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수식" border="2" color="16777215" x="1161" y="8" height="60" width="160"  name=t_3  font.face="굴림" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="조   건" border="2" color="16777215" x="1330" y="8" height="60" width="850"  name=t_4  font.face="굴림" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="302" format="[general]"  name=table_name edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="320" y="8" height="60" width="361" format="[general]"  name=column_name edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="690" y="8" height="60" width="462" format="[general]"  name=comments edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=50 border="0" color="0" x="2633" y="8" height="60" width="160" format="[general]"  name=w_check checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=10 border="5" color="0" x="1161" y="8" height="60" width="160" format="[general]"  name=w_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="5" color="0" x="1330" y="8" height="60" width="850" format="[general]"  name=w_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=30 border="5" color="0" x="2190" y="8" height="60" width="233" format="[general]"  name=w_a_o ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=40 border="5" color="0" x="2432" y="8" height="60" width="192" format="[general]"  name=w_group ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

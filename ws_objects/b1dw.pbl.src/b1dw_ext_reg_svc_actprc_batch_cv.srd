@@ -1,0 +1,16 @@
+﻿$PBExportHeader$b1dw_ext_reg_svc_actprc_batch_cv.srd
+$PBExportComments$[chooys] 서비스 해지신청(일괄) External Window
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=120 color="536870912" )
+table(column=(type=date updatewhereclause=yes name=activedt dbname="activedt" )
+ column=(type=date updatewhereclause=yes name=bil_fromdt dbname="bil_fromdt" )
+ )
+text(band=detail alignment="1" text="개통일" border="0" color="0" x="27" y="28" height="56" width="219"  name=activedt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="과금시작일" border="0" color="0" x="626" y="28" height="56" width="306"  name=bil_fromdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="16777215" x="955" y="28" height="60" width="320" format="[general]"  name=bil_fromdt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="16777215" x="270" y="28" height="60" width="320" format="[general]"  name=activedt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

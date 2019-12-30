@@ -1,0 +1,44 @@
+﻿$PBExportHeader$ubs_dw_pop_equipmaker_mas.srd
+$PBExportComments$[jhchoi] 모바일 렌탈 연장 계약선택 팝업 (Master) - 2009.06.04
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=makercd dbname="equipmaker.makercd" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=makernm dbname="equipmaker.makernm" )
+ column=(type=char(128) update=yes updatewhereclause=yes name=makerurl dbname="equipmaker.makerurl" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="equipmaker.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="equipmaker.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="equipmaker.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="equipmaker.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="equipmaker.pgm_id" )
+ retrieve="SELECT  MAKERCD,
+		  MAKERNM,
+		  MAKERURL,
+		  CRT_USER,
+		  CRTDT,
+		  UPDT_USER,
+		  UPDTDT,
+		  PGM_ID
+FROM	  EQUIPMAKER" update="EQUIPMAKER" updatewhere=1 updatekeyinplace=no  sort="makercd A " )
+text(band=header alignment="2" text="Maker Code" border="2" color="16777215" x="9" y="8" height="60" width="343"  name=customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Maker Name" border="2" color="16777215" x="370" y="8" height="60" width="594"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Maker Code ( Old )" border="2" color="16777215" x="983" y="8" height="60" width="489"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Update Date" border="2" color="16777215" x="2981" y="8" height="60" width="640"  name=usstate_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Update User" border="2" color="16777215" x="2501" y="8" height="60" width="462"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Creative Date" border="2" color="16777215" x="1961" y="8" height="60" width="521"  name=corpnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="2" text="Creative User" border="2" color="16777215" x="1490" y="8" height="60" width="453"  name=nationality_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=detail alignment="1" text="Duty Phone" border="0" color="8388608" x="1728" y="2028" height="60" width="398"  name=dutyphone_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Act. Card No" border="0" color="0" x="585" y="916" height="60" width="517"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1317" y="108" height="76" width="256" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="1490" y="4" height="68" width="453" format="[general]"  name=crt_user dddw.name=b1c_dddw_sysusr1t dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="1961" y="4" height="68" width="521" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="2501" y="4" height="68" width="462" format="[general]"  name=updt_user dddw.name=b1c_dddw_sysusr1t dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="2981" y="4" height="68" width="640" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="16777215" x="9" y="4" height="68" width="343" format="[general]"  name=makercd  tag="Maker Code" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="370" y="4" height="68" width="594" format="[general]"  name=makernm  tag="Maker Name" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25989739" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="2" color="0" x="983" y="4" height="68" width="489" format="[general]"  name=makerurl edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

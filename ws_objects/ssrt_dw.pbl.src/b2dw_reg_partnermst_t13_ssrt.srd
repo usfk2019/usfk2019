@@ -1,0 +1,38 @@
+﻿$PBExportHeader$b2dw_reg_partnermst_t13_ssrt.srd
+$PBExportComments$[ssong] 대리점별선불카드Control tab
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="schedule_frame.partner" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="schedule_frame.fromdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=workernum dbname="schedule_frame.workernum" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="schedule_frame.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="schedule_frame.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crt_dt dbname="schedule_frame.crt_dt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updt_dt dbname="schedule_frame.updt_dt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="schedule_frame.pgm_id" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=remark dbname="schedule_frame.remark" )
+ retrieve="  SELECT PARTNER,   
+         FROMDT,   
+         WORKERNUM,   
+         CRT_USER,   
+         UPDT_USER,   
+         CRT_DT,   
+         UPDT_DT,   
+         PGM_ID,   
+         REMARK  
+    FROM SCHEDULE_FRAME 
+ORDER BY FROMDT DESC
+" update="SCHEDULE_FRAME" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="단위시간
+처리가능 건수" border="2" color="16777215" x="471" y="20" height="112" width="402"  name=workernum_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark" border="2" color="16777215" x="887" y="20" height="112" width="1632"  name=remark_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="2" color="0" x="471" y="4" height="60" width="402" format="[general]"  name=workernum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=30 border="2" color="0" x="887" y="4" height="60" width="1632" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="From Date" border="2" color="16777215" x="119" y="20" height="112" width="338"  name=fromdt_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="2" color="0" x="119" y="4" height="60" width="338" format="[shortdate] [time]"  name=fromdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

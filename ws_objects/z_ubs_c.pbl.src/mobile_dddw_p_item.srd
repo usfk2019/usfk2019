@@ -1,0 +1,22 @@
+﻿$PBExportHeader$mobile_dddw_p_item.srd
+$PBExportComments$[kem] svcmst의 서비스명(서비스코드) DDDW-사업자
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(10) updatewhereclause=yes name=svccod dbname="itemmst.svccod" )
+ column=(type=char(1) updatewhereclause=yes name=penaltycd dbname="penaltycd" )
+ retrieve=" SELECT A.ITEMCOD, A.ITEMNM , A.SVCCOD,  DECODE(B.GRCODE, 'ZM201', 'P','S')  as penaltycd
+      FROM ITEMMST A, SYSCOD2T B
+     WHERE A.ITEMCOD = B.CODE
+         AND  B.GRCODE in ( 'ZM201', 'ZM202')" )
+line(band=detail x1="0" y1="76" x2="1431" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="329" y="148" height="76" width="320" format="[general]"  name=itemcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="64" width="1422" format="[general]"  name=itemnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="736" y="136" height="76" width="320" format="[general]"  name=svccod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="1435" y="0" height="60" width="23"  name=penaltycd  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

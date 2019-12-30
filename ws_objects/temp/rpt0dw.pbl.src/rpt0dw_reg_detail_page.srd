@@ -1,0 +1,39 @@
+﻿$PBExportHeader$rpt0dw_reg_detail_page.srd
+$PBExportComments$[parkkh] page 등록 detail datawindow
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=100 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(5) update=yes updatewhereclause=yes key=yes name=pageno dbname="page.pageno" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=description dbname="page.description" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pagetype dbname="page.pagetype" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mark dbname="page.mark" values="삭제	D/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="page.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="page.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="page.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="page.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="page.pgm_id" )
+ retrieve="  SELECT ~"PAGE~".~"PAGENO~",   
+         ~"PAGE~".~"DESCRIPTION~",   
+         ~"PAGE~".~"PAGETYPE~",   
+         ~"PAGE~".~"MARK~",   
+         ~"PAGE~".~"CRT_USER~",   
+         ~"PAGE~".~"UPDT_USER~",   
+         ~"PAGE~".~"CRTDT~",   
+         ~"PAGE~".~"UPDTDT~",   
+         ~"PAGE~".~"PGM_ID~"  
+    FROM ~"PAGE~"   
+ ORDER BY pageno
+" update="PAGE" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Pageno" border="2" color="16777215" x="32" y="28" height="60" width="265"  name=pageno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Description" border="2" color="16777215" x="320" y="28" height="60" width="1134"  name=description_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="PageType" border="2" color="16777215" x="1477" y="28" height="60" width="407"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="삭  제" border="2" color="16777215" x="1906" y="28" height="60" width="306"  name=mark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="32" y="8" height="60" width="265" format="[general]"  name=pageno edit.limit=5 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="320" y="8" height="60" width="1134" format="[general]"  name=description edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="1477" y="8" height="60" width="407" format="[general]"  name=pagetype dddw.name=rpt0dc_dddw_pagetype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1906" y="8" height="60" width="306" format="[general]"  name=mark ddlb.limit=1 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

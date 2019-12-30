@@ -1,0 +1,54 @@
+﻿$PBExportHeader$fs_giro_band_left.srf
+$PBExportComments$[jybaek] 지로 OCR - Left
+global type fs_giro_band_left from function_object
+end type
+
+forward prototypes
+global function string fs_giro_band_left (string as_payid, string as_trdt, integer as_delay_cnt, string as_delay_start)
+end prototypes
+
+global function string fs_giro_band_left (string as_payid, string as_trdt, integer as_delay_cnt, string as_delay_start);// Oh Chung Hwan 2000-08-04
+// 지로 통지서 Read Band 의 고객 조회 번호 부분
+Integer li_cnt, li_data, li_checkdgt
+Long  ll_rows, ll_row
+String  ls_readband, ls_reqnum, ls_payid, ls_checkdgt
+String  ls_data, ls_bandleft
+String ls_trdt, ls_delay_start
+int li_delay_cnt
+
+ls_payid = as_payid  
+ls_trdt = MidA(as_trdt,5,2)
+li_delay_cnt = as_delay_cnt+1
+ls_delay_start = MidA(as_delay_start,3,4)
+	
+ls_readband += fs_fill_zeroes(ls_payid, 10) 
+ls_readband += fs_fill_zeroes(ls_delay_start, 4)
+
+If li_delay_cnt < 10 Then
+	ls_readband +=	"0" +String(li_delay_cnt)
+Else
+	ls_readband += String(li_delay_cnt)
+End If
+
+ls_readband += ls_trdt
+
+
+// check digit   
+li_checkdgt = 0
+For li_cnt = 19 To 1 Step -1
+	li_data = Integer(MidA(ls_readband ,li_cnt,1))
+	If Mod(li_cnt, 2) = 1 Then
+		li_checkdgt = li_checkdgt + Int(li_data * 2 / 10) + Mod(li_data * 2, 10)
+	Else
+		li_checkdgt = li_checkdgt + li_data
+	End If		
+Next
+li_checkdgt = Mod(li_checkdgt, 10)
+If li_checkdgt = 0 Then li_checkdgt = 10
+ls_checkdgt = String(10 - li_checkdgt)
+ls_bandleft = "<" + "6969996" + "+" + "  " + "+"  + ls_readband + ls_checkdgt + "+"					
+
+Return ls_bandleft
+
+end function
+

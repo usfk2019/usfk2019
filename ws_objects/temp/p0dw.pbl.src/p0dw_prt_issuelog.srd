@@ -1,0 +1,70 @@
+﻿$PBExportHeader$p0dw_prt_issuelog.srd
+$PBExportComments$[jojo] 카드발행보고서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=440 color="536870912" )
+summary(height=92 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=issuedt dbname="issuedt" )
+ column=(type=char(10) updatewhereclause=yes name=issuestat dbname="p_issuelog.issuestat" )
+ column=(type=char(10) updatewhereclause=yes name=enddt dbname="enddt" )
+ column=(type=char(10) updatewhereclause=yes name=p_issuelog_pricemodel dbname="p_issuelog.pricemodel" )
+ column=(type=char(20) updatewhereclause=yes name=lotno dbname="p_issuelog.lotno" )
+ column=(type=char(10) updatewhereclause=yes name=orderdt dbname="orderdt" )
+ column=(type=char(10) updatewhereclause=yes name=indt dbname="indt" )
+ column=(type=decimal(0) updatewhereclause=yes name=p_issuelog_issue_qty dbname="p_issuelog.issue_qty" )
+ column=(type=decimal(2) updatewhereclause=yes name=p_issuelog_card_amt dbname="p_issuelog.card_amt" )
+ column=(type=char(60) updatewhereclause=yes name=p_issuelog_remark dbname="p_issuelog.remark" )
+ retrieve="select to_char(issuedt, 'yyyy-mm-dd') issuedt, 
+		 issuestat, 
+		 to_char(enddt, 'yyyy-mm-dd') enddt, 
+		 pricemodel, 
+		 lotno, 
+		 to_char(orderdt, 'yyyy-mm-dd') orderdt, 
+		 to_char(indt, 'yyyy-mm-dd') indt, 
+		 issue_qty, 
+		 card_amt, 
+		 remark
+from p_issuelog" )
+group(level=1 header.height=0 trailer.height=88 by=("issuedt" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2528" y="44" height="56" width="27"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="23" y="60" height="84" width="4567"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2569" y="44" height="56" width="27"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="발행일자" border="0" color="0" x="59" y="272" height="60" width="256"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="750" y="272" height="60" width="338"  name=t_issuedt_to  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="~~" border="0" color="0" x="686" y="272" height="60" width="46"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="325" y="272" height="60" width="338"  name=t_issuedt_fr  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="3849" y="264" height="60" width="741" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="3849" y="192" height="56" width="741"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header x1="41" y1="432" x2="4590" y2="428"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="41" y1="344" x2="4590" y2="344"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="41" y1="76" x2="4590" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="41" y1="80" x2="4590" y2="80"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="41" y1="84" x2="4590" y2="84"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2011" y="8" height="60" width="343" format="[general]"  name=orderdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1637" y="8" height="60" width="357" format="[general]"  name=lotno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1211" y="8" height="60" width="407" format="[general]"  name=p_issuelog_pricemodel dddw.name=p0dc_dddw_model dddw.displaycolumn=pricemodelnm dddw.datacolumn=pricemodel dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="837" y="8" height="60" width="357" format="[general]"  name=enddt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="59" y="8" height="60" width="288" format="[general]"  name=issuedt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="366" y="8" height="60" width="453" format="[general]"  name=issuestat dddw.name=p0dc_dddw_issuelog dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="발행일자" border="0" color="0" x="59" y="360" height="60" width="288"  name=issuedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="발행상태" border="0" color="0" x="366" y="360" height="60" width="453"  name=issuestat_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="유효기간" border="0" color="0" x="837" y="360" height="60" width="357"  name=enddt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="입고일자" border="0" color="0" x="2373" y="360" height="60" width="343"  name=indt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="주문일자" border="0" color="0" x="2011" y="360" height="60" width="343"  name=orderdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Lot #" border="0" color="0" x="1637" y="360" height="60" width="357"  name=lotno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Model" border="0" color="0" x="1211" y="360" height="60" width="407"  name=pricemodel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="수량" border="0" color="0" x="2734" y="360" height="60" width="247"  name=issue_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="카드금액" border="0" color="0" x="2999" y="360" height="60" width="352"  name=card_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="비고" border="0" color="0" x="3387" y="360" height="60" width="1202"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3387" y="8" height="60" width="1202" format="[general]"  name=p_issuelog_remark edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2999" y="8" height="60" width="352" format="#,##0"  name=p_issuelog_card_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2373" y="8" height="60" width="343" format="[general]"  name=indt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2734" y="8" height="60" width="247" format="#,##0"  name=p_issuelog_issue_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="합계" border="0" color="0" x="2002" y="8" height="60" width="713"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(   p_issuelog_issue_qty  for group 1)"border="0" color="0" x="2734" y="8" height="60" width="247" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="총 합계" border="0" color="0" x="2002" y="8" height="60" width="713"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  p_issuelog_issue_qty for all)"border="0" color="0" x="2734" y="8" height="60" width="247" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

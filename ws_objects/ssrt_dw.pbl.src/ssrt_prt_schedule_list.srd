@@ -1,0 +1,144 @@
+﻿$PBExportHeader$ssrt_prt_schedule_list.srd
+$PBExportComments$[hcjung] 스케쥴 조회 및 출력
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 12 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=536 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=156 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=schedule_detail_worktime dbname="schedule_detail.worktime" )
+ column=(type=char(60) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(14) updatewhereclause=yes name=schedule_detail_customerid dbname="schedule_detail.customerid" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_buildingno dbname="customerm.buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_roomno dbname="customerm.roomno" )
+ column=(type=decimal(0) updatewhereclause=yes name=schedule_detail_orderno dbname="schedule_detail.orderno" )
+ column=(type=char(50) updatewhereclause=yes name=partnermst_partnernm dbname="partnermst.partnernm" )
+ column=(type=char(10) updatewhereclause=yes name=schedule_detail_yyyymmdd dbname="schedule_detail.yyyymmdd" )
+ column=(type=decimal(0) updatewhereclause=yes name=schedule_detail_scheduleseq dbname="schedule_detail.scheduleseq" )
+ column=(type=char(60) updatewhereclause=yes name=syscod2t_codenm dbname="syscod2t.codenm" )
+ column=(type=char(50) updatewhereclause=yes name=svcmst_svcdesc dbname="svcmst.svcdesc" )
+ column=(type=char(50) updatewhereclause=yes name=priceplanmst_priceplan_desc dbname="priceplanmst.priceplan_desc" )
+ column=(type=decimal(0) updatewhereclause=yes name=schedule_detail_troubleno dbname="schedule_detail.troubleno" )
+ column=(type=char(200) updatewhereclause=yes name=schedule_detail_description dbname="schedule_detail.description" )
+ column=(type=char(10) updatewhereclause=yes name=schedule_detail_status dbname="schedule_detail.status" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_cellphone dbname="customerm.cellphone" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_homephone dbname="customerm.homephone" )
+ column=(type=char(20) updatewhereclause=yes name=customerm_dutyphone dbname="customerm.dutyphone" )
+ column=(type=char(240) updatewhereclause=yes name=schedule_info dbname="schedule_info" )
+ column=(type=char(79) updatewhereclause=yes name=cust_name dbname="cust_name" )
+ column=(type=char(50) updatewhereclause=yes name=bil_email dbname="bil_email" )
+ retrieve="SELECT A.worktime, 
+       B.customernm, 
+       A.CUSTOMERID,
+       B.BUILDINGNO, 
+       B.ROOMNO, 
+       A.orderno,
+         f.PARTNERnm,
+          A.yyyymmdd,
+       A.SCHEDULESEQ,
+         e.codenm, 
+         c.svcdesc, 
+         d.priceplan_desc,
+         a.troubleno ,
+       a.description,
+         a.status,
+         B.CELLPHONE,
+         B.HOMEPHONE,
+         B.DUTYPHONE,
+         SUBSTR(FS_SCHEDULE_INFO(A.WORKTYPE, A.ORDERNO, A.TROUBLENO), 1, 120) AS SCHEDULE_INFO,
+         FIRSTNAME||'  '||LASTNAME ||' ('||A.CUSTOMERID||')' AS CUST_NAME,
+         (SELECT BIL_EMAIL FROM BILLINGINFO WHERE CUSTOMERID = A.CUSTOMERID) AS BIL_EMAIL
+  FROM schedule_detail A, customerm B, svcmst C, priceplanmst D, syscod2t E, partnermst F
+ WHERE A.customerid         = B.customerid (+)
+   AND a.svccod = c.svccod (+)
+   AND a.priceplan = d.priceplan (+) 
+   AND a.partner_work = f.partner
+   AND e.grcode = 'Z800'
+   AND a.worktype = e.code
+   ORDER BY A.WORKTIME ASC,
+         B.BUILDINGNO ASC" )
+rectangle(band=header x="46" y="440" height="96" width="4891"  name=r_1 brush.hatch="6" brush.color="65535" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="65535" )
+line(band=header x1="4896" y1="596" x2="4896" y2="1064"  name=l_14 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+rectangle(band=header x="46" y="380" height="84" width="4891"  name=r_2 brush.hatch="6" brush.color="65535" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="65535" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="46" y="76" height="92" width="4887"  name=title  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2464" y="196" height="60" width="59"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2537" y="196" height="60" width="55"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4270" y="300" height="64" width="658" format="[GENERAL]"  name=page  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="4261" y="228" height="60" width="667"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Time" border="0" color="0" x="59" y="428" height="56" width="229"  name=customer_trouble_customerid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Shop :" border="0" color="0" x="251" y="304" height="60" width="206"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="480" y="304" height="60" width="498"  name=shop_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="480" y="236" height="60" width="498"  name=workdate_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="Work Date :" border="0" color="0" x="78" y="236" height="60" width="379"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Status" border="0" color="0" x="4667" y="392" height="56" width="251"  name=t_2  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="46" y1="380" x2="4928" y2="380"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="293" y1="456" x2="4933" y2="456"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="293" y1="380" x2="293" y2="532"  name=l_18 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="4658" y1="380" x2="4658" y2="460"  name=l_29 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="46" y1="380" x2="46" y2="536"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="4928" y1="380" x2="4928" y2="536"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Description" border="0" color="0" x="4005" y="392" height="56" width="649"  name=t_6  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Trouble No." border="0" color="0" x="3639" y="392" height="56" width="352"  name=t_7  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="3995" y1="380" x2="3995" y2="460"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="3630" y1="380" x2="3630" y2="460"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Order No." border="0" color="0" x="3273" y="392" height="56" width="352"  name=t_1  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="3264" y1="380" x2="3264" y2="460"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="2651" y1="380" x2="2651" y2="460"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1513" y1="380" x2="1513" y2="460"  name=l_13 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Work Type" border="0" color="0" x="1152" y="392" height="56" width="357"  name=t_3  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="1143" y1="380" x2="1143" y2="460"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="46" y1="532" x2="4928" y2="532"  name=l_31 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1513" y1="456" x2="1513" y2="536"  name=l_33 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Cell Phone" border="0" color="0" x="919" y="468" height="56" width="585"  name=t_10  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="905" y1="456" x2="905" y2="536"  name=l_32 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Home Phone" border="0" color="0" x="306" y="468" height="56" width="590"  name=t_9  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="293" y1="0" x2="293" y2="152"  name=l_22 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="4658" y1="0" x2="4658" y2="80"  name=l_30 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="46" y1="0" x2="46" y2="152"  name=l_16 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="4928" y1="0" x2="4928" y2="152"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="59" y="36" height="60" width="229" format="[general]"  name=schedule_detail_worktime editmask.mask="## : ##" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="293" y1="76" x2="4933" y2="76"  name=l_19 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="0" color="0" x="4667" y="4" height="60" width="251" format="[general]"  name=schedule_detail_status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="293" y="188" height="60" width="265" format="[general]"  name=schedule_detail_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="4005" y="4" height="60" width="649" format="[general]"  name=schedule_detail_description_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="3995" y1="0" x2="3995" y2="80"  name=l_27 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="3639" y="4" height="60" width="352" format="[general]"  name=schedule_detail_troubleno_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="3630" y1="0" x2="3630" y2="80"  name=l_17 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="3273" y="4" height="60" width="352" format="[general]"  name=schedule_detail_orderno_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="3264" y1="0" x2="3264" y2="80"  name=l_26 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="2670" y="4" height="60" width="590" format="[general]"  name=priceplanmst_priceplan_desc_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="2651" y1="0" x2="2651" y2="80"  name=l_25 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1513" y1="0" x2="1513" y2="80"  name=l_23 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="1152" y="4" height="60" width="357" format="[general]"  name=syscod2t_codenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="1143" y1="0" x2="1143" y2="80"  name=l_4 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="567" y="188" height="60" width="567" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="50" y1="152" x2="4933" y2="152"  name=l_24 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1513" y1="80" x2="1513" y2="160"  name=l_37 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="919" y="88" height="56" width="585" format="[general]"  name=customerm_cellphone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="905" y1="76" x2="905" y2="156"  name=l_36 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="306" y="88" height="56" width="590" format="[general]"  name=customerm_homephone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Price Plan" border="0" color="0" x="2661" y="392" height="56" width="599"  name=trouble_shooting_operator_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Building" border="0" color="0" x="1522" y="392" height="56" width="206"  name=customer_trouble_troubletype_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Duty Phone" border="0" color="0" x="1527" y="468" height="56" width="430"  name=t_11  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1522" y="4" height="60" width="206" format="[general]"  name=customerm_buildingno_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="1527" y="88" height="56" width="430" format="[general]"  name=customerm_dutyphone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="1733" y1="380" x2="1733" y2="460"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1733" y1="0" x2="1733" y2="80"  name=l_21 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Room" border="0" color="0" x="1742" y="392" height="56" width="192"  name=t_5  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1742" y="4" height="60" width="192" format="[general]"  name=customerm_roomno_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="1961" y1="380" x2="1961" y2="460"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1961" y1="456" x2="1961" y2="536"  name=l_34 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Service" border="0" color="0" x="1970" y="392" height="56" width="654"  name=customer_trouble_tronote_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1961" y1="0" x2="1961" y2="80"  name=l_20 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1961" y1="80" x2="1961" y2="160"  name=l_35 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1975" y="4" height="60" width="667" format="[general]"  name=svcmst_svcdesc_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Customer" border="0" color="0" x="297" y="392" height="56" width="841"  name=customerm_homephone_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=0 border="0" color="0" x="306" y="4" height="60" width="827"  name=cust_name  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Equip Info ( Validkey, DACOM No, Mac Address, Mac Address2 )" border="0" color="0" x="2725" y="468" height="56" width="2194"  name=t_12  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="2725" y="88" height="56" width="2194" format="[general]"  name=schedule_info edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="2715" y1="456" x2="2715" y2="536"  name=l_28 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2715" y1="80" x2="2715" y2="160"  name=l_38 pen.style="0" pen.width="5" pen.color="10789024"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="E-mail" border="0" color="0" x="1970" y="468" height="56" width="718"  name=bil_email_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=0 border="0" color="0" x="1975" y="88" height="56" width="731"  name=bil_email  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

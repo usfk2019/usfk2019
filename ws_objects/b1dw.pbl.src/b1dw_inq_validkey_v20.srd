@@ -1,0 +1,21 @@
+﻿$PBExportHeader$b1dw_inq_validkey_v20.srd
+$PBExportComments$[khpark] 계약 건 인증Key
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(30) update=yes updatewhereclause=yes key=yes name=validkey dbname="validinfo.validkey" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="validinfo.fromdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=todt dbname="validinfo.todt" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=vpassword dbname="validinfo.vpassword" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"validinfo~" ) COLUMN(NAME=~"validinfo.validkey~") COLUMN(NAME=~"validinfo.fromdt~") COLUMN(NAME=~"validinfo.todt~") COLUMN(NAME=~"validinfo.vpassword~")) " update="VALIDINFO" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Approval Key" border="2" color="16777215" x="37" y="12" height="60" width="713"  name=validkey_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Start Date" border="2" color="16777215" x="773" y="12" height="60" width="366"  name=fromdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="End date" border="2" color="16777215" x="1161" y="12" height="60" width="352"  name=todt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="37" y="4" height="60" width="713" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="773" y="4" height="60" width="366" format="yyyy-mm-dd"  name=fromdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="1161" y="4" height="60" width="352" format="yyyy-mm-dd"  name=todt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,39 @@
+﻿$PBExportHeader$b5d_reg_reqinfo_mdf_m.srd
+$PBExportComments$[backgu-2002/09/26] 월별 고객 정보 History(dw_master)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=156 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=reqinfo_trdt dbname="reqinfo.trdt" )
+ column=(type=char(8) updatewhereclause=yes name=reqinfo_reqnum dbname="reqinfo.reqnum" )
+ column=(type=char(14) updatewhereclause=yes name=reqinfo_payid dbname="reqinfo.payid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ retrieve="SELECT a.TRDT,
+         a.REQNUM,
+         a.PAYID,
+         ~"CUSTOMERM~".~"CUSTOMERNM~"
+    FROM ~"REQINFO~" A,
+         ~"CUSTOMERM~"
+   WHERE ( a.PAYID = ~"CUSTOMERM~".~"CUSTOMERID~" ) and
+         a.seq = ( SELECT MAX(seq) FROM reqinfo WHERE reqnum = a.reqnum )
+ORDER BY a.REQNUM ASC,
+         a.TRDT ASC,
+         a.PAYID ASC
+" )
+text(band=header alignment="2" text="청구번호" border="6" color="16777215" x="494" y="88" height="60" width="297"  name=t_4  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="청구기준일" border="6" color="16777215" x="9" y="88" height="60" width="475"  name=reqinfo_trdt_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="납입번호" border="6" color="16777215" x="800" y="88" height="60" width="407"  name=t_3  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="납입자명" border="6" color="16777215" x="1216" y="88" height="60" width="1102"  name=paymst_marknm_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="64" width="475" format="[shortdate] [time]"  name=reqinfo_trdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="494" y="8" height="64" width="297" format="[general]"  name=reqinfo_reqnum edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="800" y="8" height="64" width="407" format="[general]"  name=reqinfo_payid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1216" y="8" height="64" width="1102" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="0" expression="~"현재열/전체열: ~" + string(currentRow()) + ~"/~" + string(rowcount()) "border="0" color="8388608" x="1390" y="16" height="56" width="919" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="2" text="Order By" border="0" color="0" x="50" y="16" height="64" width="338"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="16711680" x="398" y="16" height="64" width="480"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="ASC/DESC" border="0" color="0" x="882" y="16" height="64" width="306"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="0" x="1193" y="16" height="64" width="101"  name=a_d  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

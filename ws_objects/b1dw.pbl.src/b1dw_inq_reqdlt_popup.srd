@@ -1,0 +1,39 @@
+﻿$PBExportHeader$b1dw_inq_reqdlt_popup.srd
+$PBExportComments$[ceusee] 청구내역 상세조회 POPUP
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="15793151" )
+table(column=(type=number updatewhereclause=yes name=tramt dbname="reqdtl.tramt" )
+ column=(type=char(10) updatewhereclause=yes name=trcod dbname="reqdtl.trcod" )
+ column=(type=datetime updatewhereclause=yes name=paydt dbname="reqdtl.paydt" )
+ column=(type=char(256) updatewhereclause=yes name=remark dbname="reqdtl.remark" )
+ retrieve="SELECT tramt,
+		 trcod,
+		 paydt,
+		 remark
+  FROM reqdtl
+WHERE reqnum = :as_reqnum
+  AND (mark is null or mark <> 'D')
+UNION ALL
+SELECT tramt,
+		 trcod,
+		 paydt,
+		 remark
+  FROM reqdtlh
+WHERE reqnum = :as_reqnum
+  AND (mark is null or mark <> 'D')
+" arguments=(("as_reqnum", string))  sort="tramt D " )
+text(band=header alignment="2" text="거래유형" border="2" color="15793151" x="23" y="12" height="60" width="686"  name=trcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비     고" border="2" color="15793151" x="1623" y="12" height="60" width="1262"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래일자" border="2" color="15793151" x="718" y="12" height="60" width="457"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구금액" border="2" color="15793151" x="1184" y="12" height="60" width="430"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="60" width="5" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="4" height="60" width="686" format="[general]"  name=trcod dddw.name=b0dc_dddw_trcod dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="718" y="4" height="60" width="457" format="[shortdate] [time]"  name=paydt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="1184" y="4" height="60" width="430" format="#,##0.00"  name=tramt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1623" y="4" height="60" width="1262" format="[general]"  name=remark edit.limit=256 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

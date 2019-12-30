@@ -1,0 +1,24 @@
+﻿$PBExportHeader$f_printpos_vat.srf
+global type f_printpos_vat from function_object
+end type
+
+forward prototypes
+global subroutine f_printpos_vat (string fs_buf)
+end prototypes
+
+global subroutine f_printpos_vat (string fs_buf);Integer li_len
+String  ls_linefeed = "~h0A"                                         // Print And Line Feed
+long ll_cur_print_line, ll_print_line
+
+li_len = LenA(fs_buf)
+//PRN_PutBufN(fs_buf, li_len)
+
+ll_cur_print_line  = gs_str_receipt_print.ll_line_num
+ll_print_line     += ll_cur_print_line + 1
+
+gs_str_receipt_print.ll_line_num           = ll_print_line
+gs_str_receipt_print.ls_out[ll_print_line] = fs_buf + ls_linefeed
+
+return
+end subroutine
+

@@ -1,0 +1,17 @@
+﻿$PBExportHeader$s2dw_cnd_prc_voice_tong2.srd
+$PBExportComments$[uhmjj] 통화 성공/실패호 자료생성 조건입력 DW
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=160 color="536870912" )
+table(column=(type=date updatewhereclause=yes name=dtfrom dbname="dtfrom" )
+ column=(type=date updatewhereclause=yes name=dtto dbname="dtto" )
+ )
+text(band=detail alignment="1" text="Dtto:" border="0" color="0" x="498" y="220" height="60" width="201"  name=dtto_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="작업일자" border="0" color="0" x="32" y="48" height="56" width="274"  name=dtfrom_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912"  height.autosize=yes)
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="16777215" x="334" y="44" height="64" width="347" format="[general]"  name=dtfrom editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="709" y="48" height="56" width="64"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="2" color="16777215" x="800" y="44" height="64" width="347" format="[general]"  name=dtto editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

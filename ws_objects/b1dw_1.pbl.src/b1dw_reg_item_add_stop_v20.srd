@@ -1,0 +1,66 @@
+﻿$PBExportHeader$b1dw_reg_item_add_stop_v20.srd
+$PBExportComments$[ohj] 품목사용 및 사용정지 v20 - detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=188 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemnm" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractseq" )
+ column=(type=datetime updatewhereclause=yes name=bil_fromdt dbname="bil_fromdt" )
+ column=(type=datetime updatewhereclause=yes name=bil_todt dbname="bil_todt" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplan" )
+ column=(type=char(1) updatewhereclause=yes name=mainitem_yn dbname="mainitem_yn" )
+ column=(type=decimal(0) updatewhereclause=yes name=orderno dbname="orderno" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="customerid" )
+ column=(type=decimal(0) updatewhereclause=yes name=groupno dbname="groupno" )
+ column=(type=decimal(0) updatewhereclause=yes name=grouptype dbname="grouptype" )
+ column=(type=datetime updatewhereclause=yes name=currdate dbname="currdate" )
+ retrieve="     SELECT A.ITEMCOD
+        , C.ITEMNM
+        , B.CONTRACTSEQ
+        , B.BIL_FROMDT
+        , B.BIL_TODT
+        , A.PRICEPLAN
+        , C.MAINITEM_YN
+  		  , B.ORDERNO
+  		  , B.CUSTOMERID
+  		  , A.GROUPNO
+  		  , A.GROUPTYPE
+  		  , SYSDATE  CURRDATE
+     FROM PRICEPLANDET A
+        , (SELECT AA.CONTRACTSEQ
+                , AA.BIL_FROMDT
+                , AA.BIL_TODT
+                , BB.PRICEPLAN
+                , AA.ITEMCOD
+                , AA.ORDERNO
+                , BB.CUSTOMERID
+             FROM CONTRACTDET AA
+                , CONTRACTMST BB
+            WHERE AA.CONTRACTSEQ = BB.CONTRACTSEQ  
+              AND AA.CONTRACTSEQ = to_number(:as_contractseq) ) B
+        , ITEMMST C
+    WHERE A.ITEMCOD = B.ITEMCOD(+)
+      AND A.ITEMCOD = C.ITEMCOD
+      AND ( B.CONTRACTSEQ = to_number(:as_contractseq) or B.CONTRACTSEQ IS NULL)
+      AND A.PRICEPLAN = :as_priceplan" arguments=(("as_contractseq", string),("as_priceplan", string)) )
+line(band=header x1="366" y1="80" x2="1134" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="가격정책" border="2" color="16777215" x="27" y="16" height="64" width="320"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="" border="2" color="0" x="366" y="16" height="64" width="768"  name=priceplannm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="선택" border="2" color="16777215" x="1961" y="116" height="64" width="361"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목ID" border="2" color="16777215" x="27" y="116" height="64" width="320"  name=validkey_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="16777215" x="366" y="116" height="64" width="869"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+button(band=detail text="정지"filename=""action="0" border="0" color="0" x="1957" y="0" height="72" width="174" vtextalign="0" htextalign="0"  name=b_stop visible="1~tiF( isNull( contractseq ) , 0, if( isnull(bil_todt), 1, if (bil_todt < currdate, 0, 1 ) ))"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+button(band=detail text="이용"filename=""action="0" border="0" color="0" x="1957" y="0" height="72" width="174" vtextalign="0" htextalign="0"  name=b_add visible="1~tiF( isNull( contractseq ) , 1, if( isNull(bil_todt), 0, If (bil_todt <  currdate, 1, 0)))"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+button(band=detail text="변경"filename=""action="0" border="0" color="0" x="2130" y="0" height="72" width="192" vtextalign="0" htextalign="0"  name=b_change  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=header alignment="2" text="기간" border="2" color="16777215" x="1253" y="116" height="64" width="690"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=detail alignment="2" text="~~" border="2" color="0" x="1573" y="8" height="60" width="50"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="27" y="8" height="60" width="320" format="[general]"  name=itemcod edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="366" y="8" height="60" width="869" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0" x="1253" y="8" height="60" width="306" format="[shortdate] [time]"  name=bil_fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="2" color="0" x="1637" y="8" height="60" width="306" format="[shortdate] [time]"  name=bil_todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

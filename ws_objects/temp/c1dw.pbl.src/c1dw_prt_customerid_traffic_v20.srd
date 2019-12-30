@@ -1,0 +1,32 @@
+﻿$PBExportHeader$c1dw_prt_customerid_traffic_v20.srd
+$PBExportComments$[parkkh]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=264 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=152 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="wholesale_det.customerid" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="biltime" )
+ column=(type=number updatewhereclause=yes name=trycnt dbname="trycnt" )
+ column=(type=number updatewhereclause=yes name=bilcnt dbname="bilcnt" )
+ column=(type=number updatewhereclause=yes name=comm_rate dbname="comm_rate" )
+ retrieve="SELECT  a.customerid,
+        sum(a.biltime) biltime,
+        sum(nvl(a.trycnt,0)) trycnt,
+		  sum(nvl(a.bilcnt,0)) bilcnt,
+        sum(nvl(a.bilcnt,0))/sum(a.trycnt) *100 comm_rate
+ FROM wholesale_det a
+GROUP BY a.customerid " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="411" format="[general]"  name=customerid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="421" y="4" height="76" width="329" format="[general]"  name=biltime edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="754" y="4" height="76" width="329" format="[general]"  name=trycnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1088" y="4" height="76" width="329" format="[general]"  name=bilcnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1422" y="4" height="76" width="329" format="[general]"  name=comm_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완료율(%)" border="0" color="0" x="1856" y="156" height="60" width="329"  name=comm_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완료건수" border="0" color="0" x="1509" y="156" height="60" width="329"  name=bilcnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시도건수" border="0" color="0" x="901" y="156" height="60" width="329"  name=trycnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="통화시간(초)" border="0" color="0" x="526" y="156" height="60" width="411"  name=biltime_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사업자" border="0" color="0" x="87" y="156" height="60" width="411"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,47 @@
+﻿$PBExportHeader$b7dw_prc_req_card_approval_v20.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=workno dbname="cardreqstatus.workno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="cardreqstatus.status" )
+ column=(type=datetime update=yes updatewhereclause=yes name=trdt dbname="cardreqstatus.trdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="cardreqstatus.crtdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=reqcnt dbname="cardreqstatus.reqcnt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=reqamt dbname="cardreqstatus.reqamt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=chargedt dbname="cardreqstatus.chargedt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="cardreqstatus.crt_user" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=checkbox dbname="checkbox" values="	Y/	N" )
+ retrieve="  SELECT ~"CARDREQSTATUS~".~"WORKNO~",   
+         ~"CARDREQSTATUS~".~"STATUS~",   
+         ~"CARDREQSTATUS~".~"TRDT~",   
+         ~"CARDREQSTATUS~".~"CRTDT~",   
+         ~"CARDREQSTATUS~".~"REQCNT~",   
+         ~"CARDREQSTATUS~".~"REQAMT~",   
+         ~"CARDREQSTATUS~".~"CHARGEDT~",   
+         ~"CARDREQSTATUS~".~"CRT_USER~",
+			' ' checkbox
+    FROM ~"CARDREQSTATUS~"   
+" update="CARDREQSTATUS" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="작업번호" border="2" color="15793151" x="283" y="16" height="56" width="375"  name=workno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="15793151" x="667" y="16" height="56" width="421"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구기준일" border="2" color="15793151" x="1097" y="16" height="56" width="475"  name=trdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청건수" border="2" color="15793151" x="1582" y="16" height="56" width="338"  name=reqcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청금액" border="2" color="15793151" x="1929" y="16" height="56" width="375"  name=reqamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구주기" border="2" color="15793151" x="2313" y="16" height="56" width="654"  name=chargedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업User" border="2" color="15793151" x="2976" y="16" height="56" width="430"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="승인요청" border="2" color="15793151" x="9" y="16" height="56" width="265"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일시" border="2" color="15793151" x="3415" y="16" height="56" width="567"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="667" y="8" height="60" width="421" format="[general]"  name=status dddw.name=b7dc_dddw_cardreq_status_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1097" y="8" height="60" width="475" format="[shortdate] [time]"  name=trdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1582" y="8" height="60" width="338" format="#,##0"  name=reqcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1929" y="8" height="60" width="375" format="#,##0"  name=reqamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2313" y="8" height="60" width="654" format="[general]"  name=chargedt dddw.name=b7dc_dddw_chargedt dddw.displaycolumn=description dddw.datacolumn=chargedt dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2976" y="8" height="60" width="430" format="[general]"  name=crt_user edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="3415" y="8" height="60" width="567" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="283" y="8" height="60" width="375" format="[general]"  name=workno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=10 border="0" color="0" x="9" y="8" height="60" width="265" format="[general]"  name=checkbox checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

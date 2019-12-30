@@ -1,0 +1,19 @@
+﻿$PBExportHeader$p2dw_reg_partner_priceplan.srd
+$PBExportComments$[ceusee] 대리점별  상품 권한
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=partner dbname="partner_priceplan.partner" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="partner_priceplan.priceplan" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="partner_priceplan.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="partner_priceplan.crt_user" )
+ retrieve="select * from partner_priceplan order by partner" update="partner_priceplan" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="가격정책" border="2" color="15793151" x="23" y="12" height="56" width="1001"  name=markid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대리점" border="2" color="15793151" x="1047" y="12" height="56" width="823"  name=partner_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="23" y="8" height="60" width="1001" format="[general]"  name=priceplan dddw.name=p2dc_dddw_priceplan_1 dddw.displaycolumn=priceplanmst_priceplan_desc dddw.datacolumn=priceplanmst_priceplan dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="1047" y="8" height="60" width="823" format="[general]"  name=partner visible="1~t0" dddw.name=p2dc_dddw_partner_0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

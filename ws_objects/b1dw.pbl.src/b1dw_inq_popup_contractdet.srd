@@ -1,0 +1,26 @@
+﻿$PBExportHeader$b1dw_inq_popup_contractdet.srd
+$PBExportComments$[chooys] 서비스 신청내역 조회/취소 PopUp DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=contractmst_contractseq dbname="contractmst.contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=contractdet_itemcod dbname="contractdet.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ retrieve="select cnt.contractseq, con.itemcod, itm.itemnm
+from itemmst itm, contractmst cnt, contractdet con
+Where itm.itemcod = con.itemcod and cnt.contractseq = con.contractseq 
+		and to_char(cnt.contractseq) = :as_seq
+order by con.itemcod
+" arguments=(("as_seq", string)) )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="8" height="64" width="306" format="[general]"  name=contractdet_itemcod edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="914" y="8" height="64" width="1399" format="[general]"  name=itemmst_itemnm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="8" height="64" width="535" format="[general]"  name=contractmst_contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="0" height="76" width="37" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="계약 Seq" border="2" color="16777215" x="55" y="16" height="56" width="535"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목ID" border="2" color="16777215" x="599" y="16" height="56" width="306"  name=contractdet_itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="16777215" x="914" y="16" height="56" width="1399"  name=itemmst_itemnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

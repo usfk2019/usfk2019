@@ -1,0 +1,32 @@
+﻿$PBExportHeader$fdc_refill_rate.srf
+$PBExportComments$[y.k.min] 충전rate
+global type fdc_refill_rate from function_object
+end type
+
+forward prototypes
+global function decimal fdc_refill_rate (string ls_partner, string ls_priceplan, string ls_opendt, decimal lc_amt)
+end prototypes
+
+global function decimal fdc_refill_rate (string ls_partner, string ls_priceplan, string ls_opendt, decimal lc_amt);Dec{2} lc_rate
+
+//충전정책 가져옴
+Select rate
+Into  :lc_rate
+From  refillpolicy
+where partner = :ls_partner  
+and   priceplan = :ls_priceplan 
+and   to_char(fromdt, 'yyyymmdd') = (select max(to_char(fromdt, 'yyyymmdd')) 
+	  	      			  			  	    from refillpolicy 
+				      					    where to_char(fromdt, 'yyyymmdd') <= :ls_opendt
+												 and   partner = :ls_partner  
+												 and   priceplan = :ls_priceplan)
+and  fromamt <= :lc_amt 
+and  :lc_amt <  decode(toamt, null, :lc_amt + 1, toamt);
+
+If SQLCA.SQLCode < 0 Then
+	Return -1
+End If
+
+return lc_rate
+end function
+

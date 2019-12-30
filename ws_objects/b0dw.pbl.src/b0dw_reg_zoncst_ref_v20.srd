@@ -1,0 +1,147 @@
+﻿$PBExportHeader$b0dw_reg_zoncst_ref_v20.srd
+$PBExportComments$[ohj] 비교요율 대역별 요금 등록v20 - detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=144 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=svccod dbname="zoncst_ref.svccod" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="zoncst_ref.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=zoncod dbname="zoncst_ref.zoncod" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=opendt dbname="zoncst_ref.opendt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=enddt dbname="zoncst_ref.enddt" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=tmcod dbname="zoncst_ref.tmcod" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes key=yes name=frpoint dbname="zoncst_ref.frpoint" initial="0" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=roundflag dbname="zoncst_ref.roundflag" initial="U" values="UP	U/Down	D/Nearest	O/" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=surrate dbname="zoncst_ref.surrate" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unbilsec dbname="zoncst_ref.unbilsec" initial="0" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=confee dbname="zoncst_ref.confee" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec dbname="zoncst_ref.unitsec" initial="0" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee dbname="zoncst_ref.unitfee" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange1 dbname="zoncst_ref.tmrange1" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec1 dbname="zoncst_ref.unitsec1" initial="0" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee1 dbname="zoncst_ref.unitfee1" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange2 dbname="zoncst_ref.tmrange2" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec2 dbname="zoncst_ref.unitsec2" initial="0" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee2 dbname="zoncst_ref.unitfee2" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange3 dbname="zoncst_ref.tmrange3" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec3 dbname="zoncst_ref.unitsec3" initial="0" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee3 dbname="zoncst_ref.unitfee3" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange4 dbname="zoncst_ref.tmrange4" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec4 dbname="zoncst_ref.unitsec4" initial="0" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee4 dbname="zoncst_ref.unitfee4" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tmrange5 dbname="zoncst_ref.tmrange5" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unitsec5 dbname="zoncst_ref.unitsec5" initial="0" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=unitfee5 dbname="zoncst_ref.unitfee5" initial="0" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="zoncst_ref.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="zoncst_ref.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="zoncst_ref.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="zoncst_ref.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="zoncst_ref.pgm_id" )
+ retrieve="SELECT SVCCOD
+     , PRICEPLAN
+     , ZONCOD
+     , OPENDT
+     , ENDDT
+     , TMCOD
+     , FRPOINT
+     , ROUNDFLAG
+     , SURRATE
+     , UNBILSEC
+     , CONFEE
+     , UNITSEC
+     , UNITFEE
+     , TMRANGE1
+     , UNITSEC1
+     , UNITFEE1
+     , TMRANGE2
+     , UNITSEC2
+     , UNITFEE2
+     , TMRANGE3
+     , UNITSEC3
+     , UNITFEE3
+     , TMRANGE4
+     , UNITSEC4
+     , UNITFEE4
+     , TMRANGE5
+     , UNITSEC5
+     , UNITFEE5
+     , CRT_USER
+     , UPDT_USER
+     , CRTDT
+     , UPDTDT
+     , PGM_ID
+  FROM ZONCST_REF" update="ZONCST_REF" updatewhere=0 updatekeyinplace=no  sort="compute_zone A opendt A tmcod A frpoint A " )
+text(band=header alignment="2" text="" border="2" color="15793151" x="27" y="12" height="128" width="800"  name=t_20  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="1257" y="12" height="128" width="393"  name=t_30  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="846" y="12" height="128" width="393"  name=t_22  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="2318" y="12" height="128" width="425"  name=t_23  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="1669" y="12" height="128" width="631"  name=t_21  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="2761" y="12" height="128" width="398"  name=t_24  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="3177" y="12" height="128" width="361"  name=t_25  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="3557" y="12" height="128" width="421"  name=t_26  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="3995" y="12" height="128" width="334"  name=t_58  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="4347" y="12" height="128" width="430"  name=t_28  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="" border="2" color="15793151" x="4795" y="12" height="128" width="425"  name=t_29  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대역" border="0" color="15793151" x="32" y="48" height="56" width="791"  name=zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="시간대" border="0" color="15793151" x="1678" y="48" height="56" width="608"  name=tmcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="사용범위" border="0" color="15793151" x="2327" y="48" height="56" width="411"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Round" border="0" color="15793151" x="2770" y="48" height="56" width="379"  name=roundflag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="비과금초" border="0" color="15793151" x="3186" y="48" height="56" width="338"  name=unbilsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Surcharge
+(%)" border="0" color="15793151" x="4009" y="28" height="100" width="306"  name=t_59  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="접속료" border="0" color="15793151" x="3566" y="48" height="56" width="398"  name=connectfee_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="기본시간" border="0" color="15793151" x="4357" y="48" height="56" width="416"  name=bassec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="기본료" border="0" color="15793151" x="4805" y="48" height="56" width="402"  name=basamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="단위시간" border="2" color="15793151" x="5632" y="84" height="56" width="375"  name=addamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요금" border="2" color="15793151" x="6025" y="84" height="56" width="375"  name=stdsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="2시간대" border="2" color="15793151" x="6418" y="12" height="56" width="1166"  name=t_16  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="3시간대" border="2" color="15793151" x="7602" y="12" height="56" width="1161"  name=t_17  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="1시간대" border="2" color="15793151" x="5239" y="12" height="56" width="1161"  name=t_15  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요금" border="2" color="15793151" x="7205" y="84" height="56" width="379"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="단위시간" border="2" color="15793151" x="7995" y="84" height="56" width="375"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="단위시간" border="2" color="15793151" x="6811" y="84" height="56" width="375"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시간범위" border="2" color="15793151" x="6418" y="84" height="56" width="375"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시간범위" border="2" color="15793151" x="7602" y="84" height="56" width="375"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="4시간대" border="2" color="15793151" x="8782" y="12" height="56" width="1161"  name=t_18  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시간범위" border="2" color="15793151" x="5239" y="84" height="56" width="375"  name=addsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용종료일" border="0" color="15793151" x="1243" y="48" height="56" width="430"  name=t_31  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="적용개시일" border="0" color="15793151" x="827" y="48" height="56" width="430"  name=opendt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="요금" border="2" color="15793151" x="8389" y="84" height="56" width="375"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시간범위" border="2" color="15793151" x="8782" y="84" height="56" width="375"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="단위시간" border="2" color="15793151" x="9175" y="84" height="56" width="375"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요금" border="2" color="15793151" x="9568" y="84" height="56" width="375"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="단위시간" border="2" color="15793151" x="10354" y="84" height="56" width="375"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시간범위" border="2" color="15793151" x="9961" y="84" height="56" width="375"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요금" border="2" color="15793151" x="10747" y="84" height="56" width="375"  name=t_14  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="5시간대" border="2" color="15793151" x="9961" y="12" height="56" width="1161"  name=t_19  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="lookupdisplay(  zoncod  )"border="0" color="0" x="114" y="432" height="76" width="389" format="[GENERAL]"  name=compute_zone  font.face="굴림체" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="16777215" x="27" y="8" height="60" width="800" format="[general]"  name=zoncod dddw.name=b0dc_dddw_zone dddw.displaycolumn=zonnm dddw.datacolumn=zoncod dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=8 alignment="0" tabsequence=60 border="2" color="0" x="2761" y="8" height="60" width="398" format="[general]"  name=roundflag ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="2" color="16777215" x="1669" y="8" height="60" width="631" format="[general]"  name=tmcod dddw.name=b0dc_dddw_tmcod_priceplan_v20 dddw.displaycolumn=codenm dddw.datacolumn=tmcod_tmcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="1" tabsequence=50 border="2" color="16777215" x="2318" y="8" height="60" width="425" format="[general]"  name=frpoint edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="2" tabsequence=30 border="2" color="0" x="1257" y="8" height="60" width="393" format="[shortdate] [time]"  name=enddt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=20 border="2" color="16777215" x="846" y="8" height="60" width="393" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=10 alignment="1" tabsequence=70 border="2" color="0" x="3177" y="8" height="60" width="361" format="[general]"  name=unbilsec edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=80 border="2" color="0" x="3557" y="8" height="60" width="421" format="#,##0.0000"  name=confee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=90 border="2" color="16777215" x="3995" y="8" height="60" width="334" format="[general]"  name=surrate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=12 alignment="1" tabsequence=100 border="2" color="16777215" x="4347" y="8" height="60" width="430" format="[general]"  name=unitsec edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=13 alignment="1" tabsequence=110 border="2" color="16777215" x="4795" y="8" height="60" width="425" format="[general]"  name=unitfee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=14 alignment="1" tabsequence=120 border="2" color="0" x="5239" y="8" height="60" width="375" format="[general]"  name=tmrange1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="1" tabsequence=130 border="2" color="0" x="5632" y="8" height="60" width="375" format="[general]"  name=unitsec1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="1" tabsequence=140 border="2" color="0" x="6025" y="8" height="60" width="375" format="[general]"  name=unitfee1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="1" tabsequence=150 border="2" color="0" x="6418" y="8" height="60" width="375" format="[general]"  name=tmrange2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="1" tabsequence=160 border="2" color="0" x="6811" y="8" height="60" width="375" format="[general]"  name=unitsec2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="1" tabsequence=170 border="2" color="0" x="7205" y="8" height="60" width="375" format="[general]"  name=unitfee2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="1" tabsequence=180 border="2" color="0" x="7598" y="8" height="60" width="375" format="[general]"  name=tmrange3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="1" tabsequence=190 border="2" color="0" x="7991" y="8" height="60" width="379" format="[general]"  name=unitsec3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="1" tabsequence=200 border="2" color="0" x="8389" y="8" height="60" width="375" format="[general]"  name=unitfee3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="1" tabsequence=210 border="2" color="0" x="8782" y="8" height="60" width="375" format="[general]"  name=tmrange4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="1" tabsequence=220 border="2" color="0" x="9175" y="8" height="60" width="375" format="[general]"  name=unitsec4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=25 alignment="1" tabsequence=230 border="2" color="0" x="9568" y="8" height="60" width="375" format="[general]"  name=unitfee4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=26 alignment="1" tabsequence=240 border="2" color="0" x="9961" y="8" height="60" width="375" format="[general]"  name=tmrange5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=27 alignment="1" tabsequence=250 border="2" color="0" x="10354" y="8" height="60" width="375" format="[general]"  name=unitsec5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=28 alignment="1" tabsequence=260 border="2" color="0" x="10747" y="8" height="60" width="375" format="[general]"  name=unitfee5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

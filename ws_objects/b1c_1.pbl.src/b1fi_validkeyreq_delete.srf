@@ -1,0 +1,55 @@
+﻿$PBExportHeader$b1fi_validkeyreq_delete.srf
+$PBExportComments$[islim] 인증키요청 삭제처리
+global type b1fi_validkeyreq_delete from function_object
+end type
+
+forward prototypes
+global function long ai_cnt (string as_date, string as_validkey, string as_svctype)
+global function long b1fi_validkeyreq_delete (string as_title, decimal adc_vreqno)
+end prototypes
+
+global function long ai_cnt (string as_date, string as_validkey, string as_svctype);Long ll_cnt
+
+select count(*)
+into :ll_cnt
+from validinfo
+where ((to_char(fromdt,'yyyymmdd') >= as_date) or 
+       (to_char(fromdt,'yyyymmdd') < as_date  and as_date < nvl(to_char(todt,'yyyymmdd'),'99991231')))
+		 and validkey = as_validkey and svctype = as_svctype;
+		 
+		 
+return ll_cnt
+end function
+
+global function long b1fi_validkeyreq_delete (string as_title, decimal adc_vreqno);//********************************************************************************
+// Fuction ID : b1fi_validkey_fromdt
+// Purpose    : 
+//	            
+// Scope      : Public
+// Argument   :
+//              1) as_title(String/Value) : Massage content
+//              2) 
+//              3) 
+// Return Value : integer
+//					  -1 : error
+//					   
+// Log : (Date : Name : Version)
+// 	      2004/07/20 :
+//********************************************************************************
+String ls_title
+Dec ldc_vreqno
+
+ls_title = "b1fi_validkeyreq_delete"
+
+	DELETE FROM validkeyreq 
+			 WHERE vreqno = :ldc_vreqno;
+
+	If SQLCA.SQLCode < 0 Then
+		 f_msg_sql_err(as_title, ls_title +  "Delete Error(validkeyreq)")
+		RollBack;
+		Return -1
+	End If				
+		 
+return 1
+end function
+

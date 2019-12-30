@@ -1,0 +1,234 @@
+﻿$PBExportHeader$ssrt_prt_aafes_sumreport_data_1209.srd
+$PBExportComments$[kem] 결제방법별 Daily Report
+release 7;
+datawindow(units=0 timer_interval=0 color=33554431 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=676 color="536870912" )
+summary(height=448 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=basecod dbname="aafes_sumreport_data.basecod" )
+ column=(type=number updatewhereclause=yes name=key_sales dbname="key_sales" )
+ column=(type=number updatewhereclause=yes name=pr1_sales dbname="pr1_sales" )
+ column=(type=number updatewhereclause=yes name=pr7_sales dbname="pr7_sales" )
+ column=(type=number updatewhereclause=yes name=prr7_sales dbname="prr7_sales" )
+ column=(type=number updatewhereclause=yes name=cc_sales dbname="cc_sales" )
+ column=(type=number updatewhereclause=yes name=in_sales dbname="in_sales" )
+ column=(type=number updatewhereclause=yes name=nofee_sales dbname="nofee_sales" )
+ column=(type=number updatewhereclause=yes name=ccard_sales dbname="ccard_sales" )
+ column=(type=number updatewhereclause=yes name=mcard_sales dbname="mcard_sales" )
+ column=(type=number updatewhereclause=yes name=check_sales dbname="check_sales" )
+ column=(type=number updatewhereclause=yes name=gcard_sales dbname="gcard_sales" )
+ column=(type=number updatewhereclause=yes name=icard_sales dbname="icard_sales" )
+ column=(type=number updatewhereclause=yes name=cash_sales dbname="cash_sales" )
+ column=(type=number updatewhereclause=yes name=ex_fee dbname="ex_fee" )
+ column=(type=number updatewhereclause=yes name=ins_fee dbname="ins_fee" )
+ column=(type=number updatewhereclause=yes name=card_ex_fee dbname="card_ex_fee" )
+ column=(type=number updatewhereclause=yes name=mcard_ex_fee dbname="mcard_ex_fee" )
+ column=(type=number updatewhereclause=yes name=ccard_ex_fee dbname="ccard_ex_fee" )
+ column=(type=number updatewhereclause=yes name=etc_sales dbname="etc_sales" )
+ column=(type=number updatewhereclause=yes name=etc_debit_amt dbname="etc_debit_amt" )
+ column=(type=number updatewhereclause=yes name=etc_credit_amt dbname="etc_credit_amt" )
+ retrieve="SELECT  SD.BASECOD
+  ,SUM(KEY1_SALES+KEY6_SALES+KEY7_SALES) KEY_SALES
+ , SUM(PR1_SALES) PR1_SALES  
+ , SUM(PR6_SALES+PR7_SALES) PR7_SALES
+ , SUM(PRR7_SALES) PRR7_SALES
+ , SUM(CC1_SALES+CC6_SALES+CC7_SALES) CC_SALES
+ , SUM(SD.IN1_SALES+SD.IN6_SALES+SD.IN7_SALES) IN_SALES
+ , SUM(DECODE(SD.SHOP_TYPE,'01',KEY7_SALES+CC7_SALES+IN7_SALES+PR7_SALES,KEY6_SALES+CC6_SALES+IN6_SALES+PR6_SALES)) NOFEE_SALES
+ , SUM(CCARD_SALES) CCARD_SALES
+ , SUM(MCARD_SALES) MCARD_SALES    
+ , SUM(CHECK_SALES) CHECK_SALES
+ , SUM(GCARD_SALES) GCARD_SALES 
+ , SUM(COUPON_SALES) ICARD_SALES
+ , SUM(CASH_SALES)  CASH_SALES
+ , SUM(EX_FEE)      EX_FEE
+ , SUM(INS_FEE)     INS_FEE  
+ , SUM(CARD_EX_FEE) CARD_EX_FEE
+ , SUM(MCARD_EX_FEE) MCARD_EX_FEE  
+ , SUM(CCARD_EX_FEE) CCARD_EX_FEE
+ , SUM(ETC_SALES)   ETC_SALES
+ , SUM(NVL(DEBIT_AMT,0)) ETC_DEBIT_AMT
+ , SUM(NVL(CREDTI_AMT,0)) ETC_CREDIT_AMT  
+  FROM AAFES_SUMREPORT_DATA SD ,
+      ( SELECT SHOPID ,
+               SUM(DECODE(DCTYPE,'D',AMOUNT, 0)) DEBIT_AMT,
+               SUM(DECODE(DCTYPE,'C',AMOUNT,0)) CREDTI_AMT 
+      FROM AAFES_REPORT_DATA  
+ WHERE TYPE = 'SEC2'
+   AND SUMREPORT_YN = 'N'
+   AND FROMDT >= :ls_from_dt
+   AND TODT   <= :ls_to_dt
+   AND SHOP_TYPE = :ls_shop_type
+   GROUP BY SHOPID ) RD
+ WHERE SD.SHOP_TYPE = :ls_shop_type
+   AND SD.BASECOD LIKE nvl(:ls_base_cod,'%')
+   AND SD.SHOPID = RD.SHOPID(+)
+   And  to_char(SD.cutoff_dt,'yyyymmdd') >= :ls_from_dt
+   AND to_char(SD.cutoff_dt,'yyyymmdd') <= :ls_to_dt
+GROUP BY SD.BASECOD 
+ORDER BY SD.BASECOD " arguments=(("ls_base_cod", string),("ls_shop_type", string),("ls_from_dt", string),("ls_to_dt", string)) )
+text(band=header alignment="0" text="" border="0" color="0" x="32" y="288" height="64" width="1403"  name=salesdt_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="상품 : " border="0" color="0" x="37" y="380" height="56" width="192"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1371" y="200" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1413" y="200" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="9" y1="476" x2="9" y2="656"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="242" y="380" height="56" width="553"  name=shop_type_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="6309" y="376" height="60" width="741"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="16711680" x="23" y="84" height="92" width="6656"  name=title  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="총매출" border="0" color="0" x="402" y="484" height="56" width="357"  name=net_sales_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="(NET SALES)" border="0" color="0" x="402" y="552" height="56" width="357"  name=net_sales1_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="782" y1="476" x2="782" y2="648"  name=l_14 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="1632" y1="476" x2="1632" y2="656"  name=l_62 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="PR1" border="0" color="0" x="805" y="516" height="60" width="242"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="384" y1="476" x2="384" y2="648"  name=l_15 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="캠프" border="0" color="0" x="23" y="516" height="56" width="347"  name=basecod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="1061" y1="468" x2="1061" y2="656"  name=l_60 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="1335" y1="476" x2="1335" y2="656"  name=l_61 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="PRR(6)7" border="0" color="0" x="1353" y="516" height="60" width="261"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Auto
+Online" border="0" color="0" x="1650" y="492" height="120" width="283"  name=cc_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="5" y1="472" x2="7035" y2="472"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="1952" y1="476" x2="1952" y2="656"  name=l_13 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Credit
+ Card" border="0" color="0" x="1970" y="492" height="120" width="283"  name=ccard_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="2267" y1="476" x2="2267" y2="656"  name=l_24 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Milstar
+ Card" border="0" color="0" x="2290" y="488" height="120" width="283"  name=mcard_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="2592" y1="476" x2="2592" y2="656"  name=l_27 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Check" border="0" color="0" x="2610" y="516" height="60" width="247"  name=check_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="2875" y1="476" x2="2875" y2="656"  name=l_33 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Gift
+Card" border="0" color="0" x="2898" y="488" height="120" width="206"  name=gcard_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="3122" y1="476" x2="3122" y2="656"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sponsored
+Coupons
+(IMPACT)" border="0" color="0" x="3145" y="484" height="180" width="288"  name=icard_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="3451" y1="476" x2="3451" y2="656"  name=l_36 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="4809" y1="752" x2="4809" y2="864"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="3799" y1="476" x2="3799" y2="656"  name=l_72 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Invoice" border="0" color="0" x="3470" y="516" height="60" width="311"  name=in_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Lodge" border="0" color="0" x="3817" y="516" height="60" width="311"  name=lodge_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Cash" border="0" color="0" x="4174" y="516" height="60" width="283"  name=cash_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="4480" y1="480" x2="4480" y2="656"  name=l_39 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="4795" y1="476" x2="4795" y2="656"  name=l_42 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="4146" y1="476" x2="4146" y2="656"  name=l_73 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="No Fee" border="0" color="0" x="4503" y="516" height="60" width="274"  name=nofee_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Fee" border="0" color="0" x="4814" y="516" height="60" width="274"  name=ex_fee_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="5" y1="664" x2="7035" y2="664"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="5111" y1="476" x2="5111" y2="656"  name=l_45 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="보험료
+(0.13%)" border="0" color="0" x="5134" y="492" height="112" width="238"  name=ins_fee_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="5390" y1="476" x2="5390" y2="656"  name=l_48 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="신용카드
+(2%)" border="0" color="0" x="5413" y="492" height="112" width="238"  name=card_ex_fee_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="5673" y1="476" x2="5673" y2="656"  name=l_69 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="군인카드
+(2%)" border="0" color="0" x="5696" y="492" height="112" width="265"  name=t_7  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="5979" y1="476" x2="5979" y2="656"  name=l_51 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="6354" y1="480" x2="6354" y2="656"  name=l_54 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="기타금액" border="0" color="0" x="5998" y="516" height="60" width="338"  name=etc_sales_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="입금금액" border="0" color="0" x="6377" y="516" height="60" width="293"  name=payamt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="PR(6)7" border="0" color="0" x="1079" y="516" height="60" width="238"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="7081" y1="720" x2="7081" y2="828"  name=l_31 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="지급금액" border="0" color="0" x="6711" y="516" height="60" width="311"  name=tramt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="6688" y1="476" x2="6688" y2="656"  name=l_57 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="7045" y1="468" x2="7045" y2="656"  name=l_30 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=detail x1="9" y1="0" x2="9" y2="108"  name=l_8 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="if (key_sales +  cc_sales +  in_sales > 0,   ( key_sales +  cc_sales +  in_sales ),0)"border="0" color="0" x="402" y="12" height="60" width="357" format="[General]"  name=net_sales  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="782" y1="0" x2="782" y2="112"  name=l_18 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=detail x1="1632" y1="0" x2="1632" y2="112"  name=l_63 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1353" y="12" height="60" width="261" format="#,##0.00"  name=prr7_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="1335" y1="0" x2="1335" y2="112"  name=l_65 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1650" y="12" height="60" width="283" format="#,##0.00"  name=cc_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="805" y="12" height="60" width="242" format="#,##0.00"  name=pr1_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="384" y1="0" x2="384" y2="112"  name=l_19 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="8" height="60" width="347" format="[general]" protect="0~tif( net_sales > 0, basecod ,~"~")"  name=basecod visible="1~tif( net_sales > 0, basecod ,~"~")" dddw.name=ssrt_dddw_basecod dddw.displaycolumn=basenm dddw.datacolumn=basecod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="1061" y1="0" x2="1061" y2="112"  name=l_64 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=detail x1="1952" y1="0" x2="1952" y2="112"  name=l_17 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1970" y="12" height="60" width="283" format="#,##0.00"  name=ccard_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2290" y="12" height="60" width="283" format="#,##0.00"  name=mcard_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="2272" y1="0" x2="2272" y2="112"  name=l_25 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=detail x1="2592" y1="0" x2="2592" y2="112"  name=l_28 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2610" y="12" height="60" width="247" format="#,##0.00"  name=check_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="2875" y1="0" x2="2875" y2="112"  name=l_34 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="2898" y="12" height="60" width="206" format="#,##0.00"  name=gcard_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="3122" y1="0" x2="3122" y2="112"  name=l_16 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="3145" y="12" height="60" width="288" format="#,##0.00"  name=icard_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="3451" y1="0" x2="3451" y2="112"  name=l_37 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=detail x1="3799" y1="0" x2="3799" y2="112"  name=l_74 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="0" color="0" x="3470" y="12" height="60" width="311" format="#,##0.00"  name=etc_debit_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="in_sales -  etc_debit_amt "border="0" color="0" x="3817" y="12" height="60" width="311" format="#,##0.00"  name=logde_amt  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="4174" y="12" height="60" width="283" format="#,##0.00"  name=cash_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="4480" y1="0" x2="4480" y2="112"  name=l_40 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="4503" y="12" height="60" width="274" format="#,##0.00"  name=nofee_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="4795" y1="0" x2="4795" y2="112"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=detail x1="4146" y1="0" x2="4146" y2="112"  name=l_76 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="4814" y="12" height="60" width="274" format="#,##0.00"  name=ex_fee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="5111" y1="0" x2="5111" y2="112"  name=l_46 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="5134" y="12" height="60" width="238" format="#,##0.00"  name=ins_fee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="5390" y1="0" x2="5390" y2="112"  name=l_49 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="0" x="5413" y="12" height="60" width="238" format="#,##0.00"  name=ccard_ex_fee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="5673" y1="0" x2="5673" y2="112"  name=l_70 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="0" x="5696" y="8" height="60" width="265" format="#,##0.00"  name=mcard_ex_fee edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="5979" y1="0" x2="5979" y2="112"  name=l_52 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="0" x="5998" y="12" height="60" width="338" format="#,##0.00"  name=etc_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="6354" y1="4" x2="6354" y2="116"  name=l_55 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="if (((net_sales - ( cc_sales + cash_sales +  in_sales)  + etc_debit_amt ) -(ex_fee + ins_fee + ccard_ex_fee + mcard_ex_fee +  etc_sales  )) > 0,
+((net_sales) - ( cc_sales + cash_sales + in_sales ) + etc_debit_amt ) - (ex_fee + ins_fee + ccard_ex_fee + mcard_ex_fee -  etc_sales )  ,0)"border="0" color="0" x="6377" y="16" height="60" width="293" format="#,##0.00"  name=payamt  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1079" y="12" height="60" width="238" format="#,##0.00"  name=pr7_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="7063" y="100" height="60" width="55" format="[general]"  name=etc_credit_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="6999" y="96" height="60" width="59" format="#,##0.00"  name=in_sales edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="abs( if ( (net_sales +  etc_sales) - ( cc_sales +  cash_sales + ex_fee +  ins_fee +   card_ex_fee ) > 0, 0, (net_sales +  etc_sales) - ( cc_sales +  cash_sales +  ex_fee +  ins_fee +   card_ex_fee ) ) )"border="0" color="0" x="6711" y="12" height="60" width="311" format="#,##0.00"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="0" y1="88" x2="7063" y2="88"  name=l_43 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=detail x1="6688" y1="0" x2="6688" y2="112"  name=l_58 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=detail x1="7040" y1="0" x2="7040" y2="112"  name=l_11 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="9" y1="0" x2="9" y2="124"  name=l_10 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="782" y1="0" x2="782" y2="108"  name=l_21 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(net_sales for all)"border="0" color="0" x="402" y="28" height="60" width="357" format="#,##0.00"  name=compute_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="1632" y1="0" x2="1632" y2="108"  name=l_67 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  prr7_sales  for all )"border="0" color="0" x="1353" y="28" height="60" width="261" format="#,##0.00"  name=compute_21  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="1335" y1="0" x2="1335" y2="108"  name=l_66 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(cc_sales for all)"border="0" color="0" x="1650" y="28" height="60" width="283" format="#,##0.00"  name=compute_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(  pr1_sales for all )"border="0" color="0" x="805" y="28" height="60" width="242" format="#,##0.00"  name=compute_19  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="384" y1="0" x2="384" y2="108"  name=l_20 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="Total : " border="0" color="0" x="23" y="28" height="60" width="347"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=summary x1="1061" y1="0" x2="1061" y2="108"  name=l_68 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="3122" y1="0" x2="3122" y2="108"  name=l_23 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="1952" y1="0" x2="1952" y2="108"  name=l_22 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(ccard_sales for all)"border="0" color="0" x="1970" y="28" height="60" width="283" format="#,##0.00"  name=compute_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(  mcard_sales  for all )"border="0" color="0" x="2290" y="28" height="60" width="283" format="#,##0.00"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=summary x1="2272" y1="0" x2="2272" y2="108"  name=l_26 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="2592" y1="0" x2="2592" y2="108"  name=l_29 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(check_sales for all)"border="0" color="0" x="2610" y="28" height="60" width="247" format="#,##0.00"  name=compute_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="2875" y1="0" x2="2875" y2="108"  name=l_35 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(gcard_sales for all)"border="0" color="0" x="2898" y="28" height="60" width="206" format="#,##0.00"  name=compute_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(icard_sales for all)"border="0" color="0" x="3145" y="28" height="60" width="288" format="#,##0.00"  name=compute_8  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="3451" y1="0" x2="3451" y2="108"  name=l_38 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="3799" y1="0" x2="3799" y2="108"  name=l_75 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( etc_debit_amt )"border="0" color="0" x="3470" y="28" height="60" width="311" format="#,##0.00"  name=compute_9  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(  logde_amt  for all )"border="0" color="0" x="3817" y="28" height="60" width="311" format="#,##0.00"  name=compute_22  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(cash_sales for all)"border="0" color="0" x="4174" y="28" height="60" width="283" format="#,##0.00"  name=compute_10  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="4480" y1="0" x2="4480" y2="104"  name=l_41 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(nofee_sales for all)"border="0" color="0" x="4503" y="28" height="60" width="274" format="#,##0.00"  name=compute_11  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="4795" y1="0" x2="4795" y2="108"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="4146" y1="0" x2="4146" y2="108"  name=l_77 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(ex_fee for all)"border="0" color="0" x="4814" y="28" height="60" width="274" format="#,##0.00"  name=compute_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="5111" y1="0" x2="5111" y2="108"  name=l_47 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(ins_fee for all)"border="0" color="0" x="5134" y="28" height="60" width="238" format="#,##0.00"  name=compute_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="5390" y1="0" x2="5390" y2="108"  name=l_50 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  ccard_ex_fee  for all )"border="0" color="0" x="5413" y="28" height="60" width="238" format="#,##0.00"  name=compute_18  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="5673" y1="0" x2="5673" y2="108"  name=l_71 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  mcard_ex_fee  for all )"border="0" color="0" x="5696" y="28" height="60" width="265" format="#,##0.00"  name=compute_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="5979" y1="0" x2="5979" y2="108"  name=l_53 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(etc_sales for all)"border="0" color="0" x="5998" y="28" height="60" width="338" format="#,##0.00"  name=compute_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="6354" y1="4" x2="6354" y2="112"  name=l_56 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(payamt for all)"border="0" color="0" x="6377" y="32" height="60" width="293" format="#,##0.00"  name=compute_16  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="9" y1="4" x2="7035" y2="0"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  pr7_sales for all )"border="0" color="0" x="1079" y="28" height="60" width="238" format="#,##0.00"  name=compute_20  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="9" y1="108" x2="7035" y2="104"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(abs( if ( (net_sales +  etc_sales) - ( cc_sales +  cash_sales +  ex_fee +  ins_fee +   card_ex_fee ) > 0, 0, (net_sales +  etc_sales) - ( cc_sales +  cash_sales +  ex_fee +  ins_fee +   card_ex_fee ) ) ) for all)"border="0" color="0" x="6711" y="28" height="60" width="311" format="#,##0.00"  name=compute_17  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=summary x1="6688" y1="0" x2="6688" y2="108"  name=l_59 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=summary x1="7045" y1="0" x2="7045" y2="108"  name=l_32 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

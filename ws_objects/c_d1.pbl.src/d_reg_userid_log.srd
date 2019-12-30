@@ -1,0 +1,88 @@
+﻿$PBExportHeader$d_reg_userid_log.srd
+$PBExportComments$[ceusee] 패스워드 암호화 적용 user_id
+release 10;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=emp_id dbname="sysusr_log.emp_id" )
+ column=(type=char(30) updatewhereclause=yes name=empnm dbname="sysusr_log.empnm" )
+ column=(type=decimal(0) updatewhereclause=yes name=seq dbname="sysusr_log.seq" )
+ column=(type=char(10) updatewhereclause=yes name=gubun dbname="sysusr_log.gubun" )
+ column=(type=char(10) updatewhereclause=yes name=log_status dbname="sysusr_log.log_status" )
+ column=(type=char(10) updatewhereclause=yes name=emp_group dbname="sysusr_log.emp_group" )
+ column=(type=char(1) updatewhereclause=yes name=emp_type dbname="sysusr_log.emp_type" )
+ column=(type=char(10) updatewhereclause=yes name=user_group_id dbname="sysusr_log.user_group_id" )
+ column=(type=decimal(0) updatewhereclause=yes name=emp_auth dbname="sysusr_log.emp_auth" )
+ column=(type=char(50) updatewhereclause=yes name=email dbname="sysusr_log.email" )
+ column=(type=char(20) updatewhereclause=yes name=smsphone dbname="sysusr_log.smsphone" )
+ column=(type=char(10) updatewhereclause=yes name=emp_no dbname="sysusr_log.emp_no" )
+ column=(type=char(10) updatewhereclause=yes name=group_id dbname="sysusr_log.group_id" )
+ column=(type=decimal(0) updatewhereclause=yes name=auth dbname="sysusr_log.auth" )
+ column=(type=datetime updatewhereclause=yes name=timestamp dbname="sysusr_log.timestamp" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="sysusr_log.crt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="sysusr_log.crtdt" )
+ column=(type=char(10) updatewhereclause=yes name=pgm_id dbname="sysusr_log.pgm_id" )
+ retrieve="SELECT      
+   EMP_ID, 
+   EMPNM,
+   SEQ, 
+   GUBUN, 
+   LOG_STATUS,  
+   EMP_GROUP, 
+   EMP_TYPE, 
+   USER_GROUP_ID, 
+   EMP_AUTH, 
+   EMAIL, 
+   SMSPHONE, 
+   EMP_NO, 
+   GROUP_ID, 
+   AUTH, 
+   TIMESTAMP, 
+   CRT_USER, 
+   CRTDT, 
+   PGM_ID
+FROM SYSUSR_LOG" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="2" color="0" x="750" y="364" height="76" width="32" html.valueishtml="0"  name=emp_type visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="2" color="0" x="1061" y="560" height="76" width="2528" html.valueishtml="0"  name=emp_auth visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="2" color="0" x="1216" y="428" height="76" width="1600" html.valueishtml="0"  name=email visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=0 border="2" color="0" x="1902" y="544" height="76" width="640" html.valueishtml="0"  name=smsphone visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=0 border="2" color="0" x="1920" y="360" height="76" width="320" html.valueishtml="0"  name=emp_no visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=0 border="2" color="0" x="3013" y="436" height="76" width="320" html.valueishtml="0"  name=group_id visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=0 border="2" color="0" x="2464" y="480" height="76" width="279" html.valueishtml="0"  name=auth visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=0 border="2" color="0" x="3104" y="680" height="76" width="352" html.valueishtml="0"  name=timestamp visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="2" color="0" x="3369" y="324" height="76" width="809" html.valueishtml="0"  name=emp_group visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="2" color="0" x="3369" y="428" height="76" width="809" html.valueishtml="0"  name=user_group_id visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="User ID" border="2" color="15793151" x="27" y="20" height="60" width="430" html.valueishtml="0"  name=emp_id_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Password" border="2" color="15793151" x="480" y="20" height="60" width="352" html.valueishtml="0"  name=password_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="User Name" border="2" color="15793151" x="855" y="20" height="60" width="809" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="User Group" border="2" color="15793151" x="1687" y="20" height="60" width="443" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="웹 User 사용여부" border="2" color="15793151" x="2153" y="20" height="60" width="485" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="PGM_ID" border="2" color="15793151" x="4119" y="20" height="60" width="773" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Operator ID" border="2" color="15793151" x="2848" y="176" height="60" width="439" html.valueishtml="0"  name=emp_no_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="SMS발송 휴대폰번호" border="2" color="15793151" x="2240" y="176" height="60" width="594" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계정 LOCK" border="2" color="15793151" x="3301" y="176" height="60" width="503" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Update User" border="2" color="15793151" x="3566" y="260" height="60" width="754" html.valueishtml="0"  name=t_10 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Update Date" border="2" color="15793151" x="4334" y="260" height="60" width="590" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Creative Date" border="2" color="16777215" x="2661" y="20" height="60" width="722" html.valueishtml="0"  name=t_11 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Creative User" border="2" color="16777215" x="3406" y="20" height="60" width="695" html.valueishtml="0"  name=t_12 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="2" color="0" x="27" y="4" height="76" width="430" html.valueishtml="0"  name=emp_id visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="2" color="0" x="480" y="4" height="76" width="352" html.valueishtml="0"  name=seq visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="2" color="0" x="855" y="4" height="76" width="809" html.valueishtml="0"  name=empnm visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="2" color="0" x="1687" y="4" height="76" width="443" html.valueishtml="0"  name=gubun visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="2" color="0" x="2153" y="4" height="76" width="485" html.valueishtml="0"  name=log_status visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=0 border="2" color="0" x="4119" y="4" height="76" width="773" html.valueishtml="0"  name=pgm_id visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=0 border="2" color="0" x="2661" y="4" height="76" width="722" html.valueishtml="0"  name=crtdt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=0 border="2" color="0" x="3406" y="4" height="76" width="695" html.valueishtml="0"  name=crt_user visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

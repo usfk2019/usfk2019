@@ -1,0 +1,92 @@
+﻿$PBExportHeader$f_msg_info.srf
+$PBExportComments$For Program Run Time Message(Information)
+global type f_msg_info from function_object
+end type
+
+forward prototypes
+global function string f_msg_info (long al_info_code, string as_title, string as_content)
+end prototypes
+
+global function string f_msg_info (long al_info_code, string as_title, string as_content);//*******************************************************************
+// Fuction ID : f_msg_info
+//
+// Purpose : Handle program run time message -Information
+//
+// Scope : Public
+//
+// Parameter :
+//  1) al_info_code(Integer/Value) : Message Id
+//  2) as_title(String/Value) : Message title
+//  3) as_content(String/Value) : Message content
+//
+// Return Value : (String) 
+//                In occasion of not display MessageBox & returned message content,
+//                Set '*' on the right of as_title 
+//						
+// Log : (Date : Name : Version)
+//       02/05/97 : Yum, Hyun Sook : Original
+//
+//*******************************************************************
+string ls_info_title			//Message title
+string ls_info_content		//Message content
+long ll_length
+
+ls_info_title = as_title
+
+If as_content = "" Then
+	ls_info_content = ""
+Else
+	ls_info_content = " (" + as_content + ")"
+End If
+
+Choose Case al_info_code
+	Case 100		   // 해당 Data Check 요망  
+		ls_info_content = "Invalid Data" + ls_info_content
+	Case 200, 3040		   // Mandatory field
+		ls_info_content = " Mandatory data" + ls_info_content
+	Case 300		   // 입력한 기간이 기준과 틀림 
+		ls_info_content = " The registered duration does not conform to the guideline." + ls_info_content
+	Case 400
+		ls_info_content = "Only Deferred Payment Service is changable. " + ls_info_content
+	Case 401
+		ls_info_content = "Only Activated Contract is changable." + ls_info_content
+	Case 403  //없는 계약번호입니다.
+	    ls_info_content = "Contract No. doesn't exist." + ls_info_content
+	Case 404 //인증key가 이미 존재합니다.
+	    ls_info_content = "Authorization Key doesn't exist." + ls_info_content
+	Case 500  //계약마스터에 XXX로 등록했습니다.
+		  ls_info_content = "Registered to Contract Master with Contract Seq. " + + ls_info_content
+
+	Case 1000		// Record 없음(해당 자료가 없습니다.)
+		ls_info_content = "Record not found" + ls_info_content
+	Case 1001		// File 없음
+		ls_info_content = "File not found" + ls_info_content
+	Case 1010		// 동일 Record 이미 사용중 
+		ls_info_content = "Record is in use" + ls_info_content
+   Case 3000		// 처리 완료
+		ls_info_content = "Process completed" + ls_info_content
+	Case 3010		// 처리 실패
+		ls_info_content = "Process failed" + ls_info_content
+	Case 3020		// 선행작업 처리 요구
+		ls_info_content = "Perform following process first" + ls_info_content
+	Case 3030		// Summary Check
+		ls_info_content = "Sum of each column must be " + ls_info_content
+	Case 4000		// 선택된 내용 없음
+		ls_info_content = "선택된 자료가 없습니다."
+	Case 8010		// 커트롤table에 입력 오류 
+		ls_info_content = "System Control Data is not valid.  " + ls_info_content
+	Case 9000      //	사용자 임의 메세지  	 
+		ll_length = LenA(ls_info_content)
+		If ll_length <> 0 Then ls_info_content = MidA(ls_info_content, 3, ll_length - 3)
+	Case Else		// 처리 메세지 미지정시
+		ls_info_content = "Undefined user message(f_msg_info)"
+End Choose
+
+
+
+If Not (RightA(as_title, 1) = "*") Then MessageBox(ls_info_title, ls_info_content)
+ 
+Return ls_info_content
+
+end function
+

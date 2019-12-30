@@ -1,0 +1,30 @@
+﻿$PBExportHeader$ssrt_prt_prepay_popup.srd
+$PBExportComments$[parkkh] 입금내역 상세조회 popup
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="15793151" )
+table(column=(type=datetime updatewhereclause=yes name=prepaydet_workdt dbname="prepaydet.workdt" )
+ column=(type=char(50) updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ column=(type=number updatewhereclause=yes name=tramt dbname="tramt" )
+ retrieve="SELECT a.workdt,
+       b.itemnm,
+       SUM(a.tramt) TRAMT
+  FROM prepaydet A, itemmst b
+ WHERE ( a.itemcod = b.itemcod )
+   AND ( payid = :as_cid )
+GROUP BY a.workdt,
+       b.itemnm
+" arguments=(("as_cid", string)) )
+text(band=header alignment="0" text="Prepaydet Workdt" border="2" color="15793151" x="23" y="12" height="60" width="261"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Itemmst Itemnm" border="2" color="15793151" x="293" y="12" height="60" width="1006"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="0" text="Tramt" border="2" color="15793151" x="1307" y="12" height="60" width="352"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="60" width="5" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="4" height="60" width="256" format="[shortdate] [time]"  name=prepaydet_workdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="4" height="60" width="1006" format="[general]"  name=itemmst_itemnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1307" y="4" height="60" width="352" format="#,##0.00"  name=tramt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  tramt  for all )"border="0" color="0" x="1307" y="8" height="60" width="352" format="#,##0.00"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

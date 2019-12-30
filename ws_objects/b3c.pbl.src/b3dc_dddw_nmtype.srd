@@ -1,0 +1,21 @@
+﻿$PBExportHeader$b3dc_dddw_nmtype.srd
+$PBExportComments$할인유형명 dddw
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=discountplan dbname="discount_plan.discountplan" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=discountplannm dbname="discount_plan.discountplannm" )
+ retrieve="  SELECT ~"DISCOUNT_PLAN~".~"DISCOUNTPLAN~",   
+         ~"DISCOUNT_PLAN~".~"DISCOUNTPLANNM~"  
+    FROM ~"DISCOUNT_PLAN~"  
+    
+" update="DISCOUNT_PLAN" updatewhere=1 updatekeyinplace=no )
+text(band=detail alignment="1" text="Discountplan:" border="0" color="0" x="576" y="260" height="64" width="443"  name=discountplan_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1408" y="12" height="60" width="480" format="[general]"  name=discountplan edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Discountplannm:" border="0" color="0" x="46" y="264" height="64" width="443"  name=discountplannm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="0" color="0" x="18" y="4" height="64" width="1102" format="[general]"  name=discountplannm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="0" y1="80" x2="1298" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

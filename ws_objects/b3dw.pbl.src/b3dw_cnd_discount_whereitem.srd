@@ -1,0 +1,20 @@
+﻿$PBExportHeader$b3dw_cnd_discount_whereitem.srd
+$PBExportComments$할인조건항목등록 검색조건 DW
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=252 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=cditem dbname="cditem" )
+ column=(type=char(30) updatewhereclause=no name=cdtab dbname="cdtab" )
+ column=(type=char(30) updatewhereclause=no name=cdcol dbname="cdcol" )
+ column=(type=char(1) updatewhereclause=no name=new dbname="name_1" values="신규등록	Y/신규등록	N" )
+ )
+text(band=detail alignment="1" text="조건항목명" border="0" color="0" x="14" y="40" height="56" width="311"  name=cditem_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Table" border="0" color="0" x="46" y="144" height="56" width="279"  name=cdtab_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Column" border="0" color="0" x="1161" y="144" height="56" width="192"  name=cdcol_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="343" y="40" height="60" width="654" format="[general]"  name=cditem dddw.name=b3dc_dddw_whereitem_name dddw.displaycolumn=witemnm dddw.datacolumn=witem dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="343" y="144" height="60" width="773" format="[general]"  name=cdtab dddw.name=b3dc_dddw_table dddw.displaycolumn=codenm dddw.datacolumn=codenm dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="1371" y="144" height="60" width="750" format="[general]"  name=cdcol dddw.name=none dddw.displaycolumn=none dddw.datacolumn=none dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,24 @@
+﻿$PBExportHeader$fi_refresh_menu.srf
+$PBExportComments$[kenn] Refresh the Main Menu.(Case of Program or User Modified)
+global type fi_refresh_menu from function_object
+end type
+
+forward prototypes
+global function integer fi_refresh_menu ()
+end prototypes
+
+global function integer fi_refresh_menu ();Long ll_tvi
+
+w_mdi_main.ids_pgm_menu.Retrieve()
+w_mdi_main.ids_pgm_auth.Retrieve(gs_user_id)
+w_mdi_main.ids_grp_auth.Retrieve(gs_user_id)
+
+ll_tvi = w_mdi_main.tv_menu.FindItem(RootTreeItem!, 0)
+w_mdi_main.tv_menu.DeleteItem(ll_tvi)
+
+w_mdi_main.tv_menu.TriggerEvent(constructor!)
+
+Return 0
+
+end function
+

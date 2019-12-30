@@ -1,0 +1,27 @@
+﻿$PBExportHeader$b5dw_reg_sendemail_pre_v21.srd
+$PBExportComments$[ohj] 선불email청구 master DW v21
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=workno dbname="reqconf_pre.workno" )
+ column=(type=datetime update=yes updatewhereclause=yes name=inputclosedt dbname="reqconf_pre.inputclosedt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=prccnt dbname="reqconf_pre.prccnt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=prcamt dbname="reqconf_pre.prcamt" )
+ retrieve="select workno
+     , inputclosedt
+     , prccnt
+     , prcamt
+  from reqconf_pre" update="reqconf_pre" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="작업번호" border="2" color="16777215" x="9" y="12" height="60" width="539"  name=workno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="입금마감일" border="2" color="16777215" x="558" y="12" height="60" width="457"  name=inputclosedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약건수" border="2" color="16777215" x="1024" y="12" height="60" width="430"  name=prccnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구금액" border="2" color="16777215" x="1463" y="12" height="60" width="672"  name=prcamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="539" format="[general]"  name=workno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="558" y="8" height="60" width="457" format="[shortdate] [time]"  name=inputclosedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1024" y="8" height="60" width="430" format="#,##0"  name=prccnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1463" y="8" height="60" width="672" format="#,##0"  name=prcamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,68 @@
+﻿$PBExportHeader$ssrt_prt_autopay_failed_list.srd
+$PBExportComments$[ojy]연제자리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=404 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(16) updatewhereclause=yes name=requestdt dbname="requestdt" )
+ column=(type=char(10) updatewhereclause=yes name=groupid dbname="kcpbatch.groupid" )
+ column=(type=char(30) updatewhereclause=yes name=basenm dbname="basemst.basenm" )
+ column=(type=char(14) updatewhereclause=yes name=payid dbname="kcpbatch.payid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=decimal(2) updatewhereclause=yes name=reqamt dbname="kcpbatch.reqamt" )
+ column=(type=char(1) updatewhereclause=yes name=result dbname="kcpbatch.result" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="kcpbatch.status" )
+ column=(type=char(16) updatewhereclause=yes name=kcpbatch_cardno dbname="kcpbatch.cardno" )
+ column=(type=char(2) updatewhereclause=yes name=kcpbatch_rectype dbname="kcpbatch.rectype" )
+ column=(type=char(4) updatewhereclause=yes name=kcpbatch_expdt dbname="kcpbatch.expdt" )
+ column=(type=char(50) updatewhereclause=yes name=card_holder dbname="billinginfo.card_holder" )
+ retrieve="SELECT substr(A.REQUESTDT,5,2) ||substr(A.REQUESTDT,7,2)||substr(A.REQUESTDT,1,4) requestdt ,
+       A.GROUPID, 
+       C.BASENM,
+		 A.PAYID,
+       B.CUSTOMERNM,
+       A.REQAMT,
+		 A.RESULT,
+		 A.Status,
+		 A.CARDNO,
+		 A.RECTYPE,
+		 A.EXPDT,
+       D.CARD_HOLDER
+ FROM KCPBATCH A, CUSTOMERM B,  BASEMST C, BILLINGINFO D
+ WHERE (A.PAYID   = B.CUSTOMERID) 
+   AND (A.GROUPID = C.BASECOD )
+   AND ( A.PAYID =  D.CUSTOMERID )
+   AND ( A.Result = 'N' )
+"  sort="groupid A " )
+text(band=header alignment="2" text="Title" border="0" color="0" x="9" y="36" height="92" width="3360"  name=title  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="18" y="236" height="60" width="2322"  name=t_final  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1358" y="128" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1399" y="128" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Base" border="0" color="0" x="18" y="324" height="60" width="421"  name=basenm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Payer ID" border="0" color="0" x="457" y="324" height="60" width="274"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Amount" border="0" color="0" x="1513" y="324" height="60" width="293"  name=reqamt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Customer Name" border="0" color="0" x="759" y="324" height="60" width="736"  name=customernm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Response Code" border="0" color="0" x="1829" y="324" height="60" width="425"  name=status_1_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Error Message" border="0" color="0" x="2272" y="324" height="60" width="1102"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="CardNo" border="2" color="0" x="3401" y="332" height="40" width="123"  name=kcpbatch_cardno_t visible="1~t0"  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Card Type" border="2" color="0" x="3506" y="332" height="40" width="160"  name=kcpbatch_rectype_t visible="1~t0"  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Expiry Date" border="2" color="0" x="3607" y="332" height="40" width="174"  name=kcpbatch_expdt_t visible="1~t0"  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Card Holder" border="2" color="0" x="3703" y="332" height="40" width="192"  name=card_holder_t visible="1~t0"  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="9" y1="312" x2="3378" y2="312"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="9" y1="396" x2="3378" y2="396"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2629" y="232" height="60" width="741" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="2629" y="168" height="60" width="741"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="754" y="12" height="56" width="736" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1513" y="12" height="56" width="293" format="[general]"  name=reqamt editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="1829" y="12" height="56" width="425" format="[general]"  name=status_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2272" y="12" height="56" width="1102" format="[general]"  name=status dddw.name=ssrt_dddw_autopay_result dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="3401" y="12" height="40" width="55" format="[general]"  name=kcpbatch_cardno visible="1~t0" editmask.mask="####-####-####-####" editmask.focusrectangle=no  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="0" x="3506" y="12" height="40" width="55" format="[general]"  name=kcpbatch_rectype visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0" x="3607" y="12" height="40" width="55" format="[general]"  name=kcpbatch_expdt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="0" x="3703" y="12" height="40" width="55" format="[general]"  name=card_holder visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="12" height="56" width="421" format="[general]"  name=basenm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="457" y="12" height="56" width="274" format="[general]"  name=payid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

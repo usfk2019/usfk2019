@@ -1,0 +1,32 @@
+﻿$PBExportHeader$b3dw_reg_discount_item_s.srd
+$PBExportComments$할인유형등록 할인대상폭목등록[t By 변유신
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=discountplan dbname="discount_item.discountplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=code dbname="discount_item.code" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="discount_item.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="discount_item.crtdt" )
+ retrieve="  SELECT ~"DISCOUNT_ITEM~".~"DISCOUNTPLAN~",   
+         ~"DISCOUNT_ITEM~".~"CODE~",   
+         ~"DISCOUNT_ITEM~".~"CRT_USER~",   
+         ~"DISCOUNT_ITEM~".~"CRTDT~" 
+    FROM ~"DISCOUNT_ITEM~" 
+
+ " update="DISCOUNT_ITEM" updatewhere=1 updatekeyinplace=no  sort="code A " )
+text(band=header alignment="2" text="Discountplan" border="0" color="0" x="133" y="252" height="64" width="343"  name=discountplan_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Code" border="0" color="0" x="480" y="252" height="64" width="302"  name=code_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Crt User" border="0" color="0" x="786" y="252" height="64" width="247"  name=crt_user_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Crtdt" border="0" color="0" x="1042" y="252" height="64" width="599"  name=crtdt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품목코드" border="2" color="15793151" x="27" y="16" height="60" width="750"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="15793151" x="805" y="16" height="60" width="896"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="841" y="248" height="60" width="750" format="[general]"  name=discountplan edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="128" height="76" width="247" format="[general]"  name=crt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="795" y="132" height="76" width="599" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" code "border="2" color="0" x="27" y="4" height="60" width="750" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="805" y="4" height="60" width="896" format="[general]"  name=code dddw.name=b3dc_dddw_itemcod dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

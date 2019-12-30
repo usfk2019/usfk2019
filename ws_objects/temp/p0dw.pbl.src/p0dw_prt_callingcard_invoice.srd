@@ -1,0 +1,46 @@
+﻿$PBExportHeader$p0dw_prt_callingcard_invoice.srd
+$PBExportComments$[chooys] Calling Card Invoce
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=4 color="536870912" )
+footer(height=8 color="536870912" )
+detail(height=2832 color="536870912"  height.autosize=yes)
+table(column=(type=char(60) updatewhereclause=yes name=p_outlog_partner dbname="p_outlog.partner" )
+ column=(type=number updatewhereclause=yes name=gst dbname="p_outlog.gst" )
+ retrieve="SELECT olog.partner_prefix partner,
+:an_gst gst
+FROM p_outlog olog, salepricemodel pmdl 
+ WHERE olog.pricemodel = pmdl.pricemodel
+GROUP BY olog.partner_prefix
+" arguments=(("an_gst", number)) )
+bitmap(band=detail filename="" x="133" y="284" height="308" width="1106" border="0"  name=p_address )
+bitmap(band=detail filename="" x="133" y="64" height="208" width="1024" border="0"  name=p_logo )
+text(band=detail alignment="1" text="invoice NO:" border="0" color="0" x="2414" y="440" height="60" width="283"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="GST NO:" border="0" color="0" x="2414" y="520" height="60" width="283"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="if( page()<10, '0'+page(), ''+page() )"border="0" color="0" x="2953" y="440" height="60" width="59" format="[general]"  name=compute_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="if( page()<10, '0'+page(), ''+page() )"border="0" color="0" x="2953" y="520" height="60" width="59" format="[general]"  name=compute_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="" border="0" color="0" x="2702" y="440" height="60" width="242"  name=t_invoiceno  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="" border="0" color="0" x="2702" y="520" height="60" width="242"  name=t_gstno  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="" border="0" color="0" x="2181" y="268" height="60" width="741"  name=title visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="" border="0" color="0" x="2766" y="76" height="60" width="27"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="" border="0" color="0" x="2807" y="76" height="60" width="27"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="" border="0" color="0" x="2213" y="96" height="60" width="741"  name=date_time visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1467" y="92" height="76" width="475" format="[general]"  name=p_outlog_partner visible="1~t0" dddw.name=none dddw.displaycolumn=none dddw.datacolumn=none dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1481" y="184" height="60" width="457" format="[general]"  name=gst visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Invoice" border="0" color="0" x="1559" y="600" height="100" width="498"  name=title2  font.face="Arial" font.height="-15" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Company Copy" border="0" color="0" x="155" y="632" height="64" width="430"  name=t_4  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="p0dw_prt_callingcard_invoice_inner" x="155" y="720" height="100" width="3200" border="0"  height.autosize=yes criteria="" nest_arguments=((" gst "),(" p_outlog_partner ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+line(band=detail x1="27" y1="1988" x2="3575" y2="1988"  name=l_1 pen.style="1" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+bitmap(band=detail filename="" x="133" y="2064" height="208" width="1024" border="0"  name=p_logo2 )
+bitmap(band=detail filename="" x="133" y="2284" height="308" width="1106" border="0"  name=p_address2 )
+text(band=detail alignment="1" text="invoice NO:" border="0" color="0" x="2414" y="2440" height="60" width="283"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="GST NO:" border="0" color="0" x="2414" y="2520" height="60" width="283"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="if( page()<10, '0'+page(), ''+page() )"border="0" color="0" x="2953" y="2440" height="60" width="59" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="if( page()<10, '0'+page(), ''+page() )"border="0" color="0" x="2953" y="2520" height="60" width="59" format="[general]"  name=compute_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="" border="0" color="0" x="2702" y="2440" height="60" width="242"  name=t_invoiceno2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="" border="0" color="0" x="2702" y="2520" height="60" width="242"  name=t_gstno2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Invoice" border="0" color="0" x="1559" y="2604" height="100" width="498"  name=t_3  font.face="Arial" font.height="-15" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Customer Copy" border="0" color="0" x="155" y="2636" height="64" width="430"  name=t_5  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="p0dw_prt_callingcard_invoice_inner" x="155" y="2724" height="100" width="3200" border="0"  height.autosize=yes criteria="" nest_arguments=((" gst "),(" p_outlog_partner ")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

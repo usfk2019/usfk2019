@@ -1,0 +1,46 @@
+﻿$PBExportHeader$b0dw_reg_priceplanmst_t2_v20.srd
+$PBExportComments$[ohj] Price Plan에 해당하는 Itemcod 등록, 품목group,type
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="priceplandet.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=itemcod dbname="priceplandet.itemcod" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="priceplandet.updt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="priceplandet.crt_user" )
+ column=(type=char(0) updatewhereclause=yes name=code dbname="code" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="priceplandet.updtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="priceplandet.crtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="priceplandet.pgm_id" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=groupno dbname="priceplandet.groupno" values="1	1/2	2/3	3/4	4/5	5/6	6/7	7/8	8/9	9/10	10/11	11/12	12/13	13/14	14/15	15/16	16/17	17/18	18/19	19/20	20/" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=grouptype dbname="priceplandet.grouptype" initial="0" values="동일그룹중1개만선택가능	0/동일그룹중1개이상선택가능 	1/동일그룹모두선택필수	8/제한없음	9/" )
+ retrieve="SELECT priceplan
+     , itemcod
+     , updt_user
+     , crt_user
+     , to_char(null) code
+     , updtdt
+     , crtdt
+     , pgm_id
+     , groupno
+     , grouptype
+FROM priceplandet
+ORDER BY groupno, priceplan, itemcod" update="priceplandet" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="품목코드" border="2" color="15793151" x="27" y="16" height="60" width="750"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="15793151" x="791" y="16" height="60" width="896"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목Group" border="2" color="15793151" x="1701" y="16" height="60" width="283"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="선택유형" border="2" color="15793151" x="1998" y="16" height="60" width="722"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="69" y="92" height="64" width="247" format="[general]"  name=updt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="338" y="92" height="64" width="251" format="[general]"  name=crt_user edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="594" y="92" height="64" width="603" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="1202" y="92" height="64" width="603" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="1810" y="92" height="64" width="247" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="59" y="172" height="64" width="800" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" itemcod "border="2" color="0" x="32" y="8" height="60" width="745" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="791" y="8" height="60" width="896" format="[general]"  name=itemcod dddw.name=b0dc_dddw_item_by_svc dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=9 alignment="2" tabsequence=20 border="2" color="16777215" x="1701" y="8" height="60" width="283" format="[general]"  name=groupno ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=10 alignment="0" tabsequence=30 border="2" color="16777215" x="1998" y="8" height="60" width="722" format="[general]"  name=grouptype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

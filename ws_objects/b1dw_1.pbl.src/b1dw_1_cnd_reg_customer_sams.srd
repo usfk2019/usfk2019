@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b1dw_1_cnd_reg_customer_sams.srd
+$PBExportComments$[ceusee] 고객정보 등록 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=208 color="536870912" )
+table(column=(type=char(50) updatewhereclause=no name=value dbname="value" values="Customer ID	customerid/Customer Name	customernm/Payer ID	payid/Login ID	logid/SSN	ssno/Business Name	corpnm/phone	phone1/	/Phone	phone1/Authorization Key	key/" )
+ column=(type=char(10) updatewhereclause=no name=location dbname="location" )
+ column=(type=char(50) updatewhereclause=no name=name dbname="name" )
+ column=(type=char(10) updatewhereclause=no name=value_1 dbname="value_1" values="지역대분류	C/지역중분류	B/지역소분류	A/지역코드	L/" )
+ column=(type=char(1) updatewhereclause=no name=new dbname="new" values="NEW	Y/NEW	N" )
+ )
+text(band=detail alignment="1" text="Location" border="0" color="0" x="27" y="112" height="60" width="242"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Search By" border="0" color="0" x="23" y="28" height="60" width="247"  name=value_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="293" y="24" height="60" width="613" format="[general]"  name=value ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="0" x="293" y="112" height="60" width="613" format="[general]"  name=value_1 ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=50 border="0" color="0" x="928" y="112" height="60" width="731" format="[general]"  name=location dddw.name=b1c_dddw_locategoryc dddw.displaycolumn=locategorycnm dddw.datacolumn=locategoryc dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="0" x="928" y="24" height="60" width="1115" format="[general]"  name=name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="0" color="0" x="2103" y="24" height="60" width="366" format="[general]"  name=new checkbox.text="NEW" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="29478337" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

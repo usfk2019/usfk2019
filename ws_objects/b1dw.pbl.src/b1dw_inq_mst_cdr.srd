@@ -1,0 +1,160 @@
+﻿$PBExportHeader$b1dw_inq_mst_cdr.srd
+$PBExportComments$[jwlee] 상세 cdr조회 리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes name=seqno dbname="tncbilcdr.seqno" )
+ column=(type=decimal(0) updatewhereclause=yes name=fileseq dbname="tncbilcdr.fileseq" )
+ column=(type=decimal(0) updatewhereclause=yes name=filerecord_ dbname="tncbilcdr.filerecord#" )
+ column=(type=char(8) updatewhereclause=yes name=yyyymmdd dbname="tncbilcdr.yyyymmdd" )
+ column=(type=char(32) updatewhereclause=yes name=callidentifier dbname="tncbilcdr.callidentifier" )
+ column=(type=char(32) updatewhereclause=yes name=conferenceidentifier dbname="tncbilcdr.conferenceidentifier" )
+ column=(type=char(14) updatewhereclause=yes name=starttime dbname="tncbilcdr.starttime" )
+ column=(type=char(14) updatewhereclause=yes name=endtime dbname="tncbilcdr.endtime" )
+ column=(type=char(14) updatewhereclause=yes name=billstarttime dbname="tncbilcdr.billstarttime" )
+ column=(type=char(14) updatewhereclause=yes name=billendtime dbname="tncbilcdr.billendtime" )
+ column=(type=char(10) updatewhereclause=yes name=duration dbname="tncbilcdr.duration" )
+ column=(type=char(10) updatewhereclause=yes name=billduration dbname="tncbilcdr.billduration" )
+ column=(type=char(5) updatewhereclause=yes name=q931cause dbname="tncbilcdr.q931cause" )
+ column=(type=char(5) updatewhereclause=yes name=servicecause dbname="tncbilcdr.servicecause" )
+ column=(type=char(20) updatewhereclause=yes name=callerh323id dbname="tncbilcdr.callerh323id" )
+ column=(type=char(20) updatewhereclause=yes name=callere164 dbname="tncbilcdr.callere164" )
+ column=(type=char(20) updatewhereclause=yes name=callerip dbname="tncbilcdr.callerip" )
+ column=(type=char(5) updatewhereclause=yes name=callertype dbname="tncbilcdr.callertype" )
+ column=(type=char(20) updatewhereclause=yes name=callervendor dbname="tncbilcdr.callervendor" )
+ column=(type=char(20) updatewhereclause=yes name=calleeh323id dbname="tncbilcdr.calleeh323id" )
+ column=(type=char(20) updatewhereclause=yes name=callee164 dbname="tncbilcdr.callee164" )
+ column=(type=char(20) updatewhereclause=yes name=calleeip dbname="tncbilcdr.calleeip" )
+ column=(type=char(5) updatewhereclause=yes name=calleetype dbname="tncbilcdr.calleetype" )
+ column=(type=char(20) updatewhereclause=yes name=calleevendor dbname="tncbilcdr.calleevendor" )
+ column=(type=char(20) updatewhereclause=yes name=ani dbname="tncbilcdr.ani" )
+ column=(type=char(20) updatewhereclause=yes name=srcno dbname="tncbilcdr.srcno" )
+ column=(type=char(20) updatewhereclause=yes name=changedsrcno dbname="tncbilcdr.changedsrcno" )
+ column=(type=char(5) updatewhereclause=yes name=srcchangecause dbname="tncbilcdr.srcchangecause" )
+ column=(type=char(20) updatewhereclause=yes name=dnis dbname="tncbilcdr.dnis" )
+ column=(type=char(20) updatewhereclause=yes name=dstno dbname="tncbilcdr.dstno" )
+ column=(type=char(20) updatewhereclause=yes name=changeddstno dbname="tncbilcdr.changeddstno" )
+ column=(type=char(5) updatewhereclause=yes name=dstchagecause dbname="tncbilcdr.dstchagecause" )
+ column=(type=char(4) updatewhereclause=yes name=inport dbname="tncbilcdr.inport" )
+ column=(type=char(4) updatewhereclause=yes name=outport dbname="tncbilcdr.outport" )
+ column=(type=char(2) updatewhereclause=yes name=intrunk dbname="tncbilcdr.intrunk" )
+ column=(type=char(2) updatewhereclause=yes name=outtrunk dbname="tncbilcdr.outtrunk" )
+ column=(type=char(20) updatewhereclause=yes name=creator dbname="tncbilcdr.creator" )
+ column=(type=char(10) updatewhereclause=yes name=timezone dbname="tncbilcdr.timezone" )
+ column=(type=char(5) updatewhereclause=yes name=cfsequence dbname="tncbilcdr.cfsequence" )
+ column=(type=char(5) updatewhereclause=yes name=cfreason dbname="tncbilcdr.cfreason" )
+ column=(type=char(20) updatewhereclause=yes name=inboundgk dbname="tncbilcdr.inboundgk" )
+ column=(type=char(20) updatewhereclause=yes name=outboundgk dbname="tncbilcdr.outboundgk" )
+ column=(type=char(20) updatewhereclause=yes name=srcprefix dbname="tncbilcdr.srcprefix" )
+ column=(type=char(16) updatewhereclause=yes name=srczone dbname="tncbilcdr.srczone" )
+ column=(type=char(20) updatewhereclause=yes name=dstprefix dbname="tncbilcdr.dstprefix" )
+ column=(type=char(16) updatewhereclause=yes name=dstzone dbname="tncbilcdr.dstzone" )
+ column=(type=char(16) updatewhereclause=yes name=band dbname="tncbilcdr.band" )
+ column=(type=char(16) updatewhereclause=yes name=bandcategory dbname="tncbilcdr.bandcategory" )
+ column=(type=char(10) updatewhereclause=yes name=charge dbname="tncbilcdr.charge" )
+ column=(type=char(5) updatewhereclause=yes name=servicetype dbname="tncbilcdr.servicetype" )
+ column=(type=char(1) updatewhereclause=yes name=customerpaytype dbname="tncbilcdr.customerpaytype" )
+ column=(type=char(14) updatewhereclause=yes name=creatdate dbname="tncbilcdr.creatdate" )
+ retrieve="  SELECT ~"TNCBILCDR~".~"SEQNO~",   
+         ~"TNCBILCDR~".~"FILESEQ~",   
+         ~"TNCBILCDR~".~"FILERECORD#~",   
+         ~"TNCBILCDR~".~"YYYYMMDD~",   
+         ~"TNCBILCDR~".~"CALLIDENTIFIER~",   
+         ~"TNCBILCDR~".~"CONFERENCEIDENTIFIER~",   
+         ~"TNCBILCDR~".~"STARTTIME~",   
+         ~"TNCBILCDR~".~"ENDTIME~",   
+         ~"TNCBILCDR~".~"BILLSTARTTIME~",   
+         ~"TNCBILCDR~".~"BILLENDTIME~",   
+         ~"TNCBILCDR~".~"DURATION~",   
+         ~"TNCBILCDR~".~"BILLDURATION~",   
+         ~"TNCBILCDR~".~"Q931CAUSE~",   
+         ~"TNCBILCDR~".~"SERVICECAUSE~",   
+         ~"TNCBILCDR~".~"CALLERH323ID~",   
+         ~"TNCBILCDR~".~"CALLERE164~",   
+         ~"TNCBILCDR~".~"CALLERIP~",   
+         ~"TNCBILCDR~".~"CALLERTYPE~",   
+         ~"TNCBILCDR~".~"CALLERVENDOR~",   
+         ~"TNCBILCDR~".~"CALLEEH323ID~",   
+         ~"TNCBILCDR~".~"CALLEE164~",   
+         ~"TNCBILCDR~".~"CALLEEIP~",   
+         ~"TNCBILCDR~".~"CALLEETYPE~",   
+         ~"TNCBILCDR~".~"CALLEEVENDOR~",   
+         ~"TNCBILCDR~".~"ANI~",   
+         ~"TNCBILCDR~".~"SRCNO~",   
+         ~"TNCBILCDR~".~"CHANGEDSRCNO~",   
+         ~"TNCBILCDR~".~"SRCCHANGECAUSE~",   
+         ~"TNCBILCDR~".~"DNIS~",   
+         ~"TNCBILCDR~".~"DSTNO~",   
+         ~"TNCBILCDR~".~"CHANGEDDSTNO~",   
+         ~"TNCBILCDR~".~"DSTCHAGECAUSE~",   
+         ~"TNCBILCDR~".~"INPORT~",   
+         ~"TNCBILCDR~".~"OUTPORT~",   
+         ~"TNCBILCDR~".~"INTRUNK~",   
+         ~"TNCBILCDR~".~"OUTTRUNK~",   
+         ~"TNCBILCDR~".~"CREATOR~",   
+         ~"TNCBILCDR~".~"TIMEZONE~",   
+         ~"TNCBILCDR~".~"CFSEQUENCE~",   
+         ~"TNCBILCDR~".~"CFREASON~",   
+         ~"TNCBILCDR~".~"INBOUNDGK~",   
+         ~"TNCBILCDR~".~"OUTBOUNDGK~",   
+         ~"TNCBILCDR~".~"SRCPREFIX~",   
+         ~"TNCBILCDR~".~"SRCZONE~",   
+         ~"TNCBILCDR~".~"DSTPREFIX~",   
+         ~"TNCBILCDR~".~"DSTZONE~",   
+         ~"TNCBILCDR~".~"BAND~",   
+         ~"TNCBILCDR~".~"BANDCATEGORY~",   
+         ~"TNCBILCDR~".~"CHARGE~",   
+         ~"TNCBILCDR~".~"SERVICETYPE~",   
+         ~"TNCBILCDR~".~"CUSTOMERPAYTYPE~",   
+         ~"TNCBILCDR~".~"CREATDATE~"  
+    FROM ~"TNCBILCDR~"  
+" update="TNCBILCDR" updatewhere=0 updatekeyinplace=no )
+text(band=background alignment="1" text="TOTAL ROWS" border="0" color="0" x="2459" y="24" height="56" width="393"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1385" y="24" height="56" width="320"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="315" y="24" height="56" width="549"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="14" y="24" height="56" width="283"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="Seqno" border="2" color="16777215" x="9" y="100" height="60" width="489"  name=seqno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화일" border="2" color="16777215" x="507" y="100" height="60" width="329"  name=yyyymmdd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화시작" border="2" color="16777215" x="846" y="100" height="60" width="562"  name=starttime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화종료" border="2" color="16777215" x="1417" y="100" height="60" width="576"  name=endtime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="과금시작" border="2" color="16777215" x="2322" y="100" height="60" width="567"  name=billstarttime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="과금종료" border="2" color="16777215" x="2898" y="100" height="60" width="590"  name=billendtime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화시간" border="2" color="16777215" x="2002" y="100" height="60" width="311"  name=duration_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="과금시간" border="2" color="16777215" x="3497" y="100" height="60" width="329"  name=billduration_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Q.931 Cause" border="2" color="16777215" x="3835" y="100" height="60" width="411"  name=q931cause_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발신 H.323ID" border="2" color="16777215" x="4896" y="100" height="60" width="613"  name=callerh323id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발신 E-164" border="2" color="16777215" x="4256" y="100" height="60" width="631"  name=callere164_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발신IP주소" border="2" color="16777215" x="6158" y="100" height="60" width="631"  name=callerip_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신 H.323ID" border="2" color="16777215" x="7438" y="100" height="60" width="631"  name=calleeh323id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신E-164" border="2" color="16777215" x="6798" y="100" height="60" width="631"  name=callee164_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신IP주소" border="2" color="16777215" x="8718" y="100" height="60" width="631"  name=calleeip_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발신번호" border="2" color="16777215" x="5518" y="100" height="60" width="631"  name=srcno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="착신번호" border="2" color="16777215" x="8078" y="100" height="60" width="631"  name=dstno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="IN-Port" border="2" color="16777215" x="9358" y="100" height="60" width="608"  name=inport_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Out-Port" border="2" color="16777215" x="9975" y="100" height="60" width="539"  name=outport_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2898" y="16" height="60" width="590" format="###,###"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="489" format="[general]"  name=seqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="507" y="4" height="64" width="329" format="@@@@/@@/@@"  name=yyyymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="2322" y="4" height="64" width="567" format="@@@@/@@/@@ @@:@@:@@"  name=billstarttime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="2898" y="4" height="64" width="590" format="@@@@/@@/@@ @@:@@:@@"  name=billendtime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2002" y="4" height="64" width="311" format=""  name=duration edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="3497" y="4" height="64" width="329" format="[general]"  name=billduration edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="3835" y="4" height="64" width="411" format="[general]"  name=q931cause edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="4896" y="4" height="64" width="613" format="[general]"  name=callerh323id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="4256" y="4" height="64" width="631" format="[general]"  name=callere164 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="6158" y="4" height="64" width="631" format="[general]"  name=callerip edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="7438" y="4" height="64" width="631" format="[general]"  name=calleeh323id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="6798" y="4" height="64" width="631" format="[general]"  name=callee164 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="8718" y="4" height="64" width="631" format="[general]"  name=calleeip edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="5518" y="4" height="64" width="631" format="[general]"  name=srcno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="8078" y="4" height="64" width="631" format="[general]"  name=dstno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=33 alignment="0" tabsequence=32766 border="0" color="0" x="9358" y="4" height="64" width="608" format="[general]"  name=inport edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=34 alignment="0" tabsequence=32766 border="0" color="0" x="9975" y="4" height="64" width="539" format="[general]"  name=outport edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="1417" y="4" height="64" width="576" format="@@@@/@@/@@ @@:@@:@@"  name=endtime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="846" y="4" height="64" width="562" format="@@@@/@@/@@ @@:@@:@@"  name=starttime edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1719" y="24" height="56" width="261"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

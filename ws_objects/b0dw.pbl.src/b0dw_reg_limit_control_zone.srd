@@ -1,0 +1,34 @@
+﻿$PBExportHeader$b0dw_reg_limit_control_zone.srd
+$PBExportComments$[ohj] 한도월정액 대상 품목관리
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=priceplan dbname="limit_control_zone.priceplan" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=itemcod dbname="limit_control_zone.itemcod" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=target_type dbname="limit_control_zone.target_type" values="품목	I/대역	Z/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=target_code dbname="limit_control_zone.target_code" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="limit_control_zone.crt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="limit_control_zone.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="limit_control_zone.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="limit_control_zone.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="limit_control_zone.pgm_id" )
+ retrieve="SELECT A.PRICEPLAN
+     , A.ITEMCOD
+     , A.TARGET_TYPE
+     , A.TARGET_CODE
+     , A.CRT_USER
+     , A.CRTDT
+     , A.UPDT_USER
+     , A.UPDTDT
+     , A.PGM_ID
+  FROM LIMIT_CONTROL_ZONE A
+" update="LIMIT_CONTROL_ZONE" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="대상유형" border="2" color="15793151" x="18" y="20" height="60" width="389"  name=target_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대상 품목/대역" border="2" color="15793151" x="421" y="20" height="60" width="974"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="18" y="8" height="64" width="389" format="[general]"  name=target_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="2" color="16777215" x="421" y="8" height="64" width="974" format="[general]"  name=target_code dddw.name=b0dc_dddw_zoncod dddw.displaycolumn=zonnm dddw.datacolumn=zoncod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

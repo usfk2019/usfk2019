@@ -1,0 +1,22 @@
+﻿$PBExportHeader$b5d_cnd_inq_reqbyuserid.srd
+$PBExportComments$[kwon]
+release 7;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=284 color="536870912" )
+table(column=(type=char(14) updatewhereclause=no name=customerid dbname="customerid" )
+ column=(type=char(50) updatewhereclause=no name=customernm dbname="customernm" )
+ column=(type=char(14) updatewhereclause=no name=payid dbname="payid" )
+ column=(type=char(8) updatewhereclause=no name=trdt dbname="trdt" )
+ )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="8388736" x="960" y="20" height="60" width="416" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="고객 번호" border="0" color="0" x="50" y="24" height="60" width="503"  name=userid_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="청구기준일" border="0" color="0" x="27" y="112" height="60" width="526"  name=trdt_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="납입번호" border="0" color="0" x="101" y="208" height="60" width="453"  name=payid_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="955" y1="84" x2="1376" y2="84"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="8421504" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="16711680" x="571" y="24" height="64" width="370" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="571" y="112" height="64" width="370" format="@@@@-@@-@@"  name=trdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="571" y="208" height="64" width="375" format="[general]"  name=payid edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

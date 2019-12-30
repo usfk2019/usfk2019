@@ -1,0 +1,39 @@
+﻿$PBExportHeader$f_check_id.srf
+$PBExportComments$[1hear] 영수증출력용 금액변환처리앞에 $
+global type f_check_id from function_object
+end type
+
+forward prototypes
+global function integer f_check_id (string fs_cid, string fs_opid)
+end prototypes
+
+global function integer f_check_id (string fs_cid, string fs_opid);//-----------------------------------------==========
+//fs_cid : Customerid
+//fs_opid : operator
+// 해당 고객번호 및 operator의 존재 유무 Check
+//-----------------------------------------==========
+
+Integer	li_cnt
+
+//1 CID 
+IF fs_cid = '' then return -1
+IF fs_cid <> '' THEN
+	SELECT COUNT(*) INTO :li_cnt FROM CUSTOMERM
+	 WHERE CUSTOMERID  = :fs_cid ;
+	 
+	IF sqlca.sqlcode <> 0 OR IsNull(li_cnt) then li_cnt = 0
+	IF li_cnt = 0 then return -1
+END IF
+//2. OPID
+IF fs_opid = '' then return -2
+IF fs_opid <> '' THEN
+	SELECT COUNT(*) INTO :li_cnt FROM SYSUSR1T
+	 WHERE EMP_NO  = :fs_opid ;
+	 
+	IF sqlca.sqlcode <> 0 OR IsNull(li_cnt) then li_cnt = 0
+	IF li_cnt = 0 then return -2
+END IF
+
+return 0
+end function
+

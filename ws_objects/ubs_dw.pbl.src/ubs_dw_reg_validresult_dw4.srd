@@ -1,0 +1,35 @@
+﻿$PBExportHeader$ubs_dw_reg_validresult_dw4.srd
+$PBExportComments$[jhchoi] 장비인증 결과 조회 팝업 (Dw1) - 2009.06.09
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(40) updatewhereclause=yes name=updatetime dbname="bc_config.updatetime" )
+ column=(type=char(20) updatewhereclause=yes name=cm_ip dbname="bc_config.cm_ip" )
+ column=(type=char(10) updatewhereclause=yes name=subsstatus dbname="bc_config.subsstatus" )
+ column=(type=decimal(5) updatewhereclause=yes name=subsno dbname="bc_config.subsno" )
+ column=(type=char(20) updatewhereclause=yes name=cm_mngno dbname="bc_config.cm_mngno" )
+ column=(type=char(20) updatewhereclause=yes name=cm_mac dbname="bc_config.cm_mac" )
+ column=(type=char(40) updatewhereclause=yes name=cpetype dbname="cpetype" )
+ retrieve="select updatetime, cm_ip, subsstatus, subsno, cm_mngno, cm_mac, cpetype
+/*from   buuser.bc_config@boss_db*/
+from   bc_config
+where  subsno = '0'" )
+text(band=header alignment="2" text="Updatetime" border="2" color="0" x="9" y="8" height="64" width="905"  name=updatetime_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Cm Ip" border="2" color="0" x="923" y="8" height="64" width="622"  name=cm_ip_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Subsstatus" border="2" color="0" x="1554" y="8" height="64" width="370"  name=subsstatus_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Subsno" border="2" color="0" x="1934" y="8" height="64" width="416"  name=subsno_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Cm Mngno" border="2" color="0" x="2359" y="8" height="64" width="741"  name=cm_mngno_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Cm Mac" border="2" color="0" x="3109" y="8" height="64" width="823"  name=cm_mac_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+text(band=header alignment="2" text="Cpetype" border="2" color="0" x="3941" y="8" height="64" width="1125"  name=cpetype_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32177646" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="905" format="[general]"  name=updatetime edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="923" y="8" height="76" width="622" format="[general]"  name=cm_ip edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1554" y="8" height="76" width="370" format="[general]"  name=subsstatus edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1934" y="8" height="76" width="416" format="[general]"  name=subsno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2359" y="8" height="76" width="741" format="[general]"  name=cm_mngno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="3109" y="8" height="76" width="823" format="[general]"  name=cm_mac edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3941" y="8" height="76" width="1125" format="[general]"  name=cpetype edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,48 @@
+﻿$PBExportHeader$ssrt_reg_receipt_management_head.srd
+$PBExportComments$[ohj] 후불서비스 신청(품목) - detail  v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=approvalno dbname="receiptmst.approvalno" )
+ column=(type=char(10) updatewhereclause=yes name=seq_app dbname="receiptmst.seq_app" )
+ column=(type=char(10) updatewhereclause=yes name=receipttype dbname="receiptmst.receipttype" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="receiptmst.customerid" )
+ column=(type=datetime updatewhereclause=yes name=trdt dbname="receiptmst.trdt" )
+ column=(type=decimal(2) updatewhereclause=yes name=total dbname="receiptmst.total" )
+ column=(type=decimal(2) updatewhereclause=yes name=cash dbname="receiptmst.cash" )
+ column=(type=decimal(2) updatewhereclause=yes name=change dbname="receiptmst.change" )
+ column=(type=char(14) updatewhereclause=yes name=customerid dbname="receiptmst.customerid" )
+ column=(type=char(10) updatewhereclause=yes name=shopid dbname="receiptmst.shopid" )
+ retrieve="SELECT approvalno,
+		 SEQ_APP,
+		 RECEIPTTYPE,
+		 customerid,
+		 TRDT,
+		 TOTAL,
+		 CASH,
+		 CHANGE,
+customerid,
+shopid
+  FROM RECEIPTMST 
+order by approvalno
+" update="RECEIPTMST" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Sales Date" border="2" color="16777215" x="800" y="16" height="60" width="347"  name=trdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Type" border="2" color="16777215" x="398" y="16" height="60" width="389"  name=receipttype_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Approval No" border="2" color="16777215" x="23" y="16" height="60" width="361"  name=itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Total Amount" border="2" color="16777215" x="1161" y="16" height="60" width="480"  name=total_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Choice" border="2" color="16777215" x="1659" y="16" height="60" width="663"  name=choice_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="809" y="8" height="60" width="334" format="m/d/yy h:mm"  name=trdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="80" x2="2322" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1161" y="8" height="60" width="480" format="#,##0.00"  name=total editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+button(band=detail text="Reissue"filename=""action="0" border="0" color="0" x="1673" y="4" height="76" width="320" vtextalign="0" htextalign="0"  name=b_change  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+button(band=detail text="Re-Print"filename=""action="0" border="0" color="0" x="1993" y="4" height="76" width="320" vtextalign="0" htextalign="0"  name=b_reprint  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2354" y="16" height="52" width="183" format="[general]"  name=cash visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2560" y="16" height="52" width="183" format="[general]"  name=change visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="2299" y="192" height="60" width="361" format="[general]"  name=approvalno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="398" y="8" height="60" width="389" format="[general]"  name=receipttype dddw.name=ssrt_dddw_receipt_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="8" height="60" width="361" format="[general]"  name=seq_app edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,21 @@
+﻿$PBExportHeader$c1dw_cnd_inq_view_cdr.srd
+$PBExportComments$[ceusee] 사업자 정산을 위한 CDR 엑셀작업
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=172 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=carrierid dbname="carrierid" )
+ column=(type=datetime updatewhereclause=yes name=fromdt dbname="fromdt" )
+ column=(type=datetime updatewhereclause=yes name=todt dbname="todt" )
+ column=(type=char(1) updatewhereclause=yes name=view dbname="view" values="상세내역 View	Y/상세내역 View	N" )
+ )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="919" y="104" height="56" width="69"  name=todt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="1239" y="20" height="60" width="471" format="[general]"  name=view checkbox.text="상세내역 View" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="15793151" x="512" y="24" height="60" width="663" format="[general]"  name=carrierid dddw.name=c1dc_dddw_carrierid dddw.displaycolumn=carriernm dddw.datacolumn=carrierid dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="기간(년-월-일 시)" border="0" color="0" x="18" y="100" height="56" width="466"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="회선사업자" border="0" color="0" x="192" y="24" height="56" width="293"  name=carrierid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="15793151" x="512" y="100" height="60" width="389" format="[general]"  name=fromdt editmask.autoskip=yes editmask.mask="yyyy-mm-dd hh" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="2" color="15793151" x="1010" y="100" height="60" width="389" format="[general]"  name=todt editmask.mask="yyyy-mm-dd hh" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

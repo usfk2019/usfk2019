@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_cnd_inq_check_ftpcdr.srd
+$PBExportComments$[ssong]시스템 점검관리 조건 datawindow
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=240 color="536870912" )
+table(column=(type=char(100) updatewhereclause=yes name=filename dbname="filename" )
+ column=(type=date updatewhereclause=yes name=fromdt dbname="fromdt" )
+ column=(type=date updatewhereclause=yes name=todt dbname="todt" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="425" y="44" height="60" width="850" format="[general]"  name=filename edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="2" color="0" x="891" y="136" height="60" width="384" format="[general]"  name=todt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="파일명" border="0" color="0" x="37" y="44" height="60" width="366"  name=filename_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="처리일자" border="0" color="0" x="37" y="136" height="60" width="366"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="0" x="425" y="136" height="60" width="384" format="[general]"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="~~" border="0" color="0" x="832" y="136" height="60" width="37"  name=todt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

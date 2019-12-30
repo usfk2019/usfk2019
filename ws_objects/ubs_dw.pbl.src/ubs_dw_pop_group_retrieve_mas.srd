@@ -1,0 +1,36 @@
+﻿$PBExportHeader$ubs_dw_pop_group_retrieve_mas.srd
+$PBExportComments$[jhchoi] 서비스 일시정지 신청, 처리 ( Detail2) - 2009.04.14
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=modelno dbname="ad_groupmst.modelno" )
+ column=(type=char(50) updatewhereclause=yes name=modelnm dbname="admodel.modelnm" )
+ column=(type=decimal(0) updatewhereclause=yes name=iamt dbname="ad_groupmst.iamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=oamt dbname="ad_groupmst.oamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=amount dbname="ad_groupmst.amount" )
+ retrieve="SELECT  MST.MODELNO
+		, MODEL.MODELNM
+		, MST.IAMT
+		, MST.OAMT
+		, MST.AMOUNT
+FROM    AD_GROUPMST MST, ADMODEL MODEL
+WHERE   MST.PARTNER = :as_partner
+AND     MST.MODELNO = MODEL.MODELNO
+ORDER BY MODEL.MODELNM
+" arguments=(("as_partner", string)) )
+text(band=header alignment="2" text="Model No." border="2" color="16777215" x="23" y="8" height="60" width="494"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Model Name" border="2" color="16777215" x="526" y="8" height="60" width="910"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Input Total" border="2" color="16777215" x="1445" y="8" height="60" width="370"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Output Total" border="2" color="16777215" x="1824" y="8" height="60" width="398"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Current" border="2" color="16777215" x="2231" y="8" height="60" width="421"  name=t_9  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="60" width="5" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="0" height="60" width="494" format="[general]"  name=modelno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="526" y="0" height="60" width="910" format="[general]"  name=modelnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1445" y="0" height="60" width="370" format="[general]"  name=iamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1824" y="0" height="60" width="398" format="[general]"  name=oamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0~tif ( amount <= 0, rgb(255, 0 , 0), rgb(0, 0, 255))" x="2231" y="0" height="60" width="421" format="[general]"  name=amount edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

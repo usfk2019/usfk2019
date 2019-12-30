@@ -1,0 +1,41 @@
+﻿$PBExportHeader$b1fb_check_control.srf
+$PBExportComments$[ceusee] System Parameter Check
+global type b1fb_check_control from function_object
+end type
+
+forward prototypes
+global function integer b1fb_check_control (string as_module, string as_ref_no, string as_ref_desc, string as_data, ref boolean ab_check)
+end prototypes
+
+global function integer b1fb_check_control (string as_module, string as_ref_no, string as_ref_desc, string as_data, ref boolean ab_check);/*------------------------------------------------------------------------
+	Name	:	b1fb_check_control()
+	Desc	:  sysctrl1t Table에 있는 내용을 가져와서 해당 자료와 같은지 확인
+	arg.	:	string as_module, as_ref_no, as_ref_desc, as_data
+  		      reference ab_check : True  해당자료 있음
+											False 해당자료 없음
+	Return:	-1	: 자료 없음
+				-2 : Error
+				 0 : 성공
+	Ver.	: 	1.0
+	Date	:	2002.09.27
+-------------------------------------------------------------------------*/
+	String ls_reqnum_dw, ls_name[]
+	Integer i, li_cnt
+	
+	ab_check = False
+	ls_reqnum_dw = fs_get_control(as_module, as_ref_no, as_ref_desc)  //내용을 가져온다.
+	If ls_reqnum_dw = "" Then Return -1
+  	
+	li_cnt = fi_cut_string(ls_reqnum_dw, ";", ls_name[])
+   For i = 1 To li_cnt
+	  If as_data = ls_name[i] Then 
+		  ab_check = True
+	  Else 
+		  ab_check = False
+	  End If
+	  If ab_check  Then Exit
+	Next
+
+return 0 
+end function
+

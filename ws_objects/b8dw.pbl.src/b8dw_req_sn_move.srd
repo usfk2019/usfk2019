@@ -1,0 +1,49 @@
+﻿$PBExportHeader$b8dw_req_sn_move.srd
+$PBExportComments$[parkkh] 대리점S/N 할당
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=492 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=modelno dbname="admovereq.modelno" )
+ column=(type=char(10) updatewhereclause=yes name=fr_partner dbname="admovereq.fr_partner" )
+ column=(type=datetime updatewhereclause=yes name=requestdt dbname="admovereq.requestdt" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=requestno dbname="admovereq.requestno" )
+ column=(type=char(30) updatewhereclause=yes name=serialfrom dbname="serialfrom" )
+ column=(type=char(30) updatewhereclause=yes name=serialto dbname="serialto" )
+ column=(type=char(50) updatewhereclause=yes name=remark dbname="remark" )
+ column=(type=char(20) updatewhereclause=yes name=oqman dbname="oqman" )
+ retrieve="SELECT modelno,
+   	 fr_partner,
+		 requestdt,
+		 requestno,
+		 rpad(' ',30,' ') serialfrom,
+ 		 rpad(' ',30,' ') serialto,
+       rpad(' ',50,' ') remark,
+		 rpad(' ',20,' ') oqman
+  FROM admovereq" update="admovereq" updatewhere=0 updatekeyinplace=no )
+rectangle(band=detail x="37" y="32" height="408" width="2725"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="비 고" border="0" color="0" x="1312" y="156" height="56" width="430"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="41" y="36" height="400" width="462"  name=r_4 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31516640"  background.mode="2" background.color="81324524" )
+rectangle(band=detail x="1298" y="36" height="200" width="453"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31516640"  background.mode="2" background.color="81324524" )
+line(band=detail x1="37" y1="136" x2="2757" y2="136"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="37" y1="236" x2="2757" y2="236"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="503" y1="36" x2="503" y2="440"  name=l_18 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1294" y1="36" x2="1294" y2="236"  name=l_22 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1751" y1="36" x2="1751" y2="236"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="1051" y="356" height="56" width="64"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=70 border="5" color="16777215" x="1134" y="356" height="60" width="517" format="[general]"  name=serialto edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+line(band=detail x1="37" y1="336" x2="2757" y2="336"  name=l_21 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="521" y="52" height="60" width="763" format="[general]"  name=modelno dddw.name=b8dc_dddw_admodel dddw.displaycolumn=modelnm dddw.datacolumn=modelno dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="16777215" x="521" y="156" height="60" width="361" format="[shortdate] [time]"  name=requestdt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=8 alignment="0" tabsequence=50 border="5" color="0" x="521" y="256" height="60" width="763" format="[general]"  name=oqman edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=60 border="5" color="16777215" x="521" y="356" height="60" width="517" format="[general]"  name=serialfrom edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="2" text="모      델" border="0" color="0" x="55" y="52" height="56" width="430"  name=modelno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="할당일자" border="0" color="0" x="55" y="156" height="56" width="430"  name=requestdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="담당자" border="0" color="0" x="55" y="256" height="56" width="430"  name=oqman_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Serial No." border="0" color="0" x="50" y="356" height="60" width="443"  name=serialfrom_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="S/N할당대리점" border="0" color="0" x="1303" y="52" height="56" width="443"  name=fr_partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=40 border="5" color="0" x="1769" y="156" height="60" width="974" format="[general]"  name=remark edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1769" y="52" height="60" width="974" format="[general]"  name=fr_partner dddw.name=b8dc_dddw_partner_agent dddw.displaycolumn=partner dddw.datacolumn=partner dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

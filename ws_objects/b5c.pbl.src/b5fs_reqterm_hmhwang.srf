@@ -1,0 +1,62 @@
+﻿$PBExportHeader$b5fs_reqterm_hmhwang.srf
+$PBExportComments$[kwon]현월청구기간,익월청구기간 구하기by 청구주기
+global type b5fs_reqterm_hmhwang from function_object
+end type
+
+forward prototypes
+global function string b5fs_reqterm_hmhwang (string as_chargedt, string as_reqdt)
+end prototypes
+
+global function string b5fs_reqterm_hmhwang (string as_chargedt, string as_reqdt);//***************************************************************************
+// 1.as_chargedt 즉 청구주기가 ""가 아니면, as_chargedt를 기준으로
+//   REQDT를 구한후, 해당일자들을 구한다.
+// 2.as_chargedt가 ""면, as_reqdt를 기준으로 해당일자들을 구한다.
+//
+// Return 값이 "" 이면 error 이니 call 하는 곳에서도 Return
+//fd_pre_month등 에서도 error가 떨어지면 return값을 "" 로 넘길것이다 =>나중에 
+//***************************************************************************
+String ls_chargedt, ls_reqdt
+String ls_next_fr, ls_cur_fr, ls_cur_to, ls_next_to
+String ls_temp
+
+ls_chargedt = as_chargedt
+ls_reqdt = as_reqdt
+
+If ls_chargedt <> "" Then
+	SELECT to_char(reqdt, 'yyyymmdd') INTO :ls_next_fr FROM reqconf WHERE chargedt = :ls_chargedt;
+	If SQLCA.SQLCode < 0 Then
+		f_msg_sql_err("청구주기구하기(b5fs_reqterm)", "")
+		Return  ""
+	ElseIf SQLCA.SQLCode <> 0 Then
+		f_msg_usr_err(1100,"청구주기구하기(b5fs_reqterm)", "")
+		Return ""
+	End If
+Else
+	ls_next_fr = ls_reqdt
+End If
+
+//전월구하기(현월청구주기시작일)
+ls_cur_fr = String(fd_pre_month(Date(Integer(MidA(ls_next_fr, 1, 4)), &
+						 Integer(MidA(ls_next_fr, 5, 2)), &
+						 Integer(MidA(ls_next_fr, 7, 2))), 1), "yyyymmdd")
+
+//전일구하기(현월청구주기마지막일)
+ls_cur_to = String(fd_date_pre(Date(Integer(MidA(ls_next_fr, 1, 4)), &
+						 Integer(MidA(ls_next_fr, 5, 2)), &
+						 Integer(MidA(ls_next_fr, 7, 2))), 1), "yyyymmdd")
+
+//다음월구하기((익월+1)월청구주기시작일)
+ls_temp = String(fd_next_month(Date(Integer(MidA(ls_next_fr, 1, 4)), &
+					  Integer(MidA(ls_next_fr, 5, 2)), &
+					  Integer(MidA(ls_next_fr, 7, 2))), 1), "yyyymmdd")
+
+//전일구하기(익월청구주기마지막일)
+ls_next_to = String(fd_date_pre(Date(Integer(MidA(ls_temp, 1, 4)), &
+						  Integer(MidA(ls_temp, 5, 2)), &
+						  Integer(MidA(ls_temp, 7, 2))), 1), "yyyymmdd")
+
+//현월청구주기시작일+현월청구주기마지막일+익월청구주기시작일+익월청구주기마지막일
+Return ls_cur_fr + ls_cur_to + ls_next_fr + ls_next_to
+
+end function
+

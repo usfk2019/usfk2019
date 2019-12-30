@@ -1,0 +1,28 @@
+﻿$PBExportHeader$e01d_reg_select_dly.srd
+$PBExportComments$[jybaek] 연체대상자추출
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=108 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=160 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=overdue_months dbname="billinginfo.overdue_months" )
+ column=(type=number updatewhereclause=yes name=man_num dbname="man_num" )
+ retrieve="SELECT  bil.overdue_months,
+           count(*) man_num    
+  FROM billinginfo bil   
+ WHERE ( bil.overdue_months is not null ) 
+  or ( bil.overdue_months <> 0 )  
+GROUP BY bil.overdue_months
+ ORDER BY bil.overdue_months ASC  " )
+line(band=header x1="119" y1="104" x2="1778" y2="104"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="119" y1="80" x2="1778" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="12632256"  background.mode="2" background.color="16777215" )
+line(band=footer x1="119" y1="4" x2="1778" y2="4"  name=l_2 pen.style="0" pen.width="9" pen.color="8421376"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="인원수" border="2" color="15793151" x="1353" y="32" height="60" width="421"  name=tramt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체개월수" border="2" color="15793151" x="123" y="32" height="60" width="347"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="1353" y="12" height="60" width="389" format="#,##0"  name=man_num edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="123" y="12" height="60" width="347" format="[general]"  name=overdue_months edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="1" expression="sum(man_num)"border="0" color="0" x="1353" y="20" height="64" width="389" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=footer alignment="2" text="총인원수" border="2" color="15793151" x="123" y="20" height="60" width="347"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

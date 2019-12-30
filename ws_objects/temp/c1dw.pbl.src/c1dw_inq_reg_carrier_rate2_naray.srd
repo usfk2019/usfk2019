@@ -1,0 +1,56 @@
+﻿$PBExportHeader$c1dw_inq_reg_carrier_rate2_naray.srd
+$PBExportComments$[ssong]정산요율등록 naray old virsion
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=carrierid dbname="carrier_rate2.carrierid" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=areacod dbname="carrier_rate2.areacod" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=opendt dbname="carrier_rate2.opendt" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=addamt dbname="carrier_rate2.addamt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=addsec dbname="carrier_rate2.addsec" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="carrier_rate2.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=zonegroup dbname="carrier_rate2.zonegroup" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="carrier_rate2.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="carrier_rate2.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="carrier_rate2.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="carrier_rate2.pgm_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=zoncod dbname="carrier_rate2.zoncod" )
+ column=(type=char(50) updatewhereclause=yes name=syscod2t_codenm dbname="syscod2t.codenm" )
+ retrieve="   SELECT ~"CARRIER_RATE2~".~"CARRIERID~"
+        , ~"CARRIER_RATE2~".~"AREACOD~"
+        , ~"CARRIER_RATE2~".~"OPENDT~"
+        , ~"CARRIER_RATE2~".~"ADDAMT~"
+        , ~"CARRIER_RATE2~".~"ADDSEC~"
+        , ~"CARRIER_RATE2~".~"CRT_USER~"
+        , ~"CARRIER_RATE2~".~"ZONEGROUP~"
+        , ~"CARRIER_RATE2~".~"UPDT_USER~"
+        , ~"CARRIER_RATE2~".~"CRTDT~"
+        , ~"CARRIER_RATE2~".~"UPDTDT~"
+        , ~"CARRIER_RATE2~".~"PGM_ID~"
+        , ~"CARRIER_RATE2~".~"ZONCOD~"
+        , ~"SYSCOD2T~".~"CODENM~"  
+     FROM ~"CARRIER_RATE2~",   
+          ~"SYSCOD2T~"  
+    WHERE(~"CARRIER_RATE2~".~"ZONCOD~" = ~"SYSCOD2T~".~"CODE~" ) 
+      AND(( ~"CARRIER_RATE2~".~"ZONCOD~" = ~"SYSCOD2T~".~"CODE~" ) 
+      AND ( ~"SYSCOD2T~".~"GRCODE~" = 'C130' ) )
+ ORDER BY ~"CARRIER_RATE2~".~"ZONCOD~"
+        , ~"CARRIER_RATE2~".~"AREACOD~"
+        , ~"CARRIER_RATE2~".~"OPENDT~" " update="CARRIER_RATE2" updatewhere=1 updatekeyinplace=no  sort="syscod2t_codenm A " )
+text(band=header alignment="2" text="지역Prefix" border="2" color="15793151" x="14" y="12" height="60" width="553"  name=carrier_rate2_areacod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="적용개시일" border="2" color="15793151" x="585" y="12" height="60" width="375"  name=carrier_rate2_opendt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대역코드" border="2" color="15793151" x="978" y="12" height="60" width="914"  name=carrier_rate2_zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="도수(sec)" border="2" color="15793151" x="1911" y="12" height="60" width="485"  name=carrier_rate2_addsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="금액" border="2" color="15793151" x="2414" y="12" height="60" width="485"  name=carrier_rate2_addamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대역그룹" border="2" color="15793151" x="2917" y="12" height="60" width="466"  name=carrier_rate2_zonegroup_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="14" y="8" height="60" width="553" format="[general]"  name=areacod edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="2" color="16777215" x="585" y="8" height="60" width="375" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=12 alignment="0" tabsequence=30 border="2" color="16777215" x="978" y="8" height="60" width="914" format="[general]"  name=zoncod dddw.name=c1dc_dddw_zoncod dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="1" tabsequence=40 border="2" color="16777215" x="1911" y="8" height="60" width="485" format="#,##0"  name=addsec edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="1" tabsequence=50 border="2" color="16777215" x="2414" y="8" height="60" width="485" format="#,##0.0000"  name=addamt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="2" color="16777215" x="2917" y="8" height="60" width="466" format="[general]"  name=zonegroup dddw.name=c1dc_dddw_zoncodgroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

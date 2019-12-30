@@ -1,0 +1,21 @@
+﻿$PBExportHeader$sams_ipc_dw_req_cnd.srd
+$PBExportComments$[hcjung] IPC 충전 검색 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=248 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=memberid dbname="memberid" )
+ column=(type=char(60) updatewhereclause=no name=customernm dbname="customernm" )
+ column=(type=char(14) updatewhereclause=no name=customerid dbname="customerid" )
+ column=(type=char(2) updatewhereclause=no name=bil_fromdt dbname="bil_fromdt" )
+ )
+text(band=detail alignment="1" text="Bill Date" border="0" color="0" x="133" y="12" height="60" width="256"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=10 border="2" color="16777215" x="411" y="12" height="60" width="384" format="[general]"  name=bil_fromdt edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="Customer ID" border="0" color="0" x="55" y="92" height="60" width="334"  name=customerid_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="4" color="0" x="832" y="92" height="60" width="1029" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="2" color="0" x="411" y="92" height="60" width="384" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Member ID" border="0" color="0" x="55" y="172" height="60" width="334"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=30 border="2" color="0" x="411" y="172" height="60" width="384" format="[general]"  name=memberid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,86 @@
+﻿$PBExportHeader$rpt0dw_detail_reg_rptdrive.srd
+$PBExportComments$[parkkh]
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(5) update=yes updatewhereclause=yes key=yes name=pageno dbname="rptdrive.pageno" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="rptdrive.seq" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=linecnt dbname="rptdrive.linecnt" initial="1" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=wkcod dbname="rptdrive.wkcod" values="LEVEL PRINT	L/TEXT PRINT	T/" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=desc_p dbname="rptdrive.desc_p" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=desc_c dbname="rptdrive.desc_c" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=ltype dbname="rptdrive.ltype" values="금액	$/수량	#/비율	%/" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=prtpos dbname="rptdrive.prtpos" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=loadlevel dbname="rptdrive.loadlevel" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=divlevel dbname="rptdrive.divlevel" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=levelno1 dbname="rptdrive.levelno1" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=levelno2 dbname="rptdrive.levelno2" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=factor dbname="rptdrive.factor" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=opcod dbname="rptdrive.opcod" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=reverseck dbname="rptdrive.reverseck" values="Yes	Y/No	N/" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=prop1 dbname="rptdrive.prop1" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=bold dbname="rptdrive.bold" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=underline dbname="rptdrive.underline" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=italic dbname="rptdrive.italic" values="	Y/	N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=format dbname="rptdrive.format" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="rptdrive.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="rptdrive.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="rptdrive.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="rptdrive.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="rptdrive.pgm_id" )
+ retrieve="  SELECT ~"RPTDRIVE~".~"PAGENO~",   
+         ~"RPTDRIVE~".~"SEQ~",   
+         ~"RPTDRIVE~".~"LINECNT~",   
+         ~"RPTDRIVE~".~"WKCOD~",   
+         ~"RPTDRIVE~".~"DESC_P~",   
+         ~"RPTDRIVE~".~"DESC_C~",   
+         ~"RPTDRIVE~".~"LTYPE~",   
+         ~"RPTDRIVE~".~"PRTPOS~",   
+         ~"RPTDRIVE~".~"LOADLEVEL~",   
+         ~"RPTDRIVE~".~"DIVLEVEL~",   
+         ~"RPTDRIVE~".~"LEVELNO1~",   
+         ~"RPTDRIVE~".~"LEVELNO2~",   
+         ~"RPTDRIVE~".~"FACTOR~",   
+         ~"RPTDRIVE~".~"OPCOD~",   
+         ~"RPTDRIVE~".~"REVERSECK~",   
+         ~"RPTDRIVE~".~"PROP1~",   
+		 ~"RPTDRIVE~".~"BOLD~",   
+		 ~"RPTDRIVE~".~"UNDERLINE~",   
+		 ~"RPTDRIVE~".~"ITALIC~",   
+         ~"RPTDRIVE~".~"FORMAT~",   
+         ~"RPTDRIVE~".~"CRT_USER~",   
+         ~"RPTDRIVE~".~"UPDT_USER~",   
+         ~"RPTDRIVE~".~"CRTDT~",   
+         ~"RPTDRIVE~".~"UPDTDT~",   
+         ~"RPTDRIVE~".~"PGM_ID~"  
+    FROM ~"RPTDRIVE~"  
+ ORDER BY pageno, seq 
+" update="RPTDRIVE" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="구   분" border="2" color="16777215" x="224" y="12" height="60" width="421"  name=wkcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Description For Print" border="2" color="16777215" x="654" y="12" height="60" width="859"  name=desc_p_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Description For Comment" border="2" color="16777215" x="1522" y="12" height="60" width="791"  name=desc_c_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Load Level" border="2" color="16777215" x="2322" y="12" height="60" width="681"  name=loadlevel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Div Level" border="2" color="16777215" x="3013" y="12" height="60" width="736"  name=divlevel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Reverse" border="2" color="16777215" x="3758" y="12" height="60" width="242"  name=reverseck_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Format" border="2" color="16777215" x="4009" y="12" height="60" width="302"  name=format_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Bold" border="2" color="16777215" x="4320" y="12" height="60" width="165"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Underline" border="2" color="16777215" x="4494" y="12" height="60" width="306"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Italic" border="2" color="16777215" x="4809" y="12" height="60" width="206"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Seq" border="2" color="16777215" x="37" y="12" height="60" width="178"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=detail alignment="0" expression="~"~""border="0" color="0" x="9" y="4" height="76" width="18" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="16777215" x="224" y="8" height="60" width="421" format="[general]"  name=wkcod ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=9 alignment="1" tabsequence=50 border="2" color="0" x="2322" y="8" height="60" width="681" format="[general]" protect="0~tif ( wkcod =~"L~", 0 , 1 )"  name=loadlevel edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(  wkcod = ~"L~", rgb(108,147,137), rgb(255,251,240) )" )
+column(band=detail id=10 alignment="1" tabsequence=60 border="2" color="0" x="3013" y="8" height="60" width="736" format="[general]" protect="0~tif ( wkcod =~"L~", 0 , 1 )"  name=divlevel edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(  wkcod = ~"L~", rgb(255,255,255), rgb(255,251,240) )" )
+column(band=detail id=15 alignment="0" tabsequence=70 border="2" color="0" x="3758" y="8" height="60" width="242" format="[general]" protect="0~tif ( wkcod =~"L~", 0 , 1 )"  name=reverseck ddlb.limit=0 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(  wkcod = ~"L~", rgb(255,255,255), rgb(255,251,240) )" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="2" color="0" x="654" y="8" height="60" width="859" format="[general]"  name=desc_p edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="2" color="0" x="1522" y="8" height="60" width="791" format="[general]"  name=desc_c edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=80 border="2" color="0" x="4009" y="8" height="60" width="302" format="[general]" protect="0~tif ( wkcod =~"L~", 0 , 1 )"  name=format edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(  wkcod = ~"L~", rgb(255,255,255), rgb(255,251,240) )" )
+column(band=detail id=17 alignment="2" tabsequence=90 border="2" color="16777215" x="4320" y="8" height="60" width="165" format="[general]"  name=bold checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="2" tabsequence=100 border="2" color="16777215" x="4494" y="8" height="60" width="306" format="[general]"  name=underline checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="2" tabsequence=110 border="2" color="16777215" x="4809" y="8" height="60" width="206" format="[general]"  name=italic checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="1" tabsequence=10 border="2" color="16777215" x="37" y="8" height="60" width="178" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

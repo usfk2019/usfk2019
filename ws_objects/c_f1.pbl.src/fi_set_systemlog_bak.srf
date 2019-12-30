@@ -1,0 +1,49 @@
+﻿$PBExportHeader$fi_set_systemlog_bak.srf
+$PBExportComments$[kenn] SYSTEM Logging
+global type fi_set_systemlog_bak from function_object
+end type
+
+forward prototypes
+global function integer fi_set_systemlog_bak (string as_pgm_id, string as_pgm_item, string as_chg_item, string as_old, string as_new)
+end prototypes
+
+global function integer fi_set_systemlog_bak (string as_pgm_id, string as_pgm_item, string as_chg_item, string as_old, string as_new);//*********************************************
+// 목적 : SYSTEM Log를 저장한다.
+// 
+// 내용 : 사용자/등록일자를 구한다.
+//        SEQ#를 구한다.(최대 999999까지)
+//        인수의 자료와 조합하여 SYSLOG1T에 Insert
+// 
+//*********************************************
+String ls_seq, ls_emp_id, ls_reg_dt
+
+ls_emp_id = gs_user_id
+ls_reg_dt = String(fdt_get_dbserver_now(), "yyyymmddhhmmss")
+
+//일련번호 구하기
+SELECT lpad(to_char(to_number(nvl(max(seq), '0')) + 1), 6, '0')
+INTO :ls_seq
+FROM SYSLOG1T
+WHERE chg_item = :as_chg_item AND pgm_item = :as_pgm_item AND pgm_id = :as_pgm_id;
+If SQLCA.SQLCode < 0 Then
+	f_msg_sql_err("SYSTEM Log", "일련번호 구하기")
+	Return -1
+End If
+
+//최대값 확인
+If LenA(ls_seq) > 6 Then
+	f_msg_usr_err(9000, "SYSTEM Log", "최대 저장갯수 : 999,999")
+	Return -1
+End If
+
+INSERT INTO SYSLOG1T
+VALUES (:as_pgm_id, :as_pgm_item, :as_chg_item, :ls_seq, :as_old, :as_new, :ls_emp_id, :ls_reg_dt);
+If SQLCA.SQLCode < 0 Then
+	f_msg_sql_err("SYSTEM Log", "저장 실패")
+	Return -1
+End If
+
+Return 0
+
+end function
+

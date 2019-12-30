@@ -1,0 +1,35 @@
+﻿$PBExportHeader$b7dw_inq_reg_banktext_ea21_h.srd
+$PBExportComments$[parkkh] CMS 출금의뢰신청(EA21)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=176 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=reqdtl_payid dbname="reqdtl.payid" )
+ column=(type=number updatewhereclause=yes name=compute_0002 dbname="compute_0002" )
+ retrieve="SELECT a.payid, sum(a.tramt)
+  FROM reqdtl a, reqinfoh b
+ WHERE a.payid= b.payid
+  AND to_char(b.trdt,'yyyymmdd') = :as_trdt
+  AND to_char(a.trdt,'yyyymmdd') <= :as_trdt
+  AND b.chargedt = :as_chargedt 
+  AND b.pay_method = :as_pay_method
+GROUP BY a.payid 
+HAVING sum(a.tramt) > :an_min_tramt" arguments=(("as_trdt", string),("as_chargedt", string),("as_pay_method", string),("an_min_tramt", number)) )
+text(band=header alignment="2" text="출금의뢰금액" border="2" color="16777215" x="1193" y="112" height="60" width="617"  name=compute_0002_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="납입자명" border="2" color="16777215" x="494" y="112" height="60" width="690"  name=reqdtl_payid_1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="납입자번호" border="2" color="16777215" x="9" y="112" height="60" width="475"  name=reqdtl_payid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="475" format="[general]"  name=reqdtl_payid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="494" y="4" height="60" width="690" format="[general]"  name=reqdtl_payid_1 dddw.name=b7dc_dddw_customerid dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="1193" y="4" height="60" width="617" format="#,##0"  name=compute_0002 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="합   계 :" border="0" color="0" x="494" y="8" height="56" width="690"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(  compute_0002  for all )"border="0" color="0" x="1193" y="8" height="56" width="617" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="2" text="ORDER BY" border="0" color="0" x="5" y="36" height="60" width="229"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="247" y="36" height="60" width="343"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="ASC/DESC" border="0" color="0" x="718" y="36" height="60" width="302"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1033" y="36" height="60" width="119"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="2" text="TOTAL ROWS:" border="0" color="0" x="1289" y="36" height="56" width="320"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=foreground alignment="0" expression="rowcount()"border="0" color="8388608" x="1623" y="36" height="56" width="169" format="#,##0"  name=compute_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

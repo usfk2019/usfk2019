@@ -1,0 +1,33 @@
+﻿$PBExportHeader$b5d_reg_inv_item_det.srd
+$PBExportComments$[kEnn-backgu] 청구서항목내용 Detail Data Window
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=inv_type dbname="invoice_item_det.inv_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=trcod dbname="invoice_item_det.trcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bilcod dbname="invoice_item_det.bilcod" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="invoice_item_det.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="invoice_item_det.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="invoice_item_det.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="invoice_item_det.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="invoice_item_det.pgm_id" )
+ retrieve=" SELECT INV_TYPE,
+	     TRCOD,
+		  BILCOD,
+		  CRT_USER,
+		  UPDT_USER,
+		  CRTDT,
+		  UPDTDT,
+		  PGM_ID
+ FROM   INVOICE_ITEM_DET
+ORDER BY INV_TYPE, BILCOD,TRCOD 
+" update="INVOICE_ITEM_DET" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="거래유형명" border="2" color="15793151" x="658" y="8" height="60" width="1047"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="거래코드" border="2" color="15793151" x="46" y="8" height="60" width="594"  name=trcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="33554432" x="658" y="4" height="60" width="1047" format="[general]"  name=trcod_1 dddw.name=b5dc_dddw_trcode dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="50" y="4" height="60" width="594" format="[general]"  name=trcod dddw.name=b5dc_dddw_trcode_v21 dddw.displaycolumn=trcod dddw.datacolumn=trcod dddw.percentwidth=210 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

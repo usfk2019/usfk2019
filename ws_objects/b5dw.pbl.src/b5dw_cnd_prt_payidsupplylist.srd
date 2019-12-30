@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b5dw_cnd_prt_payidsupplylist.srd
+$PBExportComments$[chooys] 고객별 청구내역 상세 보고서 Condition DW
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=300 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=ctype2 dbname="ctype2" )
+ column=(type=char(10) updatewhereclause=no name=pay_method dbname="pay_method" )
+ column=(type=date updatewhereclause=no name=trdt dbname="trdt" )
+ column=(type=char(10) updatewhereclause=no name=location dbname="location" )
+ column=(type=char(10) updatewhereclause=no name=currency dbname="currency" )
+ )
+text(band=detail alignment="1" text="통화구분" border="0" color="0" x="736" y="20" height="56" width="302"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="2" color="16777215" x="1061" y="20" height="60" width="498" format="[general]"  name=currency dddw.name=b0dc_dddw_currency dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="결재방법" border="0" color="0" x="46" y="204" height="56" width="302"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="청구기준일" border="0" color="0" x="46" y="20" height="56" width="302"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="2" color="16777215" x="370" y="20" height="60" width="338" format="[general]"  name=trdt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=40 border="2" color="0" x="370" y="200" height="60" width="654" format="[general]"  name=pay_method dddw.name=b5dc_dddw_paymethod dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="고객구분" border="0" color="0" x="46" y="112" height="56" width="302"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=30 border="2" color="0" x="370" y="112" height="60" width="654" format="[general]"  name=ctype2 dddw.name=b5dc_dddw_customertype2 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

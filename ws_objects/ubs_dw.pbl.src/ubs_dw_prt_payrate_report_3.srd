@@ -1,0 +1,198 @@
+﻿$PBExportHeader$ubs_dw_prt_payrate_report_3.srd
+$PBExportComments$[jhchoi] 수납률 보고서 (%) - 2009.06.22
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=376 color="536870912" )
+summary(height=104 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=basenm dbname="basenm" )
+ column=(type=number updatewhereclause=yes name=c_r dbname="c_r" )
+ column=(type=number updatewhereclause=yes name=c_1_r dbname="c_1_r" )
+ column=(type=number updatewhereclause=yes name=c_2_r dbname="c_2_r" )
+ column=(type=number updatewhereclause=yes name=c_3_r dbname="c_3_r" )
+ column=(type=number updatewhereclause=yes name=c_4_r dbname="c_4_r" )
+ column=(type=number updatewhereclause=yes name=c_5_r dbname="c_5_r" )
+ column=(type=number updatewhereclause=yes name=c_6_r dbname="c_6_r" )
+ column=(type=number updatewhereclause=yes name=c_p dbname="c_p" )
+ column=(type=number updatewhereclause=yes name=c_b dbname="c_b" )
+ column=(type=number updatewhereclause=yes name=c_1_p dbname="c_1_p" )
+ column=(type=number updatewhereclause=yes name=c_1_b dbname="c_1_b" )
+ column=(type=number updatewhereclause=yes name=c_2_p dbname="c_2_p" )
+ column=(type=number updatewhereclause=yes name=c_2_b dbname="c_2_b" )
+ column=(type=number updatewhereclause=yes name=c_3_p dbname="c_3_p" )
+ column=(type=number updatewhereclause=yes name=c_3_b dbname="c_3_b" )
+ column=(type=number updatewhereclause=yes name=c_4_p dbname="c_4_p" )
+ column=(type=number updatewhereclause=yes name=c_4_b dbname="c_4_b" )
+ column=(type=number updatewhereclause=yes name=c_5_p dbname="c_5_p" )
+ column=(type=number updatewhereclause=yes name=c_5_b dbname="c_5_b" )
+ column=(type=number updatewhereclause=yes name=c_6_p dbname="c_6_p" )
+ column=(type=number updatewhereclause=yes name=c_6_b dbname="c_6_b" )
+ column=(type=number updatewhereclause=yes name=rank dbname="rank" )
+ retrieve="SELECT  BASENM,
+		  SUM(DECODE(BILL_MONTH, SUBSTR(:as_current_date, 1, 6),
+									  	 DECODE(TOTAL_PAY, 0, 0, ROUND((TOTAL_PAY / TOTAL_BILL) * 100, 1)), 0)) AS C_R,
+		  SUM(DECODE(BILL_MONTH, :as_current_1,
+									  	 DECODE(TOTAL_PAY, 0, 0, ROUND((TOTAL_PAY / TOTAL_BILL) * 100, 1)), 0)) AS C_1_R,
+		  SUM(DECODE(BILL_MONTH, :as_current_2,
+									  	 DECODE(TOTAL_PAY, 0, 0, ROUND((TOTAL_PAY / TOTAL_BILL) * 100, 1)), 0)) AS C_2_R,
+		  SUM(DECODE(BILL_MONTH, :as_current_3,
+									  	 DECODE(TOTAL_PAY, 0, 0, ROUND((TOTAL_PAY / TOTAL_BILL) * 100, 1)), 0)) AS C_3_R,
+		  SUM(DECODE(BILL_MONTH, :as_current_4,
+									  	 DECODE(TOTAL_PAY, 0, 0, ROUND((TOTAL_PAY / TOTAL_BILL) * 100, 1)), 0)) AS C_4_R,
+		  SUM(DECODE(BILL_MONTH, :as_current_5,
+									  	 DECODE(TOTAL_PAY, 0, 0, ROUND((TOTAL_PAY / TOTAL_BILL) * 100, 1)), 0)) AS C_5_R,
+		  SUM(DECODE(BILL_MONTH, SUBSTR(:as_current_6, 1, 6),
+									  	 DECODE(TOTAL_PAY, 0, 0, ROUND((TOTAL_PAY / TOTAL_BILL) * 100, 1)), 0)) AS C_6_R,
+		  SUM(DECODE(BILL_MONTH, SUBSTR(:as_current_date, 1, 6), TOTAL_PAY, 0))  AS C_P,
+		  SUM(DECODE(BILL_MONTH, SUBSTR(:as_current_date, 1, 6), TOTAL_BILL, 0)) AS C_B,
+		  SUM(DECODE(BILL_MONTH, :as_current_1, TOTAL_PAY, 0))  AS C_1_P,
+		  SUM(DECODE(BILL_MONTH, :as_current_1, TOTAL_BILL, 0)) AS C_1_B,
+		  SUM(DECODE(BILL_MONTH, :as_current_2, TOTAL_PAY, 0))  AS C_2_P,
+		  SUM(DECODE(BILL_MONTH, :as_current_2, TOTAL_BILL, 0)) AS C_2_B,
+		  SUM(DECODE(BILL_MONTH, :as_current_3, TOTAL_PAY, 0))  AS C_3_P,
+		  SUM(DECODE(BILL_MONTH, :as_current_3, TOTAL_BILL, 0)) AS C_3_B,
+		  SUM(DECODE(BILL_MONTH, :as_current_4, TOTAL_PAY, 0))  AS C_4_P,
+		  SUM(DECODE(BILL_MONTH, :as_current_4, TOTAL_BILL, 0)) AS C_4_B,
+		  SUM(DECODE(BILL_MONTH, :as_current_5, TOTAL_PAY, 0))  AS C_5_P,
+		  SUM(DECODE(BILL_MONTH, :as_current_5, TOTAL_BILL, 0)) AS C_5_B,
+		  SUM(DECODE(BILL_MONTH, SUBSTR(:as_current_6, 1, 6), TOTAL_PAY, 0))  AS C_6_P,
+		  SUM(DECODE(BILL_MONTH, SUBSTR(:as_current_6, 1, 6), TOTAL_BILL, 0)) AS C_6_B,
+		  0 AS RANK
+FROM (  SELECT  X.BASE,
+				    Y.BASENM,
+				    X.BILL_MONTH,
+				    SUM(X.TOTAL_PAY) AS TOTAL_PAY,
+				    SUM(X.TOTAL_BILL) AS TOTAL_BILL
+		  FROM (  SELECT  A.PAYID,
+							   ( SELECT C.BASECOD FROM CUSTOMERM C WHERE C.CUSTOMERID = A.PAYID ) AS BASE,
+							   TO_CHAR(A.TRDT, 'YYYYMM') AS BILL_MONTH,
+							   SUM(NVL(A.TRAMT, 0)) AS TOTAL_BILL,
+							   SUM(NVL(A.PAYIDAMT, 0)) AS TOTAL_PAY,
+							   SUM(NVL(A.TRAMT, 0)) -    SUM(NVL(A.PAYIDAMT, 0)) AS BALANCE
+				    FROM    REQDTL A
+				    WHERE   A.TRDT >= TO_DATE(:as_current_6, 'YYYYMMDD')
+				    AND     A.TRDT <= TO_DATE(:as_current_date, 'YYYYMMDD')
+				    AND     A.TRCOD NOT IN ('B01', 'B02', '900', '910', '920', '930', '940', '950', 'RF0001')
+				    AND     A.MARK IS NULL
+				    GROUP BY A.PAYID, A.REQNUM, TO_CHAR(A.TRDT, 'YYYYMM') ) X, BASEMST Y
+		  WHERE   X.BASE NOT IN ('000SS', 'TESTS')   
+		  AND     X.BASE = Y.BASECOD (+)
+		  GROUP BY X.BASE, Y.BASENM, X.BILL_MONTH )
+GROUP BY BASENM
+" arguments=(("as_current_date", string),("as_current_1", string),("as_current_2", string),("as_current_3", string),("as_current_4", string),("as_current_5", string),("as_current_6", string))  sort="a_r D " )
+text(band=header alignment="2" text="" border="0" color="0" x="3122" y="236" height="132" width="503"  name=t_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32768" )
+text(band=header alignment="2" text="" border="0" color="0" x="974" y="236" height="132" width="2144"  name=t_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="21921016" )
+text(band=header alignment="2" text="" border="0" color="0" x="14" y="236" height="132" width="951"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32768" )
+text(band=header alignment="2" text="순위" border="0" color="16777215" x="27" y="264" height="60" width="128"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="5" y1="228" x2="5" y2="448"  name=l_1 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="169" y1="228" x2="169" y2="448"  name=l_2 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Camp 별 최근 6개월 수납 상세(%) (" border="0" color="0" x="14" y="60" height="100" width="1518"  name=t_16  font.face="Arial" font.height="-15" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="2" expression="string (today(), 'yyyy.mm.dd')"border="0" color="0" x="1541" y="60" height="100" width="526" format="[GENERAL]"  name=c_t visible="1~t0"  font.face="Arial" font.height="-15" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text=")" border="0" color="0" x="2075" y="60" height="100" width="78"  name=t_17  font.face="Arial" font.height="-15" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="599" y1="228" x2="599" y2="448"  name=l_5 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="965" y1="228" x2="965" y2="448"  name=l_7 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="1326" y1="228" x2="1326" y2="448"  name=l_4 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="1682" y1="228" x2="1682" y2="448"  name=l_23 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="2043" y1="228" x2="2043" y2="448"  name=l_8 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="2405" y1="228" x2="2405" y2="448"  name=l_9 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="2761" y1="228" x2="2761" y2="448"  name=l_10 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="3118" y1="228" x2="3118" y2="448"  name=l_11 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="6개월 평균수납률" border="0" color="16777215" x="3131" y="260" height="60" width="480"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header x1="3630" y1="228" x2="3630" y2="448"  name=l_12 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="14" y1="232" x2="3639" y2="232"  name=l_3 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=header x1="14" y1="368" x2="3639" y2="368"  name=l_18 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="" border="0" color="0" x="9" y="0" height="84" width="160"  name=t_18  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12639424" )
+line(band=detail x1="5" y1="0" x2="5" y2="220"  name=l_19 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="169" y1="0" x2="169" y2="220"  name=l_20 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="599" y1="0" x2="599" y2="220"  name=l_22 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="965" y1="0" x2="965" y2="220"  name=l_24 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1326" y1="0" x2="1326" y2="220"  name=l_6 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1682" y1="0" x2="1682" y2="220"  name=l_38 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2043" y1="0" x2="2043" y2="220"  name=l_25 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2405" y1="0" x2="2405" y2="220"  name=l_26 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2761" y1="0" x2="2761" y2="220"  name=l_27 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3118" y1="0" x2="3118" y2="220"  name=l_28 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3630" y1="0" x2="3630" y2="220"  name=l_29 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="84" x2="3639" y2="84"  name=l_35 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="187" y="4" height="68" width="398" format="[general]"  name=basenm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="617" y="4" height="68" width="334" format="[general]"  name=c_r edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2775" y="4" height="68" width="334" format="0.0"  name=c_6_r edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2418" y="4" height="68" width="334" format="0.0"  name=c_5_r edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2062" y="4" height="68" width="334" format="0.0"  name=c_4_r edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1696" y="4" height="68" width="334" format="0.0"  name=c_3_r edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1339" y="4" height="68" width="334" format="0.0"  name=c_2_r edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="983" y="4" height="68" width="334" format="0.0"  name=c_1_r edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="round((rs_pay / rs_bill) * 100, 1)"border="0" color="0" x="3136" y="4" height="68" width="485" format="0.0"  name=a_r  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="7314" y="12" height="60" width="329" format="[general]"  name=c_5_p visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="7657" y="12" height="60" width="329" format="[general]"  name=c_5_b visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="8046" y="12" height="60" width="329" format="[general]"  name=c_6_p visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="8389" y="12" height="60" width="329" format="[general]"  name=c_6_b visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="6926" y="12" height="60" width="329" format="[general]"  name=c_4_b visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="6583" y="12" height="60" width="329" format="[general]"  name=c_4_p visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="6194" y="12" height="60" width="329" format="[general]"  name=c_3_b visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="5851" y="12" height="60" width="329" format="[general]"  name=c_3_p visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="5463" y="12" height="60" width="329" format="[general]"  name=c_2_b visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="5120" y="12" height="60" width="329" format="[general]"  name=c_2_p visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4736" y="12" height="60" width="329" format="[general]"  name=c_1_b visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4393" y="12" height="60" width="329" format="[general]"  name=c_1_p visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3995" y="12" height="60" width="329" format="[general]"  name=c_b visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3648" y="12" height="60" width="329" format="[general]"  name=c_p visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="c_1_p + c_2_p + c_3_p + c_4_p + c_5_p + c_6_p"border="0" color="0" x="8791" y="12" height="60" width="183" format="[GENERAL]"  name=rs_pay visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="c_1_b + c_2_b + c_3_b + c_4_b + c_5_b + c_6_b"border="0" color="0" x="8992" y="12" height="60" width="183" format="[GENERAL]"  name=rs_bill visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="2" tabsequence=32766 border="0" color="0" x="18" y="8" height="64" width="142" format="[general]"  name=rank edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="" border="0" color="0" x="14" y="0" height="104" width="3616"  name=t_19  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32768" )
+line(band=summary x1="5" y1="0" x2="5" y2="104"  name=l_36 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="169" y1="0" x2="169" y2="104"  name=l_37 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="2" text="Total" border="0" color="16777215" x="187" y="20" height="60" width="398"  name=t_20  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=summary x1="599" y1="0" x2="599" y2="104"  name=l_39 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="965" y1="0" x2="965" y2="104"  name=l_41 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="1326" y1="0" x2="1326" y2="104"  name=l_21 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="1682" y1="0" x2="1682" y2="104"  name=l_40 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="2043" y1="0" x2="2043" y2="104"  name=l_42 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="2405" y1="0" x2="2405" y2="104"  name=l_43 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="2761" y1="0" x2="2761" y2="104"  name=l_44 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="3118" y1="0" x2="3118" y2="104"  name=l_45 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="3630" y1="0" x2="3630" y2="104"  name=l_46 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+line(band=summary x1="14" y1="100" x2="3639" y2="100"  name=l_52 pen.style="0" pen.width="5" pen.color="65280"  background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="round((s_c_p / s_c_b) * 100, 1)"border="0" color="16777215" x="617" y="20" height="60" width="329" format="0.0"  name=compute_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="round((s_c_1_p / s_c_1_b) * 100, 1)"border="0" color="16777215" x="983" y="20" height="60" width="329" format="0.0"  name=compute_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="round((s_c_2_p / s_c_2_b) * 100, 1)"border="0" color="16777215" x="1344" y="20" height="60" width="329" format="0.0"  name=compute_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="round((s_c_3_p / s_c_3_b) * 100, 1)"border="0" color="16777215" x="1701" y="20" height="60" width="329" format="0.0"  name=compute_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="round((s_c_4_p / s_c_4_b) * 100, 1)"border="0" color="16777215" x="2062" y="20" height="60" width="329" format="0.0"  name=compute_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="round((s_c_5_p / s_c_5_b) * 100, 1)"border="0" color="16777215" x="2423" y="20" height="60" width="329" format="0.0"  name=compute_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="round((s_c_6_p / s_c_6_b) * 100, 1)"border="0" color="16777215" x="2779" y="20" height="60" width="329" format="0.0"  name=compute_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="round((s_pay / s_bill) * 100, 1)"border="0" color="16777215" x="3131" y="20" height="68" width="485" format="0.0"  name=compute_9  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(c_p for all)"border="0" color="0" x="3648" y="20" height="60" width="329" format="#,##0.0"  name=s_c_p visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_b for all)"border="0" color="0" x="3995" y="20" height="60" width="329" format="#,##0.0"  name=s_c_b visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_1_p for all)"border="0" color="0" x="4393" y="20" height="60" width="329" format="#,##0.0"  name=s_c_1_p visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_1_b for all)"border="0" color="0" x="4741" y="20" height="60" width="329" format="#,##0.0"  name=s_c_1_b visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_2_p for all)"border="0" color="0" x="5125" y="20" height="60" width="329" format="#,##0.0"  name=s_c_2_p visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_2_b for all)"border="0" color="0" x="5467" y="20" height="60" width="329" format="#,##0.0"  name=s_c_2_b visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_3_p for all)"border="0" color="0" x="5851" y="20" height="60" width="329" format="#,##0.0"  name=s_c_3_p visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_3_b for all)"border="0" color="0" x="6194" y="20" height="60" width="329" format="#,##0.0"  name=s_c_3_b visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_4_b for all)"border="0" color="0" x="6917" y="24" height="60" width="329" format="#,##0.0"  name=s_c_4_b visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_4_p for all)"border="0" color="0" x="6578" y="24" height="60" width="329" format="#,##0.0"  name=s_c_4_p visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_5_p for all)"border="0" color="0" x="7301" y="28" height="60" width="329" format="#,##0.0"  name=s_c_5_p visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_5_b for all)"border="0" color="0" x="7653" y="28" height="60" width="329" format="#,##0.0"  name=s_c_5_b visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_6_p for all)"border="0" color="0" x="8041" y="28" height="60" width="329" format="#,##0.0"  name=s_c_6_p visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(c_6_b for all)"border="0" color="0" x="8393" y="28" height="60" width="329" format="#,##0.0"  name=s_c_6_b visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(rs_pay for all)"border="0" color="0" x="8786" y="28" height="60" width="329" format="#,##0.0"  name=s_pay visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(rs_bill for all)"border="0" color="0" x="9138" y="28" height="60" width="329" format="#,##0.0"  name=s_bill visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="MID(as_current_date, 1, 6)"border="0" color="16777215" x="617" y="168" height="60" width="334" format="[GENERAL]"  name=c_c visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="2" expression="as_current_1"border="0" color="16777215" x="974" y="168" height="60" width="334" format="[GENERAL]"  name=c_c_1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="2" expression="as_current_2"border="0" color="16777215" x="1339" y="168" height="60" width="334" format="[GENERAL]"  name=c_c_2 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="2" expression="as_current_3"border="0" color="16777215" x="1696" y="168" height="60" width="334" format="[GENERAL]"  name=c_c_3 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="2" expression="as_current_4"border="0" color="16777215" x="2062" y="168" height="60" width="334" format="[GENERAL]"  name=c_c_4 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="2" expression="as_current_5"border="0" color="16777215" x="2418" y="168" height="60" width="334" format="[GENERAL]"  name=c_c_5 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="2" expression="MID(as_current_6, 1, 6)"border="0" color="16777215" x="2775" y="168" height="60" width="334" format="[GENERAL]"  name=c_c_6 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Camp" border="0" color="16777215" x="187" y="264" height="60" width="398"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="C" border="0" color="16777215" x="617" y="264" height="60" width="334"  name=t_c  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="C -1" border="0" color="16777215" x="983" y="264" height="60" width="334"  name=t_c_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="C -2" border="0" color="16777215" x="1339" y="264" height="60" width="334"  name=t_c_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="C -3" border="0" color="16777215" x="1701" y="264" height="60" width="334"  name=t_c_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="C -4" border="0" color="16777215" x="2062" y="264" height="60" width="334"  name=t_c_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="C -5" border="0" color="16777215" x="2418" y="264" height="60" width="334"  name=t_c_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="C -6" border="0" color="16777215" x="2775" y="264" height="60" width="334"  name=t_c_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

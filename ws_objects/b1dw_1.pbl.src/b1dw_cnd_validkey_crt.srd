@@ -1,0 +1,40 @@
+﻿$PBExportHeader$b1dw_cnd_validkey_crt.srd
+$PBExportComments$[islim] 인증키 등록 - Master DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=428 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=iseqno dbname="validkey_crt.iseqno" )
+ column=(type=char(10) updatewhereclause=yes name=validkey_type dbname="validkey_crt.validkey_type" )
+ column=(type=decimal(0) updatewhereclause=yes name=iqty dbname="validkey_crt.iqty" )
+ column=(type=datetime updatewhereclause=yes name=idate dbname="validkey_crt.idate" )
+ column=(type=char(100) updatewhereclause=yes name=remark dbname="validkey_crt.remark" )
+ retrieve="  SELECT ~"VALIDKEY_CRT~".~"ISEQNO~",
+			~"VALIDKEY_CRT~".~"VALIDKEY_TYPE~",
+			~"VALIDKEY_CRT~".~"IQTY~",
+			~"VALIDKEY_CRT~".~"IDATE~",
+			~"VALIDKEY_CRT~".~"REMARK~"
+    FROM ~"VALIDKEY_CRT~"   
+" )
+rectangle(band=detail x="14" y="92" height="304" width="2871"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="23" y="96" height="296" width="466"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+rectangle(band=detail x="1454" y="96" height="196" width="466"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478081"  background.mode="2" background.color="29538006" )
+line(band=detail x1="489" y1="96" x2="489" y2="396"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+text(band=detail alignment="2" text="생성번호" border="0" color="0" x="27" y="16" height="56" width="453"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=detail x1="18" y1="188" x2="2885" y2="188"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="18" y1="288" x2="2885" y2="288"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="12639424" )
+line(band=detail x1="1445" y1="92" x2="1445" y2="288"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="1920" y1="92" x2="1920" y2="288"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="32896" )
+line(band=detail x1="425" y1="72" x2="741" y2="72"  name=l_7 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="12639424" )
+text(band=detail alignment="2" text="인증Key Type" border="0" color="0" x="27" y="112" height="56" width="457"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="생성일자" border="0" color="0" x="27" y="208" height="56" width="453"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="생성수량" border="0" color="0" x="1463" y="116" height="56" width="457"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="비    고" border="0" color="0" x="23" y="308" height="60" width="457"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="430" y="12" height="64" width="311" format="[general]"  name=iseqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="1957" y="116" height="60" width="512" format="[general]"  name=iqty editmask.autoskip=yes editmask.mask="###,###,###"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="16777215" x="526" y="112" height="60" width="887" format="[general]"  name=validkey_type dddw.name=b1dc_dddw_validkey_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="5" color="16777215" x="526" y="208" height="60" width="439" format="[shortdate] [time]"  name=idate editmask.autoskip=yes editmask.mask="YYYY-MM-DD"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="5" color="0" x="526" y="312" height="60" width="2331" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

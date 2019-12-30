@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_get_taxrate.srf
+global type f_get_taxrate from function_object
+end type
+
+forward prototypes
+global function decimal f_get_taxrate (string as_taxcod, date ad_date)
+end prototypes
+
+global function decimal f_get_taxrate (string as_taxcod, date ad_date);
+
+dec ldc_taxrate
+
+    select nvl(taxrate,0) into :ldc_taxrate
+	 from taxrate
+    where taxcod = :as_taxcod
+	 and fromdt <= :ad_date;
+
+if isnull(ldc_taxrate) then ldc_taxrate = 0
+
+return ldc_taxrate
+end function
+

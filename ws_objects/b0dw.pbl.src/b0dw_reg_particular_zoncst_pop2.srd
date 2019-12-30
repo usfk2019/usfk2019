@@ -1,0 +1,40 @@
+﻿$PBExportHeader$b0dw_reg_particular_zoncst_pop2.srd
+$PBExportComments$[kem] 선불카드 popup(개별요율등록)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(15) updatewhereclause=yes name=contno dbname="p_cardmst.contno" )
+ column=(type=char(20) updatewhereclause=yes key=yes name=pid dbname="p_cardmst.pid" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="p_cardmst.status" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="p_cardmst.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=pricemodel dbname="p_cardmst.pricemodel" )
+ column=(type=char(60) updatewhereclause=yes name=partner_prefix dbname="p_cardmst.partner_prefix" )
+ retrieve="SELECT CONTNO
+     , PID
+     , STATUS
+     , PRICEPLAN
+     , PRICEMODEL
+     , PARTNER_PREFIX
+  FROM P_CARDMST
+" update="P_CARDMST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="관리번호" border="2" color="16777215" x="9" y="104" height="56" width="471"  name=contno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pin#" border="2" color="16777215" x="489" y="104" height="56" width="471"  name=pid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="카드상태" border="2" color="16777215" x="969" y="104" height="56" width="302"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격정책" border="2" color="16777215" x="1280" y="104" height="56" width="581"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격모델" border="2" color="16777215" x="1870" y="104" height="56" width="453"  name=pricemodel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대리점" border="2" color="16777215" x="2331" y="104" height="56" width="626"  name=partner_prefix_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="471" format="[general]"  name=contno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="489" y="4" height="64" width="571" format="[general]"  name=pid edit.limit=20 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="969" y="4" height="64" width="302" format="[general]"  name=status dddw.name=p0dc_dddw_cardstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1280" y="4" height="64" width="581" format="[general]"  name=priceplan dddw.name=p0dc_dddw_priceplan dddw.displaycolumn=priceplanmst_priceplan_desc dddw.datacolumn=priceplanmst_priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1870" y="4" height="64" width="453" format="[general]"  name=pricemodel edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2331" y="4" height="64" width="626" format="[general]"  name=partner_prefix dddw.name=b1dc_dddw_partner_prefixno dddw.displaycolumn=partnernm dddw.datacolumn=prefixno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=foreground alignment="0" text="ORDER BY" border="0" color="0" x="9" y="16" height="60" width="315"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="343" y="20" height="56" width="585"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="ASC/DESC" border="0" color="0" x="1559" y="16" height="60" width="283"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1874" y="16" height="56" width="183"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

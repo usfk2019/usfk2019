@@ -1,0 +1,25 @@
+﻿$PBExportHeader$d_find_admst.srd
+$PBExportComments$[cuesee] 우편번호
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=modelno dbname="admst.modelno" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=adseq dbname="admst.adseq" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_amt dbname="admst.sale_amt" )
+ retrieve="  SELECT modelno,
+			ADSEQ,
+         SALE_AMT
+    FROM ADMST  
+ORDER BY ADSEQ ASC   
+" update="ADMST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Sale Amount" border="2" color="15793151" x="677" y="96" height="60" width="389"  name=sale_amt_t pointer="click.cur"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="ADSEQ" border="2" color="15793151" x="37" y="96" height="60" width="274"  name=adseq_t pointer="click.cur"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Model No" border="2" color="15793151" x="325" y="96" height="60" width="338"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="37" y="4" height="60" width="274" format="[general]"  name=adseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="325" y="4" height="60" width="338"  name=modelno  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="677" y="4" height="60" width="389" format="#,##0"  name=sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

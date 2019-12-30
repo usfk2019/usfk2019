@@ -1,0 +1,31 @@
+﻿$PBExportHeader$b0dw_cnd_pricerate1_sc.srd
+$PBExportComments$[cuesee] 서비스별 Price Plan 조회
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=172 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=priceplan dbname="priceplan_mst.priceplan" )
+ column=(type=char(50) updatewhereclause=yes name=priceplan_desc dbname="priceplan_mst.priceplan_desc" )
+ column=(type=decimal(0) updatewhereclause=yes name=period_record_data dbname="priceplan_mst.period_record_data" )
+ column=(type=char(1) updatewhereclause=yes name=use_yn dbname="priceplan_mst.use_yn" )
+ retrieve="SELECT priceplan, priceplan_desc, period_record_data, use_yn
+  FROM priceplan_mst
+ORDER By priceplan, priceplan_desc" update="priceplan_mst" updatewhere=1 updatekeyinplace=no )
+text(band=background alignment="0" text="ORDER BY" border="0" color="0" x="14" y="32" height="60" width="288"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="320" y="32" height="60" width="549"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="1257" y="32" height="60" width="320"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=background alignment="1" text="Total Row" border="0" color="0" x="1911" y="32" height="60" width="256"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="사용여부" border="2" color="16777215" x="2185" y="108" height="60" width="393"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상품코드" border="2" color="16777215" x="9" y="108" height="60" width="549"  name=priceplan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상품명" border="2" color="16777215" x="567" y="108" height="60" width="992"  name=priceplan_desc_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="녹음정보보존기간" border="2" color="16777215" x="1568" y="108" height="60" width="608"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2185" y="32" height="60" width="393" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="549" format="[general]"  name=priceplan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33029119" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="567" y="8" height="60" width="992" format="[general]"  name=priceplan_desc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33029119" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1568" y="8" height="60" width="608" format="[general]"  name=period_record_data edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33029119" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2185" y="8" height="60" width="393" format="[general]"  name=use_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33029119" )
+text(band=foreground alignment="0" text="" border="0" color="8388608" x="1600" y="32" height="60" width="265"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

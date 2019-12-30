@@ -1,0 +1,180 @@
+﻿$PBExportHeader$ubs_dw_prt_cdrreport_det2.srd
+$PBExportComments$[ceusee] 상품별 일일 통계보고서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 2 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=316 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="customerid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customernm" )
+ column=(type=char(20) updatewhereclause=yes name=buildingno dbname="buildingno" )
+ column=(type=char(20) updatewhereclause=yes name=roomno dbname="roomno" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="priceplan" )
+ column=(type=char(30) updatewhereclause=yes name=validkey dbname="validkey" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="itemcod" )
+ column=(type=number updatewhereclause=yes name=dc_range dbname="dc_range" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="biltime" )
+ column=(type=number updatewhereclause=yes name=bilamt dbname="bilamt" )
+ column=(type=number updatewhereclause=yes name=dcbilamt dbname="dcbilamt" )
+ column=(type=number updatewhereclause=yes name=dcbil_range dbname="dcbil_range" )
+ column=(type=number updatewhereclause=yes name=biltime_range dbname="biltime_range" )
+ column=(type=char(10) updatewhereclause=yes name=cont_item dbname="cont_item" )
+ retrieve="SELECT  X.CUSTOMERID, Z.CUSTOMERNM, Z.BUILDINGNO, Z.ROOMNO, X.CONTRACTSEQ, X.PRICEPLAN, 
+        X.VALIDKEY, X.ITEMCOD, NVL(Y.DC_RANGE, 0) DC_RANGE,
+        X.BILTIME, X.BILAMT, X.DCBILAMT, X.DCBIL_RANGE, X.BILTIME_RANGE,
+        DECODE(NVL(Y.DC_RANGE, 0), 0, 'X', (SELECT NVL(MAX(W.ITEMCOD), 'X') FROM LIMIT_CONTROL_ZONE W
+                                    		  WHERE  W.PRICEPLAN = X.PRICEPLAN
+                                    		  AND    W.TARGET_CODE = X.ITEMCOD )) AS CONT_ITEM   
+FROM (  SELECT  A.CUSTOMERID, A.CONTRACTSEQ, A.PRICEPLAN, A.VALIDKEY, A.ITEMCOD,
+                A.BILTIME, A.BILAMT, A.DCBILAMT, A.DCBIL_RANGE, A.BILTIME_RANGE,
+                NVL(B.ITEMCOD, 'X') AS CONT_ITEM
+        FROM  ( SELECT CUSTOMERID, CONTRACTSEQ, PRICEPLAN, VALIDKEY, ITEMCOD,
+                       SUM(BILTIME) AS BILTIME, SUM(BILAMT) AS BILAMT, SUM(DCBILAMT) AS DCBILAMT,
+                       SUM(NVL(ADDAMT, 0)) AS DCBIL_RANGE, SUM(NVL(BILTIME_RANGE, 1)) AS BILTIME_RANGE
+                FROM   POST_BILCDRH
+                WHERE  PAYID = :arg_payid
+                AND    CONTRACTSEQ = :arg_contractseq
+                AND    TRDT = :arg_trdt
+                GROUP BY CUSTOMERID, CONTRACTSEQ, PRICEPLAN, VALIDKEY, ITEMCOD, CONNECTFEE ) A, 
+		        ( SELECT C.PRICEPLAN, C.ITEMCOD, C.TARGET_CODE
+                FROM   CONTRACTMST A, CONTRACTDET B, LIMIT_CONTROL_ZONE C
+                WHERE  A.CONTRACTSEQ = :arg_contractseq
+                AND    A.CONTRACTSEQ = B.CONTRACTSEQ
+                AND    B.BIL_FROMDT <= ADD_MONTHS(:arg_trdt, -1)
+                AND  ( B.BIL_TODT IS NULL OR B.BIL_TODT >= ADD_MONTHS(:arg_trdt, -1) )
+                AND    A.PRICEPLAN = C.PRICEPLAN
+                AND    B.ITEMCOD = C.ITEMCOD ) B 
+        WHERE   A.PRICEPLAN = B.PRICEPLAN(+)
+        AND     A.ITEMCOD   = B.TARGET_CODE(+) ) X,
+     (  SELECT  X.ITEMCOD, NVL(Y.BASICRANGE, 0) AS DC_RANGE
+        FROM (  SELECT  X.PRICEPLAN, X.ITEMCOD, MAX(Y.FROMDT) FROMDT
+                FROM  ( SELECT A.PRICEPLAN, B.ITEMCOD, ADD_MONTHS(:arg_trdt, -1) AS USED_FROMDT
+                        FROM   CONTRACTMST A, CONTRACTDET B
+                        WHERE  A.CONTRACTSEQ = :arg_contractseq
+                        AND    A.CONTRACTSEQ = B.CONTRACTSEQ ) X, PRICEPLAN_RATE2 Y
+                WHERE   X.PRICEPLAN = Y.PRICEPLAN
+                AND     X.ITEMCOD   = Y.ITEMCOD 
+                AND     Y.FROMDT <= X.USED_FROMDT
+                GROUP BY X.PRICEPLAN, X.ITEMCOD ) X, PRICEPLAN_RATE2 Y
+        WHERE   X.PRICEPLAN = Y.PRICEPLAN
+        AND     X.ITEMCOD   = Y.ITEMCOD
+        AND     X.FROMDT    = Y.FROMDT ) Y, CUSTOMERM Z
+WHERE  X.CONT_ITEM = Y.ITEMCOD(+)
+AND    X.CUSTOMERID = Z.CUSTOMERID
+ORDER BY DC_RANGE DESC, X.ITEMCOD" arguments=(("arg_payid", string),("arg_contractseq", number),("arg_trdt", date)) )
+group(level=1 header.height=724 trailer.height=1236 by=("customerid" , "customernm" , "buildingno" , "roomno" , "validkey" , "priceplan" , "contractseq" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=88 by=("dc_range" , "cont_item" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2487" y="196" height="56" width="59"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="2560" y="196" height="56" width="55"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="73" y="64" height="88" width="3264"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="2715" y="256" height="52" width="622"  name=date_time  font.face="굴림체" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="" border="0" color="0" x="1792" y="96" height="168" width="562"  name=t_33  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="65535" )
+text(band=header.1 alignment="0" text="" border="0" color="0" x="78" y="8" height="432" width="535"  name=t_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="65535" )
+text(band=header.1 alignment="0" text="Customer ID / Name" border="0" color="0" x="87" y="16" height="60" width="512"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="2" text="[" border="0" color="0" x="631" y="16" height="60" width="37"  name=t_7  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="]" border="0" color="0" x="987" y="16" height="60" width="37"  name=t_8  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=1 alignment="2" tabsequence=32766 border="0" color="0" x="677" y="16" height="60" width="302" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="0" text="Building No." border="0" color="0" x="87" y="104" height="60" width="512"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="Room No." border="0" color="0" x="1801" y="104" height="60" width="539"  name=t_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="2354" y1="88" x2="2354" y2="264"  name=l_39 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="1787" y1="88" x2="1787" y2="264"  name=l_40 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header.1 alignment="0" text="Price Plan" border="0" color="0" x="87" y="192" height="60" width="512"  name=t_34  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="Approval Key" border="0" color="0" x="91" y="280" height="60" width="512"  name=t_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=7 alignment="0" tabsequence=32766 border="0" color="0" x="631" y="284" height="60" width="951" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="0" text="Usage Period" border="0" color="0" x="91" y="368" height="60" width="512"  name=t_35  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="3342" y1="0" x2="3342" y2="444"  name=l_8 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="613" y1="0" x2="613" y2="444"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="69" y1="0" x2="69" y2="444"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header.1 alignment="0" text="~~" border="0" color="0" x="951" y="368" height="60" width="37"  name=t_36  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="0" text="[ Phone Usage List By ITEM ]" border="0" color="0" x="82" y="488" height="60" width="718"  name=t_9  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="" border="0" color="0" x="631" y="368" height="60" width="311"  name=usage_fr  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="" border="0" color="0" x="997" y="368" height="60" width="311"  name=usage_to  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="0" text="" border="0" color="0" x="73" y="572" height="144" width="3264"  name=t_10  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="65535" )
+text(band=header.1 alignment="2" text="ITEM" border="0" color="0" x="87" y="612" height="60" width="960"  name=t_11  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="69" y1="568" x2="69" y2="812"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="1061" y1="568" x2="1061" y2="812"  name=l_13 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="0" x="631" y="104" height="60" width="1111" format="[general]"  name=buildingno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header.1 id=6 alignment="0" tabsequence=32766 border="0" color="0" x="631" y="192" height="60" width="1111" format="[general]"  name=priceplan dddw.name=b1dc_dddw_priceplan_v20 dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header.1 x1="69" y1="4" x2="3337" y2="4"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="69" y1="88" x2="3342" y2="88"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="69" y1="264" x2="3342" y2="264"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="69" y1="176" x2="3342" y2="176"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="73" y1="444" x2="3342" y2="444"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="69" y1="352" x2="3342" y2="352"  name=l_41 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1065" y="16" height="60" width="2263" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="Usage (sec)" border="0" color="0" x="1079" y="580" height="124" width="434"  name=t_12  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1527" y1="568" x2="1527" y2="812"  name=l_14 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header.1 alignment="2" text="Charge unit (min)" border="0" color="0" x="1545" y="580" height="120" width="370"  name=t_13  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="1929" y1="568" x2="1929" y2="812"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="3337" y1="568" x2="3337" y2="812"  name=l_18 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="69" y1="716" x2="3342" y2="716"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header.1 x1="69" y1="568" x2="3342" y2="568"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header.1 alignment="2" text="Billing AMT" border="0" color="0" x="2889" y="612" height="60" width="434"  name=t_16  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="2871" y1="568" x2="2871" y2="812"  name=l_17 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header.1 alignment="2" text="Discount AMT" border="0" color="0" x="2427" y="612" height="60" width="430"  name=t_15  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header.1 x1="2409" y1="568" x2="2409" y2="812"  name=l_16 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header.1 alignment="2" text="AMT" border="0" color="0" x="1947" y="612" height="60" width="448"  name=t_14  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2368" y="104" height="60" width="960" format="[general]"  name=roomno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="0" text="Mobile Plan" border="0" color="0" x="1801" y="192" height="60" width="539"  name=t_43  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="" border="0" color="0" x="2368" y="192" height="60" width="960"  name=mobile_plan  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1061" y1="0" x2="1061" y2="244"  name=l_20 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="82" y="4" height="64" width="965" format="[general]"  name=itemcod dddw.name=b1dc_dddw_itemmst dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="69" y1="0" x2="69" y2="244"  name=l_19 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="1079" y="4" height="64" width="434" format="#,##0"  name=biltime_range edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="1527" y1="0" x2="1527" y2="244"  name=l_21 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+compute(band=detail alignment="1" expression="biltime_range / 60"border="0" color="0" x="1545" y="4" height="64" width="370" format="#,##0"  name=biltime_min  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="1929" y1="0" x2="1929" y2="244"  name=l_22 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="3337" y1="0" x2="3337" y2="244"  name=l_25 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="69" y1="76" x2="3342" y2="76"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+compute(band=detail alignment="1" expression="bilamt - dcbilamt"border="0" color="0" x="2889" y="4" height="60" width="434" format="#,##0.00"  name=billingamt  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="2871" y1="0" x2="2871" y2="244"  name=l_24 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="2427" y="4" height="64" width="430" format="#,##0.00"  name=dcbilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="2409" y1="0" x2="2409" y2="244"  name=l_23 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="1947" y="4" height="64" width="448" format="#,##0.00"  name=bilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=trailer.2 alignment="2" text="[ Free Min ]" border="0" color="0" x="105" y="8" height="60" width="302"  name=t_17  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.2 alignment="2" text="[ Usage Min ]" border="0" color="0" x="928" y="12" height="60" width="325"  name=t_18  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="0" expression="if ( dc_range =  0, 0, dc_range/60 ) "border="0" color="0" x="425" y="8" height="60" width="430" format="#,##0"  name=free_min visible="1~tif ( dc_range =  0, 1, if(dc_range/60 > 100000, 0, 1) ) "  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="0" expression="sum ( biltime_min for group 2 )"border="0" color="0" x="1271" y="12" height="60" width="430" format="#,##0"  name=usage_min  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=trailer.2 alignment="2" text="[ Remaining Min ]" border="0" color="0" x="1792" y="12" height="60" width="434"  name=t_19  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="0" expression="case ( free_min when 0 then 0 else free_min - usage_min )"border="0" color="0~tif ( remain_min = 0, rgb(0, 0, 0), rgb(0, 0, 255))" x="2245" y="12" height="60" width="430" format="#,##0"  name=remain_min visible="1~tif ( dc_range =  0, 1, if(dc_range/60 > 100000, 0, 1) ) "  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=trailer.2 x1="69" y1="0" x2="69" y2="88"  name=l_27 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=trailer.2 alignment="0" text="Unlimited" border="0" color="16711680" x="425" y="8" height="60" width="242"  name=t_41 visible="1~tif ( free_min > 100000, 1, 0)"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=trailer.2 alignment="0" text="Unlimited" border="0" color="16711680" x="2245" y="12" height="60" width="261"  name=t_42 visible="1~tif (remain_min > 100000, 1, 0)"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=trailer.2 x1="3337" y1="0" x2="3337" y2="88"  name=l_26 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.2 x1="69" y1="84" x2="3337" y2="84"  name=l_28 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+column(band=trailer.2 id=9 alignment="0" tabsequence=32766 border="0" color="0" x="681" y="160" height="76" width="302" format="[general]"  name=dc_range edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=trailer.2 id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1422" y="144" height="76" width="251" format="[general]"  name=biltime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=trailer.2 id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1691" y="148" height="76" width="338" format="[general]"  name=dcbil_range edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=trailer.1 alignment="0" text="[ Description of Items ]" border="0" color="0" x="82" y="48" height="60" width="581"  name=t_2  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="" border="0" color="0" x="73" y="140" height="84" width="3269"  name=t_20  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="28100607" )
+text(band=trailer.1 alignment="2" text="Item" border="0" color="0" x="87" y="152" height="60" width="960"  name=t_21  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="Local Usage/Long Distance Usage" border="0" color="0" x="87" y="236" height="60" width="960"  name=t_22  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="Mobile Usage" border="0" color="0" x="87" y="320" height="60" width="960"  name=t_23  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="International A Usage" border="0" color="0" x="87" y="428" height="60" width="960"  name=t_24  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="International B Usage" border="0" color="0" x="87" y="548" height="60" width="960"  name=t_25  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="International C Usage" border="0" color="0" x="87" y="660" height="60" width="960"  name=t_26  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="International D Usage(World Free Plan)" border="0" color="0" x="87" y="948" height="120" width="960"  name=t_37  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="3342" y1="136" x2="3342" y2="1228"  name=l_38 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="1061" y1="136" x2="1061" y2="1228"  name=l_37 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="69" y1="136" x2="69" y2="1228"  name=l_31 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=trailer.1 alignment="2" text="Description" border="0" color="0" x="1079" y="152" height="60" width="2245"  name=t_27  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="Calls to domestic local ( Mobile termination charges NOT included )" border="0" color="0" x="1079" y="240" height="60" width="2245"  name=t_28  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="Calls to domestic mobile phones" border="0" color="0" x="1079" y="320" height="60" width="2245"  name=t_29  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="Calls to other contries ( excluding U.S, Canada, Hawaii, Guam, Alaska, and Puerto Rico )" border="0" color="0" x="1079" y="400" height="120" width="2245"  name=t_30  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="Calls to U.S. ( Mobile termination charges included )" border="0" color="0" x="1079" y="548" height="60" width="2245"  name=t_31  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="Calls to Canada, Hawaii, Guam, Alaska, and Puerto Rico  ( Mobile termination charges included )" border="0" color="0" x="1079" y="636" height="120" width="2245"  name=t_32  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="▶ Calls to Philippines, Sri Lanka, Thailand, Saipan, China, Kuwait, Indonesia, Malaysia, Iraq, Italy, Samoa, Hongkong, Singapore and Virgin Islands( Mobile termination charges included )" border="0" color="0" x="1079" y="780" height="180" width="2245"  name=t_38  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="▶ Calls to Japan, Germany, Australia, U.K, Vietnam, New Zealand, France, Netherlands, Sweden, Swiss, Spain, Greece, Norway, Denmark, Austria, Portugal and Afghanistan(Mobile termination charges NOT included)" border="0" color="0" x="1079" y="972" height="180" width="2245"  name=t_39  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="** Calls to mobile numbers in above 17 countries are International A Usage" border="0" color="0" x="1079" y="1156" height="60" width="2245"  name=t_40  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="69" y1="132" x2="3346" y2="132"  name=l_29 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="69" y1="224" x2="3346" y2="224"  name=l_30 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="69" y1="308" x2="3346" y2="308"  name=l_32 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="69" y1="388" x2="3346" y2="388"  name=l_33 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="69" y1="532" x2="3346" y2="532"  name=l_34 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="69" y1="620" x2="3346" y2="620"  name=l_35 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="69" y1="764" x2="3346" y2="764"  name=l_36 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=trailer.1 x1="69" y1="1228" x2="3346" y2="1228"  name=l_42 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

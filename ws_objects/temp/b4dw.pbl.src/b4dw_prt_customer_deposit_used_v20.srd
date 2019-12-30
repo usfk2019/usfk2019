@@ -1,0 +1,53 @@
+﻿$PBExportHeader$b4dw_prt_customer_deposit_used_v20.srd
+$PBExportComments$[ohj] 고객보증금사용내역 보고서 v20
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 90 print.margin.right = 90 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=468 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=zoncod dbname="customer_deposit_used.zoncod" )
+ column=(type=char(50) updatewhereclause=yes name=zonnm dbname="zone.zonnm" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="biltime" )
+ column=(type=number updatewhereclause=yes name=bilcnt dbname="bilcnt" )
+ column=(type=number updatewhereclause=yes name=bilamt dbname="bilamt" )
+ retrieve="     SELECT A.ZONCOD
+          , B.ZONNM
+          , ROUND(SUM(NVL(A.BILTIME, 0)) / 60, 0)  BILTIME
+          ,       SUM(NVL(A.BILCNT , 0))           BILCNT
+          ,       SUM(NVL(A.BILAMT , 0))           BILAMT
+       FROM CUSTOMER_DEPOSIT_USED A, ZONE B
+      WHERE A.ZONCOD = B.ZONCOD
+   GROUP BY A.ZONCOD, B.ZONNM" )
+text(band=header alignment="0" text="" border="0" color="0" x="1678" y="224" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1719" y="224" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="23" y="60" height="88" width="3470"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="2747" y="220" height="60" width="727"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2743" y="284" height="60" width="727" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="32" y1="452" x2="3493" y2="452"  name=l_31 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="32" y1="368" x2="3493" y2="364"  name=l_30 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="통화금액" border="0" color="0" x="2807" y="380" height="56" width="613"  name=penaltydet_prmtype_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="통화건수" border="0" color="0" x="2217" y="380" height="56" width="526"  name=penaltydet_svccod_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="통화시간(분)" border="0" color="0" x="1627" y="380" height="56" width="526"  name=customerm_customernm_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="대역코드" border="0" color="0" x="101" y="380" height="56" width="480"  name=penaltydet_termdt_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="대역명" border="0" color="0" x="645" y="380" height="56" width="919"  name=penaltydet_customerid_t  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="101" y="12" height="60" width="480" format="[general]"  name=zoncod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="645" y="12" height="60" width="919" format="[general]"  name=zonnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="18" y1="80" x2="3529" y2="80"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1627" y="12" height="60" width="526" format="#,##0"  name=biltime edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2217" y="12" height="60" width="526" format="#,##0"  name=bilcnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2807" y="12" height="60" width="613" format="[general]"  name=bilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=summary x1="23" y1="4" x2="3534" y2="4"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="23" y1="92" x2="3534" y2="92"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum( bilamt )"border="0" color="0" x="2807" y="20" height="60" width="613" format="[GENERAL]"  name=bilamt_sum  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="합계" border="0" color="0" x="494" y="20" height="60" width="919"  name=t_4  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( bilcnt )"border="0" color="0" x="2217" y="20" height="60" width="526" format="#,##0"  name=compute_3  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum( biltime )"border="0" color="0" x="1627" y="20" height="60" width="526" format="#,##0"  name=compute_2  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=footer x1="64" y1="412" x2="4640" y2="412"  name=l_10 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=footer alignment="0" text="합 계" border="0" color="0" x="78" y="428" height="56" width="466"  name=t_3  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="고객 :" border="0" color="0" x="55" y="296" height="60" width="174"  name=t_1  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="242" y="296" height="60" width="576"  name=customernm_t  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="서비스 :" border="0" color="0" x="827" y="296" height="60" width="261"  name=t_2  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1102" y="296" height="60" width="576"  name=svccod_t  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

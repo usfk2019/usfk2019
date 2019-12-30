@@ -1,0 +1,97 @@
+﻿$PBExportHeader$b5dw_prt_det_cdrgroup.srd
+$PBExportComments$[ssong]그룹별 통화내역 상세
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=580 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=post_bilcdr_payid dbname="post_bilcdr.payid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(12) updatewhereclause=yes name=workmm dbname="workmm" )
+ column=(type=char(10) updatewhereclause=yes name=post_bilcdr_areagroup dbname="post_bilcdr.areagroup" )
+ column=(type=char(10) updatewhereclause=yes name=post_bilcdr_countrycod dbname="post_bilcdr.countrycod" )
+ column=(type=char(50) updatewhereclause=yes name=country_countrynm dbname="country.countrynm" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="biltime" )
+ column=(type=number updatewhereclause=yes name=cost dbname="cost" )
+ retrieve=" SELECT  cdr.~"PAYID~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         substr(cdr.~"WORKDT~", 1, 6) workmm, 
+         cdr.~"AREAGROUP~",   
+         cdr.~"COUNTRYCOD~",   
+         ~"COUNTRY~".~"COUNTRYNM~",   
+         sum(cdr.~"BILTIME~") biltime,
+         sum(cdr.~"BILAMT~") cost  
+    FROM ~"POST_BILCDR~" cdr,   
+         ~"CUSTOMERM~",   
+         ~"COUNTRY~"  
+   WHERE ( cdr.~"PAYID~" = ~"CUSTOMERM~".~"PAYID~" ) 
+     AND ( cdr.~"COUNTRYCOD~" = ~"COUNTRY~".~"COUNTRYCOD~" )  
+GROUP BY cdr.~"PAYID~",  
+	 ~"CUSTOMERM~".~"CUSTOMERNM~",
+	 substr(cdr.~"WORKDT~", 1, 6),
+         cdr.~"AREAGROUP~",   
+         cdr.~"COUNTRYCOD~",   
+         ~"COUNTRY~".~"COUNTRYNM~"
+
+UNION
+
+  SELECT cdr.~"PAYID~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         substr(cdr.~"WORKDT~", 1, 6), 
+         cdr.~"AREAGROUP~",   
+         cdr.~"COUNTRYCOD~",   
+         ~"COUNTRY~".~"COUNTRYNM~",   
+         sum(cdr.~"BILTIME~"),
+         sum(cdr.~"BILAMT~")
+    FROM ~"POST_BILCDRH~" cdr,   
+         ~"CUSTOMERM~",   
+         ~"COUNTRY~"  
+   WHERE ( cdr.~"PAYID~" = ~"CUSTOMERM~".~"PAYID~" ) 
+     AND ( cdr.~"COUNTRYCOD~" = ~"COUNTRY~".~"COUNTRYCOD~" ) 
+GROUP BY cdr.~"PAYID~",
+	 ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         substr(cdr.~"WORKDT~", 1, 6),
+         cdr.~"AREAGROUP~", 
+         cdr.~"COUNTRYCOD~",   
+         ~"COUNTRY~".~"COUNTRYNM~"
+" )
+group(level=1 header.height=0 trailer.height=128 by=("post_bilcdr_payid" , "customerm_customernm" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=96 by=("post_bilcdr_areagroup" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="219" y="316" height="88" width="2967"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="2263" y="96" height="60" width="741"  name=date_time  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2263" y="160" height="60" width="741" format="[general]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header id=1 alignment="0" tabsequence=32766 border="0" color="0" x="462" y="120" height="56" width="206" format="[general]"  name=post_bilcdr_payid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="고  객:" border="0" color="0" x="187" y="120" height="56" width="256"  name=post_bilcdr_payid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="사용월:" border="0" color="0" x="187" y="188" height="56" width="256"  name=workmm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression=" customerm_customernm + ~" (귀하) ~""border="0" color="0" x="681" y="120" height="56" width="1399" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1829" y="408" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1870" y="408" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header id=3 alignment="0" tabsequence=32766 border="0" color="0" x="462" y="188" height="56" width="361" format="[general]"  name=workmm edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=2 alignment="0" tabsequence=32766 border="0" color="0" x="841" y="188" height="56" width="974" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="219" y1="492" x2="3186" y2="492"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="219" y1="576" x2="3186" y2="576"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="구    분" border="0" color="0" x="274" y="508" height="60" width="805"  name=country_countrynm_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="사용 초" border="0" color="0" x="1394" y="508" height="60" width="443"  name=biltime_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="금  액" border="0" color="0" x="2715" y="508" height="60" width="443"  name=cost_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="사용 분" border="0" color="0" x="2025" y="508" height="60" width="443"  name=post_bilcdr_areagroup_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="174" y="4" height="52" width="46" format="[general]"  name=post_bilcdr_areagroup visible="1~t0" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="3209" y="4" height="48" width="32" format="[general]"  name=post_bilcdr_countrycod visible="1~t0" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="274" y="4" height="60" width="805" format="[general]"  name=country_countrynm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="219" y1="64" x2="3186" y2="64"  name=l_3 pen.style="2" pen.width="5" pen.color="12632256"  background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1394" y="4" height="60" width="443" format="#,##0"  name=biltime edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="round( biltime /60, 2)"border="0" color="0" x="2025" y="4" height="60" width="443" format="#,##0.00"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2715" y="4" height="60" width="443" format="#,##0"  name=cost edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="0" expression="if(  post_bilcdr_areagroup = 'I', ~"국제 소계~", if(  post_bilcdr_areagroup = 'M',  ~"Mobile 소계~", if(  post_bilcdr_areagroup = 'L', ~"국내 소계~",   post_bilcdr_areagroup )))"border="0" color="0" x="471" y="16" height="60" width="443" format="[GENERAL]"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.2 x1="219" y1="88" x2="3186" y2="88"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="1" expression="round( biltime_gr2 /60, 2)"border="0" color="0" x="2025" y="16" height="60" width="443" format="#,##0.00"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum( biltime for group 2)"border="0" color="0" x="1394" y="16" height="60" width="443" format="#,##0"  name=biltime_gr2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum( cost for group 2)"border="0" color="0" x="2715" y="16" height="60" width="443" format="#,##0"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="219" y1="4" x2="3186" y2="4"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=trailer.1 x1="219" y1="120" x2="3186" y2="120"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=trailer.1 alignment="0" text="총   계" border="0" color="0" x="471" y="40" height="56" width="443"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum( biltime for group 1)"border="0" color="0" x="1394" y="40" height="60" width="443" format="#,##0"  name=biltime_gr1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="round( biltime_gr1 /60, 2)"border="0" color="0" x="2025" y="40" height="60" width="443" format="#,##0.00"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( cost for group 1)"border="0" color="0" x="2715" y="40" height="60" width="443" format="#,##0"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,85 @@
+﻿$PBExportHeader$f_msg_info_app.srf
+$PBExportComments$Application용 Message
+global type f_msg_info_app from function_object
+end type
+
+forward prototypes
+global function string f_msg_info_app (integer ai_info_code, string as_title, string as_content)
+end prototypes
+
+global function string f_msg_info_app (integer ai_info_code, string as_title, string as_content);//*******************************************************************
+// 함수 : f_msg_info_app
+//
+// 목적 : 프로그램 실행도중에 필요한 메세지를 뿌려준다.(Warning)
+//
+// Scope : Public
+//
+// Parameter :
+//  1) ai_info_code(Integer/Value) : 메세지의 코드
+//  2) as_title(String/Value) : 메세지 윈도우에서 title로 들어갈 이름
+//  3) as_content(String/Value) : 메세지 윈도우에서 내용에 추가적
+//    으로 들어갈 설명
+//
+// Return 값 : 
+//  없음
+//
+// Log : (날짜 : 이름 : 설명)
+//  95/02/03(수) : 안종태 : 최초 버젼
+//
+//*******************************************************************
+string ls_err_title	//에러메세지의 title
+String ls_err_content //에러메세지의 content
+long ll_length
+
+ls_err_title = as_title
+
+If as_content = "" Then
+	ls_err_content = ""
+ELSE
+	ls_err_content = " (" + as_content + ")"
+End If
+
+Choose Case ai_info_code
+	Case 400
+		ls_err_content = "Wrong USER Id Or password." + ls_err_content
+//		ls_err_content = "아이디 또는 패스워드가 잘못 되었습니다." + ls_err_content
+	Case 401
+		ls_err_content = "Input USER ID." + ls_err_content
+//		ls_err_content = "사용자 아이디를 입력 하세요." + ls_err_content
+
+	Case 402
+		ls_err_content = "Input password." + ls_err_content
+//		ls_err_content = "패스워드를 입력 하세요." + ls_err_content
+
+// Message syntext 검증요   97/06/20 goat
+	Case 403
+		ls_err_content = "Input new password." + ls_err_content
+//		ls_err_content = "새로운 패스워드를 입력 하세요." + ls_err_content
+	Case 404
+		ls_err_content = "Verify the new password." + ls_err_content
+//		ls_err_content = "패스워드를 다시 한번 입력 하세요." + ls_err_content
+	Case 405
+		ls_err_content = "Password entered does not match then new password." + ls_err_content
+//		ls_err_content = "새로운 패스워드가 맞지 않습니다." + ls_err_content
+// Message syntext 검증요   97/06/20 goat
+
+	Case 700		//related with db
+		ls_err_content = "DB connected ..." + &
+		 ls_err_content
+
+	Case 9000		//사용자가 임의로 메세지를 형성하게 함
+		ll_length = LenA(ls_err_content)
+		If ll_length <> 0 Then ls_err_content = MidA(ls_err_content, 3, ll_length - 3)
+
+	Case Else
+		ls_err_content = "Matching statement not found.(" + String(ai_info_code) + ")"
+
+End Choose
+
+If Not (RightA(as_title, 1) = "*") Then &
+ MessageBox(ls_err_title, ls_err_content, Information!)
+
+Return ls_err_content
+
+end function
+

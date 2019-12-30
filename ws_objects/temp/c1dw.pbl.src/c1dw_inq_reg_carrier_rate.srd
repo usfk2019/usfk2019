@@ -1,0 +1,74 @@
+﻿$PBExportHeader$c1dw_inq_reg_carrier_rate.srd
+$PBExportComments$[ceusee] 합산 정산 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=carrierid dbname="carrier_rate.carrierid" )
+ column=(type=char(20) update=yes updatewhereclause=yes key=yes name=areacod dbname="carrier_rate.areacod" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=opendt dbname="carrier_rate.opendt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=areagroup dbname="carrier_rate.areagroup" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=zoncod dbname="carrier_rate.zoncod" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=basamt dbname="carrier_rate.basamt" initial="0" )
+ column=(type=decimal(6) update=yes updatewhereclause=yes name=addamt dbname="carrier_rate.addamt" initial="0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=bassec dbname="carrier_rate.bassec" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=addsec dbname="carrier_rate.addsec" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=stdsec dbname="carrier_rate.stdsec" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=unbilsec dbname="carrier_rate.unbilsec" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=roundflag dbname="carrier_rate.roundflag" values="올림	U/버림	D/반올림	O/" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="carrier_rate.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="carrier_rate.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="carrier_rate.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="carrier_rate.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="carrier_rate.pgm_id" )
+ retrieve="  SELECT  ~"CARRIER_RATE~".~"CARRIERID~",  
+			~"CARRIER_RATE~".~"AREACOD~",   
+         ~"CARRIER_RATE~".~"OPENDT~", 
+			~"CARRIER_RATE~".~"AREAGROUP~",   
+         ~"CARRIER_RATE~".~"ZONCOD~",   
+         ~"CARRIER_RATE~".~"BASAMT~",   
+         ~"CARRIER_RATE~".~"ADDAMT~",   
+         ~"CARRIER_RATE~".~"BASSEC~",   
+         ~"CARRIER_RATE~".~"ADDSEC~",   
+         ~"CARRIER_RATE~".~"STDSEC~",  
+			~"CARRIER_RATE~".~"UNBILSEC~",   
+         ~"CARRIER_RATE~".~"ROUNDFLAG~",           
+         ~"CARRIER_RATE~".~"CRT_USER~",   
+         ~"CARRIER_RATE~".~"UPDT_USER~",   
+         ~"CARRIER_RATE~".~"CRTDT~",   
+         ~"CARRIER_RATE~".~"UPDTDT~",   
+         ~"CARRIER_RATE~".~"PGM_ID~"
+   FROM ~"CARRIER_RATE~"   
+" update="CARRIER_RATE" updatewhere=0 updatekeyinplace=yes )
+text(band=header alignment="2" text="적용개시일" border="2" color="15793151" x="494" y="16" height="56" width="398"  name=opendt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="지역상위그룹" border="2" color="15793151" x="910" y="16" height="56" width="521"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본료" border="2" color="15793151" x="2263" y="16" height="56" width="329"  name=basamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="대역" border="2" color="15793151" x="1449" y="16" height="56" width="795"  name=zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="추가료" border="2" color="15793151" x="2615" y="16" height="56" width="329"  name=addamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본시간단위" border="2" color="15793151" x="2967" y="16" height="56" width="439"  name=bassec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="추가시간단위" border="2" color="15793151" x="3429" y="16" height="56" width="439"  name=addsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Round" border="2" color="15793151" x="4759" y="16" height="56" width="389"  name=roundflag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비과금초" border="2" color="15793151" x="4347" y="16" height="56" width="389"  name=unbilsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기본시간범위" border="2" color="15793151" x="3890" y="16" height="56" width="439"  name=stdsec_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="지역코드" border="2" color="15793151" x="9" y="16" height="56" width="466"  name=areacod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="16777215" x="3543" y="156" height="56" width="215" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="16777215" x="3758" y="156" height="56" width="219" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="16777215" x="3977" y="156" height="56" width="165" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="16777215" x="4142" y="156" height="56" width="165" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="16777215" x="4311" y="156" height="56" width="219" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="16777215" x="3077" y="168" height="56" width="270" format="[general]"  name=carrierid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="2" color="0" x="910" y="4" height="60" width="521" format="[general]"  name=areagroup dddw.name=c1dc_dddw_areagroup dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="2" color="16777215" x="1449" y="4" height="60" width="795" format="[general]"  name=zoncod dddw.name=c1dc_dddw_zoncod dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=6 alignment="1" tabsequence=50 border="2" color="0" x="2263" y="4" height="60" width="329" format="#,##0.00"  name=basamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=60 border="2" color="0" x="2615" y="4" height="60" width="329" format="#,##0.00"  name=addamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=70 border="2" color="0" x="2967" y="4" height="60" width="439" format="#,##0"  name=bassec editmask.mask="#,##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=80 border="2" color="16777215" x="3429" y="4" height="60" width="439" format="#,##0"  name=addsec editmask.mask="#,##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="2" color="16777215" x="494" y="4" height="60" width="398" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=10 alignment="1" tabsequence=90 border="2" color="0" x="3890" y="4" height="60" width="439" format="[general]"  name=stdsec editmask.mask="#,##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="2" tabsequence=110 border="2" color="0" x="4759" y="4" height="60" width="389" format="[general]"  name=roundflag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=100 border="2" color="0" x="4347" y="4" height="60" width="389" format="#,##0"  name=unbilsec editmask.mask="###,###,##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="2" color="16777215" x="9" y="4" height="60" width="466"  name=areacod  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

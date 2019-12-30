@@ -1,0 +1,107 @@
+﻿$PBExportHeader$f_call_menu.srf
+global type f_call_menu from function_object
+end type
+
+forward prototypes
+global function integer f_call_menu (string fs_object)
+end prototypes
+
+global function integer f_call_menu (string fs_object);//b5w_reg_mtr_inp
+TreeViewItem ltvi_current
+String 	ls_pgm_id, ls_pgm_name, ls_call_type, &
+			ls_call_name[4], ls_pgm_type, ls_p_pgm_id, &
+ 			ls_p_pgm_name
+Dec{0} 	lc_upd_auth
+u_cust_a_msg 		lu_cust_msg
+Window 	lw_temp
+Int 		li_i
+String 	ls_pgm
+
+Boolean ib_visible = False
+String is_pgm_id
+
+
+SetPointer(HourGlass!)
+
+//Window가 Max값 이상 열려있닌지 비교
+If gi_open_win_no + 1 > gi_max_win_no Then
+	f_msg_usr_err_app(505,'Information', "")
+	Return -1
+End If
+
+
+ls_pgm = fs_object
+IF f_find_mdi(ls_pgm, w_mdi_main) = 0 THEN
+	select pgm_id,
+ 			 PGM_NM,
+			 P_PGM_ID,
+			 CALL_TYPE,
+			 PGM_TYPE
+	  INTO :ls_pgm_id,
+	       :ls_pgm_name,
+			 :ls_p_pgm_id,
+			 :ls_CALL_type,
+			 :ls_pgm_type
+	  FROM SYSPGM1T
+		 WHERE CALL_NM1 = :ls_pgm ;
+
+	lc_upd_auth 		= 0
+	ls_call_name[1] 	= LS_PGM
+	gi_group_auth 		= 0
+      
+//gi_group_auth = wfi_get_low_auth(gs_user_id, ls_pgm_id)
+   is_pgm_id = ls_pgm_id
+	
+		//Clicked TreeViewItem 자신의 정보
+		lc_upd_auth = 0			//프로그램의 자신의 권한
+
+
+		//*** 메세지 전달 객체에 자료 저장 ***
+		lu_cust_msg = Create u_cust_a_msg
+		
+		lu_cust_msg.is_pgm_id 			= ls_pgm_id
+		lu_cust_msg.is_grp_name 		= ls_p_pgm_name
+		lu_cust_msg.is_pgm_name 		= ls_pgm_name
+		lu_cust_msg.is_call_name[1] 	= ls_call_name[1]
+		lu_cust_msg.is_call_name[2] 	= ls_call_name[2]
+		lu_cust_msg.is_call_name[3] 	= ls_call_name[3]
+		lu_cust_msg.is_call_name[4] 	= ls_call_name[4]
+		lu_cust_msg.is_pgm_type 		= ls_pgm_type
+		
+//		m_mdi_main.m_start.TriggerEvent(Clicked!)
+		//
+		
+		//call_type에 따른 처리(Window Open)
+		Choose Case Upper(ls_call_type)
+			Case "M"		//Main
+			Case "P"		//Popup
+			Case "C"		//Child
+			Case "R"		//Response
+					OpenWithParm(lw_temp, lu_cust_msg,  ls_call_name[1], gw_mdi_frame) 
+			Case "S"		//MDI Sheet
+				OpenSheetWithParm(lw_temp, lu_cust_msg, ls_call_name[1], gw_mdi_frame,1, Original!)
+				//OpenWithParm(lw_temp, lu_cust_msg,  ls_call_name[1], gw_mdi_frame) 
+			case else
+		end choose
+		//pgm_type에 따른 처리(Window의 종류에 따른 처리)
+		//==> 'R' : 등록, 'P' : 출력, 'I' : 조회, 'D' : 처리
+		Choose Case Upper(ls_pgm_type)
+			Case "D"
+
+			Case "R"
+				lw_temp.Icon = gs_ico_reg
+
+			Case "P"
+				lw_temp.Icon = gs_ico_prt
+
+			Case "I"
+				lw_temp.Icon = gs_ico_inq
+		End Choose
+
+		Destroy lu_cust_msg
+
+END IF
+
+return 0
+end function
+

@@ -1,0 +1,48 @@
+﻿$PBExportHeader$b2dw_reg_det_partnerused_limit_v20.srd
+$PBExportComments$[ssong]대리점 사용한도 관리 det
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=worktype dbname="partnerused_limitlog.worktype" )
+ column=(type=decimal(2) updatewhereclause=yes name=workqty dbname="partnerused_limitlog.workqty" )
+ column=(type=char(60) updatewhereclause=yes name=remark dbname="partnerused_limitlog.remark" )
+ column=(type=char(10) updatewhereclause=yes name=from_partner dbname="partnerused_limitlog.from_partner" )
+ column=(type=char(10) updatewhereclause=yes name=to_partner dbname="partnerused_limitlog.to_partner" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="partnerused_limitlog.crt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="partnerused_limitlog.crtdt" )
+ column=(type=char(8) updatewhereclause=yes name=pgm_id dbname="partnerused_limitlog.pgm_id" )
+ column=(type=char(10) updatewhereclause=yes name=partner dbname="partnerused_limitlog.partner" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="partnerused_limitlog.priceplan" )
+ retrieve="SELECT WORKTYPE
+     , WORKQTY
+     , REMARK
+     , FROM_PARTNER
+     , TO_PARTNER
+     , CRT_USER
+     , CRTDT
+     , PGM_ID
+     , PARTNER
+     , PRICEPLAN
+  FROM PARTNERUSED_LIMITLOG
+ ORDER BY CRTDT DESC
+
+" )
+text(band=header alignment="2" text="유형" border="2" color="16777215" x="23" y="16" height="56" width="622"  name=worktype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="증감" border="2" color="16777215" x="663" y="16" height="56" width="512"  name=workqty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비고" border="2" color="16777215" x="1193" y="16" height="56" width="1225"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="From 대리점" border="2" color="16777215" x="2437" y="16" height="56" width="512"  name=from_partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="To 대리점" border="2" color="16777215" x="2967" y="16" height="56" width="512"  name=to_partner_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일" border="2" color="16777215" x="3497" y="16" height="56" width="594"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업자" border="2" color="16777215" x="4110" y="16" height="56" width="526"  name=crt_user_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="1193" y="4" height="56" width="1225" format="[general]"  name=remark edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="2437" y="4" height="56" width="512" format="[general]"  name=from_partner dddw.name=b2dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="2967" y="4" height="56" width="512" format="[general]"  name=to_partner dddw.name=b2dc_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="3497" y="4" height="56" width="594" format="yyyy-mm-dd"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="4110" y="4" height="56" width="526" format="[general]"  name=crt_user edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="23" y="4" height="56" width="622" format="[general]"  name=worktype dddw.name=b2dc_dddw_partnerused_limit dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="2" color="0" x="663" y="4" height="56" width="512" format="#,##0.00"  name=workqty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

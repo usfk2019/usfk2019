@@ -1,0 +1,49 @@
+﻿$PBExportHeader$b8dw_reg_admodel_t4_sams.srd
+$PBExportComments$[kem] 장비모델관리 - Tab2 품목정보 Detail DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=modelno dbname="model_price.modelno" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=fromdt dbname="model_price.fromdt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=in_unitamt dbname="model_price.in_unitamt" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=sale_unitamt dbname="model_price.sale_unitamt" initial="0" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=sale_item dbname="model_price.sale_item" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=note dbname="model_price.note" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="model_price.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="model_price.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="model_price.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="model_price.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="model_price.pgm_id" )
+ retrieve="SELECT MODELNO,
+		 fromdt,
+ 		 in_unitamt,
+		 sale_unitamt,
+		 sale_item,
+		 note,
+		 crt_user,
+		 updt_user,
+		 crtdt,
+		 updtdt,
+		 pgm_id 
+FROM model_price
+ORDER BY fromdt" update="model_price" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="From date" border="2" color="15793151" x="27" y="20" height="60" width="526"  name=itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Stock unit price" border="2" color="15793151" x="567" y="20" height="60" width="800"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sale unit price" border="2" color="15793151" x="1381" y="20" height="60" width="800"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Sale Item" border="2" color="15793151" x="2194" y="20" height="60" width="969"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Note" border="2" color="15793151" x="3177" y="20" height="60" width="1353"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3365" y="112" height="72" width="320" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3685" y="112" height="72" width="320" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4005" y="112" height="72" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="4197" y="112" height="72" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4389" y="112" height="72" width="256" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=20 border="2" color="0" x="567" y="8" height="60" width="800" format="[general]"  name=in_unitamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="2" color="0" x="3177" y="8" height="60" width="1353" format="[general]"  name=note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="2" color="16777215" x="27" y="8" height="60" width="526" format="yyyy-mm-dd"  name=fromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="1" tabsequence=30 border="2" color="16777215" x="1381" y="8" height="60" width="800" format="[general]"  name=sale_unitamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="2" color="16777215" x="2194" y="8" height="60" width="969" format="[general]"  name=sale_item dddw.name=b8dc_dddw_admodel_item dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25792108" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

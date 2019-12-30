@@ -1,0 +1,61 @@
+﻿$PBExportHeader$b2dw_inq_wsranking.srd
+$PBExportComments$[jsha] 출중계우선순위관리 DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=204 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=yyyymmddhh dbname="wholesale_ranking.yyyymmddhh" )
+ column=(type=char(10) updatewhereclause=yes key=yes name=zoncod dbname="wholesale_ranking.zoncod" )
+ column=(type=char(10) updatewhereclause=yes key=yes name=priceplan dbname="wholesale_ranking.priceplan" )
+ column=(type=decimal(0) updatewhereclause=yes name=unit_sec dbname="wholesale_ranking.unit_sec" )
+ column=(type=decimal(6) updatewhereclause=yes name=fee dbname="wholesale_ranking.fee" )
+ column=(type=decimal(6) updatewhereclause=yes name=exchange_fee dbname="wholesale_ranking.exchange_fee" )
+ column=(type=decimal(6) updatewhereclause=yes name=difference dbname="wholesale_ranking.difference" )
+ column=(type=decimal(0) updatewhereclause=yes name=ranking dbname="wholesale_ranking.ranking" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=adj_ranking dbname="wholesale_ranking.adj_ranking" )
+ retrieve="SELECT  ~"WHOLESALE_RANKING~".~"YYYYMMDDHH~" ,
+          ~"WHOLESALE_RANKING~".~"ZONCOD~" ,
+          ~"WHOLESALE_RANKING~".~"PRICEPLAN~" ,
+           ~"WHOLESALE_RANKING~".~"UNIT_SEC~" ,
+           ~"WHOLESALE_RANKING~".~"FEE~" ,
+           ~"WHOLESALE_RANKING~".~"EXCHANGE_FEE~" ,
+           ~"WHOLESALE_RANKING~".~"DIFFERENCE~" ,
+           ~"WHOLESALE_RANKING~".~"RANKING~" ,
+           ~"WHOLESALE_RANKING~".~"ADJ_RANKING~"     
+        FROM ~"WHOLESALE_RANKING~"    " update="WHOLESALE_RANKING" updatewhere=0 updatekeyinplace=no  sort="yyyymmddhh A zoncod A ranking A " )
+group(level=1 header.height=4 trailer.height=12 by=("yyyymmddhh" , "zoncod" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="대역" border="2" color="15793151" x="18" y="144" height="56" width="667"  name=zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="1" text="기준시간:" border="0" color="0" x="32" y="36" height="56" width="306"  name=yyyymmddhh_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=1 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="36" height="56" width="443" format="[general]"  name=yyyymmddhh editmask.mask="XXXX-XX-XX XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="사용단위:" border="0" color="0" x="850" y="36" height="56" width="306"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1170" y="36" height="56" width="224" format="#,##"  name=unit_sec edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="(Sec.)" border="0" color="0" x="1408" y="36" height="56" width="165"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사업자가격정책" border="2" color="15793151" x="709" y="144" height="56" width="777"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요율" border="2" color="15793151" x="1509" y="144" height="56" width="462"  name=fee_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="차이" border="2" color="15793151" x="2478" y="144" height="56" width="398"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요율(KRW)" border="2" color="15793151" x="1993" y="144" height="56" width="462"  name=exchange_fee_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="권고순위" border="2" color="15793151" x="2898" y="144" height="56" width="274"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="실제순위" border="2" color="15793151" x="3195" y="144" height="56" width="274"  name=adj_ranking_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+line(band=detail x1="699" y1="76" x2="3493" y2="76"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1979" y1="0" x2="1979" y2="76"  name=l_5 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="695" y1="0" x2="695" y2="76"  name=l_7 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="14" y1="0" x2="14" y2="80"  name=l_4 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="8" height="60" width="658" format="[general]"  name=zoncod dddw.name=b0dc_dddw_zone dddw.displaycolumn=zonnm dddw.datacolumn=zoncod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="709" y="8" height="60" width="777" format="[general]"  name=priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1509" y="8" height="60" width="462" format="#,##.00"  name=fee edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2478" y="4" height="60" width="398" format="[general]"  name=difference edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1993" y="4" height="60" width="462" format="#,##.00"  name=exchange_fee edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2898" y="4" height="60" width="274" format="[general]"  name=ranking edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=10 border="2" color="0" x="3195" y="4" height="60" width="274" format="[general]"  name=adj_ranking edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="1495" y1="0" x2="1495" y2="80"  name=l_6 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2464" y1="0" x2="2464" y2="76"  name=l_3 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2885" y1="0" x2="2885" y2="76"  name=l_9 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3182" y1="0" x2="3182" y2="76"  name=l_10 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3483" y1="0" x2="3483" y2="76"  name=l_11 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="9" y1="4" x2="3488" y2="4"  name=l_8 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=footer x1="2528" y1="0" x2="2528" y2="80"  name=l_2 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+
+sparse(names="zoncod")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

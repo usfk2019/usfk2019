@@ -1,0 +1,61 @@
+﻿$PBExportHeader$f_cre_w_main.srf
+$PBExportComments$Open w_main
+global type f_cre_w_main from function_object
+end type
+
+forward prototypes
+global function integer f_cre_w_main (string as_path)
+end prototypes
+
+global function integer f_cre_w_main (string as_path);String ls_tmp
+
+//MDI FRAME WINDOW 열기
+If Open(w_mdi_main) <> 1 Then
+	f_msg_usr_err_app(501, "Main Window Error","")
+	Return -1
+End If
+
+gw_mdi_frame = w_mdi_main
+
+//m_main.m_help.m_about.Text = gw_mdi_frame.Title + " 정보(&A)..."
+
+////Create the menu
+//If f_dbmgr_menu(gs_system_name, gstr_program_menu, m_main) <> 0 Then
+//	f_usr_err_msg_common(500, "Menu Error","")
+//	TriggerEvent(w_main, "ue_close_quiet")
+//	Return -1
+//End If
+
+////시계열기
+//Open(w_utility_time, gw_mdi_frame)
+
+//***** INI File에서 기본적인 정보읽어 오기 *****
+//***** Global variable에 저장하지는 않는 환경변수
+//필요 title명
+ls_tmp = ProfileString(as_path, "Window", "system_name", "nothing")
+gs_title = "** " + GS_SHOPNM + " ** " + ls_tmp
+
+gw_mdi_frame.Title = gs_title
+
+//***** Global variable에 저장할 환경변수
+//maximum number of windows to be opened
+ls_tmp = ProfileString(as_path, "Window", "max_win", '5')
+gi_max_win_no = Integer(ls_tmp)
+gs_pgm_id[gi_max_win_no] = ""
+
+
+//***** icon의 화상파일 지정 *****
+//By global variable's initializing
+
+//***** Shared DataWindow사용을 위해서 *****
+//Doesn't use
+
+//***** w_main에 Focus이동 *****
+gw_mdi_frame.Visible = TRUE
+gw_mdi_frame.WindowState = Normal!
+gw_mdi_frame.SetFocus()
+
+Return 0
+
+end function
+

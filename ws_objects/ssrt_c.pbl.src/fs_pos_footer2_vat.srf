@@ -1,0 +1,76 @@
+﻿$PBExportHeader$fs_pos_footer2_vat.srf
+global type fs_pos_footer2_vat from function_object
+end type
+
+forward prototypes
+global function integer fs_pos_footer2_vat (string fs_payid, string fs_customerid, string fs_app, string fs_userid)
+end prototypes
+
+global function integer fs_pos_footer2_vat (string fs_payid, string fs_customerid, string fs_app, string fs_userid);//영수증 출력 - FOOTER  Function
+//fs_MEMBERID 	: 멤버ID ( or CID )
+//fS_APP 		: 영수증번호 ( SEQ_APP )
+//fs_USERID		: 스테프명 (로그인한 ID )
+// Porgram by k.b.CHO [1hera]
+
+String ls_empnm,	ls_tmp
+
+// Footer 문구 Table Select 로 변경 2019.04.05 Modified by Han
+String ls_temp, ls_out
+int    li_leftspace
+
+// Staff Name
+select trim(EMPNM)   into :ls_empnm  from sysusr1t 
+ where emp_id =  :fs_userid ;
+IF IsNull(ls_empnm) or sqlca.sqlcode <> 0  then ls_empnm = ''
+
+
+ls_tmp  = "Payer ID    :     " + fs_payid + " (CID:" + fs_customerid + ")"	 // memberid 대신 payid 출력하도록 2007-08-13 hcjung
+F_POS_PRINT_VAT(ls_tmp, 1)
+ls_tmp  = "Approval No :     " + fs_app
+F_POS_PRINT_VAT(ls_tmp, 1)
+ls_tmp  = "Staff Name  :     " + ls_empnm
+F_POS_PRINT_VAT(ls_tmp, 1)
+//--------------------------------------------
+//PRN_LF(1)
+ls_tmp = "~h0A" // Print And Line Feed
+f_pos_print_vat(ls_tmp, 1) //PRN_LF(1)
+
+/*************  Footer Output Table Select로 수정 2019.04.05 Modified by Han
+F_POS_PRINT("CS : 0505-122-1891", 1)
+F_POS_PRINT("Toll Free: 080-850-1891", 1)
+F_POS_PRINT("Email : lgservicerep@chol.com", 1)
+PRN_LF(1)
+//F_POS_PRINT("www.i-mnet.net", 2)
+F_POS_PRINT("http://i-mnet.uplus.co.kr", 2)
+F_POS_PRINT("Thank you for using LG Uplus service", 2)
+****************************************************************************/
+Declare cur1 cursor for
+	SELECT NVL(codenm, ' '), NVL(ref_code1, 0)
+	  FROM SYSCOD2T
+	 WHERE grcode = 'Z101'
+	ORDER BY code;
+
+Open cur1;
+Fetch cur1 Into :ls_temp, :li_leftspace;
+
+//f_printpos(ls_temp)
+do while SQLCA.SQLCODE = 0
+	
+	ls_out = ' ' + space(li_leftspace) + ls_temp
+
+	f_printpos_vat(ls_out)
+
+	Fetch cur1 into :ls_temp, :li_leftspace;
+loop
+Close cur1;
+
+//PRN_LF(4)
+f_pos_print_vat(ls_tmp, 1) //PRN_LF(1)
+f_pos_print_vat(ls_tmp, 1) //PRN_LF(1)
+f_pos_print_vat(ls_tmp, 1) //PRN_LF(1)
+f_pos_print_vat(ls_tmp, 1) //PRN_LF(1)
+
+//PRN_CUT()
+return 0
+end function
+

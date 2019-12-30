@@ -1,0 +1,69 @@
+﻿$PBExportHeader$b1dw_reg_fileupload_result_log_v30.srd
+$PBExportComments$[ohj] 서비스 가입예약 v20 - master
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes key=yes name=workno dbname="requpload_worklog.workno" )
+ column=(type=char(10) updatewhereclause=yes key=yes name=fileformcd dbname="requpload_worklog.fileformcd" )
+ column=(type=datetime updatewhereclause=yes name=sale_month dbname="requpload_worklog.sale_month" )
+ column=(type=char(20) updatewhereclause=yes name=loadfilenm dbname="requpload_worklog.loadfilenm" )
+ column=(type=decimal(0) updatewhereclause=yes name=reqcnt dbname="requpload_worklog.reqcnt" )
+ column=(type=decimal(0) updatewhereclause=yes name=errcnt dbname="requpload_worklog.errcnt" )
+ column=(type=datetime updatewhereclause=yes name=startdt dbname="requpload_worklog.startdt" )
+ column=(type=datetime updatewhereclause=yes name=enddt dbname="requpload_worklog.enddt" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="requpload_worklog.status" )
+ column=(type=char(10) updatewhereclause=yes name=crt_user dbname="requpload_worklog.crt_user" )
+ column=(type=char(10) updatewhereclause=yes name=updt_user dbname="requpload_worklog.updt_user" )
+ column=(type=datetime updatewhereclause=yes name=crtdt dbname="requpload_worklog.crtdt" )
+ column=(type=datetime updatewhereclause=yes name=updt dbname="requpload_worklog.updt" )
+ column=(type=char(0) updatewhereclause=yes name=check_flag dbname="check_flag" values="	Y/	N" )
+ retrieve="  SELECT WORKNO,   
+         FILEFORMCD,   
+         SALE_MONTH,   
+         LOADFILENM,   
+         REQCNT,   
+         ERRCNT,   
+         STARTDT,   
+         ENDDT,   
+         STATUS,   
+         CRT_USER,   
+         UPDT_USER,   
+         CRTDT,   
+         UPDT,   
+         '' Check_flag
+    FROM REQUPLOAD_WORKLOG  
+  ORDER BY WORKNO DESC
+" update="REQUPLOAD_WORKLOG" updatewhere=1 updatekeyinplace=no  sort="workno D " )
+text(band=background alignment="1" text="Total Rows" border="0" color="0" x="2647" y="16" height="56" width="498"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=background alignment="0" expression="rowcount()"border="0" color="0" x="3182" y="16" height="56" width="654" format="###,0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=background alignment="1" text="Order By" border="0" color="0" x="14" y="16" height="56" width="247"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=background alignment="2" text="" border="0" color="0" x="293" y="16" height="56" width="498"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=background alignment="1" text="ASC/DESC " border="0" color="0" x="951" y="16" height="56" width="498"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=background alignment="2" text="" border="0" color="0" x="1481" y="16" height="56" width="498"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="파일유형코드" border="2" color="16777215" x="955" y="84" height="72" width="498"  name=fileformcd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="파일유형명" border="2" color="16777215" x="1463" y="84" height="72" width="631"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="요청건수" border="2" color="16777215" x="2103" y="84" height="72" width="315"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="에러건수" border="2" color="16777215" x="2427" y="84" height="72" width="302"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="시작시간" border="2" color="16777215" x="2738" y="84" height="72" width="645"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="종료시간" border="2" color="16777215" x="3392" y="84" height="72" width="654"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상태" border="2" color="16777215" x="4055" y="84" height="72" width="311"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업일자" border="2" color="16777215" x="4375" y="84" height="72" width="672"  name=crtdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="매출일자" border="2" color="16777215" x="617" y="84" height="72" width="329"  name=sale_month_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="작업번호" border="2" color="16777215" x="224" y="84" height="72" width="384"  name=workno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="삭제" border="2" color="16777215" x="9" y="84" height="72" width="206"  name=check_flag_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1463" y="0" height="72" width="631" format="[general]"  name=loadfilenm dddw.name=b1dc_dddw_fileformcd dddw.displaycolumn=fileformnm dddw.datacolumn=fileformcd dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2103" y="0" height="72" width="315" format="###,0"  name=reqcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2427" y="0" height="72" width="302" format="###,0"  name=errcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2738" y="0" height="72" width="645" format="[shortdate] [time]"  name=startdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3392" y="0" height="72" width="654" format="[shortdate] [time]"  name=enddt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4055" y="0" height="72" width="311" format="[general]"  name=status dddw.name=b1dc_dddw_fileupload_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=12 alignment="0" tabsequence=40 border="0" color="0" x="4375" y="0" height="72" width="672" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="955" y="0" height="72" width="498" format="[general]"  name=fileformcd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="622" y="0" height="72" width="325" format="[shortdate]"  name=sale_month editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="0" color="0" x="224" y="0" height="72" width="384" format="[general]"  name=workno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.displayonly=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=14 alignment="2" tabsequence=10 border="0" color="0" x="9" y="0" height="72" width="206" format="[general]"  name=check_flag checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

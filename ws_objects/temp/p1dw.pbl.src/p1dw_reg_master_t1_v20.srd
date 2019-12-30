@@ -1,0 +1,223 @@
+﻿$PBExportHeader$p1dw_reg_master_t1_v20.srd
+$PBExportComments$[ohj] 카드 Master 수정조회 Tab1. 카드마스터 ,언어맨트 v20
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1904 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=pid dbname="p_cardmst.pid" )
+ column=(type=char(15) updatewhereclause=yes key=yes name=contno dbname="p_cardmst.contno" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=partner_prefix dbname="p_cardmst.partner_prefix" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=status dbname="p_cardmst.status" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=priceplan dbname="p_cardmst.priceplan" )
+ column=(type=decimal(2) updatewhereclause=yes name=last_refill_amt dbname="p_cardmst.last_refill_amt" )
+ column=(type=datetime updatewhereclause=yes name=last_refilldt dbname="p_cardmst.last_refilldt" )
+ column=(type=char(10) updatewhereclause=yes name=pricemodel dbname="p_cardmst.pricemodel" )
+ column=(type=datetime updatewhereclause=yes name=issuedt dbname="p_cardmst.issuedt" )
+ column=(type=datetime updatewhereclause=yes name=openusedt dbname="p_cardmst.openusedt" )
+ column=(type=decimal(2) updatewhereclause=yes name=first_refill_amt dbname="p_cardmst.first_refill_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=first_sale_amt dbname="p_cardmst.first_sale_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=balance dbname="p_cardmst.balance" )
+ column=(type=decimal(2) updatewhereclause=yes name=salesum_amt dbname="p_cardmst.salesum_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=usedsum_amt dbname="p_cardmst.usedsum_amt" )
+ column=(type=decimal(2) updatewhereclause=yes name=refillsum_amt dbname="p_cardmst.refillsum_amt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=enddt dbname="p_cardmst.enddt" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=remark dbname="p_cardmst.remark" )
+ column=(type=char(20) updatewhereclause=yes name=lotno dbname="p_cardmst.lotno" )
+ column=(type=datetime updatewhereclause=yes name=opendt dbname="p_cardmst.opendt" )
+ column=(type=datetime updatewhereclause=yes name=lastusedt dbname="p_cardmst.lastusedt" )
+ column=(type=char(10) updatewhereclause=yes name=card_marker dbname="p_cardmst.card_marker" )
+ column=(type=datetime updatewhereclause=yes name=orderdt dbname="p_cardmst.orderdt" )
+ column=(type=datetime updatewhereclause=yes name=indt dbname="p_cardmst.indt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sale_flag dbname="p_cardmst.sale_flag" )
+ column=(type=datetime updatewhereclause=yes name=updtdt dbname="p_cardmst.updtdt" )
+ column=(type=char(10) updatewhereclause=yes name=updt_user dbname="p_cardmst.updt_user" )
+ column=(type=decimal(0) updatewhereclause=yes name=issueseq dbname="p_cardmst.issueseq" )
+ column=(type=char(10) updatewhereclause=yes name=issue_user dbname="p_cardmst.issue_user" )
+ column=(type=datetime updatewhereclause=yes name=movedt dbname="p_cardmst.movedt" )
+ column=(type=decimal(0) updatewhereclause=yes name=moveseq dbname="p_cardmst.moveseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=wkflag1 dbname="p_cardmst.wkflag1" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=bilpoint dbname="p_cardmst.bilpoint" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=passwd_yn dbname="p_cardmst.passwd_yn" values="Yes	Y/No	N/" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=passwd dbname="p_cardmst.passwd" )
+ column=(type=decimal(2) updatewhereclause=yes name=last_use_amt dbname="p_cardmst.last_use_amt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=wkflag2 dbname="p_cardmst.wkflag2" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=refill_yn dbname="p_cardmst.refill_yn" values="Yes	Y/No	N/" )
+ retrieve="  SELECT ~"P_CARDMST~".~"PID~",   
+         ~"P_CARDMST~".~"CONTNO~",   
+         ~"P_CARDMST~".~"PARTNER_PREFIX~",   
+         ~"P_CARDMST~".~"STATUS~",   
+         ~"P_CARDMST~".~"PRICEPLAN~",   
+         ~"P_CARDMST~".~"LAST_REFILL_AMT~",   
+         ~"P_CARDMST~".~"LAST_REFILLDT~",   
+         ~"P_CARDMST~".~"PRICEMODEL~",   
+         ~"P_CARDMST~".~"ISSUEDT~",   
+         ~"P_CARDMST~".~"OPENUSEDT~",   
+         ~"P_CARDMST~".~"FIRST_REFILL_AMT~",   
+         ~"P_CARDMST~".~"FIRST_SALE_AMT~",   
+         ~"P_CARDMST~".~"BALANCE~",   
+         ~"P_CARDMST~".~"SALESUM_AMT~",   
+         ~"P_CARDMST~".~"USEDSUM_AMT~",   
+         ~"P_CARDMST~".~"REFILLSUM_AMT~",   
+         ~"P_CARDMST~".~"ENDDT~",   
+         ~"P_CARDMST~".~"REMARK~",   
+         ~"P_CARDMST~".~"LOTNO~",   
+         ~"P_CARDMST~".~"OPENDT~",   
+         ~"P_CARDMST~".~"LASTUSEDT~",   
+         ~"P_CARDMST~".~"CARD_MARKER~",   
+         ~"P_CARDMST~".~"ORDERDT~",   
+         ~"P_CARDMST~".~"INDT~",   
+         ~"P_CARDMST~".~"SALE_FLAG~",   
+         ~"P_CARDMST~".~"UPDTDT~",   
+         ~"P_CARDMST~".~"UPDT_USER~",   
+         ~"P_CARDMST~".~"ISSUESEQ~",   
+         ~"P_CARDMST~".~"ISSUE_USER~",   
+         ~"P_CARDMST~".~"MOVEDT~",   
+         ~"P_CARDMST~".~"MOVESEQ~",   
+         ~"P_CARDMST~".~"WKFLAG1~",   
+         ~"P_CARDMST~".~"BILPOINT~",   
+         ~"P_CARDMST~".~"PASSWD_YN~",   
+         ~"P_CARDMST~".~"PASSWD~",   
+         ~"P_CARDMST~".~"LAST_USE_AMT~",   
+         ~"P_CARDMST~".~"WKFLAG2~",
+         ~"P_CARDMST~".~"REFILL_YN~"
+    FROM ~"P_CARDMST~"
+ORDER BY ~"P_CARDMST~".~"CONTNO~" ASC   
+" update="P_CARDMST" updatewhere=1 updatekeyinplace=no )
+rectangle(band=detail x="32" y="1140" height="320" width="3781"  name=r_5 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="32" y="1140" height="320" width="3781"  name=r_9 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="37" y="1144" height="312" width="498"  name=r_6 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+text(band=detail alignment="2" text="최종충전금액" border="0" color="0" x="46" y="1280" height="60" width="480"  name=last_refill_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="1289" y="1144" height="312" width="498"  name=r_7 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="2555" y="1144" height="312" width="498"  name=r_8 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+text(band=detail alignment="2" text="사용누적금액" border="0" color="0" x="2565" y="1380" height="60" width="480"  name=t_25  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="32" y="116" height="904" width="3781"  name=r_1 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="2555" y="120" height="896" width="498"  name=r_4 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="1294" y="120" height="896" width="498"  name=r_2 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="37" y="120" height="896" width="498"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+line(band=detail x1="37" y1="212" x2="3808" y2="212"  name=l_21 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="312" x2="3808" y2="312"  name=l_25 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="412" x2="3808" y2="412"  name=l_24 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="612" x2="3808" y2="612"  name=l_19 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="712" x2="3808" y2="712"  name=l_26 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="812" x2="3808" y2="812"  name=l_27 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="Pin#" border="0" color="0" x="46" y="144" height="56" width="480"  name=pid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="32" y1="512" x2="3808" y2="512"  name=l_23 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="관리번호" border="0" color="0" x="1298" y="144" height="56" width="480"  name=contno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="카드상태" border="0" color="0" x="46" y="236" height="56" width="480"  name=status_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="재고상태" border="0" color="0" x="1303" y="236" height="56" width="480"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="모       델" border="0" color="0" x="46" y="336" height="56" width="480"  name=pricemodel_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="가격정책" border="0" color="0" x="1303" y="336" height="56" width="480"  name=priceplan_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="발행일자" border="0" color="0" x="46" y="436" height="56" width="480"  name=issuedt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="발행Seq." border="0" color="0" x="1303" y="436" height="56" width="480"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="출고일자" border="0" color="0" x="46" y="540" height="56" width="480"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="유효기간" border="0" color="0" x="1303" y="540" height="56" width="480"  name=enddt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="최종사용일" border="0" color="0" x="46" y="636" height="56" width="480"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="이동일자" border="0" color="0" x="46" y="736" height="56" width="480"  name=t_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="안내멘트" border="0" color="0" x="46" y="840" height="56" width="480"  name=t_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Password사용" border="0" color="0" x="46" y="940" height="56" width="480"  name=t_17  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Password" border="0" color="0" x="1303" y="940" height="56" width="480"  name=t_18  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="발행자" border="0" color="0" x="2565" y="440" height="56" width="480"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="대 리 점" border="0" color="0" x="2565" y="344" height="56" width="480"  name=partner_prefix_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Lot#" border="0" color="0" x="2565" y="144" height="56" width="480"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3077" y="540" height="60" width="352" format="[shortdate] [time]"  name=openusedt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="32" y1="912" x2="3808" y2="912"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="535" y1="120" x2="535" y2="1020"  name=l_18 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1792" y1="120" x2="1792" y2="1020"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1289" y1="120" x2="1289" y2="1020"  name=l_22 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="120" x2="2551" y2="1020"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="3054" y1="120" x2="3054" y2="1020"  name=l_9 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="0" text="[금액정보]" border="0" color="0" x="37" y="1068" height="60" width="485"  name=t_20  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="[기본정보]" border="0" color="0" x="37" y="44" height="60" width="411"  name=t_19  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="[제작/입고 정보]" border="0" color="0" x="37" y="1508" height="60" width="549"  name=t_21  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="32" y1="1248" x2="3808" y2="1248"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="1356" x2="3808" y2="1356"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="최초충전금액" border="0" color="0" x="46" y="1172" height="60" width="480"  name=first_refill_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="최초판매금액" border="0" color="0" x="1298" y="1172" height="60" width="480"  name=first_sale_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="535" y1="1144" x2="535" y2="1456"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1285" y1="1144" x2="1285" y2="1456"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1787" y1="1144" x2="1787" y2="1456"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1144" x2="2551" y2="1456"  name=l_10 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="3054" y1="1144" x2="3054" y2="1456"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1144" x2="2551" y2="1456"  name=l_12 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1144" x2="2551" y2="1456"  name=l_13 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1144" x2="2551" y2="1456"  name=l_14 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="카드잔액" border="0" color="0" x="2565" y="1172" height="60" width="480"  name=balance_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="충전누적금액" border="0" color="0" x="46" y="1380" height="60" width="480"  name=refillsum_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="판매누적금액" border="0" color="0" x="1289" y="1380" height="60" width="494"  name=salesum_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="32" y1="1248" x2="3808" y2="1248"  name=l_15 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="1356" x2="3808" y2="1356"  name=l_16 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1144" x2="2551" y2="1456"  name=l_29 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1144" x2="2551" y2="1456"  name=l_31 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1144" x2="2551" y2="1456"  name=l_32 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="535" y1="1144" x2="535" y2="1456"  name=l_17 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1285" y1="1144" x2="1285" y2="1456"  name=l_20 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1787" y1="1144" x2="1787" y2="1456"  name=l_28 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1144" x2="2551" y2="1456"  name=l_33 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="3054" y1="1144" x2="3054" y2="1456"  name=l_30 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+rectangle(band=detail x="32" y="1580" height="320" width="3781"  name=r_13 brush.hatch="6" brush.color="15793151" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="37" y="1584" height="312" width="498"  name=r_12 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+text(band=detail alignment="2" text="제 조 사" border="0" color="0" x="50" y="1612" height="60" width="480"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="최초판매액" border="0" color="0" x="1298" y="1608" height="56" width="480"  name=t_23  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="카드잔액" border="0" color="0" x="2565" y="1608" height="56" width="480"  name=t_24  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=detail x="2555" y="1584" height="216" width="498"  name=r_10 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="1289" y="1584" height="216" width="498"  name=r_11 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+line(band=detail x1="3054" y1="1584" x2="3054" y2="1800"  name=l_38 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2551" y1="1584" x2="2551" y2="1800"  name=l_37 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1787" y1="1584" x2="1787" y2="1800"  name=l_36 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1285" y1="1584" x2="1285" y2="1800"  name=l_35 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="535" y1="1584" x2="535" y2="1896"  name=l_34 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="1688" x2="3808" y2="1688"  name=l_39 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="32" y1="1796" x2="3808" y2="1796"  name=l_40 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="입고일자" border="0" color="0" x="2565" y="1612" height="56" width="480"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="3077" y="1608" height="60" width="352" format="[shortdate] [time]"  name=indt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="카드주문일자" border="0" color="0" x="1298" y="1612" height="56" width="480"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="수정작업자" border="0" color="0" x="1298" y="1716" height="56" width="480"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="최종사용금액" border="0" color="0" x="1298" y="1280" height="60" width="480"  name=t_22  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="0" x="3072" y="436" height="60" width="343" format="[general]"  name=issue_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="144" height="60" width="704" format="[general]"  name=pid edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="336" height="60" width="713" format="[general]"  name=pricemodel dddw.name=p1dc_dddw_model_card dddw.displaycolumn=pricemodelnm dddw.datacolumn=pricemodel dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="5" color="16777215" x="1819" y="336" height="60" width="699" format="[general]"  name=priceplan dddw.name=p1dc_dddw_partner_priceplan dddw.displaycolumn=priceplanmst_priceplan_desc dddw.datacolumn=partner_priceplan_priceplan dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=34 alignment="0" tabsequence=110 border="0" color="0" x="558" y="936" height="60" width="457" format="[general]"  name=passwd_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="과금Point" border="0" color="0" x="2565" y="840" height="56" width="480"  name=t_16  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="이동Seq." border="0" color="0" x="1307" y="736" height="56" width="480"  name=t_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="멘트언어" border="0" color="0" x="1307" y="840" height="56" width="480"  name=t_26  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="1819" y="740" height="60" width="690" format="[general]"  name=moveseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="3081" y="1380" height="60" width="402" format="#,##0.00"  name=usedsum_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3081" y="1172" height="60" width="402" format="#,##0.00"  name=balance edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="1819" y="1172" height="60" width="398" format="#,##0.00"  name=first_sale_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="0" color="0" x="1819" y="1276" height="60" width="398" format="#,##0.00"  name=last_use_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="1819" y="1384" height="60" width="398" format="#,##0.00"  name=salesum_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="562" y="1380" height="60" width="398" format="#,##0.00"  name=refillsum_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="562" y="1276" height="60" width="398" format="#,##0.00"  name=last_refill_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="1172" height="60" width="402" format="#,##0.00"  name=first_refill_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=35 alignment="0" tabsequence=120 border="5" color="0" x="1819" y="936" height="60" width="690" format="*********"  name=passwd edit.limit=0 edit.case=any edit.autoselect=yes edit.password=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=17 alignment="2" tabsequence=50 border="5" color="0" x="1819" y="540" height="60" width="347" format="[shortdate] [time]"  name=enddt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="636" height="60" width="352" format="[shortdate] [time]"  name=lastusedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="536" height="60" width="352" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="436" height="60" width="338" format="[shortdate] [time]"  name=issuedt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="740" height="60" width="352" format="[shortdate] [time]"  name=movedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="0" color="0" x="1819" y="636" height="60" width="347" format="[shortdate] [time]"  name=last_refilldt editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="1819" y="432" height="60" width="558" format="[general]"  name=issueseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="5" color="0" x="3077" y="340" height="60" width="699" format="[general]"  name=partner_prefix dddw.name=p1dc_dddw_partner_0 dddw.displaycolumn=partnernm dddw.datacolumn=prefixno dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1819" y="144" height="60" width="704" format="[general]"  name=contno edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="3077" y="144" height="60" width="407" format="[general]"  name=lotno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="5" color="16777215" x="558" y="236" height="60" width="709" format="[general]"  name=status dddw.name=p1dc_dddw_cardstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=25 alignment="0" tabsequence=20 border="5" color="1090519039" x="1819" y="236" height="60" width="695" format="[general]"  name=sale_flag dddw.name=p1dc_dddw_saleflag dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=32 alignment="0" tabsequence=80 border="5" color="33554432" x="558" y="840" height="60" width="709" format="[general]"  name=wkflag1 dddw.name=p1dc_dddw_ment dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=37 alignment="0" tabsequence=90 border="2" color="16777215" x="1819" y="840" height="60" width="690" format="[general]"  name=wkflag2 dddw.name=p1dc_dddw_langtype_key_v20 dddw.displaycolumn=langtypenm dddw.datacolumn=langtype dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=33 alignment="0" tabsequence=100 border="5" color="0" x="3081" y="840" height="60" width="718" format="#,##0"  name=bilpoint edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="비       고" border="0" color="0" x="46" y="1824" height="60" width="480"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="수정작업일" border="0" color="0" x="46" y="1716" height="60" width="480"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=130 border="5" color="0" x="562" y="1820" height="60" width="3227" format="[general]"  name=remark edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="1720" height="60" width="352" format="[shortdate] [time]"  name=updtdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="558" y="1612" height="60" width="695" format="[general]"  name=card_marker dddw.name=p0dc_dddw_card_maker dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="1810" y="1612" height="60" width="352" format="[shortdate] [time]"  name=orderdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="1810" y="1716" height="60" width="398" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="최종충전금액" border="0" color="0" x="1394" y="40" height="56" width="480"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=38 alignment="0" tabsequence=70 border="0" color="0" x="3077" y="636" height="56" width="448"  name=refill_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="최초사용일자" border="0" color="0" x="2565" y="540" height="56" width="480"  name=openusedt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="최종충전일" border="0" color="0" x="1303" y="636" height="56" width="480"  name=last_refilldt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="개인충전가능여부" border="0" color="0" x="2565" y="636" height="56" width="480"  name=t_27  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,63 @@
+﻿$PBExportHeader$f_dw_object_disable.srf
+$PBExportComments$datawindow내의 column Object를 모두 비활성화 시킨다 - 2015.03.08. lys
+global type f_dw_object_disable from function_object
+end type
+
+forward prototypes
+global subroutine f_dw_object_disable (datawindow adw_this)
+end prototypes
+
+global subroutine f_dw_object_disable (datawindow adw_this);/*-------------------------------------------------------------------------
+ 함  수  명 : gf_datawindow_font_chg
+ 작성  내역 : DataWindow내의 오브젝트의 폰트 변경
+ 인      수 : DataWindow lw_window
+ 비      고 : 2008.01.29 By JH
+              2009.02.04 Modified By Leejh
+-------------------------------------------------------------------------*/
+String		ls_objects, ls_type, ls_modify
+String		ls_col_name, ls_edit_style, ls_dddw_col_nm
+String		ls_rtn, ls_error, ls_all_modi
+String		ls_dddw_objects
+string      ls_DataObject
+long        ll_pos
+Integer		li_exit
+DataWindowChild	ldwc_col
+
+IF Trim(adw_this.DataObject) = "" Or IsNull(Trim(adw_this.DataObject)) Then	Return
+
+adw_this.SetRedraw(False)
+
+ls_objects = string(adw_this.Object.DataWindow.objects)
+ls_modify = ""
+ls_error = ""
+ls_all_modi = ""
+adw_this.Object.DataWindow.Color=16777215
+DO WHILE TRUE
+	IF PosA(ls_objects, '~t') > 0 THEN
+		ls_col_name = LeftA(ls_objects, PosA(ls_objects, '~t') - 1)
+		ls_objects  =  MidA(ls_objects, PosA(ls_objects, '~t') + 1)
+	ELSE
+		ls_col_name = ls_objects
+		li_exit     = 1
+	END IF
+	
+	ls_type = adw_this.describe(ls_col_name + ".type")
+	
+	Choose Case ls_type
+		//Case 'text', 'column', 'compute', 'button', 'groupbox'
+		Case 'column', 'button'
+			//X좌표를 통한 확인된 Object가 실제 사용되는 Object인지 확인
+			IF IsNumber(adw_this.Describe(ls_col_name + ".x")) Then
+				ls_modify = ls_col_name + '.tabsequence=32766 '
+				ls_rtn = adw_this.Modify(ls_modify)
+				IF ls_rtn <> "" Then	ls_error += ls_col_name + " : " + ls_rtn + "~r~n"
+			End IF
+	End Choose
+	
+	IF li_exit > 0 THEN EXIT
+LOOP
+adw_this.SetRedraw(True)
+IF Trim(ls_error) <> "" Then
+End IF
+end subroutine
+

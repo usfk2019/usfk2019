@@ -1,0 +1,31 @@
+﻿$PBExportHeader$f_center_window.srf
+$PBExportComments$[oH] window를 화면 중앙에...
+global type f_center_window from function_object
+end type
+
+forward prototypes
+global subroutine f_center_window (window aw_window)
+end prototypes
+
+global subroutine f_center_window (window aw_window);// 2000.05.30 Tuesday 
+// Coding By Oh Chung Hwan - T&C Technology   
+// f_center_window
+// Window를 해상도에 관계없이 
+// 화면의 중앙에 위치 시키는 함수 
+
+environment u_env
+int li_sh, li_sw // screen height, screen width
+
+getenvironment ( u_env )
+
+// 화면의 가로 세로 픽셀값을 얻는다.
+li_sh = pixelstounits ( u_env.screenheight, Ypixelstounits! )
+li_sw = pixelstounits ( u_env.screenwidth,  Xpixelstounits! )
+
+//화면 픽셀의 중앙에 window를 옮긴다..
+aw_window.move ( (li_sw - aw_window.width) / 2, (li_sh - aw_window.height) / 2 )
+
+Return  
+
+end subroutine
+

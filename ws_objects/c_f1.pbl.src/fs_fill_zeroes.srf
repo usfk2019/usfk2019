@@ -1,0 +1,45 @@
+﻿$PBExportHeader$fs_fill_zeroes.srf
+$PBExportComments$원하는 길이로 string을 변환('0'를 채우거나 절삭)
+global type fs_fill_zeroes from function_object
+end type
+
+forward prototypes
+global function string fs_fill_zeroes (string as_source, integer ai_len)
+end prototypes
+
+global function string fs_fill_zeroes (string as_source, integer ai_len);//목적 : 원하는 길이로 만들어주기위해서 spaces붙이거나 절삭함
+//인자 : as_source - 대상이 되는 String, ai_len - 원하는 길이
+
+Int li_source_len
+String ls_result
+Boolean lb_left = True
+
+If ai_len < 0 Then
+	ai_len = ai_len * -1
+	lb_left = False
+End If
+
+If IsNull(as_source) Then as_source = ""
+li_source_len = LenA(as_source)
+
+If li_source_len < ai_len Then
+	If lb_left Then
+//		ls_result = as_source + Fill('*', ai_len - li_source_len)
+		ls_result = as_source + FillA("0", ai_len - li_source_len)
+	Else
+//		ls_result = Fill('*', ai_len - li_source_len) + as_source
+		ls_result = FillA("0", ai_len - li_source_len) + as_source
+	End If
+ElseIf li_source_len > ai_len Then
+	If lb_left Then
+		ls_result = LeftA(as_source, ai_len)
+	Else
+		ls_result = RightA(as_source, ai_len)
+	End If
+Else
+	ls_result = as_source
+End If
+
+Return ls_result
+end function
+

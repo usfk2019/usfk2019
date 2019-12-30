@@ -1,0 +1,21 @@
+﻿$PBExportHeader$f_printpos_center.srf
+global type f_printpos_center from function_object
+end type
+
+forward prototypes
+global subroutine f_printpos_center (string fs_buf)
+end prototypes
+
+global subroutine f_printpos_center (string fs_buf);	String ls_buf
+	Integer li_len, li_spc
+	
+	ls_buf = fs_buf
+	li_len = LenA(ls_buf)
+	li_spc = truncate(( 42 -  li_len ) / 2, 0)
+	ls_buf = space(li_spc) + fs_buf
+	li_len = LenA(ls_buf)
+	PRN_PutBufN(ls_buf, li_len)
+	
+	return 
+end subroutine
+

@@ -1,0 +1,33 @@
+﻿$PBExportHeader$b1dw_inq_popup_svcorderitem.srd
+$PBExportComments$[chooys] 서비스 신청내역 조회/취소 PopUp DW
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=contractdet_orderno dbname="contractdet.orderno" )
+ column=(type=char(10) updatewhereclause=yes name=contractdet_itemcod dbname="contractdet.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemmst_itemnm dbname="itemmst.itemnm" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractdet_contractseq dbname="contractdet.contractseq" )
+ retrieve="  SELECT ~"CONTRACTDET~".~"ORDERNO~",   
+         ~"CONTRACTDET~".~"ITEMCOD~",   
+         ~"ITEMMST~".~"ITEMNM~",   
+         ~"CONTRACTDET~".~"CONTRACTSEQ~"  
+    FROM ~"CONTRACTDET~",   
+         ~"ITEMMST~"  
+   WHERE ( ~"CONTRACTDET~".~"ITEMCOD~" = ~"ITEMMST~".~"ITEMCOD~" ) and  
+         ( ( to_char(~"CONTRACTDET~".~"ORDERNO~") = :as_order )   
+         )   
+ORDER BY ~"CONTRACTDET~".~"ORDERNO~" ASC   
+" arguments=(("as_order", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="329" format="[general]"  name=contractdet_orderno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="347" y="8" height="60" width="306" format="[general]"  name=contractdet_itemcod edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="663" y="8" height="60" width="1399" format="[general]"  name=itemmst_itemnm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2071" y="8" height="60" width="553" format="[general]"  name=contractdet_contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="신청번호" border="2" color="16777215" x="9" y="8" height="60" width="329"  name=contractdet_orderno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목ID" border="2" color="16777215" x="347" y="8" height="60" width="306"  name=contractdet_itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="16777215" x="663" y="8" height="60" width="1399"  name=itemmst_itemnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약Seq" border="2" color="16777215" x="2071" y="8" height="60" width="553"  name=contractdet_contractseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

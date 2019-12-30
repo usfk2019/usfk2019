@@ -1,0 +1,18 @@
+﻿$PBExportHeader$b1dw_cnd_reg_fileupload_mst_v30.srd
+$PBExportComments$[jsha] 계약요청재처리 cnd dw
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=124 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=file_code dbname="file_code" )
+ column=(type=char(50) updatewhereclause=yes name=desc dbname="desc" )
+ column=(type=char(1) updatewhereclause=yes name=new dbname="new" values="신규	Y/신규	N" )
+ )
+text(band=detail alignment="1" text="파일유형" border="0" color="0" x="27" y="28" height="64" width="229"  name=file_code_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="270" y="28" height="64" width="553" format="[general]"  name=file_code dddw.name=b1dc_dddw_fileformcd dddw.displaycolumn=fileformnm dddw.datacolumn=fileformcd dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="설명" border="0" color="0" x="837" y="28" height="64" width="229"  name=desc_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="1079" y="28" height="64" width="1065" format="[general]"  name=desc editmask.mask="XXXXXXXX" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="2158" y="28" height="64" width="206" format="[general]"  name=new checkbox.text="신규" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="29478337" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

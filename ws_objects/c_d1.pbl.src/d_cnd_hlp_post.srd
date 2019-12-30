@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_cnd_hlp_post.srd
+$PBExportComments$[ceusee] 우편번호
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=208 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=hpost dbname="hpost" )
+ column=(type=char(50) updatewhereclause=no name=haddr dbname="haddr" )
+ column=(type=char(50) updatewhereclause=no name=haddr2 dbname="haddr2" )
+ )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="16711680" x="347" y="228" height="60" width="1381" format="[general]"  name=haddr2 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Address2" border="0" color="0" x="23" y="228" height="60" width="297"  name=t_1 visible="1~t0"  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="우편번호" border="0" color="0" x="0" y="40" height="56" width="274"  name=hpost_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="1" text="동/읍/면" border="0" color="0" x="23" y="120" height="56" width="247"  name=haddr_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="302" y="124" height="60" width="1381" format="[general]"  name=haddr edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="0" x="302" y="40" height="60" width="229" format="@@@-@@@"  name=hpost editmask.mask="XXX-XXX" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

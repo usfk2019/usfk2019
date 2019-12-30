@@ -1,0 +1,47 @@
+﻿$PBExportHeader$b5d_inq_reqbyuserid.srd
+$PBExportComments$수동거래등록(userid거래내역조회)
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=148 color="536870912" )
+summary(height=100 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=trcod dbname="reqdtl.trcod" )
+ column=(type=char(8) updatewhereclause=yes name=paydt dbname="reqdtl.paydt" )
+ column=(type=number updatewhereclause=yes name=tramt dbname="tramt" )
+ retrieve="  SELECT ~"REQDTL~".~"TRCOD~",
+         ~"REQDTL~".~"PAYDT~",
+         sum(~"REQDTL~".~"TRAMT~") tramt
+    FROM ~"REQDTL~"
+   WHERE (( ~"REQDTL~".~"MARK~" is null ) OR
+         ( ~"REQDTL~".~"MARK~" <> 'D' ))
+	  AND ( ~"REQDTL~".~"TRCOD~" in (select trcod from trcode where extraflag = 'N') )
+GROUP BY ~"REQDTL~".~"TRCOD~",
+         ~"REQDTL~".~"PAYDT~"
+   UNION ALL
+  SELECT ~"REQDTLH~".~"TRCOD~",
+         ~"REQDTLH~".~"PAYDT~",
+         sum(~"REQDTLH~".~"TRAMT~") tramt
+    FROM ~"REQDTLH~"
+   WHERE (( ~"REQDTLH~".~"MARK~" is null ) OR
+         ( ~"REQDTLH~".~"MARK~" <> 'D' ))
+	  AND ( ~"REQDTLH~".~"TRCOD~" in (select trcod from trcode where extraflag = 'N') )
+GROUP BY ~"REQDTLH~".~"TRCOD~",
+         ~"REQDTLH~".~"PAYDT~"
+" )
+text(band=header alignment="2" text="거래금액" border="6" color="16777215" x="1417" y="76" height="60" width="453"  name=tramt_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="거래(입금)일" border="6" color="16777215" x="960" y="76" height="60" width="443"  name=paydt_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="거래 유형" border="6" color="16777215" x="119" y="76" height="60" width="827"  name=trcod_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Order By" border="0" color="0" x="123" y="8" height="52" width="274"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="16711680" x="411" y="8" height="52" width="521"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="ASC/DESC" border="0" color="0" x="960" y="8" height="52" width="306"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="16711680" x="1280" y="8" height="52" width="101"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=summary x1="105" y1="4" x2="1879" y2="4"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="105" y1="92" x2="1879" y2="92"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="960" y="4" height="64" width="443" format="yyyy-mm-dd"  name=paydt edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1417" y="4" height="64" width="453" format="#,##0"  name=tramt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="119" y="4" height="64" width="827" format="[general]"  name=trcod dddw.name=b5dc_dddw_trcode dddw.displaycolumn=trcodnm dddw.datacolumn=trcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(tramt for all)"border="0" color="8388608" x="1399" y="20" height="64" width="471" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="거래 잔액" border="0" color="8388608" x="119" y="20" height="64" width="416"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

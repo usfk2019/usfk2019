@@ -1,0 +1,54 @@
+﻿$PBExportHeader$b0dw_prt_blacklist_c.srd
+$PBExportComments$[kem] 제한번호리스트 - 고객 print window
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=316 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes key=yes name=parttype dbname="area_blacklist.parttype" values="고객	C/" )
+ column=(type=char(20) updatewhereclause=yes key=yes name=partcod dbname="area_blacklist.partcod" )
+ column=(type=char(30) updatewhereclause=yes key=yes name=areanum dbname="area_blacklist.areanum" )
+ column=(type=datetime updatewhereclause=yes key=yes name=opendt dbname="area_blacklist.opendt" )
+ column=(type=datetime updatewhereclause=yes name=enddt dbname="area_blacklist.enddt" )
+ column=(type=char(60) updatewhereclause=yes name=remark dbname="area_blacklist.remark" )
+ retrieve="SELECT A.PARTTYPE
+     , A.PARTCOD     
+     , A.AREANUM
+     , A.OPENDT
+     , A.ENDDT
+     , A.REMARK
+  FROM AREA_BLACKLIST A
+ ORDER BY A.PARTTYPE, A.PARTCOD desc" update="AREA_BLACKLIST" updatewhere=0 updatekeyinplace=no )
+group(level=1 header.height=160 trailer.height=8 by=("parttype" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="23" y="36" height="88" width="3346"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1691" y="152" height="56" width="27"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1650" y="152" height="56" width="27"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="2537" y="180" height="56" width="741"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2537" y="252" height="60" width="741" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="비  고" border="0" color="0" x="1723" y="84" height="56" width="1541"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header.1 x1="105" y1="72" x2="105" y2="156"  name=l_8 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="105" y1="72" x2="3273" y2="72"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="110" y1="156" x2="3273" y2="152"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="3278" y1="72" x2="3278" y2="156"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=header.1 id=1 alignment="1" tabsequence=32766 border="0" color="0" x="123" y="4" height="56" width="265" format="[general]"  name=parttype ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="0" text=":" border="0" color="0" x="402" y="4" height="56" width="32"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="착신지번호" border="0" color="0" x="119" y="84" height="56" width="777"  name=partcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header.1 x1="905" y1="76" x2="905" y2="156"  name=l_10 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="적용개시일" border="0" color="0" x="919" y="84" height="56" width="379"  name=opendt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header.1 x1="1307" y1="76" x2="1307" y2="156"  name=l_2 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=header.1 x1="1710" y1="76" x2="1710" y2="156"  name=l_11 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="2" text="적용종료일" border="0" color="0" x="1321" y="84" height="56" width="379"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1321" y="8" height="56" width="379" format="[shortdate] [time]"  name=enddt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="105" y1="0" x2="105" y2="80"  name=l_9 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="105" y1="80" x2="3273" y2="80"  name=l_54 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3278" y1="0" x2="3278" y2="80"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="119" y="8" height="56" width="777" format="[general]"  name=areanum edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="905" y1="0" x2="905" y2="80"  name=l_31 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="919" y="8" height="56" width="379" format="[shortdate] [time]"  name=opendt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="1307" y1="0" x2="1307" y2="80"  name=l_4 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1710" y1="0" x2="1710" y2="80"  name=l_40 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1723" y="8" height="56" width="1541" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="105" y1="0" x2="3273" y2="0"  name=l_7 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

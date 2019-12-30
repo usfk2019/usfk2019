@@ -1,0 +1,44 @@
+﻿$PBExportHeader$b0dw_reg_svcmst_sams.srd
+$PBExportComments$[chooys] 서비스마스터 등록 - master datawindow
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=svccod dbname="svcmst.svccod" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=svcdesc dbname="svcmst.svcdesc" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="svcmst.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="svcmst.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="svcmst.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="svcmst.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="svcmst.pgm_id" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=svctype dbname="svcmst.svctype" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=svc_gubun dbname="svcmst.svc_gubun" )
+ retrieve="  SELECT ~"SVCMST~".~"SVCCOD~",   
+         ~"SVCMST~".~"SVCDESC~",   
+         ~"SVCMST~".~"CRT_USER~",   
+         ~"SVCMST~".~"UPDT_USER~",   
+         ~"SVCMST~".~"CRTDT~",   
+         ~"SVCMST~".~"UPDTDT~",   
+         ~"SVCMST~".~"PGM_ID~",   
+         ~"SVCMST~".~"SVCTYPE~",
+         ~"SVCMST~".~"SVC_GUBUN~"
+    FROM ~"SVCMST~"  
+ORDER BY ~"SVCMST~".~"SVCCOD~" ASC   
+" update="SVCMST" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Service Code" border="2" color="15793151" x="18" y="16" height="60" width="398"  name=svccod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Service Name" border="2" color="15793151" x="434" y="16" height="60" width="1399"  name=svcdesc_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Service Type" border="2" color="15793151" x="1851" y="16" height="60" width="398"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="16777215" x="338" y="136" height="56" width="219" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="16777215" x="558" y="136" height="56" width="215" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="16777215" x="773" y="136" height="56" width="165" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="16777215" x="937" y="136" height="56" width="165" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="16777215" x="1102" y="136" height="56" width="219" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="8421376" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="434" y="4" height="60" width="1399" format="[general]"  name=svcdesc edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="18" y="4" height="60" width="398" format="[general]"  name=svccod edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25792108" )
+column(band=detail id=8 alignment="0" tabsequence=30 border="2" color="16777215" x="1851" y="4" height="60" width="398" format="[general]"  name=svctype dddw.name=b0dc_dddw_svctype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25792108" )
+text(band=header alignment="2" text="Service Group" border="2" color="15793151" x="2267" y="16" height="60" width="517"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=9 alignment="0" tabsequence=40 border="2" color="0" x="2267" y="4" height="60" width="517"  name=svc_gubun dddw.name=b0dc_dddw_svcgubun dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=200 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

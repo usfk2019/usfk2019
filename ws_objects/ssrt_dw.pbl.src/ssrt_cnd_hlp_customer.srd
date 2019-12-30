@@ -1,0 +1,17 @@
+﻿$PBExportHeader$ssrt_cnd_hlp_customer.srd
+$PBExportComments$[ceusee] Help : 사용자  ID
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=180 color="536870912" )
+table(column=(type=char(50) updatewhereclause=no name=value dbname="value" values="Customer ID	customerid/Customer Name	customernm/Building No	buildingno/Room No	roomno/Base	basecod/Home Phone	homephone/	/	/	/	/	/" )
+ column=(type=char(50) updatewhereclause=no name=name dbname="name" )
+ column=(type=char(10) updatewhereclause=no name=ctype dbname="ctype" )
+ column=(type=char(10) updatewhereclause=no name=status dbname="status" )
+ )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="933" y="48" height="60" width="882" format="[general]"  name=name edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="297" y="48" height="60" width="613" format="[general]"  name=value ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Search By" border="0" color="0" x="27" y="52" height="60" width="247"  name=value_t  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

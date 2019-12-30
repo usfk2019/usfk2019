@@ -1,0 +1,51 @@
+﻿$PBExportHeader$p0dw_reg_return_up.srd
+$PBExportComments$[jsha] 반품카드 수정조회 처리
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=96 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=p_cardmst_pid dbname="p_cardmst.pid" )
+ column=(type=char(15) updatewhereclause=yes name=p_cardmst_contno dbname="p_cardmst.contno" )
+ column=(type=datetime update=yes updatewhereclause=yes name=p_cardreturn_returndt dbname="p_cardreturn.returndt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=p_cardreturn_return_type dbname="p_cardreturn.return_type" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=p_cardreturn_remark dbname="p_cardreturn.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=p_cardreturn_updt_user dbname="p_cardreturn.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=p_cardreturn_updtdt dbname="p_cardreturn.updtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=p_cardreturn_pgm_id dbname="p_cardreturn.pgm_id" )
+ column=(type=decimal(0) updatewhereclause=yes name=p_cardreturn_returnseq dbname="p_cardreturn.returnseq" )
+ retrieve="  SELECT ~"P_CARDMST~".~"PID~",   
+         ~"P_CARDMST~".~"CONTNO~",   
+         ~"P_CARDRETURN~".~"RETURNDT~",   
+         ~"P_CARDRETURN~".~"RETURN_TYPE~",   
+         ~"P_CARDRETURN~".~"REMARK~",   
+         ~"P_CARDRETURN~".~"UPDT_USER~",   
+         ~"P_CARDRETURN~".~"UPDTDT~",   
+         ~"P_CARDRETURN~".~"PGM_ID~",   
+         ~"P_CARDRETURN~".~"RETURNSEQ~"  
+    FROM ~"P_CARDMST~",   
+         ~"P_CARDRETURN~"  
+   WHERE ( ~"P_CARDMST~".~"PID~" = ~"P_CARDRETURN~".~"PID~" )
+ORDER BY ~"P_CARDMST~".~"PID~",   
+         ~"P_CARDMST~".~"CONTNO~",   
+         ~"P_CARDRETURN~".~"RETURNDT~",   
+         ~"P_CARDRETURN~".~"RETURN_TYPE~",   
+         ~"P_CARDRETURN~".~"REMARK~",   
+         ~"P_CARDRETURN~".~"UPDT_USER~",   
+         ~"P_CARDRETURN~".~"UPDTDT~",   
+         ~"P_CARDRETURN~".~"PGM_ID~",   
+         ~"P_CARDRETURN~".~"RETURNSEQ~" ASC    
+" )
+text(band=header alignment="2" text="관리번호" border="2" color="15793151" x="603" y="36" height="56" width="439"  name=p_cardmst_contno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="반품일자" border="2" color="15793151" x="1056" y="36" height="56" width="411"  name=p_cardreturn_returndt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="반품사유" border="2" color="15793151" x="1481" y="36" height="56" width="507"  name=p_cardreturn_return_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비고" border="2" color="15793151" x="2002" y="36" height="56" width="1376"  name=p_cardreturn_remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pin#" border="2" color="15793151" x="18" y="36" height="56" width="571"  name=p_cardmst_pid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="603" y="4" height="60" width="439" format="[general]"  name=p_cardmst_contno edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="2" color="16777215" x="1056" y="4" height="60" width="411" format="[shortdate] [time]"  name=p_cardreturn_returndt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="16777215" x="1481" y="4" height="60" width="507" format="[general]"  name=p_cardreturn_return_type dddw.name=p0dc_dddw_cardreturn dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="2" color="0" x="2002" y="4" height="60" width="1376" format="[general]"  name=p_cardreturn_remark edit.limit=100 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="18" y="4" height="60" width="571" format="[general]"  name=p_cardmst_pid edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

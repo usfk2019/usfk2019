@@ -1,0 +1,18 @@
+﻿$PBExportHeader$b2dw_d_reg_user_group_level_v20.srd
+$PBExportComments$[jsha]
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=user_group_id dbname="user_group_level.user_group_id" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=levelcod dbname="user_group_level.levelcod" )
+ retrieve="	SELECT user_group_id, levelcod
+	 FROM	 user_group_level
+	 ORDER BY user_group_id" update="user_group_level" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="웹사용자그룹" border="2" color="15793151" x="334" y="24" height="56" width="681"  name=user_group_id_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="334" y="4" height="60" width="681" format="[general]"  name=user_group_id dddw.name=b1dc_dddw_user_group dddw.displaycolumn=name dddw.datacolumn=user_group_id dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="832" y="124" height="56" width="270" format="[general]"  name=levelcod visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

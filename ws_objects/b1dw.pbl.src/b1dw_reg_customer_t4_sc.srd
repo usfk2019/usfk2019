@@ -1,0 +1,35 @@
+﻿$PBExportHeader$b1dw_reg_customer_t4_sc.srd
+$PBExportComments$[islim] 고객별 결제내역
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=176 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(13) updatewhereclause=yes name=pg_log_customerid dbname="pg_log.customerid" )
+ column=(type=decimal(0) updatewhereclause=yes name=pg_log_pay_seq dbname="pg_log.pay_seq" )
+ column=(type=datetime updatewhereclause=yes name=pg_log_paydt dbname="pg_log.paydt" )
+ column=(type=decimal(2) updatewhereclause=yes name=pg_log_payamt dbname="pg_log.payamt" )
+ column=(type=char(10) updatewhereclause=yes name=sales_mst_priceplan dbname="sales_mst.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=sales_det_itemcod dbname="sales_det.itemcod" )
+ retrieve="select  p.customerid, p.pay_seq, p.paydt, p.payamt, m.priceplan, d.itemcod
+from pg_log p, sales_det d, sales_mst m
+where p.pay_seq =m.pay_seq
+and m.sales_seq = d.sales_seq
+" )
+text(band=header alignment="0" text="" border="0" color="0" x="453" y="36" height="56" width="846"  name=t_payid  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="today()"border="0" color="0" x="1531" y="36" height="60" width="567" format="[SHORTDATE] [TIME]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="회원인증번호 :" border="0" color="0" x="55" y="36" height="56" width="393"  name=t_19  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="334" y="168" height="56" width="352"  name=pg_log_customerid  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="결제금액" border="2" color="15793151" x="1202" y="108" height="60" width="544"  name=paytype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="품목명" border="2" color="15793151" x="617" y="108" height="60" width="562"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="상품명" border="2" color="15793151" x="55" y="108" height="60" width="539"  name=paydt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="8" height="60" width="539"  name=sales_mst_priceplan  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="617" y="8" height="60" width="562"  name=sales_det_itemcod  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1202" y="8" height="60" width="544" format="#,##0"  name=pg_log_payamt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="결제일" border="2" color="15793151" x="1769" y="108" height="60" width="544"  name=trcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1769" y="8" height="60" width="544" format="yyyy-mm-dd"  name=pg_log_paydt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="결제번호" border="2" color="15793151" x="2336" y="108" height="60" width="489"  name=payamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="2336" y="8" height="60" width="489"  name=pg_log_pay_seq  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,50 @@
+﻿$PBExportHeader$b1dw_inq_inv_detail_t5_item.srd
+$PBExportComments$[parkkh] 전화사용내역상세
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=188 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=itemcod dbname="post_bilcdr.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=datetime updatewhereclause=yes name=sale_month dbname="post_bilcdr.sale_month" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="biltime" )
+ column=(type=number updatewhereclause=yes name=bilamt dbname="bilamt" )
+ column=(type=number updatewhereclause=yes name=dcbilamt dbname="dcbilamt" )
+ column=(type=number updatewhereclause=yes name=bilamt0 dbname="bilamt0" )
+ retrieve="SELECT A.ITEMCOD,
+       C.ITEMNM,
+		 A.SALE_MONTH,
+		 SUM(A.BILTIME) AS BILTIME,   
+       SUM(A.BILAMT) AS BILAMT, 
+       SUM(A.DCBILAMT) AS DCBILAMT,  
+		 SUM(A.BILAMT0) AS BILAMT0
+FROM   POST_BILCDR A, ITEMMST C
+WHERE  A.ITEMCOD = C.ITEMCOD(+)
+GROUP BY A.ITEMCOD, C.ITEMNM, A.SALE_MONTH
+ORDER BY A.ITEMCOD" )
+text(band=header alignment="1" text="납입고객 :" border="0" color="0" x="0" y="36" height="60" width="361"  name=t_19  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="375" y="36" height="60" width="846"  name=t_payid  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="today()"border="0" color="0" x="1527" y="32" height="60" width="654" format="[SHORTDATE] [TIME]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매출품목" border="2" color="15793151" x="9" y="108" height="60" width="343"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="1" text="Count :" border="0" color="0" x="2437" y="32" height="60" width="251"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="0" x="2697" y="32" height="60" width="347" format="#,##0"  name=compute_5  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="60" width="343" format="[general]"  name=itemcod edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+line(band=summary x1="0" y1="8" x2="3369" y2="4"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="2" text="통화시간(초)" border="2" color="15793151" x="1527" y="108" height="60" width="398"  name=biltime_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용요금" border="2" color="15793151" x="1943" y="108" height="60" width="466"  name=areacod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="할인요금" border="2" color="15793151" x="2427" y="108" height="60" width="466"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매년월" border="2" color="15793151" x="2912" y="108" height="60" width="453"  name=sale_month_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1527" y="0" height="60" width="398" format="[general]"  name=biltime edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1943" y="0" height="60" width="466" format="#,##0.00"  name=bilamt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2427" y="0" height="60" width="466" format="#,##0.00"  name=dcbilamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="2912" y="0" height="60" width="453" format="[shortdate] [time]"  name=sale_month editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(  biltime  for all )"border="0" color="0" x="1527" y="28" height="60" width="398" format="#,##0"  name=compute_3  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(  bilamt  for all )"border="0" color="0" x="1943" y="28" height="60" width="466" format="#,##0.00"  name=compute_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum ( dcbilamt for all )"border="0" color="0" x="2427" y="28" height="60" width="466" format="#,##0.00"  name=compute_6  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=summary alignment="2" text="합  계" border="2" color="16777215" x="1184" y="28" height="60" width="315"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="375" y="0" height="60" width="1138" format="[general]"  name=itemnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="매출품목명" border="2" color="15793151" x="375" y="108" height="60" width="1138"  name=itemnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

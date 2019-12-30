@@ -1,0 +1,45 @@
+﻿$PBExportHeader$e01d_reg_del_batch.srd
+$PBExportComments$[jybaek]연체자처리방안일괄등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(14) update=yes updatewhereclause=yes name=payid dbname="dlymst.payid" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount dbname="dlymst.amount" )
+ column=(type=char(1) updatewhereclause=yes name=work_gb dbname="work_gb" values="YES	Y/NO	N/" )
+ column=(type=decimal(0) updatewhereclause=yes name=dlymst_delay_months dbname="dlymst.delay_months" )
+ column=(type=datetime updatewhereclause=yes name=dlymst_modify_date dbname="dlymst.modify_date" )
+ column=(type=char(0) updatewhereclause=yes name=remark dbname="remark" )
+ retrieve="  SELECT A.PAYID,   
+         A.AMOUNT,   
+         'Y' work_gb,   
+         A.DELAY_MONTHS,   
+         A.MODIFY_DATE,
+         '' remark  
+    FROM DLYMST      A,   
+         BILLINGINFO B,
+         CUSTOMERM   C
+   WHERE ( A.PAYID 		= B.CUSTOMERID ) 
+     AND ( C.CUSTOMERID = A.PAYID )
+	  AND ( B.overdue_MONTHS is not null  )    
+"  sort="payid A " )
+text(band=header alignment="2" text="TOTAL ROWS :" border="0" color="0" x="1874" y="12" height="56" width="398"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="8388608" x="2281" y="12" height="56" width="443" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="연체고객번호" border="2" color="15793151" x="14" y="88" height="56" width="402"  name=payid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체고객명" border="2" color="15793151" x="430" y="88" height="56" width="677"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체금액" border="2" color="15793151" x="1120" y="88" height="56" width="375"  name=amount_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="처리일자" border="2" color="15793151" x="1509" y="88" height="56" width="347"  name=work_date_t  resizeable=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="YES/NO" border="2" color="15793151" x="1870" y="88" height="56" width="219"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="연체개월수" border="2" color="15793151" x="2103" y="88" height="56" width="320"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark" border="2" color="15793151" x="2437" y="88" height="56" width="1815"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="14" y="4" height="60" width="402" format="[general]"  name=payid edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.displayonly=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="430" y="4" height="60" width="677" format="[general]"  name=payid_1 dddw.name=e01dc_dddw_customerid dddw.displaycolumn=customernm dddw.datacolumn=customerid dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="2" color="0" x="1125" y="4" height="60" width="370" format="#,##0"  name=amount edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.displayonly=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="2" color="0" x="1509" y="4" height="60" width="352" format="yyyy-mm-dd"  name=dlymst_modify_date edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="16777215" x="1874" y="4" height="60" width="215" format=""  name=work_gb ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.required=yes ddlb.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0" x="2103" y="4" height="60" width="320" format="[general]"  name=dlymst_delay_months edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=20 border="2" color="0" x="2437" y="4" height="60" width="1815" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes edit.autovscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

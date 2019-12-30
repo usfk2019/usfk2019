@@ -1,0 +1,66 @@
+﻿$PBExportHeader$p0dw_reg_out_cancle.srd
+$PBExportComments$[uhmjj] 선불카드 판매출고 취소
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=outdt dbname="p_outlog.outdt" )
+ column=(type=char(10) updatewhereclause=yes name=pricemodel dbname="p_outlog.pricemodel" )
+ column=(type=char(60) updatewhereclause=yes name=partner_prefix dbname="p_outlog.partner_prefix" )
+ column=(type=decimal(0) updatewhereclause=yes name=out_qty dbname="p_outlog.out_qty" )
+ column=(type=decimal(2) updatewhereclause=yes name=sdamt dbname="p_outlog.sdamt" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_amt dbname="p_outlog.sale_amt" )
+ column=(type=decimal(4) updatewhereclause=yes name=totamt dbname="p_outlog.totamt" )
+ column=(type=char(15) updatewhereclause=yes name=contno_fr dbname="p_outlog.contno_fr" )
+ column=(type=char(15) updatewhereclause=yes name=contno_to dbname="p_outlog.contno_to" )
+ column=(type=char(60) updatewhereclause=yes name=remark dbname="p_outlog.remark" )
+ column=(type=decimal(0) updatewhereclause=yes key=yes name=outseq dbname="p_outlog.outseq" )
+ retrieve="  SELECT ~"P_OUTLOG~".~"OUTDT~",   
+         ~"P_OUTLOG~".~"PRICEMODEL~",   
+         ~"P_OUTLOG~".~"PARTNER_PREFIX~",   
+         ~"P_OUTLOG~".~"OUT_QTY~",   
+         ~"P_OUTLOG~".~"SDAMT~",   
+         ~"P_OUTLOG~".~"SALE_AMT~",            
+         ~"P_OUTLOG~".~"TOTAMT~",   
+         ~"P_OUTLOG~".~"CONTNO_FR~",   
+         ~"P_OUTLOG~".~"CONTNO_TO~",   
+         ~"P_OUTLOG~".~"REMARK~",
+         ~"P_OUTLOG~".~"OUTSEQ~"
+    FROM ~"P_OUTLOG~" 
+ORDER BY ~"P_OUTLOG~".~"OUTDT~",   
+         ~"P_OUTLOG~".~"PRICEMODEL~",   
+         ~"P_OUTLOG~".~"PARTNER_PREFIX~",   
+         ~"P_OUTLOG~".~"OUT_QTY~",   
+         ~"P_OUTLOG~".~"SDAMT~",   
+         ~"P_OUTLOG~".~"SALE_AMT~",            
+         ~"P_OUTLOG~".~"TOTAMT~",   
+         ~"P_OUTLOG~".~"CONTNO_FR~",   
+         ~"P_OUTLOG~".~"CONTNO_TO~",   
+         ~"P_OUTLOG~".~"REMARK~",
+         ~"P_OUTLOG~".~"OUTSEQ~" ASC" update="P_OUTLOG" updatewhere=0 updatekeyinplace=no  sort="outdt D " )
+text(band=header alignment="2" text="출고일자" border="2" color="16777215" x="9" y="12" height="56" width="471"  name=outdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="가격모델" border="2" color="16777215" x="489" y="12" height="56" width="667"  name=pricemodel_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="출고대리점" border="2" color="16777215" x="1166" y="12" height="56" width="590"  name=partner_prefix_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="관리번호From" border="2" color="16777215" x="3296" y="12" height="56" width="434"  name=contno_fr_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="관리번호To" border="2" color="16777215" x="3739" y="12" height="56" width="434"  name=contno_to_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비고" border="2" color="16777215" x="4183" y="12" height="56" width="1001"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="수량" border="2" color="16777215" x="1765" y="12" height="56" width="329"  name=out_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="총액면가" border="2" color="16777215" x="2903" y="12" height="56" width="384"  name=totamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="공급가" border="2" color="16777215" x="2491" y="12" height="56" width="402"  name=saleamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="판매단가" border="2" color="16777215" x="2103" y="12" height="56" width="379"  name=sdamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Outseq" border="2" color="16777215" x="9" y="12" height="56" width="471"  name=outseq_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="471" format="[shortdate] [time]"  name=outdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="489" y="8" height="60" width="667" format="[general]"  name=pricemodel dddw.name=p1dc_dddw_model dddw.displaycolumn=pricemodelnm dddw.datacolumn=pricemodel dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1166" y="8" height="60" width="590" format="[general]"  name=partner_prefix dddw.name=p1dc_dddw_partner_0 dddw.displaycolumn=partnernm dddw.datacolumn=prefixno dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1765" y="8" height="60" width="329" format="#,##0"  name=out_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="3296" y="8" height="60" width="434" format="[general]"  name=contno_fr edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="3739" y="8" height="60" width="434" format="[general]"  name=contno_to edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="4183" y="8" height="60" width="1001" format="[general]"  name=remark edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2103" y="8" height="60" width="379" format="#,##0"  name=sdamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2491" y="8" height="60" width="402" format="#,##0"  name=sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2903" y="8" height="60" width="384" format="#,##0"  name=totamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="2" tabsequence=10 border="0" color="0" x="5193" y="8" height="60" width="5" format="[general]"  name=outseq visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

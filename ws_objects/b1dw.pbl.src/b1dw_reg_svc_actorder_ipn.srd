@@ -1,0 +1,24 @@
+﻿$PBExportHeader$b1dw_reg_svc_actorder_ipn.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=validkey dbname="validinfo.validkey" )
+ column=(type=char(30) updatewhereclause=yes name=vpassword dbname="validinfo.vpassword" initial="1111" )
+ column=(type=char(2) updatewhereclause=yes name=act_result dbname="act_result" initial="00" )
+ retrieve="  SELECT VALIDKEY,   
+         VPASSWORD,
+	  	 '00' act_result
+    FROM VALIDINFO
+  
+" )
+text(band=header alignment="2" text="처리결과" border="2" color="16777215" x="1906" y="12" height="60" width="453"  name=act_result_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="인증 Password" border="2" color="16777215" x="1111" y="12" height="60" width="768"  name=vpassword_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="인증KEY" border="2" color="16777215" x="256" y="12" height="60" width="827"  name=validkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="256" y="8" height="60" width="827" format="[general]"  name=validkey edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="1111" y="8" height="60" width="768" format="*********"  name=vpassword edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.password=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="1906" y="8" height="60" width="453" format="[general]"  name=act_result dddw.name=b1dc_dddw_result dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,22 @@
+﻿$PBExportHeader$s2dw_cnd_reg_category_week_v20.srd
+$PBExportComments$[ohj] 품목분류별요일통계보고서 v20
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=228 color="536870912" )
+table(column=(type=date updatewhereclause=no name=use_fr dbname="use_fr" )
+ column=(type=date updatewhereclause=no name=use_to dbname="use_to" )
+ column=(type=char(10) updatewhereclause=no name=currency dbname="currency" )
+ column=(type=char(2) updatewhereclause=no name=type dbname="type" )
+ )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="722" y="60" height="60" width="55"  name=use_to_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="통화유형" border="0" color="0" x="18" y="148" height="60" width="325"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="종류" border="0" color="0" x="869" y="148" height="60" width="274"  name=type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="통화일자" border="0" color="0" x="18" y="60" height="60" width="325"  name=use_fr_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="16777215" x="366" y="60" height="60" width="338" format="[general]"  name=use_fr editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="16777215" x="805" y="60" height="60" width="338" format="[general]"  name=use_to editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="366" y="148" height="60" width="462" format="[general]"  name=currency dddw.name=s1dc_dddw_currency dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="1166" y="148" height="60" width="434" format="[general]"  name=type dddw.name=s2dc_dddw_svctype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

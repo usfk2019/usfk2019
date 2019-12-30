@@ -1,0 +1,30 @@
+﻿$PBExportHeader$b1dw_reg_svc_actorder_3.srd
+$PBExportComments$[kem] 서비스 신청 - com&life
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="itemmst.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=char(1) updatewhereclause=yes name=quota_yn dbname="itemmst.quota_yn" values="Yes	Y/No	N/" )
+ column=(type=char(5) updatewhereclause=yes name=chk dbname="chk" initial="Y" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=mainitem_yn dbname="itemmst.mainitem_yn" )
+ retrieve="SELECT   item.itemcod, item.itemnm, item.quota_yn, 
+			('check') chk , item.mainitem_yn
+    FROM itemmst item , priceplandet det
+WHERE item.itemcod = det.itemcod
+GROUP BY  item.itemcod, item.itemnm, item.quota_yn, 
+		  item.mainitem_yn
+ORDER BY item.itemcod, item.mainitem_yn DESC, item.quota_yn DESC"  sort="mainitem_yn D itemcod A " )
+text(band=header alignment="2" text="품목 ID" border="2" color="16777215" x="137" y="16" height="60" width="475"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0~tif( mainitem_yn ='Y' , If(quota_yn = 'Y', RGB(0,0,128),10355177) , RGB(0,0,0)) " x="137" y="4" height="60" width="475" format="[general]"  name=itemcod edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0~tif( mainitem_yn ='Y' , if( quota_yn='Y',  RGB(0,0,128) ,10355177) , RGB(0,0,0)) " x="640" y="4" height="60" width="1413" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="품목명" border="2" color="16777215" x="640" y="16" height="60" width="1413"  name=itemnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="신청여부" border="2" color="16777215" x="2080" y="16" height="60" width="407"  name=compute_0004_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2098" y="8" height="56" width="133" format="[general]"  name=quota_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="0" color="0~tif( mainitem_yn ='Y' , 10355177 , RGB(0,0,0)) " x="2254" y="8" height="60" width="78" format="[general]" protect="0~tif( mainitem_yn = 'Y' and quota_yn = 'N', 1, 0 )"  name=chk checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2359" y="8" height="60" width="110" format="[general]"  name=mainitem_yn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

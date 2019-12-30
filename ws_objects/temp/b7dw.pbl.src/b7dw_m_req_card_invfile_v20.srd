@@ -1,0 +1,38 @@
+﻿$PBExportHeader$b7dw_m_req_card_invfile_v20.srd
+$PBExportComments$[jsha] 신용카드결제청구 dw
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=cardtext_memberid dbname="cardtext.memberid" )
+ column=(type=char(10) updatewhereclause=yes name=cardtext_card_type dbname="cardtext.card_type" )
+ column=(type=char(20) updatewhereclause=yes name=cardmembermst_card_corpno dbname="cardmembermst.card_corpno" )
+ column=(type=number updatewhereclause=yes name=reqcnt dbname="reqcnt" )
+ column=(type=number updatewhereclause=yes name=reqamt dbname="reqamt" )
+ column=(type=char(23) updatewhereclause=yes name=period dbname="period" )
+ retrieve="	SELECT	cardtext.memberid,
+				cardtext.card_type,
+				cardmembermst.card_corpno,
+				count(cardtext.seqno) reqcnt,
+				sum(nvl(cardtext.reqamt,0) - nvl(cardtext.erramt,0)) reqamt,
+				min(to_char(cardtext.approvaldt, 'yyyy-mm-dd')) || ' ~~ ' || max(to_char(cardtext.approvaldt, 'yyyy-mm-dd')) period
+	 FROM		cardtext,
+				cardmembermst
+	 WHERE	cardtext.memberid = cardmembermst.memberid
+	 GROUP BY cardtext.memberid, cardtext.card_type, cardmembermst.card_corpno" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="411" format="[general]"  name=cardtext_memberid edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="430" y="8" height="60" width="535" format="[general]"  name=cardtext_card_type dddw.name=b1dc_dddw_creditcard_type dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="974" y="8" height="60" width="576" format="[general]"  name=cardmembermst_card_corpno edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1559" y="8" height="60" width="421" format="#,##0"  name=reqcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1989" y="8" height="60" width="402" format="#,##0"  name=reqamt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2400" y="8" height="60" width="658" format="[general]"  name=period edit.limit=23 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="가맹점ID" border="2" color="15793151" x="9" y="20" height="56" width="411"  name=cardtext_memberid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="카드종류" border="2" color="15793151" x="430" y="20" height="56" width="535"  name=cardtext_card_type_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사업자번호" border="2" color="15793151" x="974" y="20" height="56" width="576"  name=cardmembermst_card_corpno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구총건수" border="2" color="15793151" x="1559" y="20" height="56" width="421"  name=reqcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="청구총금액" border="2" color="15793151" x="1989" y="20" height="56" width="402"  name=reqamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="기간" border="2" color="15793151" x="2400" y="20" height="56" width="658"  name=period_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

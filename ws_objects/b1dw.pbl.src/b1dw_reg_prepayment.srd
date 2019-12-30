@@ -1,0 +1,82 @@
+﻿$PBExportHeader$b1dw_reg_prepayment.srd
+$PBExportComments$[ohj] 기간제선납상품수납 dw_detail
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=280 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912"  height.autosize=yes)
+table(column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq dbname="prepayment.seq" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=customerid dbname="prepayment.customerid" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=orderno dbname="prepayment.orderno" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=contractseq dbname="prepayment.contractseq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=itemcod dbname="prepayment.itemcod" )
+ column=(type=datetime update=yes updatewhereclause=yes name=salemonth dbname="prepayment.salemonth" )
+ column=(type=datetime update=yes updatewhereclause=yes name=salefromdt dbname="prepayment.salefromdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=saletodt dbname="prepayment.saletodt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=sale_amt dbname="prepayment.sale_amt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=paytype dbname="prepayment.paytype" )
+ column=(type=datetime update=yes updatewhereclause=yes name=paydt dbname="prepayment.paydt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=payamt dbname="prepayment.payamt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=inputclosedt dbname="prepayment.inputclosedt" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=remark dbname="prepayment.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="prepayment.crt_user" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="prepayment.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="prepayment.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="prepayment.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="prepayment.pgm_id" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=ref_itemseq dbname="prepayment.ref_itemseq" )
+ column=(type=char(1) updatewhereclause=yes name=gubun dbname="gubun" )
+ retrieve="SELECT SEQ,
+       CUSTOMERID,
+       ORDERNO,
+       CONTRACTSEQ,
+       ITEMCOD,
+       SALEMONTH,
+       SALEFROMDT,
+       SALETODT,
+       SALE_AMT,
+       PAYTYPE,
+       PAYDT,
+       PAYAMT,
+       INPUTCLOSEDT,
+       REMARK,
+       CRT_USER,
+       UPDT_USER,
+       CRTDT,
+       UPDTDT,
+       PGM_ID,
+       REF_ITEMSEQ,
+       '2' as gubun   
+  FROM PREPAYMENT
+ ORDER BY SEQ
+
+" update="PREPAYMENT" updatewhere=0 updatekeyinplace=no )
+compute(band=header alignment="1" expression="count(  salemonth  for all ) + '  회'"border="2" color="0" x="1920" y="12" height="60" width="503" format="[General]"  name=cnt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=50 border="2" color="16777215" x="2405" y="8" height="64" width="503" format="[general]"  name=paytype dddw.name=b1dc_dddw_paytype_1 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=11 alignment="2" tabsequence=60 border="2" color="16777215" x="2926" y="8" height="64" width="407" format="[shortdate] [time]"  name=paydt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=14 alignment="0" tabsequence=70 border="2" color="0" x="3351" y="8" height="64" width="709" format="[general]"  name=remark edit.limit=100 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="품목" border="2" color="16777215" x="23" y="12" height="60" width="530"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=header id=5 alignment="0" tabsequence=32766 border="2" color="0" x="571" y="12" height="60" width="800" format="[general]"  name=itemcod dddw.name=b1dc_dddw_itemmst dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사용월수" border="2" color="16777215" x="1390" y="12" height="60" width="512"  name=cnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=header alignment="1" expression="sum(  if (  IsNull(paytype), 0, payamt)  for all )"border="2" color="0" x="1920" y="92" height="60" width="503" format="#,##0"  name=pay_totamt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매총금액" border="2" color="16777215" x="18" y="92" height="60" width="530"  name=sale_totamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+compute(band=header alignment="1" expression="sum(  sale_amt  for all )"border="2" color="0" x="571" y="92" height="60" width="800" format="#,##0"  name=sale_totamt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="납부금액" border="2" color="16777215" x="1390" y="92" height="60" width="512"  name=pay_totamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="2" color="0" x="23" y="8" height="64" width="338" format="[shortdate] [time]"  name=salemonth editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매일자" border="2" color="16777215" x="23" y="216" height="60" width="338"  name=salemonth_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="납부방법" border="2" color="16777215" x="2405" y="216" height="60" width="503"  name=paytype_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비고" border="2" color="16777215" x="3351" y="216" height="60" width="709"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="납부일자" border="2" color="16777215" x="2926" y="216" height="60" width="407"  name=paydt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0" x="379" y="8" height="64" width="338" format="[shortdate] [time]"  name=salefromdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매시작일" border="2" color="16777215" x="379" y="216" height="60" width="338"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=8 alignment="2" tabsequence=10 border="2" color="0~tif (gubun = '2' , 0, 16777215 )  " x="736" y="8" height="64" width="338" format="[shortdate] [time]" protect="0~tif (gubun = '2' , 1, 0)"  name=saletodt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif (gubun = '2' , 15793151 , 9016172 ) " )
+text(band=header alignment="2" text="판매종료일" border="2" color="16777215" x="736" y="216" height="60" width="338"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=9 alignment="1" tabsequence=20 border="2" color="0~tif (gubun = '2' , 0, 16777215 )  " x="1093" y="8" height="64" width="389" format="#,##0" protect="0~tif (gubun = '2' , 1, 0)"  name=sale_amt editmask.mask="###,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif (gubun = '2' , 15793151 , 9016172 ) " )
+text(band=header alignment="2" text="판매금액" border="2" color="16777215" x="1093" y="216" height="60" width="389"  name=sale_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=13 alignment="2" tabsequence=30 border="2" color="0" x="1499" y="8" height="64" width="402" format="[shortdate] [time]"  name=inputclosedt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="납기일자" border="2" color="16777215" x="1499" y="216" height="60" width="402"  name=inputclosedt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=12 alignment="1" tabsequence=40 border="2" color="0" x="1920" y="8" height="64" width="466" format="#,##0" protect="0~tif (gubun = '2' , 0, 1)"  name=payamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="536870912~tif (gubun = '2' , 16777215,   15793151 ) " )
+text(band=header alignment="2" text="납부금액" border="2" color="16777215" x="1920" y="216" height="60" width="466"  name=payamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

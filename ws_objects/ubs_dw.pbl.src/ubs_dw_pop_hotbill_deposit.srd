@@ -1,0 +1,98 @@
+﻿$PBExportHeader$ubs_dw_pop_hotbill_deposit.srd
+$PBExportComments$[1HERa]  dailypayment
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=72 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=dailypayment_payseq dbname="dailypayment.payseq" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="dailypayment.itemcod" )
+ column=(type=char(50) updatewhereclause=yes name=itemnm dbname="itemmst.itemnm" )
+ column=(type=datetime updatewhereclause=yes name=paydt dbname="dailypayment.paydt" )
+ column=(type=char(10) updatewhereclause=yes name=shopid dbname="dailypayment.shopid" )
+ column=(type=char(14) updatewhereclause=yes name=operator dbname="dailypayment.operator" )
+ column=(type=char(10) updatewhereclause=yes name=paymethod dbname="dailypayment.paymethod" )
+ column=(type=char(10) updatewhereclause=yes name=regcod dbname="dailypayment.regcod" )
+ column=(type=decimal(2) updatewhereclause=yes name=payamt dbname="dailypayment.payamt" )
+ column=(type=decimal(0) updatewhereclause=yes name=paycnt dbname="dailypayment.paycnt" )
+ column=(type=char(50) updatewhereclause=yes name=remark dbname="dailypayment.remark" )
+ column=(type=char(50) updatewhereclause=yes name=dailypayment_remark2 dbname="dailypayment.remark2" )
+ column=(type=char(10) updatewhereclause=yes name=dailypayment_approvalno dbname="dailypayment.approvalno" )
+ column=(type=char(1) updatewhereclause=yes name=gubun dbname="itemmst.gubun" )
+ retrieve="SELECT B.PAYSEQ,
+       B.ITEMCOD, 
+	    A.ITEMNM, 
+		 B.PAYDT,   
+		 B.SHOPID,   
+		 B.OPERATOR,   
+		 B.PAYMETHOD,   
+		 B.REGCOD,   
+		 B.PAYAMT,   
+		 B.PAYCNT,   
+		 B.REMARK,
+       B.REMARK2,
+		 B.APPROVALNO,
+		 C.GUBUN
+FROM   ITEMMST A, DAILYPAYMENT B, ( SELECT 'I' AS GUBUN, IN_ITEM AS ITEMCOD
+												FROM   DEPOSIT_REFUND
+												UNION ALL
+												SELECT 'O', OUT_ITEM
+												FROM   DEPOSIT_REFUND ) C
+WHERE  A.ITEMCOD = B.ITEMCOD
+AND    B.PAYID = :as_payid
+AND    B.ITEMCOD = C.ITEMCOD
+UNION ALL
+SELECT B.PAYSEQ,
+       B.ITEMCOD, 
+	    A.ITEMNM, 
+		 B.PAYDT,   
+		 B.SHOPID,   
+		 B.OPERATOR,   
+		 B.PAYMETHOD,   
+		 B.REGCOD,   
+		 B.PAYAMT,   
+		 B.PAYCNT,   
+		 B.REMARK,
+       B.REMARK2,
+		 B.APPROVALNO,
+		 C.GUBUN
+FROM   ITEMMST A, DAILYPAYMENTH B, ( SELECT 'I' AS GUBUN, IN_ITEM AS ITEMCOD
+												 FROM   DEPOSIT_REFUND
+												 UNION ALL
+												 SELECT 'O', OUT_ITEM
+												 FROM   DEPOSIT_REFUND ) C
+WHERE  A.ITEMCOD = B.ITEMCOD
+AND    B.PAYID = :as_payid
+AND    B.ITEMCOD = C.ITEMCOD
+" arguments=(("as_payid", string))  sort="dailypayment_payseq D gubun A " )
+text(band=header alignment="2" text="Shop" border="2" color="16777215" x="3895" y="8" height="60" width="814"  name=shopid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Reg Code" border="2" color="16777215" x="3259" y="8" height="60" width="626"  name=regcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pay Amt" border="2" color="16777215" x="2203" y="8" height="60" width="325"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Qty" border="2" color="16777215" x="2043" y="8" height="60" width="151"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Paymethod" border="2" color="16777215" x="1646" y="8" height="60" width="389"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Pay Date" border="2" color="16777215" x="1285" y="8" height="60" width="352"  name=paydt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Item Code" border="2" color="16777215" x="9" y="8" height="60" width="384"  name=itemcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="I t e m" border="2" color="16777215" x="402" y="8" height="60" width="873"  name=itemnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark" border="2" color="16777215" x="4718" y="8" height="60" width="791"  name=remark_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Remark2" border="2" color="16777215" x="5518" y="8" height="60" width="942"  name=t_remark  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Operator" border="2" color="16777215" x="2537" y="8" height="60" width="320"  name=operator_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Approval No." border="2" color="16777215" x="2866" y="8" height="60" width="384"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="9" y="4" height="60" width="384" format="[general]"  name=itemcod edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="402" y="4" height="60" width="873" format="[general]"  name=itemnm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="2537" y="4" height="60" width="320" format="[general]"  name=operator dddw.name=none dddw.displaycolumn=none dddw.datacolumn=none dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="3895" y="4" height="60" width="814" format="[general]"  name=shopid dddw.name=ssrt_dddw_partner dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="3259" y="4" height="60" width="626" format="[general]"  name=regcod dddw.name=b0dc_dddw_regcod_sams dddw.displaycolumn=regdesc dddw.datacolumn=regcod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="1285" y="4" height="60" width="352" format="[shortdate] [time]"  name=paydt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="1646" y="4" height="60" width="389" format="[general]"  name=paymethod dddw.name=b1dc_dddw_paymethod dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="2203" y="4" height="60" width="325" format="#,##0.00"  name=payamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="2043" y="4" height="60" width="151" format="#,##0"  name=paycnt editmask.mask="#,##0" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="4718" y="4" height="60" width="791" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="5518" y="4" height="60" width="942" format="[general]"  name=dailypayment_remark2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="2" color="0~tif ( gubun = 'O', rgb(255, 0, 0), rgb(0, 0, 0))" x="2866" y="4" height="60" width="384" format="[general]"  name=dailypayment_approvalno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=footer alignment="2" text="Deposit Total :" border="0" color="16711680" x="9" y="4" height="60" width="384"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="0" expression="sum ( if (gubun = 'I', payamt, 0) for all )"border="0" color="16711680" x="402" y="4" height="60" width="873" format="#,##0.00"  name=compute_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=footer alignment="2" text="Refund Total:" border="0" color="255" x="1285" y="4" height="60" width="352"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="0" expression="sum ( if (gubun = 'O', payamt, 0) for all )"border="0" color="255" x="1646" y="4" height="60" width="389" format="#,##0.00"  name=compute_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

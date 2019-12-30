@@ -1,0 +1,23 @@
+﻿$PBExportHeader$b1dw_cnd_hlp_validkeymst_1_v20.srd
+$PBExportComments$[parkkh] Validkey MST Help 조건 조회
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=280 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=validkey_type dbname="validkey_type" )
+ column=(type=datetime updatewhereclause=no name=idate_fr dbname="idate_fr" )
+ column=(type=datetime updatewhereclause=no name=idate_to dbname="idate_to" )
+ column=(type=char(10) updatewhereclause=no name=partner dbname="partner" )
+ column=(type=char(30) updatewhereclause=no name=validkey dbname="validkey" )
+ )
+text(band=detail alignment="1" text="인증KeyType" border="0" color="0" x="41" y="24" height="56" width="334"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Rotue-No" border="0" color="0" x="41" y="100" height="56" width="334"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="입고일" border="0" color="0" x="41" y="184" height="56" width="334"  name=paynm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="2" color="0" x="846" y="184" height="56" width="375" format="[shortdate] [time]"  name=idate_to editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="782" y="184" height="56" width="50"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="393" y="24" height="60" width="631" format="[general]"  name=validkey_type dddw.name=b1dc_dddw_validkey_typenm_v20 dddw.displaycolumn=validkey_typenm dddw.datacolumn=validkey_type dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="2" color="0" x="393" y="100" height="56" width="626" format="[general]"  name=validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="2" color="0" x="393" y="184" height="56" width="375" format="[shortdate] [time]"  name=idate_fr editmask.autoskip=yes editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

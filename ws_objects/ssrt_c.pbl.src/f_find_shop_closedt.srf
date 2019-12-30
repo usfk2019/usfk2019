@@ -1,0 +1,33 @@
+﻿$PBExportHeader$f_find_shop_closedt.srf
+$PBExportComments$[1hear]영수증출력용 함수임.
+global type f_find_shop_closedt from function_object
+end type
+
+forward prototypes
+global function date f_find_shop_closedt (string fs_partner)
+end prototypes
+
+global function date f_find_shop_closedt (string fs_partner);//----------------------------------------------
+//Shop 별 마감일 
+//fs_partner 	: 파트너 정보
+// Porgram by k.b.CHO [1hera]
+//----------------------------------------------
+
+String  	ls_shopid
+date     ldt_dt
+
+
+ls_shopid = fs_partner
+
+select closedt
+  INTO :ldt_dt
+  FROM SHOPCLOSEMST
+ WHERE PARTNER = :ls_shopid ;
+
+IF sqlca.sqlcode <> 0 OR IsNull(ldt_dt) 	then 
+	ldt_dt = date(fdt_get_dbserver_now())
+END IF
+
+return ldt_dt
+end function
+

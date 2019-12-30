@@ -1,0 +1,15 @@
+﻿$PBExportHeader$b2dw_cnd_inq_partnerused_limit_v20.srd
+$PBExportComments$[ssong] 대리점 한도조회 조건
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=140 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=partner dbname="partner" )
+ column=(type=char(1) updatewhereclause=yes name=new dbname="new" values="가격정책별	Y/가격정책별	N" )
+ )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="1545" y="48" height="60" width="379" format="[general]"  name=new checkbox.text="가격정책별" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="대리점" border="0" color="0" x="18" y="48" height="60" width="206"  name=partner_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="238" y="48" height="60" width="695" format="[general]"  name=partner dddw.name=b2dc_dddw_partner_level100 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

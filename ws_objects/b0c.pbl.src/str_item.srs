@@ -1,0 +1,9 @@
+﻿$PBExportHeader$str_item.srs
+$PBExportComments$[kem] message structure
+global type str_item from structure
+	boolean		ib_data[]
+	string		is_data[]
+	integer		ii_data[]
+	long		il_data[]
+end type
+

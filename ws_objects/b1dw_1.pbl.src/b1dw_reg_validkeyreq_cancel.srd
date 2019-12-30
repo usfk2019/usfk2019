@@ -1,0 +1,111 @@
+﻿$PBExportHeader$b1dw_reg_validkeyreq_cancel.srd
+$PBExportComments$[islim] 인증키요청처리
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=644 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=validkeyreq_vreqno dbname="validkeyreq.vreqno" )
+ column=(type=datetime updatewhereclause=yes name=validkeyreq_reqdt dbname="validkeyreq.reqdt" )
+ column=(type=char(10) updatewhereclause=yes name=validkeyreq_reqtype dbname="validkeyreq.reqtype" )
+ column=(type=char(10) updatewhereclause=yes name=validkeyreq_status dbname="validkeyreq.status" )
+ column=(type=char(30) updatewhereclause=yes name=validkeyreq_validkey dbname="validkeyreq.validkey" )
+ column=(type=char(30) updatewhereclause=yes name=validkeyreq_vpassword dbname="validkeyreq.vpassword" )
+ column=(type=char(10) updatewhereclause=yes name=validkeyreq_svccod dbname="validkeyreq.svccod" )
+ column=(type=char(50) updatewhereclause=yes name=svcmst_svcdesc dbname="svcmst.svcdesc" )
+ column=(type=char(1) updatewhereclause=yes name=svcmst_svctype dbname="svcmst.svctype" )
+ column=(type=decimal(0) updatewhereclause=yes name=validkeyreq_contractseq dbname="validkeyreq.contractseq" )
+ column=(type=char(14) updatewhereclause=yes name=validkeyreq_customerid dbname="validkeyreq.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=validkeyreq_auth_method dbname="validkeyreq.auth_method" )
+ column=(type=char(50) updatewhereclause=yes name=validkeyreq_validitem1 dbname="validkeyreq.validitem1" )
+ column=(type=char(20) updatewhereclause=yes name=validkeyreq_validitem2 dbname="validkeyreq.validitem2" )
+ column=(type=char(20) updatewhereclause=yes name=validkeyreq_validitem3 dbname="validkeyreq.validitem3" )
+ column=(type=char(10) updatewhereclause=yes name=validkeyreq_validkey_loc dbname="validkeyreq.validkey_loc" )
+ column=(type=char(10) updatewhereclause=yes name=validkeyreq_langtype dbname="validkeyreq.langtype" )
+ column=(type=char(30) updatewhereclause=yes name=validkeyreq_bef_validkey dbname="validkeyreq.bef_validkey" )
+ column=(type=datetime updatewhereclause=yes name=validkeyreq_bef_fromdt dbname="validkeyreq.bef_fromdt" )
+ column=(type=char(10) updatewhereclause=yes name=validkeyreq_req_partner dbname="validkeyreq.req_partner" )
+ column=(type=char(60) updatewhereclause=yes name=validkeyreq_remark dbname="validkeyreq.remark" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_status dbname="contractmst.status" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_priceplan dbname="contractmst.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=contractmst_reg_partner dbname="contractmst.reg_partner" )
+ retrieve="SELECT v.vreqno,
+		 v.reqdt,
+		 v.reqtype,
+		 v.status,
+	    v.validkey,
+		 v.vpassword,
+		 v.svccod,
+		 s.svcdesc,
+       s.svctype,
+       v.contractseq,
+       v.customerid,
+		 c.customernm,
+		 v.auth_method,
+		 v.validitem1,
+		 v.validitem2,
+		 v.validitem3,
+		 v.validkey_loc,
+		 v.langtype,
+		 v.bef_validkey, v.bef_fromdt, v.req_partner, v.remark,
+       con.status, con.priceplan, con.reg_partner
+FROM   validkeyreq v, customerm c, svcmst s, contractmst con
+WHERE  v.customerid = c.customerid
+  AND  v.svccod = s.svccod
+  AND  v.contractseq = con.contractseq
+  AND  v.vreqno = :ls_vreqseq
+
+" arguments=(("ls_vreqseq", string)) )
+rectangle(band=detail x="18" y="24" height="592" width="3922"  name=r_1 brush.hatch="7" brush.color="570425343" pen.style="0" pen.width="5" pen.color="32896"  background.mode="1" background.color="553648127" )
+rectangle(band=detail x="2642" y="28" height="480" width="407"  name=r_5 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="23" y="28" height="584" width="411"  name=r_3 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+rectangle(band=detail x="1339" y="28" height="480" width="411"  name=r_4 brush.hatch="6" brush.color="29478337" pen.style="0" pen.width="5" pen.color="29478337"  background.mode="2" background.color="31844325" )
+line(band=detail x1="434" y1="24" x2="434" y2="612"  name=l_1 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1335" y1="24" x2="1335" y2="512"  name=l_11 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="1751" y1="28" x2="1751" y2="512"  name=l_2 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="2638" y1="24" x2="2638" y2="508"  name=l_3 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="3049" y1="24" x2="3049" y2="512"  name=l_9 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+rectangle(band=detail x="23" y="28" height="120" width="137"  name=r_2 brush.hatch="7" brush.color="568715237" pen.style="0" pen.width="5" pen.color="31844325"  background.mode="2" background.color="31844325" )
+line(band=detail x1="27" y1="220" x2="3936" y2="220"  name=l_8 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="23" y1="316" x2="3931" y2="316"  name=l_7 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="27" y1="412" x2="3936" y2="412"  name=l_6 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+line(band=detail x1="23" y1="508" x2="3931" y2="508"  name=l_5 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="요청Seq" border="0" color="0" x="46" y="44" height="56" width="370"  name=validkeyreq_vreqno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="2" text="비고" border="0" color="0" x="46" y="532" height="56" width="370"  name=compute_0014_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="2" text="요청Type" border="0" color="0" x="1362" y="44" height="56" width="370"  name=validkeyreq_reqtype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="27" y1="124" x2="3936" y2="124"  name=l_4 pen.style="0" pen.width="5" pen.color="32896"  background.mode="2" background.color="0" )
+text(band=detail alignment="2" text="처리상태" border="0" color="0" x="2661" y="44" height="56" width="370"  name=validkeyreq_status_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="요청인증Key" border="0" color="0" x="46" y="144" height="56" width="370"  name=validkeyreq_validkey_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="2" text="적용요청일자" border="0" color="0" x="1362" y="144" height="56" width="370"  name=validkeyreq_reqdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="고객" border="0" color="0" x="2661" y="144" height="56" width="370"  name=validkeyreq_customerid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="서비스" border="0" color="0" x="46" y="240" height="56" width="370"  name=validkeyreq_svccod_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="2" text="계약번호" border="0" color="0" x="1362" y="240" height="56" width="370"  name=validkeyreq_contractseq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="인증Password" border="0" color="0" x="2661" y="240" height="56" width="370"  name=validkeyreq_vpassword_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="인증방법" border="0" color="0" x="46" y="336" height="56" width="370"  name=validkeyreq_auth_method_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="2" text="IP ADDRESS" border="0" color="0" x="1362" y="336" height="56" width="370"  name=validkeyreq_validitem2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="H323ID" border="0" color="0" x="2661" y="336" height="56" width="370"  name=validkeyreq_validitem3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="발신번호" border="0" color="0" x="46" y="432" height="56" width="370"  name=validkeyreq_validitem1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29478337" )
+text(band=detail alignment="2" text="언어멘트" border="0" color="0" x="1362" y="432" height="56" width="370"  name=validkeyreq_langtype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="변경인증Key" border="0" color="0" x="2661" y="432" height="56" width="370"  name=validkeyrreq_bef_validkey_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="3118" y="148" height="56" width="311" format="[general]"  name=validkeyreq_customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="]" border="0" color="0" x="3433" y="148" height="64" width="27"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="3474" y="148" height="64" width="453" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="3086" y="48" height="56" width="594" format="[general]"  name=validkeyreq_status dddw.name=b1dc_dddw_validkey_reqstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="[" border="0" color="0" x="3086" y="148" height="64" width="18"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="48" height="56" width="731" format="[general]"  name=validkeyreq_vreqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="148" height="56" width="731" format="[general]"  name=validkeyreq_validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="244" height="56" width="731" format="[general]"  name=validkeyreq_svccod dddw.name=p1dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="340" height="56" width="731" format="[general]"  name=validkeyreq_auth_method dddw.name=b1dc_dddw_validkey_auth_method dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="436" height="56" width="731" format="[general]"  name=validkeyreq_validitem1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1778" y="48" height="56" width="594" format="[general]"  name=validkeyreq_reqtype dddw.name=b1dc_dddw_validkey_reqtype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1778" y="244" height="56" width="594" format="[general]"  name=validkeyreq_contractseq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="3086" y="244" height="56" width="699" format="[general]"  name=validkeyreq_vpassword edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="3086" y="340" height="56" width="699" format="[general]"  name=validkeyreq_validitem3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="3086" y="436" height="56" width="699" format="[general]"  name=validkeyreq_bef_validkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="1778" y="340" height="56" width="594" format="[general]"  name=validkeyreq_validitem2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="1778" y="436" height="56" width="594" format="[general]"  name=validkeyreq_langtype dddw.name=b1dc_dddw_langtype_key dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=20 border="5" color="0" x="466" y="536" height="56" width="3378" format="[general]"  name=validkeyreq_remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="16777215" x="1778" y="148" height="56" width="594" format="[shortdate] [time]"  name=validkeyreq_reqdt editmask.mask="yyyy-mm-dd" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

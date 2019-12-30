@@ -1,0 +1,73 @@
+﻿$PBExportHeader$b5dw_prt_payidsupplylist.srd
+$PBExportComments$[parkh] 고객별 청구내역상세 보고서( amt12까지)datawindow
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=504 color="536870912" )
+summary(height=100 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=reqamtinfo_payid dbname="reqamtinfo.payid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=cregno dbname="cregno" )
+ column=(type=number updatewhereclause=yes name=reqamtinfo_supplyamt dbname="reqamtinfo.supplyamt" )
+ column=(type=number updatewhereclause=yes name=reqamtinfo_surtax dbname="reqamtinfo.surtax" )
+ retrieve="SELECT req.payid payid, cus.customernm customernm,
+      decode(bil.ctype2,'10', bil.ssno, bil.cregno) cregno,
+	   req.supplyamt, req.surtax
+FROM reqamtinfo req, customerm cus, reqinfo bil 
+ WHERE req.payid = bil.payid(+)
+	  AND bil.payid = cus.customerid
+	  AND to_char(req.trdt,'yyyymmdd') = :as_trdt
+	  AND bil.currency_type = :as_currency
+UNION ALL
+SELECT req.payid payid, cus.customernm customernm,	
+      decode(bil.ctype2,'10', bil.ssno, bil.cregno) cregno,
+	   req.supplyamt, req.surtax
+FROM reqamtinfoh req, customerm cus, reqinfo bil 
+ WHERE req.payid = bil.payid(+)
+	  AND bil.payid = cus.customerid
+	  AND to_char(req.trdt,'yyyymmdd') = :as_trdt
+	  AND bil.currency_type = :as_currency
+ORDER BY payid	 " arguments=(("as_trdt", string),("as_currency", string)) )
+text(band=header alignment="0" text="" border="0" color="0" x="1952" y="192" height="60" width="23"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1911" y="192" height="60" width="23"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="납입자번호" border="0" color="0" x="32" y="428" height="52" width="402"  name=reqamtinfo_payid_t  font.face="굴림체" font.height="-8" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="18" y1="408" x2="18" y2="608"  name=l_18 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="448" y1="408" x2="448" y2="608"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="32" y="60" height="88" width="3163"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="2336" y="232" height="56" width="859"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2336" y="304" height="64" width="859" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header x1="3191" y1="412" x2="3191" y2="692"  name=l_9 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="18" y1="408" x2="3191" y2="404"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="18" y1="500" x2="3195" y2="500"  name=l_56 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="2738" y1="408" x2="2738" y2="596"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="2039" y1="408" x2="2039" y2="596"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1330" y1="408" x2="1330" y2="596"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="납입자명" border="0" color="0" x="475" y="428" height="52" width="837"  name=customerm_customernm_t  font.face="굴림체" font.height="-8" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="등록번호" border="0" color="0" x="1358" y="432" height="52" width="658"  name=t_2  font.face="굴림체" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="공급가액" border="0" color="0" x="2062" y="432" height="56" width="658"  name=t_1  font.face="굴림체" font.height="-8" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="부가세" border="0" color="0" x="2761" y="432" height="56" width="402"  name=t_4  font.face="굴림체" font.height="-8" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="448" y1="0" x2="448" y2="124"  name=l_43 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="18" y1="0" x2="18" y2="172"  name=l_44 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="448" y1="0" x2="448" y2="172"  name=l_46 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2039" y1="0" x2="2039" y2="188"  name=l_24 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1330" y1="0" x2="1330" y2="188"  name=l_47 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="32" y="12" height="60" width="411" format="[general]"  name=reqamtinfo_payid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="3214" y="24" height="56" width="658" format="[General]"  name=cregno visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="18" y1="84" x2="3195" y2="84"  name=l_21 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="3191" y1="0" x2="3191" y2="208"  name=l_57 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2738" y1="0" x2="2738" y2="188"  name=l_25 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="12" height="60" width="837" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="If( len(cregno) = 13, left(cregno,6) +'-'+right(cregno,7) , left(cregno,3)+'-'+ mid(cregno, 4, 2 ) +'-'+right(cregno,5)) "border="0" color="0" x="1358" y="12" height="56" width="658" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="18" y1="92" x2="3195" y2="92"  name=l_84 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="18" y1="0" x2="18" y2="88"  name=l_71 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="2039" y1="0" x2="2039" y2="88"  name=l_49 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="2738" y1="0" x2="2738" y2="88"  name=l_51 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="3191" y1="0" x2="3191" y2="88"  name=l_41 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2062" y="12" height="56" width="658" format="#,##0"  name=reqamtinfo_supplyamt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2761" y="12" height="56" width="402" format="#,##0"  name=reqamtinfo_surtax edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="총 계:" border="0" color="0" x="1445" y="16" height="56" width="576"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( reqamtinfo_supplyamt   for all)"border="0" color="0" x="2062" y="16" height="60" width="658" format="#,##0"  name=sum15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  reqamtinfo_surtax   for all)"border="0" color="0" x="2761" y="16" height="60" width="402" format="#,##0"  name=sum14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

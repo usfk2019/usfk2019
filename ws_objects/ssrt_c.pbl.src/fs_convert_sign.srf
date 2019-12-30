@@ -1,0 +1,17 @@
+﻿$PBExportHeader$fs_convert_sign.srf
+$PBExportComments$[1hear] 영수증출력용 금액변환처리앞에 $
+global type fs_convert_sign from function_object
+end type
+
+forward prototypes
+global function string fs_convert_sign (decimal fdec_amt, integer fi_len)
+end prototypes
+
+global function string fs_convert_sign (decimal fdec_amt, integer fi_len);String ls_rtn
+
+//금액의 값을 원하는 길이로 변환 처리
+
+ls_rtn = RightA(SPACE(fi_len + 1 ) + '$' + trim(RightA(Space(fi_len) + String(fdec_amt, "#,###,##0.00"), fi_len)), fi_len + 1)
+Return ls_rtn
+end function
+

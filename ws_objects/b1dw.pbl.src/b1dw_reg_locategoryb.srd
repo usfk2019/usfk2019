@@ -1,0 +1,43 @@
+﻿$PBExportHeader$b1dw_reg_locategoryb.srd
+$PBExportComments$[chooys] 지역 중분류 등록 master data window
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=locategoryb_locategoryb dbname="locategoryb.locategoryb" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=locategoryb_locategorybnm dbname="locategoryb.locategorybnm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=locategoryb_locategoryc dbname="locategoryb.locategoryc" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=crt_user dbname="locategoryb.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=updt_user dbname="locategoryb.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="locategoryb.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="locategoryb.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=pgm_id dbname="locategoryb.pgm_id" )
+ retrieve="  SELECT ~"LOCATEGORYB~".~"LOCATEGORYB~",   
+         ~"LOCATEGORYB~".~"LOCATEGORYBNM~",   
+         ~"LOCATEGORYB~".~"LOCATEGORYC~",   
+         ~"LOCATEGORYB~".~"CRT_USER~",   
+         ~"LOCATEGORYB~".~"UPDT_USER~",   
+         ~"LOCATEGORYB~".~"CRTDT~",   
+         ~"LOCATEGORYB~".~"UPDTDT~",   
+         ~"LOCATEGORYB~".~"PGM_ID~" 
+    FROM ~"LOCATEGORYB~",   
+         ~"LOCATEGORYC~"  
+   WHERE ( ~"LOCATEGORYB~".~"LOCATEGORYC~" = ~"LOCATEGORYC~".~"LOCATEGORYC~" )   
+ORDER BY ~"LOCATEGORYB~".~"LOCATEGORYB~" ASC,   
+         ~"LOCATEGORYB~".~"LOCATEGORYBNM~" ASC   
+" update="LOCATEGORYB" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="지역중분류코드" border="2" color="15793151" x="18" y="16" height="60" width="498"  name=categoryb_categoryb_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="지역 중분류명" border="2" color="15793151" x="535" y="16" height="60" width="800"  name=categoryb_categorybnm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="지역대분류" border="2" color="15793151" x="1353" y="16" height="60" width="800"  name=categoryb_categoryc_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="148" height="76" width="256" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="311" y="148" height="76" width="256" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="567" y="148" height="76" width="192" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="759" y="148" height="76" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="951" y="148" height="76" width="256" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="16777215" x="18" y="8" height="60" width="498" format="[general]"  name=locategoryb_locategoryb edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="16777215" x="535" y="8" height="60" width="800" format="[general]"  name=locategoryb_locategorybnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="16777215" x="1353" y="8" height="60" width="800" format="[general]"  name=locategoryb_locategoryc dddw.name=b1dc_dddw_locategoryc dddw.displaycolumn=locategorycnm dddw.datacolumn=locategoryc dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

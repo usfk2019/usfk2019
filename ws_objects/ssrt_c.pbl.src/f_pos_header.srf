@@ -1,0 +1,125 @@
+﻿$PBExportHeader$f_pos_header.srf
+$PBExportComments$[1hear]영수증출력용 함수임.
+global type f_pos_header from function_object
+end type
+
+forward prototypes
+global function integer f_pos_header (string fs_partner, string fs_type, long fl_shopcount, integer fi_cdopen)
+end prototypes
+
+global function integer f_pos_header (string fs_partner, string fs_type, long fl_shopcount, integer fi_cdopen);//영수증 출력용 Function
+//fs_partner 	: 파트너 정보
+//fdt_trdt 		:  거래일자
+//fs_type		: 영수증구분
+// Porgram by k.b.CHO [1hera]
+boolean 	rtn
+Long    	ll_shopcnt
+String 	ls_partnernm, 		ls_phone, 		ls_addr, 		ls_head
+String	ls_ref_desc, &
+			ls_temp, 			ls_name[]
+decimal	ldec_seq, 			ldc_shopCount
+datetime ldt_now
+date		ldt_shop_closedt
+
+
+ll_shopcnt = fl_shopcount
+SELECT PARTNERNM,     PHONE,	   addr1
+  INTO :ls_partnernm, :ls_phone, :ls_addr
+  FROM PARTNERMST
+ WHERE PARTNER = :fs_partner ;
+ 
+ldt_shop_closedt =  f_find_shop_closedt(fs_partner)
+
+IF sqlca.sqlcode <> 0 OR IsNull(ls_partnernm) 	then ls_partnernm = ''
+IF sqlca.sqlcode <> 0 OR IsNull(ls_phone) 		then ls_phone 		= ''
+IF sqlca.sqlcode <> 0 OR IsNull(ls_ADDR) 			then ls_ADDR 		= ''
+
+//POS관련 설정값
+//Print
+ls_temp 			= GS_PRN
+IF IsNull(ls_temp) OR ls_temp = ''  then
+	ls_temp = "COM1;6;8;2;0"
+END IF	
+fi_cut_string(ls_temp, ";", ls_name[])
+
+//int li_handle
+//
+//li_handle = FileOpen(ls_name[1], StreamMode!, Write!)
+//		
+//		IF li_handle < 1  THEN
+//			MessageBox('알 림', '프린터 오픈 에러입니다.')
+//			SetPointer(Arrow!)
+//			Return -1
+//		END IF
+//
+IF PRN_IsOpen() = False THEN
+	rtn = PRN_OpenPort(ls_name[1])
+	IF rtn =  False THEN
+		MessageBox('오류', ls_name[1] + ' OpenPort() 오류 발생. 확인 바랍니다.')
+		return -1
+	END IF
+//	rtn = PRN_SetPort(INTEGER(ls_name[2]), INTEGER(ls_name[3]), INTEGER(ls_name[4]), INTEGER(ls_name[5]))
+//	IF rtn =  False THEN
+//		MessageBox('오류', ls_name[2] + ' SetPort() 오류 발생. 확인 바랍니다.')
+//		return -2
+//	END IF
+////	rtn = PRN_SetTimeout()
+//	IF rtn =  False THEN
+//		MessageBox('오류', ' SetTimeout() 오류 발생. 확인 바랍니다.')
+//		return -3
+//	END IF
+END IF
+////금전통 오픈
+IF fi_cdopen =  1 then
+	IF PRN_CDOPEN() = False THEN
+		MessageBox('오류',' CDOPEN() 오류 발생. 확인 바랍니다.')
+		return -4
+	END IF
+END IF
+//1. Head   부분출력
+PRN_LOGO(1)
+F_POS_PRINT("LG Uplus", 2) // modified by hcjung 2007-03-15
+CHOOSE CASE fs_type
+	CASE 'A' //입금
+			F_POS_PRINT("( Customer's Receipt )", 2)
+	CASE 'B' //환불
+			F_POS_PRINT("( Customer's Receipt )", 2)
+	Case 'C' //No Sale
+			F_POS_PRINT("( Customer's Receipt )", 2)
+	Case 'D' //X Report
+			F_POS_PRINT("( X Report )", 2)
+	Case 'E' //Z Report
+			F_POS_PRINT("( Z Report )", 2)
+	CASE 'R' // Reprint
+			F_POS_PRINT("( Customer's Receipt ) - [Re-print]", 2)
+	CASE 'Z' //Copy
+			F_POS_PRINT("( Merchant Copy )", 2)
+END CHOOSE
+ls_head = 'LG Uplus ' + trim(ls_partnernm)  // modified by hcjung 2007-03-15
+F_POS_PRINT(ls_head, 1)
+F_POS_PRINT("Tel."+ Trim(ls_phone), 1)
+F_POS_PRINT(Trim(ls_addr), 1)
+//ls_head = "CEO : Gi Hwan Jeong              NO." // modified by hcjung 2007-03-15
+	
+//select seq_shopreceipt.nextval 	  INTO :ldec_seq	  from dual;
+	  
+//ls_head = ls_head + String(fl_shopcount) // modified by hcjung 2007-06-01 샵이름 2번씩 나와서 수정
+//ls_head = String(fl_shopcount)           // modified by hcjung 2007-08-13 아예 빼달라고 요청 
+//F_POS_PRINT(ls_head, 1)
+F_POS_PRINT("------------------------------------------", 1)
+
+IF fs_type = 'D' OR fs_type = 'E' THEN
+	RETURN 0
+	ls_head = 'Closed Date : ' + String( ldt_shop_closedt, 'MM-DD-YYYY' ) 
+ELSE
+	ldt_now = fdt_get_dbserver_now()
+	ls_head = space(22) + String( Date( ldt_now ), 'MM-DD-YYYY' ) + '  ' + String( Time( ldt_now ), 'hh:mm:ss' )
+END IF
+F_POS_PRINT(ls_head, 1)
+F_POS_PRINT("==========================================", 1)
+F_POS_PRINT("NO.           Item           Qty    Amount", 1)
+F_POS_PRINT("==========================================", 1)
+return  0
+
+end function
+

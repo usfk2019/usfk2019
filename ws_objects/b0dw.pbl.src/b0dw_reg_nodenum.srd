@@ -1,0 +1,42 @@
+﻿$PBExportHeader$b0dw_reg_nodenum.srd
+$PBExportComments$[parkkh] 발신지 정의 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=nodenum_nodeno dbname="nodenum.nodeno" )
+ column=(type=char(60) updatewhereclause=yes name=syscod2t_codenm dbname="syscod2t.codenm" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=nodenum_crt_user dbname="nodenum.crt_user" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=nodenum_updt_user dbname="nodenum.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=nodenum_crtdt dbname="nodenum.crtdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=nodenum_updtdt dbname="nodenum.updtdt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=nodenum_pgm_id dbname="nodenum.pgm_id" )
+ column=(type=char(20) update=yes updatewhereclause=yes key=yes name=nodenum_originnum dbname="nodenum.originnum" )
+ retrieve="SELECT NODENUM.NODENO,   
+       SYSCOD2T.CODENM,   
+       NODENUM.CRT_USER,   
+       NODENUM.UPDT_USER,   
+       NODENUM.CRTDT,   
+       NODENUM.UPDTDT,   
+       NODENUM.PGM_ID,   
+       NODENUM.ORIGINNUM  
+FROM   NODENUM, SYSCOD2T  
+WHERE  NODENUM.NODENO = SYSCOD2T.CODE
+AND	 SYSCOD2T.GRCODE = 'B200'
+AND	 SYSCOD2T.USE_YN = 'Y'   
+ORDER BY NODENUM.NODENO ASC   
+" update="NODENUM" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Origin No." border="2" color="16777215" x="27" y="12" height="60" width="389"  name=nodenum_originnum_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="발신지" border="2" color="16777215" x="434" y="12" height="60" width="1691"  name=nodenum_nodeno_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="16711680" x="69" y="108" height="60" width="183" format="[general]"  name=nodenum_crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="16711680" x="302" y="108" height="60" width="183" format="[general]"  name=nodenum_updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="16711680" x="590" y="108" height="60" width="411" format="[shortdate] [time]"  name=nodenum_crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="16711680" x="1079" y="108" height="60" width="448" format="[shortdate] [time]"  name=nodenum_updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="16711680" x="1595" y="108" height="60" width="434" format="[general]"  name=nodenum_pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=10 border="2" color="16777215" x="27" y="4" height="60" width="389" format="[general]"  name=nodenum_originnum edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="2" color="16777215" x="434" y="4" height="60" width="261" format="[general]"  name=nodenum_nodeno dddw.name=b0dc_dddw_nodenum dddw.displaycolumn=code dddw.datacolumn=code dddw.percentwidth=200 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25792108" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="713" y="4" height="60" width="1413" format="[general]"  name=syscod2t_codenm edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

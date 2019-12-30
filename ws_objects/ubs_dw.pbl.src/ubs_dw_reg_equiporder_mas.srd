@@ -1,0 +1,51 @@
+﻿$PBExportHeader$ubs_dw_reg_equiporder_mas.srd
+$PBExportComments$[jhchoi] 인증장비 신청 조회 및 신청 (Master) - 2009.04.10
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=partner dbname="equiporder.partner" )
+ column=(type=datetime updatewhereclause=yes name=orderdt dbname="equiporder.orderdt" )
+ column=(type=char(3) updatewhereclause=yes name=status dbname="equiporder.status" )
+ column=(type=char(10) updatewhereclause=yes name=adtype dbname="equiporder.adtype" )
+ column=(type=char(30) updatewhereclause=yes name=adname dbname="equiptype.adname" )
+ column=(type=char(10) updatewhereclause=yes name=modelno dbname="equiporder.modelno" )
+ column=(type=char(30) updatewhereclause=yes name=modelnm dbname="equipmodel.modelnm" )
+ column=(type=char(10) updatewhereclause=yes name=makercd dbname="equiporder.makercd" )
+ column=(type=char(8) updatewhereclause=yes name=operator dbname="equiporder.operator" )
+ column=(type=decimal(0) updatewhereclause=yes name=eqorderno dbname="equiporder.eqorderno" )
+ retrieve="SELECT  EQUIPORDER.PARTNER
+		, EQUIPORDER.ORDERDT
+		, EQUIPORDER.STATUS
+		, EQUIPORDER.ADTYPE
+		, EQUIPTYPE.ADNAME
+		, EQUIPORDER.MODELNO
+		, EQUIPMODEL.MODELNM
+		, EQUIPORDER.MAKERCD
+		, EQUIPORDER.OPERATOR
+		, EQUIPORDER.EQORDERNO
+FROM   EQUIPORDER, EQUIPTYPE, EQUIPMODEL
+WHERE  EQUIPORDER.ADTYPE  = EQUIPTYPE.ADTYPE
+AND    EQUIPORDER.MODELNO = EQUIPMODEL.MODELNO" )
+text(band=header alignment="2" text="Order Date" border="2" color="16777215" x="9" y="8" height="64" width="411"  name=orderdt_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Order Status" border="2" color="16777215" x="434" y="8" height="64" width="347"  name=status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Equipment Type" border="2" color="16777215" x="795" y="8" height="64" width="443"  name=adname_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Model No" border="2" color="16777215" x="1253" y="8" height="64" width="640"  name=modelnm_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Maker" border="2" color="16777215" x="1906" y="8" height="64" width="421"  name=makercd_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Operator" border="2" color="16777215" x="2341" y="8" height="64" width="421"  name=operator_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="0" text="" border="0" color="0" x="517" y="196" height="60" width="590"  name=order_name  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header alignment="0" text="" border="0" color="0" x="1499" y="196" height="52" width="315"  name=a_d  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="9" y="4" height="64" width="411" format="[shortdate] [time]"  name=orderdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="0" x="434" y="4" height="64" width="347" format="[general]"  name=status dddw.name=ubs_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="795" y="4" height="64" width="443" format="[general]"  name=adname edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="1253" y="4" height="64" width="640" format="[general]"  name=modelnm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="1906" y="4" height="64" width="421" format="[general]"  name=makercd dddw.name=ubs_dddw_makercd dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="2" color="0" x="2341" y="4" height="64" width="421" format="[general]"  name=operator dddw.name=ubs_dddw_operator dddw.displaycolumn=empnm dddw.datacolumn=emp_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="603" y="152" height="64" width="302" format="[general]"  name=partner edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="965" y="152" height="64" width="302" format="[general]"  name=adtype edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="0" x="1303" y="152" height="64" width="302" format="[general]"  name=modelno edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="1705" y="168" height="60" width="357"  name=eqorderno  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

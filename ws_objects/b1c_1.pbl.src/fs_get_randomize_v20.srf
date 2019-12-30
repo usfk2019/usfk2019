@@ -1,0 +1,77 @@
+﻿$PBExportHeader$fs_get_randomize_v20.srf
+$PBExportComments$[parkkh] 입력한 자리수 Ramdom 숫자 리턴함수
+global type fs_get_randomize_v20 from function_object
+end type
+
+forward prototypes
+global function decimal fd_get_ramdom (integer ai_cipher)
+global function string fs_get_randomize_v20 (integer ai_cipher)
+end prototypes
+
+global function decimal fd_get_ramdom (integer ai_cipher);//ai_cipher //Random 자리수
+String ls_randomno
+String ls_tmp
+Dec lc_randomno
+Int i
+
+ls_randomno = String(Rand(9))
+
+FOR i=2 TO ai_cipher
+	ls_tmp = String(Rand(10))
+	IF ls_tmp = "10" THEN ls_tmp = "0"
+	ls_randomno = ls_randomno + ls_tmp
+NEXT
+
+IF LenA(ls_randomno) = ai_cipher THEN
+	lc_randomno = Dec(ls_randomno)
+ELSE	
+	lc_randomno = 0
+END IF
+
+return lc_randomno
+
+
+
+
+
+
+end function
+
+global function string fs_get_randomize_v20 (integer ai_cipher);/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 수정내용 : pin number가 15에서 20으로 늘어가면서 기존의 return type ( decimal type)이 인식하지 못하여 
+//				  return type을 string  type으로 수정
+//	수 정 자 : 권 정민
+//
+//	수정일자 : 2004.08.10
+//
+// 참고사항 :ㅣ ai_cipher //Random 자리수
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+String ls_randomno
+String ls_tmp
+Dec lc_randomno
+Int i
+
+Randomize(0)
+
+ls_randomno = String(Rand(9))
+
+FOR i=2 TO ai_cipher
+	ls_tmp = String(Rand(10)-1)
+	ls_randomno = ls_randomno + ls_tmp
+NEXT
+
+IF LenA(ls_randomno) = ai_cipher THEN
+//	lc_randomno = Dec(ls_randomno)
+ELSE	
+	ls_randomno = '0'
+END IF
+
+return ls_randomno
+
+
+
+
+
+
+end function
+

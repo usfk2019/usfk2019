@@ -1,0 +1,18 @@
+﻿$PBExportHeader$s1dw_cnd_prt_salesum_list.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=29478337 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=184 color="536870912" )
+table(column=(type=date updatewhereclause=no name=fromdt dbname="fromdt" )
+ column=(type=char(1) updatewhereclause=no name=work_type dbname="work_type" values="서비스별	1/품목별	2/매출처별	3/가격정책별	4/지역구분	5/" )
+ column=(type=char(10) updatewhereclause=no name=currency_type dbname="currency_type" )
+ )
+text(band=detail alignment="1" text="통화유형" border="0" color="0" x="0" y="96" height="56" width="247"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="년도" border="0" color="0" x="119" y="16" height="56" width="128"  name=fromdt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="작업선택" border="0" color="0" x="576" y="16" height="56" width="279"  name=work_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="15793151" x="270" y="100" height="60" width="581" format="[general]"  name=currency_type dddw.name=s1dc_dddw_currency dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=7 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="2" color="15793151" x="270" y="16" height="60" width="261" format="[general]"  name=fromdt editmask.mask="yyyy" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="15793151" x="882" y="16" height="60" width="517" format="[general]"  name=work_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.autohscroll=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,29 @@
+﻿$PBExportHeader$b5d_reg_invcan_reqcan.srd
+$PBExportComments$[backgu] 청구작업취소대상자화면
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(14) update=yes updatewhereclause=yes key=yes name=reqcan_payid dbname="reqcan.payid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=reqcan_chargedt dbname="reqcan.chargedt" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=reqcan_trdt dbname="reqcan.trdt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=reqcan_seq dbname="reqcan.seq" )
+ retrieve="  SELECT ~"A~".~"PAYID~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         ~"A~".~"CHARGEDT~",   
+         ~"A~".~"TRDT~",   
+         ~"A~".~"SEQ~"  
+    FROM ~"REQCAN~" ~"A~",   
+         ~"CUSTOMERM~"  
+   WHERE ( ~"A~".~"PAYID~" = ~"CUSTOMERM~".~"CUSTOMERID~"(+)) and  
+         ( ( A.SEQ = ( SELECT MAX(SEQ) FROM REQCAN WHERE CHARGEDT = A.CHARGEDT and TRDT = A.TRDT) ) )    
+" update="REQCAN" updatewhere=1 updatekeyinplace=yes )
+text(band=header alignment="2" text="납입자명" border="6" color="16777215" x="471" y="8" height="60" width="800"  name=customerm_customernm_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="납입번호" border="6" color="16777215" x="9" y="8" height="60" width="453"  name=reqcan_payid_t  font.face="굴림체" font.height="-10" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421504" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="64" width="453" format="[general]"  name=reqcan_payid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="8" height="64" width="800" format="[general]"  name=customerm_customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

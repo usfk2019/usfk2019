@@ -1,0 +1,65 @@
+﻿$PBExportHeader$b0dw_prt_det_connection_sumcdr_1_v20.srd
+$PBExportComments$[ssong]접속료 정산내역 보고서 - 상세
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=444 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=sacnum_kind dbname="connection_sumcdr.sacnum_kind" )
+ column=(type=char(8) updatewhereclause=yes name=yyyymmdd dbname="connection_sumcdr.yyyymmdd" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="connection_sumcdr.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=itemcod dbname="connection_sumcdr.itemcod" )
+ column=(type=char(10) updatewhereclause=yes name=zoncod dbname="connection_sumcdr.zoncod" )
+ column=(type=char(30) updatewhereclause=yes name=callingkey dbname="connection_sumcdr.callingkey" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_0007 dbname="compute_0007" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_0008 dbname="compute_0008" )
+ column=(type=decimal(5) updatewhereclause=yes name=compute_0009 dbname="compute_0009" )
+ retrieve=" SELECT SACNUM_KIND
+     , YYYYMMDD
+     , PRICEPLAN
+     , ITEMCOD
+     , ZONCOD
+     , CALLINGKEY
+     , TRUNC(SUM(BILTIME)/60,0)
+     , SUM(BILCNT)
+     , SUM(BILAMT)
+  FROM CONNECTION_SUMCDR
+ GROUP BY YYYYMMDD
+        , SACNUM_KIND
+        , ITEMCOD
+        , ZONCOD
+        , PRICEPLAN
+        , CALLINGKEY" )
+text(band=header alignment="0" text="" border="0" color="0" x="2528" y="44" height="56" width="27"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="114" y="60" height="88" width="3237"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="2569" y="44" height="56" width="27"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="2606" y="188" height="56" width="741"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="2606" y="268" height="60" width="741" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="일자" border="0" color="0" x="137" y="364" height="60" width="329"  name=yyyymmdd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="접속번호" border="0" color="0" x="480" y="364" height="60" width="407"  name=sacnum_kind_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="품목" border="0" color="0" x="901" y="364" height="60" width="512"  name=itemcod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="대역" border="0" color="0" x="1426" y="364" height="60" width="389"  name=zoncod_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="요금" border="0" color="0" x="2962" y="364" height="60" width="393"  name=bilamt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="91" y1="348" x2="3355" y2="352"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="91" y1="436" x2="3355" y2="440"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="발신번호prefix" border="0" color="0" x="1829" y="364" height="60" width="453"  name=callingkey_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="건수" border="0" color="0" x="2295" y="364" height="60" width="320"  name=bilcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="시간(분)" border="0" color="0" x="2629" y="364" height="60" width="320"  name=biltime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="91" y="8" height="60" width="375" format="@@@@-@@-@@"  name=yyyymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="8" height="60" width="407" format="[general]"  name=sacnum_kind dddw.name=b0dc_dddw_sacnum dddw.displaycolumn=sacnum dddw.datacolumn=sacnum dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="901" y="8" height="60" width="512" format="[general]"  name=itemcod dddw.name=b0dc_dddw_item_by_svc dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1426" y="8" height="60" width="389" format="[general]"  name=zoncod dddw.name=b0dc_dddw_connection_zone_1_v20 dddw.displaycolumn=codenm dddw.datacolumn=zoncod dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="91" y1="80" x2="3355" y2="80"  name=l_7 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2962" y="8" height="60" width="393" format="#,##0.00"  name=compute_0009 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1829" y="8" height="60" width="453" format="[general]"  name=callingkey edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2295" y="8" height="60" width="320" format="[general]"  name=compute_0008 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2629" y="8" height="60" width="320" format="#,##0"  name=compute_0007 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="91" y1="84" x2="3355" y2="88"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="91" y1="4" x2="3355" y2="4"  name=l_25 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum( compute_0009 )"border="0" color="0" x="2962" y="16" height="60" width="393" format="#,##0.00"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( compute_0007 )"border="0" color="0" x="2629" y="16" height="60" width="320" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( compute_0008 )"border="0" color="0" x="2295" y="16" height="60" width="320" format="[GENERAL]"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="합          계" border="0" color="0" x="1829" y="16" height="60" width="453"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

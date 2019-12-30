@@ -1,0 +1,86 @@
+﻿$PBExportHeader$f_get_ques.srf
+$PBExportComments$For Program Run Time Message(Return Value)
+global type f_get_ques from function_object
+end type
+
+forward prototypes
+global function integer f_get_ques (long al_info_code, string as_title, string as_text, string as_button)
+end prototypes
+
+global function integer f_get_ques (long al_info_code, string as_title, string as_text, string as_button);//*******************************************************************
+// Fuction ID : f_get_ques
+//
+// Purpose : Handle program run time message -Information
+//
+// Scope : Public
+//
+// Parameter :
+//  1) al_info_code(Integer/Value) : Message No
+//  2) as_title(String/Value) : Message title
+//  3) as_text(String/Value) : Message additonal Text
+// 4) as_button(String/Value) : Message Button (Default : OKCancel! )
+//
+// Return Value : (Integer)
+//                In occasion of not display MessageBox & returned message content,
+//                Set '*' on the right of as_title 
+//						
+// Log : (Date : Name : Version)
+//       03/26/07 : 1hera : Original
+//
+//*******************************************************************
+string 	ls_info_title			//Message title
+string 	ls_info_content		//Message content
+String	ls_text
+Integer li_rtn
+
+ls_info_title = as_title
+
+Choose Case gs_lang
+	Case "K"
+		Select msg_k
+ 		   Into :ls_info_content
+		 From msginfo
+		Where msgno = :al_info_code;
+	Case "J"
+		Select msg_j
+ 		   Into :ls_info_content
+		 From msginfo
+		Where msgno = :al_info_code;
+	Case "E"
+		Select msg_e
+ 		   Into :ls_info_content
+		 From msginfo
+		Where msgno = :al_info_code;
+	Case Else		// MSG언어 미지정시 한국어 default
+		Select msg_k
+ 		   Into :ls_info_content
+		 From msginfo
+		Where msgno = :al_info_code;
+End Choose
+
+If IsNull(ls_info_content) or ls_info_content = "" Then 
+	ls_info_content = "Undefined message(msgno-" + String(al_info_code) + ")"
+	MessageBox(ls_info_title, ls_info_content)
+	Return -1
+Else
+	IF as_text <> "" THEN
+		ls_text = '( ' + Trim(as_text) + ' )'
+	ELSE 
+		ls_text = ""
+	END IF
+	CHOOSE CASE UPPER(as_button)
+		case 'YESNO!'
+			li_rtn = MessageBox(ls_info_title, ls_info_content + ls_text, Question!, YesNo!, 2)
+		case 'YESNOCANCEL!'
+			li_rtn = MessageBox(ls_info_title, ls_info_content + ls_text, Question!, YesNoCancel!, 2)
+		case 'RETRYCANCEL!'
+			li_rtn = MessageBox(ls_info_title, ls_info_content + ls_text, Question!, RetryCancel!, 2)
+		case 'ABORTRETRYIGNORE!'
+			li_rtn = MessageBox(ls_info_title, ls_info_content + ls_text, Question!,AbortRetryIgnore!, 2)
+		CASE ELSE
+			li_rtn = MessageBox(ls_info_title, ls_info_content + ls_text, Question!,OKCancel!, 2)
+	END CHOOSE
+END IF
+Return li_rtn
+end function
+

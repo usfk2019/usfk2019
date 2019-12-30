@@ -1,0 +1,33 @@
+﻿$PBExportHeader$ubs_dw_reg_autopay_cancel_det1.srd
+$PBExportComments$[jhchoi] 수납 취소 (Master) - 2009.04.29
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=132 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=rseqno dbname="reqdtl.rseqno" )
+ column=(type=datetime updatewhereclause=yes name=trdt dbname="reqdtl.trdt" )
+ column=(type=char(50) updatewhereclause=yes name=trcodnm dbname="trcodnm" )
+ column=(type=decimal(2) updatewhereclause=yes name=tramt dbname="reqdtl.tramt" )
+ column=(type=char(256) updatewhereclause=yes name=remark dbname="reqdtl.remark" )
+ retrieve="SELECT RSEQNO, TRDT, (SELECT TRCODNM FROM TRCODE WHERE TRCOD = A.TRCOD) AS TRCODNM, TRAMT, REMARK 
+FROM REQDTL A
+WHERE PAYID = :as_payid
+  AND RSEQNO = :as_rseqno" arguments=(("as_payid", string),("as_rseqno", string))  sort="trdt D " )
+text(band=header alignment="0" text="[수납반영내역]" border="0" color="255" x="18" y="4" height="60" width="411"  name=t_1  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Amount" border="2" color="16777215" x="2382" y="68" height="60" width="453"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Seq" border="2" color="16777215" x="219" y="68" height="60" width="325"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Invoice Date" border="2" color="16777215" x="558" y="68" height="60" width="453"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="No." border="2" color="16777215" x="9" y="68" height="60" width="197"  name=t_8  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Item" border="2" color="16777215" x="1024" y="68" height="60" width="1344"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+text(band=header alignment="2" text="Remark" border="2" color="16777215" x="2848" y="68" height="60" width="2249"  name=t_3  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27634341" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="219" y="4" height="60" width="325" format="[general]"  name=rseqno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0" x="2382" y="4" height="60" width="453" format="[general]"  name=tramt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="2" expression="getrow()"border="2" color="0" x="9" y="4" height="60" width="197" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="558" y="4" height="60" width="453" format="[shortdate] [time]"  name=trdt editmask.mask="mm-dd-yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="1024" y="4" height="60" width="1344" format="[general]"  name=trcodnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="2" color="0" x="2848" y="4" height="60" width="2249" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )
+ 

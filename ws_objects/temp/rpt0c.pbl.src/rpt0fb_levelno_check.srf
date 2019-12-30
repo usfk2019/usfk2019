@@ -1,0 +1,35 @@
+﻿$PBExportHeader$rpt0fb_levelno_check.srf
+$PBExportComments$[pakkh] levelno가 level_dec테이블에 존재유무 체크
+global type rpt0fb_levelno_check from function_object
+end type
+
+forward prototypes
+global function boolean rpt0fb_levelno_check (decimal ac_levelno)
+end prototypes
+
+global function boolean rpt0fb_levelno_check (decimal ac_levelno);// Level_Dec테이블에 levelno가 존재하는 지 검증하는 함수
+DEC lc_levelno
+Boolean lb_return
+String ls_title
+
+ls_title = "rpt0fb_levelno_check"
+
+SELECT UNIQUE levelno
+INTO  :lc_levelno
+FROM   level_dec
+WHERE  levelno = :ac_levelno  ;
+
+
+If SQLCA.SQLCode = 100 Then
+	lb_return = False
+	//f_msg_usr_err(1100,ls_title,"Level No " + String(ac_levelno) + "가 존재하지 않습니다.")
+ElseIf SQLCA.SQLCode < 0 Then
+	lb_return = False
+	f_msg_sql_err(ls_title,"")
+Else           //levelno가 있다면....
+	lb_return = True
+End If
+
+Return lb_return
+end function
+

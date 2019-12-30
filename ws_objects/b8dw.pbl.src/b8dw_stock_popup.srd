@@ -1,0 +1,38 @@
+﻿$PBExportHeader$b8dw_stock_popup.srd
+$PBExportComments$[parkkh] 대리점 재고내역 popup
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=adseq dbname="admst.adseq" )
+ column=(type=char(30) updatewhereclause=yes name=serialno dbname="admst.serialno" )
+ column=(type=char(10) updatewhereclause=yes name=compute_0003 dbname="compute_0003" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="admst.status" )
+ column=(type=char(1) updatewhereclause=yes name=use_yn dbname="admst.use_yn" values="Yes	Y/No	N/" )
+ column=(type=char(10) updatewhereclause=yes name=adstat dbname="admst.adstat" )
+ retrieve="SELECT adseq,
+		 serialno,
+		 to_char(movedt,'yyyy-mm-dd'),
+		 status,
+		 use_yn,
+		 adstat
+  FROM admst
+ WHERE mv_partner = :as_partner
+   AND modelno = :as_model
+   AND sale_flag = '0'" arguments=(("as_partner", string),("as_model", string)) )
+text(band=header alignment="2" text="대리점입고일자" border="2" color="16777215" x="987" y="12" height="60" width="507"  name=compute_0003_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="재고상태" border="2" color="16777215" x="1504" y="12" height="60" width="530"  name=status_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="사용여부" border="2" color="16777215" x="2043" y="12" height="60" width="306"  name=use_yn_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="장비상태" border="2" color="16777215" x="2359" y="12" height="60" width="571"  name=adstat_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="393" format="[general]"  name=adseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2359" y="8" height="60" width="571" format="[general]"  name=adstat dddw.name=b8dc_dddw_adstat dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="411" y="8" height="60" width="567" format="[general]"  name=serialno edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="987" y="8" height="60" width="507" format="[general]"  name=compute_0003 edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1504" y="8" height="60" width="530" format="[general]"  name=status dddw.name=b8dc_dddw_status dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2043" y="8" height="60" width="306" format="[general]"  name=use_yn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Seq" border="2" color="16777215" x="9" y="12" height="60" width="393"  name=adseq_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="Serial No." border="2" color="16777215" x="411" y="12" height="60" width="567"  name=serialno_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

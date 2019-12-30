@@ -1,0 +1,87 @@
+﻿$PBExportHeader$b1fi_validkey_count.srf
+$PBExportComments$[islim] 인증Key 개수확인
+global type b1fi_validkey_count from function_object
+end type
+
+forward prototypes
+global function long ai_cnt (string as_date, string as_validkey, string as_svctype)
+global function integer b1fi_validkey_count (string as_title, string as_date, string as_contractseq, ref integer ai_cnt)
+end prototypes
+
+global function long ai_cnt (string as_date, string as_validkey, string as_svctype);Long ll_cnt
+
+select count(*)
+into :ll_cnt
+from validinfo
+where ((to_char(fromdt,'yyyymmdd') >= as_date) or 
+       (to_char(fromdt,'yyyymmdd') < as_date  and as_date < nvl(to_char(todt,'yyyymmdd'),'99991231')))
+		 and validkey = as_validkey and svctype = as_svctype;
+		 
+		 
+return ll_cnt
+end function
+
+global function integer b1fi_validkey_count (string as_title, string as_date, string as_contractseq, ref integer ai_cnt);//********************************************************************************
+// Fuction ID : b1fi_validkey_count
+// Purpose    : 
+//	            
+// Scope      : Public
+// Argument   :
+//              1) as_title(String/Value) : Massage content
+//              2) 
+//              3) 
+// Return Value : integer
+//					  -1 : error
+//					   
+// Log : (Date : Name : Version)
+// 	      2004/07/21 : 
+//********************************************************************************
+Integer li_result, li_info_cnt, li_plan_cnt, li_cnt
+String ls_title
+String ls_priceplan
+		 
+ls_title = "b1fi_validkey_count"
+
+select Nvl(count(validkey),0)
+into :li_info_cnt
+From validinfo
+where ((to_char(fromdt,'yyyymmdd') >= :as_date) or 
+       (to_char(fromdt,'yyyymmdd') < :as_date  and :as_date < nvl(to_char(todt,'yyyymmdd'),'99991231')))
+       and to_char(contractseq) = :as_contractseq ;		 
+		 
+			
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + " Select Error(validinfo_validkey_count)")
+	Return -1
+End If
+
+
+select priceplan 
+into :ls_priceplan
+from contractmst
+where contractseq = :as_contractseq;
+
+
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + " Select Error(contractmst_priceplan_search)")
+	Return -1
+End If
+		 
+select validkeycnt
+into:li_plan_cnt
+from priceplanmst
+where priceplan = :ls_priceplan;
+
+If SQLCA.SQLCode < 0 Then
+    f_msg_sql_err(as_title, ls_title + " Select Error(priceplan_validkeycnt)")
+	Return -1
+End If
+
+If li_info_cnt >= li_plan_cnt then
+	ai_cnt = li_plan_cnt  //false
+	return -1
+End If
+		 
+return 1
+end function
+

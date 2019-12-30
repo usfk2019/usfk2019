@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_receipt_print.srs
+global type s_receipt_print from structure
+	long		ll_line_num
+	string		ls_out[]
+end type
+

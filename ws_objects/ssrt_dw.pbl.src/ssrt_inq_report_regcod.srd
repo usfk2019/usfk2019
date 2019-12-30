@@ -1,0 +1,30 @@
+﻿$PBExportHeader$ssrt_inq_report_regcod.srd
+$PBExportComments$[1HERA]daily report-tab1
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=regcod dbname="regcod" )
+ retrieve="SELECT Distinct(A.REGCOD) 	
+  FROM DAILYPAYMENT A, REGCODMST B 
+ WHERE ( A.REGCOD 							= B.REGCOD )
+   AND ( to_char(A.paydt, 'yyyymmdd') 	>= :as_trdt )
+   AND ( to_char(A.paydt, 'yyyymmdd') 	<= :as_todt )
+   and ( A.shopid 							= :as_partner )
+	AND ( A.DCTYPE 							= :as_dctype        ) 
+	AND ( b.regtype 							Like :as_regtype )
+UNION 
+SELECT Distinct(A.REGCOD) 	
+  FROM DAILYPAYMENTH A, REGCODMST B 
+ WHERE ( A.REGCOD 							= B.REGCOD )
+   AND ( to_char(A.paydt, 'yyyymmdd') 	>= :as_trdt )
+   AND ( to_char(A.paydt, 'yyyymmdd') 	<= :as_todt )
+   and ( A.shopid 							= :as_partner )
+	AND ( A.DCTYPE 							= :as_dctype         ) 
+	AND ( b.regtype 							Like :as_regtype )
+" arguments=(("as_trdt", string),("as_partner", string),("as_regtype", string),("as_dctype", string),("as_todt", string))  sort="regcod A " )
+text(band=header alignment="2" text="REG Code" border="2" color="16777215" x="9" y="268" height="60" width="530"  name=regcod_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="56" width="530" format="[general]"  name=regcod dddw.name=b0dc_dddw_regcod_sams dddw.displaycolumn=regdesc dddw.datacolumn=regcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

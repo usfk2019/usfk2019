@@ -1,0 +1,69 @@
+﻿$PBExportHeader$s2dw_inq_cdrsummary_contract_v21.srd
+$PBExportComments$[ohj] 최다사용고객 추출보고서 master v21
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=customerid dbname="cdrsummary_contractseq.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=decimal(0) updatewhereclause=yes name=contractseq dbname="cdrsummary_contractseq.contractseq" )
+ column=(type=char(10) updatewhereclause=yes name=priceplan dbname="cdrsummary_contractseq.priceplan" )
+ column=(type=char(50) updatewhereclause=yes name=priceplan_desc dbname="priceplanmst.priceplan_desc" )
+ column=(type=number updatewhereclause=yes name=bilcost dbname="bilcost" )
+ column=(type=number updatewhereclause=yes name=bilcnt dbname="bilcnt" )
+ column=(type=number updatewhereclause=yes name=biltime dbname="biltime" )
+ column=(type=number updatewhereclause=yes name=dcrate dbname="dcrate" )
+ column=(type=number updatewhereclause=yes name=dcbiltime dbname="dcbiltime" )
+ column=(type=number updatewhereclause=yes name=dcbilcost dbname="dcbilcost" )
+ column=(type=number updatewhereclause=yes name=bilcost0 dbname="bilcost0" )
+ column=(type=number updatewhereclause=yes name=cha_cost dbname="cha_cost" )
+ retrieve="SELECT A.CUSTOMERID, B.CUSTOMERNM, A.CONTRACTSEQ, A.PRICEPLAN, C.PRICEPLAN_DESC
+     , SUM(A.BILCOST)                BILCOST
+     , SUM(A.BILCNT)                 BILCNT
+     , ROUND(SUM(A.BILTIME) /60, 0)  BILTIME
+     , ROUND(DECODE(SUM(A.BILTIME), 0, 0, SUM(A.DCBILTIME)/SUM(A.BILTIME)), 0) * 100 dcrate   
+     , ROUND(SUM(A.DCBILTIME)/60, 0) DCBILTIME
+     , SUM(A.DCBILCOST)              DCBILCOST
+     , SUM(A.BILCOST0)               BILCOST0
+     , SUM(A.BILCOST0) - SUM(A.BILCOST) CHA_COST
+  FROM CDRSUMMARY_CONTRACTSEQ A
+     , CUSTOMERM              B
+     , PRICEPLANMST           C
+ WHERE A.CUSTOMERID = B.CUSTOMERID
+   AND A.PRICEPLAN = C.PRICEPLAN
+   GROUP BY A.CUSTOMERID, B.CUSTOMERNM, A.CONTRACTSEQ, A.PRICEPLAN, C.PRICEPLAN_DESC
+   " )
+text(band=background alignment="1" text="Total Rows" border="0" color="0" x="2839" y="24" height="60" width="297"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="Order By" border="0" color="0" x="23" y="24" height="60" width="265"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="302" y="24" height="60" width="517"  name=order_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="2" text="ASC/DESC" border="0" color="0" x="1344" y="24" height="60" width="306"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=background alignment="0" text="" border="0" color="8388608" x="1669" y="24" height="60" width="288"  name=a_d  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="고객번호" border="2" color="16777215" x="9" y="96" height="60" width="315"  name=customerid_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="고객명" border="2" color="16777215" x="334" y="96" height="60" width="987"  name=customernm_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="계약seq" border="2" color="16777215" x="1330" y="96" height="60" width="325"  name=contractseq_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+compute(band=header alignment="0" expression="rowcount()"border="0" color="16711680" x="3154" y="24" height="60" width="329" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="통화건수" border="2" color="16777215" x="2816" y="96" height="60" width="329"  name=bilcnt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화량(분)" border="2" color="16777215" x="3154" y="96" height="60" width="329"  name=biltime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비과금통화량(분)" border="2" color="16777215" x="3831" y="96" height="60" width="507"  name=dcbiltime_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비과금액" border="2" color="16777215" x="4347" y="96" height="60" width="329"  name=dcbilcost_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비교금액" border="2" color="16777215" x="4686" y="96" height="60" width="329"  name=bilcost0_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="타사와의차이금액" border="2" color="16777215" x="5024" y="96" height="60" width="521"  name=cha_cost_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="비과금율" border="2" color="16777215" x="3493" y="96" height="60" width="329"  name=dcrate_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="5024" y="8" height="60" width="521" format="#,##0"  name=cha_cost edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="315" format="[general]"  name=customerid edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="334" y="8" height="60" width="987" format="[general]"  name=customernm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1330" y="8" height="60" width="325" format="[general]"  name=contractseq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1664" y="8" height="60" width="805" format="[general]"  name=priceplan_desc edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2478" y="8" height="60" width="329" format="#,##0"  name=bilcost edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3154" y="8" height="60" width="329" format="#,##0"  name=biltime edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="3831" y="8" height="60" width="507" format="#,##0"  name=dcbiltime edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="4347" y="8" height="60" width="329" format="#,##0"  name=dcbilcost edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="4686" y="8" height="60" width="329" format="#,##0"  name=bilcost0 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="3493" y="8" height="60" width="329" format="[general]"  name=dcrate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2816" y="8" height="60" width="329" format="#,##0"  name=bilcnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="가격정책" border="2" color="16777215" x="1664" y="96" height="60" width="805"  name=priceplan_desc_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+text(band=header alignment="2" text="통화금액" border="2" color="16777215" x="2478" y="96" height="60" width="329"  name=bilcost_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

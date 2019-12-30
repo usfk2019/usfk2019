@@ -1,0 +1,42 @@
+﻿$PBExportHeader$b1dw_pop_customer_comment_det.srd
+$PBExportComments$[kem] 품목에 대한 할부 정보 - com&life
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=740 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=customerid dbname="customer_comment.customerid" )
+ column=(type=number update=yes updatewhereclause=yes key=yes name=seq dbname="customer_comment.seq" )
+ column=(type=char(400) update=yes updatewhereclause=yes name=remark dbname="customer_comment.remark" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=shopid dbname="customer_comment.shopid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=view_yn dbname="customer_comment.view_yn" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=crt_user dbname="customer_comment.crt_user" )
+ column=(type=char(30) updatewhereclause=yes name=empnm dbname="sysusr1t.empnm" )
+ column=(type=datetime update=yes updatewhereclause=yes name=crtdt dbname="customer_comment.crtdt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=updt_user dbname="customer_comment.updt_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=updtdt dbname="customer_comment.updtdt" )
+ retrieve="SELECT A.CUSTOMERID, A.SEQ,			A.REMARK,
+       A.SHOPID,		A.VIEW_YN,		A.CRT_USER,
+       B.EMPNM,		A.CRTDT,			A.UPDT_USER,
+       A.UPDTDT
+FROM   CUSTOMER_COMMENT A, SYSUSR1T B
+WHERE  A.CUSTOMERID = :as_customerid
+AND    A.SEQ = :al_seq
+AND    A.CRT_USER = B.EMP_ID" update="CUSTOMER_COMMENT" updatewhere=0 updatekeyinplace=no arguments=(("as_customerid", string),("al_seq", number)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1472" y="908" height="76" width="370" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1143" y="908" height="76" width="320" format="[general]"  name=view_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="814" y="908" height="76" width="320" format="[general]"  name=updt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="603" y="912" height="76" width="192" format="[shortdate] [time]"  name=updtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="0" x="274" y="192" height="524" width="1975" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="0" x="1353" y="108" height="60" width="891" format="[shortdate] [time]"  name=crtdt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="0" x="1687" y="28" height="60" width="558" format="[general]"  name=empnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="2" color="0" x="1353" y="28" height="60" width="320" format="[general]"  name=crt_user edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="274" y="28" height="60" width="242" format="[general]"  name=seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="274" y="108" height="60" width="663" format="[general]"  name=shopid dddw.name=b8dc_dddw_partner0 dddw.displaycolumn=partnernm dddw.datacolumn=partner dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="Seq" border="2" color="15793151" x="9" y="28" height="60" width="251"  name=t_2  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=detail alignment="2" text="Shop" border="2" color="15793151" x="9" y="108" height="60" width="251"  name=t_4  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=detail alignment="2" text="Remark" border="2" color="15793151" x="9" y="192" height="60" width="251"  name=t_7  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=detail alignment="2" text="Create ID" border="2" color="15793151" x="987" y="28" height="60" width="352"  name=t_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+text(band=detail alignment="2" text="Create Date" border="2" color="15793151" x="987" y="108" height="60" width="352"  name=t_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="27306400" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

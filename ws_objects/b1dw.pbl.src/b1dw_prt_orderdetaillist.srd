@@ -1,0 +1,68 @@
+﻿$PBExportHeader$b1dw_prt_orderdetaillist.srd
+$PBExportComments$[chooys] 신청내역 상세 리스트 Print
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=440 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=svcorder_orderdt dbname="orderdt" )
+ column=(type=char(14) updatewhereclause=yes name=customerm_customerid dbname="customerm.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customerm_customernm dbname="customerm.customernm" )
+ column=(type=decimal(0) updatewhereclause=yes name=svcorder_orderno dbname="svcorder.orderno" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_status dbname="svcorder.status" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_svccod dbname="svcorder.svccod" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_priceplan dbname="svcorder.priceplan" )
+ column=(type=char(10) updatewhereclause=yes name=svcorder_prmtype dbname="svcorder.prmtype" )
+ column=(type=char(10) updatewhereclause=yes name=contractdet_itemcod dbname="contractdet.itemcod" )
+ column=(type=char(60) updatewhereclause=yes name=svcorder_remark dbname="svcorder.remark" )
+ retrieve="  SELECT to_char(~"SVCORDER~".~"ORDERDT~",'YYYY-MM-DD') ORDERDT,
+         ~"CUSTOMERM~".~"CUSTOMERID~",   
+         ~"CUSTOMERM~".~"CUSTOMERNM~",   
+         ~"SVCORDER~".~"ORDERNO~",   
+         ~"SVCORDER~".~"STATUS~",   
+         ~"SVCORDER~".~"SVCCOD~",   
+         ~"SVCORDER~".~"PRICEPLAN~",   
+         ~"SVCORDER~".~"PRMTYPE~",   
+         ~"CONTRACTDET~".~"ITEMCOD~",
+         ~"SVCORDER~".~"REMARK~" 
+    FROM ~"CONTRACTDET~",   
+         ~"CUSTOMERM~",   
+         ~"SVCORDER~"  
+   WHERE ( contractdet.orderno (+) = svcorder.orderno) and  
+         ( ~"CUSTOMERM~".~"CUSTOMERID~" = ~"SVCORDER~".~"CUSTOMERID~" )    
+"  sort="svcorder_orderdt A customerm_customerid A svcorder_orderno A " )
+group(level=1 header.height=88 trailer.height=4 by=("svcorder_orderno" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="비  고" border="0" color="0" x="3776" y="368" height="56" width="398"  name=t_9  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="0" x="5" y="60" height="88" width="4791"  name=title  font.face="굴림체" font.height="-14" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="3003" y="44" height="56" width="27"  name=company_name visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="3045" y="44" height="56" width="27"  name=pgm_id1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=summary x1="64" y1="0" x2="4832" y2="0"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="신청일자" border="0" color="0" x="78" y="368" height="56" width="302"  name=svcorder_orderdt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="고객번호" border="0" color="0" x="416" y="368" height="56" width="288"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=1 alignment="2" tabsequence=32766 border="0" color="0" x="78" y="12" height="64" width="302" format="[general]"  name=svcorder_orderdt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="416" y="12" height="64" width="288" format="[general]"  name=customerm_customerid edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="64" y1="0" x2="4832" y2="0"  name=l_5 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="상태" border="0" color="0" x="1431" y="368" height="56" width="384"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1431" y="12" height="64" width="384" format="[general]"  name=svcorder_status dddw.name=b1dc_dddw_orderstatus dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="신청번호" border="0" color="0" x="1138" y="368" height="56" width="279"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1138" y="12" height="64" width="279" format="[general]"  name=svcorder_orderno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="고객명" border="0" color="0" x="718" y="368" height="56" width="407"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="0" x="718" y="12" height="64" width="407" format="[general]"  name=customerm_customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="서비스" border="0" color="0" x="1829" y="368" height="56" width="654"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1829" y="12" height="64" width="654" format="[general]"  name=svcorder_svccod dddw.name=b0dc_dddw_svcmst dddw.displaycolumn=svcdesc dddw.datacolumn=svccod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="가격정책" border="0" color="0" x="2496" y="368" height="56" width="654"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2496" y="12" height="64" width="654" format="[general]"  name=svcorder_priceplan dddw.name=b0dc_dddw_priceplan dddw.displaycolumn=priceplan_desc dddw.datacolumn=priceplan dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3163" y="12" height="64" width="599" format="[general]"  name=svcorder_prmtype dddw.name=b1dc_dddw_svcpromise_svc dddw.displaycolumn=prmnm dddw.datacolumn=prmtype dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="약정유형" border="0" color="0" x="3163" y="368" height="56" width="599"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="64" y1="352" x2="4832" y2="352"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="64" y1="436" x2="4832" y2="436"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="신청품목" border="0" color="0" x="4187" y="368" height="56" width="640"  name=t_8  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="4037" y="188" height="56" width="741"  name=date_time  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4037" y="268" height="60" width="741" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=header.1 id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3776" y="12" height="64" width="1051" format="[general]"  name=svcorder_remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="4192" y1="88" x2="4827" y2="88"  name=l_4 visible="1~t0" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="4187" y="16" height="64" width="640" format="[general]"  name=contractdet_itemcod dddw.name=b1dc_dddw_itemmst dddw.displaycolumn=itemnm dddw.datacolumn=itemcod dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+
+sparse(names="svcorder_remark")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

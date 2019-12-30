@@ -1,0 +1,61 @@
+﻿$PBExportHeader$c1dw_reg_wholesale_customer_t1_v20.srd
+$PBExportComments$[ohj] 홀세일사업자 등록 v20 T1
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=916 color="536870912" )
+table(column=(type=char(14) update=yes updatewhereclause=yes key=yes name=customerid dbname="wholesale_customer.customerid" )
+ column=(type=char(50) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=settle_method dbname="wholesale_customer.settle_method" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=cycle_method dbname="wholesale_customer.cycle_method" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=cycle_qty dbname="wholesale_customer.cycle_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=adj_hour dbname="wholesale_customer.adj_hour" values="-8시	-8/-7시	-7/-6시	-6/-5시	-5/-4시	-4/-3시	-3/-2시	-2/-1시	-1/0시	0/1시	1/2시	2/3시	3/4시	4/5시	5/6시	6/7시	7/8시	8/9시	9/10시	10/11시	11/12시	12/13시	13/14시	14/15시	15/16시	16/17시	17/18시	18/19시	19/20시	20/21시	21/22시	22/23시	23/24시	24/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=customer_type dbname="wholesale_customer.customer_type" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sale_yn dbname="wholesale_customer.sale_yn" initial="Y" values="	Y/	N" )
+ column=(type=datetime update=yes updatewhereclause=yes name=closefrdt dbname="wholesale_customer.closefrdt" )
+ column=(type=datetime update=yes updatewhereclause=yes name=closetodt dbname="wholesale_customer.closetodt" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=sacnum dbname="wholesale_customer.sacnum" )
+ retrieve=" SELECT A.CUSTOMERID
+      , B.CUSTOMERNM
+      , A.SETTLE_METHOD
+      , A.CYCLE_METHOD
+      , A.CYCLE_QTY
+      , A.ADJ_HOUR
+      , A.CUSTOMER_TYPE 
+      , A.SALE_YN
+      , A.CLOSEFRDT
+      , A.CLOSETODT
+      , A.SACNUM
+   FROM WHOLESALE_CUSTOMER A 
+      , CUSTOMERM          B
+  WHERE A.CUSTOMERID = B.CUSTOMERID" update="WHOLESALE_CUSTOMER" updatewhere=0 updatekeyinplace=no )
+groupbox(band=detail text=""border="5" color="0" x="50" y="32" height="872" width="2373"  name=gb_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="0" font.pitch="0" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=detail alignment="1" text="사업자 ID" border="0" color="0" x="114" y="76" height="60" width="466"  name=carrierid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="사업자유형" border="0" color="0" x="114" y="232" height="60" width="466"  name=carriertype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="정산방법" border="0" color="0" x="114" y="312" height="60" width="466"  name=ratetype_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="마감주기방식" border="0" color="0" x="114" y="484" height="60" width="466"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="마감주기" border="0" color="0" x="114" y="564" height="60" width="466"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="일(월)" border="0" color="0" x="855" y="564" height="60" width="192"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="정산조정시간" border="0" color="0" x="1257" y="312" height="60" width="466"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="15793151" x="599" y="312" height="60" width="507" format="[general]"  name=settle_method dddw.name=c1dc_dddw_ratetype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=4 alignment="0" tabsequence=50 border="2" color="15793151" x="599" y="484" height="60" width="507" format="[general]"  name=cycle_method dddw.name=c1dc_dddw_wholesale_method_v20 dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=5 alignment="1" tabsequence=60 border="2" color="15793151" x="599" y="564" height="60" width="238" format="[general]"  name=cycle_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="0" x="599" y="76" height="60" width="507" format="[general]"  name=customerid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="1742" y="76" height="60" width="622" format="[general]"  name=customernm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=detail x1="69" y1="184" x2="2405" y2="184"  name=l_1 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="69" y1="428" x2="2405" y2="428"  name=l_2 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+line(band=detail x1="69" y1="676" x2="2405" y2="676"  name=l_3 pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="매출마감필요여부" border="0" color="0" x="114" y="720" height="60" width="466"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="매출마감완료기간" border="0" color="0" x="114" y="800" height="60" width="466"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="2" color="0" x="599" y="800" height="60" width="448" format="[shortdate] [time]"  name=closefrdt editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="1061" y="800" height="60" width="69"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="2" color="0" x="1147" y="800" height="60" width="448" format="[shortdate] [time]"  name=closetodt editmask.mask="YYYY-MM-DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="2" tabsequence=70 border="0" color="15793151" x="599" y="720" height="60" width="82" format="[general]"  name=sale_yn checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=10 border="2" color="15793151" x="599" y="232" height="60" width="507" format="[general]"  name=customer_type dddw.name=c1dc_dddw_carriertype dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=140 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+text(band=detail alignment="1" text="사업자명" border="0" color="0" x="1257" y="76" height="60" width="466"  name=carriernm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="SAC" border="0" color="0" x="1257" y="232" height="60" width="466"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="2" color="15793151" x="1742" y="312" height="60" width="507" format="[general]"  name=adj_hour ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+column(band=detail id=11 alignment="0" tabsequence=20 border="2" color="15793151" x="1742" y="232" height="60" width="507" format="[general]"  name=sacnum dddw.name=c1dc_dddw_sacmst_v20 dddw.displaycolumn=sacnum dddw.datacolumn=sacnum dddw.percentwidth=250 dddw.lines=7 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="25793388" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

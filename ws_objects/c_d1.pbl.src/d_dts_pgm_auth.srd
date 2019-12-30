@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_dts_pgm_auth.srd
+$PBExportComments$DataStore :program authority
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=emp_id dbname="sysusr2t.emp_id" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=pgm_id dbname="sysusr2t.pgm_id" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=auth dbname="sysusr2t.auth" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"sysusr2t~" ) COLUMN(NAME=~"sysusr2t.emp_id~") COLUMN(NAME=~"sysusr2t.pgm_id~") COLUMN(NAME=~"sysusr2t.auth~")WHERE(    EXP1 =~"~~~"SYSUSR2T~~~".~~~"EMP_ID~~~"~"   OP =~"=~"    EXP2 =~":as_userid~" ) ) ARG(NAME = ~"as_userid~" TYPE = string) " update="SYSUSR2T" updatewhere=1 updatekeyinplace=no arguments=(("as_userid", string)) )
+text(band=header alignment="2" text="Emp Id"border="0" color="0" x="5" y="4" height="64" width="293"  name=emp_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pgm Id"border="0" color="0" x="302" y="4" height="64" width="247"  name=pgm_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Auth"border="0" color="0" x="553" y="4" height="64" width="329"  name=auth_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="5" y="4" height="76" width="293" format="[general]"  name=emp_id edit.limit=13 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="302" y="4" height="76" width="247" format="[general]"  name=pgm_id edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="0" color="0" x="553" y="4" height="76" width="329" format="[general]"  name=auth edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

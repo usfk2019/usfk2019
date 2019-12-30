@@ -1,0 +1,130 @@
+﻿$PBExportHeader$ssrt_prt_autopay_failed_list_new.srd
+$PBExportComments$[ojy]연제자리스트
+release 10;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes hidegrayline=no )
+header(height=404 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=requestdt dbname="requestdt" )
+ column=(type=char(10) updatewhereclause=yes name=groupid dbname="kcpbatch.groupid" )
+ column=(type=char(30) updatewhereclause=yes name=basenm dbname="basemst.basenm" )
+ column=(type=char(14) updatewhereclause=yes name=payid dbname="kcpbatch.payid" )
+ column=(type=char(60) updatewhereclause=yes name=customernm dbname="customerm.customernm" )
+ column=(type=char(20) updatewhereclause=yes name=homephone dbname="customerm.homephone" )
+ column=(type=char(20) updatewhereclause=yes name=cellphone dbname="customerm.cellphone" )
+ column=(type=decimal(2) updatewhereclause=yes name=reqamt dbname="kcpbatch.reqamt" )
+ column=(type=char(1) updatewhereclause=yes name=result dbname="kcpbatch.result" )
+ column=(type=char(10) updatewhereclause=yes name=status dbname="kcpbatch.status" )
+ column=(type=char(16) updatewhereclause=yes name=cardno dbname="kcpbatch.cardno" )
+ column=(type=char(2) updatewhereclause=yes name=rectype dbname="kcpbatch.rectype" )
+ column=(type=char(60) updatewhereclause=yes name=card_type dbname="card_type" )
+ column=(type=char(4) updatewhereclause=yes name=expdt dbname="kcpbatch.expdt" )
+ column=(type=char(50) updatewhereclause=yes name=card_holder dbname="billinginfo.card_holder" )
+ column=(type=number updatewhereclause=yes name=int_amt dbname="int_amt" )
+ column=(type=number updatewhereclause=yes name=mob_amt dbname="mob_amt" )
+ column=(type=number updatewhereclause=yes name=catv_amt dbname="catv_amt" )
+ column=(type=char(3) updatewhereclause=yes name=hot_flag dbname="hot_flag" )
+ retrieve="SELECT substr(A.REQUESTDT,5,2) ||substr(A.REQUESTDT,7,2)||substr(A.REQUESTDT,1,4) requestdt ,
+       A.GROUPID, 
+       C.BASENM,
+       A.PAYID,
+       B.CUSTOMERNM,
+       B.HOMEPHONE,
+       B.CELLPHONE,
+       A.REQAMT,
+       A.RESULT,
+       A.Status,
+       A.CARDNO,
+       A.RECTYPE,
+      (SELECT CODENM FROM SYSCOD2T WHERE GRCODE = 'B450' AND CODE = D.CARD_TYPE) AS CARD_TYPE,
+       A.EXPDT,
+       D.CARD_HOLDER,
+       (SELECT NVL(SUM(X.TRAMT +NVL(X.TAXAMT,0) - X.PAYIDAMT), 0) AS INT_AMT
+        FROM   REQDTL X, ITEMMST Y, REGCODMST Z
+        WHERE  X.PAYID = A.PAYID
+        AND    X.TRCOD NOT LIKE '9%'
+        AND    ( X.MARK IS NULL OR X.MARK <> 'D' )
+        AND    X.TRAMT - X.PAYIDAMT <> 0
+        AND    X.TRCOD = Y.TRCOD
+        AND    Y.REGCOD = Z.REGCOD
+        AND    Z.REGTYPE = '01' ) AS INT_AMT,
+       (SELECT NVL(SUM(X.TRAMT +NVL(X.TAXAMT,0) - X.PAYIDAMT), 0) AS MOB_AMT
+        FROM   REQDTL X, ITEMMST Y, REGCODMST Z
+        WHERE  X.PAYID = A.PAYID
+        AND    X.TRCOD NOT LIKE '9%'
+        AND    ( X.MARK IS NULL OR X.MARK <> 'D' )
+        AND    X.TRAMT - X.PAYIDAMT <> 0
+        AND    X.TRCOD = Y.TRCOD
+        AND    Y.REGCOD = Z.REGCOD
+        AND    Z.REGTYPE = '02' ) AS MOB_AMT,
+       (SELECT NVL (SUM (X.TRAMT+NVL(X.TAXAMT,0) - X.PAYIDAMT), 0) AS MOB_AMT
+          FROM REQDTL X, ITEMMST Y, REGCODMST Z
+         WHERE     X.PAYID = A.PAYID
+               AND X.TRCOD NOT LIKE '9%'
+               AND (X.MARK IS NULL OR X.MARK <> 'D')
+               AND X.TRAMT - X.PAYIDAMT <> 0
+               AND X.TRCOD = Y.TRCOD
+               AND Y.REGCOD = Z.REGCOD
+               AND Z.REGTYPE = '03') AS CATV_AMT,
+       (SELECT DECODE(COUNT(*), 0, 'No', 'Yes')
+        FROM   HOTCONTRACT Z
+        WHERE  Z.PAYID = A.PAYID
+        AND    Z.HOTDT BETWEEN TO_DATE(SUBSTR(A.REQUESTDT, 1, 6)||'01', 'YYYYMMDD') AND 
+                               LAST_DAY(SUBSTR(A.REQUESTDT, 1, 6)||'01') ) AS HOT_FLAG                    
+ FROM KCPBATCH A, CUSTOMERM B,  BASEMST C, BILLINGINFO D
+ WHERE (A.PAYID   = B.CUSTOMERID) 
+   AND (A.GROUPID = C.BASECOD )
+   AND ( A.PAYID =  D.CUSTOMERID )
+   AND ( A.Result = 'N' ) "  sort="groupid A " )
+text(band=header alignment="2" text="Title" border="0" color="0" x="9" y="36" height="92" width="4827" html.valueishtml="0"  name=title visible="1"  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="18" y="236" height="60" width="2322" html.valueishtml="0"  name=t_final visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="1358" y="128" height="60" width="23" html.valueishtml="0"  name=company_name visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="1399" y="128" height="60" width="23" html.valueishtml="0"  name=pgm_id1 visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Base" border="0" color="0" x="14" y="324" height="56" width="302" html.valueishtml="0"  name=basenm_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Payer ID" border="0" color="0" x="334" y="324" height="56" width="256" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Customer Name" border="0" color="0" x="608" y="324" height="56" width="645" html.valueishtml="0"  name=customernm_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Home Phone" border="0" color="0" x="1271" y="324" height="56" width="343" html.valueishtml="0"  name=homephone_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mobile" border="0" color="0" x="1632" y="324" height="56" width="352" html.valueishtml="0"  name=cellphone_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Amount" border="0" color="0" x="2002" y="324" height="56" width="283" html.valueishtml="0"  name=reqamt_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Error Message" border="0" color="0" x="2304" y="324" height="56" width="672" html.valueishtml="0"  name=status_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Balance" border="0" color="0" x="2994" y="324" height="56" width="288" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page  ' + page() + ' of ' + pageCount()"border="0" color="0" x="4091" y="236" height="60" width="741" format="[general]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="" border="0" color="0" x="4091" y="168" height="60" width="741" html.valueishtml="0"  name=date_time visible="1"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=header x1="9" y1="312" x2="4832" y2="312"  name=l_2 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+line(band=header x1="9" y1="396" x2="4832" y2="396"  name=l_1 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Expiry Date" border="0" color="0" x="4521" y="324" height="56" width="91" html.valueishtml="0"  name=expdt_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Card Holder" border="0" color="0" x="4631" y="324" height="56" width="91" html.valueishtml="0"  name=card_holder_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="CardNo" border="0" color="0" x="4741" y="324" height="56" width="91" html.valueishtml="0"  name=cardno_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="(INT)" border="0" color="0" x="3301" y="324" height="56" width="274" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="(CATV)" border="0" color="0" x="3598" y="324" height="56" width="274" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="(MOB)" border="0" color="0" x="3895" y="324" height="56" width="274" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Hotbill" border="0" color="0" x="4192" y="324" height="56" width="160" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Card Type" border="0" color="0" x="4366" y="324" height="56" width="137" html.valueishtml="0"  name=card_type_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="12" height="56" width="302" format="[general]" html.valueishtml="0"  name=basenm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="334" y="12" height="56" width="256" format="[general]" html.valueishtml="0"  name=payid visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="608" y="12" height="56" width="645" format="[general]" html.valueishtml="0"  name=customernm visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1271" y="8" height="60" width="343" format="[general]" html.valueishtml="0"  name=homephone visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1632" y="8" height="60" width="352" format="[general]" html.valueishtml="0"  name=cellphone visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="int_amt + mob_amt + catv_amt"border="0" color="0" x="2994" y="12" height="56" width="288" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="4521" y="12" height="56" width="91" format="[general]" html.valueishtml="0"  name=expdt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="4631" y="12" height="56" width="91" format="[general]" html.valueishtml="0"  name=card_holder visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="4741" y="12" height="56" width="91" format="[general]" html.valueishtml="0"  name=cardno visible="1" editmask.mask="####-####-####-####"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="3301" y="12" height="56" width="274" format="#,##0.00" html.valueishtml="0"  name=int_amt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="3598" y="12" height="56" width="274" format="#,##0.00" html.valueishtml="0"  name=catv_amt visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="3895" y="12" height="56" width="274" format="#,##0.00" html.valueishtml="0"  name=mob_amt visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="2" tabsequence=32766 border="0" color="0" x="4192" y="12" height="56" width="160" format="[general]" html.valueishtml="0"  name=hot_flag visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="4366" y="12" height="52" width="137" format="[general]" html.valueishtml="0"  name=card_type visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2002" y="12" height="56" width="283" format="[general]" html.valueishtml="0"  name=reqamt visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2304" y="12" height="56" width="672" format="[general]" html.valueishtml="0"  name=status visible="1" dddw.name=ssrt_dddw_autopay_result dddw.displaycolumn=codenm dddw.datacolumn=code dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0  template=(comment="" encoding="UTF-16LE" name="a" xml="<?xml version=~"1.0~" encoding=~"UTF-16LE~" standalone=~"no~"?><ssrt_prt_autopay_failed_list_new><ssrt_prt_autopay_failed_list_new_row __pbband=~"detail~"><requestdt>requestdt</requestdt><groupid>groupid</groupid><basenm>basenm</basenm><payid>payid</payid><customernm>customernm</customernm><homephone>homephone</homephone><cellphone>cellphone</cellphone><reqamt>reqamt</reqamt><result>result</result><status>status</status><cardno>cardno</cardno><rectype/><expdt>expdt</expdt><card_holder>card_holder</card_holder><int_amt>int_amt</int_amt><mob_amt>mob_amt</mob_amt><hot_flag>hot_flag</hot_flag></ssrt_prt_autopay_failed_list_new_row></ssrt_prt_autopay_failed_list_new>"))
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml( template=(comment="" name="a" xhtml="﻿<form name=~"ssrt_prt_autopay_failed_list_new_dataForm~"><div class=~"ssrt_prt_autopay_failed_list_new_band_0~"><div class=~"ssrt_prt_autopay_failed_list_new_title~">title</div><div class=~"ssrt_prt_autopay_failed_list_new_t_final~">t_final</div><div class=~"ssrt_prt_autopay_failed_list_new_basenm_t~">basenm_t</div><div class=~"ssrt_prt_autopay_failed_list_new_t_1~">t_1</div><div class=~"ssrt_prt_autopay_failed_list_new_customernm_t~">customernm_t</div><div class=~"ssrt_prt_autopay_failed_list_new_homephone_t~">homephone_t</div><div class=~"ssrt_prt_autopay_failed_list_new_cellphone_t~">cellphone_t</div><div class=~"ssrt_prt_autopay_failed_list_new_reqamt_t~">reqamt_t</div><div class=~"ssrt_prt_autopay_failed_list_new_status_t~">status_t</div><div class=~"ssrt_prt_autopay_failed_list_new_t_4~">t_4</div><div class=~"ssrt_prt_autopay_failed_list_new_compute_1~">compute_1</div><div class=~"ssrt_prt_autopay_failed_list_new_date_time~">date_time</div><hr/><hr/><div class=~"ssrt_prt_autopay_failed_list_new_expdt_t~">expdt_t</div><div class=~"ssrt_prt_autopay_failed_list_new_card_holder_t~">card_holder_t</div><div class=~"ssrt_prt_autopay_failed_list_new_cardno_t~">cardno_t</div><div class=~"ssrt_prt_autopay_failed_list_new_t_2~">t_2</div><div class=~"ssrt_prt_autopay_failed_list_new_t_6~">t_6</div><div class=~"ssrt_prt_autopay_failed_list_new_t_3~">t_3</div><div class=~"ssrt_prt_autopay_failed_list_new_t_5~">t_5</div><div class=~"ssrt_prt_autopay_failed_list_new_card_type_t~">card_type_t</div></div><div class=~"ssrt_prt_autopay_failed_list_new_detail_0~" __pbband=~"detail~"><input name=~"ssrt_prt_autopay_failed_list_new_basenm~" type=~"text~" value=~"basenm~"/><input name=~"ssrt_prt_autopay_failed_list_new_payid~" type=~"text~" value=~"payid~"/><input name=~"ssrt_prt_autopay_failed_list_new_customernm~" type=~"text~" value=~"customernm~"/><input name=~"ssrt_prt_autopay_failed_list_new_homephone~" type=~"text~" value=~"homephone~"/><input name=~"ssrt_prt_autopay_failed_list_new_cellphone~" type=~"text~" value=~"cellphone~"/><div class=~"ssrt_prt_autopay_failed_list_new_compute_2~">compute_2</div><input name=~"ssrt_prt_autopay_failed_list_new_expdt~" type=~"text~" value=~"expdt~"/><input name=~"ssrt_prt_autopay_failed_list_new_card_holder~" type=~"text~" value=~"card_holder~"/><input name=~"ssrt_prt_autopay_failed_list_new_cardno~" type=~"text~" value=~"cardno~"/><input name=~"ssrt_prt_autopay_failed_list_new_int_amt~" type=~"text~" value=~"int_amt~"/><input name=~"ssrt_prt_autopay_failed_list_new_catv_amt~" type=~"text~" value=~"catv_amt~"/><input name=~"ssrt_prt_autopay_failed_list_new_mob_amt~" type=~"text~" value=~"mob_amt~"/><input name=~"ssrt_prt_autopay_failed_list_new_hot_flag~" type=~"text~" value=~"hot_flag~"/><input name=~"ssrt_prt_autopay_failed_list_new_card_type~" type=~"text~" value=~"card_type~"/><input name=~"ssrt_prt_autopay_failed_list_new_reqamt~" type=~"text~" value=~"reqamt~"/><div class=~"ssrt_prt_autopay_failed_list_new_status~">status</div></div></form>"))
+ 
